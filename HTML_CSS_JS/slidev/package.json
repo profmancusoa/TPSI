@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export",
+    "predev-css": "rm -f slides.md; rm -f media; ln -s ../css/css.md slides.md; ln -s ../css/media/ media",
+    "dev-css": "slidev --open",
+    "predev-html": "rm -f slides.md; rm -f media; ln -s ../html/html.md slides.md; ln -s ../html/media/ media",
+    "dev-html": "slidev --open",
+    "build-css": "npm run predev-css; rm -rf dist; npx slidev build --base /TPSI/css/; rm -rf ../../docs/css/; mv dist/ ../../docs/css/",
+    "build-html": "npm run predev-html; rm -rf dist; npx slidev build --base /TPSI/html/; rm -rf ../../docs/html/; mv dist/ ../../docs/html/",
+    "build-local-css": "npm run predev-css; rm -rf dist; npx slidev build",
+    "build-local-html": "npm run predev-html; rm -rf dist; npx slidev build"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.22.7",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "name": "slidev"
+}
