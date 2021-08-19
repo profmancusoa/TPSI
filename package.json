@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export",
+    "clean-link": "rm -f slides.md; rm -f media; rm -f global-top.vue;",
+    "predev-css": "npm run clean-link; ln -s ../TPSI/HTML_CSS_JS/css/css.md slides.md; ln -s ../TPSI/HTML_CSS_JS/css/media/ media; ln -s ../TPSI/global-top.vue global-top.vue",
+    "dev-css": "slidev --open",
+    "build-css": "npm run predev-css; rm -rf dist; npx slidev build --base /TPSI/css/; rm -rf ../TPSI/docs/css/; mv dist/ ../TPSI/docs/css/",
+    "build-local-css": "npm run predev-css; rm -rf dist; npx slidev build",
+    "predev-html": "npm run clean-link; ln -s ../TPSI/HTML_CSS_JS/html/html.md slides.md; ln -s ../TPSI/HTML_CSS_JS/html/media/ media; ln -s ../TPSI/global-top.vue global-top.vue",
+    "dev-html": "slidev --open",
+    "build-html": "npm run predev-html; rm -rf dist; npx slidev build --base /TPSI/html/; rm -rf ../TPSI/docs/html/; mv dist/ ../TPSI/docs/html/",
+    "build-local-html": "npm run predev-html; rm -rf dist; npx slidev build",
+    "predev-tpsi4-uml": "npm run clean-link; ln -s ../TPSI/TPSI_4/uml/uml.md slides.md; ln -s ../TPSI/TPSI_4/uml/media/ media; ln -s ../TPSI/global-top.vue global-top.vue",
+    "dev-tpsi4-uml": "slidev --open",
+    "build-tpsi4-uml": "npm run predev-tpsi4-uml; rm -rf dist; npx slidev build --base /TPSI/uml/; rm -rf ../TPSI/docs/uml/; mv dist/ ../TPSI/docs/uml/",
+    "build-local-tpsi4-uml": "npm run predev-tpsi4-uml; rm -rf dist; npx slidev build"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.22.7",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "name": "slidev",
+  "devDependencies": {
+    "playwright-chromium": "^1.14.0"
+  }
+}
