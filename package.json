@@ -34,7 +34,7 @@
     "build-tpsi3-a3": "npm run predev-tpsi3-a3; rm -rf dist; npx slidev build --base /TPSI/3/A3_codifica_info/; rm -rf ../TPSI/docs/3/A3_codifica_info/; mv dist/ ../TPSI/docs/3/A3_codifica_info/",
     "predev-tpsi3-a4": "npm run clean-link; ln -s ../TPSI/TPSI_3/A4_teoria_info/slides.md slides.md; ln -s ../TPSI/TPSI_3/A4_teoria_info/media/ media; ln -s ../TPSI/global-top.vue global-top.vue",
     "dev-tpsi3-a4": "slidev --open",
-    "build-tpsi3-a4": "npm run predev-tpsi3-a4; rm -rf dist; npx slidev build --base /TPSI/3/A4_teoria_info/; rm -rf ../TPSI/docs/3/A4_teoria_info/; mv dist/ ../TPSI/docs/3/A2_architettura/",
+    "build-tpsi3-a4": "npm run predev-tpsi3-a4; rm -rf dist; npx slidev build --base /TPSI/3/A4_teoria_info/; rm -rf ../TPSI/docs/3/A4_teoria_info/; mv dist/ ../TPSI/docs/3/A4_teoria_info/",
     "predev-tpsi3-a5": "npm run clean-link; ln -s ../TPSI/TPSI_3/A5_os/slides.md slides.md; ln -s ../TPSI/TPSI_3/A5_os/media/ media; ln -s ../TPSI/global-top.vue global-top.vue",
     "dev-tpsi3-a5": "slidev --open",
     "build-tpsi3-a5": "npm run predev-tpsi3-a5; rm -rf dist; npx slidev build --base /TPSI/3/A5_os/; rm -rf ../TPSI/docs/3/A5_os/; mv dist/ ../TPSI/docs/3/A5_os/"
