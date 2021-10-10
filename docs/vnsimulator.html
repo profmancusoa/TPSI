@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+        <meta name='viewport' content='width=device-width'>
+        <title>Von Neumann Machine Simulator</title>
+        <style>
+		* {user-select: none; -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;}
+		html, body {
+		  min-width: 1190px;
+		  height: 100% !important; min-height: 670px;
+		  background: #f9f9f9;
+		  margin: 0; padding: 0;
+		  font-family: Arial, Helvetica, sans-serif;
+		  cursor: default;
+		  overflow: hidden;
+		}
+		a, a:link, a:visited {
+		  color: #333;
+		  text-decoration: none;
+		}
+		a:hover {
+		  text-decoration: underline;
+		}
+		main {
+		   position: relative;
+		   width: 100%; max-width: 1700px;
+		   height: 100% !important;
+		   margin-left: -1px; margin-right: -1px;
+		   float: center; margin: 0 auto;
+		}
+		input[type=file]#files {
+		  display: none;
+		}
+		header {
+		  height: 62px;
+		  background: #C60;
+		  color: #fff;
+  		  border-bottom: 3px solid #A7501E;
+		}
+		header #title {
+		  float: left;
+		  width: auto;
+		}
+		header #title span {
+		  font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 22px; line-height: 62px;
+		}
+		header #title svg {
+		  float: left;
+		  height: 65px;
+		  fill: #fff;
+		  padding: 12px;
+		  background: #F6B32A;
+		  margin-right: 15px;
+		  box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+  		  border-bottom: 3px solid #F90;
+		}
+		header ul {
+		  float: rigt;
+		  margin: 0; padding: 0;
+		  list-style: none;
+		}
+		header ul li {
+		  float: right;
+		  color: #fff; font-size: 18px;
+		  padding: 22px;
+		  cursor: pointer;
+		  font-family: Arial, Helvetica, sans-serif;
+		}
+		header ul li:hover {
+		  background: #9C4413;
+		}
+		header ul li img {
+		  float: left;
+		  height: 16px;
+		  margin-top: 6px; margin-right: 10px;
+		}
+		#overflow {
+		  position: fixed;
+		  top: 0; left: 0; right: 0; bottom: 0;
+		  background: #000;
+		  opacity: 0.6;
+		  z-index: 500;
+		  display: none;
+		}
+		#credits {
+		  position: fixed;
+		  top: 30%; left: 30%;
+		  width: 30%; min-width: 500px;
+		  background: #fff;
+		  text-align: justify;
+		  z-index: 501;
+		  display: none;
+		}
+		#credits #title {
+		  background: #f6f6f9;
+		  padding: 20px;
+		}
+		#credits #content {
+		  padding:25px 20px;
+		}
+		#credits svg {
+		  float: right;
+		  width: 20px;
+		  height: 20px;
+		  stroke: #000; stroke-width: 2;
+		  cursor: pointer;
+		}
+		#simulator {
+		  position: absolute;
+		  top: 0; left: 0; right: 0; bottom: 63px;
+		  float: center;
+		  margin: 0 auto;
+		  width: 100%; min-width: 1000px; max-width: 1800px;
+		  height: 100% !important; max-height: 1000px;	
+		  overflow: hidden;
+		}
+		#simulator label {
+		  position: absolute;
+		  font-size: 28px;
+		}
+		#dataBus, #addressBus, .cornersRemover {
+		  position: absolute;
+		  top: 10px; left: 12px; right: 0; bottom: 63px;
+		  float: center;
+		  margin: 0 auto;
+		  width: 100%; min-width: 1000px; max-width: 1800px;
+		  height: 83% !important; max-height: 1000px;
+		  fill: #CBD0D3;
+		  stroke: #666; stroke-width: 1;
+		  overflow-y: hidden;
+		  box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+		}
+		#addressBus, #addressBus .cornersRemover {
+		  fill: #AAA;
+		}
+		.cornersRemover {
+		  stroke: none;
+		}
+		#alu {
+		  position: absolute;
+		  top: 36%; left: 19.35%;
+		  width: 27%; max-width: 400px;
+		  height: 170px;
+		  fill: white;
+		  stroke: #333; stroke-width: 1;
+		  background: #f9f9f9;
+		  border: 1px solid #666; border-radius: 50px;
+		}
+		.rotated {
+		  transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -ms-transform: rotate(-90deg);
+		}
+		label#irL {
+		  top: 11%; left: 3.5%;
+		}
+		label#aluL {
+		  top: -45px; left: 40%;
+		}
+		label#accL {
+		  top: 67%; left: 21%;
+		}
+		label#pcL {
+		  top: 49.6%; left: 55.5%;
+		}
+		label#busL {
+		  top: 30px; left: 40%;
+		}
+		label#addressesBusL {
+		  top: 18%; left: 46%;
+		}
+		label#ramL {
+		 top: 12%; left: 66%;
+		}
+		label#decoder {
+		  top: 23%; left: 7.5%;
+		  background: #fff;
+		  padding: 3px 20px;
+		  border: 1px solid #333; border-radius: 5px;
+		  font-size: 22px;
+		}
+		#simulator input {
+		  position: absolute;
+		  background: #fff;
+		  padding: 12px;
+		  border: 1px solid #333; border-radius: 5px;
+		  font-size: 30px; text-transform: uppercase; text-align: center;
+		}
+		#simulator input#irCmd {
+		  top: 10%; left: 6.5%;
+		  width: 11.5%;
+		  border-right: none; border-radius: 5px 0px 0px 5px;
+		}
+		#simulator input#irLoc {
+		  top: 10%; left: 18%;
+		  width: 11.5%;
+		  border-left: none; border-radius: 0px 5px 5px 0px;
+		}
+		#simulator input#acc {
+		  top: 66%; left: 26%;
+		  width: 11.8%;
+		  padding: 7px 10px;
+		}
+		#simulator input#pc {
+		  top: 48%; left: 59%;
+		  width: 8.5%;
+		  padding: 7px 12px;
+		}
+		#simulator input#pcImprove {
+		  top: 34%; left: 64%;
+		  width: 4%;
+		  padding: 5px 10px;
+		  font-size: 23px;
+		}
+		#simulator #alu_inputs {
+		  position: absolute;
+		  top: 36%; left: 19.35%;
+		  width: 27%; max-width: 400px;
+		}
+		#simulator input#alu1 {
+		  top: 20px; left: 9%;
+		  width: 36%;
+		  padding: 3px;
+		}
+		#simulator input#alu2 {
+		  top: 20px; left: 50%;
+		  width: 37%;
+		  padding: 3px;
+		}
+		#simulator input#aluOp {
+		  top: 95px; left: 42%;
+		  width: 13%;
+		  padding: 4px;
+		  border-radius: 100px;
+		}
+		#sidebar {
+		  width: 29%;
+		  position: absolute;
+		  top: 0px; right: 0px; bottom: 130px;
+		  border: none;
+		  marign-right: -1px;
+		  z-index: 10;
+		}
+		#commands, #variables {
+		  height: 60% !important;
+		  background: #f1f1f1;
+		  border-top: 35px solid #f1f1f1;
+		  overflow: scroll; overflow-x: hidden;
+		  box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+		}
+		#variables {
+		  height: 40% !important;
+		}
+		#commands ul, #variables ul {
+		  margin: 0; padding: 0;
+		  list-style: none;
+		}
+		#commands ul li, #variables ul li {
+		  width: 100%;
+		  height: 26px;
+		  padding-left: 10px;
+		  margin-bottom: 2px;
+		  font-size: 16px;
+		  line-height: 30px;
+		  clear: both;
+		  box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+		}
+		#commands ul li label, #variables ul li label {
+		  width: auto;
+		  float: left;
+		  line-height: 80px;
+		}
+		#commands ul li input, #variables ul li input {
+		  width: 85%;
+		  float: right;
+		  margin: 0; border: 0;
+		  padding: 6px;
+		  text-transform: uppercase;
+		}
+		#soundStatusImg {
+		  display: none;
+		}
+		.title {
+		  position: absolute;
+		  top: 0%; left: 0px; right: 0px;
+		  background: #e6e6e6;
+		  padding: 8px 10px;
+		  border-top: none;
+		}
+		.title span {
+		  float: right;
+		  margin-right: 20px;
+		}
+		#variables .title {
+		  top: 60%;
+		}
+		footer {
+		  position: fixed;
+		  bottom: 0; left: 0; right: 0;
+		  min-width: 1190px;
+		  background: #222;
+		  color: #fff; font-size: 16px; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		  z-index: 400;
+		}
+		footer ul {
+		  float: left;
+		  margin: 0; padding: 0;
+		  list-style: none;
+		}
+		footer li {
+		  float: left;
+		  background: #222;
+		  padding: 17px 14px;
+		  border: none;
+		  color: #fff; font-size: 20px;
+		  margin: 0px; margin-right: -4px;
+		  cursor: pointer;
+		}
+		footer li:hover {
+		  background: #333;
+		}
+		footer svg {
+		  float: left;
+		  width: 20px;
+		  height: 20px;
+		  stroke: none;
+		  fill: #fff;
+		  margin-top: 2px; margin-right: 15px;
+		}
+		footer #right {
+		  float: right;
+		}
+		footer #delayContainer {
+		  float: right;
+		  width: 70px !important;
+		  text-align: right;
+		  padding-top: 3px;
+		}
+		footer #right input[type="text"] {
+		  width: 60px;
+		  padding: 4px 5px;
+		  border: none; border-radius: 3px;
+		  margin-left: 10px; margin-right: 20px;
+		  font-size: 18px;
+		}
+		footer #right input[type="range"] {
+		  width: 150px;
+		  margin: 0px 15px;
+		}
+		footer svg {
+		  margin-top: 4px;
+		}
+		footer #right {
+		  float: right;
+		  padding: 17px 9px;
+		  border: none;
+		  margin-left: 15px;
+		}
+		footer #right input[type="text"] {
+		  width: 160px;
+		}
+		footer #pause, footer #stop {
+		  opacity: 0.7;
+		}
+		footer #delayRange {
+		  width: 200px !important;
+		  overflow: hidden;
+		}
+		</style>
+        <script>
+		colors = [["#CBD0D3","#AAA"],["#2ECC71","#090"],["#E74C3C","#C00"],["#3498DB","#06F"]];
+		var values = ['x','y','z','w'];
+		values.lenght = 4;
+		imp = 1;
+		cmd_max = 1e3;
+		running = false;
+		stop_status = 0;
+		sound_status = false;
+		
+		function getValue(id) {
+			return document.getElementById(id).value;
+		}
+		function getInt(id) {
+			return parseInt(getValue(id));
+		}
+		function setValue(id, value) {
+			document.getElementById(id).value = value;
+		}
+		function instructionIs(cmd) {
+			return (getValue('irCmd') == cmd);
+		}
+		function irLocContains(string) {
+			return (getValue('irLoc').indexOf(string) != -1);
+		}
+		function enableCmd(id) {
+			document.getElementById(id).style.opacity = '1';
+		} 
+		function disableCmd(id) {
+			document.getElementById(id).style.opacity = '0.7';
+		}
+		function enableStartCmds() {
+			enableCmd('play'); enableCmd('step');
+			disableCmd('pause'); disableCmd('stop');
+		}
+		function enableStopCmds() {
+			disableCmd('play'); disableCmd('step');
+			enableCmd('pause'); enableCmd('stop');
+		}
+		function disableAllCmds() {
+			disableCmd('play'); disableCmd('step'); disableCmd('pause'); disableCmd('stop');
+		}
+		function focusField(id) {
+			document.getElementById(id).style.background = "#F2CA27";
+		}
+		function unfocusField() {
+			for (var i in arguments) document.getElementById(arguments[i]).style.background = "#fff";
+		}
+		function changeFocus(id1, id2) {
+			unfocusField(id1); focusField(id2);
+		}
+		function busColor(clr) {
+			document.getElementById('dataBus').style.fill = document.getElementById('dataCornersRemover').style.fill = colors[clr][0];
+			document.getElementById('addressBus').style.fill = document.getElementById('addressCornersRemover').style.fill = colors[clr][1];
+		}
+		function initializeTone() {
+			sound_context = new AudioContext;
+			sound = sound_context.createOscillator();
+			sound.connect(sound_context.destination);
+		}
+		initializeTone();
+		function toggleSound() {
+			setTimeout(function(){
+				if (sound_status) {
+					document.getElementById('soundStatusImg').style.display = "none";
+					sound_status = false;
+					stopSound();
+				}
+				else {
+					document.getElementById('soundStatusImg').style.display = "block";
+					sound_status = true;
+					if (running) playSound('running');
+				}
+			},100);
+		}
+		function tone(f) {
+			sound.frequency.value = f;
+			sound.start(0);
+		}
+		function playSound(type) {
+			if (sound_status)
+				switch (type) {
+					case 'start': tone(2000);setTimeout(function(){tone(1000)},100); break;
+					case 'step': tone(1000);setTimeout(function(){tone(500)},100); break;
+					case 'running': setTimeout(function(){tone(100)},200); break;
+					case 'stop1': tone(40);setTimeout(function(){stopSound()},100); break;
+					case 'stop2': tone(60);setTimeout(function(){stopSound()},100); break;
+					case 'error': tone(500);setTimeout(function(){stopSound()},50); break;
+				}
+		}
+		function stopSound() {
+			sound.stop(0);
+			initializeTone();
+		}
+		function error(cmd) {
+			if (!running) playSound('error');
+			setTimeout(function(){window.alert(cmd)},50);
+		}
+		function checkCorrectPC() {
+			if (getValue('pc') > (999 * imp) || getValue('pc') < 0) {
+				error("Incorrect value. You must enter a value between 0 and " + (999 * imp));
+				setValue('pc',0);
+			}
+		}
+		function checkCorrectCmd(id) {
+			var val = getValue('cmd'+id+'text').substr(0, 4).toLowerCase();
+			var ind = getValue('cmd'+id+'text').substr(4, 7).toLowerCase();
+			
+			if ((val == '' && ind == '') ||(val.indexOf("lod ") == 0
+				|| val.indexOf("sto ") == 0
+				|| val.indexOf("add ") == 0
+				|| val.indexOf("sub ") == 0
+				|| val.indexOf("mul ") == 0
+				|| val.indexOf("div ") == 0)
+				&& ((ind.indexOf("#") == 0
+					&& val.indexOf("sto ") != 0)
+					|| ind.indexOf("x") == 0
+					|| ind.indexOf("y") == 0
+					|| ind.indexOf("w") == 0
+					|| ind.indexOf("z") == 0
+					|| ind.indexOf("t") == 0)
+					|| val.indexOf("hlt") == 0
+					|| val.indexOf("nop") == 0
+					|| ((val.indexOf("jmp ") == 0
+					|| val.indexOf("jmz ") == 0)
+					&& parseInt(ind) >= 0
+					&& parseInt(ind) < cmd_max
+					&& parseInt(ind) % 1 == 0)) {
+						
+				var count = 0;
+				
+				for (var i=0; i<1000; i++) {
+					if (getValue('cmd'+i+'text') != '')
+						count ++;
+				}
+				
+				document.getElementById('cmdCounter').innerHTML = count;
+				return true;
+			}
+			else {
+				error("Incorrect syntax");
+				setValue('cmd'+id+'text','');
+			}
+		}
+		function openProj() {
+			document.getElementById('files').click();
+		}
+		var reader;
+		function checkFileAPI() {
+			if (window.File && window.FileReader && window.FileList && window.Blob) {
+				reader = new FileReader();
+				return true; 
+			}
+			else {
+				alert('Unsupported option. Please use an up-to-date browser');
+				return false;
+			}
+		}
+		function readProj(filePath) {
+			var output = ""; 
+			if(filePath.files && filePath.files[0]) {           
+				reader.onload = function (e) {
+					output = e.target.result;
+					displayProj(output);
+				};
+				reader.readAsText(filePath.files[0]);
+			}
+			else if(ActiveXObject && filePath) {
+				try {
+					reader = new ActiveXObject("Scripting.FileSystemObject");
+					var file = reader.OpenTextFile(filePath, 1); 
+					output = file.ReadAll();
+					file.Close();
+					displayProj(output);
+				} catch (e) {
+					if (e.number == -2146827859) {
+						alert('Unable to access local files due to browser security settings. ' + 
+						 'To overcome this, go to Tools->Internet Options->Security->Custom Level. ' + 
+						 'Find the setting for "Initialize and script ActiveX controls not marked as safe" and change it to "Enable" or "Prompt"'); 
+					}
+				}       
+			}
+			else
+				return false;
+			
+			return true;
+		}
+		function displayProj(file) {
+			var el = document.getElementById('list');
+			file = file.split(/[\n\,]+/);
+			setValue('projNameText', file[1]);
+			var n = 0;
+			
+			for (n = 0; n < cmd_max; n++)
+				setValue('cmd'+n+'text', (file[n+5] != 'NOP') ? file[n+5] : '');
+			
+			for (v = 0, n += 7; v < values.lenght; v++, n++)
+				setValue('value' + values[v].toUpperCase() + 'text', parseInt((file[n] != 0) ? file[n] : ''));
+			
+			for (f = 1, n += 2; f < 41; f++, n++)
+				setValue('varT'+f+'text', parseInt((file[n] != 0) ? file[n] : ''));
+		} 
+		
+		function saveProj() {
+			var text = 'VN_SIMULATOR_PROJ\n'+getValue('projNameText')+'\n___________\n\n';
+			text = text + 'CMD\n___________\n\n';
+			
+			for (n = 0; n < cmd_max; n++)
+				text += ((getValue('cmd'+n+'text')) ? getValue('cmd'+n+'text').toString().toUpperCase() : 'NOP') + ',';
+			
+			text += '\n\VAL\n___________\n\n';
+			
+			for (v = 0; v < values.lenght; v++)
+				text += ((getValue('value'+values[v].toUpperCase()+'text')) ? getValue('value'+values[v].toUpperCase()+'text') : 0) + ',';
+			
+			text += '\n\VAR\n___________\n\n';
+			
+			for (n = 1; n < 41; n++)
+				text = text + ((getValue('varT'+n+'text')) ? getValue('varT'+n+'text') : 0) + ',';
+			
+			var pom = document.createElement('a');
+			pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			pom.setAttribute('download', getValue('projNameText') + '.vnsp');
+			document.body.appendChild(pom);
+			pom.click();
+			document.body.removeChild(pom);
+		}
+		function startMachine(cmd) {
+			function runCicle() {
+				pc = getValue('pc');
+				var delay = getValue('delay');
+				
+				focusField('cmd'+parseInt(pc/parseInt(imp))+'text');
+				
+				setTimeout (function(){
+					changeFocus('cmd'+parseInt(pc/parseInt(imp))+'text','irCmd');
+					
+					setValue('irCmd', getValue('cmd'+parseInt(pc/parseInt(imp))+'text').substr(0, 3).toUpperCase());
+					
+					if (!getValue('irCmd')) setValue('irCmd', 'NOP');
+				
+					delay = getValue('delay');
+					
+					setTimeout (function(){
+						changeFocus('irCmd','irLoc');
+						setValue('irLoc', getValue('cmd'+parseInt(pc/parseInt(imp))+'text').substr(4).toUpperCase());
+						
+						setTimeout (function(){
+							
+							changeFocus('irLoc','pcImprove');
+					
+							delay = getValue('delay');
+					
+							setTimeout (function(){
+								
+								changeFocus('pcImprove','pc');
+								setValue('pc', getInt('pc') + parseInt(imp));
+					
+								delay = getValue('delay');
+									
+								setTimeout (function(){
+									
+									changeFocus('pc','decoder');
+					
+									delay = getValue('delay');
+									
+									setTimeout (function(){
+										
+										if (instructionIs("JMZ") || instructionIs("JMP"))
+											unfocusField('decoder');
+										else
+											changeFocus('decoder','aluOp');
+										
+										switch (getValue('irCmd')) {
+											case "LOD": setValue('aluOp', "="); break;
+											case "STO": setValue('aluOp', "="); break;
+											case "ADD": setValue('aluOp', "+"); break;
+											case "SUB": setValue('aluOp', "-"); break;
+											case "MUL": setValue('aluOp', "*"); break;
+											case "DIV": setValue('aluOp', "/"); break;
+											case "HLT": stopMachine(2); break;
+										}
+					
+										delay = getValue('delay');
+										
+										setTimeout (function(){
+											
+											if (!instructionIs("JMZ") && !instructionIs("JMP") && !instructionIs("STO")) changeFocus('aluOp','alu2');
+											if (instructionIs("STO")) changeFocus('aluOp','acc');
+											
+											cType = 0;
+											if (!instructionIs("HLT") && !instructionIs("NOP") && !instructionIs("JMZ") && !instructionIs("JMP")) {
+												
+												if (irLocContains('#')) { // #n
+													setValue('alu2', getValue('irLoc').replace("#",""));
+												}
+												else if (irLocContains('T')) { // t1 - t40
+													cType = 1;
+													setValue('alu2', (getValue('var'+getValue('irLoc')+'text')) ? getValue('var'+getValue('irLoc')+'text') : 0);
+													focusField('var'+getValue('irLoc')+'text');
+												}
+												else { // x,y,z,w
+													cType = 2;
+													setValue('alu2', (getValue('value'+getValue('irLoc')+'text')) ? getValue('value'+getValue('irLoc')+'text') : 0);
+													focusField('value'+getValue('irLoc')+'text');
+												}
+											}
+											
+											if (instructionIs("STO"))
+												setValue('alu2', '');
+											
+											else if (!instructionIs("LOD") && !instructionIs("JMP") && !instructionIs("JMZ"))
+												setValue('alu1', getValue('acc'));
+					
+											delay = getValue('delay');
+											
+											setTimeout (function(){
+												
+												if (!instructionIs("JMZ") && !instructionIs("JMP") && !instructionIs("STO")) changeFocus('alu2','acc');
+					
+												if (instructionIs("STO")) {
+													if (irLocContains('T'))
+														setValue('var'+getValue('irLoc')+'text', getValue('acc'));
+													else
+														setValue('value'+getValue('irLoc')+'text', getValue('acc'));
+												}
+												else if (instructionIs("JMP") || (instructionIs("JMZ") && getInt('acc') == 0)) {
+													focusField('pc');
+													setValue('pc', getValue('irLoc'));
+												}
+												switch (cType) {
+													case 1:
+														unfocusField('var'+getValue('irLoc')+'text');
+														break;
+													case 2:
+														unfocusField('value'+getValue('irLoc')+'text');
+														break;
+												}
+												
+												if (!instructionIs("STO"))
+													switch (getValue('aluOp')) {
+														case "=": setValue('acc', getInt('alu2') || 0); break;
+														case "+": setValue('acc', parseInt(getInt('alu2') + getInt('acc'))); break;
+														case "-": setValue('acc', parseInt(getInt('acc') - getInt('alu2'))); break;
+														case "*": setValue('acc', parseInt(getInt('alu2') * getInt('acc'))); break;
+														case "/": setValue('acc', parseInt(getInt('acc') / getInt('alu2'))); break;
+													}
+												
+												setValue('alu1', ''); setValue('alu2', ''); setValue('aluOp', '');
+												if (instructionIs("STO")) { changeFocus('acc','alu2'); setValue('alu2', getValue('acc'))}
+					
+												delay = getValue('delay');
+					
+												setTimeout (function(){
+													
+													unfocusField('pc','acc','alu2');
+													setValue('alu2', '');
+													
+													if (cmd == 'step' || stop_status == 1 || stop_status == 2) {
+														
+														if (stop_status == 1) {
+															setValue('pc', 0);
+															setValue('acc', 0);
+														}
+														
+														busColor(0);
+														enableStartCmds();
+														stopSound();
+														
+														running = false;
+														
+														return;
+													}
+													else
+														runCicle();
+					
+													delay = getValue('delay');
+													
+												},delay);
+											},delay);
+										},delay);
+									},delay);
+								},delay);
+							},delay);
+						},delay);
+					},delay);
+				},delay);
+			}
+			
+			stop_status = 0;
+			enableStopCmds();
+			playSound(cmd);
+			
+			if (cmd == 'step') {
+				disableAllCmds();
+				busColor(3);
+			}
+			else {
+				running = true;
+				busColor(1);
+			}
+			
+			playSound('running');
+			
+			runCicle();
+		}
+		function stopMachine(mode) {
+			if (running) {
+				stop_status = mode;
+				busColor(2);
+				disableAllCmds();
+				playSound('stop'+mode);
+			}
+		}
+		function changeImp() {
+			imp = getValue('pcImprove');
+			for (var i = 0; i < cmd_max; i++)
+				document.getElementById('cmd'+i+'name').innerHTML = i * imp;
+			if (imp == 2 && getValue('pc') % 2 != 0) setValue('pc', getValue('pc') + 1);
+		}
+		function showDialog(id) {
+			document.getElementById(id).style.display = document.getElementById('overflow').style.display = 'block';
+		}
+		function hideDialog() {
+			document.getElementById('credits').style.display = document.getElementById('overflow').style.display = 'none';
+		}
+        </script>
+    </head>
+    <body onload='checkFileAPI()'>
+        <header>
+            <input type=file id='files' name='files[]' accept='text/.vnsp' onchange='readProj(this)'>  
+            <div id='title'>
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 960 960" enable-background="new 0 0 960 960" xml:space="preserve">
+					<image display="none" overflow="visible" width="62" height="62" xlink:href="data:image/png;base64,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" transform="matrix(0.9999 0 0 0.9999 449 449)">
+					</image>
+					<polygon points="76.5,706.2 127.6,706.2 127.6,441 439.1,441 439.1,331.8 321.7,331.8 321.7,71.9 638.3,71.9 638.3,331.8 500.4,331.8 500.4,435.8 822.2,435.8 822.2,706.2 883.5,706.2 883.5,888.1 663.9,888.1 663.9,716.6 709.8,716.6 735.4,716.6 735.4,529.4 500.4,529.4 500.4,695.8 597.5,695.8 597.5,888.1 372.7,888.1 372.7,706.2 444.3,706.2 444.3,529.3 199.1,529.3 199.1,695.8 285.9,695.8 285.9,888.1 76.5,888.1 "/>
+                </svg>
+                <span>Von Neumann Machine Simulator</span>
+            </div>
+            <ul>
+                <li onclick='showDialog("credits")'>Crediti</li>
+                <li onclick='saveProj()'>Salva</li>
+                <li onclick='openProj()'>Apri...</li>
+                <li onclick='window.open(location.pathname)'>Nuovo</li>
+            </ul>
+        </header>
+        <div id='overflow' onclick='hideDialog()'></div>
+        <div id='credits'>
+			<div id='title'>
+				<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" onclick='hideDialog()'>
+                    <line x1="0" y1="0" x2="20" y2="20" />
+                    <line x1="0" y1="20" x2="20" y2="0" />
+                </svg>
+                <b>CREDITI</b>
+            </div>
+			<div id='content'>
+                Questo simulatore della macchina di Von Neumann è stato realizzato da <a href="http://www.lorenzoganni.com" target="_blank">Lorenzo Ganni</a>.<br /><br />
+                Questo file costituisce un'estensione dell'opera di Giorgio Meini, Fiorenzo Formichi, 'Tecnologie e progettazione di sistemi informatici e di telecomunicazioni'.<br /><br />
+                © Zanichelli Editore S.p.A., 2015
+            </div>
+        </div>
+    	<main>
+            <div id='sidebar'>
+                <div id='commands'>
+                    <div class='title'><b>Istruzioni</b>&nbsp;<span><label id='cmdCounter'>0</label>&nbsp;/&nbsp;1000</span></div>
+                    <ul>
+                        <script>
+                        for (var c = 0; c < cmd_max; c++)  {
+                            if (c == 0) focusAttr = 'autofocus'; else focusAttr = '';
+                            document.write("<li>"+c+"<input type=text id='cmd"+c+"text' maxlength='10' placeholder='NOP' onchange='checkCorrectCmd("+c+");incrementCmdCounter()' "+focusAttr+"/></li>")
+                        }
+                        </script>
+                    </ul>
+                </div>
+                <div id='variables'>
+                    <div class='title'><b>Variabili</b></div>
+                    <ul>
+                        <li>X<input type=number id='valueXtext' placeholder=0 /></li>
+                        <li>Y<input type=number id='valueYtext' placeholder=0 /></li>
+                        <li>Z<input type=number id='valueZtext' placeholder=0 /></li>
+                        <li>W<input type=number id='valueWtext' placeholder=0 /></li>
+                        <script>
+                        for (n = 1; n < 41; n++) document.write("<li>T"+n+"<input type=number id='varT"+n+"text' placeholder=0 /></li>");
+                        </script>
+                    </ul>
+                </div>
+            </div>
+            <div id='simulator'>
+				<svg id='dataBus' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <rect x='0' y='0' width='10' height='94%'/>
+                    <rect x='0' y='0' width='90%' height='10'/>
+                    <rect x='0' y='94%' width='32.1%' height='10'/>
+                    <rect x='31.5%' y='46%' width='10' height='49.2%' />
+                    <rect x='18.3%' y='0' width='10' height='14%' />
+                    <rect x='36.5%' y='0' width='10px' height='48%' />
+					
+                    <rect x='10.7%' y='14%' width='10' height='43%' />
+                    <rect x='10.7%' y='56.5%' width='20%' height='10' />
+					
+                    <rect x='0' y='34%' width='23.8%' height='10' />
+                    <rect x='23.8%' y='34%' width='10' height='12%' />
+                    <rect x='40%' y='50%' width='7%' height='10' />
+                    <rect x='47%' y='50%' width='10px' height='32.25%' />
+                    <rect x='36%' y='81%' width='11.6%' height='10' />
+                    <svg id="dataCornersRemover" class='cornersRemover' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <rect x='1' y='9' width='8' height='3' />
+                        <rect x='0.5' y='93.5%' width='9' height='7' />
+                        <rect x='31.4%' y='94.1%' width='11' height='8' />
+                        <rect x='18.2%' y='1' width='15' height='8' />
+                        <rect x='36.4%' y='1' width='15' height='8' />
+                        <rect x='10.75%' y='55.8%' width='8' height='10' />
+                        <rect x='1' y='33.8%' width='8' height='14' />
+                        <rect x='23.5%' y='34.05%' width='12' height='8.6' />
+                        <rect x='46.7%' y='50.06%' width='6' height='8' />
+                        <rect x='47%' y='80.8%' width='9' height='11' />
+                    </svg>
+                </svg>
+                <svg id='addressBus' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <rect x='26%' y='14%' width='10px' height='13%' />
+                    <rect x='26%' y='27%' width='45%' height='10' />
+                    <rect x='50.5%' y='27.6%' width='10px' height='40%' />
+                    <rect x='65%' y='27.6%' width='10px' height='40%'/>
+                    <rect x='50.5%' y='66.65%' width='15.1%' height='10' />
+                    <svg id="addressCornersRemover" class='cornersRemover' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <rect x='26.05%' y='26.3%' width='8' height='10' />
+                        <rect x='50.4%' y='27.4%' width='12' height='6' />
+                        <rect x='64.9%' y='27.4%' width='12' height='6' />
+                        <rect x='50.53%' y='66.5%' width='10' height='5' />
+                        <rect x='65%' y='66.5%' width='9' height='10' />
+                    </svg>
+                </svg>
+                <svg id='alu' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+                <label id='irL'>IR</label>
+                <label id='decoder'>Decoder</label>
+                <label id='accL'>ACC</label>
+                <label id='pcL'>PC</label>
+                <label id='busL'>Bus dati / istruzioni</label>
+                <label id='addressesBusL' >Bus indirizzi</label>
+                <label id='ramL' class='rotated'>RAM</label>
+                <input type=text readonly id='irCmd'/>
+                <input type=text readonly id='irLoc'/>
+                <input type=number value=0 id='acc'/>
+                <input type=number value=0 id='pc' min=0 max=9999 onchange="checkCorrectPC()"/>
+                <input id='pcImprove' disabled value='+ 1'/>
+                <div id="alu_inputs">
+                	<label id='aluL'>ALU</label>
+                    <input type=text readonly id='alu1'/>
+                    <input type=text readonly id='alu2'/>
+                    <input type=text readonly id='aluOp'/>
+                </div>
+            </div>
+            <footer>
+            	<ul>
+                    <li id='play' onclick="startMachine('play')">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <polygon points="0 0,20 10,0 20"/>
+                        </svg>
+                        Avvia
+                    </li>
+                    <li id='step' onclick="startMachine('step')">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <polygon points="0 0,14 10,0 20"/>
+                            <polygon points="14 0,20 0,20 20,14 20"/>
+                        </svg>
+                        Passo
+                    </li>
+                    <li id='pause' onclick="stopMachine(2)">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <polygon points="0 0,6 0,6 20,0 20"/>
+                            <polygon points="14 0,20 0,20 20,14 20"/>
+                        </svg>
+                        Pausa
+                    </li>
+                    <li id='stop' onclick='stopMachine(1)'>
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                            <polygon points="0 0,20 0,20 20,0 20"/>
+                        </svg>
+                        Stop
+                    </li>
+                    <li id='sound' onclick='toggleSound()'>
+                        &nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:25px;margin-left:15px">
+                            <polygon points="0 5,6 5,12 0,12 20,6 15,0 15"/>
+                            <g id='soundStatusImg'><polygon points="15 6,17 6,17 14,15 14"/><polygon points="19 3,21 3,21 17,19 17"/><polygon points="23 0,25 0,25 20,23 20"/></g>
+                        </svg>
+                    </li>
+                </ul>
+                <div id='right'>
+                    <b>Titolo:</b><input type='text'  id='projNameText' spellcheck='false'/>
+                    <b>Intervallo:</b>
+                    <input type=range min=0 max=5000 step=50 value=500 oninput="setValue('delay',this.value)" id='delayRange' />
+                    <div id="delayContainer">
+                    	<output id='delay'>500</output>&nbsp;ms
+                    </div>
+                </div>
+            </footer>
+            <script>
+			var d = new Date();
+			setValue('projNameText','Prog_' + d.getDate() + '_' + (d.getMonth() + 1) + '_' + d.getFullYear());
+            </script>
+        </main>
+    </body>
+</html>
