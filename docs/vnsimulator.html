@@ -368,8 +368,6 @@
 		</style>
         <script>
 		colors = [["#CBD0D3","#AAA"],["#2ECC71","#090"],["#E74C3C","#C00"],["#3498DB","#06F"]];
-		var values = ['x','y','z','w'];
-		values.lenght = 4;
 		imp = 1;
 		cmd_max = 1e3;
 		running = false;
@@ -482,11 +480,7 @@
 				|| val.indexOf("div ") == 0)
 				&& ((ind.indexOf("#") == 0
 					&& val.indexOf("sto ") != 0)
-					|| ind.indexOf("x") == 0
-					|| ind.indexOf("y") == 0
-					|| ind.indexOf("w") == 0
-					|| ind.indexOf("z") == 0
-					|| ind.indexOf("t") == 0)
+					|| ind.indexOf("1") == 0)
 					|| val.indexOf("hlt") == 0
 					|| val.indexOf("nop") == 0
 					|| ((val.indexOf("jmp ") == 0
@@ -562,10 +556,7 @@
 			for (n = 0; n < cmd_max; n++)
 				setValue('cmd'+n+'text', (file[n+5] != 'NOP') ? file[n+5] : '');
 			
-			for (v = 0, n += 7; v < values.lenght; v++, n++)
-				setValue('value' + values[v].toUpperCase() + 'text', parseInt((file[n] != 0) ? file[n] : ''));
-			
-			for (f = 1, n += 2; f < 41; f++, n++)
+			for (f = 100, n += 9; f < 140; f++, n++)
 				setValue('varT'+f+'text', parseInt((file[n] != 0) ? file[n] : ''));
 		} 
 		
@@ -578,12 +569,9 @@
 			
 			text += '\n\VAL\n___________\n\n';
 			
-			for (v = 0; v < values.lenght; v++)
-				text += ((getValue('value'+values[v].toUpperCase()+'text')) ? getValue('value'+values[v].toUpperCase()+'text') : 0) + ',';
-			
 			text += '\n\VAR\n___________\n\n';
 			
-			for (n = 1; n < 41; n++)
+			for (n = 100; n < 140; n++)
 				text = text + ((getValue('varT'+n+'text')) ? getValue('varT'+n+'text') : 0) + ',';
 			
 			var pom = document.createElement('a');
@@ -662,15 +650,10 @@
 												if (irLocContains('#')) { // #n
 													setValue('alu2', getValue('irLoc').replace("#",""));
 												}
-												else if (irLocContains('T')) { // t1 - t40
+												else if (irLocContains('1')) { // 100 - 139
 													cType = 1;
-													setValue('alu2', (getValue('var'+getValue('irLoc')+'text')) ? getValue('var'+getValue('irLoc')+'text') : 0);
-													focusField('var'+getValue('irLoc')+'text');
-												}
-												else { // x,y,z,w
-													cType = 2;
-													setValue('alu2', (getValue('value'+getValue('irLoc')+'text')) ? getValue('value'+getValue('irLoc')+'text') : 0);
-													focusField('value'+getValue('irLoc')+'text');
+													setValue('alu2', (getValue('varT'+getValue('irLoc')+'text')) ? getValue('varT'+getValue('irLoc')+'text') : 0);
+													focusField('varT'+getValue('irLoc')+'text');
 												}
 											}
 											
@@ -687,10 +670,8 @@
 												if (!instructionIs("JMZ") && !instructionIs("JMP") && !instructionIs("STO")) changeFocus('alu2','acc');
 					
 												if (instructionIs("STO")) {
-													if (irLocContains('T'))
-														setValue('var'+getValue('irLoc')+'text', getValue('acc'));
-													else
-														setValue('value'+getValue('irLoc')+'text', getValue('acc'));
+													if (irLocContains('1'))
+														setValue('varT'+getValue('irLoc')+'text', getValue('acc'));
 												}
 												else if (instructionIs("JMP") || (instructionIs("JMZ") && getInt('acc') == 0)) {
 													focusField('pc');
@@ -698,10 +679,7 @@
 												}
 												switch (cType) {
 													case 1:
-														unfocusField('var'+getValue('irLoc')+'text');
-														break;
-													case 2:
-														unfocusField('value'+getValue('irLoc')+'text');
+														unfocusField('varT'+getValue('irLoc')+'text');
 														break;
 												}
 												
@@ -822,7 +800,7 @@
                 <b>CREDITI</b>
             </div>
 			<div id='content'>
-                Questo simulatore della macchina di Von Neumann è stato realizzato da <a href="http://www.lorenzoganni.com" target="_blank">Lorenzo Ganni</a>.<br /><br />
+                Questo simulatore della macchina di Von Neumann è stato realizzato da Antonio Mancuso, basandosi su una precedente implementazione di Lorenzo Ganni.<br /><br />
                 Questo file costituisce un'estensione dell'opera di Giorgio Meini, Fiorenzo Formichi, 'Tecnologie e progettazione di sistemi informatici e di telecomunicazioni'.<br /><br />
                 © Zanichelli Editore S.p.A., 2015
             </div>
@@ -843,12 +821,11 @@
                 <div id='variables'>
                     <div class='title'><b>Variabili</b></div>
                     <ul>
-                        <li>X<input type=number id='valueXtext' placeholder=0 /></li>
-                        <li>Y<input type=number id='valueYtext' placeholder=0 /></li>
-                        <li>Z<input type=number id='valueZtext' placeholder=0 /></li>
-                        <li>W<input type=number id='valueWtext' placeholder=0 /></li>
                         <script>
-                        for (n = 1; n < 41; n++) document.write("<li>T"+n+"<input type=number id='varT"+n+"text' placeholder=0 /></li>");
+                        for (n = 1; n < 41; n++) {
+							var nn = 99 + n;
+							document.write("<li>"+nn+"<input type=number id='varT"+nn+"text' placeholder=0 /></li>");
+						}
                         </script>
                     </ul>
                 </div>
