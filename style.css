@@ -89,3 +89,9 @@ h1 + p {
   } */
 
 }
+
+/* custom style per slide intro_infoi */
+.importante {
+  font-size: 1.5rem;
+}
+
