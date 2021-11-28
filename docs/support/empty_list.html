@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- HTML5-->
+<html lang="it">
+<!-- Pagina HTML -->
+
+<head>
+    <!-- Qui vanno inserite informazioni relative alla pagina ma che non saranno visualizzate -->
+    <!-- sezione meta Fornisce informazioni al web browser e ai motori di ricerca per il processo di indicizzazione -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Antonio Mancuso" />
+    <meta name="description" content="Empty Page" />
+    <meta name="keywords" content="js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>empty</title>
+    <script>
+        function add_studente() {
+            const ul = document.getElementById("lista");
+            const cognome_str = document.getElementById("cognome").value;
+            const li = document.createElement("li");
+            li.innerText = cognome_str;
+            ul.append(li);
+            console.log("Studente %s creato", cognome_str);
+        }
+
+        function colora_studenti() {
+            const ul = document.getElementById("lista");
+            console.log("Ecco l'oggetto ul %o", ul);
+            const li_items = ul.children;
+            console.log("Ecco gli items della lista %o", li_items);
+            for(var i = 0; i < li_items.length; i++) {
+                var li = li_items[i];
+                console.log("Ecco il singolo li %o", li);
+                li.style.color = "red";
+                li.style.textDecoration = "underline";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Pagina Vuota</h1>
+    <input id="cognome" type="text" placeholder="Cognome Studente"/>
+    <button onclick="add_studente()">Aggiungi uno studente</button>
+    <ul id="lista"></ul>
+    <button onclick="colora_studenti()">Colora</button>
+    
+</body>
+
+</html>
