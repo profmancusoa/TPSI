@@ -11,7 +11,9 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.0.1'
+materia: 'TPSI'
+as: '2022-2023'
+version: '1.0.2'
 ---  
 
 
@@ -31,27 +33,13 @@ layout: two-cols
 ---
 https://javascript.info/
 
-- js intro e full stack
-- backend JS
-- sintassi
-- strict mode
-- commenti
-- console.log
-- variabili var let const e scope
-- operatori
-- data types
-- funzioni e arrow functions
-- conditional
-- loops
 - stringhe e operatori stringhe
 - array e operatori array
-- objects e json 
+
 
 ::right::
 
 - frontend JS
-- sezione `<script>` 
-- interagire con il dom innerhtml, etc
 - eventi e asyncrhonoous programming
 - svelte js intro e installazione
 
@@ -1102,9 +1090,7 @@ body.append(p);//aggiunge l'elemento p al body del documento
  
 # Aggiungiamo un elemento
 
-<center>
-<img src="/media/js08.png" width="600"/>
-</center>
+<img src="/media/js08.png" width="600" style="margin:auto;"/>
 
 --- #slide N
  
@@ -1177,9 +1163,7 @@ alert("Assicurati di leggere le condizioni contrattuali");
 ```
 
 <br />
-<center>
-<img src="/media/js11.png" />
-</center>
+<img src="/media/js11.png"  style="margin:auto;"/>
 
 - La pagina rimane "bloccata" fino a che l'utente premte il pulsante OK
 - In questo modo siamo sicuri che se l'utente procede nella consultazione della pagina ha volontariamente premuto il pulsante OK e pertanto si assume che abbia letto il messaggio.
@@ -1221,11 +1205,10 @@ if(risultato) {
 }
 ```
 <br />
-<center>
+<div  style="display: flex; justify-content: center;">
 <img src="/media/js12.png" width="350" style="float:left"/>
-<img src="/media/js13.png" width="450"/>
-</center>
-
+<img src="/media/js13.png" width="450" />
+</div>
 ---
 
 # Interagiamo con l'utente
@@ -1244,9 +1227,7 @@ console.log(conferma);
 ```
 
 <br />
-<center>
-<img src="/media/js14.png" width="450"/>
-</center>
+<img src="/media/js14.png" width="450" style="margin: auto;"/>
 
 --- #slide N
  
@@ -1332,9 +1313,7 @@ Aggiungiamo elementi dinamici
 
 Rubrica JS
 
-<center>
-<img src="/media/js14_a.png" />
-</center>
+<img src="/media/js14_a.png" style="margin: auto;"/>
 
 --- #slide N
  
@@ -1357,9 +1336,7 @@ Partendo dai template [rubrica_js_template.html](../support/rubrica_js_template.
 
 ToDo JS
 
-<center>
-<img src="/media/js14_b.png" />
-</center>
+<img src="/media/js14_b.png" style="margin: auto;"/>
 
 --- #slide N
  
@@ -1910,10 +1887,11 @@ else
 Operatori Booleani
 
 1. Creare una pagina HTML con il relativo Javascript, usando **prompt() e alert()**, che richieda delle credenziali di login Username e Password in base alla seguente logica:
-<center>
-<img src="/media/js09.png" width="400"/>
-</center><br />
-2. Fornire il link github al file con nome *|cognome|_esercizio_js_07.html*  e *|cognome|_esercizio_js_07.js*
+
+<img src="/media/js09.png" width="400" style="margin: auto;"/>
+<br />
+
+1. Fornire il link github al file con nome *|cognome|_esercizio_js_07.html*  e *|cognome|_esercizio_js_07.js*
 
 
 --- #slide N
@@ -1953,285 +1931,11 @@ let age; // la variabile ha un valore non definito
 
 --- #slide N
  
-# Data Types
-
-Object
-
-- Tutti i tipi incontrati fino ad ora, sono chiamati tipi **primitivi** in qunto esprimono un solo valore (intero, decimale, stringa, booleano)
-- Un tipo ***Oggetto*** al contrario rappresenta un tipo di dato aggregato, una collezione di informazioni più o meno complessa
-- Un ogeeto in JS è un *array associativo o dizionario*, detto anche *Plain Object*
-
-<img src="/media/js10.png" width="200" style="float: right;" />
-
-- Un oggetto si crea con `{...}`
-- Dentro le parentesi si specifica una serie di attributi nella forma `key:value`
-- Dove **key** o **property value** è una stringa e **value** può assumere qualsiasi valore (int, string, object)
-  
-
-```js
-let utente = {
-  nome: "Mario",
-  cognome: "Rossi"
-}
-
-{nome: 'Mario', cognome: 'Rossi'}
-```
-
---- #slide N
- 
-# Data Types
-
-Object
-
-- Per accedere alle proprietà o attributi dell'oggetto si una la notazione con il `.`
-
-<br />
-
-```js
-console.log(utente.nome); -> Mario
-console.log(utente.cognome); -> Rossi
-
-utente.nome = "Pino"; 
-
-```
-
-<br />
-
-- Possiamo aggiungere o rimuovere proprità anche dopo la definizione dell'oggetto
-  
-```js
-utente.eta = 30; //eta non esiste e viene creata
-
-{nome: 'Mario', cognome: 'Rossi', eta: 30}
-
-delete utente.cognome; //rimuove la proprità cognome
-
-{nome: 'Mario', eta: 30}
-
-```
-
---- #slide N
- 
-# Data Types
-
-Object
-
-- Per accedere alle proprietà o attributi dell'oggetto si può anche usare la notazione con le parentesi `[]`
-
-<br />
-
-```js
-console.log(utente["nome"]); -> Mario
-console.log(utente["cognome"]); -> Rossi
-
-utente["nome"] = "Pino";
-utente["eta"] = 45;
-
-```
-
---- #slide N
- 
-# Data Types
-
-Object
-
-- In Javascript se si accede ad una proprietà non esistente verrà restituito il valore **unidefined** (Questo è diverso dal C++ o Java)
-- Quindi risulta spesso utile verificare la presenza di una chiave o proprietà in un oggetto
-- La verifica se una chiave è presente o meno nell'oggetto si può fare con l'operatore `in`
-
-```js
-let utente = {
-  nome: "Mario",
-  cognome: "Rossi"
-}
-
-"nome" in utente -> true
-"eta" in utente -> false
-
-```
-
---- #slide N
- 
-# Data Types
-
-Object
-
-- Per accedere a tutte le chiavi di un oggetto si può usare un particolare ciclo denominato `for..in` loop
-- Questo loop ha la seguente forma
-  
-```js
-for(key in object) {
-  esegui il blocco di docice per ogni chiave o proprietà dell'oggetto object
-}
-```
-
-```js
-let utente = {
-  nome: "Mario",
-  cognome: "Rossi"
-}
-
-for(let chiave in utente) {
-    console.log(`la chiave ${chiave} ha valore ${utente[chiave]}`);
-}
-
-la chiave nome ha valore Mario
-la chiave cognome ha valore Rossi
-```
-
---- #slide N
- 
-# Esercizio js_10
-
-Plain Object
-
-1. Creare una pagina HTML con il relativo Javascript in modo che:
-   - Alla pressione di un bottone venga creato un oggetto vuoto di nome **User**
-   - Aggiunta una proprietà di nome **fname** ed assegnato un valore
-   - Aggiunta una proprietà di nome **lname** ed assegnato un valore
-   - Aggiunta una proprietà di nome **age** ed assegnato un valore
-   - Aggiunta una proprietà di nome **color** ed assegnato un valore
-   - Scandisca con un ciclo tutte le proprietà ed aggiunga dinamicamente alla pagina HTML un tag **p** con il valore della proprietà letta
-   - Rimuova la proprietà **color** e **age** e con un ciclo aggiunga dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
-2. Fornire il link github al file con nome *|cognome|_esercizio_js_08.html*  e *|cognome|_esercizio_js_08.js*
-
-
---- #slide N
- 
-# Data Types
-
-Operatore typeof
-
-- L'operatore `typeof(arg)` resitutisce il tipo associato all'argomento *arg*.
-- E' utile per verificare il tipo di una variabile ed agire di conseguenza o semplicemente fare una verifica sul tipo usato. 
-
-```js
-typeof(undefined) // "undefined"
-
-typeof(0) // "number"
-
-typeof(2.34) // "number"
-
-typeof(10n) // "bigint"
-
-typeof(true) // "boolean"
-
-typeof("foo") // "string"
-
-let user = { nome: 'Mario', cognome: 'Rossi' };
-
-typeof(user) //"object"
-
-```
-
---- #slide N
- 
-# Data Types
-
-Conversione o Casting
-
-- Nella maggioranza dei casi i tipi vengono convertiti automaticamente in JS
-- Per esempio la funzione alert converte il suo parametro in una stringa per poterlo visualizzare correttamente
-
-```js
-alert("hello world!"); // no casting questa è già una string
-alert(10); //converte 10 in "10" per poterlo visualizzare
-alert(11+4); //valuta l'espressione e il risultato viene convertito in stringa. 
-Cosa viene visualizzato?
-
-// ci sono anche alcune doppie conversioni
-alert("12" / "4") // "3"
-
-//e alcune eccezioni
-
-alert("12" + "4") // "124"
-
-```
-
-<br />
-<div style="background-color: green;color: white;padding: 10px;">
-NOTA: l'operatore + è l'operatore di concatenazione di stringhe
-</div>
---- #slide N
- 
-# Data Types
-
-Conversione o Casting
-
-- Se invece vogliamo o abbiamo la necessità di convertire a stringa usiamo la funzione `String(<valore>)` che restituisce una rappresentazione di valore come stringa
-
-```js
-String(11 + 4) // "15"
-
-String(true) // "true"
-
-String(NaN) // "NaN"
-
-```
-
-
---- #slide N
- 
-# Data Types
-
-Conversione o Casting
-
-- Possiamo anche convertire un valore in numero tramite la funzione `Number(<valore>)`
-
-```js
-Number("3") // 3
-
-Number("     6      ") // 6
-
-Number("3" + "2") // 32
-
-Number("3" / "2") // 1.5
-
-// casi notevoli
-
-Number(undefined) // NaN
-
-Number(null) // 0
-
-Number(true) // 1
-
-Number(false) // 0
-
-Number("") // 0
-```
-
---- #slide N
- 
-# Data Types
-
-Conversione o Casting
-
--  Possiamo anche convertire un valore in boolean tramite la funzione `Boolean(<valore>)`
-
-```js
-Boolean(1) // true
-
-Boolean(0) // false
-
-Boolean("ciao") // true
-
-Boolean("") // false
-
-Boolean(null) // false
-
-Boolean(undefined) // false
-
-Boolean(NaN) // false
-
-```
-
---- #slide N
- 
 # Operatori Base
 
 operatore unario
 
-- Un operatori si dice ***unario** quando viene applicato ad un singolo operando
+- Un operatori si dice ***unario*** quando viene applicato ad un singolo operando
 
 ```js
 let x = 1;
@@ -2434,6 +2138,134 @@ m = m - 1;
 let n = m = 2;
 console.log(n++); // 2 l'operatore ++ postfisso restituisce il valore prima di incrementarlo 
 console.log(m--); // 2 l'operatore -- postfisso restituisce il valore prima di decrementarlo 
+```
+
+--- #slide N
+ 
+# Data Types
+
+Operatore typeof
+
+- L'operatore `typeof(arg)` resitutisce il tipo associato all'argomento *arg*.
+- E' utile per verificare il tipo di una variabile ed agire di conseguenza o semplicemente fare una verifica sul tipo usato. 
+
+```js
+typeof(undefined) // "undefined"
+
+typeof(0) // "number"
+
+typeof(2.34) // "number"
+
+typeof(10n) // "bigint"
+
+typeof(true) // "boolean"
+
+typeof("foo") // "string"
+
+let user = { nome: 'Mario', cognome: 'Rossi' };
+
+typeof(user) //"object"
+
+```
+
+--- #slide N
+ 
+# Data Types
+
+Conversione o Casting
+
+- Nella maggioranza dei casi i tipi vengono convertiti automaticamente in JS
+- Per esempio la funzione alert converte il suo parametro in una stringa per poterlo visualizzare correttamente
+
+```js
+alert("hello world!"); // no casting questa è già una string
+alert(10); //converte 10 in "10" per poterlo visualizzare
+alert(11+4); //valuta l'espressione e il risultato viene convertito in stringa. 
+Cosa viene visualizzato?
+
+// ci sono anche alcune doppie conversioni
+alert("12" / "4") // "3"
+
+//e alcune eccezioni
+
+alert("12" + "4") // "124"
+
+```
+
+<br />
+<div style="background-color: green;color: white;padding: 10px;">
+NOTA: l'operatore + è l'operatore di concatenazione di stringhe
+</div>
+--- #slide N
+ 
+# Data Types
+
+Conversione o Casting
+
+- Se invece vogliamo o abbiamo la necessità di convertire a stringa usiamo la funzione `String(<valore>)` che restituisce una rappresentazione di valore come stringa
+
+```js
+String(11 + 4) // "15"
+
+String(true) // "true"
+
+String(NaN) // "NaN"
+
+```
+
+
+--- #slide N
+ 
+# Data Types
+
+Conversione o Casting
+
+- Possiamo anche convertire un valore in numero tramite la funzione `Number(<valore>)`
+
+```js
+Number("3") // 3
+
+Number("     6      ") // 6
+
+Number("3" + "2") // 32
+
+Number("3" / "2") // 1.5
+
+// casi notevoli
+
+Number(undefined) // NaN
+
+Number(null) // 0
+
+Number(true) // 1
+
+Number(false) // 0
+
+Number("") // 0
+```
+
+--- #slide N
+ 
+# Data Types
+
+Conversione o Casting
+
+-  Possiamo anche convertire un valore in boolean tramite la funzione `Boolean(<valore>)`
+
+```js
+Boolean(1) // true
+
+Boolean(0) // false
+
+Boolean("ciao") // true
+
+Boolean("") // false
+
+Boolean(null) // false
+
+Boolean(undefined) // false
+
+Boolean(NaN) // false
 ```
 
 ---
@@ -3373,7 +3205,7 @@ console.log(confronto(10, 20));
 
 don't repeat yourself
 
-- Il valore restituito da una funzione può essere qualsiasi espressione vlida JS
+- Il valore restituito da una funzione può essere qualsiasi espressione valida JS
 
 ```js
 function record(nome, cognome, eta) {
@@ -3432,7 +3264,7 @@ console.log(res);
 don't repeat yourself
 
 - In JS esistono sintassi alternative per definire una funzione
-- Per esempio si può definire una funzione tramite un assegnamento (o binding)
+- Per esempio si può definire una funzione tramite un assegnamento (o ***binding***)
 - Questa sintassi prende il nome di `function expression`
   
 ```js
@@ -3445,8 +3277,10 @@ console.log(somma(5,3));
 > 8
 ```
 
-- In questo caso la funzione è `anonymous` in quanto non viene specificato un nome
+- In questo caso la funzione è di tipo `anonymous` in quanto non viene specificato un nome
 - La funzione anonima viene assegnata alla variabile somma
+- In C questa funzionalità si ottiene tramite complessi puntatori a funzione, mentre in JS è una semplice assegnazione
+
 
 ---
 
@@ -3454,7 +3288,7 @@ console.log(somma(5,3));
 
 don't repeat yourself
 
-- In JS le funzioni anonime sono usate molto spesso, soprattutto come parametri di altre funzioni
+- In JS le <mark>funzioni anonime sono usate molto spesso</mark>, soprattutto come parametri di altre funzioni
 - La funzione `setTimeout(<function>, timeout)` chiama la funzione **function** ogni **timeout** millisecondi
 
 ```js
@@ -3466,7 +3300,7 @@ setInterval(tick, 1000);
 ```
 <br />
 
-- Vediamo un modo più veloce e pratico di usare setInterval sando una funzione anonima
+- Vediamo un modo più veloce e pratico di usare setInterval usando una funzione anonima
 
 ```js
 setInterval(function () {
@@ -3572,7 +3406,7 @@ console.log(mul(2, 3));
 - Pertanto un'aspetto molto importante da ricordare è
 
 <div style="background-color: green;color: yellow; padding: 10px; margin:10px;">
-In JS una funzione è sempre un valore
+In JS una funzione è sempre un valore &lt;right-value&gt;
 </div>
 
 ---
@@ -3668,7 +3502,7 @@ processUserInput(console_saluti);
 ```
 
 - Come si vede possiamo cambiare il comportamento di processUserInput senza modificarne il codice
-- Le `callback` sono all abase della programmazione ad eventi ed asincrona tipica di JS
+- Le `callback` sono all abase della programmazione ad eventi asincrona tipica di JS
 
 ---
 
@@ -3679,16 +3513,19 @@ don't repeat yourself
 - Un'altro scenario che si incontra spesso, specie nei framework e librerie JS, è l'esecuzione di una funzione anonima
 
 ```js
+let c = 20;
+
 (function(a, b) {
-  console.log(a + b);
+  let c = 10;
+  console.log(a + b + c);
 })(5, 3);
 
->8 
+>18 
 ```
 <br />
 
 - Questo tipo di funzioni si chiama `self-invoked function`
-- Lo scopo principale di questo tipo di funzioni è di eseguire del codice una sola volta, senza "sporcare" lo scope globale
+- *Lo scopo principale di questo tipo di funzioni è di eseguire del codice una sola volta, senza "sporcare" lo scope globale*
 - Ogni variabile dichiarata nella funzione rimane locale alla funzione
   
 ---
@@ -3813,15 +3650,923 @@ setInterval(() => console.log('tick'), 1000);
 Le arrow function sono utilizzate spessissimo in JavaScript moderno
 </div>
 
+--- #slide N
+ 
+# JS Objects
+
+- Tutti i tipi incontrati fino ad ora, sono chiamati tipi **primitivi** in qunto esprimono un solo valore (intero, decimale, stringa, booleano)
+- Un tipo ***Oggetto*** al contrario rappresenta un tipo di dato aggregato, una collezione di informazioni più o meno complessa (molto simile alle struct del C)
+- Un oggeto in JS è un *array associativo o dizionario*, detto ***Object Literals***
+
+<img src="/media/js10a.png" width="200" style="float: right;" />
+
+- Un oggetto si crea con `{...}` 
+- Dentro le parentesi si specifica una serie di attributi nella forma `key:value`
+- Dove **key** o **property value** è una stringa e **value** può assumere qualsiasi valore (int, string, array, object)
+  
+
+```js
+let utente = {
+  "nome": "Mario",
+  "cognome": "Rossi",
+  "anni": 20
+}
+{nome: 'Mario', cognome: 'Rossi', anni: 20}
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Siccome l'attributo key è sempre una stringa le virgolette " possono essere omesse in quanto implicite
+- Pertanto l'oggetto utente può anche essere definito in questo modo
+
+<br>
+
+```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi",
+  anni: 20
+}
+{nome: 'Mario', cognome: 'Rossi', anni: 20}
+```
+
+<br>
+
+- Siccome il valore *value* può essere di qualsiasi tipo, se è una stringa deve essere racchiuso tra "virgolette" o 'apici'
+
+--- #slide N
+ 
+# JS Objects
+
+- Per accedere alle proprietà o attributi dell'oggetto si una la notazione con il `.` o ***dot notation***
+
+<br />
+
+```js
+console.log(utente.nome); -> Mario
+console.log(utente.cognome); -> Rossi
+
+utente.nome = "Pino"; 
+
+```
+
+<br />
+
+- Possiamo aggiungere o rimuovere proprità anche dopo la definizione dell'oggetto
+  
+```js
+utente.altezza = 170; //eta non esiste e viene creata
+
+{nome: 'Mario', cognome: 'Rossi', eta: 30, altezza: 170}
+
+delete utente.cognome; //rimuove la proprità cognome
+
+{nome: 'Mario', eta: 30, altezza: 170}
+
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Pertanto possiamo definire un oggetto vuoto
+
+<br>
+
+```js
+let utente = {}
+```
+
+<br>
+
+
+- e sucecssivamente aggiungere le proprietà dell'oggetto sia con la dot notation che con le []
+
+<br>
+
+
+```js
+utente.nome = "Mario";
+utente["cognome"] = "Rossi";
+utente.altezza = 170;
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Per accedere alle proprietà dell'oggetto si può anche usare la notazione con le parentesi `[<key> ]`
+
+
+sia con "virgolette"
+```js
+console.log(utente["nome"]); -> Mario
+console.log(utente["cognome"]); -> Rossi
+
+utente["nome"] = "Pino";
+utente["eta"] = 45;
+```
+
+che con 'apici'
+```js
+console.log(utente['nome']); -> Mario
+console.log(utente['cognome']); -> Rossi
+
+utente['nome'] = "Pino";
+utente['eta'] = 45;
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- In Javascript se si accede ad una proprietà non esistente verrà restituito il valore **unidefined** (Questo è diverso dal C++ o Java)
+- Quindi risulta spesso utile verificare la presenza di una chiave o proprietà in un oggetto
+- La verifica se una chiave è presente o meno nell'oggetto si può fare con l'operatore `in`
+
+<br>
+
+```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+"nome" in utente -> true
+"genere" in utente -> false
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Per accedere a tutte le chiavi di un oggetto si può usare il metodo ***keys*** dell'oggetto ***Object***, passando l'oggetto da enumerare come parametro
+
+<br>
+
+```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+Object.keys(utente);
+(2) ['nome', 'cognome']
+
+utente.altezza = 170
+
+Object.keys(utente);
+(3) ['nome', 'cognome', 'altezza']
+```
+
+<br>
+
+- Restituisce un array con tuttle le chiavi dell'oggetto
+
+--- #slide N
+ 
+# JS Objects
+
+- Un altro metodo per accedere a tutte le chiavi di un oggetto è quello di usare un particolare ciclo denominato `for..in` loop
+- Questo loop ha la seguente forma
+  
+```js
+for(key in object) {
+  esegui il blocco di docice per ogni chiave o proprietà dell'oggetto object
+}
+```
+
+<br>
+
+```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+for(let chiave in utente) {
+    console.log(`la chiave ${chiave} ha valore ${utente[chiave]}`);
+}
+la chiave nome ha valore Mario
+la chiave cognome ha valore Rossi
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Dalla teoria OOP sappiamo che un oggetto incapsula dati e metodi
+- Da JS sappiamo che una funzione è un *right-value* che può essere assegnato
+- Pertanto è possibile assegnare una funzione (function declaration) ad una *key* di un object literal
+- In questo modo possiamo specificare i metodi per un oggetto JS
+
+ ```js
+ let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+utente.speak = function () {
+    console.log("Ciao io sono un utente");
+}
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono un utente
+ ```
+
+--- #slide N
+ 
+# JS Objects
+
+- E' anche possibile creare un metodo di un oggetto tramite una function expression
+
+<br>
+
+ ```js
+ let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+const speak = function () {
+    console.log("Ciao io sono un utente");
+}
+
+utente.speak = speak;
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono un utente
+ ```
+
+--- #slide N
+ 
+# JS Objects
+
+- E' anche possibile creare un metodo di un oggetto tramite una arrow function
+
+<br>
+
+ ```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi"
+}
+
+utente.speak = () => console.log("Ciao io sono un utente");
+
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono un utente
+ ```
+
+
+--- #slide N
+ 
+# JS Objects
+
+- Possiamo anche specificare il metodo direttamente nell'object literals
+
+<br>
+
+ ```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi",
+  speak: function() {
+    console.log("Ciao io sono un utente");
+  }
+}
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono un utente
+ ```
+
+--- #slide N
+ 
+# JS Objects
+
+- JS permette anche una scorciatoia nella definizione dei metodi di un oggetto
+
+<br>
+
+ ```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi",
+  speak() {
+    console.log("Ciao io sono un utente");
+  }
+}
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono un utente
+ ```
+<br>
+
+- Insomma, come sempre JS offre molti modi diversi di raggiungere lo stesso risultato
+
+--- #slide N
+ 
+# JS Objects
+
+- Siccome un oggetto incapsula dati e metodi è necessario poter accedere ai dati dell'oggetto da dentro i metodi dell'oggetto
+- Per esempio se volessimo che il metodo speak salutasse con il nome ed il cognome, sarebbe necessario accedere aglia ttributi *nome* e *cognome*
+- Per far ciò utilizziamo la keywork `this`, che permette di accedere l'oggetto stesso
+
+
+ ```js
+let utente = {
+  nome: "Mario",
+  cognome: "Rossi",
+  speak() {
+    console.log(`Ciao io sono l'utente ${this.nome} ${this.cognome}`);
+  }
+}
+
+{ nome: 'Mario', cognome: 'Rossi', speak: [Function (anonymous)] }
+
+utente.speak();
+Ciao io sono l'utente Mario Rossi
+ ```
+
+
+--- #slide N
+ 
+# JS Objects
+
+- Vediamo il caso in cui un metodo è condiviso tra più oggetti
+
+```js
+
+let speak = function () { console.log(`Ciao io sono l'utente ${this.nome} ${this.cognome}`); }
+
+let utente1 = {
+  nome: "Mario",
+  cognome: "Rossi",
+  speak: speak
+}
+let utente2 = {
+  nome: "Giuseppe",
+  cognome: "Verdi",
+  speak: speak
+}
+
+> utente1.speak()
+Ciao io sono l'utente Mario Rossi
+
+> utente2.speak()
+Ciao io sono l'utente Giuseppe Verdi
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Come si vede dall'output quando il metodo speak viene invocato sull'oggetto utente1 stampa i valori assegnati alle properità nome e cognome (Mario Rossi)
+- In modo analogo quando il metodo speak viene invocato sull'oggetto utente2 stampa i valori assegnati alle properità nome e cognome (Giuseppe Verdi)
+- Questo perchè nel modo speak abbiamo referenziato gli attributi nome e cognome tramite la keywork *this*
+- Pertanto *this.nome* significa prendi il valore dell'attributo nome come definito nell'oggetto ocrrente (utente1 o utente2)
+- Questo è uno dei principi cardini della OOP e in JS il suo funzionamento è molto simile ad altri linguaggi come Java/C++
+
+--- #slide N
+ 
+# JS Objects
+
+- Nell'esempio precedente abbiamo visto che possiamo creare più oggetti (utente1 e utente2) definendo due object literals identici
+- Per ottimizziare il codice e rispettare il principio *DRY* abbiamo condiviso un unico metodo speak tra i due oggetti
+- Tuttavia non è ancora ottimale dover ridefinire l'object literal per ogni oggetto utente che si vuole creare (pensiamo a 1000 utenti)
+- Per risolvere questo problema JS mette a disposizione il concetto di `costruttore`
+- Il costruttore di un oggetto permette di condividere in modo metodi e attributi tra oggetti diversi
+  
+--- #slide N
+ 
+# JS Objects
+
+- Il `costruttore` è una funzione che crea un oggetto ed assegna attributi e metodi
+- Una volta definito il costruttore è possibile *costruire* o instanziare un numero qualsiasi di oggetti identici (nella struttura e non nei dati)
+
+<br>
+
+```js
+let Utente = function(nome, cognome) {
+    this.nome = nome,
+    this.cognome = cognome,
+    this.speak = function () { 
+        console.log(`Ciao io sono l'utente ${this.nome} ${this.cognome}`);
+    }
+}
+```
+
+<br>
+
+- In questo modo abbiamo definito il costruttore dell'oggetto Utente
+- In JS per convenzione il nome del costruttore inizia con una lettera Maiuscola
+
+--- #slide N
+ 
+# JS Objects
+
+- Ora che abbiamo il costruttore, passiamo all'instanziazione di oggetti tramite la keywotd `new`
+
+<br>
+
+```js
+let utente1 = new Utente("Mario", "Rossi");
+let utente2 = new Utente("Giuseppe", "Verdi"); 
+```
+
+<br>
+
+- Questi due oggetti hanno esattamente la stessa struttura, due attributi ed un metodo, ma ovviamente durante l'instanziazione abbiamo assegnato valori differenti
+
+<br>
+
+```js
+>utente1.speak()
+Ciao io sono l'utente Mario Rossi
+
+>utente2.speak()
+Ciao io sono l'utente Giuseppe Verdi
+```
+
+--- #slide N
+
+# JS Objects
+
+- Un'importante caratteristica della OOP è la possibilità di estendere oggetti esistenti con metodi propri
+- In JS per aggiungere un metodo ad un costruttore esistente si utilizza la keywork `prototype`
+- Tutti i costruttori anno la proprietà *prototype* a cui è possibile aggiungere nuovi metodi
+- Vediamo come aggiungere un metodo che rende nome e cognome tutti maiuscoli
+  
+```js
+const upper = function () {
+    this.nome = this.nome.toUpperCase();
+    this.cognome = this.cognome.toUpperCase();
+}
+
+Utente.prototype.maiuscolo = upper;
+
+> utente1.speak()
+Ciao io sono l'utente Mario Rossi
+
+> utente1.maiuscolo()
+> utente1.speak()
+Ciao io sono l'utente MARIO ROSSI
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- OOP definisce il concetto di `classe` come un template per creare successivamente oggetti tutti aventi le stesse priprietà
+- Quindi il *costruttore* e il *prototype* di JS sono qualcosa di molto simile
+- Tuttavia JS mette a disposizione anche il concetto e la keyword `class` per creare delle classi da cui si instanzieranno degli oggetti simili
+- La sintassi è la seguente:
+  
+<br>
+
+```js
+class MyClass {
+  constructor() { ... }
+  metodo1() { ... }
+  metodo2() { ... }
+  .....
+  metodoN() { ... }
+}
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Vediamo come implementare l'esempio precedente con una classe
+
+```js
+class Utente {
+    constructor(nome, cognome) {
+        this.nome = nome;
+        this.cognome = cognome;
+    }
+
+    speak() { 
+        console.log(`Ciao io sono l'utente ${this.nome} ${this.cognome}`);
+    }
+
+    maiuscolo() {
+        this.nome = this.nome.toUpperCase();
+        this.cognome = this.cognome.toUpperCase();
+    }
+}
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Ora instanziamo i due oggetti utente1 e utente2 come negli esempi precedenti
+
+<br>
+
+```js
+let utente1 = new Utente("Mario", "Rossi");
+let utente2 = new Utente("Giuseppe", "Verdi");
+
+> utente1.speak()
+Ciao io sono l'utente Mario Rossi
+
+> utente1.maiuscolo()
+> utente1.speak()
+Ciao io sono l'utente MARIO ROSSI
+
+> utente2.speak()
+Ciao io sono l'utente Giuseppe Verdi
+
+> utente2.maiuscolo()
+> utente2.speak()
+Ciao io sono l'utente GIUSEPPE VERDI
+```
+
+--- #slide N
+ 
+# JS Objects
+
+- Quindi il costrutto della classe è un modo elegante ed in linea con i principi OOP per creare un costruttore, degli attributi e dei metodi
+- In effetti quello che avviene all'interno del motore JS quando definiamo una classe è esattamente quanto visto prima con *costruttore* e *prototype*
+
+<img src="/media/js16.png" class="mx-auto my-8 w-150" />
+
+--- #slide N
+ 
+# Esercizio js_10
+
+JS Objects
+
+- Per svolgere l'esercizio 10 è necessario utilizzare un form
+- Vediamo qui il classico modo di processare il form client-side e non server-side
+
+<br>
+
+```html
+<form id="<id form>">
+  	.....
+  	<input type="submit" value="Submit" onclick="process_form()">
+</form>
+```
+<br>
+
+- collego un *event handler* chiamato process_form all'evento click sul pulsante submit del form
+
+--- #slide N
+ 
+# Esercizio js_10
+
+JS Objects
+
+- Ora inibisco il normale funzionamento del form per gestirlo client-side e non server-side
+- Aggiungo un event handler all'inizio del file .js
+
+<br>
+
+```js
+// aggiunge un handler all'evento DOMContentLoaded
+// che viene generato quando la pagina HTML ha terminato il suo caricamento
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // ricata l'oggetto DOM del form
+    let form_utente = document.getElementById(<id form>);
+    
+    //aggiunge un handler all'evento submit del form
+    //in modo da inibire il normale funzionamento (invio del form verso il server)
+    form_utente.addEventListener("submit", function(event) {
+        event.preventDefault();
+    }); 
+});
+```
+
+--- #slide N
+ 
+# Esercizio js_10
+
+JS Objects
+
+- Infine definisco l'event_handler per il processamento del form
+
+<br>
+
+```js
+//processa il form quando l'utente preme submit
+function process_form() {
+  console.log("process form");
+  form = document.forms[< form><];
+  console.log(form.elements[<id elemento form>].value);
+}
+```
+
+<br>
+
+- In questo modo quando l'utente preme il pulsante submit del form, il form stesso non sarà inviato al server ***event.preventDefault()***
+- Nell'handler di processamento del form posso accedere ai vari campi del form <br> ***form.elements[&lt;id elemento form&gt;].value***
+- Questo è il classico modo di processare un form lato client-side grazie a JS
+  
+
+--- #slide N
+ 
+# Esercizio js_10
+
+JS Objects
+
+1. Creare una pagina HTML e JS contenente un form di registrazione utente
+2. Il form deve contener ei seguenti campi
+   1. nome
+   2. cognome
+   3. età
+   4. colore dei capelli
+3. Alla pressione del pulsante submit, il codice deve:
+   - Creare un oggetto vuoto di nome **User** con i relativi attributi valorizzati con i valori inseriti nel form
+   - Definire un metodo dell'oggetto chiamato **descrivi**
+   - Scandire dinamicamente tutte le proprietà dell'oggetto ed aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà letta
+
+--- #slide N
+ 
+# Esercizio js_10
+
+JS Objects
+
+   - Invocare il metodo *descrivi* che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
+   - Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
+4. Fornire il link github al file con nome *|cognome|_esercizio_js_10.html*  e *|cognome|_esercizio_js_10.js*
+ 
 ---
+ 
+# Array
 
-# xxxx
+Definizione 
 
-yyyy
+- Un array è una struttura dati che permette di rappresentare una collezione ordinata di valori
+- In JS, al contrario di molti altri linguaggi (C/C++), un array può essere una collezione non omogenea di valori. Questa flessibilità è di grande utilità in molti casi
+- Pertanto si può avere un array di interi, un array di stringhe, un array di interi e stringe, un array di oggetti, etc...
+- Vediamo come si dichiara un array in JS
 
-- ss
+
+```js   
+let frutti = new Array(); // dichiara un array vuoto
+let frutti = []; // dichiara un array vuoto
+```
+
+- Normalmente in JS si utilizza la seconda notazione in quanto più compatta e veloce
+- E' anche comune assegnare dei valori all'array durante la dichiarazione
+
+```js
+let frutti = ["mele", "pere", "ciliegie"]; //array omogeneo di stringhe
+let numeri = [1, 2, 5, 9, 3]; //array omogeneo di numeri
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; //array non omogeneo di stringhe e numeri
+```
 
 ---
+ 
+# Array
+
+Accesso 
+
+- In JS l'accesso agli elementi di un array avviene per indice
+- `Gli array partono dall'indice  0`
+
+<br>
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+> console.log(frutti_numeri[0]);
+1
+
+> console.log(frutti_numeri[3]);
+pere
+
+> console.log(frutti_numeri[5]);
+ciliegie
+
+```  
+
+---
+ 
+# Array
+
+Modifica di un array
+
+- Gli elementi di un array possono essere modificati con una semplice assegnazione
+
+<br>
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+console.log(frutti_numeri)
+[ 1, 'mele', 2, 'pere', 5, 'ciliegie' ]
+
+frutti_numeri[0] = "nespole";
+frutti_numeri[1] = 18;
+
+> console.log(frutti_numeri)
+[ 'nespole', 18, 2, 'pere', 5, 'ciliegie' ]
+```
+
+---
+ 
+# Array
+
+Aggiungere elementi
+
+- L'aggiunta di nuovi elementi all'array avviene tramite una semplice assegnazione
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+console.log(frutti_numeri)
+[ 1, 'mele', 2, 'pere', 5, 'ciliegie' ]
+
+frutti_numeri[6] = "nespole";
+frutti_numeri[7] = "fragole";
+frutti_numeri[8] = 32;
+
+
+> console.log(frutti_numeri)
+[ 1, 'mele', 2, 'pere', 5, 'ciliegie', 'nespole', 'fragole', 32 ]
+```
+
+---
+ 
+# Array
+
+Lunghezza di un array
+
+- Per conoscere la lunghezza di un array si può utilizzare la proprietà `length` dell'oggetto Array
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+>console.log(`L'array contiene ${frutti_numeri.length} elementi`);
+L'array contiene 6 elementi
+```
+
+- Un modo per scandire tutti gli elementi di un array (in stile C/C++ ma poco orientato allo stile JS) è:
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+for(let i = 0; i < frutti_numeri.length; i++)
+    console.log(`L'elemento [${i}] dell'array contiene ${frutti_numeri[i]}`);
+
+L'elemento [0] dell'array contiene 1
+L'elemento [1] dell'array contiene mele
+L'elemento [2] dell'array contiene 2
+L'elemento [3] dell'array contiene pere
+L'elemento [4] dell'array contiene 5
+L'elemento [5] dell'array contiene ciliegie
+```
+
+---
+ 
+# Array
+
+Accesso a specifici elementi
+
+- Spesso è utili accedere a specifici elementi di un array, o meglio ad elementi in una specifica posizione
+- Per esempio è utile accedere al primo elemento o all'ultimo elemento di un array oppure al 3 elemento di un array
+- In questi casi ci in soccorso il metodo `at(<indice>)` dell'oggetto Array
+- Il metodo ***at(&lt;indice&gt;)*** restituisce l'elemento dell'array presente alla posizione *indice*
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+>console.log(frutti_numeri.at(0));
+1
+>console.log(frutti_numeri.at(1));
+mele
+
+>console.log(frutti_numeri[frutti_numeri.length - 1]); //accede all'ultimo elemento dell'array
+ciliegie
+
+>console.log(frutti_numeri.at(frutti_numeri.length - 1); //accede all'ultimo elemento dell'array
+ciliegie
+```
+
+---
+ 
+# Array
+
+- Pertanto, fino ad ora, il metodo *at* è uguale all'accesso per indice all'array
+- Tuttavia questo è vero solo per indici positivi. 
+- Ma cosa succede se l'indice di accesso è negativo?
+
+<br>
+
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+>console.log(frutti_numeri[-1]);
+undefine
+
+>console.log(frutti_numeri.at(-1)); // accede all'ultimo elemento dell'array
+ciliegie
+```
+
+<br>
+
+- Pertanto per indici positivi .at() è uguale ad array[i]
+- Per indici negativi .at() parte a contare dall fondo dell'array
+- Quindi *.at(-1)* restituisce l'ultimo elemento dell'array
+- Quindi *.at(-2)* restituisce il penultimoe elemento dell'array
+
+<img src="/media/js17.png" width="350" style="float:right; position: relative; bottom: 120px;"/>
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
+
+---
+ 
+# Array
+
+- x
 
 
 
