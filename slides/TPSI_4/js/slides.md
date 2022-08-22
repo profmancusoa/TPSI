@@ -4314,47 +4314,16 @@ JS Objects
 
 Definizione 
 
-- Un array è una struttura dati che permette di rappresentare una collezione di valori (omogenei)
-
-<br>
-<div  style="margin-left: 25%;">
-<img src="/media/js18.png" width="350" style="display:inline;"/> Array di interi <br>
-<img src="/media/js19.png" width="350" style="display:inline;"/> Array di float <br>
-<img src="/media/js20.png" width="350" style="display:inline;"/> Array di stringhe <br>
-<img src="/media/js21.png" width="350" style="display:inline;"/> Array di frutti <br>
-<img src="/media/js22.png" width="350" style="display:inline;"/> Array di macchine <br>
-</div>
-
----
- 
-# Array
-
-Definizione 
-
-- In JS, al contrario di molti altri linguaggi (C/C++), un array può essere una collezione non omogenea di valori. Questa flessibilità è di grande utilità in molti casi. Pertanto si può avere un array di interi, un array di stringhe, un array di interi e stringe, un array di oggetti diversi...
-
-<br>
-<div  style="margin-left: 25%;">
-<img src="/media/js23.png" width="350" style="display:inline;"/> Array di interi e stringhe <br>
-<img src="/media/js24.png" width="350" style="display:inline;"/> Array di interi e frutti <br>
-<img src="/media/js25.png" width="350" style="display:inline;"/> Array di frutti e macchine <br>
-<img src="/media/js26.png" width="350" style="display:inline;"/> Array di frutti, macchine e stringhe <br>
-</div>
-
----
- 
-# Array
-
-Definizione 
-
+- Un array è una struttura dati che permette di rappresentare una collezione ordinata di valori
+- In JS, al contrario di molti altri linguaggi (C/C++), un array può essere una collezione non omogenea di valori. Questa flessibilità è di grande utilità in molti casi
+- Pertanto si può avere un array di interi, un array di stringhe, un array di interi e stringe, un array di oggetti, etc...
 - Vediamo come si dichiara un array in JS
+
 
 ```js   
 let frutti = new Array(); // dichiara un array vuoto
 let frutti = []; // dichiara un array vuoto
 ```
-
-<br>
 
 - Normalmente in JS si utilizza la seconda notazione in quanto più compatta e veloce
 - E' anche comune assegnare dei valori all'array durante la dichiarazione
@@ -4375,20 +4344,18 @@ Accesso
 - `Gli array partono dall'indice  0`
 
 <br>
-<img src="/media/js27.png" width="450" style="display:inline;"/>
-<br>
 
 ```js
-let frutti_numeri = [1, "mela", 2, "uva", 5, "fragola"]; 
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
 
 > console.log(frutti_numeri[0]);
 1
 
 > console.log(frutti_numeri[3]);
-uva
+pere
 
 > console.log(frutti_numeri[5]);
-fragola
+ciliegie
 
 ```  
 
@@ -4442,169 +4409,31 @@ frutti_numeri[8] = 32;
  
 # Array
 
-Aggiungere e rimuovere elementi
-
-- E' possibile poter aggiungere/eliminare un elemento ad un array tramite un metodo.
-- JS definisce due metodo apposit:
-  - `array.push(<elemento/i>)`: aggiunge uno o più elementi in coda all'array e resitituisce la lunghezza complessiva dell'array  
-  - `array.pop()`: rimuove e restituisce l'ultimo elemento dell'array riducendo la lunghezza di 1
-
-<img src="/media/js28.png" width="400" style="display:inline; position:relative; top: -10px;"/>
-<img src="/media/js29.png" width="400" style="display:inline; position:relative; top: 10px;"/>
-
-<p>&nbsp;</p>
-
-- Questi due metodi permettono di implementare facilmente la struttura dati chiamata `stack`
-
---- 
-
-# Array 
-
-Aggiungere e rimuovere elementi
-
-```js
-let parola = ['h', 'e', 'l', 'l', 'o']; 
-
-console.log(parola);
-['h', 'e', 'l', 'l', 'o']
-
-parola.push(' '); //aggiungo in coda il carattere spazio
-parila.push('w'); //aggiungo in coda il carattere w
-
-console.log(parola);
-['h', 'e', 'l', 'l', 'o', ' ', 'w']
-
-parola.push('o', 'r', 'l', 'd'); //aggiungo in coda i caratteri o - r - l - d
-
-console.log(parola);
-['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'  ]
-
-```
-
---- 
-
-# Array 
-
-Aggiungere e rimuovere elementi
-
-```js
-parola.pop(); //rimuovo l'ultimo elemento dell'array - d 
-parola.pop(); //rimuovo l'ultimo elemento dell'array - l
-parola.pop(); //rimuovo l'ultimo elemento dell'array - r
-
-console.log(parola);
-['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o']
-
-let lungh = parola.push('r'); //aggiungo un carattere e restitiuscie la lunghezza dell'array
-console.log(lung)
-9
-
-lungh = parola.push('l', 'd'); //aggiungo altri due caratteri
-console.log(lung)
-11
-
-let carattere = parola.pop(); //prelevo l'ultimo elemento dell'array
-console.log(carattere);
-d
-console.log(parola);
-['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l']
-
-```
-
---- 
-
-# Array
-
-Aggiungere e rimuovere elementi
-
-- Un'altra struttura dati fondamentale nei sistemi IT è la `coda FIFO`
-- Al contrario dello *stack*, in cui l'ultimo elemento inserito è il primo ad uscire (LIFO), nella cosa FIFO l'ultimo elemento inserito è l'ultimo ad uscire, o meglio il primo ad entrare è il primo ad uscire
-
-<div  style="display: flex; justify-content: center;">
-<img src="/media/js31.png" width="700"  />
-</div>
-
---- 
-
-# Array
-
-Aggiungere e rimuovere elementi
-
-- Anche la coda FIFO è facilmente implementabile in JS, tramite il metodo `.shift()` che preleva,rimuove e restituisce il primo elemento di un arry
-- Dopo uno *shift* il secondo elemento diventa il primo
-- Quindi per implementare una coda FIFO usiamo il metodo *push()* per aggiungere un elemento al fondo della coda e il metodo *shift()* per prelevare l'elemento in cima alla coda
-
-```js
-let coda = ['mario', 'giovanna', 'elena', 'marco'];
-coda.push('ultimo');
-['mario', 'giovanna', 'elena', 'marco', 'ultimo']
-
-coda.shift();
-['giovanna', 'elena', 'marco', 'ultimo']
-
-coda.shift();
-['elena', 'marco', 'ultimo']
-
-coda.push('albertino');
-['elena', 'marco', 'ultimo', 'albertino']
-
-```
---- 
-
-# Array
-
-Aggiungere e rimuovere elementi
-
-- Ma se vogliamo aggiungere un elemento all'inizio dell'array?
-- Niente paura il metodo `.unshift()` fà al caso nostro. Infatto **unshift()**  aggiunge uno o più elementi all'inzio dell'array
-
-```js
-let coda = ['mario', 'giovanna', 'elena', 'marco'];
-
-coda.unshift('primo');
-['primo', 'mario', 'giovanna', 'elena', 'marco'];
-
-coda.unshift('primissimo', 'primino')
-['primissimo', 'primino', 'primo', 'mario', 'giovanna', 'elena', 'marco'];
-```
-
-<br>
-
-- Possiamo quindi osservare che
-  - **shift()** è il complementare di **pop()**
-  - **unshift()** è il complementare di **push()**
-
-<div  style="display: flex; justify-content: center;">
-<img src="/media/js33.png" width="300" style="position:relative; top: -100px; left: 200px;" />
-</div>
-
----
- 
-# Array
-
 Lunghezza di un array
 
 - Per conoscere la lunghezza di un array si può utilizzare la proprietà `length` dell'oggetto Array
 
-<br>
+```js
+let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
+
+>console.log(`L'array contiene ${frutti_numeri.length} elementi`);
+L'array contiene 6 elementi
+```
+
+- Un modo per scandire tutti gli elementi di un array (in stile C/C++ ma poco orientato allo stile JS) è:
 
 ```js
 let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
 
-> console.log(`L'array contiene ${frutti_numeri.length} elementi`); 
-L'array contiene 6 elementi
-```
+for(let i = 0; i < frutti_numeri.length; i++)
+    console.log(`L'elemento [${i}] dell'array contiene ${frutti_numeri[i]}`);
 
-<br>
-
-- Nota la stringa è racchiusa tra backtick <mark>`</mark> e non virgolette **"** 
-- In questo modo posso inserire nella stringa una variabile o un metodo
-
-<br>
-
-```js
-> console.log(`Gli elementi dell'array sono [${frutti_numeri}]`);
-Gli elementi dell'array sono [1,mele,2,pere,5,ciliegie]
+L'elemento [0] dell'array contiene 1
+L'elemento [1] dell'array contiene mele
+L'elemento [2] dell'array contiene 2
+L'elemento [3] dell'array contiene pere
+L'elemento [4] dell'array contiene 5
+L'elemento [5] dell'array contiene ciliegie
 ```
 
 ---
@@ -4614,11 +4443,9 @@ Gli elementi dell'array sono [1,mele,2,pere,5,ciliegie]
 Accesso a specifici elementi
 
 - Spesso è utili accedere a specifici elementi di un array, o meglio ad elementi in una specifica posizione
-- Per esempio è utile accedere al primo o all'ultimo elemento di un array oppure al 3 elemento di un array
-- In questi casi, ci viene in soccorso il metodo `at(<indice>)` dell'oggetto Array
+- Per esempio è utile accedere al primo elemento o all'ultimo elemento di un array oppure al 3 elemento di un array
+- In questi casi ci in soccorso il metodo `at(<indice>)` dell'oggetto Array
 - Il metodo ***at(&lt;indice&gt;)*** restituisce l'elemento dell'array presente alla posizione *indice*
-
-<br>
 
 ```js
 let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
@@ -4629,6 +4456,9 @@ let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"];
 mele
 
 >console.log(frutti_numeri[frutti_numeri.length - 1]); //accede all'ultimo elemento dell'array
+ciliegie
+
+>console.log(frutti_numeri.at(frutti_numeri.length - 1); //accede all'ultimo elemento dell'array
 ciliegie
 ```
 
@@ -4659,114 +4489,24 @@ ciliegie
 - Quindi *.at(-1)* restituisce l'ultimo elemento dell'array
 - Quindi *.at(-2)* restituisce il penultimoe elemento dell'array
 
-<img src="/media/js30.png" width="380" style="float:right; position: relative; bottom: 120px;"/>
+<img src="/media/js17.png" width="350" style="float:right; position: relative; bottom: 120px;"/>
+---
+ 
+# Array
+
+- x
 
 ---
  
 # Array
 
-Iterazione di un Array
-
-- Una tipica operazione che si vuole effettuare su un Array è la sua `iterazione`, cioè la scansione di tutti i suoi elementi e l'eventuale esecuzione di un operazione per ogni elemento
-- Un modo per iterare tutti gli elementi di un array (in stile C/C++ ma poco orientato allo stile JS) è:
-
-<br>
-
-```js
-let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
-
-for(let i = 0; i < frutti_numeri.length; i++)
-    console.log(`L'elemento [${i}] dell'array contiene ${frutti_numeri[i]}`);
-
-L'elemento [0] dell'array contiene 1
-L'elemento [1] dell'array contiene mele
-L'elemento [2] dell'array contiene 2
-L'elemento [3] dell'array contiene pere
-L'elemento [4] dell'array contiene 5
-L'elemento [5] dell'array contiene ciliegie
-```
+- x
 
 ---
  
 # Array
 
-Iterazione di un Array
-
-- Un metodo più pratico e in stile JS è quello di utilizzare un nuovo tipo di ciclo tramite il metodo `.forEach`
-- Il metodo ***.forEach()*** esegue una specifica funzione per ogni elemento dell'array, senza la necessità di conoscerne la sua dimensione
-- In generale forEach() è applicabile a qualsiasi oggetto o struttura dati iterabile
-
-<br>
-
-```js
-let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
-
-frutti_numeri.forEach(elemento => {
-    console.log(`L'elemento N dell'array contiene ${elemento}`);
-});
-
-L'elemento N dell'array contiene 1
-L'elemento N dell'array contiene mele
-L'elemento N dell'array contiene 2
-L'elemento N dell'array contiene pere
-L'elemento N dell'array contiene 5
-L'elemento N dell'array contiene ciliegie
-```
-
----
- 
-# Array
-
-Iterazione di un Array
-
-- Ma come conosciamo anche l'indice dell'elemento nell'array?
-- Facile, basta includerlo nei parametri della arrow function
-
-```js
-let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
-
-frutti_numeri.forEach((elemento,i) => {
-    console.log(`L'elemento [${i}] dell'array contiene ${elemento}`);
-});
-
-L'elemento [0] dell'array contiene 1
-L'elemento [1] dell'array contiene mele
-L'elemento [2] dell'array contiene 2
-L'elemento [3] dell'array contiene pere
-L'elemento [4] dell'array contiene 5
-L'elemento [5] dell'array contiene ciliegie
-```
-
-- Quindi per ogni elemento dell'array abbiamo eseguito una funzione anonima che stampa sulla console
-- Ovviamente la funzione può essere complessa a piacere
-  
----
- 
-# Array
-
-Iterazione di un Array
-
-- Ovviamente avremmo anche potuto usare una funzione esplicita, poco in stile JS ma assolutamente valido
-
-```js
-function stampa_elemento(elemento, i) {
-    console.log(`L'elemento [${i}] dell'array contiene ${elemento}`);
-}
-let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"]; 
-
-frutti_numeri.forEach(stampa_elemento);
-
-L'elemento [0] dell'array contiene 1
-L'elemento [1] dell'array contiene mele
-L'elemento [2] dell'array contiene 2
-L'elemento [3] dell'array contiene pere
-L'elemento [4] dell'array contiene 5
-L'elemento [5] dell'array contiene ciliegie
-```
-
-- Come linea guida: 
-  - Se la funzione da eseguire per ogni elemento è breve allora usiamo una funzione anonima
-  - Se è più lunga allora possiamo usare una funzione esplicita (magari contenuta in un file seprato) 
+- x
 
 ---
  
