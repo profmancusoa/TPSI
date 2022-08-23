@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.3"
+version: "1.0.5"
 ---
 
 # JavaScript
@@ -4337,35 +4337,34 @@ Definizione
 
 I principlai metodi
 
-Qui la lista dei principlai metodi degli array che studieremo:
+Qui la lista dei principlai metodi degli array che studieremo (ci sono 39 metodi in totale):
 
 <div class="grid grid-cols-3 grid-rows-9 gap-4" style="padding: 20px; margin-left:15%;">
-<div style="font-weight:bolder;">WQat()</div>
+<div style="font-weight:bolder;">at()</div>
 <div style="font-weight:bolder;">concat()</div>
 <div style="font-weight:bolder;">every()</div>
 <div style="font-weight:bolder;">fill()</div>
-<div style="font-weight:bolder;">WQfilter()</div>
-<div style="font-weight:bolder;">WQfind()</div>
-<div style="font-weight:bolder;">WQfindIndex()</div>
+<div style="font-weight:bolder;">filter()</div>
+<div style="font-weight:bolder;">find()</div>
+<div style="font-weight:bolder;">findIndex()</div>
 <div style="font-weight:bolder;">flat()</div>
-<div style="font-weight:bolder;">WQforEach()</div>
-<div style="font-weight:bolder;">WQfrom()</div>
-<div style="font-weight:bolder;">WQincludes()</div>
-<div style="font-weight:bolder;">WQindexOf()</div> 
-<div style="font-weight:bolder;">isArray()</div>
-<div style="font-weight:bolder;">WQjoin()</div>
-<div style="font-weight:bolder;">WQlastIndexOf()</div>
+<div style="font-weight:bolder;">forEach()</div>
+<div style="font-weight:bolder;">from()</div>
+<div style="font-weight:bolder;">includes()</div>
+<div style="font-weight:bolder;">indexOf()</div> 
+<div style="font-weight:bolder;">join()</div>
+<div style="font-weight:bolder;">lastIndexOf()</div>
 <div style="font-weight:bolder;">map()</div>
-<div style="font-weight:bolder;">WQpop()</div>
-<div style="font-weight:bolder;">WQpush()</div>
+<div style="font-weight:bolder;">pop()</div>
+<div style="font-weight:bolder;">push()</div>
 <div style="font-weight:bolder;">reduce()</div>
-<div style="font-weight:bolder;">WQreverse()</div>
-<div style="font-weight:bolder;">WQshift()</div>
+<div style="font-weight:bolder;">reverse()</div>
+<div style="font-weight:bolder;">shift()</div>
 <div style="font-weight:bolder;">slice()</div>
-<div style="font-weight:bolder;">WQsome()</div>
+<div style="font-weight:bolder;">some()</div>
 <div style="font-weight:bolder;">sort()</div>
 <div style="font-weight:bolder;">splice()</div>
-<div style="font-weight:bolder;">WQunshift()</div>
+<div style="font-weight:bolder;">unshift()</div>
 </div>
 
 ---
@@ -5422,60 +5421,648 @@ console.log("Numeri contine 8?", numeri.includes(8));
 
 # Array
 
-- x
+Sostituire valori in un array: fill()
+
+`fill(valore, inizio, fine)`
+
+***cambia tutti gli elementi in un array in un valore statico, da un indice iniziale (predefinito 0) a un indice finale (predefinito array.length). Restituisce l'array modificato***
+
+<br>
+
+```js
+let numeri = [1, 2, 3, 4, 5];
+
+console.log("Array di tutti 6:", numeri.fill(6));
+> Array di tutti 6: [ 6, 6, 6, 6, 6 ]
+
+let cinque_zero = Array(5).fill(0);
+
+console.log("Array di cinque zero:", cinque_zero);
+> Array di cinque zero: [ 0, 0, 0, 0, 0 ]
+```
+
+---
+
+# Array
+
+Concatenare array: concat()
+
+`concat(array)`
+
+***viene utilizzato per unire due o più array. Questo metodo non modifica gli array esistenti, ma restituisce invece un nuovo array***
+
+<br>
+
+```js
+let num_pari = [2, 4, 6, 8];
+let num_dispari = [1, 3, 5, 7, 9];
+let num_pari_dispari = num_pari.concat(num_dispari);
+
+console.log("Numeri pari:", num_pari);
+> Numeri pari: [ 2, 4, 6, 8 ]
+
+console.log("Numeri dispari:", num_dispari);
+> Numeri dispari: [ 1, 3, 5, 7, 9 ]
+
+console.log("Numeri pari e dispari:", num_pari_dispari);
+>Numeri pari e dispari: [ 2, 4, 6, 8, 1, 3, 5, 7, 9 ]
+```
 
 
 ---
 
 # Array
 
-- x
+Ordinare un array: sort()
 
+`sort(function compareFn(a, b))`
 
----
+***ordina gli elementi di un array in posizione e restituisce il riferimento allo stesso array ordinato. L'ordinamento predefinito è crescente, basato sulla conversione degli elementi in stringhe. E' possibile specificare una specifica funzione comparatrice per ordinamenti custom***
 
-# Array
+<br>
 
-- x
+```js
+let numeri = [3, 5, 1, 7, 2, 9];
 
+console.log("Numeri disordinati;", numeri);
+> Numeri disordinati; [ 3, 5, 1, 7, 2, 9 ]
 
----
+numeri.sort();
 
-# Array
-
-- x
-
-
----
-
-# Array
-
-- x
-
+console.log("Numeri ordinati;", numeri);
+> Numeri ordinati; [ 1, 2, 3, 5, 7, 9 ]
+```
 
 ---
 
 # Array
 
-- x
+Ordinare un array: sort()
 
+`sort(function compareFn(a, b))`
+
+<br>
+
+```js
+let mesi = ["Marzo", "Giugno", "Gennaio", "Dicembre", "Aprile"];
+
+console.log("Mesi dell'anno:", mesi.sort());
+> Mesi dell'anno: [ 'Aprile', 'Dicembre', 'Gennaio', 'Giugno', 'Marzo' ]
+```
+
+<br>
+
+- L'ordinamento avviene in ordine crescente delle stringhe, quindi D viene prima di G, perciò Dicembre viene prima di Gennaio
+   
+---
+
+# Array
+
+Ordinare un array: sort()
+
+`sort(function compareFn(a, b))`
+
+- Come descritto inizialmente è possibile specificare una funzione comparatrice per implementare ordinamenti ad hoc.
+- La funzione ha questa struttura
+
+```js
+function confronta(a, b) {
+    if (a è minore di b in base ad un criterio) {
+      return <valore minore di 0>;
+    }
+    if (a è maggiore di b in base ad un criterio) {
+      return <valore maggiore di 0>
+    }
+
+    if (a è uguale a b in base a dun criterio) {
+        return 0;
+    }
+}
+```
+ 
+---
+
+# Array
+
+Ordinare un array: sort()
+
+`sort(function compareFn(a, b))`
+
+```js
+let numeri = [3, 5, 1, 7, 2, 9];
+
+console.log("Numeri disordinati;", numeri);
+> Numeri disordinati; [ 3, 5, 1, 7, 2, 9 ]
+
+numeri.sort((a, b) => {
+  return a - b; // ordine crescente
+});
+
+console.log("Numeri ordinati;", numeri);
+> Numeri ordinati; [ 1, 2, 3, 5, 7, 9 ]
+
+numeri.sort((a, b) => {
+  return b - a; // ordinamento descrescente
+});
+
+console.log("Numeri ordinati;", numeri);
+> Numeri ordinati; [ 9, 7, 5, 3, 2, 1 ]
+```
 
 ---
 
 # Array
 
-- x
+Ordinare un array: sort()
 
+`sort(function compareFn(a, b))`
+
+```js
+let studenti = [
+  { nome: "Marco", classe: 1, eta: 17 },
+  { nome: "Alex", classe: 3, eta: 15 },
+  { nome: "William", classe: 4, eta: 18 },
+  { nome: "Gino", classe: 4, eta: 14 },
+];
+
+let studenti_per_eta = studenti.sort((s1, s2) => s1.eta - s2.eta);
+
+console.log("Studenti ordinati per età:", studenti_per_eta);
+> Studenti ordinati per età: [
+>     { nome: 'Gino', classe: 4, eta: 14 },
+>     { nome: 'Alex', classe: 3, eta: 15 },
+>     { nome: 'Marco', classe: 1, eta: 17 },
+>     { nome: 'William', classe: 4, eta: 18 }
+> ]
+```
 
 ---
 
 # Array
 
-- x
+Ordinare un array: sort()
 
+`sort(function compareFn(a, b))`
+
+```js
+let studenti = [
+  { nome: "Marco", classe: 1, eta: 17 },
+  { nome: "Alex", classe: 3, eta: 15 },
+  { nome: "William", classe: 4, eta: 18 },
+  { nome: "Gino", classe: 4, eta: 14 },
+];
+
+let studenti_per_classe = studenti.sort((s1, s2) => s1.classe - s2.classe);
+
+console.log("Studenti ordinati per classe:", studenti_per_classe);
+> Studenti ordinati per classe: [
+>     { nome: 'Marco', classe: 1, eta: 17 },
+>     { nome: 'Alex', classe: 3, eta: 15 },
+>     { nome: 'Gino', classe: 4, eta: 14 },
+>     { nome: 'William', classe: 4, eta: 18 }
+> ]
+```
 
 ---
 
 # Array
 
+Affettare un array: slice()
+
+`slice(inizio, fine)`
+
+***restituisce una copia shallow di una porzione di un array in un nuovo oggetto array selezionato dall'indice inizio fino all'indice fine (non incluso). L'array originale non verrà modificato***
+
+```js
+let numeri = [1, 3, 5, 7, 9, 11];
+let numeri_copia = numeri.slice(); // metodo preferito in JS per un deep copy
+
+console.log("Numeri:", numeri);
+> Numeri: [ 1, 3, 5, 7, 9, 11 ]
+
+console.log("Numeri copia:", numeri_copia);
+> Numeri copia: [ 1, 3, 5, 7, 9, 11 ]
+
+console.log("Numeri dall'indice 3 alla fine:", numeri.slice(3));
+> Numeri dall'indice 3 alla fine: [ 7, 9, 11 ]
+
+console.log("Numeri dall'indice 1 al 4 escludo:", numeri.slice(1, 4));
+> Numeri dall'indice 1 al 4 escludo: [ 3, 5, 7 ]
+```
+
+---
+
+# Array
+
+Manipolare in loco un array: splice()
+
+`splice(start, deleteCount, item1, ... , itemN)`
+
+***cambia il contenuto di un array rimuovendo o sostituendo elementi esistenti e/o aggiungendo nuovi elementi sul posto. Restituisce un array con gli elementi rimossi.***
+
+```js
+let numeri = [1, 3, 5, 7, 9, 11];
+let rimosso = numeri.splice(3); // rimuove gli elementi da indice 3 alla fine
+
+console.log("Array tagliato dall'indice 3 fino alla fine:", numeri);
+> Array tagliato dall'indice 3 fino alla fine: [ 1, 3, 5 ]
+
+console.log("Parte di array rimosso:", rimosso);
+> Parte di array rimosso: [ 7, 9, 11 ]
+```
+
+---
+
+# Array
+
+Manipolare in loco un array: splice()
+
+`splice(start, deleteCount, item1, ... , itemN)`
+
+```js
+let numeri = [1, 3, 5, 7, 9, 11];
+let rimosso = numeri.splice(3, 2); // rimuove 2 elementi a partire dall'indice 3
+
+console.log("Array tagliato dall'indice 3 per 2 elementi:", numeri);
+> Array tagliato dall'indice 3 per 2 elementi: [ 1, 3, 5, 11 ]
+
+console.log("Parte di array rimosso:", rimosso);
+> Parte di array rimosso: [ 7, 9 ]
+
+let numeri = [1, 4, 5, 7, 9, 11];
+
+// rimuove 0 elementi a partire dall'incice 1 ed inserisce gli elementi 2 e 3
+numeri.splice(1, 0, 2, 3); 
+
+console.log("Array tagliato dall'indice 3 fino alla fine:", numeri);
+> Array tagliato dall'indice 3 fino alla fine: [ 1, 2, 3,  4, 5, 7, 9, 11 ]
+```
+
+---
+
+# Array
+
+Mappare un array: map()
+
+`map(function(item, index))`
+
+***crea un nuovo array popolato con i risultati della chiamata di una funzione eseguita per ogni elemento dell'array***
+
+```js
+let numeri = [1, 3, 5, 7, 9, 11];
+let numeri_doppi = numeri.map((numero) => numero * 2);
+
+console.log("Numeri:", numeri);
+> Numeri: [1, 3, 5, 7, 9, 11]
+
+console.log("Numeri doppi:", numeri_doppi);
+> Numeri doppi: [2, 6, 10, 14, 18, 22]
+```
+
+---
+
+# Array
+
+Mappare un array: map()
+
+`map(function(item, index))`
+
+<br>
+
+```js
+let magazzino = [
+  { prodtto: "laptop", valore: 1000, qty: 5 },
+  { prodtto: "PC", valore: 2000, qty: 3 },
+  { prodtto: "mouse", valore: 100, qty: 10 },
+];
+
+//calcolare il valore di ogni prodotto a magazzino (valore * qty)
+let valore_prodotti = magazzino.map((item) => item.valore * item.qty);
+
+console.log("Valore dei prodotti a magazzino:", valore_prodotti);
+> Valore dei prodotti a magazzino: [ 5000, 6000, 1000 ]
+```
+
+---
+
+# Array
+
+Ridurre un array: reduce()
+
+`reduce(function(accumulatore, currentValue), initialValue)`
+
+***esegue una funzione "riduttore" su ciascun elemento dell'array, passando il valore restituito dal calcolo sull'elemento precedente. 
+Il risultato finale dell'esecuzione del riduttore su tutti gli elementi dell'array è un valore singolo***
+
+<br>
+
+```js
+let numeri = [1, 2, 3, 4];
+
+//calcola la somma di tutti gli elementi dell'array
+let somma = numeri.reduce((acc, current) => acc + current, 0); // acc = acc + current
+
+console.log("La somma dei numeri è:", somma);
+> La somma dei numeri è: 10
+```
+
+---
+
+# Array
+
+Ridurre un array: reduce()
+
+`reduce(function(accumulatore, currentValue), initialValue)`
+
+<br>
+
+```js
+let numeri = [1, 2, 3, 4];
+
+//calcola la somma dei quadrati dei valori dell'array
+let quadrati = numeri.reduce((acc, current) => acc + Math.pow(current, 2), 0); // acc = acc + current^2
+
+console.log("La somma dei quadrati è:", quadrati);
+> La somma dei quadrati è: 30
+```
+
+---
+
+# Array
+
+Ridurre un array: reduce()
+
+`reduce(function(accumulatore, currentValue), initialValue)`
+
+<br>
+
+```js
+let magazzino = [
+  { prodtto: "laptop", valore: 1000, qty: 5 },
+  { prodtto: "PC", valore: 2000, qty: 3 },
+  { prodtto: "mouse", valore: 100, qty: 10 },
+];
+
+//calcola il valore complessivo del magazzino
+let totale_magazzino = magazzino.reduce((acc, current) => {
+  return acc + current.valore * current.qty;
+}, 0);
+
+console.log("Valore totale del magazzino:", totale_magazzino);
+> Valore totale del magazzino: 12000
+```
+
+--- 
+
+# Esercizio js_11
+
+Array
+
+1. Scrivere una funzione che dato un array in input, restituisca un array con gli elementi in ordine inverso, senza usare la funzione reverse
+
+```js
+IN: [1,2,3]
+
+OUT: [3,2,1]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11.js_
+
+--- 
+
+# Esercizio js_12
+
+Array
+
+1. Scrivere una funzione che dati due array in input, restituiscea un boolean che indica se gli array sono uguali o meno
+
+```js
+IN: [1,2,3 ], [1,2,3]
+
+OUT: true
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_12.js_
+
+
+--- 
+
+# Esercizio js_13
+
+Array
+
+1. Scrivere una funzione che forniti un numero N ed un carattere C, restiuisca un array di linghezza N composto da caratteri C
+
+```js
+IN: (3, 'a')
+
+OUT ['a', 'a', 'a']
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_13.js_
+
+
+--- 
+
+# Esercizio js_14
+
+Array
+
+1. Scrivere una funzione che dato un array e due indici N e M, sposti l'elemento in posizione N alla posizione M
+
+```js
+IN [10, 20, 30, 40, 50], 0, 2
+
+OUT [20, 30, 10, 40, 50]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_14.js_
+
+
+--- 
+
+# Esercizio js_15
+
+Array
+
+1. Scrivere una funzione che fornito un array numerico ed un numero N, restituisca un array in cui non è presente il numero N
+
+```js
+IN: [1,2,3,4], 3
+
+OUT: [1,2,4]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_15.js_
+
+
+--- 
+
+# Esercizio js_16
+
+Array
+
+1. Scrivere una funzione ordini in ordine descrecente di titolo questo array
+   
+```js
+  var library = [ 
+   { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+   { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+   { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+   ];
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_16.js_
+
+
+--- 
+
+# Esercizio js_17
+
+Array
+
+1. Scrivere una funzione che dato una stringa di lettere maiuscole e minuscole, restituisca un array composto solo dai caratteri maiuscoli della stringa
+   
+```js
+  IN "ccHEewLtfL2Oq sWrdsOgtvfdcRwLffDff"
+  
+  OUTPUT ['H','E','L','L','O','W','O','R','L','D']
+``` 
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_17.js_
+
+
+--- 
+
+# Esercizio js_18
+
+Array
+
+1. Scrivere una funzione che ricevuto un array di numeri, restituisca il prodotto dei quadrati
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_18.js_
+
+
+--- 
+
+# Esercizio js_19
+
+Array
+
+1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dai primi N elementi
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_19.js_
+
+
+--- 
+
+# Esercizio js_20
+
+Array
+
+1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dagli ultimi N elementi
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_20.js_
+
+--- 
+
+# Esercizio js_21
+
+Array
+
+1. Scrivere una funzione che dato un array di 100 elementi e un numero N, restituisca un array riempito con numeri interi casuali da 1 a 50 ed azzeri tutti gli elementi che sono multipli di N.
+
+```js
+IN [1, 5, 8, 10, 19, 20, ....., 50], N=5
+
+OUT [1, 0, 8, 0, 19, 0, ....., 0]
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_21.js_
+
+--- 
+
+# Esercizio js_22
+
+Array
+
+1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri
+   
+```js
+IN [1, 4, 7, 3, 11, 12, 20]
+
+OUT [7, 3, 11, 1, 4, 12, 20]
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_22.js_
+   
+--- 
+
+# Esercizio js_23
+
+Array
+
+1. Scrivere una funzione, che dato come parametro una stringa che rappresenta un numero binario di lunghezz aarbitraria, ne calcoli il suo valore espresso in decimale
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_23.js_
+
+--- 
+
+# Esercizio js_24
+
+Array
+
+1. Usando Math.floor(Math.random() * N): numero random tra 0 e N
+2. Scrivere una funzione che restituisce un array di caratteri casuali di lunghezza 7 scelti tra tra lettere minuscole e cifre decimali 
+3. Fornire il link github al file con nome _|cognome|\_esercizio_js_24.js_
+
+
+--- 
+
+# Esercizio js_25
+
+Array
+
+1. Scrivere una funzione, che dati come parametri un array di lunghezza N ed un indice M, restituisca un nuovo array in cui i sotto array 0-M e M+1-N-1 siano inveritti. 
+   
+```js
+IN [1,2,3,4,5,6,7] , 3 
+
+OUT [5,6,7, 1,2,3]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_25.js_
+
+--- 
+
+# Esercizio js_26
+
+Array
+
+1. Scrivere una funzione che dato un numero N, generi un array di N numeri casuali e stampi sia l'array ottenuto che quello invertito.
+
+```js
+IN N = 5
+
+OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_26.js_
+
+
+
+---
+
+# xxxx
+
 - x
+
+
+---
+
+# xxxx
+
+- x
+
