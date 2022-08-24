@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.5"
+version: "1.0.6"
 ---
 
 # JavaScript
@@ -41,6 +41,46 @@ https://javascript.info/
 - eventi e asyncrhonoous programming
 - svelte js intro e installazione
 
+---
+
+# TOC
+
+&nbsp;
+
+
+<div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
+<div>
+
+1. [Introduzione](#/4)
+2. [Struttura del codice](#/22)
+3. [Variabili](#/27)
+4. [Costanti](#/38)
+5. [JS e DOM](#/40)
+6. [Data Types](#/66)
+7. [Operatori Logici](#/80)
+8. [Operatori di Base](#/90)
+9. [Confronti](#/104)
+10. [Conditional Branching](#/109)
+11. [Switch](#/114)
+12. [Cicli](#/118)
+</div>
+<div>
+
+13. [Funzioni](#/126)
+14. [Oggetti](#/159)
+15. [Array](#/188)
+16. [Map](#/267)
+17. [Set](#/279)
+18. [](#/x)
+19. [](#/x)
+20. [](#/x)
+21. [](#/x)
+22. [](#/x)
+23. [](#/x)
+24. [](#/x)
+</div>
+
+</div>
 --- #slide 1
 
 # Developer Survey 2021
@@ -6051,6 +6091,652 @@ OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_26.js_
 
+--- 
+
+# Esercizio js_27
+
+Array
+
+1. Scrivere una funzione che dato un array restituisca un array in cui gli elementi duplicati sono rimossi.
+
+```js
+IN N = [1, 2, 3, 1, 2, 4]
+
+OUT [1, 2, 3, 4]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_27.js_
+
+
+--- 
+
+# Esercizio js_28
+
+Array
+
+1. Scrivere una funzione che ricevuto il seguente array di oggetti calcoli l'età media degli studenti.
+   
+```js
+let studenti = [
+  { nome: "Marco", classe: 4, eta: 17 },
+  { nome: "Alex", classe: 2, eta: 15 },
+  { nome: "William", classe: 4, eta: 18 }
+]; 
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_28.js_
+
+--- 
+
+# Esercizio js_29
+
+Array
+
+1. Scrivere una funzione che ricevuto il seguente array di oggetti, restituisca un array di nomi.
+   
+```js
+let studenti = [
+  { nome: "Marco", classe: 4, eta: 17 },
+  { nome: "Alex", classe: 2, eta: 15 },
+  { nome: "William", classe: 4, eta: 18 }
+]; 
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_29.js_
+
+--- 
+
+# Esercizio js_30
+
+Array
+
+1. Scrivere una funzione che ricevuto un array e due numeri N e M, restituisca un array contenenti solo valori >= N e <=M
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_30.js_
+
+---
+
+# Map
+
+Oggetti generici o Array associativo
+
+- Una mappa `Map` è un oggetto in JS chè molto simile agli oggetti literals visti in precedenza
+- Pertanto un **Map** è una collezione di coppie chiave-valore (key-value)
+- Le caratteristiche e differenze principali, con quest'ultimi, sono:
+  - la chiave (key) può essere di qualsiasi tipo e non solo string come negli object literals
+  - l'oggetto non si manipola tramite `[]` ma attraverso appositi metodi
+  - le chiavi sono ordinate rispetto all'ordine di inserimento
+
+```js
+let mappa = new Map(); // definisce un oggetto Map vuoto
+
+console.log(mappa);
+>Map(0) {}
+
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+console.log(mappa);
+> Map(3) { 1 => 'rosso', 2 => 'verde', 3 => 'blu' }
+```
+
+
+---
+
+# Map
+
+Aggiungere elementi: set()
+
+`set(key, value)`
+
+***aggiunge una nuova coppia key-value (se la chiave non è presente)***
+
+```js
+let mappa =  new Map();
+
+mappa.set(1, 'rosso')
+mappa.set(2, 'verde')
+mappa.set(3, 'blu')
+console.log(mappa);
+> Map(3) { 1 => 'rosso', 2 => 'verde', 3 => 'blu' }
+
+mappa.set('R', 'rosso');
+console.log(mappa);
+> Map(4) { 1 => 'rosso', 2 => 'verde', 3 => 'blu', 'R' => 'rosso' }
+
+let mario = {nome: 'Mario'};
+mappa.set(mario, 'Bros'); // la chiave può essere un oggetto
+console.log(mappa);
+> Map(5) { 1 => 'rosso', 2 => 'verde', 3 => 'blu', 'R' => 'rosso', { nome: 'Mario' } => 'Bros' }
+```
+
+---
+
+# Map
+
+Prelevare un valore:get()
+
+`get(key)`
+
+**restituisce un valore associate ad una chiave(key). Se la chiave non esiste restituisce undefined**
+
+```js
+let valore = mappa.get(2);
+console.log(valore);
+> verde
+
+console.log(mappa.get('R'))
+> rosso
+
+console.log(mappa.get(mario))
+> Bros
+
+
+
+```
+
+---
+
+# Map
+
+Verificare la presenza di una chiave: has()
+
+`has(key)`
+
+*restituisce un booleano in funzione della presenza o meno della chiave*
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+console.log("La chiave 1 è presente nella mappa:", mappa.has(1));
+> La chiave 1 è presente nella mappa: true
+
+console.log("La chiave 3 è presente nella mappa:", mappa.has(1));
+> La chiave 3 è presente nella mappa: true
+
+console.log("La chiave R è presente nella mappa:", mappa.has('R'));
+> La chiave R è presente nella mappa: false
+```
+
+---
+
+# Map
+
+Cancellare una coppia chiave-valore: delete(key)
+
+`delete(key)`
+
+**se la chiave è presente la rimuove e restituisce true, altrimenti false**
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+console.log(mappa);
+> Map(3) { 1 => 'rosso', 2 => 'verde', 3 => 'blu' }
+
+mappa.delete(1);
+console.log(mappa);
+> Map(3) { 2 => 'verde', 3 => 'blu' }
+
+let res = mappa.delete(4);
+console.log(mappa);
+> Map(3) { 2 => 'verde', 3 => 'blu' }
+
+console.log(res)
+> false
+```
+
+---
+
+# Map
+
+Cancellare una mappa intera: clear()
+
+`clear()`
+
+**rimuove tutte le chiavi presenti nella mappa**
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+console.log(mappa);
+> Map(3) { 1 => 'rosso', 2 => 'verde', 3 => 'blu' }
+
+mappa.clear();
+console.log(mappa);
+> Map(0) {}
+```
+
+---
+
+# Map
+
+La dimensione di una mappa: size
+
+`size`
+
+**restituisce il numero di coppie chiave-valore presenti nella mappa**
+
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+console.log("Dimensione mappa:", mappa.size);
+> 3
+```
+
+---
+
+# Map
+
+Iterare una mappa: forEach()
+
+- con forEach si possono iterare tutti i valori di una mappa
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+mappa.forEach(item => console.log("Valore:", item))
+> Valore: rosso
+> Valore: verde
+> Valore: blu
+```
+
+---
+
+# Map
+
+Iterare una mappa: for..of
+
+- con for..of si possono iterare tutti gli elementi di una mappa
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+for(let kv of mappa)
+    console.log("Chiave-Valore:", kv);
+
+> Chiave-Valore: [ 1, 'rosso' ]
+> Chiave-Valore: [ 2, 'verde' ]
+> Chiave-Valore: [ 3, 'blu' ]
+
+
+for(let [k, v] of mappa)
+    console.log(`Chiave: ${k} - Valore: ${v}`);
+
+> Chiave: 1 - Valore: rosso
+> Chiave: 2 - Valore: verde
+> Chiave: 3 - Valore: blu
+
+```
+
+---
+
+# Map
+
+Iterare una mappa: keys()
+
+`keys()`
+
+**restituisce un oggetto iteratore che contiene tutte le chiavi della mappa**
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+for(let chiave of mappa.keys())
+    console.log("Key:", chiave);
+> Key: 1
+> Key: 2
+> Key: 3
+```
+
+---
+
+# Map
+
+Iterare una mappa: values()
+
+`values()`
+
+**restituisce un oggetto iteratore che contiene tutti i valori della mappa**
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+for(let valore of mappa.values())
+    console.log("Value:", valore);
+
+> Value: rosso
+> Value: verde
+> Value: blu
+```
+
+
+---
+
+# Map
+
+Iterare una mappa: entires()
+
+`entires()`
+
+**restituisce un oggetto iteratore che contiene tutte le coppie chiave-valore della mappa**
+
+```js
+let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
+
+for(let [k,v] of mappa.entries())
+    console.log(`Key: ${k} - Value: ${v}`);
+
+> Key: 1 - Value: rosso
+> Key: 2 - Value: verde
+> Key: 3 - Value: blu
+```
+
+---
+
+# Set
+
+Insiemi di dati
+
+- Un `Set`, come un array è una collezione di dati omogenea e non
+- Il `Set` è struttura dati che permette di memorizzare un insieme di dati univoci.
+- Come gli array l'ordine di inserimento dei valori viene preservato durante l'iterazione
+
+```js
+let insieme = new Set();
+
+console.log(insieme);
+> Set(0) {}
+
+
+let insieme = new Set([1, 2, 3, 4]);
+console.log(insieme);
+> Set(4) { 1, 2, 3, 4 }
+
+
+let insieme = new Set([1, 2, 1, 2]);
+console.log(insieme);
+> Set(4) { 1, 2 }
+```
+
+
+---
+
+# Set
+
+Aggiungere elementi: add()
+
+`add(value)`
+
+**aggiunge un elemento al Set se non già presente e restiuisce il set aggiornato**
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+insieme.add(5);
+insieme.add(1);
+
+console.log(insieme);
+>Set(5) { 1, 2, 3, 4, 5 }
+
+insieme.add("hello world");
+console.log(insieme);
+> Set(6) { 1, 2, 3, 4, 5, 'hello world' }
+```
+
+---
+
+# Set
+
+Verificare la presenza di una chiave: has()
+
+`has(element)`
+
+*restituisce un booleano in funzione della presenza o meno dell'elemento*
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+console.log("L'elemento 1 è presente nel set:", insieme.has(1));
+> L'elemento 1 è presente nel set: true
+
+console.log("L'elemento 3 è presente nel set:", insieme.has(3));
+> L'elemento 3 è presente nel set: true
+
+console.log("L'elemento 8 è presente nel set:", insieme.has(8));
+> L'elemento 8 è presente nel set: false
+```
+
+---
+
+# Set
+
+Rimuovere elementi: delete()
+
+`delete(value)`
+
+**se il valore è presente lo rimuove e restituisce true, altrimenti false**
+
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+insieme.delete(1);
+console.log(insieme);
+> Set(3) { 2, 3, 4 }
+
+insieme.delete(7);
+console.log(insieme);
+> Set(3) { 2, 3, 4 }
+```
+
+---
+
+# Set
+
+Cancellare un intero set: clear()
+
+`clear()`
+
+**rimuove tutti gli elementi del set**
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+insieme.clear();
+
+console.log(insieme);
+> Set(0) {}
+```
+
+---
+
+# Set
+
+La dimensione di un set: size
+
+`size`
+
+**restituisce il numero di elementi presenti nel set**
+
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+console.log("Dimensioni set:", insieme.size);
+> Dimensioni set: 4
+```
+
+---
+
+# Set
+
+Iterare un set: forEach()
+
+- con forEach si possono iterare tutti gli elementi di un set
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+insieme.forEach(item => console.log("Elemento:", item))
+> Elemento: 1
+> Elemento: 2
+> Elemento: 3
+> Elemento: 4
+```
+
+---
+
+# Set
+
+Iterare una mappa: for..of
+
+- con for..of si possono iterare tutti gli elementi di un set
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+for(let item of insieme)
+    console.log("Elemento:", item)
+> Elemento: 1
+> Elemento: 2
+> Elemento: 3
+> Elemento: 4
+```
+
+---
+
+# Set
+
+Iterare un set: keys(), values(), entries()
+
+**questi metodi sono mantenuti per compatibilità con le mappe e per fornire unìinterfaccia omogenea**
+
+```js
+let insieme = new Set([1, 2, 3, 4]);
+
+for(let item of insieme.keys()) console.log("Elemento:", item)
+> Elemento: 1
+> Elemento: 2
+> Elemento: 3
+> Elemento: 4
+
+for(let item of insieme.values()) console.log("Elemento:", item)
+> Elemento: 1
+> Elemento: 2
+> Elemento: 3
+> Elemento: 4
+
+for(let item of insieme.entries()) console.log("Elemento:", item)
+> Elemento: [ 1, 1 ]
+> Elemento: [ 2, 2 ]
+> Elemento: [ 3, 3 ]
+> Elemento: [ 4, 4 ]
+```
+
+--- 
+
+# Esercizio js_31
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuto un array restituisca un array composto solo da valori unici in cui gli elementi duplicati sono rimossi
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_31.js_
+
+--- 
+
+# Esercizio js_32
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuto un array di stringhe, restituisca un array siano presenti parole non anagrammi di altre parole
+
+```js
+IN: ['omar', 'sette', 'roma', 'teste', 'mora', 'colazione', 'locazione']
+
+OUT: [ 'mora', 'teste', 'locazione' ]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_32.js_
+
+
+--- 
+
+# Esercizio js_33
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuta un testo in una stringa, stampi il numero di occorrenze per ogni parola
+
+```js
+IN: "JavaScript è un linguaggio molto bello. JavaScript è un linguaggio di alto livello"
+
+OUT: 
+
+La parola "JavaScript" ha frequenza: 2
+La parola "è" ha frequenza: 2
+La parola "un" ha frequenza: 2
+La parola "linguaggio" ha frequenza: 2
+La parola "molto" ha frequenza: 1
+La parola "bello." ha frequenza: 1
+La parola "di" ha frequenza: 1
+La parola "alto" ha frequenza: 1
+La parola "livello" ha frequenza: 1
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_33.js_
+
+--- 
+
+# Esercizio js_34
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuti due numeri N e M, restituisca un array contenente N numeri casuali univoci compresi tra 1 e M ordinati in senso decrescente
+
+```js
+IN: 3,100
+
+OUT:  [ 52, 49, 42 ]
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_34.js_
+
+--- 
+
+# Esercizio js_35
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuta una stringa restituisca una stringa in cui i caratteri duplicati sono eliminati. In altre parole deve restituire una stringa di caratteri univoci o con occorrenza 1
+
+```js
+IN: "supercalifragilistichespiralidoso"
+
+OUT:  "supercalifgthdo"
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_35.js_
+
+--- 
+
+# Esercizio js_36
+
+Array, Map, Set
+
+1. Scrivere una funzione che ricevuta una stringa restituisca una mappa delle occorrenze delle vocali
+
+```js
+IN: "supercalifragilistichespiralidoso"
+
+OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
+
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_36.js_
 
 
 ---
@@ -6058,6 +6744,32 @@ OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
 # xxxx
 
 - x
+
+---
+
+# xxxx
+
+- x
+
+---
+
+# xxxx
+
+- x
+
+
+
+---
+
+# xxxx
+
+- Destructuring e object destructuring
+- JSON stringify e parse
+- Date
+- try...catch
+- promises
+- modules
+- 
 
 
 ---
