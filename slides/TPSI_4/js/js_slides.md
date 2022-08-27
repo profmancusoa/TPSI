@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.6"
+version: "1.0.7"
 ---
 
 # JavaScript
@@ -71,8 +71,8 @@ https://javascript.info/
 15. [Array](#/188)
 16. [Map](#/267)
 17. [Set](#/279)
-18. [](#/x)
-19. [](#/x)
+18. [Destructuring](#/294)
+19. [JSON](#/310)
 20. [](#/x)
 21. [](#/x)
 22. [](#/x)
@@ -1391,7 +1391,7 @@ Si richiede di realizzare una web app (in Js vanilla) che implementa una ToDo li
 
 Tipi di dato
 
-- Java Script definisce 7 tipi di dato
+- Java Script definisce 8 tipi di dato
   1. **Number**
   2. **BigInt**
   3. **String**
@@ -1399,6 +1399,7 @@ Tipi di dato
   5. **null**
   6. **undefined**
   7. **object**
+  8. **Date**
 
 --- #slide N
 
@@ -1954,6 +1955,147 @@ undefined
 ```js
 let age; // la variabile ha un valore non definito
 ```
+
+---
+
+# Date
+
+Data e Orario
+
+- Un oggetto di tipo **Date** memorizza una data, un orario e fornisce i metodi per manipolare queste informazioni
+
+```js
+let data_ora = new Date(); // crea un oggeto Date che contiene la data e l'ora attuale
+
+console.log(data_ora);
+> 2022-08-26T15:30:40.155Z
+
+let unix_date = new Date(0); // crea una data a partire da Unix time o Epoch Time
+console.log(unix_date);
+> 1970-01-01T00:00:00.000Z
+```
+<br>
+
+- Come si vede lo `Unix time` 0 corrisponde al 01/01/1970, l'inizio dei tempi :) e si misura in millisecondi
+
+```js
+let now = new Date(1661528026000);
+console.log(now);
+> 2022-08-26T15:33:46.000Z
+```
+
+---
+
+# Date
+
+Data e Orario
+
+- Ci sono molti overload del costruttore
+
+```js
+let oggi = new Date("2022-08-26");
+console.log(oggi);
+> 2022-08-26T00:00:00.000Z // l'ora è mezzanotte, l'inizio del giorno
+
+let oggi_ora = new Date(2022, 8, 26, 17, 38, 45, 21); //YYYY, M, D, HH, MM, SS, ms
+console.log(oggi_ora);
+> 2022-09-26T15:38:45.021Z
+
+let now = Date.now(); // determina solo data e ora attuale in millisecondi
+console.log(now)
+> 1661529999411
+```
+
+---
+
+# Date
+
+Data e Orario
+
+- Dato un oggetto ci sono anche molti metodi utili per accedere alle sue proprietà
+
+```js
+let data_ora = new Date();
+console.log(data_ora); //2022-08-26T15:43:51.504Z
+
+console.log("YYYY:", data_ora.getFullYear()); // YYYY: 2022
+ 
+console.log("MM:", data_ora.getMonth()); // MM: 7 (Gennaio = 0 - Dicembre = 11)
+
+console.log("DD:", data_ora.getDay()); // DD: 5 giorno della settimana (Domenica = 0 - Sabato = 6)
+
+console.log("DD:", data_ora.getDate()); // DD: 26
+
+console.log("HH:", data_ora.getHours()); // HH: 17
+
+console.log("MM:", data_ora.getMinutes()); // MM: 43
+
+console.log("SS:", data_ora.getSeconds()); // SS: 51
+
+console.log("ms:", data_ora.getMilliseconds()); // ms: 504
+```
+
+---
+
+# Date
+
+Data e Orario
+
+- Ci sono anche gli equivalenti metodi setter
+
+```js
+let data_ora = new Date();
+
+console.log(data_ora); //2022-08-26T15:51:49.140Z
+
+data_ora.setFullYear(2023); // 2023-08-26T15:51:49.140Z
+
+data_ora.setMonth(9) // 2023-10-26T15:51:49.140Z
+
+data_ora.setDate(11); // 2023-10-11T15:51:49.140Z
+
+data_ora.setHours(13); // 2023-10-11T15:51:49.140Z // timezone UTC vs CET
+
+data_ora.setMinutes(27); // 2023-10-11T15:27:49.140Z
+
+data_ora.setSeconds(54); // 2023-10-11T15:27:54.140Z
+
+data_ora.setMilliseconds(342); // 2023-10-11T15:27:54.342Z
+```
+
+---
+
+# Date
+
+Data e Orario
+
+- Possiamo anche fare delle operazioni con le date
+
+```js
+let data1 = new Date("2022-08-26");
+let data2 = new Date("2022-09-12");
+
+// calcoliamo la differenza tra due date
+console.log("I giorni mancanti all'inizio della scuola sono:", ((data2 - data1) / (24 * 60 *60 * 1000 )));
+
+> I giorni mancanti all'inizio della scuola sono: 17
+
+// aggiungiamo un numero di giorni ad una data
+console.log(data1)
+> 2022-08-26T00:00:00.000Z
+
+data1.setDate(data1.getDate() + 3);
+
+console.log(data1)
+> 2022-08-29T00:00:00.000Z
+```
+
+---
+
+# Date
+
+Data e Orario
+
 
 --- #slide N
 
@@ -6741,9 +6883,578 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 
 ---
 
-# xxxx
+# Destructuring
 
-- x
+Destructuring assignment
+
+- La sintassi dell'assegnazione di destrutturazione (Destructuring assignment) è un'espressione JavaScript che consente di "spacchettare" array e oggetti ed assegnarli a variabili distinte.
+- Ci sono situazioni in cui non ho bisogno di tutti i valori di un array, o di tutte le chiavi di un oggetto, ma voglio accedere ad un sottoinsieme
+
+
+```js
+let studenti = {
+    nome: "Mario",
+    cognome: "Rossi",
+    classe: 4,
+    eta: 18,
+    genere: "M",
+    media: 8.3,
+}
+
+let { nome, cognome } = studenti;
+
+console.log(`Nome: ${nome} - Cognome: ${cognome}`);
+> Nome: Mario - Cognome: Rossi
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Senza destucturing dovremmo accedere alle proprietà dell'oggetto anzichè usare delle variabili apposite
+
+```js
+let studenti = {
+    nome: "Mario",
+    cognome: "Rossi",
+    classe: 4,
+    eta: 18,
+    genere: "M",
+    media: 8.3,
+}
+
+let nome =  studenti.nome;
+let cognome = studenti.cognome;
+
+console.log(`Nome: ${nome} - Cognome: ${cognome}`);
+> Nome: Mario - Cognome: Rossi
+```
+---
+
+# Destructuring
+
+Destructuring assignment
+
+```js
+let studenti = {
+    nome: "Mario",
+    cognome: "Rossi",
+    classe: 4,
+    eta: 18,
+    genere: "M",
+    media: 8.3,
+}
+
+//l'assegnazione di destructuring
+let { nome, cognome } = studenti;
+
+// è equivalente alle due assegnazioni separata
+let nome =  studenti.nome;
+let cognome = studenti.cognome;
+
+
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+```js
+let numeri = [1, 2, 3, 4 , 5];
+let [x, y] = numeri;
+
+console.log(x)
+console.log(y)
+> 1
+> 2
+
+//...rest property
+let [primo, ...altri] = numeri;
+
+console.log(primo);
+console.log(altri);
+> 1
+> [ 2, 3, 4, 5 ]
+
+let [primo,,,,ultimo] = numeri;console.log(primo);
+console.log(ultimo);
+> 1
+> 5
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Proviamo a fare lo swap di due variabili in modo classico
+
+```js
+let a = 10;
+let b = 20;
+let temp;
+
+console.log(`a=${a} - b=${b}`);
+temp = a;
+a = b;
+b = temp;
+console.log(`a=${a} - b=${b}`);
+
+> a=10 - b=20
+> a=20 - b=10
+```
+
+- Ma come possiamo fare lo swap di due variabili senza usare una variabile temporanea?
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Anche in questo caso il destructuring ci viene in aiuto
+
+```js
+let a = 10;
+let b = 20;
+
+console.log(`a=${a} - b=${b}`);
+[a, b] = [b, a]; // magia di JS
+console.log(`a=${a} - b=${b}`);
+
+> a=10 - b=20
+> a=20 - b=10
+```
+
+```js
+// forse così è più chiaro
+let array = [b, a];
+[a, b] = [array[0], array[1]];
+
+console.log(`a=${a} - b=${b}`);
+> a=10 - b=20
+> a=20 - b=10
+```
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Vediamo altri casi in cui è utile il destructuring, per esempio per filtrare valori restituiti da una funzione
+
+```js
+function voti() {
+  return {
+    media: 7.5,
+    min: 6,
+    max: 9,
+  };
+}
+
+// prendiamo solo il voto min e max
+let { min, max } = voti();
+
+console.log(min);
+console.log(max);
+
+> 6
+> 9
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Anche se la funzione restituisce un array possiamo usare il destructuring
+
+```js
+function voti() {
+  return [7, 8, 9];
+}
+
+// prendiamo solo il primo ed ultimo voto
+let [primo, , ultimo] = voti();
+
+console.log(primo);
+console.log(ultimo);
+
+> 7
+> 9
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Possiamo anche cambiare nome alle variabili
+
+```js
+let options = {
+    title: "Rettangolo",
+    width: 100,
+    height: 200
+  };
+  
+  // { proprietà oggetto: variabile di assegnazione }
+  let {width: larghezza, height: altezza, title} = options;
+
+  console.log(larghezza);
+  console.log(altezza);
+
+  > 100
+  > 200
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Possiamo anche assegnar eun valore di default alle variabili
+ 
+```js
+let options = {
+    title: "Rettangolo",  
+};
+  
+  // { sourceProperty: targetVariable = valore di default }
+  let {width: larghezza = 100, height: altezza = 200, title} = options;
+
+  console.log(title);
+  console.log(larghezza);
+  console.log(altezza);
+
+  > Rettangolo
+  > 100
+  > 200
+```
+
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- L'object destructuring di JavaScript si rivela utile anche nella gestione degli argomenti delle funzioni
+
+
+```js
+
+function visualizza_studente(studente) {
+    console.log(`Lo studente si chiama ${studente.nome} ${studente.cognome}`);
+}
+
+let studente = {
+    nome: "Mario",
+    cognome: "Rossi",
+    classe: 4,
+    voti: [7, 8, 7]
+}
+
+visualizza_studente(studente);
+
+> Lo studente si chiama Mario Rossi
+```
+---
+
+# Destructuring
+
+Destructuring assignment
+
+- Con l'object destructuring possiamo evitare di accedere ogni volta alle proprietà dell'oggetto e averle invece come variabili all'interno dello scope della funzione
+
+```js
+function visualizza_studente({nome, cognome}) {
+    console.log(`Lo studente si chiama ${nome} ${cognome}`);
+}
+
+let studente = {
+    nome: "Mario",
+    cognome: "Rossi",
+    classe: 4,
+    voti: [7, 8, 7]
+}
+
+visualizza_studente(studente);
+
+> Lo studente si chiama Mario Rossi
+```
+
+- Questo approccio si rivela essere molto pratico soprattutto con oggetti complessi.
+
+--- 
+
+# Esercizio js_37
+
+Destructuring
+
+1. Dato il seguente oggetto
+
+```js
+let utente = {
+    nome: "Jon",
+    role: "user"
+}
+```
+
+2. Scrivere il destructuring assignment in modo che:
+   - la variabile nome contenga il valore della proprietà nome
+   - la variabile role contenga il valore della proprietà role
+   - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente) 
+
+
+3. Fornire il link github al file con nome _|cognome|\_esercizio_js_37.js_
+
+--- 
+
+# Esercizio js_38
+
+Destructuring
+
+1. Dato il seguente codeice
+
+```js
+let item = ["Egg", 0.25, 12];
+
+let name = item[0];
+let price = item[1];
+let quantity = item[2];
+
+console.log(`Item: ${name}, Quantity: ${quantity}, Price: ${price}`);
+```
+
+2. Riscriverlo con il destructuring in modo da non dover assegnare le singole variabili
+
+3. Fornire il link github al file con nome _|cognome|\_esercizio_js_38.js_
+
+--- 
+
+# Esercizio js_39
+
+Destructuring
+
+1. Dato il seguente codeice
+
+```js
+let numbers = [3, 5, 4, 2, 6, 1];
+
+let [one, two, three, four, five, six] = numbers;
+
+console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${five}, Six: ${six}`);
+```
+
+1. Riscriverlo in modo da assegnare il valore giusto alle singole variabili
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_39.js_
+
+--- 
+
+# Esercizio js_40
+
+Destructuring
+
+1. Dato il seguente codeice
+
+```js
+const students = ['Christina', 'Jon', 'Alexandare'];
+
+
+console.log(lastName);
+```
+
+2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
+
+3. Fornire il link github al file con nome _|cognome|\_esercizio_js_40.js_
+
+---
+
+# JSON
+
+Formato dati
+
+- JSON significaJavaScript Object Notation
+  - E'  un semplice formato **testuale** per lo scambio e lo storage di dati
+  - Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.
+  - Diventato estremamente popolare con l'avvento del web 2.0 (AJAX)
+  - Universalmente adottato anche al difuori del mondo web data la sua semplicità ed immediatezza
+  - E' "auto-descrittivo" e facile da comprendere
+  
+- Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
+- Ha rimpiazzato il vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
+
+---
+
+# JSON
+
+Formato dati 
+
+- Un oggetto JSON è così composto:
+  - Un insieme di coppie nome/valore. In diversi linguaggi, questo è realizzato come un oggetto, un record, uno struct, un dizionario, una tabella hash, un elenco di chiavi o un array associativo.
+
+```js
+// oggetto JSON
+{
+	"name": "Mario",
+	"surname": "Rossi",
+	"active": true,
+	"favoriteNumber": 42,
+	"birthday": {
+		"day": 1,
+		"month": 1,
+		"year": 2000
+	},
+	"languages": [ "it", "en" ]
+}
+```
+
+- **E' immediato notare che un oggetto JSON corrisponde esattamente con un oggetto Java Script**
+
+---
+
+# JSON
+
+JSON come formato universale di trasporto dati
+
+- Come menzionato prima, JSON è diventato estremamente popolare con l'avvendo della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
+- Il formato dati utilizzato da AJAX è JSON
+- Pertanto un oggetto file/oggetto JSON è identico ad un oggetto JS, ma il primo è in formato testuale
+- Quindi quando il server vuole inviare un oggetto al client `deve convertirlo in JSON`
+- Quando il client riceve il JSON per elaborarlo `deve convertirlo in oggetto JS`
+
+- Queste operazioni sono supportate da JS e sono semplicissime e supportate da due metodo specifici
+  - `JSON.stringify`: converte un oggetto JS in JSON
+  - `JSON.parse`: converte un JSON in oggetto JS
+
+
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+
+```js
+let studente_obj = {
+    nome: 'Mario',
+    cognome: 'Rossi',
+    classe: 4,
+}
+
+console.log(typeof(studente_obj));
+> object
+console.log(studente_obj)
+> { nome: 'Mario', cognome: 'Rossi', classe: 4 }
+
+let studente_str = JSON.stringify(studente_obj);
+console.log(typeof(studente_str));
+> string
+console.log(studente_str)
+> {"nome":"Mario","cognome":"Rossi","classe":4}
+```
+<br>
+
+- Quindi ora la stringa studente_str è facilemente trasmissibile via HTTP (protocollo testuale)
+
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+
+- Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa 
+- La stringa risultate si dice JSON-encoded
+- Quest'oeprazione di conversionie si chiama `serializzazione`
+  
+- Importante notare le principali differenze tra oggetto literal e JSON
+  - JSON usa **sempre** le doppie virgolette **'Mario'** diventa **"Mario"**
+  - Anche per le proprietà dell'oggetto vengono sempre usate le doppie virgolette, pertanto **nome** diventa **"nome"**
+
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+
+- Importante notare che è un formato solo per i dati, pertanto qualsiasi altra proprietà di un ogegtto JS non verrà serializzata
+
+<br>
+
+```js
+let studente_obj = {
+    nome: 'Mario',
+    cognome: 'Rossi',
+    classe: 4,
+    media: () => console.log("calcola la media")
+}
+
+console.log(JSON.stringify(studente_obj)) 
+> {"nome":"Mario","cognome":"Rossi","classe":4}
+```
+<br>
+
+- Come si può notare, il metodo media() **NON** viene serializzato
+
+---
+
+# JSON
+
+Da JSON a oggetto: parse()
+
+- L'operazione inversa, cioè fare il parsing di un JSON in oggetto JS si realizza tramite il metodo **parse()**
+- Questa operazione prende il none di `deserializzazione`
+
+<br>
+
+```js
+let json_str = '{"nome":"Mario","cognome":"Rossi","classe":4}';
+
+console.log(typeof(json_str));
+> string 
+
+let studente_obj =JSON.parse(json_str);
+
+console.log(typeof(studente_obj))
+> object
+
+console.log(studente_obj.nome);
+> Mario
+```
+
+---
+
+# JSON
+
+Da JSON a oggetto: parse()
+
+- Importante notare che il formato JSON **NON supporta i commenti** pertanto non vengono ne serializati ne deserializzati, in quest'ultimo caso producono un errore
+
+```js
+let studente_obj = {
+    nome: 'Mario', //commento
+    cognome: 'Rossi',
+    classe: 4,
+    media: () => console.log("calcola la media")
+}
+
+console.log(JSON.stringify(studente_obj));
+> {"nome":"Mario","cognome":"Rossi","classe":4} //il commento è sparito
+
+let json_str = '{"nome":"Mario" //commento ,"cognome":"Rossi","classe":4}';
+console.log(JSON.parse(json_str));
+
+> {"nome":"Mario" //commento ,"cognome":"Rossi","classe":4}
+> SyntaxError: Unexpected token / in JSON at position 16
+```
 
 ---
 
@@ -6763,9 +7474,6 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 
 # xxxx
 
-- Destructuring e object destructuring
-- JSON stringify e parse
-- Date
 - try...catch
 - promises
 - modules
