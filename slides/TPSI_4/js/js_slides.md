@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.7"
+version: "1.0.8"
 ---
 
 # JavaScript
@@ -32,8 +32,7 @@ No brain no pain!
 
 https://javascript.info/
 
-- stringhe e operatori stringhe
-- array e operatori array
+
 
 ::right::
 
@@ -7458,6 +7457,185 @@ console.log(JSON.parse(json_str));
 
 ---
 
+# JS Object Oriented Programming
+
+OOP 
+
+<div style="background-color:green;color:yellow;padding:50px;line-height: 2.3rem; font-size:1.9rem;">
+Nella programmazione orientata agli oggetti una classe è un costrutto di un linguaggio di programmazione usato come modello per creare oggetti. Il modello comprende attributi e metodi che saranno condivisi da tutti gli oggetti creati (istanze) a partire dalla classe. Un “oggetto” è, di fatto, l’istanza di una classe.
+</div>
+
+---
+
+# JS Object Oriented Programming
+
+OOP 
+
+- Come abbiamo visto in precedenza in JS ci sono vari modi per creare un oggetto 
+  - Object Literals
+  - Map
+  - JSON deserialization
+
+- Nel JavaScript moderno c’è un costrutto “class” più avanzato, che introduce nuove possibilità molto utili per la programmazione ad oggetti.
+
+---
+
+# JS Object Oriented Programming
+
+Classe: sintassi
+
+- Per creare una nuova classe si usa la seguente sintassi
+
+```js
+class MiaClasse {
+    constructor() { ... } //costruttore dell'oggetto 
+    metodo1() { ... } //Gli altri metodi implementano
+    metodo2() { ... } // i vari comportamenti dell'oggetto
+    ...
+    metodoN() { ... }
+}
+``` 
+
+<br>
+
+- Il metodo `constructor()` viene chiamato automaticamente da new e quindi viene utilizzato per inizializzare l’oggetto 
+
+---
+
+# JS Object Oriented Programming
+
+Classe: dichiarazione ed uso
+
+```js
+class Studente {
+    constructor(nome, classe) {
+        this.nome = nome;
+        this.classe = classe;
+    }
+
+    Saluta() {
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe}`);
+    }
+}
+
+//Uso
+let mario = new Studente("Mario", 4);  //con new instanziamo un oggetto della classe Studente
+mario.Saluta(); //invochiamo il metodo Saluta dell'oggetto mario
+
+> Ciao sono lo studente Mario della classe 4
+```
+
+<br>
+
+<div style="background-color:green;color:yellow;padding: 1px;">
+
+Importante: al contrario degli object literal, i metodi della classe NON sono separati dalla virgola
+</div>
+
+---
+
+# JS Object Oriented Programming
+
+Classe: dichiarazione ed uso
+
+- Come visto nell'esempio precedente quando creiamo un nuovo oggetto tramite `new`, un metodo speciale chiamato `constructor` viene invocato automaticamente
+- Infatti il costruttore ha assegnato i parametri 'Mario' e 4 alle proprietà dell'oggetto nome e classe
+
+```js
+class Studente {
+    constructor(nome, classe) {
+        console.log("Inizializzo l'oggetto con i parametri passati");
+        this.nome = nome;
+        this.classe = classe;
+    }
+
+    Saluta() {
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe}`);
+    }
+}
+
+let mario = new Studente("Mario", 4);
+> Inizializzo l'oggetto con i parametri passati
+```
+
+---
+
+# JS Object Oriented Programming
+
+Getter e Setter 
+
+- In OOP `Getter` e `Setter` sono particolari metodi che vengono richiamati quando si accede ad una proprietà dell'oggetto
+- Per ogni variabile di istanza, un metodo `getter` restituisce il suo valore mentre un metodo `setter` imposta o aggiorna il suo valore
+- In altre parole:
+  - quando leggiamo una proprietà viene invocato il metodo ***getter*** che restituisce la proprietà stessa
+  - quando scriviamo una proprità viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
+
+<img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 40px;"/>
+<img src="/media/js35.png" width="400" style="display:inline; position:relative; top: 40px;right:-50px;"/>
+
+
+---
+
+# JS Object Oriented Programming
+
+Getter e Setter 
+
+```js
+class Studente {
+    constructor(nome, classe) {
+        this.nome = nome; //chiama il setter della properità nome
+        this.classe = classe;
+    }
+    get nome() {
+        return this._nome.toUpperCase();
+    }
+    set nome(valore) {
+        this._nome = "**".concat(valore).concat("**");
+    }
+    Saluta() {
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe}`);
+    }
+}
+
+let mario = new Studente("Mario", 4);
+console.log(mario.nome);
+
+> **MARIO**
+```
+
+---
+
+# JS Object Oriented Programming
+
+Getter e Setter 
+
+
+---
+
+# JS Object Oriented Programming
+
+OOP 
+
+
+---
+
+# JS Object Oriented Programming
+
+OOP 
+
+
+---
+
+# JS Object Oriented Programming
+
+OOP 
+
+
+
+
+
+---
+
 # xxxx
 
 - x
@@ -7466,14 +7644,8 @@ console.log(JSON.parse(json_str));
 
 # xxxx
 
-- x
-
-
-
----
-
-# xxxx
-
+- stringhe e operatori stringhe
+- classi e oggetti
 - try...catch
 - promises
 - modules
