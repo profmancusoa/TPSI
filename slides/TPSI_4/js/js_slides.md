@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.8"
+version: "1.0.10"
 ---
 
 # JavaScript
@@ -1919,7 +1919,7 @@ Operatori Booleani
 <img src="/media/js09.png" width="400" style="margin: auto;"/>
 <br />
 
-1. Fornire il link github al file con nome _|cognome|\_esercizio_js_07.html_ e _|cognome|\_esercizio_js_07.js_
+1. Fornire il link github al file con nome _|cognome|\_esercizio_js_09.html_ e _|cognome|\_esercizio_js_09.js_
 
 --- #slide N
 
@@ -2089,12 +2089,6 @@ console.log(data1)
 > 2022-08-29T00:00:00.000Z
 ```
 
----
-
-# Date
-
-Data e Orario
-
 
 --- #slide N
 
@@ -2152,7 +2146,7 @@ Operatori matematici
   - `+`: addizione
   - `-`: sottrazione
   - `*`: moltiplicazione
-  - `\`: divisione (non intera)
+  - `/`: divisione (non intera)
   - `%`: resto della divisione intera
   - `**`: elevamento a potenza
 
@@ -2267,7 +2261,7 @@ let n = (m = 2);
 n = n + 1;
 m = m - 1;
 console.log(n); // 3
-console.log(m); //2
+console.log(m); //1
 
 //lo stesso codice può essere scritto usando l'operatore in forma prefissa
 
@@ -2355,7 +2349,7 @@ alert("12" + "4") // "124"
 ```
 
 <br />
-<div style="background-color: green;color: white;padding: 10px;">
+<div style="background-color: green;color: yellow;padding: 10px;">
 NOTA: l'operatore + è l'operatore di concatenazione di stringhe
 </div>
 --- #slide N
@@ -2942,6 +2936,8 @@ repeat yourself
 - Ci sono casi in cui è necessario interrompere l'iterazione corrente, senza uscire dal ciclo, e saltare subito all'iterazione successvia
 - Per esempio per stampare i numeri pari compresi nell'intervallo 1-10 possiamo avvalerci della keyword `continue`
 
+<br>
+
 ```js
 for (let i = 1; i <= 10; i++) {
   if (i % 2) continue;
@@ -2949,10 +2945,12 @@ for (let i = 1; i <= 10; i++) {
 }
 > 2
 > 4
-> 5
 > 6
+> 8
 > 10
 ```
+
+<br>
 
 - **continue** ci permette di ridurre il livello di nesting rendendo il codice più leggibile e manutenibile
 
@@ -7372,7 +7370,7 @@ Da oggetto a JSON: stringify()
 
 - Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa 
 - La stringa risultate si dice JSON-encoded
-- Quest'oeprazione di conversionie si chiama `serializzazione`
+- Questa operazione di conversionie si chiama `serializzazione`
   
 - Importante notare le principali differenze tra oggetto literal e JSON
   - JSON usa **sempre** le doppie virgolette **'Mario'** diventa **"Mario"**
@@ -7403,6 +7401,84 @@ console.log(JSON.stringify(studente_obj))
 
 - Come si può notare, il metodo media() **NON** viene serializzato
 
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+
+- ma se volessi evitare di seriazlizzare altre proprietà?
+- Basta passare il parametro `replacer` al metodo stringify
+
+<br>
+
+```js
+let studente_obj = {
+    nome: 'Mario',
+    cognome: 'Rossi',
+    classe: 4,
+    media: () => console.log("calcola la media")
+}
+
+console.log(JSON.stringify(studente_obj, ['nome','classe'])) 
+> {"nome":"Mario", "classe":4}
+```
+
+<br>
+
+- quindi il parametro replacer consiste in una lista (array) di proprietà dell'oggetto che vogliamo serializzare
+
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+  
+```js
+let studente_obj = {
+    nome: 'Mario',
+    cognome: 'Rossi',
+    classe: 4,
+    eta: 18,
+    peso: 65,
+    altezza: 181,
+    telefono: '3339090990',
+    media: () => console.log("calcola la media")
+}
+
+console.log(JSON.stringify(studente_obj, ['nome', 'cognome', 'classe', 'peso', 'altezza', 'telefono'])) 
+> {"nome":"Mario","cognome":"Rossi","classe":4,"peso":65,"altezza":181,"telefono":"3339090990"}
+```
+
+- quindi replacer deve contenere tutte le chiavi che voglio serializzare. Ma se sono decine cosa faccio? le scrivo tutte?
+- Beh no! anzichè passare una lista come replacer, passiamo una funzione di mapping che indica quali sono le chiavi da considerare o da scartare
+
+---
+
+# JSON
+
+Da oggetto a JSON: stringify()
+  
+```js
+let studente_obj = {
+    nome: 'Mario',
+    cognome: 'Rossi',
+    classe: 4,
+    eta: 18,
+    peso: 65,
+    altezza: 181,
+    telefono: '3339090990',
+    media: () => console.log("calcola la media")
+}
+
+console.log(JSON.stringify(studente_obj, (k,v) => k == 'eta' ? undefined : v)) 
+> {"nome":"Mario","cognome":"Rossi","classe":4,"peso":65,"altezza":181,"telefono":"3339090990"}
+
+```
+<br>
+
+- estremamente versatile e compatto grazie all'uso delle arrow function
+- quindi la funzione che passiamo come replacer, restituisce undefined per le chiavi da filtrare e il valore della chiave per quelle da serializzare
 ---
 
 # JSON
@@ -7457,12 +7533,36 @@ console.log(JSON.parse(json_str));
 
 ---
 
+# JSON
+
+Da JSON a oggetto: parse()
+
+- come per il metodo stringify, anche il metodo parse accetta un parametro aggiuntivo
+- Nello specifico accetta una funzione che permette di modificare i valori da deserializzare
+
+<br>
+
+```js
+let json_str = '{"nome":"Mario","cognome":"Rossi","classe":4}';
+
+let studente_obj =JSON.parse(json_str, (k,v) => typeof(v) == 'string' ? v.toUpperCase() : v)
+
+console.log(studente_obj)
+> {nome: 'MARIO', cognome: 'ROSSI', classe: 4}
+```
+
+<br>
+
+- come si vede durante la deserializzazione delle stringhe le abbiamo convertite in upper case
+  
+---
+
 # JS Object Oriented Programming
 
 OOP 
 
-<div style="background-color:green;color:yellow;padding:50px;line-height: 2.3rem; font-size:1.9rem;">
-Nella programmazione orientata agli oggetti una classe è un costrutto di un linguaggio di programmazione usato come modello per creare oggetti. Il modello comprende attributi e metodi che saranno condivisi da tutti gli oggetti creati (istanze) a partire dalla classe. Un “oggetto” è, di fatto, l’istanza di una classe.
+<div style="background-color:green;color:yellow;padding:2.3rem;line-height: 3rem; font-size:1.9rem;">
+Nella programmazione orientata agli oggetti, una classe è un costrutto di un linguaggio di programmazione usato come modello per creare oggetti. Il modello comprende attributi e metodi che saranno condivisi da tutti gli oggetti creati (istanze) a partire dalla classe stessa. <br> Un “oggetto” è, di fatto, l’istanza di una classe.
 </div>
 
 ---
@@ -7476,7 +7576,7 @@ OOP
   - Map
   - JSON deserialization
 
-- Nel JavaScript moderno c’è un costrutto “class” più avanzato, che introduce nuove possibilità molto utili per la programmazione ad oggetti.
+- Nel JavaScript moderno c’è un costrutto `class` più avanzato, che introduce nuove possibilità molto utili per la programmazione ad oggetti.
 
 ---
 
@@ -7485,6 +7585,8 @@ OOP
 Classe: sintassi
 
 - Per creare una nuova classe si usa la seguente sintassi
+
+<br>
 
 ```js
 class MiaClasse {
@@ -7527,9 +7629,8 @@ mario.Saluta(); //invochiamo il metodo Saluta dell'oggetto mario
 
 <br>
 
-<div style="background-color:green;color:yellow;padding: 1px;">
-
-Importante: al contrario degli object literal, i metodi della classe NON sono separati dalla virgola
+<div style="background-color:green;color:yellow;padding: 1rem;">
+<b>Importante</b>: al contrario degli object literal, i metodi della classe NON sono separati dalla virgola
 </div>
 
 ---
@@ -7569,9 +7670,10 @@ Getter e Setter
 - In altre parole:
   - quando leggiamo una proprietà viene invocato il metodo ***getter*** che restituisce la proprietà stessa
   - quando scriviamo una proprità viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
+- Ciò è estremamente flessibile in quanto ora è possibile manipolare la proprietà in modo trasparente senza dover aggiungere altri metodo specifici
 
-<img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 40px;"/>
-<img src="/media/js35.png" width="400" style="display:inline; position:relative; top: 40px;right:-50px;"/>
+<img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 10px;"/>
+<img src="/media/js35.png" width="400" style="display:inline; position:relative; top: 10px;right:-50px;"/>
 
 
 ---
@@ -7609,6 +7711,57 @@ console.log(mario.nome);
 
 Getter e Setter 
 
+- quindi `get prop()` definisce il getter per la proprietà **prop**
+- mentre `set prop()` definisce il setter per la proprietà **prop**
+- Importante notare che NON è possibile avere contemporaneamente un getter e un setter associati a una proprietà e fare in modo che quella proprietà contenga effettivamente un valore
+- In questo scenario si genera un erroere in quanto getter e setter vengono richiamati ricorsivamente
+
+---
+
+# JS Object Oriented Programming
+
+Getter e Setter 
+
+
+```js
+class Studente {
+    constructor(nome, classe) {
+        this.nome = nome; //chiama il setter della properità nome
+        this.classe = classe;
+    }
+    get nome() { 
+        return this.nome.toUpperCase(); 
+    }    
+    set nome(valore) {
+        this.nome = "**".concat(valore).concat("**"); 
+    }
+}
+
+let mario = new Studente("Mario", 4);
+
+Uncaught RangeError: Maximum call stack size exceeded
+    at set nome [as nome] (<anonymous>:7:33)
+    at set nome [as nome] (<anonymous>:7:33)
+    at set nome [as nome] (<anonymous>:7:33)
+    ...
+```
+
+--- 
+
+# Esercizio js_41
+
+OOP
+
+- scrivere un programma in JS che:
+1. implementi la classe Quadrato
+3. fornisca il getter e setter per le sue proprietà
+4. richieda all'utente la lunghezza del lato
+5. sia in grado di calcolare il suo perimetro
+6. sia in grado di calcolare la sua area
+7. scrivere il main che instanzi un oggetto della classe Quadrato e stampi sulla console il perimetro e in un alert l'area dello stesso
+8. Fornire il link github al file con nome _|cognome|\_esercizio_js_41.js_
+
+
 
 ---
 
@@ -7616,6 +7769,27 @@ Getter e Setter
 
 OOP 
 
+- I metodi get e set permettono la creazione di `pseudo proprietà`
+- In altre parole in JS è possibile creare una proprietà di un oggetto che non è suo attributo diretto
+- Vediamo con un esempio (la classe quadrato)
+
+```js
+class Quadrato {
+    constructor(l) {
+        this.lato = l; //lato è un attributo della classe Qaudrato
+    }
+
+    set lato(val) { this._lato = val; }
+
+    //non esiste un attributo dell'oggetto chiamato area
+    // questa è una pseudo proprietà
+    get area() { return this._lato ** 2; } 
+}
+
+q = new Quadrato(5);
+console.log(q.area);  // lo invoco come una proprietà e non come un metodo
+> 25
+```
 
 ---
 
