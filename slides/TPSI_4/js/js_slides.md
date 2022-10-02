@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.10"
+version: "1.0.11"
 ---
 
 # JavaScript
@@ -25,20 +25,6 @@ No brain no pain!
     Premi spazio o <carbon:arrow-right class="inline"/> per la prossima slide
   </span>
 </div>
-
----
-
-## layout: two-cols
-
-https://javascript.info/
-
-
-
-::right::
-
-- frontend JS
-- eventi e asyncrhonoous programming
-- svelte js intro e installazione
 
 ---
 
@@ -4460,6 +4446,631 @@ JS Objects
 
 ---
 
+# Stringhe
+
+Introduzione
+
+- In JavaScript, i dati di tipo testuale vengono memorizzati in stringhe
+- **NON** esiste un tipo separato per i caratteri singoli
+- Il formato utilizzato per le stringhe è sempre UTF-16, non viene influenzato dalla codifica della pagina.
+- Come abbiamo visto in precedenza apice (') e doppio apice o virgolette (") sono equivalenti
+- Il backtick (`) è molto versatile ed è stato introdotto in JS in un momento successivo
+- Per definire una stringa multi linea è necessario usare il backtick (`)
+
+```js
+let str = `Questa è una stringa che
+si estende
+su
+più linee
+`
+console.log(str)
+> Questa è una stringa che
+> si estende
+> su
+> più linee
+```
+
+---
+
+# Stringhe
+
+Caratteri Speciali
+
+- Come in altri linguaggi JS definisce una serie di caratteri speciali
+  - `\n` : a capo su una nuova linea
+  - `\t`: introduce un tab
+  - `\' o \" o \{backtick}`: introduce il carattere **'** o **"** o **`** 
+  - `\\` : introduce il carattere **\\**
+  - `\u{codice}` : stampa il carattere UTF-16 corrispondente a {codice} 
+
+```js
+console.log("Una linea molto \n lunga la mandiamo a capo");
+> Una linea molto 
+ lunga la mandiamo a capo
+
+console.log("linea con \t tab")
+> linea con 	 tab
+
+console.log("C:\\Windows") // C:\Windows
+
+console.log("\u{1F60D}"); 😍
+```
+
+---
+
+# Stringhe
+
+Lunghezza di una stringa
+
+- La lunghezza di una stringa si determina attraverso la proprietà `length`
+- Pertanto in JS la lunghezza non è un metodo ma una proprietà quindi va invocata senza ()
+
+```js
+let str = "Nel mezzo del cammin di nostra vita";
+
+console.log(str.length);
+> 35
+
+console.log(str.length());
+> Uncaught TypeError: str.length is not a function
+```
+
+---
+
+# Stringhe
+
+I principlai metodi
+
+Qui la lista dei principlai metodi delle stringhe che studieremo (ci sono 55 metodi in totale):
+
+
+
+<div class="grid grid-cols-3 grid-rows-9 gap-4" style="padding: 20px; margin-left:15%;">
+<div style="font-weight:bolder;">charAt()</div>
+<div style="font-weight:bolder;">charCodeAt()</div>
+<div style="font-weight:bolder;">indexOf()</div>
+<div style="font-weight:bolder;">lastIndexOf()</div>
+<div style="font-weight:bolder;">startsWith()</div>
+<div style="font-weight:bolder;">endsWith()</div>
+<div style="font-weight:bolder;">includes()</div>
+<div style="font-weight:bolder;"><mark>search()</mark></div>
+<div style="font-weight:bolder;"><mark>match()</mark></div>
+<div style="font-weight:bolder;"><mark>matchAll()</mark></div>
+<div style="font-weight:bolder;">concat()</div>
+<div style="font-weight:bolder;">repeat()</div>
+<div style="font-weight:bolder;">replace()</div>
+<div style="font-weight:bolder;">replaceAll()</div>
+<div style="font-weight:bolder;">slice()</div>
+<div style="font-weight:bolder;">split()</div>
+<div style="font-weight:bolder;">substr()</div>
+<div style="font-weight:bolder;">substring()</div>
+<div style="font-weight:bolder;">toLowerCase()</div>
+<div style="font-weight:bolder;">toUpperCase()</div>
+<div style="font-weight:bolder;">trim()</div>
+
+</div>
+
+
+---
+
+# Stringhe
+
+accedere ad uno specifico carattere: charAt()
+
+`charAt(indice)` 
+
+***restituisce il carattere ad uno specifico indice***
+
+```js
+let str = "Ciao Mondo!";
+
+console.log(str.charAt(0));  // C
+console.log(str.charAt(1));  // i
+console.log(str.charAt(6));  // o
+console.log(str.charAt(56)); // ''
+
+
+// Possiamo anche accedere direttamente usando la notazione degli array
+console.log(str[0]); // C
+console.log(str[1]); // i
+console.log(str[6]); // o
+console.log(str[6]); // undefined
+```
+
+---
+
+# Stringhe
+
+codice UTF-16 di uno specifico carattere: charCodeAt()
+
+`charCodeAt(indice)` 
+
+***restituisce il codice UTF-16 del carattere ad uno specifico indice***
+
+```js
+let str = "Ciao Mondo!";
+
+console.log(str.charCodeAt(0));  // 67
+console.log(str.charCodeAt(1));  // 105
+console.log(str.charCodeAt(6));  // 111
+console.log(str.charCodeAt(56)); // Nan
+```
+
+---
+
+# Stringhe
+
+trova la prima occorrezzan di una stringa o carattere: indexOf()
+
+`indexOf(stringa)` 
+
+***viene utilizzato per ottenere l'indice della prima occorrenza di un valore specificato in una stringa***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.indexOf("vita") // 31
+str.indexOf("Vita") // -1 
+str.indexOf("v") // 31
+```
+
+- Restituisce -1 in caso non sia trovata l'occorrenza
+
+---
+
+# Stringhe
+
+trova l'ultima occorrezzan di una stringa o carattere: lastIndexOf()
+
+`lastIndexOf(stringa)` 
+
+***viene utilizzato per ottenere l'indice dell'ultima occorrenza di un valore specificato in una stringa***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.lastIndexOf("vita") // 43
+str.lastIndexOf("Vita") // -1 
+str.lastIndexOf("v") // 43
+```
+
+- Restituisce -1 in caso non sia trovata l'occorrenza
+
+---
+
+# Stringhe
+
+verifica l'inizio di una stringa: startsWith()
+
+`startsWith(stringa)` 
+
+***determina se una stringa inizia con una determinata sottostringa o meno. Se inizia con la stringa desiderata, restituisce true altrimenti restituisce false.***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.startsWith("Nel") // true
+str.startsWith("N") // true
+str.startsWith("mezzo") // fals
+```
+
+---
+
+# Stringhe
+
+verifica la fine di una stringa: endsWith()
+
+`endsWith(stringa)` 
+
+***determina se una stringa finisce con una determinata sottostringa o meno. Se finisce con la stringa desiderata, restituisce true altrimenti restituisce false.***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.endsWith("vita") // false
+str.endsWith("possibile") // true
+str.endsWith("le") // true
+str.endsWith("e") // true
+str.endsWith("lE") // false
+```
+
+---
+
+# Stringhe
+
+strinag contiene stringa: includes()
+
+`includes(stringa)` 
+
+***viene utilizzato determina se una determinata sottostringa è presente o meno nella stringa chiamante.In caso affermativo restituisce true altrimenti restituisce false***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.includes("cammin") // true
+str.includes("vita") // true
+str.includes("Vita") // false
+str.includes("L") // true
+str.includes("....") // true
+```
+
+---
+
+# Stringhe
+
+desc: search()
+
+`search(regex)` 
+
+***viene utilizzato per determinare se un modello esiste o meno all'interno della stringa chiamante, se esiste, il metodo restituisce il valore di indice della prima corrispondenza all'interno della stringa.***
+
+- Metodo avanzato che richiede la conoscenze delle ***regula expressions***
+- Questo metodo esula dalla conoscenze di livello scuola superiore
+- In modo analogo i metodi match() e matchAll() non sono trattati
+
+---
+
+# Stringhe
+
+concatenazione di stringhe: concat()
+
+`concat(item1, item2, ..., itemN)` 
+
+***concatena le stringhe passate come argomento con la stringa chiamante***
+
+```js
+let str = "ciao ";
+let str2 = "mondo";
+
+console.log(str.concat("io ", "mi chiamo ", "Mario"));
+> ciao io mi chiamo Mario
+
+console.log(str.concat(str2));
+> ciao mondo
+```
+
+---
+
+# Stringhe
+
+ripetizione di stringhe: repeat()
+
+`repeat(n)` 
+
+***viene utilizzato per creare una nuova stringa ripetendo e concatenando la stringa esistente per il numero di volte specificato. Il metodo restituisce una nuova stringa contenente copie della stringa su cui viene chiamato il metodo.***
+
+```js
+let str = "*";
+
+str.repeat(10) // ********** 
+str.repeat(0) // ''
+str.repeat(Infinity) // Uncaught RangeError: Invalid count value: Infinity
+```
+
+---
+
+# Stringhe
+
+sostituzione di stringhe: replace()
+
+`replace(src, dest)` 
+
+***rimpiazza la prima occorrenza della sottostringa src, se presente, con la stringa dest***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.replace("vita", "VITA")
+> 'Nel mezzo del cammin di nostra VITA.... La vita non era più possibile'
+
+str.replace("zz", "XX")
+> 'Nel meXXo del cammin di nostra vita.... La vita non era più possibile'
+
+str.replace("VITA", "XXXX")
+> 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+```
+
+---
+
+# Stringhe
+
+sostituzione di stringhe: replaceAll()
+
+`replaceAll(src, dest)` 
+
+***rimpiazza tutte le occorrenze della sottostringa src, se presente, con la stringa dest***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.replaceAll("vita", "VITA")
+> 'Nel mezzo del cammin di nostra VITA.... La VITA non era più possibile'
+
+str.replaceAll("vi", "VI")
+> 'Nel mezzo del cammin di nostra VIta.... La VIta non era più possibile'
+
+str.replaceAll("VITA", "XXXX")
+> 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+```
+
+---
+
+# Stringhe
+
+estrazione di una stringa: slice()
+
+`slice(start, end)` 
+
+***estrae la sottostringa inclusa tra l'indice start(incluso) e end(non incluso) e la restituisce come nuova stringa, senza modificare la stringa originale.***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.slice(0, 5) // 'Nel m'
+str.slice(2, 5) //'l m'
+str.slice(4) // 'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.slice(4,) //'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.slice(-1) //'e'
+str.slice(-9) // 'possibile'
+str.slice(0) // 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.slice(10,0) // ''
+```
+
+---
+
+# Stringhe
+
+suddividere una stringa: split()
+
+`split(char)` 
+
+***suddivide una stringa in sottostringhe separate da char. Restituisce un array di stringhe***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.split(' ')
+> ['Nel', 'mezzo', 'del', 'cammin', 'di', 'nostra', 'vita....', 'La', 'vita', 'non', 'era', 'più', 'possibile']
+
+str.split('....')
+> ['Nel mezzo del cammin di nostra vita', ' La vita non era più possibile']
+
+str.split('')
+> ['N', 'e', 'l', ' ', 'm', 'e', 'z', 'z', 'o', ' ', 'd', 'e', 'l', ' ', 'c', 'a', 'm', 'm', 'i', 'n', ' ', 'd', 'i', ' ', 'n', 'o', 's', 't', 'r', 'a', ' ', 'v', 'i', 't', 'a', '.', '.', '.', '.', ' ', 'L', 'a', ' ', 'v', 'i', 't', 'a', ' ', 'n', 'o', 'n', ' ', 'e', 'r', 'a', ' ', 'p', 'i', 'ù', ' ', 'p', 'o', 's', 's', 'i', 'b', 'i', 'l', 'e']
+```
+
+---
+
+# Stringhe
+
+estrazione di sottostringhe: substr()
+
+`substr(start, end)` 
+
+***estrae una sottostringa a partire dall'indice start fino all'indice end***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.substr(0, 5) // 'Nel m'
+str.substr(2, 5) //'l m'
+str.substr(4) // 'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substr(4,) //'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substr(-1) //'e'
+str.substr(-9) // 'possibile'
+str.substr(0) // 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.slice(10,0) // ''
+```
+---
+
+# Stringhe
+
+estrazione di sottostringhe: substring()
+
+`metodo(item1, item2, ..., itemN)` 
+
+***estrae una sottostringa a partire dall'indice start fino all'indice end***
+
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.substring(0, 5) // 'Nel m'
+str.substring(2, 5) //'l m'
+str.substring(4) // 'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substring(4,) //'mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substring(-1) //'e'
+str.substring(-9) // 'possibile'
+str.substring(0) // 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substring(10,0) // 'Nel mezzo '
+```
+
+---
+
+# Stringhe
+
+tutto minuscolo: toLowerCase()
+
+`toLowerCase()` 
+
+***converte una stringa tutto in minuscolo e restituisce una nuova stringa senza modificare la stringa originale***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.toLowerCase()
+> 'nel mezzo del cammin di nostra vita.... la vita non era più possibile'
+```
+
+---
+
+# Stringhe
+
+TUTTO MAIUSCOLO: toUpperCase()
+
+`toUpperCase())` 
+
+***converte una stringa tutto in maiuscolo e restituisce una nuova stringa senza modificare la stringa originale***
+
+```js
+let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
+
+str.toUpperCase()
+> 'NEL MEZZO DEL CAMMIN DI NOSTRA VITA.... LA VITA NON ERA PIÙ POSSIBILE'
+```
+
+
+---
+
+# Stringhe
+
+togliamo gli spazi: trim()
+
+`trim()` 
+
+***rimuove gli spazi alle due estremità di una stringa e restituisce una nuova stringa senza modificare la stringa originale***
+
+```js
+let str = "    Nel mezzo del cammin di nostra vita.... La vita non era più possibile   ";
+
+str.trim()
+> 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+```
+
+--- 
+
+# Esercizio js_10a
+
+Stringhe
+
+1. Scrivere una funzione (abbreviatione) in JS che ricevuta in input una stringa nel fomato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
+2. Inoltre la prima lettera del nome e del cognome deve essere in maiuscolo
+   
+
+```js
+IN: Antonio Mancuso
+
+OUT: Antonio M.
+```
+
+3. Fornire il link github al file con nome _|cognome|\_esercizio_js_10a.js_
+
+
+--- 
+
+# Esercizio js_10b
+
+Stringhe
+
+1. Scrivere una funzione (protect_email) in JS che ricevuta in input una stringa rappresentante un indirizzo email restituisca una stringa in cui la parte di user name dell'indirizzo sia parzialmente offuscato per ragioni di sicurezza
+
+```js
+IN: antonio.mancuso@istitutoagnelli.it
+
+OUT: antonio...@istitutoagnelli.it
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10b.js_
+
+--- 
+
+# Esercizio js_10c
+
+Stringhe
+
+1. Scrivere una funzione (untokenize) in JS che ricevuta in input una stringa restituisca una stringa in cui tutti gli spazi sono rimpiazzati dal carattere meno (-)
+
+```js
+IN: Nel mezzo del cammin di nostra vita
+
+OUT: Nel-mezzo-del-cammin-di-nostra-vita
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10c.js_
+
+--- 
+
+# Esercizio js_10d
+
+Stringhe
+
+1. Scrivere una funzione (capitalize) in JS che ricevuta in input una stringa restituisca una stringa in cui la prima lettera è magliuscol
+
+```js
+IN: ciamo mondo!!!
+
+OUT: Ciamo mondo!!!
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10d.js_
+
+--- 
+
+# Esercizio js_10e
+
+Stringhe
+
+1. Scrivere una funzione (capitalize_all) in JS che ricevuta in input una stringa restituisca una stringa in cui tutti i primi caratteri di ogni parola siano maiuscoli
+
+```js
+IN: ciamo mondo la terra gira!!!
+
+OUT: Ciamo Mondo La Terra Gira!!!
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10e.js_
+
+
+--- 
+
+# Esercizio js_10f
+
+Stringhe
+
+1. Scrivere una funzione (upper_case) in JS che ricevuta in input una stringa restituisca una stringa con tutti i caratteri maiuscoli senza usare il metodo toUpperCase()
+
+```js
+IN: ciamo mondo!!!
+
+OUT: CIAO MONDO!!!
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10f.js_
+
+--- 
+
+# Esercizio js_10g
+
+Stringhe
+
+1. Scrivere una funzione (invert_case) in JS che ricevuta in input una stringa con caratteri minuscoli e maiuscoli, restituisca una stringa in cui tutti i caratteri minuscoli sono maiuscoli e viceversa
+
+```js
+IN: Ciao Mondo!!!
+
+OUT: cIAO mONDO!!!
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10g.js_
+
+--- 
+
+# Esercizio js_10h
+
+Stringhe
+
+1. Scrivere una funzione (tronca) in JS che ricevuta in input una stringa di lunghezza arbitraria ed una lunghezza L, restituisca la stringa iniziale troncata alla lunghezza L ed aggiunga un ellipsis ... al fondo della stringa
+
+```js
+IN: Ciao Mondo la terra gira!!!, 10
+
+OUT: Ciao Mondo...
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10h.js_
+
+---
+
 # Array
 
 Definizione
@@ -5829,13 +6440,21 @@ console.log("Numeri dall'indice 1 al 4 escludo:", numeri.slice(1, 4));
 > Numeri dall'indice 1 al 4 escludo: [ 3, 5, 7 ]
 ```
 
----
+------ 
 
-# Array
+# Esercizio js_11
 
-Manipolare in loco un array: splice()
+Array
 
-`splice(start, deleteCount, item1, ... , itemN)`
+1. Scrivere una funzione che dato un array in input, restituisca un array con gli elementi in ordine inverso, senza usare la funzione reverse
+
+```js
+IN: [1,2,3]
+
+OUT: [3,2,1]
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11.js_
 
 ***cambia il contenuto di un array rimuovendo o sostituendo elementi esistenti e/o aggiungendo nuovi elementi sul posto. Restituisce un array con gli elementi rimossi.***
 
@@ -7590,9 +8209,11 @@ Classe: sintassi
 
 ```js
 class MiaClasse {
+    filed1 = 10;          //class field o member variables
+    field2 = "nome";      // attributo della classe
     constructor() { ... } //costruttore dell'oggetto 
-    metodo1() { ... } //Gli altri metodi implementano
-    metodo2() { ... } // i vari comportamenti dell'oggetto
+    metodo1() { ... }     //Gli altri metodi implementano
+    metodo2() { ... }     // i vari comportamenti dell'oggetto
     ...
     metodoN() { ... }
 }
@@ -7610,21 +8231,19 @@ Classe: dichiarazione ed uso
 
 ```js
 class Studente {
+    istituto = "Agnelli";
     constructor(nome, classe) {
         this.nome = nome;
         this.classe = classe;
     }
-
     Saluta() {
-        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe}`);
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe} dell'istituto ${this.istituto}`);
     }
 }
 
-//Uso
 let mario = new Studente("Mario", 4);  //con new instanziamo un oggetto della classe Studente
 mario.Saluta(); //invochiamo il metodo Saluta dell'oggetto mario
-
-> Ciao sono lo studente Mario della classe 4
+> Ciao sono lo studente Mario della classe 4 dell'istituto Agnelli
 ```
 
 <br>
@@ -7644,20 +8263,63 @@ Classe: dichiarazione ed uso
 
 ```js
 class Studente {
+    istituto = "Agnelli";
     constructor(nome, classe) {
-        console.log("Inizializzo l'oggetto con i parametri passati");
         this.nome = nome;
         this.classe = classe;
     }
-
     Saluta() {
-        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe}`);
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe} dell'istituto ${this.istituto}`);
     }
 }
 
 let mario = new Studente("Mario", 4);
-> Inizializzo l'oggetto con i parametri passati
+> Inizializzo l'oggetto con i parametri passati che assegnamo agli attributi nome e classe
 ```
+
+---
+
+# JS Object Oriented Programming
+
+this 
+
+<div style="width: 55%;">
+
+- Come visto nell'esempio precedente, una situazione molto frequente è quella di dover accedere agli attributi dell'oggetto, per esempio *nome*, *classe* e *istituto*
+- Quindi quando in un metodo di una classe vogliamo accedere agli attributi, dobbiamo essere sicuro di accedere a quelli dell'oggetto specifico che vuole effettuare l'operazione
+- Per tale motivo, in un metodo possiamo far riferimento all'oggetto stesso tramite la keyword `this`
+- Pertanto **this** rappresenta l'oggetto specifico, tra tutti quelli instanziati, che sta eseguendo l'operazione
+
+</div>
+
+<img src="/media/js36.png" width="400" style="display:inline; position:relative; top: -350px;right:-500px;"/>
+
+
+---
+
+# JS Object Oriented Programming
+
+this 
+
+```js
+class Studente {
+    istituto = "Agnelli";
+    constructor(nome, classe) {
+        this.nome = nome;
+        this.classe = classe;
+    }
+    Saluta() {
+        console.log(`Ciao sono lo studente ${this.nome} della classe ${this.classe} dell'istituto ${this.istituto}`);
+    }
+}
+
+let mario = new Studente("Mario", 4);
+mario.Saluta();
+```
+
+- Quandi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
+  -  acceddi allla proprietà *nome* dell'oggetto *mario* e di nessun'altro oggetto eventualemnte istanziato dalla stessa classe
+
 
 ---
 
@@ -7674,7 +8336,6 @@ Getter e Setter
 
 <img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 10px;"/>
 <img src="/media/js35.png" width="400" style="display:inline; position:relative; top: 10px;right:-50px;"/>
-
 
 ---
 
@@ -7746,28 +8407,11 @@ Uncaught RangeError: Maximum call stack size exceeded
     ...
 ```
 
---- 
-
-# Esercizio js_41
-
-OOP
-
-- scrivere un programma in JS che:
-1. implementi la classe Quadrato
-3. fornisca il getter e setter per le sue proprietà
-4. richieda all'utente la lunghezza del lato
-5. sia in grado di calcolare il suo perimetro
-6. sia in grado di calcolare la sua area
-7. scrivere il main che instanzi un oggetto della classe Quadrato e stampi sulla console il perimetro e in un alert l'area dello stesso
-8. Fornire il link github al file con nome _|cognome|\_esercizio_js_41.js_
-
-
-
 ---
 
 # JS Object Oriented Programming
 
-OOP 
+Pseudo Proprietà 
 
 - I metodi get e set permettono la creazione di `pseudo proprietà`
 - In altre parole in JS è possibile creare una proprietà di un oggetto che non è suo attributo diretto
@@ -7791,19 +8435,734 @@ console.log(q.area);  // lo invoco come una proprietà e non come un metodo
 > 25
 ```
 
+--- 
+
+# Esercizio js_41
+
+OOP
+
+- scrivere un programma in JS che:
+1. implementi la classe Quadrato
+3. fornisca il getter e setter per le sue proprietà
+4. richieda all'utente la lunghezza del lato
+5. sia in grado di calcolare il suo perimetro
+6. sia in grado di calcolare la sua area
+7. scrivere il main che instanzi un oggetto della classe Quadrato e stampi sulla console il perimetro e in un alert l'area dello stesso
+8. Fornire il link github al file con nome _|cognome|\_esercizio_js_41.js_
+
+
+---
+
+# JS Object Oriented Programming
+
+Method Chaining
+
+- Spesso in JS vediamo codice come questo
+
+<br>
+
+```js
+let str = "Ciao Mondo!!"
+
+console.log(str.replace(' ', '_').replaceAll('!', '').toUpperCase())
+
+> CIAO_MONDO
+```
+<br>
+
+- Come si vede sull'oggetto str viene invocata una catena, una sequenza di metodi
+- Questo meccanismo prende il nome di `method chaining`
+- Ma come è possibile? 
+- Come è possibile replicare questo comportamento nelle mie classi?
+
+---
+
+# JS Object Oriented Programming
+
+Method Chaining
+
+- Creaimo una classe che rappresenta la tartaruga del logo, composta da 4 metodi che permettonodi muoversi nelle quattro direzioni cardinali per una data distanza
+
+```js
+class tartaruga {
+    nord(dist) { console.log(`vado a nord di ${dist} metri`); }
+    sud(dist) { console.log(`vado a sud di ${dist} metri`); }
+    est(dist) { console.log(`vado a est di ${dist} metri`); }
+    ovest(dist) { console.log(`vado a ovest di ${dist} metri`); }
+}
+
+tarta = new tartaruga()
+tarta.nord(10); //vado a nord di 10 metri
+tarta.est(10);  //vado a est di 10 metri
+tarta.sud(10);  //vado a sud di 10 metri
+tarta.ovest(10);//vado a ovest di 10 metri
+
+//method chaining
+tarta.nord(10).est(10).sud(10).ovest(10)
+> vado a nord di 10 metri
+> Uncaught TypeError: Cannot read properties of undefined (reading 'est')
+```
+
+---
+
+# JS Object Oriented Programming
+
+Method Chaining
+
+```js
+class tartaruga {
+    nord(dist) { console.log(`vado a nord di ${dist} metri`); return this; }
+    sud(dist) { console.log(`vado a sud di ${dist} metri`); return this; }
+    est(dist) { console.log(`vado a est di ${dist} metri`); return this; }
+    ovest(dist) { console.log(`vado a ovest di ${dist} metri`); return this; }
+}
+
+tarta = new tartaruga()
+
+tarta.nord(10); //vado a nord di 10 metri
+tarta.est(10);  //vado a est di 10 metri
+tarta.sud(10);  //vado a sud di 10 metri
+tarta.ovest(10);//vado a ovest di 10 metri
+
+//method chaining
+tarta.nord(10).est(10).sud(10).ovest(10)
+> vado a nord di 10 metri
+> vado a est di 10 metri
+> vado a sud di 10 metri
+> vado a ovest di 10 metri
+```
+
+---
+
+# JS Object Oriented Programming
+
+Method Chaining
+
+- Quindi per implementare il `method chaining` è necessario che i metodi restituiscano l'oggetto stesso o in altre parole **this**
+- In questo modo la prima chiamata *tarta.nord(10)*  viene valutata e:
+  - stampa il messaggio
+  - restituisce un oggetto di tipo tartaruga
+- Ora su questo oeggetto *(tarta.nord(10))* chiamo il metodo *est(10)* che viene valutato e:
+  - stampa il messaggio
+  - restituisce un oggetto di tipo tartaruga
+- e così via per i metodi successivi
+
+<div style="background: green; color:yellow;padding: 1.5rem;margin-top:1rem;">  
+Questo paradigma viene utilizzato molto di frequente nella programmazione in JS
+</div>
+
+
+--- 
+
+# Esercizio js_42
+
+OOP
+
+- scrivere un programma in JS che:
+1. implementi una classe Calcolatrice che fornisce le 4 operazioni aritmetiche base
+2. in aggiunta questa classe permette l'esecuzione di espressioni del tipo:
+    - 5 + 3 - 2 + 4 * 5 - 2 / 2 (non ci sono precedenze)
+3.  scrivere il main che utilizzando la classe Calcolatrice, stampi sulla console le seguenti espressioni ed il risultato di ciascuna:
+    - 6 - 2 * 5 + 8 / 4  = ?
+    - 11 * 3 + 5 - 5 / 11 = ?
+    - 29 + 2 - 7 / 3 / 2 + 1 * 2 = ?
+4.  Fornire il link github al file con nome _|cognome|\_esercizio_js_42.js_
+
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+- Uno dei principi fondamentali del paradigma OOP è `l'ereditarietà` di una classe
+- Tramite il meccanismo ***dell'ereditarietà*** è possibile estendere il comportamento di una classe
+- In altre parole una nuova classe (`sottoclasse`) può ereditare il comportamento da una classe esistente (`superclasse`) ed estenderlo
+- A volte la **superclasse** è anche detta classe **madre** o **padre**
+- Mentre la **sottoclasse** è detta classe **figlia** o classe **derivata**
+
+<img src="/media/js37.png" width="300" style="margin:auto;margin-top: 2rem;"/>
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding 
+
+- In JS una classe per ereditare il comportamento e gli attributi da una classe madre, si utilizza la keyword `extends`
+- Pertanto la forma generale è
+
+```js
+class <sottoclasse> extends <superclasse>
+```
+
+o
+
+```js
+class <classe figlia> extends <classe madre>
+```
+
+ESEMPIO:
+
+```js
+class Cane extends Animale
+
+class Gatto extends Animale
+
+class Ornitorinco extends Animale
+
+```
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding 
+
+```js
+class Mammifero {
+    genere = "genere";
+    nome = "nome";
+    _verso = "verso";
+
+    verso() {
+        console.log(`ciao, io sono un mammifero del genere ${this.genere}, mi chiamo ${this.nome} e per comunicare emetto un ${this._verso}`);
+    }
+}
+
+let mammifero =  new Mammifero();
+mammifero.verso();
+
+> ciao, io sono un mammifero del genere genere, mi chiamo nome e per comunicare emetto un verso
+```
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding 
+
+```js
+class Cane extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un cane è un mammifero
+        this.genere = "canis";
+        this._verso = "abbaio";
+        this.nome = nome;
+    }
+}
+
+let cane = new Cane("Birillo");
+cane.verso();
+
+> ciao, io sono un mammifero del genere canis, mi chiamo Birillo e per comunicare emetto un abbaio
+
+```
+<br>
+
+- La keyword `super` permette di accedere alla superclasse o classe madre
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding 
+
+```js
+class Gatto extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un gatto è un mammifero
+        this.genere = "felis";
+        this._verso = "miagolo";
+        this.nome = nome;
+    }
+}
+
+let gatto = new Gatto("Tom");
+gatto.verso();
+
+> ciao, io sono un mammifero del genere felis, mi chiamo Tom e per comunicare emetto un miagolo
+
+```
+
+- Le classi Cane e Gatto, entrambe estendono la superclasse Mammifero e ne ereditano tutti gli attributi e metodi
+- Nei costruttori abbiamo assegnato valori specifici alle proprietà
+- Il metodo verso è quello ereditato dalla classe madre
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+- Nella programmazione ad oggetti, come visto, l'ereditarietà è un meccanismo molto potente
+- Tuttavia solo ereditare il comportamento di una classe madre può risultare inutile
+- Quindi un concetto chiave associato all'ereditarietà è il concetto di `Overriding`
+- Nella OOP `Override` è l'operazione di riscrittura di un metodo ereditato da una classe madre
+
+<img src="/media/js38.png" width="400" style="margin:auto;margin-top: 2rem;"/>
+
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+```js
+class Cane extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un cane è un mammifero
+        this.genere = "canis";
+        this._verso = "abbaio";
+        this.nome = nome;
+    }
+
+    verso() {
+        console.log("bau bau bau!!!");
+    }
+}
+
+let cane = new Cane("Birillo");
+cane.verso();
+
+> bau bau bau!!!
+```
+
+- il metodo verso() ora ha un comportamento totalemnte diverso dal metodo verso della superclasse
+  
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+```js
+class Gatto extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un gatto è un mammifero
+        this.genere = "felis";
+        this._verso = "miagolo";
+        this.nome = nome;
+    }
+
+    verso() {
+        console.log("miao miao miao!!!");
+    }
+}
+
+let gatto = new Gatto("Tom");
+gatto.verso();
+
+> miao miao miao!!!
+```
+
+- anche in questo caso, il metodo verso() ha un comportamento totalemnte diverso dal metodo verso della superclasse e da quello della classe derivata Cane
+  
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+```js
+class Cane extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un cane è un mammifero
+        this.genere = "canis";
+        this._verso = "abbaio";
+        this.nome = nome;
+    }
+
+    verso() {
+        super.verso(); // chiamo il metodo verso della superclasse
+        console.log("bau bau bau!!!"); //ed estendo con un comportamento specifico
+    }
+}
+let cane = new Cane("Birillo");
+cane.verso();
+
+> ciao, io sono un mammifero del genere canis, mi chiamo Birillo e per comunicare emetto un abbaio
+> bau bau bau!!!
+```
+
+- il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
+  
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+```js
+class Gatto extends Mammifero {
+    constructor(nome) {
+        super(); // chiamo il costruttore della superclasse in quanto un gatto è un mammifero
+        this.genere = "felis";
+        this._verso = "miagolo";
+        this.nome = nome;
+    }
+
+    verso() {
+        super.verso(); // chiamo il metodo verso della superclasse
+        console.log("miao miao miao!!!");//ed estendo con un comportamento specifico
+    }
+}
+let gatto = new Gatto("Tom");
+gatto.verso();
+
+> ciao, io sono un mammifero del genere felis, mi chiamo Tom e per comunicare emetto un miagolo
+> miao miao miao!!!
+```
+
+- anche inq uesto caso il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
+
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+- Ovviamente si può anche estendere una classe o un tipo predefinito
+
+```js
+class Numero extends Number {
+    constructor(n) {
+        super(n);
+    }
+    arrotonda() {
+        return Math.round(this.valueOf());
+    }
+}
+
+console.log(`Il numero N vale ${N.arrotonda()}`);
+
+> Il numero N vale 11
+
+```
+
+- Numero ha tutte le proprietà e metodi di Number, ma ora fornisce anche un metodo che arrotonda il valore del numero
+  
+
+---
+
+# JS Object Oriented Programming
+
+Inheritance e Overriding
+
+```js
+class Vettore extends Array {
+  vuoto() {
+    return this.length == 0;
+  }
+}
+
+let voti = new Vettore();
+
+console.log(voti.vuoto());
+> true
+
+voti.push(5);
+voti.push(7);
+
+console.log(voti.vuoto());
+> false
+
+
+
+```
+
+
+--- 
+
+# Esercizio js_43
+
+OOP
+
+- scrivere un programma in JS che:
+1. implementi una classe Poligono che definisce le properietà principlai di un poligono regolare (lunghezza e numero lati) e che implementi i metodi Perimetro e Area per il calcolo e la stampa rispettivamente del perimetro e dell'area del poligono
+2.  scrivere il main che utilizzando la classe Poligono, calcoli e stampi perimetro e area per:
+    - Triangolo equilatero di lato 15cm
+    - Quadrato di lato 10cm
+    - Pentagono di lato 21cm
+    - Esagono di lato 18cm
+    - Ettagono di lato 9cm
+    - Ottagono di lato 12cm
+3.  Fornire il link github al file con nome _|cognome|\_esercizio_js_43.js_
+
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- Uno dei concetti più importanti della programmazione ad oggetti è `l’incapsulamento`, ovvero la delimitazione delle interfacce interne da quelle esterne.
+- Per comprenderla, usciamo dal mondo dello sviluppo e guardiamo al mondo reale.
+- Solitamente, i dispositivi che utilizziamo sono piuttosto complessi. Poter delimitare la loro interfaccia interna da quella esterna, ci consente di utilizzarli senza grossi problemi.
+- Per esempio un computer:
+  - il suo uso avviene facilemente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
+  - tuttavia il suo funzionamento interno (incapsulato) è piuttosto complesso
+  - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tasiera e OS
+  - tuttavia l'utente vede ed usa solo le interfacce esterne, mentre ignora la presenza ed il funzionamento di quelle interne
+- Questo è il principio di `incapsulamento` nel mondo fisico. Ciò è utile anche nel mondo del software
+  
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- Pertanto nella programmazione OOP, le proprietà ed i metodi sono divisi in due gruppi:
+  - ***Interfaccia interna privata***: metodi e proprietà, accessibili dagli altri metodi della classe, ma non dall’esterno.
+  - ***Interfaccia esterna pubblica***: metodi e proprietà, accessibili anche dall’esterno della classe.
+
+- Nell'esempio precedente:
+  - il computer visualizza i risultati generati tramite l'interfaccia pubblica chiamata Display
+  - il computer adatta lo scambio di informazioni tra CPU e momoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
+  
+
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- Originariamente JS non forniva nessun modo per determinare lo stato di visibilità di metodi e proprietà
+- In altre parole tutti i metodi e attibuti erano **Public**
+- Tuttavia con l'uso di getter e setter è possibile "simulare" un attributo privato
+
+```js
+class Studente {
+    _classe = 1;
+
+    constructor(classe) {
+        this._classe = classe;
+    }
+    get classe() {
+        return this._classe;
+    }
+    set classe(val) {
+        this._classe = val;
+    }
+}
+```
+
+- La proprietà _classe viene considerata privata in quanto la classe mette a disposizione un getter e setter per la proprietà classe
+  
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- In modo analogo per i metodi
+
+```js
+class Studente {
+    _classe = 3;
+
+    _promosso() {
+        this._classe += 1;
+    }
+
+    promosso() {
+        this._promosso();
+    }
+}
+```
+
+- il metodo _promosso viene considerato privato in quanto viene esposto il metodo promosso()
+- tuttavia sia _classe che _promosso sono in realtà accessibili dall'esterno
+  
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- Recentemente la specifica ECMA script 6 ha introdotto uno specifico delimitatore `#` per indicare un metodo o un attributo **privato**
+- Pertanto tutti i metodi e attributi identificati da `#` NON sono accessibili dall'esterno della classe, ma solamente dal suo interno, e quindi **privati**
+
+```js
+class Studente {
+    #classe = 1; //attributo privato
+    constructor(classe) { this.#classe = classe; }
+    getClasse() { return this.#classe; }
+}
+
+let studente = new Studente(4);
+
+console.log(studente.getClasse());
+> 4
+
+console.log(studente.#classe);
+> Uncaught SyntaxError: Private field '#classe' must be declared in an enclosing class
+```
+
+---
+
+# JS Object Oriented Programming
+
+Visibilità di metodi e attributi 
+
+- In modo analogo per i metodi
+
+```js
+class Studente {
+    #classe = 1;
+    constructor(classe) { this.#classe = classe; }
+    getClasse() { return this.#classe; }
+    #promosso() { this.#classe += 1; } //metodo privato
+    promosso() { this.#promosso(); }
+}
+
+let studente = new Studente(4);
+studente.promosso();
+
+console.log(studente.getClasse());
+> 5
+
+studente.#promosso();
+> Uncaught SyntaxError: Private field '#promosso' must be declared in an enclosing class
+
+```
+
+- #classe e #promosso sono ora effettivamente privati e inaccessibili dall'esterno
+  
+---
+
+# JS Object Oriented Programming
+
+Confronto di oggetti 
+
+- Può essere utile verificare se un oggetto è di uno specifico tipo, o meglio se un oggetto è un'istanza di una determinata classe
+- JS mette a disposizione la keywork `instanceof` che serve proprio a questo scopo
+
+```js
+class Studente {}
+
+class Docente {}
+
+let mario = new Studente();
+let marco = new Docente();
+
+mario instanceof Studente; // true
+mario instanceof Docente; // false
+
+marco instanceof Studente; // false
+marco instanceof Docente; // true
+```
+
+---
+
+# JS Object Oriented Programming
+
+Confronto di oggetti 
+
+```js
+class Studente {
+    constructor(nome, classe) { 
+        this.nome = nome;
+        this.classe = classe;
+    }
+}
+
+let mario = new Studente("Mario", 4);
+let marco = new Studente("Marco", 4);
+
+mario == marco //false
+mario != marco // true
+
+let mariolino = new Studente("Mario", 4);
+
+mario == mariolino // false
+```
+
+- siccome gli oggetti sono in realtà delle referenze, è chairo che mario e mariolino sono due referenze  diverse che puntano a due oggetti uguali
+
+---
+
+# JS Object Oriented Programming
+
+Confronto di oggetti 
+
+- In JS non c'è un modo nativo per confrontare due oggetti
+- Un metodo spesso utilizzato è il seguente
+
+```js
+JSON.stringify(mariolino) == JSON.stringify(marco) // false
+
+JSON.stringify(mariolino) == JSON.stringify(mariolino) // true
+
+```
+
+- questo diventa quindi un confronto di stringhe
+- questo metodo va usato con cautela in quanto può generare falsi positivi
+
+---
+
+# Esercizio js_44
+
+Confronto di oggetti 
+
+- date le classi 
+
+```js
+class Studente {
+    constructor(nome, classe) { 
+        this.nome = nome;
+        this.classe = classe;
+    }
+}
+
+class Docente {
+    constructor(nome, classe) { 
+        this.nome = nome;
+        this.classe = classe;
+    }
+}
+```
+
+- scrivere un programma in JS che:
+1. implementi una funzione confrontaOBJ che confronta due oggetti e restituisce true se sono uguali e false in caso contrario
+
+---
+
+# Esercizio js_44
+
+Confronto di oggetti 
+
+2. scrivere un main che definisce i due seguenti oggetti
+
+```js
+let studente = new Studente("Mario", 4);
+
+let docente = new Docente("Mario", 4);
+```
+
+- e li confronta utilizzando la funzione confrontaOBJ
+
+3.  Fornire il link github al file con nome _|cognome|\_esercizio_js_44.js_
+
+
 ---
 
 # JS Object Oriented Programming
 
 OOP 
 
-
 ---
 
 # JS Object Oriented Programming
 
 OOP 
 
+---
+
+# JS Object Oriented Programming
+
+OOP 
 
 
 
@@ -7819,7 +9178,6 @@ OOP
 # xxxx
 
 - stringhe e operatori stringhe
-- classi e oggetti
 - try...catch
 - promises
 - modules
