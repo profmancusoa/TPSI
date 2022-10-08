@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.11"
+version: "1.0.12"
 ---
 
 # JavaScript
@@ -2882,7 +2882,7 @@ for (; i < 3; ) {
 }
 ```
 
-- Se rimuoviamo anche la `condition` otteniamo un ciclo infoinito
+- Se rimuoviamo anche la `condition` otteniamo un ciclo infinito
 
 ```js
 for (;;) {
@@ -2983,7 +2983,7 @@ function <nome funzione>() {
 ```
 
 - La keyword `function` apre la definizione di una funzione
-- Segue il nome della funzione (spesso si adotta una convenzione come [snake_case](https://it.wikipedia.org/wiki/Snake_case), [came_case](https://it.wikipedia.org/wiki/Notazione_a_cammello) o altro)
+- Segue il nome della funzione (spesso si adotta una convenzione come [snake_case](https://it.wikipedia.org/wiki/Snake_case), [camel_case](https://it.wikipedia.org/wiki/Notazione_a_cammello) o altro)
 - Il blocco di codice che implementa la funzione è racchiuso tra {}
 
 ```js
