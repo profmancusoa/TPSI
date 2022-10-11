@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.12"
+version: "1.0.13"
 ---
 
 # JavaScript
@@ -3990,6 +3990,14 @@ la chiave nome ha valore Mario
 la chiave cognome ha valore Rossi
 ```
 
+---
+
+# Esercizio js_9a
+
+- Realizzare il ciclo for..in su un oggetto utente NON utilizzando il for..in ma un ciclo for normale 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9a.js_
+
+
 --- #slide N
 
 # JS Objects
@@ -4235,6 +4243,27 @@ Ciao io sono l'utente Mario Rossi
 >utente2.speak()
 Ciao io sono l'utente Giuseppe Verdi
 ```
+
+---
+
+# Esercizio js_9b
+
+- Realizzare un programma in JS che:
+  - Usando gli Objkect Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
+  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9b.js_
+
+---
+
+# Esercizio js_9c
+
+- Realizzare un programma in JS:
+  - Usando gli Objkect Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
+  - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
+  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9c.js_
+
+
 
 --- #slide N
 
