@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.13"
+version: "1.0.14"
 ---
 
 # JavaScript
@@ -4249,7 +4249,7 @@ Ciao io sono l'utente Giuseppe Verdi
 # Esercizio js_9b
 
 - Realizzare un programma in JS che:
-  - Usando gli Objkect Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
+  - Usando gli Object Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_9b.js_
 
@@ -4262,6 +4262,172 @@ Ciao io sono l'utente Giuseppe Verdi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_9c.js_
+
+
+---
+
+# Esercizio js_9d
+
+- Realizzare un programma in JS che:
+  - implementi una funzione che:
+    - dato in ingresso un parametro numerico intero in formato number o string (n)
+    - restituisca la somma di tutti i numeri compresi tra 0 e n
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 3 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9d.js_
+
+---
+
+# Esercizio js_9e
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingresso due object literals che rappresentano ciascuno un orario (h/m/s)
+    - restituisca:
+      - il numero di ms che separa i due orari
+      - il numero di secondi che separa i due orari
+      - il numero di minuti che separa i due orari
+      - il numero di ore che separa i due orari
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9e.js_
+
+---
+
+# Esercizio js_9f
+
+- Realizzare un programma in JS che:
+  - implementi una funzione che:
+    - dato in ingresso un parametro numerico intero in formato number o string (n)
+    - restituisca l'ennesimo numero della successione di Fibonacci
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 5 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9f.js_ 
+
+---
+
+# Esercizio js_9g
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingresso tre object literals che rappresentano ciascuno un orario (h/m/s)
+    - restituisca l'object literals minore dei tre
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9g.js_
+
+---
+
+# Esercizio js_9h
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingresso 2 numeri interi
+    - utilizzando solamente il question mark operator restituisca il maggiore dei 2
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 3 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9h.js_
+
+---
+
+# Esercizio js_9i
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingresso 3 numeri interi
+    - utilizzando solamente il question mark operator restituisca il maggiore dei 3
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 3 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9i.js_
+
+---
+
+# Esercizio js_9j
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingressso un object literals con almeno 5 attributi
+    - stampi per ogni attributo:
+      - il nome
+      - il tipo dell'attributo
+      - il valore dell'attributo
+        - se il valore è di tipo stringa lo deve stampare tutto in minuscolo
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9j.js_
+
+
+---
+
+# Esercizio js_9k
+
+- Realizzare un programma in JS:
+  - fornisca il costruttore per un oggetto Automobile
+  - L’automobile è caratterizzata da:
+    - persone a bordo (un valore compreso tra 0 e 5)
+    - velocità (un valore intero compreso tra 0 e 180)
+    - rapporto di velocità (un valore intero tra 1 e 6)
+    - on/off
+  - Scrivere tutti i metodi che implementano le seguenti funzionalità
+    - impostare il numero di persone a bordo (non posso modificare il numero di persone se velocità è > 0)
+    - impostare la velocità: posso inserire un valore qualsiasi, compreso tra 0 e 180, ma che non superi di 30 km/h in eccesso o in difetto la velocità attuale
+    - aumenta rapporto di velocità : cambia la marcia, crescendo di 1 (non posso però superare il valore massimo)
+    - diminuisce rapporto di velocità - : cambia la marcia, scalando di 1 (non posso però superare il valore minimo)
+
+
+---
+
+# Esercizio js_9k
+
+    - pulsante ON/OFF (se Automobile è accesa si spegne, se Automobile è spenta si accende)
+  - Note:
+    - Le variazioni di velocità e marcia sono consentite solo se l’auto è accesa.
+    - Dopo ogni operazione, sullo schermo occorre visualizzare lo stato attuale dell’automobile (persone, velocità, marcia, on/off), tramite apposito metodo
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
+    - L'output è gestito solo dal main
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9k.js_
+
+---
+
+# Esercizio js_9l
+
+- Realizzare un programma in JS:
+  - implementi una funzione che:
+    - presi in ingresso 2 numeri interi ed una funzione di callback
+    - restituisca il risultato dell'operazione sui due numeri come specificato dalla funzione di callback
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 3 volte con parametri differenti e con 3 tre callback differenti (somma di due numeri, prodotto di due numeri, elevamento a potenza)
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9l.js_
+
+---
+
+# Esercizio js_9m
+
+- Realizzare un programma in JS:
+  - implementi 4 arrow function che realizzano le quattro operazioni aritmetiche base, ognuna operante su due operandi
+  - fornisca il main che:
+    - verifichi il corretto funzionamento delle 4 funzioni richieste stampandone il risultato sulla console
+    - invochi ciascuna funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9m.js_
 
 
 
