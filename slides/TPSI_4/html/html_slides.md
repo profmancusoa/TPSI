@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.1'
+version: '1.4.2'
 ---
 
 # Hyper Text Markup Language
@@ -593,7 +593,7 @@ Blocchi di testo
 
 Heading e paragrafi
 
-1. Trasformare il file di test [*esercizio_html_02.txt*](../support/esercizio_html_02.txt) in *|cognome|_esercizio_html_02.html*
+1. Trasformare il file di test [*esercizio_html_02.txt*](../../support/esercizio_html_02.txt) in *|cognome|_esercizio_html_02.html*
 2. Creare la struttura della pagina HTML inserendo anche i metadati appropriati
 3. Impaginare il testo inserendo, in modo appropriato, gli heading necessari per titoli e sottotitoli
 4. Suddividere il testo in paragrafi in modo opportuno
