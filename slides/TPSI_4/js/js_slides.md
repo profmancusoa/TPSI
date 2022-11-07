@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.14"
+version: "1.0.15"
 ---
 
 # JavaScript
@@ -4258,7 +4258,7 @@ Ciao io sono l'utente Giuseppe Verdi
 # Esercizio js_9c
 
 - Realizzare un programma in JS:
-  - Usando gli Objkect Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
+  - Usando gli Object Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_9c.js_
@@ -4430,214 +4430,6 @@ Ciao io sono l'utente Giuseppe Verdi
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_9m.js_
 
 
-
---- #slide N
-
-# JS Objects
-
-- Un'importante caratteristica della OOP è la possibilità di estendere oggetti esistenti con metodi propri
-- In JS per aggiungere un metodo ad un costruttore esistente si utilizza la keywork `prototype`
-- Tutti i costruttori anno la proprietà _prototype_ a cui è possibile aggiungere nuovi metodi
-- Vediamo come aggiungere un metodo che rende nome e cognome tutti maiuscoli
-
-```js
-const upper = function () {
-    this.nome = this.nome.toUpperCase();
-    this.cognome = this.cognome.toUpperCase();
-}
-
-Utente.prototype.maiuscolo = upper;
-
-> utente1.speak()
-Ciao io sono l'utente Mario Rossi
-
-> utente1.maiuscolo()
-> utente1.speak()
-Ciao io sono l'utente MARIO ROSSI
-```
-
---- #slide N
-
-# JS Objects
-
-- OOP definisce il concetto di `classe` come un template per creare successivamente oggetti tutti aventi le stesse priprietà
-- Quindi il _costruttore_ e il _prototype_ di JS sono qualcosa di molto simile
-- Tuttavia JS mette a disposizione anche il concetto e la keyword `class` per creare delle classi da cui si instanzieranno degli oggetti simili
-- La sintassi è la seguente:
-
-<br>
-
-```js
-class MyClass {
-  constructor() { ... }
-  metodo1() { ... }
-  metodo2() { ... }
-  .....
-  metodoN() { ... }
-}
-```
-
---- #slide N
-
-# JS Objects
-
-- Vediamo come implementare l'esempio precedente con una classe
-
-```js
-class Utente {
-  constructor(nome, cognome) {
-    this.nome = nome;
-    this.cognome = cognome;
-  }
-
-  speak() {
-    console.log(`Ciao io sono l'utente ${this.nome} ${this.cognome}`);
-  }
-
-  maiuscolo() {
-    this.nome = this.nome.toUpperCase();
-    this.cognome = this.cognome.toUpperCase();
-  }
-}
-```
-
---- #slide N
-
-# JS Objects
-
-- Ora instanziamo i due oggetti utente1 e utente2 come negli esempi precedenti
-
-<br>
-
-```js
-let utente1 = new Utente("Mario", "Rossi");
-let utente2 = new Utente("Giuseppe", "Verdi");
-
-> utente1.speak()
-Ciao io sono l'utente Mario Rossi
-
-> utente1.maiuscolo()
-> utente1.speak()
-Ciao io sono l'utente MARIO ROSSI
-
-> utente2.speak()
-Ciao io sono l'utente Giuseppe Verdi
-
-> utente2.maiuscolo()
-> utente2.speak()
-Ciao io sono l'utente GIUSEPPE VERDI
-```
-
---- #slide N
-
-# JS Objects
-
-- Quindi il costrutto della classe è un modo elegante ed in linea con i principi OOP per creare un costruttore, degli attributi e dei metodi
-- In effetti quello che avviene all'interno del motore JS quando definiamo una classe è esattamente quanto visto prima con _costruttore_ e _prototype_
-
-<img src="/media/js16.png" class="mx-auto my-8 w-150" />
-
---- #slide N
-
-# Esercizio js_10
-
-JS Objects
-
-- Per svolgere l'esercizio 10 è necessario utilizzare un form
-- Vediamo qui il classico modo di processare il form client-side e non server-side
-
-<br>
-
-```html
-<form id="<id form>">
-  .....
-  <input type="submit" value="Submit" onclick="process_form()" />
-</form>
-```
-
-<br>
-
-- collego un _event handler_ chiamato process_form all'evento click sul pulsante submit del form
-
---- #slide N
-
-# Esercizio js_10
-
-JS Objects
-
-- Ora inibisco il normale funzionamento del form per gestirlo client-side e non server-side
-- Aggiungo un event handler all'inizio del file .js
-
-<br>
-
-```js
-// aggiunge un handler all'evento DOMContentLoaded
-// che viene generato quando la pagina HTML ha terminato il suo caricamento
-document.addEventListener("DOMContentLoaded", function() {
-
-    // ricata l'oggetto DOM del form
-    let form_utente = document.getElementById(<id form>);
-
-    //aggiunge un handler all'evento submit del form
-    //in modo da inibire il normale funzionamento (invio del form verso il server)
-    form_utente.addEventListener("submit", function(event) {
-        event.preventDefault();
-    });
-});
-```
-
---- #slide N
-
-# Esercizio js_10
-
-JS Objects
-
-- Infine definisco l'event_handler per il processamento del form
-
-<br>
-
-```js
-//processa il form quando l'utente preme submit
-function process_form() {
-  console.log("process form");
-  form = document.forms[< form><];
-  console.log(form.elements[<id elemento form>].value);
-}
-```
-
-<br>
-
-- In questo modo quando l'utente preme il pulsante submit del form, il form stesso non sarà inviato al server **_event.preventDefault()_**
-- Nell'handler di processamento del form posso accedere ai vari campi del form <br> **_form.elements[&lt;id elemento form&gt;].value_**
-- Questo è il classico modo di processare un form lato client-side grazie a JS
-
---- #slide N
-
-# Esercizio js_10
-
-JS Objects
-
-1. Creare una pagina HTML e JS contenente un form di registrazione utente
-2. Il form deve contener ei seguenti campi
-   1. nome
-   2. cognome
-   3. età
-   4. colore dei capelli
-3. Alla pressione del pulsante submit, il codice deve:
-   - Creare un oggetto vuoto di nome **User** con i relativi attributi valorizzati con i valori inseriti nel form
-   - Definire un metodo dell'oggetto chiamato **descrivi**
-   - Scandire dinamicamente tutte le proprietà dell'oggetto ed aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà letta
-
---- #slide N
-
-# Esercizio js_10
-
-JS Objects
-
-- Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
-- Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
-
-4. Fornire il link github al file con nome _|cognome|\_esercizio_js_10.html_ e _|cognome|\_esercizio_js_10.js_
 
 ---
 
@@ -5040,29 +4832,18 @@ str.split('')
 
 estrazione di sottostringhe: substr()
 
-`substr(start, end)` 
+`substr(start, length)` 
 
 ***estrae una sottostringa a partire dall'indice start fino all'indice end***
 
-```js
-let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
-
-str.substr(0, 5) // 'Nel m'
-str.substr(2, 5) //'l m'
-str.substr(4) // 'mezzo del cammin di nostra vita.... La vita non era più possibile'
-str.substr(4,) //'mezzo del cammin di nostra vita.... La vita non era più possibile'
-str.substr(-1) //'e'
-str.substr(-9) // 'possibile'
-str.substr(0) // 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
-str.slice(10,0) // ''
-```
+- **Questo metodo è deprecato e quindi non va più utilizzato**
 ---
 
 # Stringhe
 
 estrazione di sottostringhe: substring()
 
-`metodo(item1, item2, ..., itemN)` 
+`substring(start, end)` 
 
 ***estrae una sottostringa a partire dall'indice start fino all'indice end***
 
@@ -5074,9 +4855,10 @@ str.substring(0, 5) // 'Nel m'
 str.substring(2, 5) //'l m'
 str.substring(4) // 'mezzo del cammin di nostra vita.... La vita non era più possibile'
 str.substring(4,) //'mezzo del cammin di nostra vita.... La vita non era più possibile'
-str.substring(-1) //'e'
-str.substring(-9) // 'possibile'
+str.substring(4)  //'mezzo del cammin di nostra vita.... La vita non era più possibile'
 str.substring(0) // 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
+str.substring(5,5) // ''
+str.substring(0,10) // 'Nel mezzo '
 str.substring(10,0) // 'Nel mezzo '
 ```
 
@@ -5138,7 +4920,7 @@ str.trim()
 
 Stringhe
 
-1. Scrivere una funzione (abbreviatione) in JS che ricevuta in input una stringa nel fomato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
+1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel fomato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
 2. Inoltre la prima lettera del nome e del cognome deve essere in maiuscolo
    
 
@@ -5263,6 +5045,113 @@ OUT: Ciao Mondo...
 ```
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10h.js_
+
+
+--- 
+
+# Esercizio js_10i
+
+Stringhe
+
+1. Creare un programma che implementi una funzione che cercha in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10i.js_
+
+--- 
+
+# Esercizio js_10l
+
+Stringhe
+
+1. Creare una funzione che prenda in input due semplici stringhe che contengono una sola parola, e che restituisca le due stringhe concatenate, scambiando i primi due caratteri di ciascuna stringa.
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10l.js_
+
+--- 
+
+# Esercizio js_10m
+
+Stringhe
+
+1. Scrivere una funzione (concatenateN) in JS che ricevuta in input una stringa ed un numero N restiruisca la stringa concatenata N volte
+
+
+```js
+IN: ciao!,4
+
+OUT: ciao!ciao!ciao!ciao!
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10m.js_
+
+--- 
+
+# Esercizio js_10n
+
+Stringhe
+
+1. Scrivere una funzione (insert) in JS che ricevute due stringhe ed un numero N, inserisca la seconda stringa dentro la prima stringa a partire dalla posizione N
+
+```js
+IN: "Facciamo tanti esercizi che ci fanno bene", "JavaScript", 23 
+
+OUT: Facciamo tanti esercizi JavaScript che ci fanno bene
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10n.js_
+
+
+--- 
+
+# Esercizio js_10o
+
+Stringhe
+
+1. Scrivere una funzione (tronca) in JS che ricevuta una stringa ed un numero N, tronchi la stringa alla lunghezza N (se la stringa ha lunghezza superiore a N). La stringa troncata dovrà terminare con la sequenza "..."
+
+
+```js
+IN: Facciamo tanti esercizi che ci fanno bene, 10
+
+OUT: Facciamo t...
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10o.js_
+
+
+---
+
+# Esercizio js_10p
+
+Stringhe
+
+1. Scrivere una funzione in JS che ricevuta una stringa ed un numero N, tronchi la stringa dopo l'N parola.
+
+
+```js
+IN: Facciamo tanti esercizi che ci fanno bene, 3
+
+OUT: Facciamo tanti esercizi
+```
+
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10p.js_
+
+---
+
+# Esercizio js_10q
+
+Stringhe
+
+1. Scrivere una funzione in JS che ricevuta due stringhe, rimuova la prima occorrenza della seconda stringa dalla prima stringa
+
+```js
+IN: "The quick brown fox jumps over the lazy dog", "the"
+
+OUT: The quick brown fox jumps over lazy dog
+```
+
+1. Fornire il link github al file con nome _|cognome|\_esercizio_js_10q.js_
+
 
 ---
 
@@ -6807,7 +6696,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 --- 
 
-# Esercizio js_11
+# Esercizio js_11a
 
 Array
 
@@ -6819,7 +6708,7 @@ IN: [1,2,3]
 OUT: [3,2,1]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11.js_
+2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11a.js_
 
 --- 
 
@@ -8075,7 +7964,7 @@ console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${f
 
 Destructuring
 
-1. Dato il seguente codeice
+1. Dato il seguente codice
 
 ```js
 const students = ['Christina', 'Jon', 'Alexandare'];
@@ -9341,6 +9230,209 @@ let docente = new Docente("Mario", 4);
 3.  Fornire il link github al file con nome _|cognome|\_esercizio_js_44.js_
 
 
+--- #slide N
+
+# Esercizio js_9n
+
+JS Objects
+
+- Per svolgere l'esercizio 10 è necessario utilizzare un form
+- Vediamo qui il classico modo di processare il form client-side e non server-side
+
+<br>
+
+```html
+<form id="<id form>">
+  .....
+  <input type="submit" value="Submit" onclick="process_form()" />
+</form>
+```
+
+<br>
+
+- collego un _event handler_ chiamato process_form all'evento click sul pulsante submit del form
+
+--- #slide N
+
+# Esercizio js_9n
+
+JS Objects
+
+- Ora inibisco il normale funzionamento del form per gestirlo client-side e non server-side
+- Aggiungo un event handler all'inizio del file .js
+
+<br>
+
+```js
+// aggiunge un handler all'evento DOMContentLoaded
+// che viene generato quando la pagina HTML ha terminato il suo caricamento
+document.addEventListener("DOMContentLoaded", function() {
+
+    // ricata l'oggetto DOM del form
+    let form_utente = document.getElementById(<id form>);
+
+    //aggiunge un handler all'evento submit del form
+    //in modo da inibire il normale funzionamento (invio del form verso il server)
+    form_utente.addEventListener("submit", function(event) {
+        event.preventDefault();
+    });
+});
+```
+
+--- #slide 
+
+# Esercizio js_9n
+
+JS Objects
+
+- Infine definisco l'event_handler per il processamento del form
+
+<br>
+
+```js
+//processa il form quando l'utente preme submit
+function process_form() {
+  console.log("process form");
+  form = document.forms[< form><];
+  console.log(form.elements[<id elemento form>].value);
+}
+```
+
+<br>
+
+- In questo modo quando l'utente preme il pulsante submit del form, il form stesso non sarà inviato al server **_event.preventDefault()_**
+- Nell'handler di processamento del form posso accedere ai vari campi del form <br> **_form.elements[&lt;id elemento form&gt;].value_**
+- Questo è il classico modo di processare un form lato client-side grazie a JS
+
+--- #slide N
+
+# Esercizio js_9n
+
+JS Objects
+
+1. Creare una pagina HTML e JS contenente un form di registrazione utente
+2. Il form deve contener ei seguenti campi
+   1. nome
+   2. cognome
+   3. età
+   4. colore dei capelli
+3. Alla pressione del pulsante submit, il codice deve:
+   - Creare un oggetto vuoto di nome **User** con i relativi attributi valorizzati con i valori inseriti nel form
+   - Definire un metodo dell'oggetto chiamato **descrivi**
+   - Scandire dinamicamente tutte le proprietà dell'oggetto ed aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà letta
+
+--- #slide N
+
+# Esercizio js_9n
+
+JS Objects
+
+- Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
+- Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
+
+4. Fornire il link github al file con nome _|cognome|\_esercizio_js_9n.html_ e _|cognome|\_esercizio_js_9n.js_
+
+
+---
+
+# Esercizio js_9o
+
+- Realizzare un programma in JS che:
+  - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
+  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9o.js_
+
+---
+
+# Esercizio js_9p
+
+- Realizzare un programma in JS:
+  - Usando classi e oggetti implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
+  - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
+  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9p.js_
+
+
+---
+
+# Esercizio js_9q
+
+- Realizzare un programma in JS che:
+  - implementi una classe Orario:
+    - con 3 attributi che rappresentano ciascuno un orario (h/m/s)
+    - con un metodo che preso come parametro un oggetto di tipo Orario restituisca:
+      - il numero di ms che separa i due orari
+      - il numero di secondi che separa i due orari
+      - il numero di minuti che separa i due orari
+      - il numero di ore che separa i due orari
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9q.js_
+
+
+---
+
+# Esercizio js_9r
+
+- Realizzare un programma in JS che:
+  - implementi una classe Finonacci che:
+    - implementi un metodo che calcoli e restituisca l'ennesimo numero della successione di Fibonacci
+
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 5 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9r.js_ 
+
+---
+
+# Esercizio js_9s
+
+- Realizzare un programma in JS:
+  - implementi una classe Orario che:
+    - rappresenta un orario in formato (h/m/s)
+    - fornisca un metodo che presi in ingresso due oggetti di tipo Orario restituisca l'oggetto Orario minore dei tre
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
+    - invochi la funzione almeno 2 volte con parametri differenti
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9s.js_
+
+---
+
+# Esercizio js_9t
+
+- Realizzare un programma in JS:
+  - realizzi una classe per un oggetto Automobile
+  - L’automobile è caratterizzata da:
+    - persone a bordo (un valore compreso tra 0 e 5)
+    - velocità (un valore intero compreso tra 0 e 180)
+    - rapporto di velocità (un valore intero tra 1 e 6)
+    - on/off
+  - Scrivere tutti i metodi che implementano le seguenti funzionalità
+    - impostare il numero di persone a bordo (non posso modificare il numero di persone se velocità è > 0)
+    - impostare la velocità: posso inserire un valore qualsiasi, compreso tra 0 e 180, ma che non superi di 30 km/h in eccesso o in difetto la velocità attuale
+    - aumenta rapporto di velocità : cambia la marcia, crescendo di 1 (non posso però superare il valore massimo)
+    - diminuisce rapporto di velocità - : cambia la marcia, scalando di 1 (non posso però superare il valore minimo)
+
+
+---
+
+# Esercizio js_9t
+
+    - pulsante ON/OFF (se Automobile è accesa si spegne, se Automobile è spenta si accende)
+  - Note:
+    - Le variazioni di velocità e marcia sono consentite solo se l’auto è accesa.
+    - Dopo ogni operazione, sullo schermo occorre visualizzare lo stato attuale dell’automobile (persone, velocità, marcia, on/off), tramite apposito metodo
+  - fornisca il main che:
+    - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
+    - L'output è gestito solo dal main
+
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_9t.js_
+
+
 ---
 
 # JS Object Oriented Programming
@@ -9372,7 +9464,6 @@ OOP
 
 # xxxx
 
-- stringhe e operatori stringhe
 - try...catch
 - promises
 - modules
