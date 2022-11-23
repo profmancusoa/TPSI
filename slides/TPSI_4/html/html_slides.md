@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.2'
+version: '1.4.3'
 ---
 
 # Hyper Text Markup Language
@@ -1794,21 +1794,21 @@ I principali widget sono:
 ```html
 <h3>Sport</h3><br>
 <form>
-  <input type="checkbox" id="tennis" name="tennis" value="tennis">
+  <input type="checkbox" id="tennis" name="sport" value="tennis">
   <label for="tennis">  Tennis</label><br>
-  <input type="checkbox" id="calcio" name="calcio" value="calcio">
+  <input type="checkbox" id="calcio" name="sport" value="calcio">
   <label for="calcio">  Calcio</label><br>
-  <input type="checkbox" id="nuoto" name="nuoto" value="nuoto">
+  <input type="checkbox" id="nuoto" name="sport" value="nuoto">
   <label for="nuoto"> Nuoto</label><br><br>
 </form>
 ```
 <br />
 <h3>Sport</h3><br>
-<input type="checkbox" id="tennis" name="tennis" value="tennis">
+<input type="checkbox" id="tennis" name="sport" value="tennis">
 <label for="tennis">  Tennis</label><br>
-<input type="checkbox" id="calcio" name="calcio" value="calcio">
+<input type="checkbox" id="calcio" name="sport" value="calcio">
 <label for="calcio">  Calcio</label><br>
-<input type="checkbox" id="nuoto" name="nuoto" value="nuoto">
+<input type="checkbox" id="nuoto" name="sport" value="nuoto">
 <label for="nuoto"> Nuoto</label><br><br>
 
 ---
@@ -1913,7 +1913,7 @@ Il form deve contenere i seguenti widgets:
 
 ```html
 <form>
-<label for="genere">Genere:  </label>
+<label for="cars">Genere:  </label>
   <select name="genere" id="cars">
       <option value="maschio">Maschio</option>
       <option value="femmina">Femmina</option>
@@ -1921,7 +1921,7 @@ Il form deve contenere i seguenti widgets:
 </form>
 ```
 <br />
-<label for="genere">Genere:  </label>
+<label for="cars">Genere:  </label>
 <select name="genere" id="cars">
     <option value="maschio">Maschio</option>
     <option value="femmina">Femmina</option>
@@ -2143,7 +2143,7 @@ Per fare ciò abbiamo bisonog di due componenti fondamentali:
 2. Un web server che implementa la logica di validazione
 
 Per questa esercitazione il form e il web server sono forniti
-1. Scaricare il seguente pacchetto:[esercizio_html_14.tgz](https://mancusoa74.github.io/TPSI/support/esercizio_html_14.tgz)
+1. Scaricare il seguente pacchetto:[esercizio_html_14.tgz](https://profmancusoa.github.io/TPSI/support/esercizio_html_14.tgz)
 2. Installare i pacchetti necessari con `npm install`
 4. Lanciare il web server con `node form_server.js`
 5. Aprire la pagina fornita dal server locale sulla posta 8080
