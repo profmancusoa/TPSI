@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.15"
+version: "1.0.16"
 ---
 
 # JavaScript
@@ -36,33 +36,31 @@ No brain no pain!
 <div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
 <div>
 
-1. [Introduzione](#/4)
-2. [Struttura del codice](#/22)
-3. [Variabili](#/27)
-4. [Costanti](#/38)
-5. [JS e DOM](#/40)
-6. [Data Types](#/66)
-7. [Operatori Logici](#/80)
-8. [Operatori di Base](#/90)
-9. [Confronti](#/104)
-10. [Conditional Branching](#/109)
-11. [Switch](#/114)
-12. [Cicli](#/118)
+1. [Introduzione](#/3)
+2. [Struttura del codice](#/21)
+3. [Variabili](#/26)
+4. [Costanti](#/37)
+5. [JS e DOM](#/39)
+6. [Data Types](#/65)
+7. [Operatori Logici](#/79)
+8. [Operatori di Base](#/94)
+9. [Confronti](#/109)
+10. [Conditional Branching](#/113)
+11. [Switch](#/118)
+12. [Cicli](#/122)
 </div>
 <div>
 
-13. [Funzioni](#/126)
-14. [Oggetti](#/159)
-15. [Array](#/188)
-16. [Map](#/267)
-17. [Set](#/279)
-18. [Destructuring](#/294)
-19. [JSON](#/310)
-20. [](#/x)
-21. [](#/x)
-22. [](#/x)
-23. [](#/x)
-24. [](#/x)
+13. [Funzioni](#/130)
+14. [Oggetti](#/163)
+15. [Stringhe](#/196)
+16. [Array](#/234)
+17. [Map](#/313)
+18. [Set](#/325)
+19. [Destructuring](#/340)
+20. [JSON](#/356)
+21. [OOP](#/368)
+22. [Gestione degli Errori](#/422)
 </div>
 
 </div>
@@ -9186,7 +9184,7 @@ JSON.stringify(mariolino) == JSON.stringify(mariolino) // true
 
 ---
 
-# Esercizio js_44
+# Esercizio     
 
 Confronto di oggetti 
 
@@ -9232,11 +9230,11 @@ let docente = new Docente("Mario", 4);
 
 --- #slide N
 
-# Esercizio js_9n
+# Esercizio js_45
 
 JS Objects
 
-- Per svolgere l'esercizio 10 è necessario utilizzare un form
+- Per svolgere l'esercizio 45 è necessario utilizzare un form
 - Vediamo qui il classico modo di processare il form client-side e non server-side
 
 <br>
@@ -9254,7 +9252,7 @@ JS Objects
 
 --- #slide N
 
-# Esercizio js_9n
+# Esercizio js_45
 
 JS Objects
 
@@ -9281,7 +9279,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 --- #slide 
 
-# Esercizio js_9n
+# Esercizio js_45
 
 JS Objects
 
@@ -9306,7 +9304,7 @@ function process_form() {
 
 --- #slide N
 
-# Esercizio js_9n
+# Esercizio js_45
 
 JS Objects
 
@@ -9323,39 +9321,39 @@ JS Objects
 
 --- #slide N
 
-# Esercizio js_9n
+# Esercizio js_45
 
 JS Objects
 
 - Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
 - Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
 
-4. Fornire il link github al file con nome _|cognome|\_esercizio_js_9n.html_ e _|cognome|\_esercizio_js_9n.js_
+4. Fornire il link github al file con nome _|cognome|\_esercizio_js_45.html_ e _|cognome|\_esercizio_js_45.js_
 
 
 ---
 
-# Esercizio js_9o
+# Esercizio js_46
 
 - Realizzare un programma in JS che:
   - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9o.js_
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_56.js_
 
 ---
 
-# Esercizio js_9p
+# Esercizio js_47
 
 - Realizzare un programma in JS:
   - Usando classi e oggetti implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9p.js_
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_47.js_
 
 
 ---
 
-# Esercizio js_9q
+# Esercizio js_48
 
 - Realizzare un programma in JS che:
   - implementi una classe Orario:
@@ -9369,12 +9367,12 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9q.js_
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_48.js_
 
 
 ---
 
-# Esercizio js_9r
+# Esercizio js_49
 
 - Realizzare un programma in JS che:
   - implementi una classe Finonacci che:
@@ -9384,11 +9382,11 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9r.js_ 
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_49.js_ 
 
 ---
 
-# Esercizio js_9s
+# Esercizio js_50
 
 - Realizzare un programma in JS:
   - implementi una classe Orario che:
@@ -9398,11 +9396,11 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9s.js_
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_50.js_
 
 ---
 
-# Esercizio js_9t
+# Esercizio js_51
 
 - Realizzare un programma in JS:
   - realizzi una classe per un oggetto Automobile
@@ -9420,7 +9418,7 @@ JS Objects
 
 ---
 
-# Esercizio js_9t
+# Esercizio js_51
 
     - pulsante ON/OFF (se Automobile è accesa si spegne, se Automobile è spenta si accende)
   - Note:
@@ -9430,49 +9428,287 @@ JS Objects
     - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9t.js_
+- Fornire il link github al file con nome _|cognome|\_esercizio_js_51.js_
 
 
 ---
 
-# JS Object Oriented Programming
+# Gestione degli errori
 
-OOP 
+try...catch
 
----
+- Durante lo sviluppo software è normale commettere degli errori involontari
+- Anche i migliori software (Linux Kernel) sono affetti da Bug
+- Pertanto anche il nostro software sarà affetto da bug ed errori
+- Ci sono due principali tipi di errori:
+  - **non di runtime/statici**: errori del codice già presenti prima che venga eseguito
+  - **di runtime**: errori che si verificano solo durante l'esecuzione del codice
 
-# JS Object Oriented Programming
-
-OOP 
-
----
-
-# JS Object Oriented Programming
-
-OOP 
-
-
-
+- Gli errori statici possono essere trovati e risolti tramite un'attenta analisi del codice e tramite l'utilizzo di un linter [ESlint](https://eslint.org/)
+- Gli errori di runtime tuttavia non possono essere trovati solo leggendo e analizzando il codice
 
 ---
 
-# xxxx
+# Gestione degli errori
 
-- x
+try...catch
+
+- Esempi di errori non di runtime sono:
+
+```js
+console.lot("ciao"); // l'oggetto console non ha il metodo lot
+let a = 10 +- 2; // l'operatore +- non esiste in JS
+
+let arr = [1,2,3,4];
+arr.forItem(item => console.log(item)); // arr non ha il metodo for Item
+```
+
+- insmomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
+- Quindi prevedibili e risolvibili prima dell'esecuzione del codice
 
 ---
 
-# xxxx
+# Gestione degli errori
 
-- try...catch
-- promises
-- modules
-- 
+try...catch
 
+- Esempi di errori di runtime sono:
+
+```js
+console.log(una_variabile); // genera un errore di runtime 
+console.log("LINEA ESEGUITA"); // questa istruzione  NON viene eseguita
+> Uncaught ReferenceError ReferenceError: una_variabile is not defined
+
+let json = "{nome: mario}"
+let utente = JSON.parse(json)
+
+> Uncaught SyntaxError SyntaxError: Expected property name or '}' in JSON at position 1
+```
+
+- Questi errori sono chiamati **ECCEZIONI** e terminano il programma al momento in cui si verificano
+- Questo ovviamente è un comportamento da evitare e da gestire
+- Pertanto è necessario *gestire le eccezzioni* nel proprio codice in  modo da gestire l'errore evitando l'interruzione immediata del processo
 
 ---
 
-# xxxx
+# Gestione degli errori
 
-- x
+try...catch
 
+- Per gestire le eccezioni in JS si usa il costrutto `try...catch`, in modo analogo ad altri linguaggi
+- il costrutto `try...catch` permette di “catturare” gli errori e, anziché abortire il programma,  permette di gestirli e se possibile continuare con l'esecuzione del codice.
+
+- Il costrutto deve racchiudere la parte di codice da proteggere da errori di runtime
+
+```js
+try {
+    ....codice
+} catch(exception) {
+    ...in caso di eccezione questo blocco di codice viene eseguito
+}
+```
+
+<br>
+
+- dove *exception* è un oggetto di tipo **Error** che contiene utili informazioni per comprendere il tipo di errore avvenuto e quindi di gestirlo al meglio
+
+---
+
+# Gestione degli errori
+
+try...catch
+
+<div style="width: 64%;">
+
+- Il codice all’interno del blocco try {...} viene eseguito.
+- Se non si verifica alcun errore, allora catch(exception) viene ignorato: 
+  - viene eseguito tutto il codice all’interno del try e viene saltato quello all’interno del catch.
+- Se si verifica un errore, allora l’esecuzione del resto del codice all’interno del try viene interrotta, e si passa all’esecuzione del codice all’interno di catch(exception). 
+- La variabile exception (può essere usato ogni nome) contiene un oggetto di tipo Error (Error Object) con i dettagli riguardo a cosa è successo.
+
+</div>
+
+<img src="/media/js39.png" width="350" style="position: relative; right: -35rem; top: -20rem;"/>
+
+--- 
+
+# Gestione degli errori
+
+try...catch
+
+```js
+try {
+    console.log(una_variabile);
+} catch(exception) {
+    console.log(exception);
+}
+console.log("LINEA ESEGUITA");
+
+> ReferenceError: una_variabile is not defined
+    at Object.<anonymous> (/home/antonio/WORK/ITI_Agnelli/Materie/TPSI/slides/TPSI_4/js/testbad.js:37:17)
+    at Module._compile (node:internal/modules/cjs/loader:1218:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1272:10)
+    at Module.load (node:internal/modules/cjs/loader:1081:32)
+    at Module._load (node:internal/modules/cjs/loader:922:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:82:12)
+    at node:internal/main/run_main_module:23:47 {stack: 'ReferenceError: una_variabile is not defined
+…  at node:internal/main/run_main_module:23:47', message: 'una_variabile is not defined'}
+
+LINEA ESEGUITA <---- l'eccezione viene gestita, il codice continua
+
+```
+
+---
+
+# Gestione degli errori
+
+try...catch
+
+- L'oggetto **Error** ha le seguenti proprietà principali:
+  - **name**: nome dell'errore
+  - **message**: Breve messaggio di errore
+  - **stack**: stack tarce delle chiamate
+
+<br>
+
+```js
+Error = {
+    name: .........,
+    message: ......,
+    stack: ........
+    ....
+    ....
+}
+```
+---
+
+# Gestione degli errori
+
+try...catch
+
+
+```js
+try {
+    console.log(una_variabile);
+} catch(exception) {
+    console.log("NOME:", exception.name);
+    console.log("MESSAGGIO:", exception.message);
+    console.log("STACK:", exception.stack);
+}
+
+> NOME: ReferenceError
+> MESSAGGIO: una_variabile is not defined
+> STACK: ReferenceError: una_variabile is not defined
+    at Object.<anonymous> (/home/antonio/WORK/ITI_Agnelli/Materie/TPSI/slides/TPSI_4/js/testbad.js:37:17)
+    at Module._compile (node:internal/modules/cjs/loader:1218:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1272:10)
+    at Module.load (node:internal/modules/cjs/loader:1081:32)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:82:12)
+    at node:internal/main/run_main_module:23:47
+```
+---
+
+# Gestione degli errori
+
+try...catch
+
+```js
+try {
+    let json = "{nome: mario}"
+    let utente = JSON.parse(json)
+} catch(exception) {
+    console.log("NOME:", exception.name);
+    console.log("MESSAGGIO:", exception.message);
+    console.log("STACK:", exception.stack);
+}
+
+> NOME: SyntaxError
+> MESSAGGIO: Expected property name or '}' in JSON at position 1
+> STACK: SyntaxError: Expected property name or '}' in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.<anonymous> (/home/antonio/WORK/ITI_Agnelli/Materie/TPSI/slides/TPSI_4/js/testbad.js:38:23)
+    at Module._compile (node:internal/modules/cjs/loader:1218:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1272:10)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:82:12)
+    at node:internal/main/run_main_module:23:47
+```
+
+---
+
+# Gestione degli errori
+
+try...catch
+
+- Quindi il costrutto `try...catch` è utilissimo per migliorare la qualità del nostro programma
+- Spesso è utile generare dei nostri errori per essere più esplicativi
+- Per far ciò possiamo usare lo statement `throw` che quindi genera un errore definito dall'utente
+
+```js
+try {
+    let json = '{"nome": "mario"}';
+    let utente = JSON.parse(json)
+
+    if(!('cognome' in utente))
+        throw new Error("Oggetto incompleto, manca il cognome");
+
+} catch(exception) {
+    console.log("NOME:", exception.name);
+    console.log("MESSAGGIO:", exception.message);
+    console.log("STACK:", exception.stack);
+}
+```
+
+---
+
+# Gestione degli errori
+
+try...catch
+
+```js
+NOME: Error
+MESSAGGIO: Oggetto incompleto, manca il cognome
+STACK: Error: Oggetto incompleto, manca il cognome
+    at Object.<anonymous> (/home/antonio/WORK/ITI_Agnelli/Materie/TPSI/slides/TPSI_4/js/testbad.js:41:15)
+    at Module._compile (node:internal/modules/cjs/loader:1218:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1272:10)
+    at Module.load (node:internal/modules/cjs/loader:1081:32)
+    at Module._load (node:internal/modules/cjs/loader:922:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:82:12)
+    at node:internal/main/run_main_module:23:47
+```
+
+---
+
+# Gestione degli errori
+
+try...catch
+
+- Possiamo anche generare un nostro errore con proprietà custom
+
+```js
+function CustomError(code, mex) {
+    (this.code = code),
+    (this.message = mex)
+} 
+
+try {
+    let json = '{"nome": "mario"}';
+    let utente = JSON.parse(json)
+
+    if(!('cognome' in utente))
+        throw new CustomError(98, "Oggetto incompleto, manca il cognome");
+
+} catch(exception) {
+    console.log("CODICE:", exception.code);
+    console.log("MESSAGGIO:", exception.message);
+}
+> CODICE: 98
+> MESSAGGIO: Oggetto incompleto, manca il cognome
+
+```
+---
+
+&nbsp;
+<center>
+<img src="/media/js40.jpg" width="800" />
+</center>
