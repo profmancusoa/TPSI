@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.3.6'
+version: '1.3.7'
 ---  
 
 # Cascading Style Sheets
@@ -1183,7 +1183,7 @@ Selettori Combinator
 
 CSS child selector
 
-1. Dato il file [esercizio_css_10.html](https://mancusoa74.github.io/TPSI/support/esercizio_css_10.html)
+1. Dato il file [esercizio_css_10.html](https://profmancusoa.github.io/TPSI/support/esercizio_css_10.html)
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_10.css*
 3. Definire lo stile per tutti i tag span figli diretti di h1 in modo che siano di colore blue
 4. Definire lo stile per tutti i tag span figli diretti di h2 in modo che siano di colore rossi
