@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.3.7'
+version: '1.3.8'
 ---  
 
 # Cascading Style Sheets
@@ -1311,7 +1311,7 @@ Selettori Combinator
 CSS descendant selector
 
 
-1. Dato il file [esercizio_css_11.html](https://mancusoa74.github.io/TPSI/support/esercizio_css_11.html)
+1. Dato il file [esercizio_css_11.html](https://profmancusoa.github.io/TPSI/support/esercizio_css_11.html)
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_11.css*
 3. definire lo stile per tutti i tag `<mark>` che sono figli di `<p>` con colore verde
 4. definire lo stile per tutti i tag `<b>` che sono figli di `<p>` con colore giallo e sfondo nero
