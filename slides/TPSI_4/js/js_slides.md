@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.16"
+version: "1.0.17"
 ---
 
 # JavaScript
@@ -7490,7 +7490,7 @@ Array, Map, Set
 
 Array, Map, Set
 
-1. Scrivere una funzione che ricevuto un array di stringhe, restituisca un array siano presenti parole non anagrammi di altre parole
+1. Scrivere una funzione che ricevuto un array di stringhe, restituisca un array in cui siano presenti solo parole che non sono anagrammi di altre parole
 
 ```js
 IN: ['omar', 'sette', 'roma', 'teste', 'mora', 'colazione', 'locazione']
