@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.3.8'
+version: '1.4.0'
 ---  
 
 # Cascading Style Sheets
@@ -1192,9 +1192,6 @@ CSS child selector
 7. Fornire il link github al file con nome |cognome|_esercizio_css_10.html
 8. Fornire il link github al file con nome |cognome|_esercizio_css_10.css
 
-
-
-
 ---
 
 # CSS
@@ -1319,7 +1316,6 @@ CSS descendant selector
 6. definire lo stile per tutti i tag `<span>` che sono discendenti di `<div>` con sfondo giallo e colore nero
 7.  Fornire il link github al file con nome |cognome|_esercizio_css_11.html
 8.  Fornire il link github al file con nome |cognome|_esercizio_css_11.css
-
 
 
 ---
@@ -1517,6 +1513,355 @@ CSS pseudo-class selector
 7. Fornire il link github al file con nome |cognome|_esercizio_css_12.html
 8. Fornire il link github al file con nome |cognome|_esercizio_css_12.css
 
+
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+- La pseudo classe `nth-child` seleziona una serie di elementi fratelli  in funzione della loro posizione
+ 
+Regola CSS: `<selettore>:nth-child(parametro) { dichiarazione CSS}`
+
+dove parametro può essere:
+
+- **odd**: seleziona gli elementi con posizione dispari
+- **even**: seleziona gli elementi con posizione pari
+- **An+B**: 
+  - A: definisce lo step
+  - B: definisce l'offset iniziale
+  - n: è un intero progressivo che parte da 0 
+  
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+<div grid="~ cols-3 gap-4">
+<div>
+
+```html
+li:nth-child(even) {
+    color: red;
+    background-color: yellow;
+}
+```
+</div>
+<div>
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+</ul>
+```
+</div>
+
+<div>
+<v-click>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+<li>item 8</li>
+<li>item 9</li>
+<li>item 10</li>
+</ul>
+
+</v-click>
+</div>
+</div>
+
+<style>
+  li:nth-child(even) {
+    color: red;
+    background-color: yellow;
+  }
+</style>
+
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+<div grid="~ cols-3 gap-4">
+<div>
+
+```html
+li:nth-child(odd) {
+    color: red;
+    background-color: yellow;
+}
+```
+</div>
+<div>
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+</ul>
+```
+</div>
+
+<div>
+<v-click>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+<li>item 8</li>
+<li>item 9</li>
+<li>item 10</li>
+</ul>
+
+</v-click>
+</div>
+</div>
+
+<style>
+  li:nth-child(odd) {
+    color: red;
+    background-color: yellow;
+  }
+</style>
+
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+<div grid="~ cols-3 gap-4">
+<div>
+
+```html
+li:nth-child(2n+5) {
+    color: red;
+    background-color: yellow;
+}
+```
+</div>
+<div>
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+</ul>
+```
+</div>
+
+<div>
+<v-click>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+<li>item 8</li>
+<li>item 9</li>
+<li>item 10</li>
+</ul>
+
+</v-click>
+</div>
+</div>
+
+<style>
+  li:nth-child(2n+5) {
+    color: red;
+    background-color: yellow;
+  }
+</style>
+
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+<div grid="~ cols-3 gap-4">
+<div>
+
+```html
+li:nth-child(2n+1) {
+    color: red;
+    background-color: yellow;
+}
+```
+</div>
+<div>
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+</ul>
+```
+</div>
+
+<div>
+<v-click>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+<li>item 8</li>
+<li>item 9</li>
+<li>item 10</li>
+</ul>
+
+</v-click>
+</div>
+</div>
+
+<style>
+  li:nth-child(2n+1) {
+    color: red;
+    background-color: yellow;
+  }
+</style>
+
+---
+
+# CSS
+
+Selettori Pseudo-Class
+
+### nth-child
+
+<div grid="~ cols-3 gap-4">
+<div>
+
+```html
+li:nth-child(2n) {
+    color: red;
+    background-color: yellow;
+}
+```
+</div>
+<div>
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+</ul>
+```
+</div>
+
+<div>
+<v-click>
+
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6</li>
+<li>item 7</li>
+<li>item 8</li>
+<li>item 9</li>
+<li>item 10</li>
+</ul>
+
+</v-click>
+</div>
+</div>
+
+<style>
+  li:nth-child(2n) {
+    color: red;
+    background-color: yellow;
+  }
+</style>
+
+---
+
+# Esercizio css_12a
+
+CSS pseudo-class selector
+
+1. Creare un file *|cognome|_esercizio_html_12a.html* e inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_12a.css*
+2. Creare una scacchiera 8x8 in cui 
+   1. in ogni cella viene scritta la coordinata in forma righa,colonna (partendo da zero)
+   2. colorare le celle esattamente come in una scacchiera per scacchi
+3. Fornire il link github al file con nome |cognome|_esercizio_css_12a.html
+4. Fornire il link github al file con nome |cognome|_esercizio_css_12a.css
 
 
 ---
