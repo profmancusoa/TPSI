@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.0'
+version: '1.4.1'
 ---  
 
 # Cascading Style Sheets
@@ -2690,7 +2690,7 @@ CSS box model
 
 <!-- risultato esercizio: 100,250,353 -->
 
-1. Data la seguente pagina html: [esercizio_css_17.html](/support/esercizio_css_17.html) e relativo css:  [esercizio_css_17.css](/support/esercizio_css_17.css)
+1. Data la seguente pagina html: [esercizio_css_17.html](/TPSI/support/esercizio_css_17.html) e relativo css:  [esercizio_css_17.css](/TPSI/support/esercizio_css_17.css)
 2. Editare il file e determinare il valore corretto per la proprietà **width** della regola CSS *#div1*,*#div2* e *#div3* in modo che:
    1. il componente **div1** abbia dimensione complessiva pari a **200px**
    2. il componente **div2** abbia dimensione complessiva pari a **300px**
