@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.1'
+version: '1.5.0'
 ---  
 
 # Cascading Style Sheets
@@ -4511,6 +4511,2714 @@ Position
 <img src="/media/css_20.jpg" width="500">
 </center>
 
+
+---
+layout: section
+---
+<h1 class="sezione">Flexbox Layout</h1>
+
+
+---
+
+# Flexbox
+
+Introduzione
+
+- Flexbox rivoluziona il modo di strutturare i layout di applicazioni Web e Mobili
+- Il modulo **Flexbox Layout (Flexible Box)** mira a fornire un modo più efficiente per disporre, allineare e distribuire lo spazio tra gli elementi in un contenitore, anche quando la loro dimensione è sconosciuta e/o dinamica ( da qui la parola “flex”).
+- L'idea principale di Flexbox è quella di dare al contenitore la possibilità di modificare la larghezza, l'altezza e l'ordine dei suoi oggetti per riempire al meglio lo spazio disponibile 
+- Obiettivo primario è quello di adattarsi a tutti i tipi di dispositivi di visualizzazione
+- Un contenitore Flexbox espande gli elementi per riempire lo spazio libero disponibile o li restringe per evitare overflow
+- Strumento utile per lo sviluppo di layout Flexbox è [flexyboxes](https://the-echoplex.net/flexyboxes/)
+
+
+---
+
+# Flexbox
+
+Introduzione
+
+- Flexbox è stato pensato per rendere semplice e immediata la gestione di box all'interno di un elemento contenitore
+- Permette di risolvere problematiche come:
+  -  la centratura degli elementi
+  -  la loro disposizione sull'asse orizzontale o su quello verticale
+  -  il dimensionamento relativo degli oggetti contenuti in un contenitore flessibile
+  -  l'indipendenza della posizione degli elementi presenti sulla pagina
+- Una descrizione dettagliata dei principali problemi che Flexbox risolve è presente al seguente indirizzo [solved-by-flexbox](https://philipwalton.github.io/solved-by-flexbox/)
+
+---
+
+# Flexbox
+
+Definizioni
+
+<img src="/media/css_25.png" width="500" style="margin:auto;">
+
+Il sistema è fondato su due elementi costitutivi:
+- un elemento contenitore (**flex container**): che contiene i box flessibili e viene creato usando il valore flex per la proprietà display  `display: flex`
+- item del contenitore (**flex items**): sono gli elementi figli dell'elemento contenitore che assumono come loro caratteristica fondamentale quella della *flessibilità*
+- su questi elementi **non** hanno effetto le proprietà float, clear e vertical-align
+
+---
+
+# Flexbox
+
+Definizioni
+
+- Per il flex container, si possono individuare 2 assi principali:
+  - **main axis**: asse principale (orizzontale in caso di layout a colonne e verticale in caso di layout a righe)
+  - **cross axis**: asse perpendicolare all'asse principale
+
+<br>
+
+<img src="/media/css_25.png" width="500" style="margin:auto;">
+
+- In modo analogo esistono due dimensioni:
+  - **main size**: dimensione del contenitore lungo l'asse principale
+  - **cross size**: dimensione del contenitore lungo l'asse perpedicolare al principale
+
+
+---
+
+# Flexbox
+
+Proprietà
+
+- Le proprietà che compongono il modulo flexbox possono pertanto essere suddivise in due gruppi: 
+    1. quelle che si applicano ai flex container
+    2. quelle che si applicano ai flex items
+
+<br><br>
+
+<img src="/media/css_26.svg" width="300" style="position:relative; top: 1rem;left: 5rem;">
+
+<img src="/media/css_27.svg" width="300" style="position:relative; top: -6.5rem; left: 30rem;">
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+- `display: flex`:  è il valore della proprietà display con cui si rende un contenitore flessibile
+- `flex-direction:` **row | row-reverse | column | column-reverse**   - definisce il verso di disposizione dei flex items sul main axis
+- `flex-wrap:` **nowrap | wrap | wrap-reverse**  - indica la possibilità di disporre i flex item su più righe o colonne se non c'è abbastanza spazio nel container
+- `flex-flow`: shorthand per le proprietà *flex-direction* e *flex-wrap*
+- `justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+-  `align-items:` **stretch | flex-start | flex-end | center** - gestisce l'allineamento dei flex items lungo l'asse perpendicolare cross axis
+- `align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+- `row-gap - column-gap`: permette di specificare lo spazio tra le righe e le colonne 
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.container {
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`display: flex`:  è il valore della proprietà display con cui si rende un contenitore flessibile
+
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-direction:` **row | row-reverse | column | column-reverse**   - definisce il verso di disposizione dei flex items sul main axis
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<img src="/media/css_28.png" width="200" style="position:relative; top: 5rem; left: 3rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-direction:` **row | row-reverse | column | column-reverse**   - definisce il verso di disposizione dei flex items sul main axis
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+</div>
+<img src="/media/css_28.png" width="200" style="position:relative; top: 8rem; left: -15rem;">
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-direction:` **row | row-reverse | column | column-reverse**   - definisce il verso di disposizione dei flex items sul main axis
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<img src="/media/css_29.png" width="150" style="position:relative; top: 2rem; left:  5rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-direction:` **row | row-reverse | column | column-reverse**   - definisce il verso di disposizione dei flex items sul main axis
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<img src="/media/css_29.png" width="150" style="position:relative; top: 2rem; left:  5rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 200px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-wrap:` **nowrap | wrap | wrap-reverse**  - indica la possibilità di disporre i flex item su più righe o colonne se non c'è abbastanza spazio nel container
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<img src="/media/css_30.png" width="300" style="position:relative; top: 3rem; left:  0rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-wrap:` **nowrap | wrap | wrap-reverse**  - indica la possibilità di disporre i flex item su più righe o colonne se non c'è abbastanza spazio nel container
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  background-color: #881D8D;
+  border: 1px solid green;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<img src="/media/css_31.png" width="300" style="position:relative; top: 3rem; left:  1rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-wrap:` **nowrap | wrap | wrap-reverse**  - indica la possibilità di disporre i flex item su più righe o colonne se non c'è abbastanza spazio nel container
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<img src="/media/css_32.png" width="100" style="position:relative; top: 1rem; left:  5em;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`flex-wrap:` **nowrap | wrap | wrap-reverse**  - indica la possibilità di disporre i flex item su più righe o colonne se non c'è abbastanza spazio nel container
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  background-color: #881D8D;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<img src="/media/css_33.png" width="100" style="position:relative; top: 1rem; left:  6rem;">
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  background-color: #881D8D;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+</div>
+
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+I flex items sono distribuiti uniformemente lungo il main axis.
+
+ Il primo elemento è sulla riga/colonna iniziale, l'ultimo elemento sulla riga/colonna finale e gli altri uniformemente distribuiti
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono distribuiti uniformemente lungo il main axis con uno spazio uguale intorno a loro. 
+
+Nota che visivamente gli spazi non sono uguali, poiché tutti gli oggetti hanno lo stesso spazio su entrambi i lati. 
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`justify-content:` **flex-start | flex-end | center | space-between | space-around | space-evenly**  - stabilisce la modalità di allineamento dei flex items sull'asse principale del contenitore
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono distribuiti in modo che la spaziatura tra due elementi qualsiasi (e lo spazio ai bordi) sia uguale.
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #881D8D;
+  width: 300px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+<img src="/media/css_34.png" width="250" style="margin: auto;">
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-items:` **stretch | flex-start | flex-end | center** 
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono posizionati all'inizio del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-items:` **stretch | flex-start | flex-end | center** 
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono posizionati alla fine del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-items:` **stretch | flex-start | flex-end | center** 
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono posizionati al centro del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-items:` **stretch | flex-start | flex-end | center** 
+
+<br>
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Gli elementi sono espansi per occupare tutto lo spazio disponibile lungo il cross axis
+
+Se height è specificato ha priorità rispetto a questa proprietà
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+<img src="/media/css_35.png" width="400" style="margin: auto;">
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+Posiziona e distribuisce lo spazio attorno ai flex items lungo l'asse cross
+
+flex-start posiziona all'inizio del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+posiziona gli elementi alla fine del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+posiziona gli elementi al centro del cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+<p id="text">
+distanzia gli elementi distribuendo lo spazio in modo omogeneo
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+<p id="text">
+gli elementi sono uniformemente distribuiti e lo spazio attorno ad ogni elemento è uguale
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`align-content:` **stretch | flex-start | flex-end | center | space-between | space-around** - gestisce l'allineamento di una riga di flex items lungo l'asse perpendicolare; ha effetto solo su contenitori multi-riga
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+gli elementi sono ridimensionati per occupare tutto lo spazio possibile lungo il cross axis
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+<img src="/media/css_36.png" width="300" style="margin: auto;">
+
+
+---
+
+# Flexbox
+
+Proprietà flex containers
+
+`row-gap - column-gap`: permette di specificare lo spazio tra le righe e le colonne 
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 10px;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+Imposta il gap tra le righe e tra le colonne
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 10px;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  padding: 10px;
+  text-align:center;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex items
+
+- `order <num>`: specifica l'ordine in cui viene mostrato un box rispetto agli altri definiti nel contenitore
+- `align-self:` **auto | flex-start | flex-end | center | baseline | stretch** - consente di specificare per un item l'allineamento sull'asse cross, superando caso per caso le impostazioni definite con la proprietà align-items
+- `flex-grow`: consente di impostare il fattore di ingrandimento di un item rispetto agli altri presenti nel contenitore quando si distribuisce lo spazio disponbile
+- `flex-shrink`: è la proprietà opposta rispetto a flex-grow, dal momento che agisce sul fattore di restringimento relativo tra i box
+- `flex-basis`: consente di specificare la dimensione principale (main size) iniziale (in valori assoluti o in percentuale) di un box
+- `flex`: shorthand per le proprietà flex-grow, flex-shrink e flex-basis
+  
+---
+
+# Flexbox
+
+Proprietà flex items
+
+`order <num>`: specifica l'ordine in cui viene mostrato un box rispetto agli altri definiti nel contenitore
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+.item1 { order: 1;}
+.item2 { order: 4;}
+.item3 { order: 2;}
+.item4 { order: 3;}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item itme1">1</div>
+  <div class="item item2">2</div>
+  <div class="item item3">3</div>
+  <div class="item item4">4</div>
+</div>
+<p id="text">
+permette di cambiare l'ordine di visualizzazione di un flex items rispetto a quello standard pari a 0
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+.item1 { order: 1;}
+.item2 { order: 4;}
+.item3 { order: 2;}
+.item4 { order: 3;}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex items
+
+`align-self:` **auto | flex-start | flex-end | center | baseline | stretch** - consente di specificare per un item l'allineamento sull'asse cross, superando caso per caso le impostazioni definite con la proprietà align-items
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item3 { align-self: flex-start; }
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item itme1">1</div>
+  <div class="item item2">2</div>
+  <div class="item item3 item3">3</div>
+  <div class="item item4">4</div>
+</div>
+<p id="text">
+permette di specificare l'allineamento rispetto al cross axis di un item specifico rispetto a quanto specificato da aling-items
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+.item3 {
+    align-self: flex-start;
+}
+</style>
+
+
+---
+
+# Flexbox
+
+Proprietà flex items
+
+`flex-grow`: consente di impostare il fattore di ingrandimento di un item rispetto agli altri presenti nel contenitore quando si distribuisce lo spazio disponbile
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item2 {flex-grow: 4;}
+.item {
+  flex-grow: 1;
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item item2">2</div>
+  <div class="item">3</div>
+</div>
+<p id="text">
+Permette di definire il fattore di crescita di un items quando viene calcolata la dimensione dei vari flex items
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  flex-grow: 1;
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+.item2 {
+    flex-grow: 4;
+}
+</style>
+
+---
+
+# Flexbox
+
+Proprietà flex items
+
+`flex-grow`: consente di impostare il fattore di ingrandimento di un item rispetto agli altri presenti nel contenitore quando si distribuisce lo spazio disponbile
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item item2">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container {
+  display: flex;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+.item2 {flex-shrink: 4;}
+.item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100px;
+  border: 1px solid red;
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item item2">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+<p id="text">
+Permette di definire il fattore di riduzione di un items quando viene calcolata la dimensione dei vari flex items
+</p>
+</div>
+
+</div>
+
+<style>
+#text {
+    width: 300px;
+}
+.container {
+  display: flex;
+  background-color: #881D8D;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+}
+
+.item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100px;
+  border: 1px solid red;
+  background-color: #FFAD49;
+  border: 1px solid #FF920D;
+  height: 40px;
+  padding: 10px;
+  text-align:center;
+}
+
+.item2 {
+    flex-shrink: 4;
+}
+</style>
 
 
 ---
