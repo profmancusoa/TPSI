@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.5.0'
+version: '1.5.1'
 ---  
 
 # Cascading Style Sheets
@@ -3951,6 +3951,71 @@ Barra Navigazione orizzontale
 <img src="/media/css_19.jpg" width="500">
 </center>
 
+---
+
+# Esercizio css_22a
+
+Scacchiera
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_22a.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22a.css*
+3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA)
+4. Creare una scacchiera 8x8 in cui 
+   1. in ogni cella viene scritta la coordinata in forma righa,colonna (partendo da zero)
+   2. colorare le celle esattamente come in una scacchiera per scacchi
+3. Fornire il link github al file con nome |cognome|_esercizio_css_22a.html
+4. Fornire il link github al file con nome |cognome|_esercizio_css_22a.css
+
+---
+
+# Esercizio css_22b
+
+Float
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_22b.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22b.css*
+3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
+4. Fornire il link github al file con nome |cognome|_esercizio_css_22b.html
+5. Fornire il link github al file con nome |cognome|_esercizio_css_22b.css
+
+<br>
+<center>
+<img src="/media/css_37.png" width="500">
+</center>
+
+---
+
+# Esercizio css_22c
+
+Float
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_22c.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22c.css*
+3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
+4. Fornire il link github al file con nome |cognome|_esercizio_css_22c.html
+5. Fornire il link github al file con nome |cognome|_esercizio_css_22c.css
+
+<br>
+<center>
+<img src="/media/css_38.png" width="500">
+</center>
+
+---
+
+# Esercizio css_22d
+
+Float
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_22d.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22d.css*
+3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
+4. Fornire il link github al file con nome |cognome|_esercizio_css_22d.html
+5. Fornire il link github al file con nome |cognome|_esercizio_css_22d.css
+
+<br>
+<center>
+<img src="/media/css_39.png" width="500">
+</center>
 
 ---
 layout: section
@@ -4187,7 +4252,7 @@ Foto Gallery
 
 1. Creare un file e salvarlo come *|cognome|_esercizio_css_23.html*
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_23.css*
-3. Creare in HTML (solo markuo) e CSS(tutti gli stili) una foto gallery con le seguenti caratteristiche
+3. Creare in HTML (solo markup) e CSS(tutti gli stili) una foto gallery con le seguenti caratteristiche
    1. centrata rispetto alla pagina con bordo di 20px blu chiaro
    2. contiene 5 colonne
    3. ogni colonna contiene un immagine con larghezza pari a 150px
@@ -4195,7 +4260,6 @@ Foto Gallery
    5. ogni colonna ha un bordo di 1px
    6. le colonne sono distanziate di 5px
    7. per uniformità usare la seguente immagine [TUX](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1717px-Tux.svg.png)
-   8. non si può utilizzare una tabella ma bisogna usare i DIV
 4.  Fornire il link github al file con nome |cognome|_esercizio_css_23.html
 5.  Fornire il link github al file con nome |cognome|_esercizio_css_23.css
 
@@ -4208,6 +4272,27 @@ Foto Gallery
 <center>
 <img src="/media/css_23.png" width="500">
 </center>
+
+---
+
+# Esercizio css_23a
+
+Foto Gallery
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_23a.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_23a.css*
+3. Creare in HTML (solo markup) e CSS(tutti gli stili) una foto gallery con le seguenti caratteristiche
+   1. centrata rispetto alla pagina con bordo di 20px blu chiaro
+   2. contiene 5 colonne
+   3. ogni colonna contiene un immagine con larghezza pari a 150px
+   4. ogni colonna contiene al fondo una didascalia centrata e con carattere in bold
+   5. ogni colonna ha un bordo di 1px
+   6. le colonne sono distanziate di 5px
+   7. per uniformità usare la seguente immagine [TUX](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1717px-Tux.svg.png)
+   8. non si può utilizzare una tabella ma bisogna usare i DIV
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_23a.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_23a.css
+
 
 ---
 layout: section
@@ -4511,6 +4596,22 @@ Position
 <img src="/media/css_20.jpg" width="500">
 </center>
 
+---
+
+# Esercizio css_25
+
+Position
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_25.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_25.css*
+3. Creare in HTML e CSS quanto raffigurato sotto (L'immagine può essere diversa)
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_25.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_25.css
+
+<br />
+<center>
+<img src="/media/css_40.png" width="200">
+</center>
 
 ---
 layout: section
@@ -7219,6 +7320,83 @@ Permette di definire il fattore di riduzione di un items quando viene calcolata 
     flex-shrink: 4;
 }
 </style>
+
+---
+
+# Esercizio css_26
+
+Flexbox
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_26.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_26.css*
+3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
+
+<br>
+<center>
+<img src="/media/css_41.png" width="900">
+</center>
+<br>
+
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_26.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_26.css
+
+---
+
+# Esercizio css_27
+
+Flexbox
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_27.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_27.css*
+3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
+
+<br>
+<center>
+<img src="/media/css_42.png" width="500">
+</center>
+<br>
+
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_27.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_27.css
+
+---
+
+# Esercizio css_28
+
+Flexbox
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_28.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_28.css*
+3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
+
+<br>
+<center>
+<img src="/media/css_43.png" width="300">
+</center>
+<br>
+
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_28.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_28.css
+
+
+---
+
+# Esercizio css_29
+
+Flexbox
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_29.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_29.css*
+3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
+
+<br>
+<center>
+<img src="/media/css_44.png" width="450">
+</center>
+<br>
+
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_29.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_29.css
 
 
 ---
