@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.5.1'
+version: '1.5.2'
 ---  
 
 # Cascading Style Sheets
@@ -4445,35 +4445,11 @@ Layout - Position - Fixed
 
 <div> <!-- col3 -->
 
-
-<div id="parent">
-  <div id="child">
-    <p>Elemento posizionato in modo fixed</p>
-  </div>
-</div>
+<img src="/media/css_45.png" width=400>
 
 </div>
 
 </div>
-
-<style>
-
-
-#parent {
-  border: 3px solid green;
-  width: 400px;
-  height: 150px;
-}
-
-#child {
-  border: 3px solid blue;
-  width: 200px;
-  position: fixed;
-  bottom: 100px;
-  right: 50px;
-}
-
-</style>
 
 ---
 
