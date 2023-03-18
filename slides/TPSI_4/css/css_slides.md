@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.5.2'
+version: '1.6.0'
 ---  
 
 # Cascading Style Sheets
@@ -7374,6 +7374,295 @@ Flexbox
 4.  Fornire il link github al file con nome |cognome|_esercizio_css_29.html
 5.  Fornire il link github al file con nome |cognome|_esercizio_css_29.css
 
+
+---
+
+# Grid
+
+Intro
+
+- CSS Grid Layout (aka “Grid” o “CSS Grid”), è un sistema di layout basato su griglia bidimensionale che, rispetto a qualsiasi sistema di layout web del passato, cambia completamente il modo in cui progettiamo le interfacce utente. 
+- Il CSS ha portato moltissime migliorie, rispetto ad HTML, per il layout di una pagina, tuttavia ha presentato forti limitazioni
+- Nel corso del tempo sono stati usati vari hack: le tabelle, quindi i float, il posizionamento e il blocco in linea 
+- Tuttavia molte funzionalità importanti (centratura verticale, ad esempio) non sono mai state veramente risolte dal CSS. 
+- Flexbox, che abbiamo studiato, è un ottimo strumento di layout, ma non copre tutti i casi per generare il layout che vogliamo
+- `Grid è il primissimo modulo CSS creato appositamente per risolvere i problemi di layout che tutti abbiamo cercato di aggirare da quando creiamo siti web`
+  
+
+---
+
+# Grid
+
+Intro
+
+- CSS Grid è un modulo di layout di CSS che consente di creare layout complessi e flessibili utilizzando una griglia di righe e colonne. 
+- Con CSS Grid è possibile posizionare gli elementi HTML in qualsiasi posizione all'interno della griglia, consentendo di creare layout che sarebbero stati difficili da realizzare con i tradizionali metodi di posizionamento di CSS.
+
+<img src="/media/css_46.png" width="300" style="margin:auto;">
+
+---
+
+# Grid
+
+Basic
+
+- Per iniziare devi definire un elemento contenitore come una griglia con `display: grid`
+- Impostare le dimensioni di colonne e righe con `grid-template-columns` e `grid-template-rows`
+- Posizionare i suoi elementi figli nella griglia con `grid-column` e `grid-row`
+- Analogamente a flexbox, l'ordine di origine degli elementi della griglia non ha importanza. 
+- Il tuo CSS può posizionarli in qualsiasi ordine, il che rende super facile riorganizzare la tua griglia con le media query. 
+- Immagina di definire il layout dell'intera pagina e quindi di riorganizzarlo completamente per adattarlo a una larghezza dello schermo diversa, il tutto con solo un paio di righe di CSS. 
+- `Grid è uno dei moduli CSS più potenti mai introdotti dallo standard`
+
+
+---
+
+# Grid
+
+Basic
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+
+---
+
+# Grid
+
+Basic
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+---
+
+# Grid
+
+Basic
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  border: 2px solid green;
+  padding: 2px;
+}
+
+.grid-item {
+    border: 1px solid red;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+---
+
+# Esercizio css_30
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_30.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_30.css*
+3. Creare in HTML e CSS utilizzando Grid, la scacchiera del gioco del 15, raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_30.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_30.css
+
+<img src="/media/css_47.png" width="250" style="margin:auto;">
+
+
+---
+
+# Grid
+
+Intro
+
+- ddd
+
+
+---
+
+# Grid
+
+Intro
+
+- ddd
 
 ---
 
