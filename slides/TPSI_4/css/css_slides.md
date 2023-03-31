@@ -13,6 +13,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 version: '1.6.0'
 ---  
+<!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 
 # Cascading Style Sheets
 
@@ -7376,6 +7377,12 @@ Flexbox
 
 
 ---
+layout: section
+---
+<h1 class="sezione">Grid Layout</h1>
+
+
+---
 
 # Grid
 
@@ -7444,7 +7451,7 @@ Basic
   display: grid;
   grid-template-columns: 33% 33% 33%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7476,7 +7483,7 @@ Basic
   display: grid;
   grid-template-columns: 33% 33% 33%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7517,7 +7524,7 @@ Basic
   display: grid;
   grid-template-columns: 50% 50%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7549,7 +7556,7 @@ Basic
   display: grid;
   grid-template-columns: 50% 50%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7589,7 +7596,7 @@ Basic
   display: grid;
   grid-template-columns: 100%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7621,7 +7628,7 @@ Basic
   display: grid;
   grid-template-columns: 100%;
   border: 2px solid green;
-  padding: 2px;
+  padding: 20px;
 }
 
 .grid-item {
@@ -7651,18 +7658,814 @@ Grid
 
 # Grid
 
-Intro
+Terminologia
 
-- ddd
+`fractional units`
+
+- **Una frazione o 1fr è un'unità di lunghezza flessibile che rappresenta una frazione dello spazio disponibile nel contenitore.**
+- Quindi, 1FR è 1/N dello spazio disponibile (dove N è il numero totale di farzioni). 
+- Per esempio se ci sono 250 frazioni? Unafrazione (1FR) è 1/250 o 0,4%.
+
+`Quindi, 1 frazione è 100 diviso per il numero totale di frazioni.`
+
+<img src="/media/css_53.png" width="300" style="margin:auto;">
+
+---
+
+# Grid
+
+Terminologia
+
+`Sizing Keywords`
+
+- `min-content`: la dimensione minima del contenuto. Immagina una riga di testo come "E pluribus unum", il contenuto minimo è probabilmente la larghezza della parola "pluribus".
+- `max-content`: la dimensione massima del contenuto. Immagina la frase sopra, il contenuto massimo è la lunghezza dell'intera frase.
+- `auto`: questa parola chiave è molto simile alle unità fr, tranne per il fatto che "perdono" il combattimento nel dimensionamento contro le unità fr quando allocano lo spazio rimanente.
+
+---
+
+# Grid
+
+Terminologia
+
+`Sizing Functions`
+
+- `fit-content()`: usa lo spazio disponibile, ma mai meno di min-content e mai più di max-content.
+- `minmax()`: fa esattamente quello che sembra: imposta un valore minimo e massimo per quello che può essere la lunghezza. Questo è utile in combinazione con unità relative. Ad esempio, potresti desiderare che una colonna sia in grado di ridursi solo finorax
+- `repeat()`: può risparmiarci da scrivere lunghe sequenze di fractional units
+
+<br>
+
+```cs
+ 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  repeat(8, 1fr);
+```
+
+---
+
+# Grid
+
+Terminologia
+
+`Grid Container`
+
+- L'elemento su cui viene applicato display:grid. 
+- È il genitore diretto di tutti gli elementi della griglia. 
+
+<br>
+
+`Grid Item`
+
+- Gli elementi figlio (ovvero i discendenti diretti) del contenitore della griglia. 
+  
+---
+
+# Grid
+
+Terminologia
+
+`Grid Line`
+
+- Le linee divisorie che compongono la struttura della griglia. 
+- Possono essere verticali ("linee della griglia di colonna") o orizzontali ("linee della griglia di riga") e risiedono su entrambi i lati di una riga o di una colonna. 
+- Qui la linea gialla è un esempio di una linea della griglia di colonne.
+
+<br>
+<img src="/media/css_48.png" width="300" style="margin:auto;">
+
+---
+
+# Grid
+
+Terminologia
+
+`Grid Track`
+
+- Lo spazio tra due linee di griglia adiacenti. 
+- Puoi pensarli come le colonne o le righe della griglia. 
+- Ecco la traccia (track) della griglia tra la seconda e la terza riga della griglia.
+  
+<br>
+<img src="/media/css_49.png" width="300" style="margin:auto;">
 
 
 ---
 
 # Grid
 
-Intro
+Terminologia
 
-- ddd
+`Grid Area`
+
+- Lo spazio totale circondato da quattro linee della griglia. 
+- Un'area della griglia può essere composta da un numero qualsiasi di celle della griglia. 
+- Ecco l'area della griglia tra le linee della griglia di riga 1 e 3 e le linee della griglia di colonna 1 e 3.
+  
+<br>
+<img src="/media/css_50.png" width="300" style="margin:auto;">
+
+
+
+---
+
+# Grid
+
+Terminologia
+
+`Grid Cell`
+
+- Lo spazio tra due righe adiacenti e due linee della griglia di colonne adiacenti. 
+- È una singola "unità" della griglia. 
+- Ecco la cella della griglia tra le linee della griglia di riga 1 e 2 e le linee della griglia di colonna 2 e 3.
+  
+<br>
+<img src="/media/css_51.png" width="300" style="margin:auto;">
+
+
+---
+
+# Grid
+
+Proprietà 
+
+- Come per il Flexbox ci sono proprietà specifiche per il Grid Container e proprietà per i Grid Item
+- Vediamo le più importanti proprietà dei due gruppi sopra descritti
+
+<br>
+<img src="/media/css_52.png" width="600" style="margin:auto;">
+
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `display`:  Definisce l'elemento come contenitore della griglia e stabilisce un nuovo contesto di formattazione della griglia per il suo contenuto.
+- `grid-template-columns` - `grid-template-rows`:  Definisce le colonne e le righe della griglia con un elenco di valori separati da spazi. I valori rappresentano la dimensione della traccia e lo spazio tra di essi rappresenta la linea della griglia.
+- `grid-template-areas`:  Definisce un modello di griglia facendo riferimento ai nomi delle aree della griglia specificate con la proprietà grid-area. La ripetizione del nome di un'area della griglia fa sì che il contenuto si estenda su quelle celle. Un punto indica una cella vuota. La sintassi stessa fornisce una visualizzazione della struttura della griglia.
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `grid-column-gap` - `grid-row-gap`:  Specifica la dimensione delle linee della griglia. Puoi pensarlo come impostare la larghezza delle grondaie tra le colonne/righe.
+- `justify-items`:  Allinea gli elementi della griglia lungo l'asse inline (riga) (al contrario di align-items che si allinea lungo l'asse blocco (colonna)). Questo valore si applica a tutti gli elementi della griglia all'interno del contenitore.
+- `align-items`:  Allinea gli elementi della griglia lungo l'asse del blocco (colonna) (al contrario degli elementi giustificati che si allineano lungo l'asse in linea (riga). Questo valore si applica a tutti gli elementi della griglia all'interno del contenitore.
+- `justify-content`:  A volte la dimensione totale della tua griglia potrebbe essere inferiore alla dimensione del suo contenitore di griglia. Ciò potrebbe accadere se tutti i tuoi elementi della griglia sono dimensionati con unità non flessibili come px. In questo caso è possibile impostare l'allineamento della griglia all'interno del contenitore della griglia. Questa proprietà allinea la griglia lungo l'asse in linea (riga) (al contrario di align-content che allinea la griglia lungo l'asse blocco (colonna).
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `align-content`:  A volte la dimensione totale della tua griglia potrebbe essere inferiore alla dimensione del suo contenitore di griglia. Ciò potrebbe accadere se tutti i tuoi elementi della griglia sono dimensionati con unità non flessibili come px. In questo caso è possibile impostare l'allineamento della griglia all'interno del contenitore della griglia. Questa proprietà allinea la griglia lungo l'asse del blocco (colonna) (al contrario di justify-content che allinea la griglia lungo l'asse inline (riga)).
+- `grid-auto-columns` - `grid-auto-rows`:  Specifica la dimensione di qualsiasi traccia griglia generata automaticamente (nota anche come traccia griglia implicita). Le tracce implicite vengono create quando sono presenti più elementi della griglia che celle nella griglia o quando un elemento della griglia viene posizionato all'esterno della griglia esplicita.
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `display`:  **grid | inline-grid**: Definisce l'elemento come contenitore della griglia e stabilisce un nuovo contesto di formattazione della griglia per il suo contenuto.
+    - **grid**: genera una griglia block level
+    - **inline-grid**: genera una griglia inline
+
+<br>
+```css
+.container {
+  display: grid | inline-grid;
+}
+```
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `grid-template-columns` - `grid-template-rows`:  Definisce le colonne e le righe della griglia con un elenco di valori separati da spazi. I valori rappresentano la dimensione della traccia e lo spazio tra di essi rappresenta la linea della griglia.
+    - **track-size**: può essere una lunghezza, una percentuale o una frazione dello spazio libero nella griglia utilizzando l'unità fr
+    - **line-name**: un nome arbitrario 
+
+```css
+.grid-container {
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(10px, 1fr) 3fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 50px auto 100px 1fr;
+}
+```
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) 3fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) 3fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid; 
+  grid-template-columns: 50px auto 100px 1fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px auto 100px 1fr;
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `grid-template-areas`:  Definisce un modello di griglia facendo riferimento ai nomi delle aree della griglia specificate con la proprietà grid-area. La ripetizione del nome di un'area della griglia fa sì che il contenuto si estenda su quelle celle. Un punto indica una cella vuota. La sintassi stessa fornisce una visualizzazione della struttura della griglia.
+    - **grid-area-name**: il nome di un'area della griglia specificato con **grid-area**
+    - **.**: un punto significa cella vuota
+    - **none**: nessuna area della griglia definita
+
+<br>
+<img src="/media/css_54.png" width="250" style="margin:auto;">
+
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="item area-h">1</div>
+  <div class="item area-m">2</div>
+  <div class="item area-s">3</div>
+  <div class="item area-f">4</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 
+  50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+.area-h {
+    grid-area: header;
+}
+.area-m {
+    grid-area: main;
+}
+.area-s {
+    grid-area: sidebar;
+}
+.area-f {
+    grid-area: footer;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="item area-h">1</div>
+  <div class="item area-m">2</div>
+  <div class="item area-s">3</div>
+  <div class="item area-f">4</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+
+.item {
+    padding: 10px;
+    text-align: center;
+}
+.area-h {
+    grid-area: header;
+    background-color: #FF8C27;
+}
+.area-m {
+    grid-area: main;
+    background-color: #27BCE7;
+}
+.area-s {
+    grid-area: sidebar;
+    background-color: #FF476D;
+}
+.area-f {
+    grid-area: footer;
+    background-color: #27D679;
+}
+</style>
+
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `grid-column-gap` - `grid-row-gap`:  Specifica la dimensione delle linee della griglia. Puoi pensarlo come impostare la larghezza delle grondaie tra le colonne/righe.
+    - **line-size**: un valore di lunghezza
+
+
+<br>
+<img src="/media/css_55.png" width="350" style="margin:auto;">
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+  <div class="item">9</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;   
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+}
+
+.item {
+    background-color: #FF8A23;
+    text-align: center; 
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+  <div class="item">9</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;   
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+}
+
+.item {
+    background-color: #FF8A23;
+    text-align: center; 
+}
+
+</style>
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `justify-items`:  Allinea gli elementi della griglia lungo l'asse inline (riga) (al contrario di align-items che si allinea lungo l'asse blocco (colonna)). Questo valore si applica a tutti gli elementi della griglia all'interno del contenitore.
+    - **start**: allinea l'item con il bordo sinistro della cella
+    - **center**: allinea l'item al centro della cella
+    - **end**:allinea l'item con il bordo destro della cella
+    - **stretch**: riempie tutta lo spazio della cella
+
+<img src="/media/css_56.png" width="450" style="margin:auto;">
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `align-items`:  Allinea gli elementi della griglia lungo l'asse del blocco (colonna) (al contrario degli elementi giustificati che si allineano lungo l'asse in linea (riga). Questo valore si applica a tutti gli elementi della griglia all'interno del contenitore.
+    - **start**: allinea l'item con il bordo superiore della cella
+    - **center**: allinea l'item al centro della cella
+    - **end**:allinea l'item con il bordo inferiore della cella
+    - **stretch**: riempie tutta lo spazio della cella
+
+<img src="/media/css_57.png" width="450" style="margin:auto;">
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `justify-content`:  A volte la dimensione totale della tua griglia potrebbe essere inferiore alla dimensione del suo contenitore di griglia. Ciò potrebbe accadere se tutti i tuoi elementi della griglia sono dimensionati con unità non flessibili come px. In questo caso è possibile impostare l'allineamento della griglia all'interno del contenitore della griglia. Questa proprietà allinea la griglia lungo l'asse in linea (riga) (al contrario di align-content che allinea la griglia lungo l'asse blocco (colonna).
+  - **start**: allinea la griglia con il bordo sinistro del container
+  - **center**: allinea la griglia al centro del container
+  - **end**: allinea la griglia con il bordo destro del container
+  - **stretch**: occupa tutto lo spazio disponibile
+  - **space-around**:  aggiunge la stessa quantità di spazio attorno agli elementi della griglia
+  - **space-between**: aggiunge la stessa quantità di spazio tra gli elementi della griglia
+  - **space-evenly**: aggiunge la stessa quantità di spazio attorno e tra gli elementi della griglia
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<br>
+<img src="/media/css_58.png" width="1000" style="margin:auto;">
+
+
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+- `align-content`:  A volte la dimensione totale della tua griglia potrebbe essere inferiore alla dimensione del suo contenitore di griglia. Ciò potrebbe accadere se tutti i tuoi elementi della griglia sono dimensionati con unità non flessibili come px. In questo caso è possibile impostare l'allineamento della griglia all'interno del contenitore della 
+  - **start**: allinea la griglia con il bordo superio del container
+  - **center**: allinea la griglia al centro del container
+  - **end**: allinea la griglia con il bordo inferiore del container
+  - **stretch**: occupa tutto lo spazio disponibile
+  - **space-around**:  aggiunge la stessa quantità di spazio attorno agli elementi della griglia
+  - **space-between**: aggiunge la stessa quantità di spazio tra gli elementi della griglia
+  - **space-evenly**: aggiunge la stessa quantità di spazio attorno e tra gli elementi della griglia
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+<img src="/media/css_59.png" width="700" style="margin:auto;">
+
+---
+
+# Grid
+
+Proprietà grid containers
+
+
+- `grid-auto-columns` - `grid-auto-rows`:  Specifica la dimensione di qualsiasi traccia griglia generata automaticamente (nota anche come traccia griglia implicita). Le tracce implicite vengono create quando sono presenti più elementi della griglia che celle nella griglia o quando un elemento della griglia viene posizionato all'esterno della griglia esplicita.
+    - **track-size**: dimensione in valore assoluto o relativo
+
+```css
+.container {
+  grid-template-columns: 60px 60px;
+  grid-template-rows: 90px 90px;
+}
+```
+
+<img src="/media/css_60.png" width="200" style="margin:auto; position:relative; top: -100px; right:-200px;">
+
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
+- `grid-area`: Assegna un nome a un elemento in modo che possa essere referenziato da un modello creato con la proprietà grid-template-areas.
+- `justify-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse in linea (riga) (al contrario di align-self che si allinea lungo l'asse blocco (colonna). Questo valore si applica a un elemento della griglia all'interno di una singola cella.
+- `align-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse del blocco (colonna) (al contrario di justify-self che si allinea lungo l'asse in linea (riga). Questo valore si applica al contenuto all'interno di un singolo elemento della griglia.
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `grid-area`: Assegna un nome a un elemento in modo che possa essere referenziato da un modello creato con la proprietà grid-template-areas.
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `justify-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse in linea (riga) (al contrario di align-self che si allinea lungo l'asse blocco (colonna). Questo valore si applica a un elemento della griglia all'interno di una singola cella.
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `align-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse del blocco (colonna) (al contrario di justify-self che si allinea lungo l'asse in linea (riga). Questo valore si applica al contenuto all'interno di un singolo elemento della griglia.
 
 ---
 
