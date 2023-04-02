@@ -14,6 +14,7 @@ routerMode: 'hash'
 version: '1.6.0'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
+<!-- https://gridbyexample.com/examples/ -->
 
 # Cascading Style Sheets
 
@@ -7377,6 +7378,18 @@ Flexbox
 
 
 ---
+
+# Sfida
+
+FlexboxFroggy
+
+- In gruppi da 2 studenti, giocare a [FlexboxFroggy](https://flexboxfroggy.com/#it)
+- Obiettivo è completare più livelli possibile e completare il gioco 
+
+<br>
+<img src="/media/css_68.png" width="900" style="margin:auto;">
+
+---
 layout: section
 ---
 <h1 class="sezione">Grid Layout</h1>
@@ -7824,7 +7837,6 @@ Proprietà grid containers
 Proprietà grid containers
 
 - `align-content`:  A volte la dimensione totale della tua griglia potrebbe essere inferiore alla dimensione del suo contenitore di griglia. Ciò potrebbe accadere se tutti i tuoi elementi della griglia sono dimensionati con unità non flessibili come px. In questo caso è possibile impostare l'allineamento della griglia all'interno del contenitore della griglia. Questa proprietà allinea la griglia lungo l'asse del blocco (colonna) (al contrario di justify-content che allinea la griglia lungo l'asse inline (riga)).
-- `grid-auto-columns` - `grid-auto-rows`:  Specifica la dimensione di qualsiasi traccia griglia generata automaticamente (nota anche come traccia griglia implicita). Le tracce implicite vengono create quando sono presenti più elementi della griglia che celle nella griglia o quando un elemento della griglia viene posizionato all'esterno della griglia esplicita.
 
 ---
 
@@ -8404,24 +8416,154 @@ Proprietà grid containers
 
 <img src="/media/css_59.png" width="700" style="margin:auto;">
 
+
 ---
 
 # Grid
 
-Proprietà grid containers
+Proprietà grid items
+
+- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
+- `grid-area`: Assegna un nome a un elemento in modo che possa essere referenziato da un modello creato con la proprietà grid-template-areas.
+- `justify-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse in linea (riga) (al contrario di align-self che si allinea lungo l'asse blocco (colonna). Questo valore si applica a un elemento della griglia all'interno di una singola cella.
+- `align-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse del blocco (colonna) (al contrario di justify-self che si allinea lungo l'asse in linea (riga). Questo valore si applica al contenuto all'interno di un singolo elemento della griglia.
+
+---
+
+# Grid
+
+Proprietà grid items
+
+- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
+    - **line**: numero di riga o colonna dove posizionare l'item
+    - **span**: l'item occuperà il numero specificato di righe o colonne 
+    - **auto**: indica il posizionamento automatico dell'item
+ 
+
+<img src="/media/css_60.png" width="300" style="margin:auto;">
 
 
-- `grid-auto-columns` - `grid-auto-rows`:  Specifica la dimensione di qualsiasi traccia griglia generata automaticamente (nota anche come traccia griglia implicita). Le tracce implicite vengono create quando sono presenti più elementi della griglia che celle nella griglia o quando un elemento della griglia viene posizionato all'esterno della griglia esplicita.
-    - **track-size**: dimensione in valore assoluto o relativo
+---
+
+# Grid
+
+Proprietà grid items
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item a">XXX</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item b">YYY</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
 
 ```css
-.container {
-  grid-template-columns: 60px 60px;
-  grid-template-rows: 90px 90px;
+.grid-container {
+  display: grid;
+  grid-template-columns: 
+  repeat(6, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+.a {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.b {
+    grid-row-start: 2;
+    grid-row-end: 5;
 }
 ```
+</div>
 
-<img src="/media/css_60.png" width="200" style="margin:auto; position:relative; top: -100px; right:-200px;">
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item a">XXX</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item b">YYY</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+.a {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.b {
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+</style>
 
 
 ---
@@ -8430,10 +8572,11 @@ Proprietà grid containers
 
 Proprietà grid items
 
-- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
-- `grid-area`: Assegna un nome a un elemento in modo che possa essere referenziato da un modello creato con la proprietà grid-template-areas.
 - `justify-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse in linea (riga) (al contrario di align-self che si allinea lungo l'asse blocco (colonna). Questo valore si applica a un elemento della griglia all'interno di una singola cella.
-- `align-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse del blocco (colonna) (al contrario di justify-self che si allinea lungo l'asse in linea (riga). Questo valore si applica al contenuto all'interno di un singolo elemento della griglia.
+  - **start**: allinea un item all'inizio della cella 
+  - **end**: allinea un item alla fine della cella
+  - **center**: allinea un item al centro della cella
+  - **strecth**:  utilizza tutto lo spazio a disposizione
 
 ---
 
@@ -8441,23 +8584,8 @@ Proprietà grid items
 
 Proprietà grid items
 
-- `grid-column-start` - `grid-column-end`- `grid-row-start` - `grid-row-end`: Determina la posizione di un elemento della griglia all'interno della griglia facendo riferimento a specifiche linee della griglia. griglia-colonna-inizio/griglia-riga-inizio è la riga dove inizia l'elemento e griglia-colonna-fine/griglia-riga-fine è la riga dove finisce l'elemento.
 
----
-
-# Grid
-
-Proprietà grid items
-
-- `grid-area`: Assegna un nome a un elemento in modo che possa essere referenziato da un modello creato con la proprietà grid-template-areas.
-
----
-
-# Grid
-
-Proprietà grid items
-
-- `justify-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse in linea (riga) (al contrario di align-self che si allinea lungo l'asse blocco (colonna). Questo valore si applica a un elemento della griglia all'interno di una singola cella.
+<img src="/media/css_61.png" width="800" style="margin:auto;">
 
 ---
 
@@ -8466,6 +8594,449 @@ Proprietà grid items
 Proprietà grid items
 
 - `align-self`: Allinea un elemento della griglia all'interno di una cella lungo l'asse del blocco (colonna) (al contrario di justify-self che si allinea lungo l'asse in linea (riga). Questo valore si applica al contenuto all'interno di un singolo elemento della griglia.
+  - **start**: allinea un item all'inizio della cella 
+  - **end**: allinea un item alla fine della cella
+  - **center**: allinea un item al centro della cella
+  - **strecth**:  utilizza tutto lo spazio a disposizione
+
+---
+
+# Grid
+
+Proprietà grid items
+
+
+<img src="/media/css_62.png" width="800" style="margin:auto;">
+
+
+---
+
+# Esercizio css_31
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_31.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_31.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_31.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_31.css
+
+<img src="/media/css_63.png" width="400" style="margin:auto;">
+
+
+---
+
+# Esercizio css_32
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_32.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_32.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_32.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_32.css
+
+<img src="/media/css_64.png" width="400" style="margin:auto;">
+
+---
+
+# Esercizio css_33
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_33.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_33.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_33.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_33.css
+
+<img src="/media/css_65.png" width="400" style="margin:auto;">
+
+
+---
+
+# Esercizio css_34
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_34.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_34.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_34.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_34.css
+
+<img src="/media/css_67.png" width="400" style="margin:auto;">
+
+
+---
+
+# Esercizio css_35
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_35.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_35.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_35.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_35.css
+
+<img src="/media/css_66.png" width="400" style="margin:auto;">
+
+---
+
+# Sfida
+
+CSSGridGarden
+
+- In gruppi da 2 studenti, giocare a [CSSGridGarden](https://cssgridgarden.com/#it)
+- Obiettivo è completare più livelli possibile e completare il gioco 
+
+<br>
+<img src="/media/css_69.png" width="900" style="margin:auto;">
+
+
+---
+
+# Divertiti
+
+GridAttack
+
+- Divertiti a giocare a [GridAttack](https://codingfantasy.com/games/css-grid-attack)
+- Obiettivo è completare più livelli possibile e completare il gioco 
+
+<br>
+<img src="/media/css_70.png" width="900" style="margin:auto;">
+
+
+---
+layout: section
+---
+<h1 class="sezione">Responsive Web & Media Queries</h1>
+
+
+---
+
+# Responsive Web
+
+Intro
+
+- Il `responsive web design (RWD)`, indica una tecnica di web design per la realizzazione di siti in grado di adattarsi graficamente in modo automatico al dispositivo coi quali vengono visualizzati (computer con diverse risoluzioni, tablet, smartphone, cellulari, web tv), riducendo al minimo la necessità dell'utente di ridimensionare e scorrere i contenuti.
+- Il design responsivo è un importante elemento dell'accessibilità, la quale tiene conto inoltre di numerosi altri fattori, incentrati non solo sui dispositivi ma anche sulle caratteristiche dell'utente (quali: capacità cognitive, vista, difficoltà fisiche, e così via).
+
+<br>
+<img src="/media/css_71.png" width="350" style="margin:auto;">
+
+---
+
+# Responsive Web
+
+Intro
+
+- Un sito responsivo fa uso di una impaginazione grafica con **griglie a proporzioni fluide** (no valori assoluti), struttura e immagini flessibili 
+- Il concetto di griglia flessibile richiede che gli elementi siano dimensionati tramite unità relative come percentuali ed em, e non con unità assolute come pixel o punti
+- In aggiunta usa una particolare estensione di CSS3 chiamata `media queries`
+
+<br>
+<img src="/media/css_72.png" width="500" style="margin:auto;">
+
+---
+
+# Responsive Web
+
+media queries
+
+- **Le media queries** consentono alla pagina di usare diversi fogli di stile in base alle caratteristiche del dispositivo utilizzato (risoluzione, orientamento)..
+- Come risultato, gli utenti che utilizzano diverse periferiche e browser, hanno accesso a un singolo sorgente i cui contenuti vengono però disposti in modo differente tale da essere sempre facilmente consultabili, e senza dover compiere troppe operazioni di ridimensionamento, scorrimento e spostamento.
+
+<br>
+<img src="/media/css_73.png" width="700" style="margin:auto;">
+
+
+---
+
+# Responsive Web
+
+media queries
+
+- Una `media queries` si definisce specificando **media-type** (tipo di schermo) e **media-features** 
+
+<br><br>
+<img src="/media/css_74.png" width="700" style="margin:auto;">
+
+
+---
+
+# Responsive Web
+
+media queries
+
+- Il **media-type** indica la categoria di un dispositivo e se non viene espressamente indicata verrà usata la corrispondenza più generica possibile.
+    - **all**: Identifica tutti i dispositivi.
+    - **print**: È destinata alla modalità di stampa, quindi modificherà un documento o una pagina nella sua versione stampabile.
+    - **screen**: Per gli schermi, i tablet o gli smartphone.
+    - **speech**: Dedicata ai sintetizzatori vocali o per gli screen reader che leggono la pagina ad alta voce.
+
+
+---
+
+# Responsive Web
+
+media queries
+
+- Il **media-features** sono dichiarazioni utilizzate nelle Media Queries che consentono di intercettare particolari caratteristiche o “stati” del dispositivo utilizzato.
+- Le più comuni media-features sono:
+    - **width**:	La larghezza esatta dell’area di visualizzazione
+    - **height**:	L’altezza esatta dell’area di visualizzazione
+    - **min-width**:	La larghezza minima dell’area di visualizzazione
+    - **min-height**:	L’altezza minima dell’area di visualizzazione
+    - **max-width**:	La larghezza massima dell’area di visualizzazione
+    - **max-height**:	L’altezza massima dell’area di visualizzazione
+    - **orientation**:	L’orientamento del dispositivo (landscape o portrait per dispositivi mobili)
+
+
+---
+
+# Responsive Web
+
+media queries
+
+- Acluni esempi di media queries comunini
+
+```css
+/* Schermi grandi o ad alta risoluzione */
+@media all and (max-width: 1690px) { ... }
+
+/* Schermi Desktop o Portatili */
+@media all and (min-width: 1280px) and (max-width: 1689px) { ... }
+
+/* Tablet in modalità orizzontale */
+@media all and (min-width: 737px) and (max-width: 1279px) { ... }
+
+/* Tablet in modalità verticale */
+@media all and (min-width: 481px) and (max-width: 736px) { ... }
+
+/* Smartphone o piccoli Tablet */
+@media all and (max-width: 480px) { ... } 
+```
+
+---
+
+# Responsive Web
+
+media queries
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="block container">
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+/* Schermi grandi o ad alta risoluzione */
+@media all 
+and (min-width: 1690px) {
+    .container {background-color: red;}
+}
+/* Schermi Desktop o Portatili */
+@media all 
+and (min-width: 1280px) 
+and (max-width: 1689px) {
+    .container {background-color: blue;}
+}
+/* Tablet in modalità orizzontale */
+@media all 
+and (min-width: 737px) 
+and (max-width: 1279px) { 
+    .container {background-color: green;}
+}
+/* Smartphone o piccoli Tablet */
+@media all 
+and (max-width: 480px) { 
+    .container {background-color: violet;}
+} 
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="block container"></div>
+
+</div>
+
+</div>
+
+<style>
+
+.block {
+    width: 200px;
+    height: 200px;
+    border: 10px solid yellow;
+}
+
+/* Schermi grandi o ad alta risoluzione */
+@media all and (min-width: 1690px) {
+    .container {
+        background-color: red;
+    }
+}
+
+/* Schermi Desktop o Portatili */
+@media all and (min-width: 1280px) and (max-width: 1689px) {
+    .container {
+        background-color: blue;
+    }
+}
+
+/* Tablet in modalità orizzontale */
+@media all and (min-width: 737px) and (max-width: 1279px) { 
+    .container {
+        background-color: green;
+    }
+}
+
+/* Tablet in modalità verticale */
+@media all and (min-width: 481px) and (max-width: 736px) {
+    .container {
+        background-color: grey;
+    }
+}
+
+/* Smartphone o piccoli Tablet */
+@media all and (max-width: 480px) { 
+    .container {
+        background-color: violet;
+    }
+} 
+
+</style>
+
+
+---
+
+# Responsive Web
+
+Esempio Responsive
+
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container griglia">
+    <div class="item1"/>
+    <div class="item2"/>
+    <div class="item3"/>
+</div>
+
+//CSS
+.container {
+    border: 1px solid grey;
+    width: 400px;
+    display: grid;
+}
+
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+@media all 
+and (min-width: 1024px){
+    .griglia {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/* Smartphone o piccoli Tablet */
+@media all 
+and (min-width: 481px) 
+and (max-width: 1023px) {
+    .griglia {
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+} 
+.item1 {
+    background-color: green;
+    height: 100px;
+}
+.item2 {background-color: white;}
+.item3 {background-color: red;}
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="container griglia">
+    <div class="item1"/>
+    <div class="item2"/>
+    <div class="item3"/>
+</div>
+
+</div>
+
+</div>
+
+<style>
+
+.container {
+    border: 1px solid grey;
+    width: 200px;
+    display: grid;
+}
+
+@media all and (min-width: 1024px){
+    .griglia {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Smartphone o piccoli Tablet */
+@media all and (min-width: 481px) and (max-width: 1023px) {
+    .griglia {
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+} 
+
+.item1 {
+    background-color: green;
+    height: 100px;
+}
+
+.item2 {
+    background-color: white;
+}
+
+.item3 {
+    background-color: red;
+}
+
+
+</style>
+
+
+
+---
+
+# Responsive Web
+
+media queries
+
+- xxx
+
+---
+
+# Responsive Web
+
+media queries
+
+- xxx
 
 ---
 
