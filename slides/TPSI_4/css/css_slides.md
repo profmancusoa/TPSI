@@ -9020,23 +9020,263 @@ and (max-width: 1023px) {
 
 </style>
 
+---
+
+# Image as a Service
+
+
+- Spesso nella creazione di un layout abbiamo bisogno di inserire delle immagini
+- Magari è anche necessario che queste immagini abbiamo una dimensione specifica
+- Per velocizzare la ricerca delle immagini, possiamo usare un servizio che ci fornisce delle immagini placeholder
+
+`http://via.placeholder.com/wxh` permette di creare un'immagine placeholder larga w pixel e alta h pixel
+
+es:
+
+- http://via.placeholder.com/100x100
+- http://via.placeholder.com/200x100
+- http://via.placeholder.com/100x200
+
+<br>
+<img src="http://via.placeholder.com/100x100">
+
+<img src="http://via.placeholder.com/200x100" style="position:relative; top: -100px; right: -300px;">
+
+
+<img src="http://via.placeholder.com/100x200" style="position:relative; top: -300px; right: -700px;">
 
 
 ---
 
-# Responsive Web
+# Image as a Service
 
-media queries
+- Un'altro servizio molto interessante è: `https://picsum.photos/w/h`
+- Restituisce un'immagine casuale larga w pixel e alta h pixel
 
-- xxx
+- https://picsum.photos/100/100
+- https://picsum.photos/200/100
+- https://picsum.photos/100/200
+
+<br>
+<img src="https://picsum.photos/100/100">
+
+<img src="https://picsum.photos/200/100" style="position:relative; top: -100px; right: -300px;">
+
+
+<img src="https://picsum.photos/100/200" style="position:relative; top: -300px; right: -700px;">
+
 
 ---
 
-# Responsive Web
+# Immagini Resposive
 
-media queries
+- Vediamo come creare un'immagine responsive, che si adatta alle dimensioni del suo contenitore
 
-- xxx
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="container1">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+
+<div class="container2">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.container1 {
+    border: 10px solid green;
+    width: 200px;
+    height: 200px;
+}
+
+.container2 {
+    border: 10px solid green;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 300px;
+    top: -200px;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+```
+</div>
+
+<div> <!-- col3 -->
+
+</div>
+
+</div>
+
+
+---
+
+# Immagini Resposive
+
+<div class="container1">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+
+<div class="container2">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+
+<div class="container3">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+
+<style>
+
+.container1 {
+    border: 10px solid green;
+    width: 100px;
+    height: 100px;
+}
+
+.container2 {
+    border: 10px solid green;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 150px;
+    top: -100px;
+}
+
+.container3 {
+    border: 10px solid green;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 400px;
+    top: -300px;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+
+---
+
+# Immagini Resposive
+
+<div class="container1">
+    <img src="https://picsum.photos/500/500"  
+    class="responsive">
+</div>
+
+
+<style>
+
+.container1 {
+    border: 10px solid green;
+    width: 50%;
+    margin: auto;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+
+---
+
+# Esercizio css_36
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_36.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_36.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto sia per desktop che per mobile con media queries
+4. Fornire il link github al file con nome |cognome|_esercizio_css_36.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_36.css
+
+---
+
+# Esercizio css_36
+
+Desktop
+
+<img src="/media/css_75.png" width="850" style="margin:auto;">
+
+
+---
+
+# Esercizio css_36
+
+Mobile
+
+<img src="/media/css_76.png" width="250" style="margin:auto;">
+
+---
+
+# Esercizio css_37
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_37.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_37.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto sia per desktop che per mobile con media queries
+4. Fornire il link github al file con nome |cognome|_esercizio_css_37.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_37.css
+
+---
+
+# Esercizio css_37
+
+Desktop
+
+<img src="/media/css_77.png" width="700" style="margin:auto;">
+
+
+---
+
+# Esercizio css_37
+
+Mobile
+
+<img src="/media/css_78.png" width="220" style="margin:auto;">
+
+
+---
+
+# Esercizio css_38
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_38.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_38.css*
+3. Realizzare il proprio CV (vedi esempio) utilizzando il grid layout e grid of grid in modo che sia responsive
+4. Fornire il link github al file con nome |cognome|_esercizio_css_38.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_38.css
+
+---
+
+# Esercizio css_38
+
+CV
+
+<img src="/media/css_79.png" width="630" style="margin:auto;">
+
 
 ---
 
