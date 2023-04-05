@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.6.0'
+version: '1.6.1'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
@@ -8607,6 +8607,21 @@ Proprietà grid items
 
 
 <img src="/media/css_62.png" width="800" style="margin:auto;">
+
+
+---
+
+# Esercizio css_30a
+
+Grid
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_30a.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_30a.css*
+3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
+4. Fornire il link github al file con nome |cognome|_esercizio_css_30a.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_30a.css
+
+<img src="/media/css_80.png" width="600" style="margin:auto;">
 
 
 ---
