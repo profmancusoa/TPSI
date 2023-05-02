@@ -8565,6 +8565,150 @@ Proprietà grid items
 
 </style>
 
+---
+
+# Grid
+
+Proprietà grid items
+
+- Le proprietà **grid-column-start** e **grid-column-end** possono essere scritte in maniera più compatta usando lo shorthand `grid-column <col inizio> / <col fine>`
+- In modo analogo le proprietà **grid-row-start** e **grid-row-end** possono essere scritte in maniera più compatta usando lo shorthand `grid-row <row inizio> / <row fine>`
+- Quindi per esempio
+
+```css
+grid-column-start: 2;
+grid-column-end: 5;
+
+grid-row-start: 3;
+grid-row-end: 7;
+```
+
+equivale a:
+
+```css
+grid-column: 2 / 5;
+
+grid-row: 3 / 7;
+```
+
+---
+
+# Grid
+
+Proprietà grid items
+
+<div class="grid grid-flow-col auto-cols-max gap-4">
+
+<div> <!-- col1 -->
+
+```html
+<div class="grid-container">
+  <div class="grid-item a">XXX</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item b">YYY</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+</div>
+```
+</div>
+
+<div> <!-- col2 -->
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 
+  repeat(6, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+.a {
+    grid-column: 2 / 5;
+}
+
+.b {
+    grid-row: 2 / 5;
+}
+
+```
+</div>
+
+<div> <!-- col3 -->
+
+<div class="grid-container">
+  <div class="grid-item a">XXX</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item b">YYY</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">1</div>
+</div>
+
+</div>
+
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-item {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+.a {
+    grid-column: 2 / 5;
+}
+
+.b {
+    grid-row: 2 / 5;
+}
+
+</style>
 
 ---
 
