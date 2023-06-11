@@ -11,9 +11,14 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.0.0'
+version: '1.1.0'
 ---  
 
+<!-- https://reteinformaticalavoro.it/blog/framework-cosa-sono-e-quali-dominano-le-classifiche/#:~:text=In%20informatica%2C%20un%20framework%20%C3%A8,in%20modo%20semplice%20e%20veloce.
+
+https://www.okupter.com/blog/svelte-vs-sveltekit-the-difference
+
+https://www.okupter.com/blog/sveltekit-full-stack-framework -->
 <style>
   .alto {
     width: 50%;
@@ -52,14 +57,128 @@ CYBERNETICALLY ENHANCED WEB APPS
   </span>
 </div>
 
+---
 
---- #slide 1
+# Introduzione
+
+Vanilla Software
+
+
+- Un software `Vanilla` è un programma per computer (e per altri sistemi informatici come hardware o algoritmi) che non viene alterato rispetto alla propria forma originale.
+- Il termine deriva dal tradizionale gusto di gelato, la vaniglia.
+- In altre parole con il termine **Vanilla** si intende un linguaggio, un kernel, un programma non modificato ma utilizzato nella sua forma base
+- Ciò si applica anche ai linguaggi di programmazione
+
+---
+
+# Introduzione
+
+Vanilla Software
+
+<div style="float: left; width: 50%;">
+
+- Vanilla JavaScript (o VanillaJS) si riferisce all'uso di JavaScript puro, senza alcun componente aggiuntivo come librerie o framework. 
+- È una specie di battuta tra informatici per indicare le potenzialità attuali del puro e semplice JavaScript.
+- Agli albori del Web era normale programmare in vanillaJS
+  
+</div>
+
+<img src="/media/svelte_000.png" class="mx-auto" width="400" />
+
+---
+
+# Introduzione
+
+Librerie JS
+
+- Una libreria NON è un'unità eseguibile indipendentemente, ma un modulo aggiuntivo richiesto da un programma.
+- In altre parole, le librerie sono raccolte di classi e funzioni, motivo per cui a volte vengono anche chiamate librerie di componenti o di classi. 
+- Il programma principale utilizza una o più funzioni, messe a disposizione dalla libreria.
+
+<img src="/media/svelte_001.png" class="mx-auto" style="margin-top:2rem;" width="500" />
+
+---
+
+# Introduzione
+
+Librerie JS
+
+- Una libreria JavaScript è una libreria di codice JavaScript pre-scritto che consente uno sviluppo più semplice di applicazioni basate su JavaScript
+- Ci sono centinaia di librerie JS per qualsiasi funzionalità possa venire in mente allo sviluppatore
+- Una delle più note librerie che ha dominato il web per molti anni si chiama `jQuery`
+- **jQuery** è una libreria JavaScript veloce, piccola e ricca di funzionalità. 
+- Rende funzionalità complesse come l'attraversamento e la manipolazione di documenti HTML, la gestione degli eventi, l'animazione e Ajax molto più semplici che in vanillaJS
+- Con una combinazione di versatilità ed estensibilità, jQuery ha cambiato il modo in cui milioni di persone scrivono JavaScript.
+
+---
+
+# Introduzione
+
+Framework JS
+
+- Man mano che l'importanza dello sviluppo Web cresceva, e con essa l'importanza di JS, l'uso di VanillaJS o di semplici librerie non era più sufficiente
+- Pertanto hanno iniziato a proliferare una moltitudine di `Framework JS` che offrono paradigmi differenti e adatti a risolvere la maggioranza delle problematiche dello sviluppo web
+
+<div style="background-color:green;color:yellow;padding: 10px;line-height: 40px; margin: 10px;">
+
+In informatica, **un framework** è un sistema che consente di estendere le funzionalità del linguaggio di programmazione su cui è basato, fornendo allo sviluppatore una struttura coerente ed efficace al fine di effettuare azioni e comandi in modo semplice e veloce
+
+</div>
+
+- **Un framework** è un tipo speciale di libreria che non contiene funzioni "finite" come una normale libreria. 
+- In sostanza, si può definire un framework come un insieme di funzioni e tool già “pronti all’uso”, ovvero che si possono utilizzare senza doverli progettare da zero ogni volta. 
+  
+---
+
+# Introduzione
+
+Framework JS
+
+- I framework sono piuttosto impalcature/scheletri/template di programmi che forniscono il progetto, le linee guida e l'organizzazione del codice ma non l'unità finita.
+- Il framework, quindi, fornisce il progetto e il framework di base e mostra anche ciò che è ancora necessario al programmatore in termini di personalizzazione. 
+- Il framework fornisce il flusso di un'applicazione software e comunica allo sviluppatore ciò di cui ha bisogno e chiama il codice fornito dallo sviluppatore come richiesto
+
+
+---
+
+# Introduzione
+
+Framework JS
+
+<img src="/media/svelte_004.png" class="mx-auto" style="margin-top:0rem;" width="800" />
+
+
+---
+
+# Introduzione
+
+Framework JS
+
+- I principali [framework](https://en.wikipedia.org/wiki/Software_framework) degli ultimi anni sono
+
+<img src="/media/svelte_002.png" class="mx-auto" style="margin-top:0rem;" width="600" />
+
+---
+
+# Introduzione
+
+Framework pro vs cons
+
+- L'uso di un frameowrk non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
+- Proprio per queste sue caratteristiche, sono diventati sempre più fondamentali per lo sviluppo di siti web e app.
+- I framework consentono di:
+  - ottimizzare tempi, costi e benefici;
+  - evitare al programmatore di riscrivere codice già scritto in precedenza per compiti simili;
+  - organizzare e trovare rapidamente i file necessari;
+  - concentrarsi sul problema da risolvere, senza dover implementare funzionalità che qualcun altro ha già provveduto a creare.
+
+---
 
 # Svelte
 
 Introduzione
 
-- Svelte è un [framework](https://en.wikipedia.org/wiki/Software_framework) **che propone un approccio radicalmente nuovo alla creazione di applicazioni Web**.
+- Svelte è un framework **che propone un approccio radicalmente nuovo alla creazione di applicazioni Web**.
 - Se hai già esperienza con React, Vue, Angular o altri framework frontend rimarrai   piacevolmente sorpreso da Svelte.
 - Lavorando con Svelte tutto sembra molto più simile al JavaScript-vanilla rispetto che a lavorare con altri framework.
 - In generale la maggior parte delle cose che sono complicate con altri framework sono molto semplici e leggeri con Svelte.
@@ -70,13 +189,6 @@ Svelte è stato recentemente votato come il <h2>framework web più amato dagli s
 
 [https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks)
 
----
-
-# Svelte
-
-Introduzione
-
-<img src="/media/svelte_00.png" class="mx-auto w-160" />
 
 ---
 
@@ -86,8 +198,16 @@ Svelte vs Others
 
 - Mentre i framework tradizionali come React e Vue fanno la maggior parte del loro lavoro nel browser, Svelte sposta il lavoro in una fase di compilazione che si verifica quando crei la tua app, in modo da non dover far scaricare l'intero framework a tutti i tuoi visitatori del sito. 
 - Di conseguenza, la fruizione dell'esperienza è più fluida, consuma meno larghezza di banda e tutto risulta più veloce e leggero.
-- Al momento della distribuzione, Svelte scompare e tutto ciò che ottieni è puro JavaScript (molto veloce!).
+- Al momento della distribuzione, Svelte scompare e tutto ciò che ottieni è puro JavaScript Vanilla (molto veloce!).
 - In altre parole `Svelte è un compilatore` che trasforma il codice della tua applicazione Web in puro JavaScript, raggiungendo così massime prestazioni
+
+---
+
+# Svelte
+
+Introduzione
+
+<img src="/media/svelte_00.png" class="mx-auto" width="750" />
 
 ---
 
@@ -105,6 +225,17 @@ Svelte vs Others
 La principale differenza tra Svelte e gli altri framework Web è che Svelte è un compilatore che converte la tua applicazione Web in JavaScript-vanilla durante la fase di build. Al contrario gli altri framework usano un virtual DOM interpretato dall'applicazione Web durante il runtime sul browser.
 </div> 
 
+---
+
+# Svelte
+
+Svelte vs Others
+
+- React utilizza un concetto noto come Virtual DOM (VDOM), in cui una rappresentazione virtuale dell'interfaccia utente viene mantenuta in memoria e sincronizzata con il DOM reale attraverso un processo chiamato **riconciliazione**. 
+- Il processo di riconciliazione troverà la differenza (diffing) tra il Virtual DOM (un oggetto in memoria, dove inviamo gli ultimi aggiornamenti all'interfaccia utente) e il vero DOM (DOM che contiene l'interfaccia utente precedentemente renderizzata). 
+- Utilizzando specifici algoritmi, il framework decide come aggiornare l'interfaccia utente. 
+- Ovviamente questo processo, non è efficiente e veloce
+- Per raggiungere questo obiettivo, React introduce un overhead (la libreria), che verrà eseguito nel motore JS del browser per monitorare e aggiornare il DOM in base alle varie interazioni dell'utente.
 
 ---
 
@@ -120,22 +251,11 @@ Svelte vs Others
 
 Svelte vs Others
 
-- React utilizza un concetto noto come Virtual DOM (VDOM), in cui una rappresentazione virtuale dell'interfaccia utente viene mantenuta in memoria e sincronizzata con il DOM reale attraverso un processo chiamato **riconciliazione**. 
-- Il processo di riconciliazione troverà la differenza (diffing) tra il Virtual DOM (un oggetto in memoria, dove inviamo gli ultimi aggiornamenti all'interfaccia utente) e il vero DOM (DOM che contiene l'interfaccia utente precedentemente renderizzata). 
-- Utilizzando specifici algoritmi, il framework decide come aggiornare l'interfaccia utente. 
-- Ovviamente questo processo, non è efficiente e veloce
-- Per raggiungere questo obiettivo, React introduce un overhead (la libreria), che verrà eseguito nel motore JS del browser per monitorare e aggiornare il DOM in base alle varie interazioni dell'utente.
-
-
----
-
-# Svelte
-
-Svelte vs Others
-
 - Svelte è solamente un compilatore, che converte la tua applicazione in codice JavaScript durante la fase di sviluppo e build. 
 - Ciò significa che non inietterà alcun codice aggiuntivo (no librerie aggiuntive) da eseguire nel browser quando l'applicazione è in esecuzione per aggiornare il DOM.
 - Questo approccio è generalmente più veloce dell'approccio basato su Virtual DOM.
+
+<img src="/media/svelte_003.png" class="mx-auto" width="480" style="margin-top:20px" />
 
 ---
 
@@ -155,6 +275,33 @@ Svelte vs Others
 
 - Svelte è un framework ancora nuovo e giovane con un supporto limitato da parte della community, quindi non ha il supporto per un'ampia gamma di plugin e integrazioni come per esempio React
 - Alcuni sviluppatori potrebbero non preferire l'uso di sintassi speciali come #if e #each all'interno dei loro modelli e preferirebbero invece utilizzare JavaScript puro, come consentito da React.
+
+---
+
+# Svelte
+
+Svelte vs SvelteKit
+
+**SVELTE**
+
+ - Un linguaggio di programmazione che si basa su HTML, CSS e JS
+ - In Svelte, un'applicazione è composta da uno o più **componenti**. 
+ - Un componente è un blocco di codice autonomo riutilizzabile che incapsula HTML, CSS e JavaScript scritti in un file **.svelte**. 
+ 
+**SVELTE KIT**
+
+- Sveltekit è il framework, basato su Svelte, che permette agli sviluppatori di creare e gestire la user experience della loro applicazione. 
+- Fornisce un ambiente unificato per lavorare con componenti, dati, routing e altro ancora.
+- Sveltekit è un `full stack framework` ricco di funzionalità e permette lo sviluppo di un applicazione web completa di back-end e front-end
+
+---
+
+# Svelte
+
+Svelte vs SvelteKit
+
+<img src="/media/svelte_005.png" class="mx-auto" width="900" />
+
 
 ---
 
@@ -966,7 +1113,7 @@ todoS WebApp
 BACKUP SLIDE
 
 
---- #slide 1
+---
 
 # xxxxxxx
 
@@ -977,7 +1124,7 @@ yyyy
 
 
 
---- #slide 1
+---
 
 # xxxxxxx
 
@@ -988,7 +1135,8 @@ yyyy
 
 
 
---- #slide N
+---
+
  
 # xxxxxxx
 
@@ -1002,7 +1150,8 @@ yyyy
 
 
 
---- #slide N
+---
+
  
 #  xxxxxxx
 
@@ -1031,7 +1180,8 @@ yyyy
 <center>
 </center>
 
---- #slide N
+---
+
  
 # ercizio js_05
 
@@ -1044,6 +1194,3 @@ xxxxx
    - Alla pressione di un bottone il nome e la media inseriti vengano aggiunti ad una linea di una tabella
    - Alla pressione di un secondo bottone, tutte le linee pari vengano colorate di blue e tutte le linee dispari di rosso
 3. Fornire il link github al file con nome *|cognome|_esercizio_js_05.html*  e *|cognome|_esercizio_js_05.js*
-
-
-
