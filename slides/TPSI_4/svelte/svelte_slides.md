@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.1.0'
+version: '1.1.1'
 ---  
 
 <!-- https://reteinformaticalavoro.it/blog/framework-cosa-sono-e-quali-dominano-le-classifiche/#:~:text=In%20informatica%2C%20un%20framework%20%C3%A8,in%20modo%20semplice%20e%20veloce.
@@ -19,32 +19,7 @@ version: '1.1.0'
 https://www.okupter.com/blog/svelte-vs-sveltekit-the-difference
 
 https://www.okupter.com/blog/sveltekit-full-stack-framework -->
-<style>
-  .alto {
-    width: 50%;
-    position: absolute;
-    margin: auto;
-    top: -40%;
-    left: 50%;
-    right: 0%;
-    bottom: 0%;
-  }
 
-  .centro {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 40%;
-    position: absolute;
-    margin: auto;
-    top: 0%;
-    left: 45%;
-    right: 0%;
-    bottom: 0%;
-  }
-
-  .centro.w {
-    width: 40%;
-  }
-</style>
 
 
 # Svelte
@@ -309,10 +284,13 @@ Svelte vs SvelteKit
 
 Web Components
 
-- Lo sviluppo Web moderno è incentrato sul concetto di componente e Svelte è totalmente allineato con questo paradigma.
+- Lo sviluppo Web moderno è incentrato sul concetto di `componente` e Svelte è **totalmente allineato** con questo paradigma.
+
+<div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;margin:10px;">
 
 *Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.* (source MDN)
 
+</div>
 
 - Un componente è un elemento atomico e auto sufficiente,  di un'applicazione Web. 
 - In altre parole un componente è un "mattoncino", ben definito, che viene utilizzato all'interno di un'applicazione più ampia
@@ -328,7 +306,15 @@ Web Components
 - Un form può essere un componente. 
 - Una pagina intera può essere è un componente.
 
-<img src="/media/svelte_03.png" class="centro" />
+<img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
+
+---
+
+# Svelte
+
+Web Components
+
+<img src="/media/svelte_006.png" class="mx-auto" width="600" />
 
 ---
 
@@ -355,23 +341,20 @@ Questo raggruppamento (senza un ordine particolare) permette un modo efficiente 
 Svelte Components
 
 - Ecco la struttura di un componente Svelte
-  
-```html
-<!--  web component business logic -->
-<script>
-  Codice JS che governa la funzionalità del componente stesso
-</script>
+
+<br>
+
+<img src="/media/svelte_007.png" class="mx-auto" width="700" />
 
 
-<!-- Contenuto del componente in HTML-->
-  Qui il markup che definisce la semantica della UI del componente stesso
+---
 
+# Svelte
 
-<!-- Stile del componente in CSS-->
-<style>
-  Qui il CSS che definisce lo stile della UI del componente stesso
-</style>
-```
+Esempio di componente Svelte
+ 
+<img src="/media/svelte_008.png" class="mx-auto" width="350" />
+
 
 ---
 
@@ -379,32 +362,10 @@ Svelte Components
 
 Svelte Components
 
-- Vediamo un semplice esempio di componente Svelte
-  
-```html
-<!--  web component business logic -->
-<script>
-	let name = 'John Doe';
-</script>
+<br><br>
 
-<!-- Contenuto del componente in HTML-->
-<h1>My name is {name}!</h1>
+<img src="/media/svelte_04.png" class="mx-auto" />
 
-<!-- Stile del componente in CSS-->
-<style>
-	h1 {
-		width: 30%;
-		border: 20px solid green;
-		border-radius: 20px;
-		color: red;
-		text-align: center;
-		margin: 30px auto;
-		padding: 20px;
-	}
-</style>
-```
-
-<img src="/media/svelte_04.png" class="centro" />
 
 ---
 
@@ -414,7 +375,7 @@ Svelte Components
 
 - Questo componente, per quanto semplice, contiene tutti gli elementi di un componente web (HTML/CSS/JS)
 - Nel tag `<script>` è presente il codice JS di gestione del componente
-- Il markup HTML non è inserito in un tag particolare e pertanto tutto ciò che non è parte del tag `<script>` e `<style>` è cosiderato contenuto del compoinente.
+- Il markup HTML non è inserito in un tag particolare e pertanto tutto ciò che non è parte del tag `<script>` e `<style>` è cosiderato contenuto del componente.
 - Il tag `<style>` definisce il CSS del componente
 
 <br>
