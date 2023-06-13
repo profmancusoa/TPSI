@@ -11,7 +11,9 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.1.1'
+as: 2023/2024
+version: '1.1.2'
+
 ---  
 
 <!-- https://reteinformaticalavoro.it/blog/framework-cosa-sono-e-quali-dominano-le-classifiche/#:~:text=In%20informatica%2C%20un%20framework%20%C3%A8,in%20modo%20semplice%20e%20veloce.
@@ -22,7 +24,7 @@ https://www.okupter.com/blog/sveltekit-full-stack-framework -->
 
 
 
-# Svelte
+# Svelte e SvelteKit
 
 CYBERNETICALLY ENHANCED WEB APPS
 
@@ -149,11 +151,50 @@ Framework pro vs cons
 
 ---
 
-# Svelte
+# Web Components
 
-Introduzione
+OOP per il Web
+
+- Lo sviluppo Web moderno è incentrato sul concetto di `componente`
+
+<div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;margin:10px;">
+
+*Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.* (source MDN)
+
+</div>
+
+- Un componente è un elemento atomico e auto sufficiente,  di un'applicazione Web. 
+- In altre parole un componente è un "mattoncino", ben definito, che viene utilizzato all'interno di un'applicazione più ampia
+- Da ciò ne consegue che una  moderna applicazione web è composta da uno o più componenti indipendenti che interagiscono tra loro per fornire il layout e la funzionalità desiderata
+
+---
+
+# Web Components
+
+OOP per il Web
+
+- Un elemento di input può essere un componente.
+- Un form può essere un componente. 
+- Una pagina intera può essere è un componente.
+
+<img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
+
+---
+
+# Web Components
+
+OOP per il Web
+
+<img src="/media/svelte_006.png" class="mx-auto" width="600" />
+
+---
+
+# SvelteKit
+
+Svelte ~ SvelteKit
 
 - Svelte è un framework **che propone un approccio radicalmente nuovo alla creazione di applicazioni Web**.
+- Svelte è un modo per scrivere componenti dell'interfaccia utente, come una barra di navigazione, una sezione dei commenti o un modulo di contatto
 - Se hai già esperienza con React, Vue, Angular o altri framework frontend rimarrai   piacevolmente sorpreso da Svelte.
 - Lavorando con Svelte tutto sembra molto più simile al JavaScript-vanilla rispetto che a lavorare con altri framework.
 - In generale la maggior parte delle cose che sono complicate con altri framework sono molto semplici e leggeri con Svelte.
@@ -164,10 +205,18 @@ Svelte è stato recentemente votato come il <h2>framework web più amato dagli s
 
 [https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks)
 
+---
+
+# SvelteKit
+
+Introduzione
+
+<img src="/media/svelte_00.png" class="mx-auto" width="750" />
+
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -176,17 +225,10 @@ Svelte vs Others
 - Al momento della distribuzione, Svelte scompare e tutto ciò che ottieni è puro JavaScript Vanilla (molto veloce!).
 - In altre parole `Svelte è un compilatore` che trasforma il codice della tua applicazione Web in puro JavaScript, raggiungendo così massime prestazioni
 
----
-
-# Svelte
-
-Introduzione
-
-<img src="/media/svelte_00.png" class="mx-auto" width="750" />
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -202,7 +244,7 @@ La principale differenza tra Svelte e gli altri framework Web è che Svelte è u
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -214,7 +256,7 @@ Svelte vs Others
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -222,7 +264,7 @@ Svelte vs Others
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -234,7 +276,7 @@ Svelte vs Others
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte vs Others
 
@@ -253,72 +295,63 @@ Svelte vs Others
 
 ---
 
-# Svelte
+# SvelteKit
+
+Fullstack Framework
+
+- `SvelteKit` è un framework per lo sviluppo rapido di applicazioni Web robuste e performanti che utilizza Svelte. 
+- Se provieni da React, SvelteKit è simile a Next. Se vieni da Vue, SvelteKit è simile a Nuxt
+- Sveltekit è il framework che permette agli sviluppatori di creare e gestire la user experience della loro applicazione. 
+- Fornisce un ambiente unificato per lavorare con componenti, dati, routing, back-end, front-end e altro ancora.
+- SvelteKit e Svelte sono **totalmente allineati** al paradigma e modello di sviluppo per componenti caratteristico del web moderno.
+
+---
+
+# SvelteKit
+
+Fullstack Framework
+
+- SvelteKit è un framework per app che risolve i difficili molti problemi comunini ad applicazioni pronte per la produzione:
+  - Routing (navigazione tra le pagine)
+  - Server-side rendering (supporto al back-end)
+  - Data fetching ()
+  - Service workers 
+  - Supporto TypeScript (la versione di JavaScript con steroidi) 
+  - Prerendering (per applicazioni statiche. vedi blog profmancusoa)
+  - Single-page apps (SPA: approccio moderno che sostituisce lo sviluppo desktop)
+  - Supporto per diversi hosting providers molto comuni su Internet (vercel, netlify, ...) 
+
+
+---
+
+# SvelteKit
 
 Svelte vs SvelteKit
 
 **SVELTE**
 
  - Un linguaggio di programmazione che si basa su HTML, CSS e JS
- - In Svelte, un'applicazione è composta da uno o più **componenti**. 
+ - Svelte permette la creazione di  **componenti** web. 
  - Un componente è un blocco di codice autonomo riutilizzabile che incapsula HTML, CSS e JavaScript scritti in un file **.svelte**. 
  
 **SVELTE KIT**
 
-- Sveltekit è il framework, basato su Svelte, che permette agli sviluppatori di creare e gestire la user experience della loro applicazione. 
+- Sveltekit è il framework, basato su Svelte, che permette agli sviluppatori di creare e gestire applicazioni full stack che combinano insieme componenti Svelte. 
 - Fornisce un ambiente unificato per lavorare con componenti, dati, routing e altro ancora.
 - Sveltekit è un `full stack framework` ricco di funzionalità e permette lo sviluppo di un applicazione web completa di back-end e front-end
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte vs SvelteKit
+Web App Architecture
 
 <img src="/media/svelte_005.png" class="mx-auto" width="900" />
 
 
 ---
 
-# Svelte
-
-Web Components
-
-- Lo sviluppo Web moderno è incentrato sul concetto di `componente` e Svelte è **totalmente allineato** con questo paradigma.
-
-<div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;margin:10px;">
-
-*Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.* (source MDN)
-
-</div>
-
-- Un componente è un elemento atomico e auto sufficiente,  di un'applicazione Web. 
-- In altre parole un componente è un "mattoncino", ben definito, che viene utilizzato all'interno di un'applicazione più ampia
-- Da ciò ne consegue che una  moderna applicazione web è composta da uno o più componenti indipendenti che interagiscono tra loro per fornire il layout e la funzionalità desiderata
-
----
-
-# Svelte
-
-Web Components
-
-- Un elemento di input può essere un componente.
-- Un form può essere un componente. 
-- Una pagina intera può essere è un componente.
-
-<img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
-
----
-
-# Svelte
-
-Web Components
-
-<img src="/media/svelte_006.png" class="mx-auto" width="600" />
-
----
-
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -336,7 +369,7 @@ Questo raggruppamento (senza un ordine particolare) permette un modo efficiente 
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -349,7 +382,7 @@ Svelte Components
 
 ---
 
-# Svelte
+# SvelteKit
 
 Esempio di componente Svelte
  
@@ -358,7 +391,7 @@ Esempio di componente Svelte
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -369,7 +402,7 @@ Svelte Components
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -389,7 +422,7 @@ Sia il codice JS e lo stile CSS sono confinati solo all'interno di questo compon
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -404,7 +437,7 @@ Svelte Components
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -429,7 +462,7 @@ Svelte Components
 
 ---
 
-# Svelte
+# SvelteKit
 
 Svelte Components
 
@@ -446,288 +479,287 @@ Svelte Components
 Esempio: 
 - un componente che fornisce accesso ad un DB nosql non ha nessuna parte di UI, ma è di grande utilità all'interno della mia applicazione.
 
+---
+
+# SvelteKit
+
+Hello World
+
+- Vediamo i semplici passi per creare un progetto base SvelteKit
+- Utilizzeremo il progetto base per provare a analizzare e comprendere le principali carattristiche:
+  - del linguaggio Svelte e delle principali funzionalità
+  - dello sviluppo per componenti
+  - delle funzioni più importanti di SvelteKit
+
+- Di seguito i link alla documentazione e tutoria di Svelte e SvelteKit
+  - [Svelte tutorial](https://svelte.dev/tutorial/basics)
+  - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
+  - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
+
+***Questi link sono il riferimento per gli studenti e vi suggerisco di studiarli e di utilizzarli per tutto il tempo necessario ad apprendere Svlete e SvelteKit***
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Creare un Progetto SvelteKit
 
-- Creiamo la nostra prima Web app con Svelte
-- Per usare Svelte dobbiamo avere installato **node.js** e **git**
-- Un modo molto facile per fare lo [**scaffolding**](https://en.wikipedia.org/wiki/Scaffold_(programming)) di un'applicazione base è utilizzare il tool **npx** installato assieme a node.js
+- Per sviluppare con Svelte e SvelteKit è necessario:
+  - nodejs (almeno versione 18) ---> [Come installare nodejs su Linux](http://cedws)
+  - npm
+  - git
+- Assicurati che siano instllati sul tuo sistema eseguendo i seguenti comandi:
 
 ```bash
-npx degit sveltejs/template hello-world
+> node --version
+v19.2.0
+
+> npm --version 
+9.1.3
+
+> git --version          
+git version 2.34.1
 ```
 
-- Questo comando scarica una copia del codice base di un'applicazione Svelte dal repo github [https://github.com/sveltejs/template](https://github.com/sveltejs/template)
-- Il codice dell'app sarà ora disponibile nella directory **hello-world**
-- Per compilare e lanciare l'applicazione Svelte esegui
+---
+
+# SvelteKit
+
+Hello World: Creare un Progetto SvelteKit
+
+- Spostati nella tua directory di lavoro (es: ~/tmp)
+- Da qui crea lo [**scaffolding**](https://en.wikipedia.org/wiki/Scaffold_(programming)) di un'applicazione base seguendo le semplici istruzioni a video
+  
+```bash
+> npm create svelte@latest hello-word-svelte-kit
+
+create-svelte version 4.2.0
+
+┌  Welcome to SvelteKit!
+│
+◆  Which Svelte app template?
+│  ● SvelteKit demo app (A demo app showcasing some of the features of SvelteKit)
+│  ○ Skeleton project
+│  ○ Library project
+└
+◆  Add type checking with TypeScript?
+│  ○ Yes, using JavaScript with JSDoc comments
+│  ○ Yes, using TypeScript syntax
+│  ● No
+└
+```
+
+---
+
+# SvelteKit
+
+Hello World: Creare un Progetto SvelteKit
 
 ```bash
-cd hello-world
-npm install
-npm run dev
+◆  Select additional options (use arrow keys/space bar)
+│  ◻ Add ESLint for code linting
+│  ◻ Add Prettier for code formatting
+│  ◻ Add Playwright for browser testing
+│  ◻ Add Vitest for unit testing
+└
+
+└  Your project is ready!
+
+Install community-maintained integrations:
+  https://github.com/svelte-add/svelte-add
+
+Next steps:
+  1: cd hello-word-svelte-kit
+  2: npm install (or pnpm install, etc)
+  3: git init && git add -A && git commit -m "Initial commit" (optional)
+  4: npm run dev -- --open
+
+To close the dev server, hit Ctrl-C
 ```
 
-- Questo installerà tutte le dipendenze e lancerà l'applicazione sulla porta 8080
-
-
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Creare un Progetto SvelteKit
 
-<img src="/media/svelte_05.png" class="mx-auto w-100" />
-
-
----
-
-# Svelte
-
-Svelte Hello World
-
-<img src="/media/svelte_06.png" class="mx-auto w-150" />
-
-
----
-
-# Svelte
-
-Svelte Hello World
-
-- Per rendere l'applicazione disponibile su un IP e porta specifici
+- Adesso un progetto base realizzato con SvelteKit è stato creato nella directory **hello-word-svelte-kit**
+- Per terminare la creazione del progetto eseguire i seguenti comandi
 
 ```bash
-HOST=<IP address> PORT=<port>  npm run dev
+> cd hello-word-svelte-kit  commento: mi sposto nella directory hello-word-svelte-kit
+> npm i  commento: installo le dipendenze del progetto
+
+added 42 packages, and audited 43 packages in 10s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
 ```
-<br>
-<img src="/media/svelte_07.png" class="mx-auto w-140" />
+
+- Se non si sono verificatri errori, il progetto è pronto per l'esecuzione
+
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Eseguiamo il progetto
 
-- Per rendere l'applicazione disponibile su un IP e porta specifici
+- Per eseguire il progetto, all'interno della directory di progetto (hello-word-svelte-kit), eseguire il seguente comando
 
 ```bash
-export HOST=<IP address> 
-export PORT=<port>  
-npm run dev
-```
-<br>
-<img src="/media/svelte_07.png" class="mx-auto w-120" />
+> npm run dev -- --open
 
+> hello-word-svelte-kit@0.0.1 dev
+> vite dev --open
+
+
+Forced re-optimization of dependencies
+
+  VITE v4.3.9  ready in 1136 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+```
+
+- Viene automaticamente aperta una fienstra del browser che punta al seguente indirizzo: [http://localhost:5173/](http://localhost:5173/)
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Eseguiamo il progetto
+
+<img src="/media/svelte_009.png" class="mx-auto" width="500" />
+
+---
+
+# SvelteKit
+
+Hello World: Eseguiamo il progetto
+
+<img src="/media/svelte_010.png" class="mx-auto" width="450" />
+
+---
+
+# SvelteKit
+
+Hello World: Analisi del progetto base
+
+- Quest'applicazione ci permette di comprendere alcuni concetti molto importanti:
+  1. **Ogni pagina dell'applicazione è un componente Svelte**
+  2. **Il routing è implementato la gerarchia di directory nel filesystem**
+  3. **Ogni pagina è una directory all'interno di src/routes**
+  4. **La home page è un componente Svelte all'interno di src/routes**
+  5. **Una pagina(componente) può includere uno o più componenti esterni**
+
+---
+
+# SvelteKit
+
+Hello World: Analisi del progetto base
 
 - Analizziamo il progetto generato
-  
+
 ```bash
-.
-├── package.json
-├── package-lock.json
-├── public <---- Contiene i file statici parte dell'applicazione
-│   ├── build 
-│   │   ├── bundle.css <--- CSS autogenerato dalla compilazione dei componenti
-│   │   ├── bundle.js  <--- Applicazione Web in JS autogenerata dalla compilazione
-│   │   └── bundle.js.map
-│   ├── favicon.png
-│   ├── global.css  <---- CSS globale che si applica a tutta l'applicazione ed ai suoi componenti
-│   └── index.html  <---- La pagina Web dell'applicazione
-├── README.md
-├── rollup.config.js
-├── scripts
-│   └── setupTypeScript.js
-└── src
-    ├── App.svelte  <---- L'unico componente Svelte dell'applicazione
-    └── main.js <--- Il main dell'applicazione JS
-
+src
+├── app.html --> La pagina Web dell'applicazione
+└── routes --> entry point del sistema di routing filesystem based
+    ├── about
+    │   └── +page.svelte --> la pagina About (componente svelte)
+    ├── Counter.svelte --> il componente contatore presente solo nella home
+    ├── Header.svelte --> il componente Header presente in tutte le pagine
+    ├── +layout.svelte --> il layout comune a tutte le pagine del progetto
+    ├── +page.svelte --> la home page (componente svelte)
+    ├── styles.css --> CSS globale che si applica a tutta l'applicazione ed ai suoi componenti
+    └── sverdle
+        ├── game.js --> la logica del gioco (JS vanilla)
+        ├── +page.server.js --> il back-end di sverdle (JS vanilla)
+        └── +page.svelte --> la pagina sverdle (componente svelte)
 ```
+
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Analisi del progetto base
 
-- Analizziamo la pagina web dell'applicazione (index.html)
+- Da questa prima analisi possiamo dedurre che:
+  - Ogni pagina è composta da:
+    - una directory all'interno di src/router. Il nome della directory coincide con la URL della pagina (quindi niente spazi, ma usiamo _)
+    - un file nominato **+page-svelte** che è un componente completo ed indipendente che include HTML, CSS e JS  
+  - Ogni componente che non è una pagina è formato da un file chiamato ***<nome_componente>.svelte***
+  - Il routing tra pagine viene gestito automaticamente da SvelteKit se si rispetta la convenzione descritta sopra
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
-	<title>Svelte app</title>
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/build/bundle.css'>
-	<script defer src='/build/bundle.js'></script>
-</head>
-<body>
-</body>
-</html>
-```
-- Come si vede un'applicazione Svelte non ha nessun contenuto HTML esplicitamente scritto
-- Un'applicazione Svelte è completamente scritta in JavaScript vanilla
-- Il compilatore Svelte genera l'applicazione finale
+- **Segue ora un'analisi live a cura del professore (`necessario prendere appunti`)**
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Esercitazione_01
 
-- Analizziamo il main dell'applicazione JS (main.js)
+- Creare ed installare il progetto base SvelteKit come spiegato sopra
+- Eseguire l'applicazione
 
-```js
-import App from './App.svelte';
-
-const app = new App({
-	target: document.body,
-	props: {
-		name: 'world'
-	}
-});
-
-export default app;
-```
-- Il main si limita ad instanziare il singolo componente chiamato `App`
-- Nella proprietà `target` è dove avviene la magia
-- Questa linea installa il componente nel body della pagina web (a conferma che tutto il contenuto è generato in JS)
-- La proprietà `props` definisce una variabile da passare al componente principale
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Esercitazione_02
 
-- Analizziamo il componente Svelte dell'applicazione (App.svelte)
+- provare a modificare la home page del progetto in modo che appaia come in figura
+
+<img src="/media/svelte_011.png" class="mx-auto" width="450" />
+
+---
+
+# SvelteKit
+
+Hello World: Esercitazione_03
+
+- provare a modificare il layout del progetto in modo che appaia come in figura
   
-```html
-<script>
-	export let name;
-</script>
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-</style>
-```
+<img src="/media/svelte_012.png" class="mx-auto" width="550" />
+
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Esercitazione_04
 
-- Il componente utilizza una variabuile esterna, definita nel main nella sezione *props*
-- Svelte definisce una sua grammatica e sintassi che può essere inserita direttamente nel HTML per renderlo dinamico
-- Per esempio la variabile *name* viene utilizzata direttamente nel HTML tramite la sintassi `{name}`
-- Pertanto Svelte permette di utilizzare variabili definite nel codice JS direttamente nella sezione HTML del contenuto
-- Questo è un metodo usato praticamente da tutti i framework e risulta molto versatile e potente
+- provare a modificare la pagina about in modo che appaia come in figura
+  
+<img src="/media/svelte_013.png" class="mx-auto" width="600" />
 
----
-
-# Svelte
-
-Svelte Hello World
-
-- Analizziamo l'output della fase di build (bundle.css e bundle.js)
-
-```css
-main.svelte-1tky8bj{text-align:center;padding:1em;max-width:240px;margin:0 auto}h1.svelte-1tky8bj{color:#ff3e00;text-transform:upper
-case;font-size:4em;font-weight:100}@media(min-width: 640px){main.svelte-1tky8bj{max-width:none}}
-```
-
-- CSS autogenerato 
-- Difficilmente leggibile
-
-<br>
-<div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;">
-Non va <mark>MAI</mark> modificato in quanto ad ogni nuova compilazione viene sovrascritto
-</div>
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Esercitazione_05
 
-- Analizziamo l'output della fase di build (bundle.css e bundle.js)
-
-```js
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' +
- (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTag
-Name('head')[0].appendChild(r) })(self.document);
-var app = (function () {
-    'use strict';
-
-    function noop() { }
-    function add_location(element, file, line, column, char) {
-        element.__svelte_meta = {
-            loc: { file, line, column, char }
-        };
-    }
-```
-
-- JS autogenerato 
-- Di difficle comprensione
-
-<div style="background-color:green;color:yellow;padding: 10px;line-height: 10px;">
-Non va <mark>MAI</mark> modificato in quanto ad ogni nuova compilazione viene sovrascritto
-</div>
+- provare a modificare il componente counter in modo che si incrementi o decrementi di due unità alla pressione dei pulsati + o -
+  
+<img src="/media/svelte_014.png" class="mx-auto" width="500" />
 
 ---
 
-# Svelte
+# SvelteKit
 
-Svelte Hello World
+Hello World: Esercitazione_06
 
-- Vediamo la versione finale pronta per essere pubblicata
+- Aggiungere all'applicazione il componente visto alle slide #28 e successive
+- Visualizzarlo sia sulla pagina home che sulla pagina about
 
-```js
-var app=function(){"use strict";function t(){}function n(t){return t()}function e(){return Object.create(null)}function o(t){t.forEa
-ch(n)}function r(t){return"function"==typeof t}function c(t,n){return t!=t?n==n:t!==n||t&&"object"==typeof t||"function"==typeof t}f
-unction u(t,n){t.appendChild(n)}function s(t){t.parentNode.removeChild(t)}function a(t){return document.createElement(t)}function i(
-t){return document.createTextNode(t)}function l(t,n,e){null==e?t.removeAttribute(n):t.getAttribute(n)!==e&&t.setAttribute(n,e)}let f
-;function d(t){f=t}const p=[],h=[],$=[],m=[],g=Promise.resolve();let b=!1;function y(t){$.push(t)}const _=new Set;let x=0;function v
-(){const t=f;do{for(;x<p.length;){const t=p[x];x++,d(t),k(t.$$)}for(d(null),p.length=0,x=0;h.length;)h.pop()();for(let t=0;t<$.lengt
-h;t+=1){const n=$[t];_.has(n)||(_.add(n),n())}$.length=0}while(p.length);for(;m.length;)m.pop()();b=!1,_.clear(),d(t)}function k(t){
-if(null!==t.fragment){t.update(),o(t.before_update);const n=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,n),t.after_update.fo
-rEach(y)}}const w=new Set;function E(t,n){-1===t.$$.dirty[0]&&(p.push(t),b||(b=!0,g.then(v)),t.$$.dirty.fill(0)),t.$$.dirty[n/31|0]|
-=1<<n%31}function j(c,u,a,i,l,p,h,$=[-1]){const m=f;d(c);const g=c.$$={fragment:null,ctx:null,props:p,update:t,not_equal:l,bound:e()
-,on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(u.context||(m?m.$$.context:[])),callbac
-ks:e(),dirty:$,skip_bound:!1,root:u.target||m.$$.root};h&&h(g.root);let b=!1;if(g.ctx=a?a(c,u.props||{},((t,n,...e)=>{const o=e.leng
-th?e[0]:n;return g.ctx&&l(g.ctx[t],g.ctx[t]=o)&&(!g.skip_bound&&g.bound[t]&&g.bound[t](o),b&&E(c,t)),n})):[],g.update(),b=!0,o(g.bef
-ore_update),g.fragment=!!i&&i(g.ctx),u.target){if(u.hydrate){const t=function(t){return Array.from(t.childNodes)}(u.target);g.fragme
-nt&&g.fragment.l(t),t.forEach(s)}else g.fragment&&g.fragment.c();u.intro&&((_=c.$$.fragment)&&_.i&&(w.delete(_),_.i(x))),function(t,
-e,c,u){const{fragment:s,on_mount:a,on_destroy:i,after_update:l}=t.$$;s&&s.m(e,c),u||y((()=>{const e=a.map(n).filter(r);i?i.push(...e
-):o(e),t.$$.on_mount=[]})),l.forEach(y)}(c,u.target,u.anchor,u.customElement),v()}var _,x;d(m)}function A(n){let e,o,r,c,f,d,p;retur
-```
+<img src="/media/svelte_015.png" class="mx-auto" width="500" />
 
 ---
 
