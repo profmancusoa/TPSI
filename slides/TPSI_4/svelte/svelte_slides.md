@@ -139,7 +139,7 @@ Framework JS
 
 # Introduzione
 
-Framework pro vs cons
+Framework JS
 
 - L'uso di un frameowrk non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
 - Proprio per queste sue caratteristiche, sono diventati sempre più fondamentali per lo sviluppo di siti web e app.
@@ -527,7 +527,7 @@ git version 2.34.1
 
 Hello World: Creare un Progetto SvelteKit
 
-- Spostati nella tua directory di lavoro (es: ~/tmp)
+- Spostati nella tua directory di lavoro (es: cd ~/tmp)
 - Da qui crea lo [**scaffolding**](https://en.wikipedia.org/wiki/Scaffold_(programming)) di un'applicazione base seguendo le semplici istruzioni a video
   
 ```bash
@@ -583,12 +583,12 @@ To close the dev server, hit Ctrl-C
 
 Hello World: Creare un Progetto SvelteKit
 
-- Adesso un progetto base realizzato con SvelteKit è stato creato nella directory **hello-word-svelte-kit**
-- Per terminare la creazione del progetto eseguire i seguenti comandi
+- Ora nella directory **hello-word-svelte-kit** è presente un progetto base realizzato con SvelteKit
+- Per portare a termine la creazione del progetto eseguire i seguenti comandi
 
 ```bash
-> cd hello-word-svelte-kit  commento: mi sposto nella directory hello-word-svelte-kit
-> npm i  commento: installo le dipendenze del progetto
+> cd hello-word-svelte-kit  # mi sposto nella directory hello-word-svelte-kit
+> npm i  # installo le dipendenze del progetto
 
 added 42 packages, and audited 43 packages in 10s
 
@@ -596,10 +596,11 @@ added 42 packages, and audited 43 packages in 10s
   run `npm fund` for details
 
 found 0 vulnerabilities
-
 ```
 
 - Se non si sono verificatri errori, il progetto è pronto per l'esecuzione
+
+<img src="/media/svelte_0000.png" class="mx-auto" width="100" />
 
 
 ---
@@ -726,7 +727,8 @@ Hello World: Esercitazione_03
 
 - provare a modificare il layout del progetto in modo che appaia come in figura
   
-<img src="/media/svelte_012.png" class="mx-auto" width="550" />
+<br><br>
+<img src="/media/svelte_012.png" class="mx-auto" width="700" />
 
 
 ---
@@ -747,136 +749,843 @@ Hello World: Esercitazione_04
 Hello World: Esercitazione_05
 
 - provare a modificare il componente counter in modo che si incrementi o decrementi di due unità alla pressione dei pulsati + o -
-  
-<img src="/media/svelte_014.png" class="mx-auto" width="500" />
 
+<br>  
+<img src="/media/svelte_014.png" class="mx-auto" width="600" />
+
+---
+
+# SvelteKit
+
+Creiamo un componente
+
+- Vediamo ora come creare un nostro componente e utilizzarlo nelle pagine della nostra applicazione
+- Realizzeremo il componente introdotto alla slide #28 e successive
+- Lo visualizzeremo sia sulla pagina home che sulla pagina about
+
+<img src="/media/svelte_015.png" class="mx-auto" width="450" />
+
+---
+
+# SvelteKit
+
+Creiamo un componente
+
+- Per una corretta organizzazione del codice metetremo i nostri componenti nella directory lib
+- Il nostro componente si chiama **Banner** 
+- Quindi dobbiamo creare una directory *components* in src/lib e al suo interno creare un file *banner.svelte*
+  
+```bash
+> cd src/lib
+> mkdir components
+> touch components/banner.svelte
+
+
+├── app.html
+├── lib
+│   ├── components
+│   │   └── banner.svelte
+
+```
+
+- Ora editiamo il file banner.svelte ed utilizziamo il codice di slide #28
+  
+
+---
+
+# SvelteKit
+
+Creiamo un componente
+
+- Il componente **banner** è ora disponibile per essere utilizzato
+- Per fare ciò dobbiamo ***importarlo*** nella pagina in cui vogliamo utilizzarlo
+- Partiamo modificando la home e quindi editiamo il file *src/routes/+page.svelte*
+
+```html
+<script>
+    import Counter from './Counter.svelte';
+    ......
+    import Banner from '../lib/components/banner.svelte'; // aggiungi questa linea
+</script>
+```
+
+- Ora abbiamo a disposizione un nuovo tag HTML che si chiama **&lt;Banner&gt;**
+- Questo è un componente Web e possiamo usarlo come qualsiasi altro tag html
+- Come anticipato il paradigma dei web component offre infinite possibilità
+
+---
+
+# SvelteKit
+
+Creiamo un componente
+
+- Ora usiamo il componente nella home page
+
+```html
+<section>
+	<h1>
+		<span class="welcome">
+			<picture>
+				<source srcset={welcome} type="image/webp" />
+				<img src={welcome_fallback} alt="Welcome" />
+			</picture>
+		</span>
+
+		alla tua nuova <br />applicazione SvelteKit
+	</h1>
+
+	<h2>
+		prova a editare il file <strong>src/routes/+page.svelte</strong>
+	</h2>
+
+	<Banner /> <!-- Utilizza Banner al posto di Counter-->
+</section>
+```
+
+---
+
+# SvelteKit
+
+Creiamo un componente
+
+- Ora facciamo partire l'applicazione e verifichiamo che tutto sia corretto
+
+<br>
+<img src="/media/svelte_015.png" class="mx-auto" width="500" />
+ 
 ---
 
 # SvelteKit
 
 Hello World: Esercitazione_06
 
-- Aggiungere all'applicazione il componente visto alle slide #28 e successive
-- Visualizzarlo sia sulla pagina home che sulla pagina about
+- provare a modificare la pagina about aggiungendo il componente Banner 
 
-<img src="/media/svelte_015.png" class="mx-auto" width="500" />
-
----
-
-# Svelte
-
-Esercizio svelte_01
-
-- Installare Svelte e generare un applicazione chiamata |cognome|_svelte_01
-- Lanciare l'applicazione generata
-- Analizzare i file più importanti
-- Modificare il file App.svelte e verificare i cambiamenti in realtime nel browser
-- *Consgenare tutta la directory |cognome|_svelte_01 ad escusione della sub-directory node_modules*
+<br>  
+<img src="/media/svelte_016.png" class="mx-auto" width="600" />
 
 ---
 
-# Svelte
+# SvelteKit
 
-Applicazioni Multi-Component
+Creiamo un componente
 
-- Come abbiamo visto nello scaffolding introdotto l'intera applicazione Web è composta da un singolo componente (App.svelte)
-- Questo è più che adatto per semplici pagine Web o `Single Page Application` (SPA)
-- Tuttavia una buona pratica è suddividere l'applicazione web in una serie di componente che interagiscono tra loro
-- In altre parole l'applicazione sarà composta da una composizione (composition) di componenti differenti
-- Per fare questo è necessario avewre la possibilità di includere un componente dentro un'altro componente
-- In Svelte questo è banalissimo
-- Vediamo un esempio nella slide successiva
-
----
-
-# Svelte
-
-Applicazioni Multi-Component
-
-<img src="/media/svelte_08.png" class="mx-auto w-190" />
+- Quindi una volta definito il componente, esso sarà riutilizzabile in qualsiasi pagina e sezione del nostro sito
+- Ma ancor meglio potrà essere utilizzato anche in altri siti e pagine
+- Quindi i componenti web ci permettono di implementare importanti proprietà dello sviluppo software, quali
+  - incapsulamento
+  - isolamento
+  - riutilizzabilità del codice
+- Per questi motivi lo sviluppo component base è oggi alla base di tutti i principali framework di sviluppo per il mondo web (web, mobile, games, web app, desktop app)
 
 ---
 
-# Svelte
+# SvelteKit
 
-Applicazioni Multi-Component
+Variable Substitution
 
-- Main App (App.svelte)
+- Analizziamo più in dettaglio il componente Banner
 
 ```html
-	import Bar from './Bar.svelte'
-	import Content from './Content.svelte'
+<script>
+    let name = 'John Doe';
+</script>
+
+<h1>My name is {name}!</h1>
 ```
 
-<br>
+- Nella sezione JS del componente abbiamo solo definito una variabile di nome *name* ed assegnato un valore string
+- Nella sezione HTML del componente abbiamo utilizzato la variabile all'interno di normale codice HTML tramite `{}`
 
-- Importa (`import`) un componente <br> all'interno del componente App.svelte
-
-<img src="/media/svelte_09.png" class="centro" />
-
-<br>
-
-```html
-<Bar />
-<Content />
-```
-
-<br>
-
-- Instanzia ed usa il componente importanto <br> nel componente principale
-  
-- Il CSS del componente principale non è modificato <br> dai componenti importati
-
-
----
-
-# Svelte
-
-Applicazioni Multi-Component
-
-- Barra dei menu (Bar.svelte)
-
-- Lo stile del componente Bar è totalmente <br> isolato ed indipendente dal componente principale <br> e dal componente Content
-- Questo meccanismo di segregazione e incapsulamento <br> permette di scrive e manutenere più facilmente <br> la mia applicazione web
-- Infatti un bug nel componente Bar non impatta <br> altre parti della mia applicazione
-- Una modifica nel componente Bar non impatta <br> altre parti della mia applicazione
-- Posso assegnare lo sviluppo di componenti diversi <br> a sviluppatori diversi
-
-<!-- <img src="/media/svelte_10.png" class="mx-auto w-80" /> -->
-<img src="/media/svelte_10.png" class="centro" />
-
----
-
-# Svelte
-
-Applicazioni Multi-Component
-
-- Area contenuto (Content.svelte)
-
-- Ogni componente è quindi atomico e completo
-- Ogni componente può essere riutilizzato in <br> altre applicazioni web
-- A tutti gli effetti i Web components sono <br> assimilabili al paradigma OOP 
- 
- <br><br><br>
 <div style="background-color:green;color:yellow;padding: 10px;line-height: 30px;">
-In Svelte i componenti sono indicati con un tag con la lettera maiuscola
-<br>
-&lt;Widget /&gt;
-<br>
-&lt;Counter /&gt;
+
+In svelte il costrutto {< var name >} rappresenta una sostituzione di variabili
+
 </div>
 
-
-<img src="/media/svelte_11.png" class="centro" />
+- Pertanto quando il componente sarà compilato ogni occorrenza di `{< var name>}` sarà sostituito con il valore attribuito alla variabile *var name* 
 
 ---
 
-# Svelte
+# SvelteKit
 
-Esercizio svelte_02
+Hello World: Esercitazione_07
 
-- Modificare l'esercizio 1 ed implementare l'applicazione multi-component vista a lezione
-- *Consgenare tutta la directory |cognome|_svelte_02 ad escusione della sub-directory node_modules*
+- Provare a modificare il componente Banner in modo che visualizzi il proprio nome e cognome
+- Verificare che il banner appaia modificato in tutte le pagine 
+
+<br>  
+<img src="/media/svelte_017.png" class="mx-auto" width="500" />
+
+
+---
+
+# SvelteKit
+
+Code Execution
+
+- In molti casi sostituire una variabile non è sufficiente, ma si rende necessario l'esecuzione di un codice JS
+- Anche in questa situazione il costrutto `{}` viene in nostro aiuto
+- Infatti svelte durante la compilazione, esegue il codice JS contenuto in `{}` e sostituisce il suo output nel codice HTML
+- Vediamo un esempio
+
+```html
+<script>
+    let name = 'John Doe';
+</script>
+
+<h1>My name is {name.toLocaleUpperCase()}!</h1>
+```
+
+- Quando questo codice viene compilato, viene prima richiamato il metodo *toUpperCase* sulla variabile(oggetto) name
+- Successivamente il risultato di questa esecuzione viene sostitutito *verbatim* nel codice HTML
+
+---
+
+# SvelteKit
+
+Code Execution
+
+<img src="/media/svelte_018.png" class="mx-auto" width="500" />
+
+
+---
+
+# SvelteKit
+
+Code Execution
+
+- Ovviamente non siamo limitati ai metodi degli oggetti standard di JS
+- Ma possiamo anche richiamare nostre funzioni
+- Per esempio vediamo come richiamare una funzione che prende il nostro nome e lo stampa al contrario tutto maiuscolo
+
+```html
+<script>
+    let name = 'Antonio Mancuso';
+
+    function reverse_string(str) {
+        return str.split('').reverse().join('').toUpperCase();
+    }
+</script>
+
+<h1>My name is {reverse_string(name)}!</h1>
+```
+
+
+---
+
+# SvelteKit
+
+Code Execution
+
+- Quando questo codice viene compilato, viene prima richiamato la nostra funzione *reverse_string* 
+- Successivamente il risultato di questa esecuzione viene sostitutito *verbatim* nel codice HTML
+
+<br>
+<img src="/media/svelte_019.png" class="mx-auto" width="400" />
+
+
+---
+
+# SvelteKit
+
+- Come abbiamo visto con semplici esempi, il meccanismo dei componenti di Svlete è molto versatile
+- Permette la definizione di componenti indipendenti rendendo più facile lo sviluppo e riducendo gli errori
+- Il meccanismo della sostituzione delle variabili e del code execution sono molto utili nello sviluppo di applicazioni web moderne
+- Svelte rende tutto ciò semplicissimo e più semplice rispetto ad altri framework
+- Per questo e altri motivi è un framework in veloce ascesa nel panorama dello sviluppo web
+
+- Ora vediamo come creare un progetto Svelte da zero, senza scaffolding
+- Questo ci permetterà di comprendere altri meccanismi e come è realmente organizzata un'applicazione sveltekit
+
+---
+
+# SvelteKit
+
+Creazione Web App: scaffolding del progetto
+
+- Creiamo un nuovo progetto chiamato WebApp
+
+```bash
+> npm create svelte@latest WebApp
+
+create-svelte version 4.2.0
+
+┌  Welcome to SvelteKit!
+│
+◆  Which Svelte app template?
+│  ○ SvelteKit demo app
+│  ● Skeleton project (Barebones scaffolding for your new SvelteKit app)
+│  ○ Library project
+└
+◇  Add type checking with TypeScript?
+│  No
+│
+◇  Select additional options (use arrow keys/space bar)
+│  none
+│
+└  Your project is ready!
+```
+
+---
+
+# SvelteKit
+
+Creazione Web App: scaffolding del progetto
+
+- Questa volta è stato solo creato il minimo indispendabile
+
+<br><br>
+<img src="/media/svelte_020.png" class="mx-auto" width="400" />
+
+- Creeremo uno scheletro di una semplice Web App senza spendere troppo tempo sull'aspetto estetico (HTML e CSS sono dati per scontato in questa lezione)
+- L'obiettivo è comprendere il funzionamento e l'organizzazione di un'app sveltekit
+
+---
+
+# SvelteKit
+
+Creazione Web App: scaffolding del progetto
+
+- Iniziamo con la creazione del `layout` della pagina
+- Il ***layout*** della pagina è il contenitore principale della nostra applicazione
+- Esso sarà sempre visualizzato in ciascuna pagina del sito
+- Il vantaggio principale è che in questo modo il layout sarà scritto una sola volta ed utilizzato per tutte le pagine
+- Questo meccanismo implementa il principio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself) molto importante nello sviluppo del software
+- Creaimo quindi un file chiamato `+layout.svelte` in ***src/routes***
+
+```bash
+src
+├── app.html
+└── routes
+    ├── +layout.svelte <--- layout
+    └── +page.svelte   <--- home page
+```
+
+- Inseriamo il codice HTML e CSS
+  
+---
+
+# SvelteKit
+
+Creazione Web App: il layout
+
+<img src="/media/svelte_021.png" class="mx-auto" width="400" />
+
+---
+
+# SvelteKit
+
+Creazione Web App: il layout
+
+
+<img src="/media/svelte_022.png" class="mx-auto" width="400" style="position: relative; left: -200px;"/>
+<img src="/media/svelte_023.png" class="mx-auto" width="360" style="position: relative; left: 200px;top: -500px;"/>
+
+
+---
+
+# SvelteKit
+
+Creazione Web App: il layout
+
+<img src="/media/svelte_024.png" class="mx-auto" width="600" />
+
+
+---
+
+# SvelteKit
+
+Creazione Web App: il layout
+
+- Abbiamo definito il layout della nostra applicazione, composto da:
+  - header
+  - navbar
+  - main content area (article)
+  - footer
+
+- Le pagine che andremo a sviluppare verranno visualizzate nel main content area 
+
+---
+
+# SvelteKit
+
+Creazione Web App: il layout
+
+- Importante notare che nello style del layout abbiamo modificato lo stile globale del body
+- Per far ciò abbiamo usato il costrutto `:global(<selettore>)`
+
+<br>
+<img src="/media/svelte_025.png" class="mx-auto" width="400" />
+
+- Ciò è necessario in quanto lo stylde del componente (layout è un componente) è **scoped**
+- In altre parole lo stile di un componente è confinato al solo componente stesso e non può modificare lo stilde di altri componenti
+- L'uso di *:globa* ci permette di fare un'eccezione a questa regola
+
+<br>
+<Banner bg="green" fg="yellow">
+Si suggerisce di non abusare di questa possibilità in quanto rende il codice meno leggibile e meno comprensibile
+</Banner>
+
+
+---
+
+# SvelteKit
+
+Component Slot
+
+- Come si vede al momento la nostra app non visualizza la home page nella main content area
+- Questo perchè al momento il componente layout NON include nessuna ltro componente (home page)
+- Per poter risolvere questo problema dobbiamo ricorrere ad un concetto di Svelte chiamato `Component Slots`
+- In pratica in modo analogo ai tag HTML che possono avere un contenuto
+
+```html
+<div>
+	<p>Io sono figlio di div</p>
+</div>
+``` 
+
+- Anche un componente Svelte può avere un contenuto (o figlio) tramite il costrutto `<slot />`
+- In altre parole all'interno di un componente Svelte possiamo decidere dove visualizzare il contenuto del "figlio" usando `<slot />` 
+
+---
+
+# SvelteKit
+
+Component Slot
+
+- Modifichiamo +layout.svelte aggiungendo lo slot nella sezione article
+
+```html
+... 
+   <article>
+      <slot />
+   </article>
+...
+```
+
+- In questo modo nella sezione article comparirà il contenuto del componente correntemente in utilizzio (home page o +page.svelte in src/routes)
+
+---
+
+# SvelteKit
+
+Component Slot
+
+<img src="/media/svelte_026.png" class="mx-auto" width="650" />
+
+
+---
+
+# SvelteKit
+
+Hello World: Esercitazione_08
+
+- Provare a modificare la home page in modo che appaia come in figura
+
+<br>  
+<img src="/media/svelte_027.png" class="mx-auto" width="630" />
+
+
+---
+
+# SvelteKit
+
+Pagina Chi Sono
+
+- Adesso creiamo la pagina "Chi Sono"
+- In questa pagina faremo una breve introduzione di noi stessi
+- E' importante che nella descrizione di noi stessi includiamo cognome, nome ed età (questo ci sarà utile dopo)
+- Quindi per creare la pagina "Chi Sono" creiamo una directory in modo da ottenere questo risultato
+
+
+```bash
+src
+├── app.html
+└── routes
+    ├── chi_sono     <---------- routes corrispondente alla pagina
+    │   └── +page.svelte  <------ componente o pagina HTML
+    ├── +layout.svelte
+    └── +page.svelte
+```
+
+---
+
+# SvelteKit
+
+Pagina Chi Sono
+
++page.svelte
+
+<br>  
+<img src="/media/svelte_029.png" class="mx-auto" width="600" />
+
+
+---
+
+# SvelteKit
+
+Pagina Chi Sono
+
+- Ora dobbiamo collegare la nuova pagina "Chi Sono" con la barra di navigazione
+- Basta modificare il link in questo modo
+
+<br>
+<img src="/media/svelte_030.png" class="mx-auto" width="600" />
+<br>
+
+- In tal modo quando clicchiamo sul link Chi Sono la pagina omonima verrà visualizzata nella main content area
+
+
+---
+
+# SvelteKit
+
+Pagina Chi Sono
+
+<img src="/media/svelte_028.png" class="mx-auto" width="650" />
+
+
+---
+
+# SvelteKit
+
+Il componente WhoAmI
+
+- Ora trasformiamo la pagina "Chi Sono" in modo che visualizzi un solo componente chiamato ***WhoAmI***
+- Quindi creiamo un nuovo componente ***WhoAmI***
+
+```bash
+src
+├── app.html
+├── lib
+│   └── components
+│       └── who_am_i.svelte <--- componente WhoAmI
+└── routes
+    ├── chi_sono
+    │   └── +page.svelte
+    ├── +layout.svelte
+    └── +page.svelte
+```
+
+
+---
+
+# SvelteKit
+
+Il componente WhoAmI
+
+who_am_i.svelte
+
+
+<img src="/media/svelte_031.png" class="mx-auto" width="600" />
+<br>
+
+- Ora modifichiamo la pagina Chi Sono in modo che visualizzi il componente
+
+<br>
+<img src="/media/svelte_032.png" class="mx-auto" width="600" />
+
+
+
+---
+
+# SvelteKit
+
+Il componente WhoAmI
+
+<img src="/media/svelte_033.png" class="mx-auto" width="550" />
+
+
+---
+
+# SvelteKit
+
+Props
+
+- Ora tramite un meccanismo di Svelte che si chiama `Props` (Properties) vogliamo rendere il componente parametrico
+- In altre parole vogliamo fare in modo che nome, cognome e età non siano scritti direttamente nel componente WhoAmI
+- Al contrario vogliamo che questi siano dei parametri che vengono passati dal chiamante (la pagina Chi Sono)
+
+<br>
+<Banner bg="green" fg="yellow">Tramile le Props di Svelte possiamo quindi creare dei componenti parametrici e quindi più facoilmente riutilizzabili ina ltre pagine o altre applicazioni web</Banner>
+
+---
+
+# SvelteKit
+
+Props
+
+- In Svelte, all'interno di un componente per dichiarare un parametro o `propeietà` si utilizza la keyword `export`
+- Questa keyword preceduta alla dichiarazione di una variabile, indica al compilatore che il valroe della variabile viene fornito dall'esterno del componente
+- In altre parole dice a Svelte che questa variabile viene passata dal chiamante (a tutti gli effetti rendendo la variabile export come un parametro di una funzione in C)
+
+Esempio
+
+```js
+export let nome;  //dichiara la variabile nome come parametro fornito dal chiamante
+export let cognome = "Rossi"; //variabile esterna con valore di feault Rossi
+export let eta; //dichiara la variabile nome come parametro fornito dal chiamante
+```
+
+<br>
+
+- Il meccanismo delle `Props` di Svelte è molto potente e di facile utilizzo
+
+---
+
+# SvelteKit
+
+Props
+
+- Pertanto riscriviamo il componente WhoAmI utilizzando le ***Props***
+
+<br>
+<img src="/media/svelte_034.png" class="mx-auto" width="700" />
+
+<br>
+
+- Abbiamo usato il *variable substitution di svelte* per utilizzare i parametri all'interno del corpo HTML del componente
+
+---
+
+# SvelteKit
+
+Props
+
+<img src="/media/svelte_035.png" class="mx-auto" width="750" />
+
+<br>
+<Banner bg="green" fg="yellow">
+Siccome non abbiamo modificato il chiamante, vengono utilizzati i valori di default per le props del componente
+</Banner>
+
+---
+
+# SvelteKit
+
+Props
+
+- Modifichiamo ora il chiamante e cioè la pagina Chi Sono in modo da passare dei parametri corretti al componente WhoAmI
+  
+<br>
+<img src="/media/svelte_036.png" class="mx-auto" width="750" />
+
+---
+
+# SvelteKit
+
+Props
+
+<img src="/media/svelte_037.png" class="mx-auto" width="750" />
+
+---
+
+# SvelteKit
+
+Props
+
+- Cosa succede se chiamo due volte il componente WhoAmI dalla pagina Chi Sono?
+- Quello che ci aspettiamo: vengono visualizzati due componenti ognuno con i propri parametri
+
+<br>
+<img src="/media/svelte_038.png" class="mx-auto" width="700" />
+
+---
+
+# SvelteKit
+
+Props
+
+<img src="/media/svelte_039.png" class="mx-auto" width="600" />
+
+---
+
+# SvelteKit
+
+Props
+
+- xxx
+
+---
+
+# SvelteKit
+
+Dynamic Attributes
+
+- xxx
+- 
+https://svelte.dev/tutorial/dynamic-attributes
+
+
+---
+
+# SvelteKit
+
+Bindings
+
+- refwdsqa
+
+https://svelte.dev/tutorial/text-inputs
+
+
+---
+
+# SvelteKit
+
+Component Bindings
+
+- refwdsqa
+
+https://svelte.dev/tutorial/component-bindings
+
+
+
+---
+
+# SvelteKit
+
+Logic Statements
+
+- rfewds
+
+https://svelte.dev/tutorial/if-blocks
+
+
+---
+
+# SvelteKit
+
+Each block
+
+- rfewds
+
+https://svelte.dev/tutorial/each-blocks
+
+
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+- xxx
+
+https://svelte.dev/tutorial/classes
+
+
+---
+
+# SvelteKit
+
+Reactivity
+
+- xxx
+
+https://svelte.dev/tutorial/reactive-assignments
+
+
+
+
+---
+
+# SvelteKit
+
+DOM Events
+
+- erfcds
+
+https://svelte.dev/tutorial/dom-events
+
+
+---
+
+# SvelteKit
+
+Component Events
+
+- rfewd
+
+https://svelte.dev/tutorial/component-events
+
+
+---
+
+# SvelteKit
+
+Stores
+
+- rfedwsa
+
+https://svelte.dev/tutorial/writable-stores
+
+
+
+
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+
+---
+
+# SvelteKit
+
+Creazione Web App
+
+- ddd
+- 
+
+---
+
+# BLANK
+
 
 ---
 
@@ -999,191 +1708,3 @@ SPECIFICA di todoS
     - HIGH
     - MED
     - LOW
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- x
-
----
-
-
-
----
-
-BACKUP SLIDE
-
-
----
-
-# xxxxxxx
-
-yyyy
-
-- aa
-- bb
-
-
-
----
-
-# xxxxxxx
-
-yyyy
-
-- aa
-- bb
-
-
-
----
-
- 
-# xxxxxxx
-
-yyyy
-
-- aaa
-- bb
-- cc
-
-
-
-
-
----
-
- 
-#  xxxxxxx
-
-yyyy
-
-- aaa
-- bb
-- cc
-
-
-<div style="background-color:green;color:yellow;padding: 10px;">
-xxxxxxxxxx
-</div>  
-
----
-
-#  xxxxxxx
-
-yyyy
-
-- aaa
-- bb
-- cc
-  
-<br />
-<center>
-</center>
-
----
-
- 
-# ercizio js_05
-
-xxxxx
-
-
-1. Dato il file [empty.html](../support/empty.html) rinominarlo in |cognome|_esercizio_js_05.html ed aggiungere il riferimento al file |cognome|_esercizio_js_05.js
-2. Creare una pagina HTML e il relativo codice JS in modo che:
-   - Vengano richiesti all'utente il nome e la media dei voti di uno studente
-   - Alla pressione di un bottone il nome e la media inseriti vengano aggiunti ad una linea di una tabella
-   - Alla pressione di un secondo bottone, tutte le linee pari vengano colorate di blue e tutte le linee dispari di rosso
-3. Fornire il link github al file con nome *|cognome|_esercizio_js_05.html*  e *|cognome|_esercizio_js_05.js*
