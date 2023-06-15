@@ -1399,13 +1399,6 @@ Props
 
 <img src="/media/svelte_039.png" class="mx-auto" width="600" />
 
----
-
-# SvelteKit
-
-Props
-
-- xxx
 
 ---
 
@@ -1413,10 +1406,89 @@ Props
 
 Dynamic Attributes
 
-- xxx
-- 
-https://svelte.dev/tutorial/dynamic-attributes
+- Come abbiamo visti le props e variabili contenute in un componente possono essere utilizzate per generare del contenuto dinamico
+- Tuttavia possono anche essere utilizzate come attributi dei tag HTML
+- In questo caso Svelte parla di `Dynamic Attributes`
+- Per esempio per definire il src di un immagine in modo dinamico si può fare così
 
+```html
+<img src={url} >
+```
+  
+- In questo modo la sorgente dell'immagine non sarà statica ma dipenderà dal valore della variabile url
+- Ovviamente cambiando il valore della variabile l'immagine verrà automaticamente aggiornata in modo dinamico
+
+
+---
+
+# SvelteKit
+
+Dynamic Attributes
+
+- Per comprendere meglio i ***Dynamic Attributes*** modifichiamo il componente WhoAmI aggiungendo la nostra foto
+
+<img src="/media/svelte_040.png" class="mx-auto" width="700" />
+
+---
+
+# SvelteKit
+
+Dynamic Attributes
+
+- Possiamo usare come dymanic attribute una variabile esterna
+
+<img src="/media/svelte_041.png" class="mx-auto" width="700" />
+
+
+---
+
+# SvelteKit
+
+Dynamic Attributes
+
+
+<img src="/media/svelte_042.png" class="mx-auto" width="550" />
+
+
+---
+
+# SvelteKit
+
+Dynamic Attributes: shorthand
+
+- Prima abbiamo scritto
+
+```html
+<img src={url} >
+```
+
+- Immaginando che la variabile si chiami src, scriveremo
+
+```html
+<img src={src} >
+```
+
+- Questo risulta abbastanza ridondante, pertanto Svelte ci semplifica la vita mettendo a disposizione degli ***shorthand*** o delle scorciatoie
+- Quindi in questo caso potremmo scrivere
+
+```html
+<img {src} >
+```
+
+- Pertanto le due notazioni sono perfettamente equivalenti e sortiscono lo stesso effetto
+
+```html
+<img src={src} > vs <img {src} >
+```
+
+---
+
+# SvelteKit
+
+Dynamic Attributes: Esercitazione_09
+
+- Modificare il componente WhoAmI in modo da passare la larghezza dell'immagine come parametro
+- Utilizzare lo shorthand per il dynamic attribute
 
 ---
 
@@ -1427,6 +1499,112 @@ Bindings
 - refwdsqa
 
 https://svelte.dev/tutorial/text-inputs
+
+
+---
+
+# SvelteKit
+
+Bindings
+
+- Come visto i dati e le props si propagano dall'alto al basso, dal componente chiamante verso il componente figlio
+- Tuttavia spesso in un applicazione web è utile che questa propagazione possa avvenire nel verso opposto
+
+<br>
+<Banner fg="yellow" bg="green">
+Il binding permette la propagazione del valore di una variabile di un componente al componente chiamante o padre
+</Banner>
+
+<br>
+
+- Uno scenario classico è fare il binding della props di un input text ad una variabile del componente chiamante
+- In questo modo sarà facilissimo ed immediato accedere al valore dell'input text (pensate quanto è macchinoso in vanilla JS)
+
+
+---
+
+# SvelteKit
+
+Binding: Esercitazione_10
+
+- Per comprendere il meccanismo del binding abbiamo bisogno di una nuova pagina nella nostra app
+- Creare una nuova pagina chiamata **Input**
+- Creare il relativo menu nella barra nav e linkare la pagina
+
+<br>
+<img src="/media/svelte_043.png" class="mx-auto" width="650" />
+
+
+---
+
+# SvelteKit
+
+Bindings
+
+- Ora modifichiamo la pafina input aggiungendo un input text box e creando un binding con una variabile
+
+<br>
+<img src="/media/svelte_044.png" class="mx-auto" width="400" />
+
+---
+
+# SvelteKit
+
+Bindings
+
+<img src="/media/svelte_045.png" class="mx-auto" width="600" />
+
+- Come si vede le variabili sono sostituite dal valore *undefined*
+- Questo succede perchè abbiamo creato il binding tra il contenuto dei input text (undefined) e le variabili nome, cognome e eta
+- Compilando i campi la pagina si aggiornerà in modo automatico e dinamico
+- Anche in questo caso realizzare la stessa cosa in vanilla JS sarebbe molto più laborioso
+
+---
+
+# SvelteKit
+
+Bindings
+
+<img src="/media/svelte_046.gif" class="mx-auto" width="700" />
+
+---
+
+# SvelteKit
+
+Bindings
+
+<div style="width:50%;">
+
+- Vediamo un altro esempio dell'uso del binding
+- Modificare la pagina Input nel seguente modo
+- In questo caso creiamo un binding tra la checkbox e la variabile *confermato*
+- Poi settiamo tramite dynamic attributes l'attribute *disabled* del pulsante
+- Pertanto il pulsante diventa attivo solo se l'utente ha confermato selezionando la checkbox
+
+</div>
+
+<img src="/media/svelte_047.png" class="mx-auto" width="450" style="position:relative;top: -300px;right:-250px;"/>
+
+
+---
+
+# SvelteKit
+
+Bindings
+
+<img src="/media/svelte_048.gif" class="mx-auto" width="700" />
+
+---
+
+# SvelteKit
+
+Binding: Esercitazione_11
+
+- Modificare la pagina *Input* in modo che venga aggiunto un nuovo input text per legegre in input la residenza
+- Utilizzare il meccanismo del binding
+
+<br>
+<img src="/media/svelte_049.png" class="mx-auto" width="800" />
 
 
 ---
