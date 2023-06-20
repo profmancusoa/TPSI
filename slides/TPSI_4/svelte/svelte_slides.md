@@ -12,7 +12,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.1.3'
+version: '1.2.0'
 
 ---  
 
@@ -707,6 +707,8 @@ Hello World: Esercitazione_01
 
 - Creare ed installare il progetto base SvelteKit come spiegato sopra
 - Eseguire l'applicazione
+- Consegnare su github il progetto appena creato
+- IMPORTANTE: non fare il push della directory ***node_modules***
 
 
 ---
@@ -717,7 +719,10 @@ Hello World: Esercitazione_02
 
 - provare a modificare la home page del progetto in modo che appaia come in figura
 
-<img src="/media/svelte_011.png" class="mx-auto" width="450" />
+<img src="/media/svelte_011.png" class="mx-auto" width="400" />
+
+- Consegnare su github il progetto modificato
+
 
 ---
 
@@ -728,7 +733,9 @@ Hello World: Esercitazione_03
 - provare a modificare il layout del progetto in modo che appaia come in figura
   
 <br><br>
-<img src="/media/svelte_012.png" class="mx-auto" width="700" />
+<img src="/media/svelte_012.png" class="mx-auto" width="650" />
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -739,7 +746,9 @@ Hello World: Esercitazione_04
 
 - provare a modificare la pagina about in modo che appaia come in figura
   
-<img src="/media/svelte_013.png" class="mx-auto" width="600" />
+<img src="/media/svelte_013.png" class="mx-auto" width="550" />
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -751,7 +760,10 @@ Hello World: Esercitazione_05
 - provare a modificare il componente counter in modo che si incrementi o decrementi di due unità alla pressione dei pulsati + o -
 
 <br>  
-<img src="/media/svelte_014.png" class="mx-auto" width="600" />
+<img src="/media/svelte_014.png" class="mx-auto" width="500" />
+
+- Consegnare su github il progetto modificato
+
 
 ---
 
@@ -862,7 +874,10 @@ Hello World: Esercitazione_06
 - provare a modificare la pagina about aggiungendo il componente Banner 
 
 <br>  
-<img src="/media/svelte_016.png" class="mx-auto" width="600" />
+<img src="/media/svelte_016.png" class="mx-auto" width="550" />
+
+- Consegnare su github il progetto modificato
+
 
 ---
 
@@ -915,7 +930,9 @@ Hello World: Esercitazione_07
 - Verificare che il banner appaia modificato in tutte le pagine 
 
 <br>  
-<img src="/media/svelte_017.png" class="mx-auto" width="500" />
+<img src="/media/svelte_017.png" class="mx-auto" width="450" />
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -1184,7 +1201,9 @@ Hello World: Esercitazione_08
 - Provare a modificare la home page in modo che appaia come in figura
 
 <br>  
-<img src="/media/svelte_027.png" class="mx-auto" width="630" />
+<img src="/media/svelte_027.png" class="mx-auto" width="580" />
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -1490,6 +1509,8 @@ Dynamic Attributes: Esercitazione_09
 - Modificare il componente WhoAmI in modo da passare la larghezza dell'immagine come parametro
 - Utilizzare lo shorthand per il dynamic attribute
 
+- Consegnare su github il progetto modificato
+
 
 ---
 
@@ -1523,6 +1544,8 @@ Binding: Esercitazione_10
 
 <br>
 <img src="/media/svelte_043.png" class="mx-auto" width="650" />
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -1594,7 +1617,10 @@ Binding: Esercitazione_11
 - Utilizzare il meccanismo del binding
 
 <br>
-<img src="/media/svelte_049.png" class="mx-auto" width="800" />
+<img src="/media/svelte_049.png" class="mx-auto" width="750" />
+
+- Consegnare su github il progetto modificato
+
 
 ---
 
@@ -1883,6 +1909,9 @@ DOM Events: Esercitazione_12
 - Aggiungere il componente alla pagina counter
 - Tramite il component binding vidualizzare nella pagina counter anche il valore del componente DoubleCounter
 
+- Consegnare su github il progetto modificato
+
+
 ---
 
 # SvelteKit
@@ -2157,6 +2186,7 @@ Reactivity: Esercitazione_13
 
 - Modificare la pagina counter in modo che utilizzando la reattività, il valore della variabile sottolineato diventi true il valore di DoubleCounter è pari e diventi false quando tale valore è dispari
 
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -2165,9 +2195,92 @@ Reactivity: Esercitazione_13
 
 Component Events
 
-- rfewd
+- Come visto in precedenza, con Svelte è facilissimo gestire gli eventi del DOM
+- Chiaramente sarebbe molto utile avere la stessa possibilità per i componenti sviluppati da noi
+- Svelte ci viene incontro per risolvere questo problema con il meccanismo del `Component Events`
+- In altre parole possiamo fare in modo che i nostri componenti emettano degli eventi e che il chiamante si registri su questi eventi e li gestisca tramite un handler, esattamente come per gli eventi stanrd del DOM
+- In altre parole, esattamente come un componente HTML standard, anche i nostri componenti diventano *emettitori* di eventi
+- Questo è un meccanismo molto importante e Svelte lo rende semplicissimo
+- Vediamo....
 
-https://svelte.dev/tutorial/component-events
+---
+
+# SvelteKit
+
+Component Events
+
+- Vogliamo modificare il componente Counter in modo che ogni volta l'utente preme il tasto + venga emesso l'evento *plus* e ogni volta che preme - vengo emesso l'evento *minus*
+- Il chiamante, la pagina counter, si registrerà su questi eventi e fornirà un handler per ciascuno di essi
+- Per prima cosa dobbiamo fare in modo che il nostro componente sia in grado di generare eventi. Per questo usiamo il metodo ***createEventDispatcher***
+- Il metodo *createEventDispatcher* deve essere chiamato durante l'inizializzazione del componente cioè all'inizio della sua sezione script
+- Successivamente potremo generare ed emettere un evento tramite il metodo
+
+```html
+dispatch('<nome_evento>', {
+			<oggetto o valore da trasportare nell'evento>
+		});
+```
+
+- Quindi una volta eseguito il metodo *dispatch*, l'evento sarà generato e gestito dall'handler specificato dal chiamante, esattamente come per un componente standard HTML
+
+---
+
+# SvelteKit
+
+Component Events
+
+<div style="width:40%;">
+
+- Iniziamo a  modificare il componente Counter in questo modo
+
+</div>
+
+<br>
+<img src="/media/svelte_074.png" class="mx-auto" width="430" style="position:relative; top:-180px; left: 200px;"/>
+
+
+---
+
+# SvelteKit
+
+Component Events
+
+- Ora aggiungiamo il dispatcher alla pagina counter per gestire l'evento generato
+
+<br>
+<img src="/media/svelte_075.png" class="mx-auto" width="550" />
+
+
+---
+
+# SvelteKit
+
+Component Events
+
+<img src="/media/svelte_076.gif" class="mx-auto" width="800" />
+
+---
+
+# SvelteKit
+
+Component Events
+
+- Importante notare e ricordare che gli eventi dei componenti custom, al contrario dei componenti standard, vengono propagati solo al chiamante
+- Quindi se abbiamo una gerarchia di componenti uno incluso nell'altro (come una matriosca), se vogliamo che l'evento generato dal componente più interno venga propagato fino al primo componente dovremo fare in modo che ogni componente intermedia faccia il forwarding dell'evento ricevuto
+
+<br>
+<img src="/media/svelte_077.png" class="mx-auto" width="250" />
+
+---
+
+# SvelteKit
+
+Component Events: Esercitazione_14
+
+- Aggiungere la generazione di due eventi distinti al componente DoubleCounter
+- Intercettare e gestire nel componente chiamante i due eventi emessi da DoubleCounter
+
+- Consegnare su github il progetto modificato
 
 
 ---
@@ -2176,11 +2289,114 @@ https://svelte.dev/tutorial/component-events
 
 Stores
 
-- rfedwsa
+- Siccome i componenti Web implementano il concetto di incapsulamento, proprio della OOP, lo stato di un componente rimane invisibile agli altri componenti
+- Abbiamo visto tramite il *Component Binding* e il *Component Events* come è possible condividere tale stato tra componenti gerarchicamente correlati
+- Ma con questi metodi è impossibile condivider elo stato di un componente con un altro componente o pagina non correlato
+- Per esempio,nel nostro caso, come visualizziamo il valore del contatore nella pagina About?
+- Questo meccanismo è estremamente utile nello sviluppo di un'applicazione web di media complessità, sarà quasi certamente sicuro che ci saranno più componenti che devono condividere uno stato comune
+- Svelte ci corre in aiuto con il meccanismo dello `Store`
 
-https://svelte.dev/tutorial/writable-stores
+---
+
+# SvelteKit
+
+Stores
+
+<Banner bg="green" fg="yellow">
+
+Uno <b>Store</b> in Svelte è un oggetto che permette di condividere un valore tra componenti non gerarchicamente correlati
+
+</Banner> 
+
+<br>
+
+- Inizamo creando lo store per contenere il valroe del contatore e condividerlo tra componenti e pagine diverse
+
+```bash
+src/lib
+├── components
+│   ├── counter.svelte
+│   └── who_am_i.svelte
+└── js
+    └── store.js
+```
+
+---
+
+# SvelteKit
+
+Stores
+
+- Ecco il semplicissimo codice dello store
+
+<br><br>
+
+- Ora modifichiamo il componente Counter in modo che ogni volta che couter cambia venga aggiornato lo store
+
+<img src="/media/svelte_078.png" class="mx-auto" width="250" style="position:relative; top:-200px; left: 50px;" />
+<img src="/media/svelte_079.png" class="mx-auto" width="300" style="position:relative; top:-100px; left: 50px;" />
 
 
+---
+
+# SvelteKit
+
+Stores
+
+- Quindi ogni volta che l'utente preme + o -, il valore di counter cambia e viene anche aggiornato lo store
+- In questo modo lo stato di Counter può essere condiviso con altre pagine o componenti
+- Per dimostrare il funzionamento creiamo la pagina About che visualizza il valore dello store, o in altre parole lo stato interno del componente Counter
+
+```bash
+src/routes
+├── about
+│   └── +page.svelte
+├── chi_sono
+│   └── +page.svelte
+├── counter
+│   └── +page.svelte
+├── input
+│   └── +page.svelte
+├── +layout.svelte
+└── +page.svelte
+```
+
+- Non dimenticarti di linkare la pagina About alla navbar
+  
+---
+
+# SvelteKit
+
+Stores
+
+- Ecco il codice della pagina About
+
+<br>
+<img src="/media/svelte_080.png" class="mx-auto" width="600" />
+
+<br>
+
+- Da notare che per accedere allo store sia in lettura che scrittura, è necessariop anteporre il simbolo `$` in modo da differenziarlo da una normale variabile
+- Quindi ora se l'utente interagisce con il componente Counter e poi passa alla pagina about vedrà visualizzato lo stato interno del componente che è memorizzato nello store
+
+---
+
+# SvelteKit
+
+Stores
+
+<img src="/media/svelte_081.gif" class="mx-auto" width="600" />
+
+
+---
+
+# SvelteKit
+
+Stores: Esercitazione_15
+
+- Modificare il codice dell'applicazione in modo che nella pagina About venga visualizzato anche il valore del componente DoubleCounter
+  
+- Consegnare su github il progetto modificato
 
 
 
@@ -2188,85 +2404,15 @@ https://svelte.dev/tutorial/writable-stores
 
 # SvelteKit
 
-Creazione Web App
+Conclusioni
 
-- ddd
+- In queste lezioni abbiamo introdotto il modernissimo framework SvelteKit che si basa sul linguggio e compilatore Svelte
+- Svelte è uno strumento formidabile per lo sviluppo di applicazioni Web
+- Svelte rende immediate molte operazioni che in vanilla JS sarebbero alcuanto complesse
+- SvelteKit si distingue dagli altri framework per velocità, compattezza e modernità
+- In queste lezioni abbiamo trattato gli aspetti base di Svelte. Ci sono ovviamente altri aspetti più avamnzati che esulano dai nostri scopi
 
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-
----
-
-# SvelteKit
-
-Creazione Web App
-
-- ddd
-- 
-
----
-
-# BLANK
-
-
-
-
-
----
-
-# Svelte
-
-todoS WebApp
-
-- Sviluppiamo una SPA WebApp che permette di gestire una ToDo List personale
-- Lo scopo è di capire ed applicare vari concetti introdotti da Svelte
-
-SPECIFICA di todoS
-
-- L'applicazione todoS permette la gestione di una todo list personale
-- L'utente deve essere in grado di:
-  - inserire nuovi todo
-  - modificare todo esistenit
-  - eliminare todo esistenti
-  - per ogni todo è possibile specificare un titolo ed una prioprità a scelta tra:
-    - HIGH
-    - MED
-    - LOW
+<br>
+<Banner fg="yellow" bg="green">
+Svelte e SvelteKit sono strumenti utilissimi e potentissimi e sono la base per lo sviluppo FullStack di moderne applicazioni Web
+</Banner>
