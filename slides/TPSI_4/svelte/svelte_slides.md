@@ -12,7 +12,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.1.2'
+version: '1.1.3'
 
 ---  
 
@@ -1490,16 +1490,6 @@ Dynamic Attributes: Esercitazione_09
 - Modificare il componente WhoAmI in modo da passare la larghezza dell'immagine come parametro
 - Utilizzare lo shorthand per il dynamic attribute
 
----
-
-# SvelteKit
-
-Bindings
-
-- refwdsqa
-
-https://svelte.dev/tutorial/text-inputs
-
 
 ---
 
@@ -1600,70 +1590,142 @@ Bindings
 
 Binding: Esercitazione_11
 
-- Modificare la pagina *Input* in modo che venga aggiunto un nuovo input text per legegre in input la residenza
+- Modificare la pagina *Input* in modo che venga aggiunto un nuovo input text per leggere in input la residenza
 - Utilizzare il meccanismo del binding
 
 <br>
 <img src="/media/svelte_049.png" class="mx-auto" width="800" />
 
+---
+
+# SvelteKit
+
+La pagina e il component Counter
+
+- Realizziamo ora la pagina Counter e linkiamola alla nav bar (si lascia come esercizio agli studenti)
+
+<br>
+<img src="/media/svelte_050.png" class="mx-auto" width="800" />
+
+
+---
+
+# Svelte
+
+Stateful component
+
+- Uno dei problemi tradizionali dello sviluppo di app web è la gestione dello stato
+- Questo problema è intrinseco in quanto il protcollo HTTP è **stateless** o senza stato
+- Svelte risolve brillantemente questo problema permettendo di immagazzinare lo stato del componente direttamente all'interno del componente stesso
+- Pertanto un componente Svelte è assimilabile a tutti gli effetti ad un oggetto in base alla definizione OOP
+- Un componente svelte implementa il meccanismo del `encapsulation`
+
+---
+
+# Svelte
+
+Stateful component
+
+- Ogni componente, oltre a definire il markup, la logica CSS e JavaScript, può ospitare il proprio stato.
+- Lo stato è un qualsiasi dato necessario per il corretto funzionamento del componente stesso e dell'applicazione
+- Ad esempio, se un campo di input di un modulo contiene la stringa "test", ci sarà una variabile da qualche parte che contiene questo valore. 
+- Questo è lo stato del campo di input.
+- Il campo è selezionato? Una variabile da qualche parte registrerà questo fatto. E così via.
+- Lo stato è ospitato nella sezione `<script>` del componente 
+
+```html
+<script>
+	let counter = 0; // stato di un contatore
+</script>
+```
+
+---
+
+# Svelte
+
+Stateful component
+
+- Ma come si aggiorna lo stato di un componente?
+- Altri framework come Vue o React, rendono questa operazione poco intuitiva
+- Al contrario una cosa grandiosa di Svelte è che non è necessario fare nulla di speciale per aggiornare lo stato di un componente.
+
+```html
+<script>
+	let counter = 0;
+
+	function incrementa() {
+		counter++;
+	}
+</script>
+``` 
+<br>
+
+- In altre parole in Svelte, per aggiornare lo stato di un componente, basta solo un'operazione di assegnazione in qualsiasi parte del componente 
+
 
 ---
 
 # SvelteKit
 
-Component Bindings
+La pagina e il component Counter
 
-- refwdsqa
+- Ora realizziamo un componente chiamato *Counter* (*counter.svelte*)
+- Questo componente permette di incrementare/decrementare un contatore 
+- Il valore iniziale è una props esterna con default (zero) 0 
 
-https://svelte.dev/tutorial/component-bindings
-
-
-
----
-
-# SvelteKit
-
-Logic Statements
-
-- rfewds
-
-https://svelte.dev/tutorial/if-blocks
-
+<br>
+<img src="/media/svelte_051.png" class="mx-auto" width="500" />
 
 ---
 
 # SvelteKit
 
-Each block
-
-- rfewds
-
-https://svelte.dev/tutorial/each-blocks
+La pagina e il component Counter
 
 
+<img src="/media/svelte_054.png" class="mx-auto" width="600" />
 
 ---
 
 # SvelteKit
 
-Advances Styling
+La pagina e il component Counter
 
-- xxx
+**counter.svelte (script)**
 
-https://svelte.dev/tutorial/classes
+<img src="/media/svelte_052.png" class="mx-auto" width="700" />
 
+- Utilizziamo icone e font di google (sono molto utili)
+- Da notare l'uso della sezione `<svelte:head>`
 
 ---
 
 # SvelteKit
 
-Reactivity
+La pagina e il component Counter
 
-- xxx
+**counter.svelte (html)**
 
-https://svelte.dev/tutorial/reactive-assignments
+<img src="/media/svelte_053.png" class="mx-auto" width="600" />
 
+---
 
+# SvelteKit
+
+La pagina e il component Counter
+
+**counter.svelte (css)**
+
+<img src="/media/svelte_055.png" class="mx-auto" width="300" style="position: relative; top: -10px; right: 100px;"/>
+<img src="/media/svelte_056.png" class="mx-auto" width="300" style="position: relative; top: -350px; right: -250px;"/>
+
+---
+
+# SvelteKit
+
+La pagina e il component Counter
+
+<img src="/media/svelte_057.png" class="mx-auto" width="800" />
 
 
 ---
@@ -1672,9 +1734,429 @@ https://svelte.dev/tutorial/reactive-assignments
 
 DOM Events
 
-- erfcds
+- A questo punto il nostro componente **Counter** viene visualizzato correttamente
+- E se il chiamante passa un valore iniziale per *counter* questo viene visualizzato correttamente 
+- Tuttavia se interagiamo con il componente, premiamo il pulsante `+` o il pulsante `-` non succede nulla
+- Ciò è normale perchè quando premiamo su uno dei pulsanti **VIENE** generato un evento, ma **NON** viene gestito dal nostro componente
+- Quindi in pratica l'evento viene perso e pertanto nessuna operazione particolare viene eseguita
+- Quindi **E' NECESSARIO** gestire gli eventi del DOM e del nostro componente
+- Svelte rende questa gestione estremamente facile e intuitiva e molto più facile e veloce rispetto a vanillaJS o altri tipi di framework
 
-https://svelte.dev/tutorial/dom-events
+---
+
+# SvelteKit
+
+DOM Events
+
+- Ogni componente HTML emette degli eventi (mouse click, keyboard press, resize, load, ...)
+- Per poter gestire questi eventi è necessario specificare due elementi
+  1. `event handler`: una funzione che gestisce l'evento e che viene invocata solo al verificarsi dell'evento stesso
+  2. `event hook`: "un posto" a cui agganciare/collegare l'event handler
+
+<br>
+<img src="/media/svelte_058.png" class="mx-auto" width="350" />
+
+---
+
+# SvelteKit
+
+DOM Events
+
+<img src="/media/svelte_058.png" class="mx-auto" width="350" />
+
+<br>
+
+- Quando l'utente fa click sul pulsante, viene invocata ed eseguita la funzione *button_handler*
+- In questo semplicissimo modo Svelte permette una facile gestioni degli eventi DOM
+- Svelte permette anche di utilizzare un `inline handler`
+
+<br>
+
+```js
+<button on:click={() => counter++}>Premi Qui</button>
+```
+
+
+---
+
+# SvelteKit
+
+DOM Events
+
+<div style="width:50%;">
+
+- Aggiungiamo ora un event handler per il pulsante + ed uno per il pulsante -
+- Modifichiamo counter.svelte nel seguente modo
+
+</div>
+
+<img src="/media/svelte_059.png" class="mx-auto" width="450" style="position:relative; left:250px;top:-170px;"/>
+
+
+---
+
+# SvelteKit
+
+DOM Events
+
+- Bene in questo modo quando l'utente clicca sul pulsante + il contatore si incrementa e viceversa quando preme - si decrementa di un'unità
+- Da notare che il valore del contatore viene aggiornato automaticamente senza la necessità di nessuna operazione da parte dello sviluppatore (in vanilla JS sarebbe stato molto più laborioso ottenere lo stesso effetto)
+- Quindi gli handler agiscono solo sullo stato del componente (il valore della variabile counter) e non si occupano della parte di visualizzazione che è a carico di Svelte
+
+---
+
+# SvelteKit
+
+DOM Events
+
+<img src="/media/svelte_060.gif" class="mx-auto" width="700" />
+
+
+---
+
+# SvelteKit
+
+Component Bindings
+
+- In molti casi è necessario propagare il valore dello stato del componente al componente choiamante
+- Come possiamo fare in modo che il valore della variabile counter venga condiviso con il componente chiamante (pagina)?
+- Per realizzare quanto descritto possiamo utilizzare il concetto di `Component Binding`
+- In modo analogo al binding dei valori dei tag HTML, possiamo creare, nel chiamante, un binding alle props del componente
+- Nel nostro caso la props counter è esposta al chiamante (*extern*) e quindi possiamo fare un binding a tale variabile
+- Pertanto ogni volta che la variabile counter cambierà anche la variabile con cui abbiamo fatto il binding cambierà
+
+---
+
+# SvelteKit
+
+Component Bindings
+
+- Modifichiamo la pagina counter nel seguente modo
+
+<br>
+<img src="/media/svelte_061.png" class="mx-auto" width="700" />
+
+
+---
+
+# SvelteKit
+
+Component Bindings
+
+- Come si vede dall'esempio il binding di props dei nostri componenti si implemente nel seguente modo
+
+```html
+<Componente bind:props={variabile_locale}>
+```
+
+dove:
+- `props`: è la proprietà del componente a cui vogliamo fare il binding
+- `variabile_locale`: è la variabile, locale al chiamante, che vogliamo "collegare" (bind) alla props del componente
+
+<br>
+
+<Banner fg="yellow" bg="green">
+Importante notare che il bind è bidirezionale
+</Banner>
+
+<br>
+
+- Perciò se cambio il valore di *variabile_locale* cambierà anche il valore di *props*
+- E viceversa: se cambia il valore di *props* cambia il valore di *variabile_locale*
+
+---
+
+# SvelteKit
+
+Component Bindings
+
+<img src="/media/svelte_062.gif" class="mx-auto" width="700" />
+
+---
+
+# SvelteKit
+
+DOM Events: Esercitazione_12
+
+- Creare un nuovo componente chiamato DoubeClounter (double_counter.svelte)
+- Questo componente funziona in modo simile a Counter, ma quando l'utente preme + il suo valore aumenta di due unità, mentre quando preme - il suo valore viene decrementato di 3 unità
+- Aggiungere il componente alla pagina counter
+- Tramite il component binding vidualizzare nella pagina counter anche il valore del componente DoubleCounter
+
+---
+
+# SvelteKit
+
+Logic Statements
+
+- Come sappiamo HTML non è un linguaggio di programmazione quindi non ha costrutti logici o iterativi
+- Tuttavia spesso è necessario visualizzare un blocco di HTML in modo condizionale, in funzione di uno stato o variabile
+- Anche in questo scenario, Svelte ci viene in aiuto in maniera semplice ed elegante attraverso il concetto di `logic blocks`
+- Il funzionamengto è molto semplice, svelte mette a disposizione il seguente costrutto
+
+```html
+{#if <condizione>}
+    ....
+    <blocco HTML>
+    ....
+{:else}
+    ....
+    <blocco HTML alternativo>
+    ....
+{/if}
+```
+
+---
+
+# SvelteKit
+
+Logic Statements
+
+- Pertanto se la condizione è vera viene visualizzato il *&lt;blocco HTML&gt;* altrimenti viene visualizzato il *&lt;blocco HTML alternativo&gt;*
+- In questo modo abbiamo aggiunto al puro HTML una delle capacità proprie di un linguaggio di programmazione
+- Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HML con colore rosso e in caso contrario con colore verde
+
+
+---
+
+# SvelteKit
+
+Logic Statements
+
+- Modifichiamo la pagina counter nel seguente modo
+
+<br>
+<img src="/media/svelte_063.png" class="mx-auto" width="450" />
+
+---
+
+# SvelteKit
+
+Logic Statements
+
+- Come vedremo in seguite ci sono modi più efficienti per raggiungere lo stesso risultato
+- Ma quest'esempio è perfetto per capire l'uso dei blocchi condizionali in Svelte
+
+<br>
+
+<img src="/media/svelte_064.gif" class="mx-auto" width="600" />
+
+
+---
+
+# SvelteKit
+
+Each block
+
+- Un'altro costrutto molto utile, proveniente dai linguaggi di programmazione, ed assente in HTML è il `ciclo`
+- Spesso in HTML è necessario replicare codice per ottenere una lista di elementi (pensa ad una foto gallery, ad una lista non ordinata,...)
+- Anche in questo scenario Svelte ci viene in aiuto.
+- Se abbiamo la necessità di iterare una lista (array) di elementi, possiamo usare `Each block`
+
+```html
+{#each <array> as elemento}
+    ...
+    blocco HTML in cui uso {elemento}
+    ...
+{/each}
+```
+
+- In questo modo il blocco HTML sarà ripetuto tante volte quanti sono gli elementi dell'array o in altre parole sarà ripetuto un numero di volte pari alla lunghezza dell'array
+- Questo rende la generazione di strutture HTML dinamiche molto semplice
+
+
+---
+
+# SvelteKit
+
+Each block
+
+- Vediamo un esempio che vidualizza una lista di elementi nella pagina Counter
+- Modifica la pagina counter nel seguente modo
+
+<br>
+<img src="/media/svelte_065.png" class="mx-auto" width="420" />
+
+---
+
+# SvelteKit
+
+Each block
+
+<img src="/media/svelte_066.png" class="mx-auto" width="650" />
+
+
+---
+
+# SvelteKit
+
+Each block
+
+- Spesso è utile accedere all'indice dell'iterazione
+- Per fare ciò basta modificare il costruttore nel seguente modo
+
+```html
+{#each <array> as elemento, indice}
+    ...
+    blocco HTML in cui uso {elemento} e {indice}
+    ...
+{/each}
+```
+
+- Quindi modifichiamo la pagina in questo modo
+
+<br>
+<img src="/media/svelte_067.png" class="mx-auto" width="450" />0
+
+---
+
+# SvelteKit
+
+Each block
+
+<img src="/media/svelte_068.png" class="mx-auto" width="650" />
+
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+- Nell'esempio del blocco condizionale abbiamo cambiato il colore della scritta, in funzione del valore di contatore, replicando l'HTML
+- Questo metodo ha parecchi svantaggi, primo tra tutti la difficile manutenibilità. Se devo modificare qualcosa devo modificarlo in alemno due punti diversi sprecando tempo e essendo soggetto a potenziali errori
+- Pertanto come anticipato, vediamo attraverso il concetto di `Advanced Styling` come risolvere questo problema in modo elegante
+- Svelte ci permette di specificare qualsiasi attributo di un tag HTML con JS
+- Pertanto nel nostro esempio quel che dobbiamo fare è cambiare la classe da rosso a verde solo in particolari condizioni. Modichiamo la pagina counter nel seguente modo
+
+<br>
+<img src="/media/svelte_069.png" class="mx-auto" width="350" />
+
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+- Quindi se il valore di contatore è &lt; 5 la classe assume il valore rosso, in caso contrario assume il valore verde
+- Quindi abbiamo ottenuto lo stesso effetto di prima ma senza duplicare codice, rendendo la nostra app più compatta, più leggibile e più facile da mantenere
+- Ci sono altre situazione in cui un elemento deve essere decorato con una classe in particolari condizioni
+- In questo caso possiamo scrivere un codice simile a questo
+
+```html
+<h2 class={contatore < 5 ? 'rosso' : ''}>
+    Il valore del contatore vale: {contatore}
+</h2>
+```
+
+- il tag h2 assume la classe rosso se contatore è minore di 5 altrimenti non viene assegnata nessuna classe CSS
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+- Questo è un caso così comune che Svlete ci fornisce un modo più compatto di scrivere questo codice
+  
+```html
+<h2 class:rosso={contatore < 5}>
+    Il valore del contatore vale: {contatore}
+</h2>
+```
+
+- class:rosso è il nome della classe che vogliamo assegnare
+
+- Così facendo otteniamo lo stesso risultato di prima ma in modo più compatto
+- Spesso il nome della classe coincide con il nome della variabile da cui dipende. In questi casi è possibile scrivere il codice in modo ancora più compatto
+
+```html
+<h2 class:sottolineato>
+    Il valore del contatore vale: {contatore}
+</h2>
+```
+
+- se sottolineato == true allora viene applicata la classe sottolineato
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+<img src="/media/svelte_070.png" class="mx-auto" width="450" style="position: relative; top:-80px;" />
+
+
+---
+
+# SvelteKit
+
+Advances Styling
+
+<img src="/media/svelte_071.png" class="mx-auto" width="700" />
+
+
+---
+
+# SvelteKit
+
+Reactivity
+
+- Come abbiamo visto negli esempi precedenti al centro di Svelte c'è un potente sistema di reattività per mantenere il DOM sincronizzato con lo stato dell'applicazione, ad esempio in risposta a un evento 
+- Occiamente questo processo non avviene in automatico, e Svelte "instrumenta" il codice in modo che al variare del valore della variabile il DOM venga aggiornato in modo coerente
+- La reattività di Svelte non solo mantiene il DOM sincronizzato con le variabili della tua applicazione, come visto.
+- Svelte può anche mantenere le variabili sincronizzate tra loro utilizzando dichiarazioni reattive. Questo meccanismo è molto potente e permette di scrivere codice in manierà facile che in vanilla JS sarebbe piuttosto tedioso
+- Vediamo un esempio, modificando la pagina counter nel seguente modo
+
+---
+
+# SvelteKit
+
+Reactivity
+
+<img src="/media/svelte_072.png" class="mx-auto" width="500" />
+
+
+---
+
+# SvelteKit
+
+Reactivity
+
+- Questo costrutto non è comune e quindi non preoccuparti se non ti risulta subito chiaro.
+- Il costrutto `$:`, introduce un blocco di JavaScript valido, che Svelte interpreta nel senso di "riesegui questo codice ogni volta che uno dei valori di riferimento cambia". 
+- Pertanto siccome il valore di *doppio* dipende dal valore di *contatore*, ogni volta che *contatore* cambierà l'espressione verrà nuovamente calcolata (contatore * 2) e il risultato assegnato a *doppio*
+- In questo modo possiamo correlare 2 o più variabili senza dover scrivere del codice condizionale
+- Questa è una soluzione elegante e **UNICA di SVELTE**. 
+- Non è presente nello stesso modo in nessun altro framework JS
+- In generale il costrutto reattivo assume la seguente forma
+
+```html
+$: {
+    ....
+    codice JS
+    ...
+}
+```
+
+---
+
+# SvelteKit
+
+Reactivity
+
+
+<img src="/media/svelte_073.gif" class="mx-auto" width="650" />
+
+---
+
+# SvelteKit
+
+Reactivity: Esercitazione_13
+
+- Modificare la pagina counter in modo che utilizzando la reattività, il valore della variabile sottolineato diventi true il valore di DoubleCounter è pari e diventi false quando tale valore è dispari
+
 
 
 ---
@@ -1765,106 +2247,8 @@ Creazione Web App
 # BLANK
 
 
----
-
-# Svelte
-
-Stateful component
-
-- Uno dei problemi tradizionali dello sviluppo di app web è la gestione dello stato
-- Questo problema è intrinseco in quanto il protcollo HTTP è **stateless** o senza stato
-- Svelte risolve brillantemente questo problema permettendo di immagazzinare lo stato del componente direttamente all'interno del componente stesso
-- Pertanto un componente Svelte è assimilabile a tutti gli effetti ad un oggetto in base alla definizione OOP
-- Un componente svelte implementa il meccanismo del `encapsulation`
-
----
-
-# Svelte
-
-Stateful component
-
-- Ogni componente, oltre a definire il markup, la logica CSS e JavaScript, può ospitare il proprio stato.
-- Lo stato è un qualsiasi dato necessario per il corretto funzionamento del componente stesso e dell'applicazione
-- Ad esempio, se un campo di input di un modulo contiene la stringa "test", ci sarà una variabile da qualche parte che contiene questo valore. 
-- Questo è lo stato del campo di input.
-- Il campo è selezionato? Una variabile da qualche parte registrerà questo fatto. E così via.
-- Lo stato è ospitato nella sezione `<script>` del componente 
-
-```html
-<script>
-	let count = 0; // stato di un contatore
-</script>
-```
-
----
-
-# Svelte
-
-Stateful component
-
-- Ma come si aggiorna lo statro di un componente?
-- Altri framework come Vue o React, rendono questa operazione poco intuitiva
-- Al contrario una cosa grandiosa di Svelte è che non è necessario fare nulla di speciale per aggiornare lo stato di un componente.
-- Basta solo un'operazione di assegnazione in qualsiasi parte del componente 
-
-```html
-<script>
-	let count = 0;
-
-	function incrementa() {
-		count++;
-	}
-</script>
-``` 
-
----
-
-# Svelte
-
-Stateful component
-
-- Vediamo un esempio completo
-
-<img src="/media/svelte_12.png" class="centro" />
-
-- Anche in questo caso l'applicazione è solo <br> un contenitore per i componenti che implementano <br> la UI e le funzionalità desiderate	
-  
----
-
-# Svelte
-
-Stateful component
-
-<img src="/media/svelte_13.png" class="centro" />
-
-- Ad ogni pressione del bottone viene invocata <br> una funzione (metodo) interno del componente
-- Il metodo incrementa la variabile di <br> stato del contatore
-- Come detto in precedenza, lo stato di <br> un componente Svelte si modifica con <br> una semplice assegnazione
-- Più intuitivo di così non è proprio possibile :)
-
-<br>
-<div style="background-color:green;color:yellow;padding: 20px;width:50%;">
-Per modificare lo stato di un componente è SEMPRE necessario effettuare un'operazione di assegnamento
-</div>
-
----
-
-# Svelte
-
-Stateful component
-
-<img src="/media/svelte_14.png" class="mx-auto w-300" />
 
 
----
-
-# Svelte
-
-Esercizio svelte_03
-
-- Implementare l'applicazione ed il componente Contatore visti a lezione
-- Aggiungere anche la funzionalità di decremento del contatore
-- *Consgenare tutta la directory |cognome|_svelte_03 ad escusione della sub-directory node_modules*
 
 ---
 
