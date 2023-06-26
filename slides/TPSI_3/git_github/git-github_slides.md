@@ -374,7 +374,87 @@ Esercitazione_02: creiamo un nuovo repository remoto su Github
 
 # Git & GitHub
 
-Esercitazione_03: Installazione di git
+Esercitazione_03: Personal Access Token
+
+- Per poter accedere a GitHub via web è necessario l'uso di una password (scelta durante la creazione dell'account)
+- Tuttavia molte delle operazioni git verranno effettuate dalla linea di comando 
+- In questo caso, per ragioni di sicurezza, GitHub richiede l'uso di un `Personal Access Token`
+- In pratica un *Personal Access Token* è una password che può essere utilizzata dalla linea di comando o da programmi che usano le API di GitHub (es: GitKraken)
+- Vediamo come creare un ***PAT***
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+- Dalla vostra home di GitHub
+
+<img src="/media/git_12.png" width="600" style="margin:auto;position:relative; left: -180px; top: 10px;">
+
+<img src="/media/git_13.png" width="200" style="margin:auto;position:relative; left: 280px; top: -210px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+- Andate al fondo e selezionate *Developer Settings*
+
+<img src="/media/git_14.png" width="550" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+<img src="/media/git_15.png" width="800" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+
+<img src="/media/git_16.png" width="460" style="margin:auto;position:relative; left: 0px; top: -20px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+
+<img src="/media/git_17.png" width="460" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+
+# Git & GitHub
+
+Esercitazione_03: Personal Access Token
+
+
+<img src="/media/git_18.png" width="650" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+<br>
+
+**IMPORTANTE**: 
+
+`fare una copia del PAT appena generato, NON SARA' PIU' POSSIBILE VISUALIZZARLO`
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_04: Installazione di git
 
 - git spesso è già presente sul tuo sistema
 - Tuttavia installarlo da linea di comando è semplicissimo, basta infatti eseguire il seguente comando
@@ -396,12 +476,42 @@ Esercitazione_03: Installazione di git
 
 <br>
 - Se vedi un output simile a questo hai installato git con successo e ora sei pronto per lavorare
-  
+
+
 ---
 
 # Git & GitHub
 
-Esercitazione_04: Clone di un repository remoto
+Esercitazione_05: Configurazione di Git
+
+- Git è un programma che può essere configurato in ogni suo aspetto
+- Iniziamo con la configurazione base che ci permette di lavorare senza difficoltà
+- Vogliamo configurare il nome utente, l'email e il PAT di accesso
+- Per fre ciò useremo i seguenti comandi da linea di comando
+
+<br>
+
+```bash
+# git config --global user.name 'Cognome-Nome' #configura nome utente
+
+# git config --global user.email cognome.nome@istitutoagnelli.it # configura email
+
+# git config --global credential.helper store  # al primo inserimento memorizza il PAT per usi futuri
+```
+
+<br>
+
+- In questo modo nell'uso futuro di git non dovremo sempre inserire le credenziali, ma git lo farà per noi
+- Verifica che tutto sia apposto con il seguente comando
+
+```bash
+# git config --global -l  # visualizza la configurazione globale di git
+```
+---
+
+# Git & GitHub
+
+Esercitazione_06: Clone di un repository remoto
 
 - Ora vogliamo **CLONARE** il nostro repository appena creato su Github in locale
 - Per fare ciò dobbiamo utilizzare il comando **clone**
@@ -413,7 +523,7 @@ Esercitazione_04: Clone di un repository remoto
 
 # Git & GitHub
 
-Esercitazione_04: Clone di un repository remoto
+Esercitazione_06: Clone di un repository remoto
 
 - Apri un terminale, vai nella tua directory di lavoro ed esegui
 
@@ -439,7 +549,7 @@ Ricezione degli oggetti: 100% (3/3), fatto.
 
 # Git & GitHub
 
-Esercitazione_04: Clone di un repository remoto
+Esercitazione_06: Clone di un repository remoto
 
 ```bash
 # cd IlMioRepository
@@ -462,7 +572,178 @@ drwxrwxr-x   8 antonio antonio   4096 giu 25 18:12 .git
 
 # Git & GitHub
 
-Account Github
+Esercitazione_07: Modifica locale
+
+- In quest'esercitazione cosa fare al termine di una sessione di lavoro nella propria workign diretory
+- Creiamo un nuovo file chiamato *programma.c*
+
+```bash
+# cd ~/tmp/IlMioRepository # mi sposto nella mia working directory
+# touch programma.c  # creo il file programma.c
+# code programma.c # scrivo il programma
+
+--- programma.c
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello da programma.c");
+
+    return 0;
+}
+
+```
+
+---
+
+# Git & GitHub
+
+Esercitazione_07: Modifica locale
+
+- Al termine della scrittura del programma verifico lo stato del repository attraverso il comando `git status`
+
+```bash
+# git status
+
+Sul branch main
+Il tuo branch è aggiornato rispetto a 'origin/main'.
+
+File non tracciati:
+  (usa "git add <file>..." per includere l'elemento fra quelli di cui verrà eseguito il commit)
+	programma.c
+
+non è stato aggiunto nulla al commit ma sono presenti file non tracciati usa "git add" per tracciarli
+```
+
+- Come possiamo leggere ***git status*** ci dice che
+  - il nostro ramo principale di sviluppo `main` in locale è aggiornato rispetto al repository centrale `origin/main`
+  - è presente un file nella working directory `non tracciato da git` di nome *programma.c*
+
+---
+
+# Git & GitHub
+
+Esercitazione_07: Modifica locale
+
+- Quindi ciò significa che la stagoing area è vuota
+- Ora, come visto in precedenza dobbiamo eseguire due operazioni
+  - aggiungere *programma.c* alla staging area tramite il comando `git add <nome file>`
+  - sincronizzare la staging area con il repository tramite il comando `git commit...`
+
+```bash
+# git add programma.c
+# git status
+Sul branch main
+Il tuo branch è aggiornato rispetto a 'origin/main'.
+
+Modifiche di cui verrà eseguito il commit:
+  (usa "git restore --staged <file>..." per rimuovere gli elementi dall'area di staging)
+	nuovo file:             programma.c
+
+```
+
+<br>
+
+- ora *git status* ci dice che c'è un nuovo file nella staging area e verrà preso in carico nel prossimo ***committ***
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_07: Modifica locale
+
+```bash
+# git commit -m 'commit iniziale del programma'
+
+[main 4d00f87] commit iniziale del programma
+ 1 file changed, 7 insertions(+)
+ create mode 100644 programma.c
+```
+
+<br>
+
+- nota l'uso del flag `-m` per sepcificare un messaggio di commit
+
+<br>
+<Banner padding="20px">
+Il messaggio di commit VA SEMPRE indicato
+</Banner>
+
+<br>
+
+- ora il file *programma.c* è stato aggiunto nel repository
+  
+---
+
+# Git & GitHub
+
+Esercitazione_07: Modifica locale
+
+- Se verifichiamo lo stato del repository ora otterremo
+
+```bash
+# git status
+Sul branch main
+Il tuo branch è avanti rispetto a 'origin/main' di 1 commit.
+  (usa "git push" per pubblicare i tuoi commit locali)
+
+non c'è nulla di cui eseguire il commit, l'albero di lavoro è pulito
+```
+<br>
+
+- non ci sono file modificati nella workign directory
+- la staging area è vuota
+- il tuo repository locale è avanti di 1 commit rispetto al repository centrale 
+- Ciò soignifica che se ora vai su GitHub `NON` vedrai le modifiche appena apportate
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_08: Aggiorniamo il repository remoto
+
+- Come detto le modifiche locali non appaiono ancora sul repository remoto
+- Infatti su GitHub (remoto) il file *programma.c* non è presente
+
+
+<img src="/media/git_19.png" width="800" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_08: Aggiorniamo il repository remoto
+
+- Per sincronizzare il repository remoto con il contenuto del repository locale dobbiamo usare il comando `git push`
+
+<br>
+
+```bash
+# git push
+
+Enumerazione degli oggetti in corso: 4, fatto.
+Conteggio degli oggetti in corso: 100% (4/4), fatto.
+Compressione delta in corso, uso fino a 8 thread
+Compressione oggetti in corso: 100% (3/3), fatto.
+Scrittura degli oggetti in corso: 100% (3/3), 370 byte | 370.00 KiB/s, fatto.
+3 oggetti totali (0 delta), 0 riutilizzati (0 delta), 0 riutilizzati nel file pack
+To https://github.com/profmancusoa/IlMioRepository.git
+   d80e577..4d00f87  main -> main
+
+```
+
+---
+
+# Git & GitHub
+
+Esercitazione_08: Aggiorniamo il repository remoto
+
+- Ora aggiornando la pagina di GitHub vedremo che il repository remoto è esattamente uguale al repository locle
+
+<img src="/media/git_20.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
 
 
@@ -470,18 +751,98 @@ Account Github
 
 # Git & GitHub
 
-Basics
+<img src="/media/git_07.png" width="700" style="margin:auto;position:relative; left: 100px; top: 20px;">
 
 
 ---
 
 # Git & GitHub
 
-Basics
+Esercitazione_09: Lavoriamo in coppia sul repository
+
+- Suddividersi in coppie di sviluppatore. 
+- Chiamiamo ***A*** il primo sviluppatore
+- Chiamiamo ***B*** il secondo sviluppatore
+- A è lo sviluppatore che ha già creato il repository su GitHub
+- B è lo sviluppatore che è invitato da A a lavorare sullo stesso repository
+
+---
+
+# Git & GitHub
+
+Esercitazione_09: Lavoriamo in coppia sul repository
+
+
+<img src="/media/git_21.png" width="700" style="margin:auto;position:relative; left: 100px; top: 20px;">
 
 
 ---
 
 # Git & GitHub
 
-Basics
+Esercitazione_09: Lavoriamo in coppia sul repository
+
+- A invita B a collaborare sul proprio repository
+- B dovrà accettare l'invito ricevuto via email
+- Ora B può fare il clone del repository condiviso
+- Ora A effettua delle modifiche locali creando un file che si chiama *programma2.c*
+- A fa il commit e il push delle sue modifiche nel repository remoto
+- A questo punto B NON vede ancora le  modifiche apportate, ciò è normale
+- B deve aggiornare il suo repository locale con il contenuto del repository remoto
+- Per fare ciò deve eseguire il comando `git pull`
+
+```bash
+# git pull
+```
+
+- Ora i repository locali di A e B saranno sincronizzati con il repository remoto
+- E per la proprietà transitiva anche i repository di A e B sono sincronizzati tra loro
+
+---
+
+# Git & GitHub
+
+Esercitazione_09: Lavoriamo in coppia sul repository
+
+- Invertire i ruoli
+- B modifica il repository locale e poi quello remoto
+- A sincronizza il suo repository locale con quello remoto
+
+<br>
+<Banner padding="30px">
+Quanto visto finora è alla base dell'uso di Git in qualsiasi ambiente professionale.<br>
+Come visto Git permette a svilupaptori indipendenti di lavorare e collaborare su uno stesso progetto o repository indipendentemente dalla loro posizione geografica.
+
+</Banner>
+ 
+---
+
+# Git & GitHub
+
+Esercitazione_10: oh my Git
+
+- Esercitiamoci con git tramite un bel videogioco chiamato `oh my Git`
+- Scarica ed installa [oh my Git](https://ohmygit.org/)
+
+
+<img src="/media/git_22.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+
+
+---
+
+# Git & GitHub
+
+Risorse
+
+- Il sito di reiferimento per [Git](https://git-scm.com/) contiene tutta la documentazione e le risorse necessarie per apprendere al meglio l'uso di git
+- Sul sito di [Atlassian](https://www.atlassian.com/git) puoi trovare ottimi tutorial e informazioni che spiegano l'uso di git 
+- Altre risorse interattive per apprendere git sono
+  - [Learn Git Branching](https://learngitbranching.js.org/?locale=it_IT)
+  - [GitHub Minesweeper](https://profy.dev/project/github-minesweeper)
+  - [The Odin Project](https://www.theodinproject.com/lessons/foundations-git-basics)
+  - [Learn Git with Bitbucket Cloud](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
+  - [Git Immersion](https://gitimmersion.com/)
+  - [Idiot proof git](https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html)
+  - [The Perfect Commit](https://simonwillison.net/2022/Oct/29/the-perfect-commit/)
+
