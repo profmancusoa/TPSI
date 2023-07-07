@@ -1023,7 +1023,7 @@ modifichiamo una pagina HTML in JS
 
 Dato il seguente script JS
 
-1. Dato il file [esercizio_js_04.html](/support/esercizio_js_04.html) rinominarlo in |cognome|\_esercizio_js_04.html
+1. Dato il file [esercizio_js_04.html](/TPSI/support/esercizio_js_04.html) rinominarlo in |cognome|\_esercizio_js_04.html
 2. Aggiungere il file |cognome|\_esercizio*js_04.js e definire una funzione chiamata *modifica_stile* in modo che:
    - tutti i titoli di primo livello abbiano un colore di foreground rosso
    - tutti i titoli di secondo livello abbiano un colore di foreground blue su sfondo giallo
