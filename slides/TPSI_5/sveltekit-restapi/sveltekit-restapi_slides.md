@@ -14,7 +14,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 5
 as: 2023/2024
-version: '1.0.0'
+version: '1.1.0'
 
 ---  
 
@@ -48,62 +48,35 @@ REST API
 
 REST API
 
-- Iniziamo considerando che una ToDo List è una lista di ToDo e definendo due apsetti fondamentali:
-  - come è strutturata la nostra risorsa ToDo (**il modello della risorsa**) ?
-  - quali operazioni, relative alla risorsa, fornirà la nostra API ai suoi utenti ? 
+- Iniziamo considerando che una ToDo List è una lista di ToDo e definiamo due apsetti fondamentali:
+  1. come è strutturata la nostra risorsa ToDo (**il modello della risorsa**) ?
+  2. quali operazioni, relative alla risorsa, fornirà la nostra API ai suoi utenti ? 
 
 <img src="/media/api_01.png" width="400" style="margin:auto;position:relative; left: 0px; top: 00px;">
 
-
 ---
 
 # ToDo List
 
 REST API
 
-- Per creare il modello della nostra risorsa, possiamo utilizzare un linguaggio dichiarativo chiamato `JSON Schema` 
- --> maggiori informazioni su [JSON Schema](https://json-schema.org/)
+- La risorsa ToDo conterrà i seguenti campi:
+  - **id**: tipo numerico progressivo determinato dal server API
+  - **task**: tipo stringa che contiene la descrizione dell'attività della ToDo List
+  - **done**: boolean che rappresenta lo stato del ToDo (true: completo -- false: incompleto)
+  - **priority**: tipo numerico che rappresenta la priorità del ToDo (1: max priority - 3: min priority)
 
-<br>
-<Banner padding="20px">
-JSON Schema è un linguaggio dichiarativco che permette di definire la strutturazione e validazione di documenti in formato JSON
-</Banner>
-<br>
+- Pertanto la rappresentazione in JSON della risorsa ToDo è
 
-- JSON Schema è un semplice linguaggio che permette di definire in modo formale la struttura di un docuementi JSON
-- JSON Schema fornisce delle librerie per validate un documento JSON nei confronti del relativo schema e dire è il documento è formato secondo lo schema oppure no
+```json
+{
+    "id": 1,
+    "task": "Ricordarsi di studiare",
+    "done": false,
+    "priority": 1
+}
+```
 
-<img src="/media/api_02.png" width="200" style="margin:auto;position:relative; left: 0px; top: 00px;">
-
----
-
-# ToDo List
-
-REST API
-
-- Qui il JSON schema dell'oggetto ToDo realizzato con [JSON Schema Editor](https://json-schema-editor.tangramjs.com/)
-
-<img src="/media/api_03.png" width="400" style="margin:auto;position:relative; left: 0px; top: 30px;">
-
----
-
-# ToDo List
-
-REST API
-
-- Per validare un oggetto JSON con lo schema appena definito possiamo usare per esempio [JSON Schema Linter](https://jsonschemalint.com/#!/version/draft-07/markup/json)
-
-<img src="/media/api_04.png" width="800" style="margin:auto;position:relative; left: 0px; top: 30px;">
-
----
-
-# ToDo List
-
-Esercitazione_01
-
-- Definire con JSON Schema Editor lo schema come nelle slide
-- Fare delle prove di validazione con JSON Schema Linter
-  
 ---
 
 # ToDo List
@@ -196,7 +169,7 @@ routes
 
 # ToDo List
 
-Esercitazione_02
+Esercitazione_01
 
 - Creare lo sketeton di un progetto SvelteKit chiamato **todo-api**
 - Creare la route per la nostra API todo
@@ -248,7 +221,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_03
+Esercitazione_02
 
 - Implementare l'handler per HTTP GET
 - Modificare il file `vite.config.js`, al fine di fire il binding del server di sviluppo su 0.0.0.0 e non su 127.0.0.1
@@ -332,7 +305,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_04
+Esercitazione_03
 
 - Implementare l'handler per HTTP GET con parametro id
 - Interrogare l'API con *Thunderclient*
@@ -369,7 +342,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_05
+Esercitazione_04
 
 - Implementare lo stub del metodo POST 
 - Verificarne il corretto funzionamento aggiungendo due nuovi ToDo
@@ -393,7 +366,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_06
+Esercitazione_05
 
 - Implementare lo stub del metodo PUT 
 - Verificarne il corretto funzionamento aggiungendo modificando un ToDo e verificando l'effettivo aggiornamento
@@ -416,7 +389,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_07
+Esercitazione_06
 
 - Implementare lo stub del metodo PATCH 
 - Verificarne il corretto funzionamento aggiungendo modificando i vari campi di un ToDo e verificando l'effettivo aggiornamento del solo campo specificato nel body di HTTP PATCH
@@ -442,7 +415,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_08
+Esercitazione_07
 
 - Implementare lo stub del metodo DELETE 
 - Verificarne il corretto funzionamento rimuovendo un ToDo presente nella lista e verificando l'effettiva eliminazione
@@ -487,7 +460,7 @@ REST API
 
 # ToDo List
 
-Esercitazione_09
+Esercitazione_08
 
 - Implementare le modifiche dello stub GET per supportare il query string 
 - Verificarne il corretto funzionamento filtrando la lista di ToDo per priority e per stato
@@ -499,7 +472,7 @@ Esercitazione_09
 
 # ToDo List
 
-Esercitazione_10
+Esercitazione_9
 
 - Consegnare su GitHub tutto il lavoro svolto fino ad ora
 - Fare il push sul proprio fork del mio repository
@@ -824,12 +797,12 @@ REST API
 
 # ToDo List
 
-Esercitazione_11
+Esercitazione_10
 
 - Implementare il codice per le *azioni #2, #3, #4, #5*
 - Testare il corretto funzionamento di tutte e 4 le azioni con *thunderclient*
 - Consegnare su github facendo il push sul proprio fork del mio repository
-- Consegnare il codice e 8 screenshot per ogni test eseguito
+- Consegnare il codice e 8 screenshot per tutti i test eseguiti con thunderclient
   - 1 x azione 2
   - 2 x azione 3 (caso positivo e negativo)
   - 2 x azione 4 (caso positivo e negativo)
@@ -842,20 +815,13 @@ Esercitazione_11
 
 REST API
 
-- xxxx
+<div style="width:30%;">
 
-<img src="/media/api_00.png" width="600" style="margin:auto;position:relative; left: 0px; top: 00px;">
+- Passiamo all'implementazione finale dell' `azione#1` modificando il codice dell'azione POST nel seguente modo
 
+</div>
 
----
-
-# ToDo List
-
-REST API
-
-- xxxx
-
-<img src="/media/api_00.png" width="600" style="margin:auto;position:relative; left: 0px; top: 00px;">
+<img src="/media/api_44.png" width="590" style="margin:auto;position:relative; left: 150px; top: -260px;">
 
 
 ---
@@ -864,9 +830,25 @@ REST API
 
 REST API
 
-- xxxx
+- Verifico il corretto funzionamento
 
-<img src="/media/api_00.png" width="600" style="margin:auto;position:relative; left: 0px; top: 00px;">
+<img src="/media/api_46.png" width="380" style="margin:auto;position:relative; left: -230px; top: 20px;">
+<img src="/media/api_45.png" width="330" style="margin:auto;position:relative; left: 230px; top: -420px;">
+<img src="/media/api_45a.png" width="330" style="margin:auto;position:relative; left: 230px; top: -420px;">
+
+---
+
+# ToDo List
+
+Esercitazione_11
+
+- Implementare il codice per l' *azione #1*
+- Testare il corretto funzionamento con *thunderclient*
+- Consegnare su github facendo il push sul proprio fork del mio repository
+- Consegnare il codice e 3 screenshot 
+  - 2 x inserimento positivo
+  - 1 x inserimento fallito
+- Assolutamente non fare il commit della directory *node_modules*
 
 
 ---
@@ -875,7 +857,132 @@ REST API
 
 REST API
 
-- xxxx
+<div style="width:35%;">
 
-<img src="/media/api_00.png" width="600" style="margin:auto;position:relative; left: 0px; top: 00px;">
+- Ora implementiamo l'`azione #6` implementando il metodo PUT in questo modo
 
+</div>
+
+<img src="/media/api_47.png" width="600" style="margin:auto;position:relative; left: 180px; top: -200px;">
+
+---
+
+# ToDo List
+
+REST API
+
+- Verifico il corretto funzionamento
+
+<img src="/media/api_48.png" width="300" style="margin:auto;position:relative; left: -320px; top: 20px;">
+<img src="/media/api_49.png" width="300" style="margin:auto;position:relative; left: 0px; top: -290px;">
+<img src="/media/api_50.png" width="300" style="margin:auto;position:relative; left: 320px; top: -550px;">
+
+---
+
+# ToDo List
+
+Esercitazione_12
+
+- Implementare il codice per l' *azione #6*
+- Testare il corretto funzionamento con *thunderclient*
+- Consegnare su github facendo il push sul proprio fork del mio repository
+- Consegnare il codice e 3 screenshot 
+  - 1 x update positivo
+  - 1 x update fallito
+  - 1 x erorre
+- Assolutamente non fare il commit della directory *node_modules*
+
+---
+
+# ToDo List
+
+REST API
+
+- Dobbiamo ora implementare la versione finale delle `azioni #7 #8 e #9` 
+
+<img src="/media/api_51.png" width="480" style="margin:auto;position:relative; left: -240px; top: 20px;">
+<img src="/media/api_52.png" width="470" style="margin:auto;position:relative; left: 250px; top: -320px;">
+
+
+---
+
+# ToDo List
+
+REST API
+
+- Verifico il corretto funzionamento
+
+<img src="/media/api_53.png" width="300" style="margin:auto;position:relative; left: -320px; top: 20px;">
+<img src="/media/api_54.png" width="300" style="margin:auto;position:relative; left: 0px; top: -280px;">
+<img src="/media/api_55.png" width="300" style="margin:auto;position:relative; left: 320px; top: -560px;">
+
+---
+
+# ToDo List
+
+Esercitazione_13
+
+- Implementare il codice per le *azioni #7 #8 e #9*
+- Testare il corretto funzionamento con *thunderclient*
+- Consegnare su github facendo il push sul proprio fork del mio repository
+- Consegnare il codice e 5 screenshot 
+  - 1 x update positivo di task
+  - 1 x update positivo di done
+  - 1 x update positivo di priority
+  - 1 x rodo non trovato
+  - 1x per errore
+- Assolutamente non fare il commit della directory *node_modules*
+
+
+---
+
+# ToDo List
+
+REST API
+
+- Infine passiamo ora all'implementazione dell'`azione #10`
+  
+
+<img src="/media/api_56.png" width="500" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+
+---
+
+# ToDo List
+
+REST API
+
+- Verifico il corretto funzionamento
+
+<img src="/media/api_57.png" width="450" style="margin:auto;position:relative; left: -220px; top: 20px;">
+<img src="/media/api_58.png" width="450" style="margin:auto;position:relative; left: 250px; top: -240px;">
+
+---
+
+# ToDo List
+
+Esercitazione_14
+
+- Implementare il codice per l' *azione #10*
+- Testare il corretto funzionamento con *thunderclient*
+- Consegnare su github facendo il push sul proprio fork del mio repository
+- Consegnare il codice e 2 screenshot 
+  - 1 x delete positivo
+  - 1 x todo non esistente 
+- Assolutamente non fare il commit della directory *node_modules*
+
+---
+
+# ToDo List
+
+REST API
+
+- Bene, abbiamo implementato tutto il codice per realizzare le 10 azioni che avevamo progettato in fase iniziale
+- Abbiamo dapprima scritto gli stub che ci hanno permesso di avere un API funzionante ma senza sprecare troppo tempo sui dettagli
+- Poi con un approccio Top-Down abbiamo modificato ogni stub funzionante, in modo da eseguire le operazioni sul DB SQLite e abbiamo fatto in modo che i metodi rispondessero, al REST client, con i codici HTTP corretti
+- Ora la REST API è pronta per essere utilizzata da qualsiasi tipo di dispositivo
+
+<br>
+<Banner padding="30px">
+Questo è il paradigma prevalentemente usato nello sviluppo moderno di applicazioni e servizi web e nell'ambito dei microservizi
+</Banner>
