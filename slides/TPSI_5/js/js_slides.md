@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.17"
+version: "1.0.18"
 ---
 
 # JavaScript
@@ -395,9 +395,9 @@ Semicolons
 <br/>
 
 ```js
-alert("Hello ");
-alert("JS ");
-alert("World!!");
+alert("Hello ")
+alert("JS ")
+alert("World!!")
 ```
 
 <br/>
@@ -418,7 +418,8 @@ Semicolons
 <br/>
 
 ```js
-alert(5 + 2);
+alert(5 + 
+     2)
 ```
 
 <br/>
@@ -1022,8 +1023,8 @@ modifichiamo una pagina HTML in JS
 
 Dato il seguente script JS
 
-1. Dato il file [esercizio_js_04.html](../support/esercizio_js_04.html) rinominarlo in |cognome|\_esercizio_js_04.html
-2. Aggiungere il file |cognome|\_esercizio*js_04.js e definire una funzione chiamata \*\*\_modifica_stile*\*\* in modo che:
+1. Dato il file [esercizio_js_04.html](/support/esercizio_js_04.html) rinominarlo in |cognome|\_esercizio_js_04.html
+2. Aggiungere il file |cognome|\_esercizio*js_04.js e definire una funzione chiamata *modifica_stile* in modo che:
    - tutti i titoli di primo livello abbiano un colore di foreground rosso
    - tutti i titoli di secondo livello abbiano un colore di foreground blue su sfondo giallo
    - tutti i titoli di secondo livello abbiano la dimensione del font pari a 40px
