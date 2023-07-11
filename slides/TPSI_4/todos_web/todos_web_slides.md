@@ -1134,3 +1134,12 @@ Esercitazione_21
 - Ricorda l'approccio Top-Down come un importante metodologia di progettazione e di sviluppo
 
 <img src="/media/todo_68.png" width="400" style="margin:auto;position:relative; left: 0px; top: 30px;">
+
+---
+
+# ToDoS Web App
+
+Esercitazione_22
+
+- Pubblicare su github pages la tua applicazione ToDoS in modo che la puoi utilizzare tutti i giorni
+- Consegnare via email il link pubblico che permette di accedere all'app
