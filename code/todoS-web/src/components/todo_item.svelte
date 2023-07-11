@@ -5,6 +5,7 @@
     import { createEventDispatcher } from "svelte";
 
     export let todo; //oggetto todo ricevuto in input
+    let old_priority = todo.priority;
     const dispatch = createEventDispatcher();
 
     const item_change = (type) => {
@@ -13,10 +14,19 @@
 
     const toggle_status = () => {
         todo.done = !todo.done;
+        item_change('update');
     }
 
     const edit_task = () => {
         document.getElementById(todo.id).blur();
+        item_change('update');
+    }
+
+    $: {
+        if(todo.priority != old_priority) {
+            old_priority = todo.priority;
+            item_change('update');
+        }
     }
 </script>
 
@@ -40,7 +50,7 @@
         on:change={edit_task} />
 </Cell>
 <Cell>
-    <Priority disabled={todo.done} />
+    <Priority bind:prio={todo.priority} disabled={todo.done} />
 </Cell>
 <Cell last>
     <Icon name="delete_forever" color="red" handler={() => item_change('delete')}/>

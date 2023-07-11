@@ -13,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.0.0'
+version: '1.1.0'
 
 ---  
 
@@ -752,4 +752,385 @@ Esercitazione_16
   
 <img src="/media/todo_62.png" width="750" style="margin:auto;position:relative; left: 0px; top: 0px;">
 
+---
 
+# ToDoS Web App
+
+Local Storage
+
+- La nostra applicazione ToDo è completamente funzionante, tuttavia abbastanza inutile in quanto la ToDo List esiste solo finchè la finestra o tab del browser è aperta
+- In altre parole al momento la ToDo List è volatile e se chiudiamo il browser alla prossima riaperturà sarà vuota
+- Questo è normale in quanto da nessuna parte del codice abbiamo salvato i dati
+- Tuttavia è importante notare che il browser non ha accesso diretto al file system e quindi per poter salvare i dati della nostra applicazione dobbiamo utilizzare `Web Storage API` che consente il salvataggio permanente dei dati della nostra applicazione
+- In questo modo alla chiusura del browser i dati non saranno persi e alla succissiva riapertura la nostra ToDo List sarà ancora presente
+- In questo modo la nostra applicazione diventa completamente funzionale ed utile
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- L'`API Web Storage` fornisce meccanismi mediante i quali il browser può memorizzare coppie `chiave/valore`, in modo semplice ed intuitivo
+
+<img src="/media/todo_63.png" width="500" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Web Storage fornisce due meccanismi:
+  1. `sessionStorage`: 
+     - mantiene un'area di archiviazione separata per ogni origine (URL) che è disponibile per la durata della sessione della pagina (fintanto che il browser è aperto, inclusi i ricaricamenti e i ripristini della pagina).
+     - Memorizza i dati solo per una sessione, il che significa che i dati vengono archiviati fino alla chiusura del browser (o della scheda).
+     - I dati non vengono mai trasferiti al server.
+     - Il limite di archiviazione è al massimo 5 MB. 
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+2. `localStorage`:
+   - fa la stessa cosa, ma persiste anche quando il browser viene chiuso e riaperto.
+   - Memorizza i dati senza data di scadenza e viene cancellato solo tramite JavaScript o cancellando la cache del browser / i dati archiviati localmente.
+   - Il limite di archiviazione è al massimo 5 MB.
+
+
+**Il `localStorage` è la soluzione perfetta per la nostra applicazione ToDoS**
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+<img src="/media/todo_64.png" width="700" style="margin:auto;position:relative; left: 0px; top: -80px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+*localStorage* ha un'API molto semplice
+
+- `setItem(<key>, <value>)`: aggiunge una coppia key-value al localStorage
+
+- `getItem(<key>)`: preleva il valore associate alla key presente nel localStorage
+
+- `key(<idx>)`: restituisce la chiave con indice &lt;idx&gt;
+
+- `length`: restituisce il numero di chiavi presenti nel localStorage 
+
+<br>
+
+`IMPORTANTE: localStorage può solo memorizzare valori stringa`
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Proviamo ad usare le API di localStroage
+- Per fare ciò apri una nuova tab di chrome e con CTRL + SHIFT + J vai in modalità developer
+- Oragnizza le finestre come in figura in modo da vedere la *console* e *application*
+
+<img src="/media/todo_65.png" width="900" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+Nella console proviamo a inserire delle coppie chiave-valore
+
+```js
+localStorage.setItem('nome', 'Mario')
+localStorage.setItem('cognome', 'Rossi')
+localStorage.setItem('eta', '18')
+```
+
+<img src="/media/todo_66.png" width="900" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+Sempre dalla console proviamo a prelevare un valore associato ad una chiave
+
+```js
+localStorage.getItem('nome')
+'Mario'
+localStorage.getItem('cognome')
+'Rossi'
+localStorage.getItem('eta')
+'18'
+localStorage.getItem('altezza')
+null
+```
+
+<br>
+
+- Notare che siccome la chiave *altezza* non è presente nel localStorage, viene restiutito *null*
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+Vediamo come ottenere tutti i valori associati alle chiavi nel localStorage
+
+```js
+for(let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    console.log(key, localStorage.getItem(key));
+}
+
+eta 18
+cognome Rossi
+nome Mario
+```
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Quindi come visto queste semplici operazioni possono essere utilizzate nella nostra app ToDoS per memorizzare e recuperare i ToDo Item
+- Ma un ToDo Item è un oggetto, mentre localStorage memorizza solo stringhe. Che fare?
+- Dobbiamo convertire da oggetto -> stringa quando scriviamo nel localStorage
+- Dobbiamo convertire da stringa -> oggetto qualdo leggiamo dal localStorage
+- Il metodo `JSON.stringify(<oggetto>)` è perfetto per scrivere
+- Il metodo `JSON.parse(<string>)` è perfetto per leggere
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+```js
+todo  = { id: 1,
+          task: 'Studiare TPSI',
+          done: true,
+          priority: 1
+        }
+localStorage.setItem('todo1', JSON.stringify(todo));
+```
+<img src="/media/todo_67.png" width="900" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+```js
+const todo_obj = JSON.parse(localStorage.getItem('todo1'));
+console.log(todo_obj)
+
+{id: 1, task: 'Studiare TPSI', done: true, priority: 1}
+```
+<br>
+
+- Bene, con questa conoscenza del localStorage abbiamo tutti gli elementi per completare l'applicazione ToDoS dotandola di uno storage permanente e rendendola effettivamente utile ed utilizzabile per avere sempre sott'occhio la nostra lista di attività da svolgere
+
+<img src="/media/todo_68.png" width="300" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+---
+
+# ToDoS Web App
+
+Esercitazione_17
+
+- Provare ad usare, dalla console del browser,i metodi spiegati per manipolare il localStorage
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- La prima cosa da fare è aggiungere il codice che si occupa di leggere tutto i ToDo memorizzati nel localStorage all'avvio della nostra applicazione
+- Quindi dobbiamo modificare *ToDo List* e aggiungere il codice al momento del caricamento del componente
+- Per fare ciò utilizziamo un metodo standard di Svelte che si chiama `onMount` che viene appunto richiamato quando il componente viene montato nella pagina al prilo load
+- In questo metodo leggeremo tutte le chiavi del localStorage (i nostri ToDo Item) e popoleremo l'array todos così verrà automaticamente visualizzato
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+<img src="/media/todo_69.png" width="500" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Ora se ricarichiamo la pagina, vederemo la ToDo List vuota
+- Ciò è normale perchè il localStorage è vuoto e quindi non ci sono ToDo Item da aggiungere alla ToDo List
+- Aggiungiamo il codice per aggiungere un nuovo ToDo al localStorage
+
+<img src="/media/todo_70.png" width="410" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# ToDoS Web App
+
+Esercitazione_18
+
+- Implementare le modifiche al componente *ToDo List* per aggiungere il supporto al localStorage
+- Consegnare su github (non fare il commit della directory *node_modules*)
+  
+<img src="/media/todo_71.gif" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+<div style="width:50%">
+
+- Bene l'aggiunta funziona. Ora dobbiamo aggiungere la capacità di aggiornare il localStorage quando viene aggiornato un ToDo Item  
+</div>
+
+<img src="/media/todo_72.png" width="450" style="margin:auto;position:relative; left: 250px; top: -190px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+<img src="/media/todo_73.png" width="450" style="margin:auto;position:relative; left: 0px; top: -20px;">
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Ora se modifichiamo un ToDo Item vedremo che anche il localStorage sarà aggiornato
+- Tuttavia la priorità non è funzionante
+
+<img src="/media/todo_74.gif" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Questo perchè quando lo stato del componente *Priority* cambia, questo non viene visto dal componente *ToDo Item* che a sua volta non genera un evento *update* per la *ToDo List*
+
+<img src="/media/todo_74.png" width="700" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+
+---
+
+# ToDoS Web App
+
+Esercitazione_19
+
+- Implementare le modifiche al componente *ToDo Item* e *ToDo list*
+- Consegnare su github (non fare il commit della directory *node_modules*)
+  
+<img src="/media/todo_75.gif" width="900" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Infine aggiungiamo la cancellazione dal localStorage
+  
+<img src="/media/todo_76.png" width="450" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+
+# ToDoS Web App
+
+Esercitazione_20
+
+- Implementare le modifiche al componente *ToDo list*
+- Consegnare su github (non fare il commit della directory *node_modules*)
+  
+<img src="/media/todo_77.gif" width="800" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Ora l'applicazione è quasi completa e se chiudo il browser e lo riapro vedrò nuovamente i miei ToDO Item precedentemente memorizzati
+- Tuttavia c'è un problema. Se creo dei todo, per esempio id:1, id:2, id:3
+- Poi chiudo il browser e lo riapro, il prossimo ToDo che creo avrà id:1
+- Questo perchè abbiamo inizializzato la variabile *last_id* = 0 e quindi ripartiamo sempre dall'inizio
+- Dobbiamo modificare il codice in modo che *last_id* venga inizializzato effettivamente con l'ultimo (il più grande id presente nel localStorage)
+- Vediamo come
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+<img src="/media/todo_77.png" width="500" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# ToDoS Web App
+
+Local Storage
+
+- Bene ora il problema della duplicazione id è risolto
+- Concludiamo la nostra applicazione agigungendo una piccola animazione che fa apparire e scomparire i ToDo con un effetto di *fade*
+- In svelte è semplicissimo, vediamo come
+
+<img src="/media/todo_78.png" width="400" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+---
+
+# ToDoS Web App
+
+Esercitazione_21
+
+- Implementare le modifiche al componente *ToDo list* e *Cell* per completare l'applicazione
+- Consegnare su github (non fare il commit della directory *node_modules*)
+
+
+<img src="/media/todo_79.gif" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# ToDoS Web App
+
+- Molto bene, siamo arrivati al termine dello sviluppo dell'applicazione ToDoS
+- Ora abbiamo un'applicazione perfettamente funzionante e grazie al localStorage anche utilizzabile in modo reale
+- Ricorda l'approccio Top-Down come un importante metodologia di progettazione e di sviluppo
+
+<img src="/media/todo_68.png" width="400" style="margin:auto;position:relative; left: 0px; top: 30px;">
