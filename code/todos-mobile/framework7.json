@@ -1,0 +1,18 @@
+{
+  "cwd": "/home/antonio/WORK/ITI_Agnelli/Materie/TPSI/code/todos-mobile",
+  "type": [
+    "pwa"
+  ],
+  "name": "todosM",
+  "framework": "svelte",
+  "template": "blank",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkMode": true,
+    "iconFonts": true
+  },
+  "customBuild": false
+}

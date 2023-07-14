@@ -1,0 +1,38 @@
+{
+  "name": "todosm",
+  "private": true,
+  "version": "1.0.0",
+  "description": "todosM",
+  "repository": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.js",
+    "postinstall": "cpy --flat ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy --flat ./node_modules/material-icons/iconfont/*.* ./src/fonts/"
+  },
+  "browserslist": [
+    "IOS >= 15",
+    "Safari >= 15",
+    "last 5 Chrome versions",
+    "last 5 Firefox versions"
+  ],
+  "dependencies": {
+    "dom7": "^4.0.6",
+    "framework7": "^8.2.0",
+    "framework7-icons": "^5.0.5",
+    "framework7-svelte": "^8.2.0",
+    "material-icons": "^1.13.8",
+    "skeleton-elements": "^4.0.1",
+    "svelte": "^4.0.5",
+    "swiper": "^10.0.4"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "cpy-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
+    "postcss-preset-env": "^9.0.0",
+    "vite": "^4.4.3",
+    "workbox-cli": "^7.0.0"
+  }
+}
