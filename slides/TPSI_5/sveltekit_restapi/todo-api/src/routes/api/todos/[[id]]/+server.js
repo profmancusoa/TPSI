@@ -182,3 +182,10 @@ export async function DELETE({ params, request }) {
     }
 }
 
+export async function OPTIONS({ request }) {
+    return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+    });
+}
