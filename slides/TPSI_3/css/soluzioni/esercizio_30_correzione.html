@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .griglia-15 {
+            display: grid;
+            /* box-sizing: border-box; */
+            width: 408px;
+            margin: auto;
+            margin-top: 40px;
+            border:2px solid black;
+            grid-template-columns: 25% 25% 25% 25%;
+        }
+
+        .cella {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-weight: bolder;
+            background: rgb(255,145,26);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gioco del 15</h1>
+    <div class="griglia-15">
+        <div class="cella">1</div>
+        <div class="cella">2</div>
+        <div class="cella">3</div>
+        <div class="cella">4</div>
+        <div class="cella">5</div>
+        <div class="cella">6</div>
+        <div class="cella">7</div>
+        <div class="cella">8</div>
+        <div class="cella">9</div>
+        <div class="cella">10</div>
+        <div class="cella">11</div>
+        <div class="cella">12</div>
+        <div class="cella">13</div>
+        <div class="cella">14</div>
+        <div class="cella">15</div>
+        <div class="cella"></div>
+    </div>
+</body>
+</html>
