@@ -2,7 +2,8 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+# background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /media/cover.jpg
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -12,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.0.0'
+version: '1.0.1'
 
 ---  
 
@@ -33,13 +34,13 @@ Static Web Site
 
 Static Web Site
 
-- Come abbiamo visto SvelteKit è uno stupefacente framework **full stack*
+- Come abbiamo visto SvelteKit è uno stupefacente framework **full stack**
 - Ci permette di realizzare applicazioni
   - solo back-end
   - solo front-end
   - back-end e front-end (full stack)
-- Le applicazioni che includono un back-end hanno bisogno di *node.js* pertanto devono essere eseguite su un server che disponde di node
-- Tuttavia spesso, e seguento il nuovo paradigma *serverless* la nostra applicazione Web o sito, avrà solo un front-end
+- Le applicazioni che includono un back-end hanno bisogno di *node.js* pertanto devono essere eseguite su un server che dispone di node
+- Tuttavia spesso, seguendo il nuovo paradigma *serverless* la nostra applicazione Web o sito, avrà solo un front-end
 - In questo scenario non è necessario un server per eseguire l'applicazione
 - E' sufficiente pubblicare il sito su un normale web server (tramite uno degli infiniti servizi disponibili - vedi GitHub Pages)
 
@@ -50,10 +51,10 @@ Static Web Site
 Static Web Site
 
 - Per default SvelteKit crea un sito full-stack e quindi abbiamo bisogno di modificare questo comportamento per generare un sito completamente statico
-- Esempio importante è [https://profmancusoa.github.io/](https://profmancusoa.github.io/)
+- Esempio importante è [https://prof.mancusoa.it/](https://prof.mancusoa.it/)
 - Questo blog è realizzato in SvelteKit e generato staticamente
 - Infatti lo pubblico su github pages e non ho bisogno di un server node.js e del relativo servizio di hosting che può essere costoso
-- Chiaramete siccome il sito sarà statico dobbiamo assicurarci di abilitare il pre-render in quanto le pagine NON possono essere di tipo SSR, ma necessariamente di tipo CSR
+- Chiaramente siccome il sito sarà statico dobbiamo assicurarci di abilitare il pre-render in quanto le pagine NON possono essere di tipo SSR, ma necessariamente di tipo CSR
 
 ---
 
@@ -61,7 +62,7 @@ Static Web Site
 
 Static Web Site
 
-- Aggiungiamo al nostro file *+layout.svelte*, o se non presente al file *+page.server.js*
+- Aggiungiamo al nostro file *+layout.svelte*, o se non presente al file *+page.server.js* oppure *+page.js*
 
 <br>
 
@@ -72,7 +73,7 @@ export const prerender = true;
 <br>
 
 - Questo garantisce che le pagine sono tutte di tipo CSR e per ogni pagina avviene un pre-rendering
-- Nota che in questo scenario la funzione *load* può ancora essere utilizzata per effettuare delle funzioni server side, ma ciò p possibile solo durante la compilazione del sito (***build phase***) e non durante il ***run-time** del sito
+- Nota che in questo scenario la funzione *load* può ancora essere utilizzata per effettuare delle funzioni server side, ma ciò p possibile solo durante la compilazione del sito (***build phase***) e non durante il **run-time** del sito
 - Ottimo esempio di questo meccanismo è il mio blog dove durante il pre-rendering trasformo gli articoli scritti in markdown in HTML
 
 ---
@@ -145,17 +146,66 @@ drwxrwxr-x 3 antonio antonio 4,0K lug 11 19:17 _app
 
 - Come si vede c'è il file *index.html* che è la root del sito e tutte le altre pagine e risorse sono statiche
 - Il contenuto di questa cartella può essere trasferito sul tuo hosting per andare direttamente online
-- Se usi Github Pages basta fare il push della directory e dopo pochi istanti il tuo sito sarà online
 
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Se usi Github Pages è necessario qualche piccolo accorgimento
+- Per prima cosa GitHub Pages pubblica le pagine contenute nella directory docs, quindi è preferibile usare il seguente file ***svelte.config.js*** 
+
+```js
+import adapter from '@sveltejs/adapter-static';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		adapter: adapter({
+            pages: 'docs',
+            assets: 'docs',
+            fallback: undefined,
+            precompress: false,
+            strict: true
+        })
+	}
+};
+export default config;
+```
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Siccome GitHub Pages usa jekyll (il primo esempio importante di static web site generator scritto in ruby) i file e directory che iniziano con _(underscore) vengono ignorati
+- Per evitare questo comportamento, basta aggiungere il file vuoto **.nojekyll** nella directory *docs*
+- In questo modo saremo sicuri che il nostro sito o app generate con sveltekit venga servito correttamente (altrimenti ci sono degli errori 404)
+
+Per evitare di dover creare il file *.nojekyll* tutte le volte a mano, modifichiamo il file *package.json* nel seguente modo
+
+```js
+...
+"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && touch docs/.nojekyll",
+		"preview": "vite preview"
+	},
+...
+```
+
+Static Web Site
 ---
 
 # SvelteKit
 
 Esercitazione_01
 
-- Creare un semplice sito in svelteKit, o usare uno già preparato in passato
+- Creare un semplice sito in svelteKit, o usarne uno già preparato in passato
 - Fare il build statico
 - Pubblicarlo su Github Pages
-- Consegnare via email, il link pubblico al sito
+- Consegnare via email, il link pubblico al sito 
 
 <img src="/media/static_01.png" width="350" style="margin:auto;position:relative; left: 0px; top: 20px;">
