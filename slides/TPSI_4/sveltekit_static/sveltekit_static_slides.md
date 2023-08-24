@@ -13,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.0.1'
+version: '1.0.2'
 
 ---  
 
@@ -33,10 +33,6 @@ Static Web Site
 # SvelteKit
 
 Static Web Site
-
-<img src="/cover.jpg" width="350" style="margin:auto;position:relative; left: 0px; top: 20px;">
-
-
 
 - Come abbiamo visto SvelteKit è uno stupefacente framework **full stack**
 - Ci permette di realizzare applicazioni
