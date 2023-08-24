@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.png
 # apply any windi css classes to the current slide
 class: "text-center"
 # https://sli.dev/custom/highlighters.html
@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.18"
+version: "1.0.19"
 ---
 
 # JavaScript
@@ -125,7 +125,7 @@ Il tag \<script\>
 
 Il tag \<script\>
 
-- Il codice JavaScript contenuto nel tag \<script\> viene eseguito automaticamento al caricamento della pagina HTML.
+- Il codice JavaScript contenuto nel tag \<script\> viene eseguito automaticamente al caricamento della pagina HTML.
 
 ![js03](/media/js03.png)
 
@@ -136,7 +136,7 @@ Il tag \<script\>
 Il tag \<script\>
 
 - Tuttavia questa non è una pratica corretta.
-- Esattamente come per lo stile CSS è buona norma seprarare il codice HTML dal programma JavaScript
+- Esattamente come per lo stile CSS è buona norma separare il codice HTML dal programma JavaScript
 - Pertanto, il modo corretto di includere un programma JavaScript in una pagina HTML, è di usare un file esterno **_.js_**
 
 ```html {all|6-7}
@@ -162,7 +162,7 @@ Il tag \<script\>
 
 Il tag \<script\>
 
-- E' possibile ovviamente referenziare lo scipt JS tramite una URL valida
+- E' possibile ovviamente referenziare lo script JS tramite una URL valida
 
   `<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js"></script>`
 
@@ -223,7 +223,7 @@ https://developer.chrome.com/docs/devtools/
 - **Memory**: Fornisce una visione dettagliata della memoria del browser durante l'esecuzione del codice JS
 - **Application**: Fornisce accesso alle risorse dell'applicazione web (es: local storage, cookies, ...)
 - **Security**: Offre una panoramica sugli aspetti di sicurezza della pagina (es: certificati SSL, ...)
-- **Lighthouse**: Permette di iodentifficare e risolvere potenziali problemi lagati alla pagina web ottimizzandone le prestazioni
+- **Lighthouse**: Permette di identificare e risolvere potenziali problemi legati alla pagina web ottimizzandone le prestazioni
 
 --- #slide N
 
@@ -412,8 +412,8 @@ alert("World!!")
 
 Semicolons
 
-- Tuttavia ci sono delle eccezzioni
-- Non sempre un ritorno a capo viene automaticamente sostitutio da un **;**
+- Tuttavia ci sono delle eccezioni
+- Non sempre un ritorno a capo viene automaticamente sostituito da un **;**
 
 <br/>
 
@@ -425,7 +425,7 @@ alert(5 +
 <br/>
 
 - In questo scenario, lo EOL dopo il +, **NON** viene sostituito con **;** ma solo come un normale ritorno a capo
-- L'interprete comprende che terminando lo statement dopo il +, l'esperessione non sarebbe valida **_5 + ????_**
+- L'interprete comprende che terminando lo statement dopo il +, l'espressione non sarebbe valida **_5 + ????_**
 - Pertanto non sostituendo EOL con ; l'espressione risulta completa e l'interprete è in grado di eseguire correttamente lo statement.
 - Da ciò ne consegue che, **i parametri di una funzione, possono essere forniti su più linee**.
 - Ciò è vero anche in C/C++ e Java
@@ -479,7 +479,7 @@ Commenti
 <br />
 <br />
 
-- In VS Code è possibile inserire un commento, selezionando il codice e premendo i tasi `CTRL + SHIFT + /`
+- In VS Code è possibile inserire un commento, selezionando il codice e premendo i tasti `CTRL + SHIFT + /`
 
 <br />
 <br />
@@ -502,7 +502,7 @@ Tipizzazione
 - La differenza principale deriva dal fatto che C/C++ e Java sono linguaggi `fortemente tipizzati`
 - Al contrario JavaScript è un linguaggio `debolmente tipizzato`.
 
-- In un linguaggio **_fortemente tipizzato_**, il programmatore è obbligato a specificare il tipo di ogni variabile e le assegnazioni posso avvenire solo tra tipi corenti.
+- In un linguaggio **_fortemente tipizzato_**, il programmatore è obbligato a specificare il tipo di ogni variabile e le assegnazioni posso avvenire solo tra tipi coerenti.
 
 ```c
 int num;
@@ -656,7 +656,7 @@ if (a == 10) {
 console.log(`b è diventata globale, infatti a + b = ${a+b}`);
 
 //output
-alore di a 10
+valore di a 10
 b è diventata globale, infatti a + b = 30
 ```
 
@@ -681,7 +681,7 @@ if (a == 10) {
 console.log(`b è diventata globale, infatti a + b = ${a+b}`);
 
 //output
-alore di a 10
+valore di a 10
 b è diventata globale, infatti a + b = 30
 ```
 
@@ -762,7 +762,7 @@ if (a == 10) {
 console.log(`b è diventata globale, infatti a + b = ${a+b}`);
 
 //output
-alore di a 10
+valore di a 10
 b è diventata globale, infatti a + b = 15
 ```
 
@@ -791,7 +791,7 @@ numero = 6; //genera un errore: Uncaught TypeError: Assignment to constant varia
 <br />
 
 - Una pratica comunemente adottata (fortemente consigliata) in JavaScript è quella di usare le costanti per nominare dei valori difficili da ricordare.
-- Questo aumenta chairamente la leggibilità del codice.
+- Questo aumenta chiaramente la leggibilità del codice.
 - Normalmente questo tipo di costanti viene nominato usando caratteri tutti maiuscoli e separati da underscore.
 
 ```js
@@ -838,7 +838,7 @@ Progressive Web App (PWA) è un termine, coniato in origine da Google, che si ri
 
 modifichiamo una pagina HTML in JS
 
-- Un metodo molto importante dell'oggeto DOM _Document_ è `getElementById(<id_componente>)`
+- Un metodo molto importante dell'oggetto DOM _Document_ è `getElementById(<id_componente>)`
 - Questo è uno dei metodi più utilizzati nella manipolazione del DOM in vanilla JS
 - Il metodo restituisce **l'oggetto HTML** cha un attributo **id** pari a _<id_componente>_.
 
@@ -1090,7 +1090,7 @@ p.innerText = "Questo è un paragrafo";
 Aggiungere oggetti HTML al DOM in JS
 
 - Per aggiungere un nuovo elemento al DOM dobbiamo utilizzare il metodo `append` dell'oggetto body
-- Questo perchè sappiamo dall'HTML che tutti gli elementi sono _figli_ di body
+- Questo perché sappiamo dall'HTML che tutti gli elementi sono _figli_ di body
 - Pertanto per aggiungere un nuovo elemento facciamo l'append in questo modo
 
 <br />
@@ -1131,7 +1131,7 @@ p.remove(); //rimuove l'elemento p dal body del documento
 
 Creiamo una lista in JS
 
-- Il metodo visto per la creazione i vusalizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
+- Il metodo visto per la creazione i visualizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
 - Immaginiamo di voler visualizzare la lista degli studenti di una classe provenienti da un DataBase
 - Il contenuto della lista non è noto quando scriviamo il markup della pagina HTML
 - Pertanto creeremo la lista in modo dinamico a runtime tramite JavaScript
@@ -1182,7 +1182,7 @@ alert("Assicurati di leggere le condizioni contrattuali");
 <br />
 <img src="/media/js11.png"  style="margin:auto;"/>
 
-- La pagina rimane "bloccata" fino a che l'utente premte il pulsante OK
+- La pagina rimane "bloccata" fino a che l'utente preme il pulsante OK
 - In questo modo siamo sicuri che se l'utente procede nella consultazione della pagina ha volontariamente premuto il pulsante OK e pertanto si assume che abbia letto il messaggio.
 
 ---
@@ -1235,7 +1235,7 @@ if (risultato) {
 confirm
 
 - La funzione `confirm("Messaggio")` visualizza una finestra modale con il messaggio e due bottoni **OK** e **Cancel/Annulla**
-- La funzione resitutisce un valore boolean in base al tasto premuto **_OK->true e Cancel -> false_**
+- La funzione restituisce un valore boolean in base al tasto premuto **_OK->true e Cancel -> false_**
 
 ```js
 let conferma = confirm("Hai letto le condizioni contrattuali?");
@@ -1270,7 +1270,7 @@ CSS dinamico in JS
 - Oltre a modificare il testo e il contenuto di un elemento HTML può essere utile modificare il suo stile in modo dinamico
 - Per far ciò in modo agevole, il metodo pi+ utilizzato e l'aggiunta o la rimozione di una o più classi CSS ad un elemento
 - In tal modo da JS si può facilmente variare l'aspetto di un elemento in funzione di specifici stati della logica della pagina
-- Ogni elemento HTML ha una proprietà chiamta `classList` che fornisce la lista delle classi CSS applicate all'elemento stesso
+- Ogni elemento HTML ha una proprietà chiamata `classList` che fornisce la lista delle classi CSS applicate all'elemento stesso
 
 ```js
 ul.classList
@@ -1673,7 +1673,7 @@ String
 
 String
 
-- Il Backtick serve per includere una stringa una variabile che verrà poi sostuituita con il suo valore a run-time
+- Il Backtick serve per includere una stringa una variabile che verrà poi sostituita con il suo valore a run-time
 
 <br />
 
@@ -1776,14 +1776,14 @@ let utente = nome || cognome || "anonimo"; --> Rossi
 I 4 operatori booleani
 
 - Importante notare che viene applicato il principio di `short-circuit evaluation`
-- In altre parole un espressione con l'operatore ||, partendo da sinistra valuta tutte le espressioni finchè ne trova una vera
+- In altre parole un espressione con l'operatore ||, partendo da sinistra valuta tutte le espressioni finché ne trova una vera
 - Non appena trova un espressione vera la valutazione viene interrotta
 
 ```js
 prompt("Come ti chiami?") || alert("Non hai inserito nessun nome");
 ```
 
-- Se l'utente al prompt inserisce una stringa (il suo nome) allora l'espressione dopo || non viene valutata e quindi l'alert non visdualizzato
+- Se l'utente al prompt inserisce una stringa (il suo nome) allora l'espressione dopo || non viene valutata e quindi l'alert non visualizzato
 - Se l'utente non inserisce una stringa, il risultato del prompt è falso pertanto l'espressione dopo || viene valutata e quindi eseguita
 
 Il codice è equivalente a:
@@ -1802,8 +1802,8 @@ I 4 operatori booleani
 
 - Anche l'operatore && si applica a tutti i tipi e non solo quelli booleani
 - Pertanto questo operatore trova il primo valore falso
-- Infatti le esperesisoni vengono valutate da sinistra a destra fino a che ne trova una falsa. A questo punto le successive espressioni non sono valutatre
-- Se sono tutte vere restiusce il valore dell'ultima espressione
+- Infatti le espressioni vengono valutate da sinistra a destra fino a che ne trova una falsa. A questo punto le successive espressioni non sono valutate
+- Se sono tutte vere restituisce il valore dell'ultima espressione
 
 ```js
 1 && 0 -> 0
@@ -1872,7 +1872,7 @@ a && b || !c -> (a && b) || (!c)
 I 4 operatori booleani
 
 - L'operatore **??** chiamato _Nullish coalescing operator_ verifica se il primo operando è definito (esiste ed ha un valore valido)
-- In caso positivo restituisce la prima espressiome altrimenti la seconda
+- In caso positivo restituisce la prima espressione altrimenti la seconda
 
 ```js
 a ?? b -> restituisce a se è valida e definita altrimenti b
@@ -1949,7 +1949,7 @@ Data e Orario
 - Un oggetto di tipo **Date** memorizza una data, un orario e fornisce i metodi per manipolare queste informazioni
 
 ```js
-let data_ora = new Date(); // crea un oggeto Date che contiene la data e l'ora attuale
+let data_ora = new Date(); // crea un oggetto Date che contiene la data e l'ora attuale
 
 console.log(data_ora);
 > 2022-08-26T15:30:40.155Z
@@ -2099,7 +2099,7 @@ let z = y - x; // - è l'operazione di sottrazione ed ha 2 operandi y e x
 
 operatore unario
 
-- Tuttavia l'operatore **_+_** ha anche una versiona unaria
+- Tuttavia l'operatore **_+_** ha anche una versione unaria
 
 ```js
 let x = 1;
@@ -2168,7 +2168,7 @@ Precedenze
 operatori di assegnazione
 
 - L'operatore `=` è l'operatore di assegnazione
-- Genericamente l'espresisone di assegnazione si rappresenta così
+- Genericamente l'espressione di assegnazione si rappresenta così
 
 ```js
 let left-value = right-value;
@@ -2199,7 +2199,7 @@ let str = "dieci";
 
 let b = (c = d = 1);
 // 1 viene assegnato a d che restituisce 1 che viene assegnato a c
-// che restitutisce 1 che viene assegnato a b
+// che restituisce 1 che viene assegnato a b
 
 let c = 4 + (a = b - 3); // 21
 // ad a viene assegnato il valore b - 3 (17) che viene sommato a 4
@@ -2236,7 +2236,7 @@ n /= 3; // 3 (n = n / 3)
 increment/decrement operators prefisso e postfisso
 
 - Esattamente come in C/C++ gli operatori unari **++** e **--** hanno due forme:
-  - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restrituisce il nuovo valore calcolato
+  - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restituisce il nuovo valore calcolato
   - **postfissa**: l'operatore in forma postfissa restituisce l'operando passato e poi calcola il nuovo valore
 
 FORMA PREFISSA
@@ -2262,7 +2262,7 @@ console.log(--m); // 1 l'operatore -- prefisso prima decrementa il valore e poi 
 increment/decrement operators prefisso e postfisso
 
 - Esattamente come in C/C++ gli operatori unari **++** e **--** hanno due forme:
-  - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restrituisce il nuovo valore calcolato
+  - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restituisce il nuovo valore calcolato
   - **postfissa**: l'operatore in forma postfissa restituisce l'operando passato e poi calcola il nuovo valore
 
 FORMA POSTFISSA
@@ -2414,8 +2414,8 @@ Boolean(NaN); // false
 operatori di confronto
 
 - In JavaScript, sono presenti i comuni operatori di confronto con un comportamento identico al C/C++ e molto altri linguaggi
-- Questi operatori sono utilizzati per creare delle espressioni logiche che resitutisco un valore **Boolean**
-- Pertanto un'espressione di confronto può resitutire o **True** o **False**
+- Questi operatori sono utilizzati per creare delle espressioni logiche che restituisco un valore **Boolean**
+- Pertanto un'espressione di confronto può restituire o **True** o **False**
 
 ```js
 let a = 10;
@@ -2733,7 +2733,7 @@ switch (Number(anni)) {
 
 if multipli
 
-- Sia switch che case accettano una qualsiasi esperessione.
+- Sia switch che case accettano una qualsiasi espressione.
 - La cosa importante che vengano valutate allo stesso tipo in quanto switch usa uno Strick equity check
 
 ```js
@@ -2785,7 +2785,7 @@ while (condizione) {
 }
 ```
 
-- `blocco codice` viene eseguito fintantochè la `condizione` risulta vera
+- `blocco codice` viene eseguito fintantoché la `condizione` risulta vera
 - Pertanto se condizione all'inizio è falsa il ciclo non viene mai eseguito
 
 ```js
@@ -2815,7 +2815,7 @@ do {
 } while (condizione);
 ```
 
-- `blocco codice` viene eseguito fintantochè la `condizione` risulta vera
+- `blocco codice` viene eseguito fintantoché la `condizione` risulta vera
 - Pertanto il ciclo viene eseguito **SEMPRE ALMENO** 1 volta
 
 ```js
@@ -2848,7 +2848,7 @@ for (begin; condition; step) {
 - lo statement `begin` viene eseguito **una sola volta** all'inizio del ciclo e setta la condizione iniziale
 - `condition` viene valutato prima di ogni iterazione. Se **true** l'iterazione avviene, se **false** il ciclo termina
 - `step` incrementa la variabile di controllo dopo l'esecuzione dell'iterazione corrente
-- Pertanto il ciclo viene eseguito finchè la `condition` è vera e può **NON ESSERE MAI** eseguito
+- Pertanto il ciclo viene eseguito finché la `condition` è vera e può **NON ESSERE MAI** eseguito
 
 ```js
 for(let a = 5; a > 0; a--) {
@@ -2910,7 +2910,7 @@ alert("Somma dei numeri inseriti pari a: " + sum);
 ```
 
 - Quindi la parola chiave `break` quando invocata interrompe immediatamente il ciclo in corso e passa il controllo alla linea di codice successiva al ciclo stesso.
-- Un ciclo while infinito con **break** è molto utile quando la condizione di uscita non può essere evrificata ne all'inizio ne alla fine del ciclo
+- Un ciclo while infinito con **break** è molto utile quando la condizione di uscita non può essere verificata ne all'inizio ne alla fine del ciclo
 
 ---
 
@@ -2918,7 +2918,7 @@ alert("Somma dei numeri inseriti pari a: " + sum);
 
 repeat yourself
 
-- Ci sono casi in cui è necessario interrompere l'iterazione corrente, senza uscire dal ciclo, e saltare subito all'iterazione successvia
+- Ci sono casi in cui è necessario interrompere l'iterazione corrente, senza uscire dal ciclo, e saltare subito all'iterazione successiva
 - Per esempio per stampare i numeri pari compresi nell'intervallo 1-10 possiamo avvalerci della keyword `continue`
 
 <br>
@@ -2961,7 +2961,7 @@ alert("Hai interrotto l'inserimento");
 ```
 
 - In caso in cui l'utente non inserisce nulla il flusso del programma salta all'istruzione successiva alla label indicata (**uscita**). Pertanto alert viene eseguito.
-- Importante notare che questo meccanismo **NON** permette un salto incodizionato ovunque nel codice ma può essere solo chiamato dall'interno di un ciclo
+- Importante notare che questo meccanismo **NON** permette un salto incondizionato ovunque nel codice ma può essere solo chiamato dall'interno di un ciclo
 
 ---
 
@@ -3062,7 +3062,7 @@ function <nome funzione>(<par 1>, <par 2>, ..., <par N>) {
 }
 ```
 
-- I patrametri sono racchiusi tra le () e separati da una virgola
+- I parametri sono racchiusi tra le () e separati da una virgola
 
 ```js
 function modify_parameters(param1, param2) {
@@ -3179,7 +3179,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Per ovviare a questo problema. possiamo specificare un valore di **deafult** per i parametri di una funzione
+- Per ovviare a questo problema. possiamo specificare un valore di **default** per i parametri di una funzione
 - In tal modo se il parametro non viene passato, assumerà il valore di default e non undefined
 
 ```js
@@ -3201,7 +3201,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un espressione qualsiasi, purchè sia valida in JS
+- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un espressione qualsiasi, purché sia valida in JS
 
 ```js
 function merge(nome, cognome = "Mancuso".toUpperCase()) {
@@ -3270,7 +3270,7 @@ merge("Antonio");
 don't repeat yourself
 
 - Esattamente come in C/C++ una funzione restituisce **sempre** un valore
-- Una funzione che non resitutisce esplicitamente un valore restituisce **undefined**
+- Una funzione che non restituisce esplicitamente un valore restituisce **undefined**
 
 ```js
 function somma(a, b) {
@@ -3319,7 +3319,7 @@ console.log(confronto(10, 20));
 
 don't repeat yourself
 
-- Se `return` viene invocato senza argomento esso resituirà **undefined**
+- Se `return` viene invocato senza argomento esso restituirà **undefined**
 
 ```js
 function confronto(a, b) {
@@ -3491,7 +3491,7 @@ console.log(somma(6, 1));
 ```
 
 - Come si vede la prima linea è eseguita correttamente anche se la dichiarazione della funzione somma avviene dopo nel codice
-- Questo perchè le funzioni dichiarate in questo modo hanno scope globale e l'interprete JS le valuta prima dell'esecuzione delle altre linee di codice
+- Questo perché le funzioni dichiarate in questo modo hanno scope globale e l'interprete JS le valuta prima dell'esecuzione delle altre linee di codice
 
 ---
 
@@ -3515,7 +3515,7 @@ console.log(somma(6, 1));
 
 ```
 
-- Infatti la funzione somma è definitia solo alla linea 3, pertanto la linea 1 non può essere eseguita correttamente
+- Infatti la funzione somma è definita solo alla linea 3, pertanto la linea 1 non può essere eseguita correttamente
 
 ---
 
@@ -3780,7 +3780,7 @@ setInterval(function () {
 setInterval(() => console.log("tick"), 1000);
 ```
 
-- Si può facilemente notare l'uso delle arrow function rende la notazione snella e più compatta
+- Si può facilmente notare l'uso delle arrow function rende la notazione snella e più compatta
 
 <br />
 
@@ -3792,9 +3792,9 @@ Le arrow function sono utilizzate spessissimo in JavaScript moderno
 
 # JS Objects
 
-- Tutti i tipi incontrati fino ad ora, sono chiamati tipi **primitivi** in qunto esprimono un solo valore (intero, decimale, stringa, booleano)
+- Tutti i tipi incontrati fino ad ora, sono chiamati tipi **primitivi** in quanto esprimono un solo valore (intero, decimale, stringa, booleano)
 - Un tipo **_Oggetto_** al contrario rappresenta un tipo di dato aggregato, una collezione di informazioni più o meno complessa (molto simile alle struct del C)
-- Un oggeto in JS è un _array associativo o dizionario_, detto **_Object Literals_**
+- Un oggetto in JS è un _array associativo o dizionario_, detto **_Object Literals_**
 
 <img src="/media/js10a.png" width="200" style="float: right;" />
 
@@ -3851,14 +3851,14 @@ utente.nome = "Pino";
 
 <br />
 
-- Possiamo aggiungere o rimuovere proprità anche dopo la definizione dell'oggetto
+- Possiamo aggiungere o rimuovere proprietà anche dopo la definizione dell'oggetto
 
 ```js
 utente.altezza = 170; //eta non esiste e viene creata
 
 {nome: 'Mario', cognome: 'Rossi', eta: 30, altezza: 170}
 
-delete utente.cognome; //rimuove la proprità cognome
+delete utente.cognome; //rimuove la proprietà cognome
 
 {nome: 'Mario', eta: 30, altezza: 170}
 
@@ -3878,7 +3878,7 @@ let utente = {};
 
 <br>
 
-- e sucecssivamente aggiungere le proprietà dell'oggetto sia con la dot notation che con le []
+- e successivamente aggiungere le proprietà dell'oggetto sia con la dot notation che con le []
 
 <br>
 
@@ -3918,7 +3918,7 @@ utente['eta'] = 45;
 
 # JS Objects
 
-- In Javascript se si accede ad una proprietà non esistente verrà restituito il valore **unidefined** (Questo è diverso dal C++ o Java)
+- In Javascript se si accede ad una proprietà non esistente verrà restituito il valore **undefined** (Questo è diverso dal C++ o Java)
 - Quindi risulta spesso utile verificare la presenza di una chiave o proprietà in un oggetto
 - La verifica se una chiave è presente o meno nell'oggetto si può fare con l'operatore `in`
 
@@ -3959,7 +3959,7 @@ Object.keys(utente);
 
 <br>
 
-- Restituisce un array con tuttle le chiavi dell'oggetto
+- Restituisce un array con tutte le le chiavi dell'oggetto
 
 --- #slide N
 
@@ -3970,7 +3970,7 @@ Object.keys(utente);
 
 ```js
 for(key in object) {
-  esegui il blocco di docice per ogni chiave o proprietà dell'oggetto object
+  esegui il blocco di codice per ogni chiave o proprietà dell'oggetto object
 }
 ```
 
@@ -4126,8 +4126,8 @@ Ciao io sono un utente
 # JS Objects
 
 - Siccome un oggetto incapsula dati e metodi è necessario poter accedere ai dati dell'oggetto da dentro i metodi dell'oggetto
-- Per esempio se volessimo che il metodo speak salutasse con il nome ed il cognome, sarebbe necessario accedere aglia ttributi _nome_ e _cognome_
-- Per far ciò utilizziamo la keywork `this`, che permette di accedere l'oggetto stesso
+- Per esempio se volessimo che il metodo speak salutasse con il nome ed il cognome, sarebbe necessario accedere agli attributi _nome_ e _cognome_
+- Per far ciò utilizziamo la keyword `this`, che permette di accedere l'oggetto stesso
 
 ```js
 let utente = {
@@ -4176,10 +4176,10 @@ Ciao io sono l'utente Giuseppe Verdi
 
 # JS Objects
 
-- Come si vede dall'output quando il metodo speak viene invocato sull'oggetto utente1 stampa i valori assegnati alle properità nome e cognome (Mario Rossi)
-- In modo analogo quando il metodo speak viene invocato sull'oggetto utente2 stampa i valori assegnati alle properità nome e cognome (Giuseppe Verdi)
-- Questo perchè nel modo speak abbiamo referenziato gli attributi nome e cognome tramite la keywork _this_
-- Pertanto _this.nome_ significa prendi il valore dell'attributo nome come definito nell'oggetto ocrrente (utente1 o utente2)
+- Come si vede dall'output quando il metodo speak viene invocato sull'oggetto utente1 stampa i valori assegnati alle proprietà nome e cognome (Mario Rossi)
+- In modo analogo quando il metodo speak viene invocato sull'oggetto utente2 stampa i valori assegnati alle proprietà nome e cognome (Giuseppe Verdi)
+- Questo perché nel modo speak abbiamo referenziato gli attributi nome e cognome tramite la keyword _this_
+- Pertanto _this.nome_ significa prendi il valore dell'attributo nome come definito nell'oggetto occorrente (utente1 o utente2)
 - Questo è uno dei principi cardini della OOP e in JS il suo funzionamento è molto simile ad altri linguaggi come Java/C++
 
 --- #slide N
@@ -4187,7 +4187,7 @@ Ciao io sono l'utente Giuseppe Verdi
 # JS Objects
 
 - Nell'esempio precedente abbiamo visto che possiamo creare più oggetti (utente1 e utente2) definendo due object literals identici
-- Per ottimizziare il codice e rispettare il principio _DRY_ abbiamo condiviso un unico metodo speak tra i due oggetti
+- Per ottimizzare il codice e rispettare il principio _DRY_ abbiamo condiviso un unico metodo speak tra i due oggetti
 - Tuttavia non è ancora ottimale dover ridefinire l'object literal per ogni oggetto utente che si vuole creare (pensiamo a 1000 utenti)
 - Per risolvere questo problema JS mette a disposizione il concetto di `costruttore`
 - Il costruttore di un oggetto permette di condividere in modo metodi e attributi tra oggetti diversi
@@ -4220,7 +4220,7 @@ let Utente = function (nome, cognome) {
 
 # JS Objects
 
-- Ora che abbiamo il costruttore, passiamo all'instanziazione di oggetti tramite la keywotd `new`
+- Ora che abbiamo il costruttore, passiamo all'instanziazione di oggetti tramite la keyword `new`
 
 <br>
 
@@ -4357,7 +4357,7 @@ Ciao io sono l'utente Giuseppe Verdi
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
-    - presi in ingressso un object literals con almeno 5 attributi
+    - presi in ingresso un object literals con almeno 5 attributi
     - stampi per ogni attributo:
       - il nome
       - il tipo dell'attributo
@@ -4505,9 +4505,9 @@ console.log(str.length());
 
 # Stringhe
 
-I principlai metodi
+I principali metodi
 
-Qui la lista dei principlai metodi delle stringhe che studieremo (ci sono 55 metodi in totale):
+Qui la lista dei principali metodi delle stringhe che studieremo (ci sono 55 metodi in totale):
 
 
 
@@ -4586,7 +4586,7 @@ console.log(str.charCodeAt(56)); // Nan
 
 # Stringhe
 
-trova la prima occorrezzan di una stringa o carattere: indexOf()
+trova la prima occorrenza di una stringa o carattere: indexOf()
 
 `indexOf(stringa)` 
 
@@ -4606,7 +4606,7 @@ str.indexOf("v") // 31
 
 # Stringhe
 
-trova l'ultima occorrezzan di una stringa o carattere: lastIndexOf()
+trova l'ultima occorrenza di una stringa o carattere: lastIndexOf()
 
 `lastIndexOf(stringa)` 
 
@@ -4637,7 +4637,7 @@ let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibil
 
 str.startsWith("Nel") // true
 str.startsWith("N") // true
-str.startsWith("mezzo") // fals
+str.startsWith("mezzo") // false
 ```
 
 ---
@@ -4664,7 +4664,7 @@ str.endsWith("lE") // false
 
 # Stringhe
 
-strinag contiene stringa: includes()
+stringa contiene stringa: includes()
 
 `includes(stringa)` 
 
@@ -4690,7 +4690,7 @@ desc: search()
 
 ***viene utilizzato per determinare se un modello esiste o meno all'interno della stringa chiamante, se esiste, il metodo restituisce il valore di indice della prima corrispondenza all'interno della stringa.***
 
-- Metodo avanzato che richiede la conoscenze delle ***regula expressions***
+- Metodo avanzato che richiede la conoscenze delle ***regular expressions***
 - Questo metodo esula dalla conoscenze di livello scuola superiore
 - In modo analogo i metodi match() e matchAll() non sono trattati
 
@@ -4919,7 +4919,7 @@ str.trim()
 
 Stringhe
 
-1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel fomato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
+1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel forato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
 2. Inoltre la prima lettera del nome e del cognome deve essere in maiuscolo
    
 
@@ -4970,7 +4970,7 @@ OUT: Nel-mezzo-del-cammin-di-nostra-vita
 
 Stringhe
 
-1. Scrivere una funzione (capitalize) in JS che ricevuta in input una stringa restituisca una stringa in cui la prima lettera è magliuscol
+1. Scrivere una funzione (capitalize) in JS che ricevuta in input una stringa restituisca una stringa in cui la prima lettera è maiuscolo
 
 ```js
 IN: ciamo mondo!!!
@@ -5052,7 +5052,7 @@ OUT: Ciao Mondo...
 
 Stringhe
 
-1. Creare un programma che implementi una funzione che cercha in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
+1. Creare un programma che implementi una funzione che cerchi in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10i.js_
 
@@ -5072,7 +5072,7 @@ Stringhe
 
 Stringhe
 
-1. Scrivere una funzione (concatenateN) in JS che ricevuta in input una stringa ed un numero N restiruisca la stringa concatenata N volte
+1. Scrivere una funzione (concatenateN) in JS che ricevuta in input una stringa ed un numero N restituisca la stringa concatenata N volte
 
 
 ```js
@@ -5158,7 +5158,7 @@ OUT: The quick brown fox jumps over lazy dog
 
 Definizione
 
-- Generalmente un array videne definito come una struttura dati che permette di rappresentare una collezione di valori (omogenei)
+- Generalmente un array viene definito come una struttura dati che permette di rappresentare una collezione di valori (omogenei)
 
 <br>
 <div  style="margin-left: 25%;">
@@ -5196,21 +5196,21 @@ Definizione
 </div>
 <br>
 
-- Gli array sono usati spesissimo e permetteno di risolvere una vasta serie di problemi
+- Gli array sono usati spessissimo e permettono di risolvere una vasta serie di problemi
 - Per esempio:
   - il risultato fornito dall'invocazione di un API REST è spesso un array
   - l'esecuzione di una query SQL restituisce un array
 - Pertanto una parte fondamentale nello studio del JS riguarda l'apprendimento dell'uso degli array
 - In seguito studieremo l'uso degli array e analizzeremo i suoi `principali metodi` che permettono manipolazioni anche sofisticate ed utili in tantissime situazioni
-- Vedremo come questi metodi aiutono lo sviluppatore a risolvere problematiche classiche che in altri linguaggio (C/C++) sono lasciate allo sviluppatore o a librerie esterne in quanto non parte del linguaggio base
+- Vedremo come questi metodi aiutano lo sviluppatore a risolvere problematiche classiche che in altri linguaggio (C/C++) sono lasciate allo sviluppatore o a librerie esterne in quanto non parte del linguaggio base
 
 ---
 
 # Array
 
-I principlai metodi
+I principali metodi
 
-Qui la lista dei principlai metodi degli array che studieremo (ci sono 39 metodi in totale):
+Qui la lista dei principali metodi degli array che studieremo (ci sono 39 metodi in totale):
 
 <div class="grid grid-cols-3 grid-rows-9 gap-4" style="padding: 20px; margin-left:15%;">
 <div style="font-weight:bolder;">at()</div>
@@ -5253,7 +5253,7 @@ Dichiarazione
 ```js
 let frutti = []; // dichiara un array vuoto
 let frutti = new Array(); // dichiara un array vuoto
-let frutti = Array(); // dichiara una rray vuoto
+let frutti = Array(); // dichiara una array vuoto
 let frutti = Array(5); // dichiara un array composto da 5 elementi vuoti
 
 let matrice = [[], [], []]; // dichiara un array di array o matrice
@@ -5437,7 +5437,7 @@ Deep copy:  ... spread operator
 ```js
 let numeri = [1, 2, 3, 4, 5];
 
-// deep copy con spread oeprator
+// deep copy con spread operator
 let numeri_copia = [...numeri]; // ...numeri diventa 1,2,3,4,5
 
 console.log("Numeri:", numeri);
@@ -5541,7 +5541,7 @@ console.log(parola);
 
 Lo stack: push() e pop()
 
-- Quindi i metodi push() e pop() degli array JS permettono di realizzare con immediatezza un'importante struttura dati chiamta `stack`
+- Quindi i metodi push() e pop() degli array JS permettono di realizzare con immediatezza un'importante struttura dati chiamata `stack`
 
 <img src="/media/js28.png" width="400" style="display:inline; position:relative; top: -10px;"/>
 <img src="/media/js29.png" width="400" style="display:inline; position:relative; top: 10px;"/>
@@ -5561,7 +5561,7 @@ La coda FIFO
 <img src="/media/js31.png" width="300"  />
 </div>
 
-- JS ci mette a disposizione un metodo che ci permette facilemnte di implementare una coda FIFO
+- JS ci mette a disposizione un metodo che ci permette facilmente di implementare una coda FIFO
 
 ---
 
@@ -5648,7 +5648,7 @@ unshift() vs push()
 ```js
 (function () {
     a = [];
-    console.log("unshift di 100.000 elmenti...");
+    console.log("unshift di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
     for (var i = 0; i < 100000; i++) 
@@ -5660,7 +5660,7 @@ unshift() vs push()
 })();
 
 
-unshift di 100.000 elmenti...
+unshift di 100.000 elementi...
 Inizio ciclo: 2022-08-23T14:35:42.105Z
 Fine   ciclo: 2022-08-23T14:35:44.477Z
 Tempo totale di esecuzione: 2372 ms
@@ -5671,7 +5671,7 @@ Tempo totale di esecuzione: 2372 ms
 ```js
 (function () {
     a = [];
-    console.log("push di 100.000 elmenti...");
+    console.log("push di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
     for (var i = 0; i < 100000; i++) 
@@ -5683,7 +5683,7 @@ Tempo totale di esecuzione: 2372 ms
 })();
 
 
-push di 100.000 elmenti...
+push di 100.000 elementi...
 Inizio ciclo: 2022-08-23T14:35:44.477Z
 Fine   ciclo: 2022-08-23T14:35:44.487Z
 Tempo totale di esecuzione: 10 ms
@@ -5702,7 +5702,7 @@ shift() vs pop()
 ```js
 (function () {
     a = Array(100000).fill(1);
-    console.log("shift di 100.000 elmenti...");
+    console.log("shift di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
     for (var i = 0; i < 100000; i++) 
@@ -5714,7 +5714,7 @@ shift() vs pop()
 })();
 
 
-shift di 100.000 elmenti...
+shift di 100.000 elementi...
 Inizio ciclo: 2022-08-23T14:43:10.010Z
 Fine   ciclo: 2022-08-23T14:43:12.553Z
 Tempo totale di esecuzione: 2543 ms
@@ -5725,7 +5725,7 @@ Tempo totale di esecuzione: 2543 ms
 ```js
 (function () {
     a = Array(100000).fill(1);
-    console.log("pop di 100.000 elmenti...");
+    console.log("pop di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
     for (var i = 0; i < 100000; i++) 
@@ -5737,7 +5737,7 @@ Tempo totale di esecuzione: 2543 ms
 })();
 
 
-pop di 100.000 elmenti...
+pop di 100.000 elementi...
 Inizio ciclo: 2022-08-23T14:43:12.556Z
 Fine   ciclo: 2022-08-23T14:43:12.560Z
 Tempo totale di esecuzione: 4 ms
@@ -5753,7 +5753,7 @@ Accesso a specifici elementi: at()
 
 `at(indice)`
 
-***Il metodo, dato un indice in un array, restituisce l'elemento dell'array alla posizione spcificata.***
+***Il metodo, dato un indice in un array, restituisce l'elemento dell'array alla posizione specificata.***
 
 
 <br>
@@ -5793,9 +5793,9 @@ ciliegie
 <br>
 
 - Pertanto per indici positivi .at() è uguale ad array[i]
-- Per indici negativi .at() parte a contare dall fondo dell'array
+- Per indici negativi .at() parte a contare dal fondo dell'array
 - Quindi _.at(-1)_ restituisce l'ultimo elemento dell'array
-- Quindi _.at(-2)_ restituisce il penultimoe elemento dell'array
+- Quindi _.at(-2)_ restituisce il penultimo elemento dell'array
 
 <img src="/media/js30.png" width="380" style="float:right; position: relative; bottom: 140px;"/>
 
@@ -5904,7 +5904,7 @@ L'elemento [5] dell'array contiene ciliegie
 
 - Come linea guida:
   - Se la funzione da eseguire per ogni elemento è breve allora usiamo una funzione anonima
-  - Se è più lunga allora possiamo usare una funzione esplicita (magari contenuta in un file seprato)
+  - Se è più lunga allora possiamo usare una funzione esplicita (magari contenuta in un file separato)
 
 ---
 
@@ -6013,7 +6013,7 @@ console.log("C'è almeno un numero < di 5:", minore_di_5);
 
 # Array
 
-Rideurre le dimensioni di un array: flat()
+Ridurre le dimensioni di un array: flat()
 
 `flat(depth=1)`
 
@@ -6172,7 +6172,7 @@ console.log(studenti_4_maggiorenni);
 
 Conversione in un array: from()
 
-`from(arraye, mapFn)`
+`from(array, mapFn)`
 
 ***crea una nuova istanza Array shallow copy da un oggetto iterabile o simile a un array e applica una funzione di mapping per ogni elemento***
 
@@ -6281,14 +6281,14 @@ Verificare se un elemento fa parte di un array: includes()
 ```js
 let numeri = [1, 2, 3, 4, 5];
 
-console.log("Numeri contine 3?", numeri.includes(3));
-> Numeri contine 3? true
+console.log("Numeri contiene 3?", numeri.includes(3));
+> Numeri contiene 3? true
 
-console.log("Numeri contine 1?", numeri.includes(1));
-> Numeri contine 1? true
+console.log("Numeri contiene 1?", numeri.includes(1));
+> Numeri contiene 1? true
 
-console.log("Numeri contine 8?", numeri.includes(8));
-> Numeri contine 8? false
+console.log("Numeri contiene 8?", numeri.includes(8));
+> Numeri contiene 8? false
 ```
 ---
 
@@ -6435,7 +6435,7 @@ console.log("Numeri ordinati;", numeri);
 > Numeri ordinati; [ 1, 2, 3, 5, 7, 9 ]
 
 numeri.sort((a, b) => {
-  return b - a; // ordinamento descrescente
+  return b - a; // ordinamento decrescente
 });
 
 console.log("Numeri ordinati;", numeri);
@@ -6572,7 +6572,7 @@ console.log("Parte di array rimosso:", rimosso);
 
 let numeri = [1, 4, 5, 7, 9, 11];
 
-// rimuove 0 elementi a partire dall'incice 1 ed inserisce gli elementi 2 e 3
+// rimuove 0 elementi a partire dall'indice 1 ed inserisce gli elementi 2 e 3
 numeri.splice(1, 0, 2, 3); 
 
 console.log("Array tagliato dall'indice 3 fino alla fine:", numeri);
@@ -6612,9 +6612,9 @@ Mappare un array: map()
 
 ```js
 let magazzino = [
-  { prodtto: "laptop", valore: 1000, qty: 5 },
-  { prodtto: "PC", valore: 2000, qty: 3 },
-  { prodtto: "mouse", valore: 100, qty: 10 },
+  { prodotto: "laptop", valore: 1000, qty: 5 },
+  { prodotto: "PC", valore: 2000, qty: 3 },
+  { prodotto: "mouse", valore: 100, qty: 10 },
 ];
 
 //calcolare il valore di ogni prodotto a magazzino (valore * qty)
@@ -6679,9 +6679,9 @@ Ridurre un array: reduce()
 
 ```js
 let magazzino = [
-  { prodtto: "laptop", valore: 1000, qty: 5 },
-  { prodtto: "PC", valore: 2000, qty: 3 },
-  { prodtto: "mouse", valore: 100, qty: 10 },
+  { prodotto: "laptop", valore: 1000, qty: 5 },
+  { prodotto: "PC", valore: 2000, qty: 3 },
+  { prodotto: "mouse", valore: 100, qty: 10 },
 ];
 
 //calcola il valore complessivo del magazzino
@@ -6715,7 +6715,7 @@ OUT: [3,2,1]
 
 Array
 
-1. Scrivere una funzione che dati due array in input, restituiscea un boolean che indica se gli array sono uguali o meno
+1. Scrivere una funzione che dati due array in input, restituisce un boolean che indica se gli array sono uguali o meno
 
 ```js
 IN: [1,2,3 ], [1,2,3]
@@ -6732,7 +6732,7 @@ OUT: true
 
 Array
 
-1. Scrivere una funzione che forniti un numero N ed un carattere C, restiuisca un array di linghezza N composto da caratteri C
+1. Scrivere una funzione che forniti un numero N ed un carattere C, restituisca un array di lunghezza N composto da caratteri C
 
 ```js
 IN: (3, 'a')
@@ -6783,7 +6783,7 @@ OUT: [1,2,4]
 
 Array
 
-1. Scrivere una funzione ordini in ordine descrecente di titolo questo array
+1. Scrivere una funzione ordini in ordine decrescente di titolo questo array
    
 ```js
   var library = [ 
@@ -6884,7 +6884,7 @@ OUT [7, 3, 11, 1, 4, 12, 20]
 
 Array
 
-1. Scrivere una funzione, che dato come parametro una stringa che rappresenta un numero binario di lunghezz aarbitraria, ne calcoli il suo valore espresso in decimale
+1. Scrivere una funzione, che dato come parametro una stringa che rappresenta un numero binario di lunghezza arbitraria, ne calcoli il suo valore espresso in decimale
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_23.js_
 
@@ -6905,7 +6905,7 @@ Array
 
 Array
 
-1. Scrivere una funzione, che dati come parametri un array di lunghezza N ed un indice M, restituisca un nuovo array in cui i sotto array 0-M e M+1-N-1 siano inveritti. 
+1. Scrivere una funzione, che dati come parametri un array di lunghezza N ed un indice M, restituisca un nuovo array in cui i sotto array 0-M e M+1-N-1 siano invertiti. 
    
 ```js
 IN [1,2,3,4,5,6,7] , 3 
@@ -7309,7 +7309,7 @@ Aggiungere elementi: add()
 
 `add(value)`
 
-**aggiunge un elemento al Set se non già presente e restiuisce il set aggiornato**
+**aggiunge un elemento al Set se non già presente e restituisce il set aggiornato**
 
 ```js
 let insieme = new Set([1, 2, 3, 4]);
@@ -7451,7 +7451,7 @@ for(let item of insieme)
 
 Iterare un set: keys(), values(), entries()
 
-**questi metodi sono mantenuti per compatibilità con le mappe e per fornire unìinterfaccia omogenea**
+**questi metodi sono mantenuti per compatibilità con le mappe e per fornire un'interfaccia omogenea**
 
 ```js
 let insieme = new Set([1, 2, 3, 4]);
@@ -7612,7 +7612,7 @@ console.log(`Nome: ${nome} - Cognome: ${cognome}`);
 
 Destructuring assignment
 
-- Senza destucturing dovremmo accedere alle proprietà dell'oggetto anzichè usare delle variabili apposite
+- Senza destructuring dovremmo accedere alle proprietà dell'oggetto anziché usare delle variabili apposite
 
 ```js
 let studenti = {
@@ -7921,7 +7921,7 @@ let utente = {
 
 Destructuring
 
-1. Dato il seguente codeice
+1. Dato il seguente codice
 
 ```js
 let item = ["Egg", 0.25, 12];
@@ -7943,7 +7943,7 @@ console.log(`Item: ${name}, Quantity: ${quantity}, Price: ${price}`);
 
 Destructuring
 
-1. Dato il seguente codeice
+1. Dato il seguente codice
 
 ```js
 let numbers = [3, 5, 4, 2, 6, 1];
