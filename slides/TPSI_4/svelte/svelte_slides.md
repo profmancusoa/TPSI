@@ -2,7 +2,8 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+# background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -12,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.2.0'
+version: '1.2.1'
 
 ---  
 
@@ -311,7 +312,7 @@ Fullstack Framework
 
 Fullstack Framework
 
-- SvelteKit è un framework per app che risolve i difficili molti problemi comunini ad applicazioni pronte per la produzione:
+- SvelteKit è un framework per app che risolve i difficili molti problemi comuni ad applicazioni pronte per la produzione:
   - Routing (navigazione tra le pagine)
   - Server-side rendering (supporto al back-end)
   - Data fetching ()
@@ -356,7 +357,7 @@ Web App Architecture
 Svelte Components
 
 - Un componente web è assimilabile al concetto di Oggetto nella programmazione OOP
-- Come un oggetto incapusala dati e metodi, un componente Web incapsula tutto ciò che è necessario per eseguire il rendering della sua interfaccia utente e per gestire la sua logica di funzionamento.  
+- Come un oggetto incapsula dati e metodi, un componente Web incapsula tutto ciò che è necessario per eseguire il rendering della sua interfaccia utente e per gestire la sua logica di funzionamento.  
 - Ogni componente Svelte è dichiarato in un file `.svelte`, che contiene:
   - il contenuto (markup) in HTML
   - la presentazione o stile (CSS)
@@ -408,7 +409,7 @@ Svelte Components
 
 - Questo componente, per quanto semplice, contiene tutti gli elementi di un componente web (HTML/CSS/JS)
 - Nel tag `<script>` è presente il codice JS di gestione del componente
-- Il markup HTML non è inserito in un tag particolare e pertanto tutto ciò che non è parte del tag `<script>` e `<style>` è cosiderato contenuto del componente.
+- Il markup HTML non è inserito in un tag particolare e pertanto tutto ciò che non è parte del tag `<script>` e `<style>` è considerato contenuto del componente.
 - Il tag `<style>` definisce il CSS del componente
 
 <br>
@@ -432,7 +433,7 @@ Svelte Components
 
 - Questo è un componente Svelte valido
 - Include solo la parte di contenuto
-- Non ha nessuno stuile e nessuna logica di controllo
+- Non ha nessuno stile e nessuna logica di controllo
 
 
 ---
@@ -486,7 +487,7 @@ Esempio:
 Hello World
 
 - Vediamo i semplici passi per creare un progetto base SvelteKit
-- Utilizzeremo il progetto base per provare a analizzare e comprendere le principali carattristiche:
+- Utilizzeremo il progetto base per provare a analizzare e comprendere le principali caratteristiche:
   - del linguaggio Svelte e delle principali funzionalità
   - dello sviluppo per componenti
   - delle funzioni più importanti di SvelteKit
@@ -496,7 +497,7 @@ Hello World
   - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
   - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
 
-***Questi link sono il riferimento per gli studenti e vi suggerisco di studiarli e di utilizzarli per tutto il tempo necessario ad apprendere Svlete e SvelteKit***
+***Questi link sono il riferimento per gli studenti e vi suggerisco di studiarli e di utilizzarli per tutto il tempo necessario ad apprendere Svelte e SvelteKit***
 
 ---
 
@@ -508,7 +509,7 @@ Hello World: Creare un Progetto SvelteKit
   - nodejs (almeno versione 18) ---> [Come installare nodejs su Linux](http://cedws)
   - npm
   - git
-- Assicurati che siano instllati sul tuo sistema eseguendo i seguenti comandi:
+- Assicurati che siano installati sul tuo sistema eseguendo i seguenti comandi:
 
 ```bash
 > node --version
@@ -627,7 +628,7 @@ Forced re-optimization of dependencies
   ➜  press h to show help
 ```
 
-- Viene automaticamente aperta una fienstra del browser che punta al seguente indirizzo: [http://localhost:5173/](http://localhost:5173/)
+- Viene automaticamente aperta una finestra del browser che punta al seguente indirizzo: [http://localhost:5173/](http://localhost:5173/)
 
 ---
 
@@ -783,7 +784,7 @@ Creiamo un componente
 
 Creiamo un componente
 
-- Per una corretta organizzazione del codice metetremo i nostri componenti nella directory lib
+- Per una corretta organizzazione del codice metteremo i nostri componenti nella directory lib
 - Il nostro componente si chiama **Banner** 
 - Quindi dobbiamo creare una directory *components* in src/lib e al suo interno creare un file *banner.svelte*
   
@@ -955,7 +956,7 @@ Code Execution
 ```
 
 - Quando questo codice viene compilato, viene prima richiamato il metodo *toUpperCase* sulla variabile(oggetto) name
-- Successivamente il risultato di questa esecuzione viene sostitutito *verbatim* nel codice HTML
+- Successivamente il risultato di questa esecuzione viene sostituito *verbatim* nel codice HTML
 
 ---
 
@@ -1006,7 +1007,7 @@ Code Execution
 
 # SvelteKit
 
-- Come abbiamo visto con semplici esempi, il meccanismo dei componenti di Svlete è molto versatile
+- Come abbiamo visto con semplici esempi, il meccanismo dei componenti di Svelte è molto versatile
 - Permette la definizione di componenti indipendenti rendendo più facile lo sviluppo e riducendo gli errori
 - Il meccanismo della sostituzione delle variabili e del code execution sono molto utili nello sviluppo di applicazioni web moderne
 - Svelte rende tutto ciò semplicissimo e più semplice rispetto ad altri framework
@@ -1050,7 +1051,7 @@ create-svelte version 4.2.0
 
 Creazione Web App: scaffolding del progetto
 
-- Questa volta è stato solo creato il minimo indispendabile
+- Questa volta è stato solo creato il minimo indispensabile
 
 <br><br>
 <img src="/media/svelte_020.png" class="mx-auto" width="400" />
@@ -1069,7 +1070,7 @@ Creazione Web App: scaffolding del progetto
 - Esso sarà sempre visualizzato in ciascuna pagina del sito
 - Il vantaggio principale è che in questo modo il layout sarà scritto una sola volta ed utilizzato per tutte le pagine
 - Questo meccanismo implementa il principio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself) molto importante nello sviluppo del software
-- Creaimo quindi un file chiamato `+layout.svelte` in ***src/routes***
+- Creiamo quindi un file chiamato `+layout.svelte` in ***src/routes***
 
 ```bash
 src
@@ -1135,9 +1136,9 @@ Creazione Web App: il layout
 <br>
 <img src="/media/svelte_025.png" class="mx-auto" width="400" />
 
-- Ciò è necessario in quanto lo stylde del componente (layout è un componente) è **scoped**
-- In altre parole lo stile di un componente è confinato al solo componente stesso e non può modificare lo stilde di altri componenti
-- L'uso di *:globa* ci permette di fare un'eccezione a questa regola
+- Ciò è necessario in quanto lo style del componente (layout è un componente) è **scoped**
+- In altre parole lo stile di un componente è confinato al solo componente stesso e non può modificare lo stile di altri componenti
+- L'uso di *:global* ci permette di fare un'eccezione a questa regola
 
 <br>
 <Banner bg="green" fg="yellow">
@@ -1152,7 +1153,7 @@ Si suggerisce di non abusare di questa possibilità in quanto rende il codice me
 Component Slot
 
 - Come si vede al momento la nostra app non visualizza la home page nella main content area
-- Questo perchè al momento il componente layout NON include nessuna ltro componente (home page)
+- Questo perché al momento il componente layout NON include nessuna altro componente (home page)
 - Per poter risolvere questo problema dobbiamo ricorrere ad un concetto di Svelte chiamato `Component Slots`
 - In pratica in modo analogo ai tag HTML che possono avere un contenuto
 
@@ -1181,7 +1182,7 @@ Component Slot
 ...
 ```
 
-- In questo modo nella sezione article comparirà il contenuto del componente correntemente in utilizzio (home page o +page.svelte in src/routes)
+- In questo modo nella sezione article comparirà il contenuto del componente correntemente in utilizzo (home page o +page.svelte in src/routes)
 
 ---
 
@@ -1327,7 +1328,7 @@ Props
 - Al contrario vogliamo che questi siano dei parametri che vengono passati dal chiamante (la pagina Chi Sono)
 
 <br>
-<Banner bg="green" fg="yellow">Tramile le Props di Svelte possiamo quindi creare dei componenti parametrici e quindi più facoilmente riutilizzabili ina ltre pagine o altre applicazioni web</Banner>
+<Banner bg="green" fg="yellow">Tramite le Props di Svelte possiamo quindi creare dei componenti parametrici e quindi più facilmente riutilizzabili in altre pagine o altre applicazioni web</Banner>
 
 ---
 
@@ -1335,15 +1336,15 @@ Props
 
 Props
 
-- In Svelte, all'interno di un componente per dichiarare un parametro o `propeietà` si utilizza la keyword `export`
-- Questa keyword preceduta alla dichiarazione di una variabile, indica al compilatore che il valroe della variabile viene fornito dall'esterno del componente
+- In Svelte, all'interno di un componente per dichiarare un parametro o `proprietà` si utilizza la keyword `export`
+- Questa keyword preceduta alla dichiarazione di una variabile, indica al compilatore che il valore della variabile viene fornito dall'esterno del componente
 - In altre parole dice a Svelte che questa variabile viene passata dal chiamante (a tutti gli effetti rendendo la variabile export come un parametro di una funzione in C)
 
 Esempio
 
 ```js
 export let nome;  //dichiara la variabile nome come parametro fornito dal chiamante
-export let cognome = "Rossi"; //variabile esterna con valore di feault Rossi
+export let cognome = "Rossi"; //variabile esterna con valore di default Rossi
 export let eta; //dichiara la variabile nome come parametro fornito dal chiamante
 ```
 
@@ -1454,7 +1455,7 @@ Dynamic Attributes
 
 Dynamic Attributes
 
-- Possiamo usare come dymanic attribute una variabile esterna
+- Possiamo usare come dynamic attribute una variabile esterna
 
 <img src="/media/svelte_041.png" class="mx-auto" width="700" />
 
@@ -1554,7 +1555,7 @@ Binding: Esercitazione_10
 
 Bindings
 
-- Ora modifichiamo la pafina input aggiungendo un input text box e creando un binding con una variabile
+- Ora modifichiamo la pagina input aggiungendo un input text box e creando un binding con una variabile
 
 <br>
 <img src="/media/svelte_044.png" class="mx-auto" width="400" />
@@ -1568,7 +1569,7 @@ Bindings
 <img src="/media/svelte_045.png" class="mx-auto" width="600" />
 
 - Come si vede le variabili sono sostituite dal valore *undefined*
-- Questo succede perchè abbiamo creato il binding tra il contenuto dei input text (undefined) e le variabili nome, cognome e eta
+- Questo succede perché abbiamo creato il binding tra il contenuto dei input text (undefined) e le variabili nome, cognome e eta
 - Compilando i campi la pagina si aggiornerà in modo automatico e dinamico
 - Anche in questo caso realizzare la stessa cosa in vanilla JS sarebbe molto più laborioso
 
@@ -1641,7 +1642,7 @@ La pagina e il component Counter
 Stateful component
 
 - Uno dei problemi tradizionali dello sviluppo di app web è la gestione dello stato
-- Questo problema è intrinseco in quanto il protcollo HTTP è **stateless** o senza stato
+- Questo problema è intrinseco in quanto il protocollo HTTP è **stateless** o senza stato
 - Svelte risolve brillantemente questo problema permettendo di immagazzinare lo stato del componente direttamente all'interno del componente stesso
 - Pertanto un componente Svelte è assimilabile a tutti gli effetti ad un oggetto in base alla definizione OOP
 - Un componente svelte implementa il meccanismo del `encapsulation`
@@ -1763,7 +1764,7 @@ DOM Events
 - A questo punto il nostro componente **Counter** viene visualizzato correttamente
 - E se il chiamante passa un valore iniziale per *counter* questo viene visualizzato correttamente 
 - Tuttavia se interagiamo con il componente, premiamo il pulsante `+` o il pulsante `-` non succede nulla
-- Ciò è normale perchè quando premiamo su uno dei pulsanti **VIENE** generato un evento, ma **NON** viene gestito dal nostro componente
+- Ciò è normale perché quando premiamo su uno dei pulsanti **VIENE** generato un evento, ma **NON** viene gestito dal nostro componente
 - Quindi in pratica l'evento viene perso e pertanto nessuna operazione particolare viene eseguita
 - Quindi **E' NECESSARIO** gestire gli eventi del DOM e del nostro componente
 - Svelte rende questa gestione estremamente facile e intuitiva e molto più facile e veloce rispetto a vanillaJS o altri tipi di framework
@@ -1844,7 +1845,7 @@ DOM Events
 
 Component Bindings
 
-- In molti casi è necessario propagare il valore dello stato del componente al componente choiamante
+- In molti casi è necessario propagare il valore dello stato del componente al componente chiamante
 - Come possiamo fare in modo che il valore della variabile counter venga condiviso con il componente chiamante (pagina)?
 - Per realizzare quanto descritto possiamo utilizzare il concetto di `Component Binding`
 - In modo analogo al binding dei valori dei tag HTML, possiamo creare, nel chiamante, un binding alle props del componente
@@ -1869,7 +1870,7 @@ Component Bindings
 
 Component Bindings
 
-- Come si vede dall'esempio il binding di props dei nostri componenti si implemente nel seguente modo
+- Come si vede dall'esempio il binding di props dei nostri componenti si implementa nel seguente modo
 
 ```html
 <Componente bind:props={variabile_locale}>
@@ -1907,7 +1908,7 @@ DOM Events: Esercitazione_12
 - Creare un nuovo componente chiamato DoubeClounter (double_counter.svelte)
 - Questo componente funziona in modo simile a Counter, ma quando l'utente preme + il suo valore aumenta di due unità, mentre quando preme - il suo valore viene decrementato di 3 unità
 - Aggiungere il componente alla pagina counter
-- Tramite il component binding vidualizzare nella pagina counter anche il valore del componente DoubleCounter
+- Tramite il component binding visualizzare nella pagina counter anche il valore del componente DoubleCounter
 
 - Consegnare su github il progetto modificato
 
@@ -1921,7 +1922,7 @@ Logic Statements
 - Come sappiamo HTML non è un linguaggio di programmazione quindi non ha costrutti logici o iterativi
 - Tuttavia spesso è necessario visualizzare un blocco di HTML in modo condizionale, in funzione di uno stato o variabile
 - Anche in questo scenario, Svelte ci viene in aiuto in maniera semplice ed elegante attraverso il concetto di `logic blocks`
-- Il funzionamengto è molto semplice, svelte mette a disposizione il seguente costrutto
+- Il funzionamento è molto semplice, svelte mette a disposizione il seguente costrutto
 
 ```html
 {#if <condizione>}
@@ -2000,7 +2001,7 @@ Each block
 
 Each block
 
-- Vediamo un esempio che vidualizza una lista di elementi nella pagina Counter
+- Vediamo un esempio che visualizza una lista di elementi nella pagina Counter
 - Modifica la pagina counter nel seguente modo
 
 <br>
@@ -2053,10 +2054,10 @@ Each block
 Advances Styling
 
 - Nell'esempio del blocco condizionale abbiamo cambiato il colore della scritta, in funzione del valore di contatore, replicando l'HTML
-- Questo metodo ha parecchi svantaggi, primo tra tutti la difficile manutenibilità. Se devo modificare qualcosa devo modificarlo in alemno due punti diversi sprecando tempo e essendo soggetto a potenziali errori
+- Questo metodo ha parecchi svantaggi, primo tra tutti la difficile manutenibilità. Se devo modificare qualcosa devo modificarlo in almeno due punti diversi sprecando tempo e essendo soggetto a potenziali errori
 - Pertanto come anticipato, vediamo attraverso il concetto di `Advanced Styling` come risolvere questo problema in modo elegante
 - Svelte ci permette di specificare qualsiasi attributo di un tag HTML con JS
-- Pertanto nel nostro esempio quel che dobbiamo fare è cambiare la classe da rosso a verde solo in particolari condizioni. Modichiamo la pagina counter nel seguente modo
+- Pertanto nel nostro esempio quel che dobbiamo fare è cambiare la classe da rosso a verde solo in particolari condizioni. Modifichiamo la pagina counter nel seguente modo
 
 <br>
 <img src="/media/svelte_069.png" class="mx-auto" width="350" />
@@ -2087,7 +2088,7 @@ Advances Styling
 
 Advances Styling
 
-- Questo è un caso così comune che Svlete ci fornisce un modo più compatto di scrivere questo codice
+- Questo è un caso così comune che Svelte ci fornisce un modo più compatto di scrivere questo codice
   
 ```html
 <h2 class:rosso={contatore < 5}>
@@ -2133,9 +2134,9 @@ Advances Styling
 Reactivity
 
 - Come abbiamo visto negli esempi precedenti al centro di Svelte c'è un potente sistema di reattività per mantenere il DOM sincronizzato con lo stato dell'applicazione, ad esempio in risposta a un evento 
-- Occiamente questo processo non avviene in automatico, e Svelte "instrumenta" il codice in modo che al variare del valore della variabile il DOM venga aggiornato in modo coerente
+- Ovviamente questo processo non avviene in automatico, e Svelte "instrumenta" il codice in modo che al variare del valore della variabile il DOM venga aggiornato in modo coerente
 - La reattività di Svelte non solo mantiene il DOM sincronizzato con le variabili della tua applicazione, come visto.
-- Svelte può anche mantenere le variabili sincronizzate tra loro utilizzando dichiarazioni reattive. Questo meccanismo è molto potente e permette di scrivere codice in manierà facile che in vanilla JS sarebbe piuttosto tedioso
+- Svelte può anche mantenere le variabili sincronizzate tra loro utilizzando dichiarazioni reattive. Questo meccanismo è molto potente e permette di scrivere codice in maniera facile che in vanilla JS sarebbe piuttosto tedioso
 - Vediamo un esempio, modificando la pagina counter nel seguente modo
 
 ---
@@ -2198,7 +2199,7 @@ Component Events
 - Come visto in precedenza, con Svelte è facilissimo gestire gli eventi del DOM
 - Chiaramente sarebbe molto utile avere la stessa possibilità per i componenti sviluppati da noi
 - Svelte ci viene incontro per risolvere questo problema con il meccanismo del `Component Events`
-- In altre parole possiamo fare in modo che i nostri componenti emettano degli eventi e che il chiamante si registri su questi eventi e li gestisca tramite un handler, esattamente come per gli eventi stanrd del DOM
+- In altre parole possiamo fare in modo che i nostri componenti emettano degli eventi e che il chiamante si registri su questi eventi e li gestisca tramite un handler, esattamente come per gli eventi standard del DOM
 - In altre parole, esattamente come un componente HTML standard, anche i nostri componenti diventano *emettitori* di eventi
 - Questo è un meccanismo molto importante e Svelte lo rende semplicissimo
 - Vediamo....
@@ -2310,7 +2311,7 @@ Uno <b>Store</b> in Svelte è un oggetto che permette di condividere un valore t
 
 <br>
 
-- Inizamo creando lo store per contenere il valroe del contatore e condividerlo tra componenti e pagine diverse
+- Iniziamo creando lo store per contenere il valore del contatore e condividerlo tra componenti e pagine diverse
 
 ```bash
 src/lib
@@ -2331,7 +2332,7 @@ Stores
 
 <br><br>
 
-- Ora modifichiamo il componente Counter in modo che ogni volta che couter cambia venga aggiornato lo store
+- Ora modifichiamo il componente Counter in modo che ogni volta che counter cambia venga aggiornato lo store
 
 <img src="/media/svelte_078.png" class="mx-auto" width="250" style="position:relative; top:-200px; left: 50px;" />
 <img src="/media/svelte_079.png" class="mx-auto" width="300" style="position:relative; top:-100px; left: 50px;" />
@@ -2376,7 +2377,7 @@ Stores
 
 <br>
 
-- Da notare che per accedere allo store sia in lettura che scrittura, è necessariop anteporre il simbolo `$` in modo da differenziarlo da una normale variabile
+- Da notare che per accedere allo store sia in lettura che scrittura, è necessario anteporre il simbolo `$` in modo da differenziarlo da una normale variabile
 - Quindi ora se l'utente interagisce con il componente Counter e poi passa alla pagina about vedrà visualizzato lo stato interno del componente che è memorizzato nello store
 
 ---
@@ -2406,11 +2407,11 @@ Stores: Esercitazione_15
 
 Conclusioni
 
-- In queste lezioni abbiamo introdotto il modernissimo framework SvelteKit che si basa sul linguggio e compilatore Svelte
+- In queste lezioni abbiamo introdotto il modernissimo framework SvelteKit che si basa sul linguaggio e compilatore Svelte
 - Svelte è uno strumento formidabile per lo sviluppo di applicazioni Web
-- Svelte rende immediate molte operazioni che in vanilla JS sarebbero alcuanto complesse
+- Svelte rende immediate molte operazioni che in vanilla JS sarebbero alquanto complesse
 - SvelteKit si distingue dagli altri framework per velocità, compattezza e modernità
-- In queste lezioni abbiamo trattato gli aspetti base di Svelte. Ci sono ovviamente altri aspetti più avamnzati che esulano dai nostri scopi
+- In queste lezioni abbiamo trattato gli aspetti base di Svelte. Ci sono ovviamente altri aspetti più avanzati che esulano dai nostri scopi
 
 <br>
 <Banner fg="yellow" bg="green">
