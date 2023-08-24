@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 # background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /media/cover.jpg
+background: /cover.jpg
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -33,6 +33,10 @@ Static Web Site
 # SvelteKit
 
 Static Web Site
+
+<img src="/cover.jpg" width="350" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+
 
 - Come abbiamo visto SvelteKit è uno stupefacente framework **full stack**
 - Ci permette di realizzare applicazioni
