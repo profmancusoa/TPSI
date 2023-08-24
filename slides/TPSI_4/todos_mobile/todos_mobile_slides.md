@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.png
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -12,7 +12,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.0.0'
+version: '1.0.1'
 
 ---  
 
@@ -107,7 +107,7 @@ Svelte e Framework7
   - maggior tempo di sviluppo complessivo
   - maggior costo di manutenzione 
 - Nello stesso periodo dell'evoluzione delle piattaforme mobili, anche le tecnologie Web hanno fatto passi da gigante
-- Oggi, per i problemi evidenziate, lo sviluppo di applicazione mobili è fortemente orientato verso l'utilizo di tecnologie web e il progressivo abbandono delle tecnologie native
+- Oggi, per i problemi evidenziate, lo sviluppo di applicazione mobili è fortemente orientato verso l'utilizzo di tecnologie web e il progressivo abbandono delle tecnologie native
 
 ---
 
@@ -194,7 +194,7 @@ Svelte e Framework7
 <div style="width:50%">
 
 - Il nostro obiettivo è sviluppare un'applicazione mobile per iOS e Android, che potrà essere installata sul proprio dispositivo
-- L'applicazione si chiama `ToDoS Mobile` e funziona esattemente uguale a ToDoS Web e permette di gestire la propria todo list
+- L'applicazione si chiama `ToDoS Mobile` e funziona esattamente uguale a ToDoS Web e permette di gestire la propria todo list
 - Anche in questo caso svilupperemo l'applicazione usando HTML, CSS, JS e  Svelte
   
 </div>
@@ -412,7 +412,7 @@ Svelte e Framework7
 <div style="width:50%">
 
 - Ora inquadro il QR code con lo smartphone e l'app viene caricata
-- Se non avviene in automatico, dipende dall aversione di Android, premo *Installa app* 
+- Se non avviene in automatico, dipende dalla versione di Android, premo *Installa app* 
 
 </div>
 
@@ -449,7 +449,7 @@ Svelte e Framework7
 Esercitazione_01
 
 - Creare lo skeleton dell'applicazione *ToDoS Mobile*
-- Esegurila sul browser
+- Eseguirla sul browser
 - Fare il build ed installarla sul proprio smartphone (Android o iOS) 
 - Consegnare su github (non fare il commit della directory *node_modules*)
 
@@ -461,7 +461,7 @@ Esercitazione_01
 Svelte e Framework7
 
 - Bene ora siamo pronti per passare allo sviluppo vero e proprio di *ToDoS Mobile*
-- Seguiremo un'approvvio Top-Down simile a quanto fatto per lo sviluppo di *ToDoS Web*
+- Seguiremo un'approccio Top-Down simile a quanto fatto per lo sviluppo di *ToDoS Web*
 - Durante lo sviluppo faremo uso della [documentazione di framework7 per Svelte](https://framework7.io/svelte/)
 
 <img src="/media/mobile_26.png" width="400" style="margin:auto;position:relative; left: 0px; top: 0px;">
@@ -643,7 +643,7 @@ Svelte e Framework7
 - In ToDo Web è possibile modificare la priorità facendo click sul pulsante della priorità
 - Questo approccio non è necessariamente il migliore in ambito mobile
 - Un'interfaccia utilizzata in molte app (gmail, ...) permette di fare lo swipe verso destra o sinistra dell'elemento e visualizzare dei bottoni di scelta
-- Per impostare la priorità del ToDo useremo esattemente quest'interfaccia messa a disposizione da framework7 con il componente *Swipeout*
+- Per impostare la priorità del ToDo useremo esattamente quest'interfaccia messa a disposizione da framework7 con il componente *Swipeout*
   
 <img src="/media/mobile_40.png" width="350" style="margin:auto;position:relative; left: 0px; top: -40px;">
 
@@ -691,7 +691,7 @@ Esercitazione_05
 Svelte e Framework7
 
 - Bene la nostra applicazione mobile inizia a prendere forma
-- Ora implementiamo, sempre tramite uno swipout, ma questa volta a destra, i comandi di cambio stato del ToDo e della cancellazione
+- Ora implementiamo, sempre tramite uno swipeout, ma questa volta a destra, i comandi di cambio stato del ToDo e della cancellazione
 - Quindi in questo modo, solo con una mano e con lo swipe a destra o a sinistra potremo controllare tutti gli aspetti della nostra applicazione
 - Questo ci permette di ottenere un'applicazione mobile di facile utilizzo ed in linea con gli standard per il mondo degli smartphone
   
@@ -739,7 +739,7 @@ Svelte e Framework7
 - Quindi esattamente come la prop che è visibile al chiamate (componente padre), anche la funzione esportata sarà visibile al componente padre
 - Quindi nel nostro caso se definiamo ed esportiamo, all'interno di *ToDo List* una funzione che aggiunge un nuovo ToDo Item, questa sarà visibile dalla home, e quindi potra essere richiamata
 - Se questa funzione la leghiamo all'handler del pulsante nella top-bar abbiamo raggiunto la funzionalità che ci serve
-- Nel chiamante utilizzeremo un particolare tipo di binding, che permetterà di ottenre una referenza all'intero componente e non solo ad un valore
+- Nel chiamante utilizzeremo un particolare tipo di binding, che permetterà di ottenere una referenza all'intero componente e non solo ad un valore
 - Vediamo come
   
 ---
@@ -769,7 +769,7 @@ Esercitazione_07
 
 Svelte e Framework7
 
-- Ora tutti i componenti dell'applicazione sono stati creati. Continuiamo a raffinarli finchè raggiungeremo la versione finale della nostra applicazione
+- Ora tutti i componenti dell'applicazione sono stati creati. Continuiamo a raffinarli finché raggiungeremo la versione finale della nostra applicazione
 - Dobbiamo fornire la possibilità all'utente di modificare un ToDo
 - Iniziamo con il testo del task. Useremo la stessa tecnica usata per ToDo Web
   
@@ -811,7 +811,7 @@ Svelte e Framework7
 Svelte e Framework7
 
 - Tuttavia se cambiamo la priorità tramite lo swipeout, l'icona non cambia
-- Questo perchè nella prima implementazione del componente *Priority* non abbiamo tenutop conto della reattività
+- Questo perché nella prima implementazione del componente *Priority* non abbiamo tenuto conto della reattività
 - Riscriviamolo semplificandolo e rendendolo reattivo agli aggiornamenti della prop *priority*
      
 <img src="/media/mobile_51.png" width="550" style="margin:auto;position:relative; left: 0px; top: 0px;">
@@ -903,7 +903,7 @@ Esercitazione_11
 Svelte e Framework7
 
 - OK ora l'applicazione è completa a livello funzionale, ma manca ancora il salvataggio dei ToDo nel localStorage
-- Procediamo aggiungengo anche questa funzionalità
+- Procediamo aggiungendo anche questa funzionalità
 - In questo modo l'applicazione sarà perfettamente funzionante e utile in quanto potremo usarla per gestire la propria ToDo List
 - Modifichiamo il codice in maniera molto simile a quanto abbiamo fatto per ToDo Web
 - Vediamo come
@@ -939,7 +939,7 @@ Svelte e Framework7
 
 - Molto bene, abbiamo terminato con lo sviluppo della nostra applicazione *ToDoS Mobile*
 - Come visto lo sviluppo è stato molto simile alla versione Web
-- Proprio perchè abbiamo usato lo stesso insieme di tecnologie (HTML, CSS, JS e Svelte)
+- Proprio perché abbiamo usato lo stesso insieme di tecnologie (HTML, CSS, JS e Svelte)
 - La maggioranza del codice non è cambiata e con un accorto refactoring è possibile utilizzare la stessa base di codice JS per entrambe le applicazioni
 - Questo, come menzionato all'inizio, comporta enormi vantaggi in termini di riduzione di costo e tempi di sviluppo
   
