@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 # background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /media/todo_00.png
+background: /cover.png
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.1.0'
+version: '1.1.1'
 
 ---  
 
@@ -116,7 +116,7 @@ Analisi e Progettazione
 
 Analisi e Progettazione
 
-- Le altre righe, oltre all'header, rappresentado un item della ToDo List o meglio un ToDo Item
+- Le altre righe, oltre all'header, rappresentano un item della ToDo List o meglio un ToDo Item
 - Quindi anche il ToDo Item può essere implementato come un componente separato **ToDo Item** anch'esso composto da *Cell*
 
 <img src="/media/todo_05.png" width="900" style="margin:auto;position:relative; left: 0px; top: 20px;">
@@ -163,14 +163,14 @@ Implementazione Skeleton
 - Iniziamo ad implementare lo skeleton dell'applicazione
 - In altre parole implementiamo la struttura base dell'applicazione, con tutte le sue parti ed i suoi componenti
 - Ogni componente inizialmente conterrà solo una stringa identificativa e lo evidenzieremo con i suoi bordi
-- Una completata questa prima fase, poi andremo a svilupapre in dettaglio componente per componente
-- Quanto qui descritto rientra nella metodogia di progettazione  e sviluppo `Top-Down`
+- Una completata questa prima fase, poi andremo a sviluppare in dettaglio componente per componente
+- Quanto qui descritto rientra nella metodologia di progettazione  e sviluppo `Top-Down`
   
 <br>
 <Banner padding="30px">
 Nel modello top-down si formula inizialmente una visione generale del sistema ovvero se ne descrive la finalità principale senza scendere nel dettaglio delle sue parti o componenti (TOP). 
 
-Ogni componente del sistema successivamente viene rifinito iterativamente (DOWN) (decomposizione e specializzazione) aggiungendo, ad ogni iterazione, maggiori dettagli della progettazione, finchè il sistema implementa tutte le funzionalità
+Ogni componente del sistema successivamente viene rifinito iterativamente (DOWN) (decomposizione e specializzazione) aggiungendo, ad ogni iterazione, maggiori dettagli della progettazione, finché il sistema implementa tutte le funzionalità
 </Banner>
 
 ---
@@ -307,7 +307,7 @@ Implementazione Componenti
 
 - Bene la nostra applicazione prende sempre più forma. A questo punto abbiamo terminato la seconda iterazione
 - E' ora di continuare a specializzare i componenti (BOTTOM) aggiungendo dettagli e funzionalità
-- Ora vogliamo fornire la capacità al component *Icon* di visualizzare una qualiasi icona fornita come parametro
+- Ora vogliamo fornire la capacità al component *Icon* di visualizzare una qualsiasi icona fornita come parametro
 - Utilizziamo il set di [icone gratuito](https://fonts.google.com/icons?icon.set=Material+Icons) messo a disposizione da google
 
 <img src="/media/todo_22.png" width="550" style="margin:auto;position:relative; left: 0px; top: 10px;">
@@ -455,7 +455,7 @@ Implementazione Componenti
 <Banner padding="20px">
 Un handler è una funzione JS che gestisce il verificarsi di un evento.
 
-Questo meccanismo è tipico della programmazione asincrona e particorlemnte utilizzanto in ambito UI
+Questo meccanismo è tipico della programmazione asincrona e particolarmente utilizzato in ambito UI
 </Banner>
 
 <br>
@@ -565,8 +565,8 @@ Esercitazione_11
 
 Implementazione Componenti
 
-- Indine dobbiamo implementare la funzionalità di cancellazione di un ToDo e quindi implementare l'handler per l'icona del cestino
-- In questo caso facciamo attenzione, perchè l'item non può cancellare se stesso
+- Infine dobbiamo implementare la funzionalità di cancellazione di un ToDo e quindi implementare l'handler per l'icona del cestino
+- In questo caso facciamo attenzione, perché l'item non può cancellare se stesso
 - Quindi lo implementiamo nel seguente modo: alla pressione del bidoncino, viene generato un evento che viene gestito da *ToDo List* il quale si occupa di cancellare l'item identificato da uno specifico id dalla lista (array *todos*)
 - Per inviare e generare l'evento dobbiamo il *dispatcher* di Svelte
 - Vediamo come
@@ -648,7 +648,7 @@ Esercitazione_13
 
 Implementazione Componenti
 
-- Continuaiamo a rifinire la UI del front-end. Ora concentriamoci sul titolo
+- Continuiamo a rifinire la UI del front-end. Ora concentriamoci sul titolo
 - Usiamo un font, scelto tra gli innumerevoli messi a disposizione da [google](https://fonts.google.com/) (esattamente come per le icone)
 
 <img src="/media/todo_50.png" width="600" style="margin:auto;position:relative; left: 0px; top: 10px;">
@@ -758,11 +758,11 @@ Esercitazione_16
 
 Local Storage
 
-- La nostra applicazione ToDo è completamente funzionante, tuttavia abbastanza inutile in quanto la ToDo List esiste solo finchè la finestra o tab del browser è aperta
-- In altre parole al momento la ToDo List è volatile e se chiudiamo il browser alla prossima riaperturà sarà vuota
+- La nostra applicazione ToDo è completamente funzionante, tuttavia abbastanza inutile in quanto la ToDo List esiste solo finché la finestra o tab del browser è aperta
+- In altre parole al momento la ToDo List è volatile e se chiudiamo il browser alla prossima riapertura sarà vuota
 - Questo è normale in quanto da nessuna parte del codice abbiamo salvato i dati
 - Tuttavia è importante notare che il browser non ha accesso diretto al file system e quindi per poter salvare i dati della nostra applicazione dobbiamo utilizzare `Web Storage API` che consente il salvataggio permanente dei dati della nostra applicazione
-- In questo modo alla chiusura del browser i dati non saranno persi e alla succissiva riapertura la nostra ToDo List sarà ancora presente
+- In questo modo alla chiusura del browser i dati non saranno persi e alla successiva riapertura la nostra ToDo List sarà ancora presente
 - In questo modo la nostra applicazione diventa completamente funzionale ed utile
 
 ---
@@ -838,7 +838,7 @@ Local Storage
 
 - Proviamo ad usare le API di localStroage
 - Per fare ciò apri una nuova tab di chrome e con CTRL + SHIFT + J vai in modalità developer
-- Oragnizza le finestre come in figura in modo da vedere la *console* e *application*
+- Organizza le finestre come in figura in modo da vedere la *console* e *application*
 
 <img src="/media/todo_65.png" width="900" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
@@ -881,7 +881,7 @@ null
 
 <br>
 
-- Notare che siccome la chiave *altezza* non è presente nel localStorage, viene restiutito *null*
+- Notare che siccome la chiave *altezza* non è presente nel localStorage, viene restituito *null*
 
 
 ---
@@ -912,7 +912,7 @@ Local Storage
 - Quindi come visto queste semplici operazioni possono essere utilizzate nella nostra app ToDoS per memorizzare e recuperare i ToDo Item
 - Ma un ToDo Item è un oggetto, mentre localStorage memorizza solo stringhe. Che fare?
 - Dobbiamo convertire da oggetto -> stringa quando scriviamo nel localStorage
-- Dobbiamo convertire da stringa -> oggetto qualdo leggiamo dal localStorage
+- Dobbiamo convertire da stringa -> oggetto quando leggiamo dal localStorage
 - Il metodo `JSON.stringify(<oggetto>)` è perfetto per scrivere
 - Il metodo `JSON.parse(<string>)` è perfetto per leggere
 
@@ -966,7 +966,7 @@ Local Storage
 
 - La prima cosa da fare è aggiungere il codice che si occupa di leggere tutto i ToDo memorizzati nel localStorage all'avvio della nostra applicazione
 - Quindi dobbiamo modificare *ToDo List* e aggiungere il codice al momento del caricamento del componente
-- Per fare ciò utilizziamo un metodo standard di Svelte che si chiama `onMount` che viene appunto richiamato quando il componente viene montato nella pagina al prilo load
+- Per fare ciò utilizziamo un metodo standard di Svelte che si chiama `onMount` che viene appunto richiamato quando il componente viene montato nella pagina al primo load
 - In questo metodo leggeremo tutte le chiavi del localStorage (i nostri ToDo Item) e popoleremo l'array todos così verrà automaticamente visualizzato
 
 ---
@@ -984,7 +984,7 @@ Local Storage
 Local Storage
 
 - Ora se ricarichiamo la pagina, vederemo la ToDo List vuota
-- Ciò è normale perchè il localStorage è vuoto e quindi non ci sono ToDo Item da aggiungere alla ToDo List
+- Ciò è normale perché il localStorage è vuoto e quindi non ci sono ToDo Item da aggiungere alla ToDo List
 - Aggiungiamo il codice per aggiungere un nuovo ToDo al localStorage
 
 <img src="/media/todo_70.png" width="410" style="margin:auto;position:relative; left: 0px; top: 0px;">
@@ -1040,7 +1040,7 @@ Local Storage
 
 Local Storage
 
-- Questo perchè quando lo stato del componente *Priority* cambia, questo non viene visto dal componente *ToDo Item* che a sua volta non genera un evento *update* per la *ToDo List*
+- Questo perché quando lo stato del componente *Priority* cambia, questo non viene visto dal componente *ToDo Item* che a sua volta non genera un evento *update* per la *ToDo List*
 
 <img src="/media/todo_74.png" width="700" style="margin:auto;position:relative; left: 0px; top: 20px;">
 
@@ -1087,7 +1087,7 @@ Local Storage
 - Ora l'applicazione è quasi completa e se chiudo il browser e lo riapro vedrò nuovamente i miei ToDO Item precedentemente memorizzati
 - Tuttavia c'è un problema. Se creo dei todo, per esempio id:1, id:2, id:3
 - Poi chiudo il browser e lo riapro, il prossimo ToDo che creo avrà id:1
-- Questo perchè abbiamo inizializzato la variabile *last_id* = 0 e quindi ripartiamo sempre dall'inizio
+- Questo perché abbiamo inizializzato la variabile *last_id* = 0 e quindi ripartiamo sempre dall'inizio
 - Dobbiamo modificare il codice in modo che *last_id* venga inizializzato effettivamente con l'ultimo (il più grande id presente nel localStorage)
 - Vediamo come
 
@@ -1107,7 +1107,7 @@ Local Storage
 Local Storage
 
 - Bene ora il problema della duplicazione id è risolto
-- Concludiamo la nostra applicazione agigungendo una piccola animazione che fa apparire e scomparire i ToDo con un effetto di *fade*
+- Concludiamo la nostra applicazione aggiungendo una piccola animazione che fa apparire e scomparire i ToDo con un effetto di *fade*
 - In svelte è semplicissimo, vediamo come
 
 <img src="/media/todo_78.png" width="400" style="margin:auto;position:relative; left: 0px; top: 0px;">
