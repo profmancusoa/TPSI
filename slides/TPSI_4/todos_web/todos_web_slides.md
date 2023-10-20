@@ -13,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2023/2024
-version: '1.1.1'
+version: '1.1.2'
 
 ---  
 
@@ -469,7 +469,7 @@ Questo meccanismo è tipico della programmazione asincrona e particolarmente uti
 Implementazione Componenti
 
 <img src="/media/todo_36.png" width="400" style="margin:auto;position:relative; left: -200px; top: 20px;">
-<img src="/media/todo_37.png" width="280" style="margin:auto;position:relative; left: 220px; top: -320px;">
+<img src="/media/todo_37.png" width="440" style="margin:auto;position:relative; left: 250px; top: -300px;">
 
 ---
 
