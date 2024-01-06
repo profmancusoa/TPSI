@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.19"
+version: "1.0.20"
 ---
 
 # JavaScript
@@ -5239,6 +5239,20 @@ Qui la lista dei principali metodi degli array che studieremo (ci sono 39 metodi
 <div style="font-weight:bolder;">splice()</div>
 <div style="font-weight:bolder;">unshift()</div>
 </div>
+
+---
+
+# Array
+
+Strumenti di visualizzazione
+
+- Ci sono degli strumenti che aiutano a visualizzare il funzionamento dei principlai metodi degli array
+
+- js-arrays-visualized
+[![js-arrays-visualized](/media/js41.png)](https://js-arrays-visualized.com/)
+
+- array-methods
+[![array-methods.github.io](/media/js42.png)](https://array-methods.github.io/)
 
 ---
 
