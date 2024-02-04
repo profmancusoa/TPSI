@@ -1,0 +1,319 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "http://localhost:5173/api"
+        }
+    ],
+    "info": {
+        "description": "API to manage a simple ToDO list",
+        "version": "1.0.0",
+        "title": "ToDos",
+        "termsOfService": "",
+        "contact": {
+            "email": "profmancusoa@gmail.com",
+            "name": "profmancusoa"
+        }
+    },
+    "tags": [
+        {
+            "name": "todos",
+            "description": "Operations about todo"
+        }
+    ],
+    "paths": {
+        "/todos": {
+            "summary": "Get the ToDo List",
+            "description": "Retrieves all the ToDo Item of the list",
+            "get": {
+                "summary": "Get ToDo List",
+                "description": "Get all the ToDo Items of the list",
+                "parameters": [],
+                "operationId": "get-todos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/todo-item"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "ToDo List empty"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "tags": [
+                    "todos"
+                ]
+            },
+            "post": {
+                "tags": [
+                    "todos"
+                ],
+                "summary": "New ToDo Item",
+                "description": "Create a new ToDo Item",
+                "operationId": "create-todo-item",
+                "responses": {
+                    "201": {
+                        "description": "Resource succesfully created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/todo-item"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/todo-item"
+                            }
+                        }
+                    },
+                    "description": "ToDo Item object"
+                }
+            }
+        },
+        "/todos/{id}": {
+            "get": {
+                "tags": [
+                    "todos"
+                ],
+                "summary": "Get ToDo Item",
+                "description": "Get a specific ToDo Item by id",
+                "operationId": "get-todo-item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ToDo Item's unique id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/todo-item"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "ToDo Item not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "todos"
+                ],
+                "summary": "Updated ToDo Item",
+                "description": "Update a ToDo Item by id",
+                "operationId": "update-todo-item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ToDo Item's unique id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK ToDo Item correctly updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/todo-item"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "ToDo Item  not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/todo-item"
+                            }
+                        }
+                    },
+                    "description": "Updated ToDo Item object",
+                    "required": true
+                }
+            },
+            "delete": {
+                "tags": [
+                    "todos"
+                ],
+                "summary": "Delete ToDo Item",
+                "description": "Delete a given ToDo Item by id",
+                "operationId": "delete-todo-item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ToDo Item's unique id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "ToDo Item Removed"
+                    },
+                    "404": {
+                        "description": "ToDo Item not found"
+                    },
+                    "500": {
+                        "description": "Interbal Server Error"
+                    }
+                }
+            },
+            "x-temp": {
+                "summary": "Partial update of a ToDo Item",
+                "description": "Update a specific property of a ToDo Item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "ToDo Item id"
+                    }
+                ],
+                "operationId": "update-todo-item-task",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                },
+                "tags": [
+                    "todos"
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/todo-item-task"
+                            }
+                        }
+                    },
+                    "description": "Update only the task of a ToDo Item"
+                }
+            },
+            "patch": {
+                "summary": "Update a ToDo Item",
+                "description": "Update a specific property of a ToDo Item by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "ToDo Item's unique id"
+                    }
+                ],
+                "operationId": "update-todo-item-partial",
+                "responses": {
+                    "200": {
+                        "description": "OK ToDo Item updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/todo-item"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "ToDo Item Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "tags": [
+                    "todos"
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/todo-item"
+                            }
+                        }
+                    },
+                    "description": "Updated ToDo Item object"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "todo-item": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "task": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "done": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {},
+        "links": {},
+        "callbacks": {}
+    },
+    "security": []
+}

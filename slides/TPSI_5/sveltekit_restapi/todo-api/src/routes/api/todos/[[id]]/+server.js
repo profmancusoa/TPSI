@@ -113,7 +113,7 @@ export async function PATCH({ params, request }) {
   try {
     const body = await request.json();
     console.log("Ricevuto HTTP PATCH con parametro:", params);
-    console.log("PUT BODY:", body);
+    console.log("PATCH BODY:", body);
 
     //update statement da eseguire
     const sql_azione7 = db.prepare("UPDATE todo SET task = @task WHERE id = @id");
@@ -122,6 +122,7 @@ export async function PATCH({ params, request }) {
     const sql_get_todo = db.prepare("SELECT * FROM todo WHERE id= ?");
 
     let key = Object.keys(body)[0]; //campo da aggiornare 
+    console.log(key)
     let res; //risultato query
     switch(key) {
         case 'task':
