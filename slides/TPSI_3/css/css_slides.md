@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.6.3'
+version: '1.6.4'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
@@ -141,15 +141,14 @@ Per apprendere correttamente ed efficaciemente il CSS è necessario fare tanto e
 - [Learn Typography by Building a Nutrition Label](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-typography-by-building-a-nutrition-label)
 - [Learn Accessibility by Building a Quiz](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-accessibility-by-building-a-quiz)
 - [Learn More About CSS Pseudo Selectors by Building A Balance Sheet](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-more-about-css-pseudo-selectors-by-building-a-balance-sheet)
-  
+- [Learn Intermediate CSS by Building a Picasso Painting](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-intermediate-css-by-building-a-picasso-painting)
+    
 ---
 
 # CSS
 
 Allenarsi con HTML e CSS
 
-
-- [Learn Intermediate CSS by Building a Picasso Painting](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-intermediate-css-by-building-a-picasso-painting)
 - [Learn Responsive Web Design by Building a Piano](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-responsive-web-design-by-building-a-piano)
 - [Learn CSS Variables by Building a City Skyline](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-variables-by-building-a-city-skyline)
 - [Learn CSS Grid by Building a Magazine](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-grid-by-building-a-magazine)
@@ -161,7 +160,8 @@ Allenarsi con HTML e CSS
 - [Frontend Mentor](https://www.frontendmentor.io/)
 - [Dev Challenges](https://devchallenges.io/)
 - [Codepen Challenges](https://codepen.io/challenges)
-
+- [100 Days Challenge](https://100dayscss.com/)
+- [Learn CSS](https://www.codecademy.com/learn/learn-css)
 
 ---
 layout: section
