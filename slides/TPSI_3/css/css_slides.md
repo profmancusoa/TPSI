@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.6.2'
+version: '1.6.3'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
@@ -128,7 +128,7 @@ Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa 
 
 # CSS
 
-Allenarsi con CSS
+Allenarsi con HTML e CSS
 
 Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso
 
@@ -140,22 +140,27 @@ Per apprendere correttamente ed efficaciemente il CSS è necessario fare tanto e
 - [Learn CSS Flexbox by Building a Photo Gallery](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-flexbox-by-building-a-photo-gallery)
 - [Learn Typography by Building a Nutrition Label](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-typography-by-building-a-nutrition-label)
 - [Learn Accessibility by Building a Quiz](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-accessibility-by-building-a-quiz)
-
+- [Learn More About CSS Pseudo Selectors by Building A Balance Sheet](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-more-about-css-pseudo-selectors-by-building-a-balance-sheet)
   
 ---
 
 # CSS
 
-Allenarsi con CSS
+Allenarsi con HTML e CSS
 
-- [Learn More About CSS Pseudo Selectors by Building A Balance Sheet](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-more-about-css-pseudo-selectors-by-building-a-balance-sheet)
+
 - [Learn Intermediate CSS by Building a Picasso Painting](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-intermediate-css-by-building-a-picasso-painting)
 - [Learn Responsive Web Design by Building a Piano](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-responsive-web-design-by-building-a-piano)
 - [Learn CSS Variables by Building a City Skyline](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-variables-by-building-a-city-skyline)
 - [Learn CSS Grid by Building a Magazine](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-grid-by-building-a-magazine)
 - [Learn CSS Transforms by Building a Penguin](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-transforms-by-building-a-penguin)
 - [Learn CSS Animations by Building a Ferris Wheel](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-animation-by-building-a-ferris-wheel)
-
+- [CSS Battle](https://cssbattle.dev/)
+- [Frontend Practice](https://www.frontendpractice.com/)
+- [Codewell](https://www.codewell.cc/)
+- [Frontend Mentor](https://www.frontendmentor.io/)
+- [Dev Challenges](https://devchallenges.io/)
+- [Codepen Challenges](https://codepen.io/challenges)
 
 
 ---
