@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.4'
+version: '1.4.5'
 ---
 
 # Hyper Text Markup Language
@@ -127,6 +127,13 @@ Per apprendere correttamente ed efficaciemente HTML è necessario fare tanto ese
 
 - [Build a Cat Photo App](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-html-by-building-a-cat-photo-app)
 - [Learn HTML Forms by Building a Registration Form](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-html-forms-by-building-a-registration-form)
+- [Learn HTML on Codecademy](https://www.codecademy.com/learn/learn-html)
+- [Codier](https://codier.io/)
+- [30 Days of Challenges](https://codedamn.com/challenge/30-days-of-html-css)
+- [HTML Challenges](https://www.101computing.net/html-css-javascript-challenges/)
+- [Testing Challenge](http://testingchallenges.thetestingmap.org/)
+- [W3C HTML Quiz](https://www.w3schools.com/html/html_quiz.asp)
+- [W3C HTML Excerices](https://www.w3schools.com/html/html_exercises.asp)
 
 ---
 layout: section
