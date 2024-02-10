@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.20"
+version: "1.0.21"
 ---
 
 # JavaScript
@@ -64,6 +64,47 @@ No brain no pain!
 </div>
 
 </div>
+
+---
+
+# JS
+
+&nbsp;
+
+Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa fonte di informazioni per apprendere le tecnologie del web.
+
+### Java Script
+
+- [https://www.w3schools.com/js/default.asp](https://www.w3schools.com/js/default.asp)
+- [https://www.w3schools.com/jsref/default.asp](https://www.w3schools.com/jsref/default.asp)
+- [https://devdocs.io/javascript/](https://devdocs.io/javascript/)
+- [https://javascript.info/](https://javascript.info/)
+
+---
+
+# CSS
+
+Allenarsi con JS
+
+Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso.
+Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
+
+- [Excercism](https://exercism.org/tracks/javascript)
+- [Codingame](https://www.codingame.com/start/)
+- [Codewars](https://www.codewars.com/)
+- [Codecombat](https://codecombat.com/)
+- [JSChallenger](https://www.jschallenger.com/)
+- [JScodebox](https://jscodebox.com/)
+- [AdventJS](https://adventjs.dev/)
+- [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
+- [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
+- [JS Code Challenges](https://jscodechallenges.vercel.app/)
+- [Codecademy](https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/)
+- [xx]()
+- [xx]()
+- [xx]()
+- [xx]()
+    
 --- #slide 1
 
 # Developer Survey 2021
@@ -6518,7 +6559,7 @@ Affettare un array: slice()
 
 `slice(inizio, fine)`
 
-***restituisce una copia shallow di una porzione di un array in un nuovo oggetto array selezionato dall'indice inizio fino all'indice fine (non incluso). L'array originale non verrà modificato***
+***restituisce una copia (deep) di una porzione di un array in un nuovo oggetto array selezionato dall'indice inizio fino all'indice fine (non incluso). L'array originale non verrà modificato***
 
 ```js
 let numeri = [1, 3, 5, 7, 9, 11];
@@ -6552,6 +6593,14 @@ OUT: [3,2,1]
 ```
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11.js_
+
+---
+
+# Array
+
+Manipolare in loco un array: splice()
+
+`splice(start, deleteCount, item1, ... , itemN)`
 
 ***cambia il contenuto di un array rimuovendo o sostituendo elementi esistenti e/o aggiungendo nuovi elementi sul posto. Restituisce un array con gli elementi rimossi.***
 
