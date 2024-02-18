@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.21"
+version: "1.0.22"
 ---
 
 # JavaScript
@@ -97,14 +97,24 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [JScodebox](https://jscodebox.com/)
 - [AdventJS](https://adventjs.dev/)
 - [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
+  
+---
+
+# CSS
+
+Allenarsi con JS
+
+Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso.
+Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
+
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
 - [JS Code Challenges](https://jscodechallenges.vercel.app/)
 - [Codecademy](https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/)
-- [xx]()
-- [xx]()
-- [xx]()
-- [xx]()
-    
+- [Codechef](https://www.codechef.com/)
+- [Lettcode](https://leetcode.com/)
+- [Edabit](https://edabit.com/)
+- [Hackerhearth](https://www.hackerearth.com/practice/)
+  
 --- #slide 1
 
 # Developer Survey 2021
