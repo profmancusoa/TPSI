@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.6.4'
+version: '1.6.5'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
@@ -157,12 +157,21 @@ Allenarsi con HTML e CSS
 - [CSS Battle](https://cssbattle.dev/)
 - [Frontend Practice](https://www.frontendpractice.com/)
 - [Codewell](https://www.codewell.cc/)
+
+---
+
+# CSS
+
+Allenarsi con HTML e CSS
+
 - [Frontend Mentor](https://www.frontendmentor.io/)
 - [Dev Challenges](https://devchallenges.io/)
 - [Codepen Challenges](https://codepen.io/challenges)
 - [100 Days Challenge](https://100dayscss.com/)
 - [Learn CSS](https://www.codecademy.com/learn/learn-css)
-
+- [CSS Diner](https://flukeout.github.io/)
+- [Flex Zombie](https://mastery.games/flexboxzombies/)
+  
 ---
 layout: section
 ---
