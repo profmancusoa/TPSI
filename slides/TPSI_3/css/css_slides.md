@@ -11,7 +11,7 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.6.5'
+version: '1.7.0'
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
@@ -4636,6 +4636,187 @@ Position
 <br />
 <center>
 <img src="/media/css_40.png" width="200">
+</center>
+
+---
+
+# Esercizio css_25a
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25a.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25a.css
+
+<br />
+<center>
+<img src="/media/css_81.png" width="800">
+</center>
+
+---
+
+# Esercizio css_25b
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25b.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25b.css
+
+<br />
+<center>
+<img src="/media/css_82.png" width="800">
+</center>
+
+---
+
+# Esercizio css_25c
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25c.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25c.css
+
+<br />
+<center>
+<img src="/media/css_83.png" width="700">
+</center>
+
+---
+
+# Esercizio css_25d
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25d.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25d.css
+
+<br />
+<center>
+<img src="/media/css_84.png" width="600">
+</center>
+
+
+---
+
+# Esercizio css_25e
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25e.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25e.css
+
+<br />
+<center>
+<img src="/media/css_85.png" width="600">
+</center>
+
+---
+
+# Esercizio css_25f
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25f.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25f.css
+
+<br />
+<center>
+<img src="/media/css_86.png" width="600">
+</center>
+
+---
+
+# Esercizio css_25g
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25g.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25g.css
+
+<br />
+<center>
+<img src="/media/css_87.png" width="400">
+</center>
+
+---
+
+# Esercizio css_25h
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25h.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25h.css
+
+<br />
+<center>
+<img src="/media/css_88.png" width="550">
+</center>
+
+---
+
+# Esercizio css_25i
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25i.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25i.css
+
+<br />
+<center>
+<img src="/media/css_89.png" width="600">
+</center>
+
+---
+
+# Esercizio css_25j
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25j.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25j.css
+
+<br />
+<center>
+<img src="/media/css_90.png" width="400">
+</center>
+
+---
+
+# Esercizio css_25k
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25k.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25k.css
+
+<br />
+<center>
+<img src="/media/css_91.png" width="350">
+</center>
+
+---
+
+# Esercizio css_25l
+
+Position
+
+1. Realizzare in html e CSS la pagina sotto raffigurata
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25l.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25l.css
+
+<br />
+<center>
+<img src="/media/css_92.png" width="450">
 </center>
 
 ---
