@@ -1,7 +1,9 @@
 export class Poligono {
   constructor() {}
   add_lato(a) {}
-  fill_lati(a) {}
+  fill_lati(a) {
+    // Se tutti i lati sono uguali viene usata questa funzione
+  }
   perimetro() {}
   area() {}
 }
