@@ -1,4 +1,1 @@
-export class Orario {
-  constructor(h, m, s) {}
-  diff(_orario1, _orario2) {}
-}
+export class Orario {}

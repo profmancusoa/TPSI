@@ -1,4 +1,1 @@
-class Fibonacci {
-  constructor() {}
-  calc(n) {}
-}
+class Fibonacci {}
