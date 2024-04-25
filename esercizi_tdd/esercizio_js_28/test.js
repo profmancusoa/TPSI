@@ -1,7 +1,7 @@
 import { avg_age } from "./es_28.js";
 import fs from 'fs';
 
-describe("ESERCIZIO 27", () => {
+describe("ESERCIZIO 28", () => {
     test('TEST 01', () => {
         expect(avg_age([
             { nome: "Marco", classe: 4, eta: 17 },
