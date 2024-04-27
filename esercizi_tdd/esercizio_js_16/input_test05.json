@@ -1,0 +1,2157 @@
+[
+    {
+        "libraryID": 1018,
+        "title": "Taming Jaguar",
+        "author": "Michael J. Barlotta,Jason R. Weiss"
+    },
+    {
+        "libraryID": 1266,
+        "title": "Java Servlets by Example",
+        "author": "Alan R. Williamson"
+    },
+    {
+        "libraryID": 1069,
+        "title": "Managing Components with Modeler",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1024,
+        "title": "iBATIS in Action",
+        "author": "Clinton Begin,Brandon Goodin,Larry Meadors"
+    },
+    {
+        "libraryID": 1304,
+        "title": "Play for Java",
+        "author": "Nicolas Leroux,Sietse de Kaper"
+    },
+    {
+        "libraryID": 1246,
+        "title": "GWT in Action, Second Edition",
+        "author": "Adam Tacy,Robert Hanson,Jason Essington,,Anna Tökke"
+    },
+    {
+        "libraryID": 1163,
+        "title": "Inside LotusScript",
+        "author": "Joe McGinn"
+    },
+    {
+        "libraryID": 1392,
+        "title": "OpenStack in Action",
+        "author": "Cody Bumgardner"
+    },
+    {
+        "libraryID": 1027,
+        "title": "jQuery in Action",
+        "author": "Bear Bibeault,Yehuda Katz"
+    },
+    {
+        "libraryID": 1111,
+        "title": "Learn Windows PowerShell in a Month of Lunches",
+        "author": "Don Jones"
+    },
+    {
+        "libraryID": 1339,
+        "title": "PowerShell Deep Dives",
+        "author": "Edited by Jeffery Hicks,Richard Siddaway,Oisin Grehan,,Aleksandar Nikolic"
+    },
+    {
+        "libraryID": 1008,
+        "title": "Griffon in Action",
+        "author": "Andres Almiray,Danno Ferrin,,James Shingler"
+    },
+    {
+        "libraryID": 1327,
+        "title": "Rails 4 in Action",
+        "author": "Ryan Bigg,Yehuda Katz,and Steve Klabnik,"
+    },
+    {
+        "libraryID": 1293,
+        "title": "HBase in Action",
+        "author": "Nicholas Dimiduk,Amandeep Khurana"
+    },
+    {
+        "libraryID": 1307,
+        "title": "Redis in Action",
+        "author": "Josiah Carlson"
+    },
+    {
+        "libraryID": 1176,
+        "title": "SQL Server MVP Deep Dives3",
+        "author": "Paul Nielsen,Kalen Delaney,Greg Low,Adam Machanic,Paul S. Randal,,Kimberly L. Tripp"
+    },
+    {
+        "libraryID": 1290,
+        "title": "HTML5 in Action",
+        "author": "Rob Crowther,Joe Lennon,Ash Blue,,Greg Wanish"
+    },
+    {
+        "libraryID": 1346,
+        "title": "PostGIS in Action, Second Edition",
+        "author": "Regina Obe,Leo Hsu"
+    },
+    {
+        "libraryID": 1132,
+        "title": "Hadoop in Action",
+        "author": "Chuck Lam"
+    },
+    {
+        "libraryID": 1361,
+        "title": "Learn SCCM 2012 in a Month of Lunches",
+        "author": "James Bannan"
+    },
+    {
+        "libraryID": 1360,
+        "title": "Elasticsearch in Action",
+        "author": "Radu Gheorghe,Matthew Lee Hinman"
+    },
+    {
+        "libraryID": 1317,
+        "title": "Mondrian in Action",
+        "author": "William Back,Nicholas Goodman,,Julian Hyde"
+    },
+    {
+        "libraryID": 1101,
+        "title": "Agile ALM",
+        "author": "Michael Hüttermann"
+    },
+    {
+        "libraryID": 1278,
+        "title": "Up to Speed with Swing",
+        "author": "Steven J. Gutz"
+    },
+    {
+        "libraryID": 1334,
+        "title": "Spring in Action, Fourth Edition",
+        "author": "Craig Walls"
+    },
+    {
+        "libraryID": 1349,
+        "title": "iOS 7 in Action",
+        "author": "Brendan G. Lim,Martin Conte Mac Donell"
+    },
+    {
+        "libraryID": 1172,
+        "title": "Advanced OWL 5.0",
+        "author": "Ted Neward"
+    },
+    {
+        "libraryID": 1143,
+        "title": "SharePoint 2007 Developer's Guide to Business Data Catalog",
+        "author": "Brett Lonsdale,Nick Swan"
+    },
+    {
+        "libraryID": 1062,
+        "title": "SCWCD Exam Study Kit Second Edition",
+        "author": "Hanumant Deshmukh,Jignesh Malavia,,Matthew Scarpino"
+    },
+    {
+        "libraryID": 1379,
+        "title": "Impala in Action",
+        "author": "Richard L. Saltzer,Istvan Szegedi"
+    },
+    {
+        "libraryID": 1302,
+        "title": "Single Page Web Applications",
+        "author": "Michael S. Mikowski,Josh C. Powell"
+    },
+    {
+        "libraryID": 1219,
+        "title": "SOA Patterns",
+        "author": "Arnon Rotem-Gal-Oz"
+    },
+    {
+        "libraryID": 1096,
+        "title": "Distributed Agile in Action",
+        "author": "Vikas Hazrati,Balaji D Loganathan"
+    },
+    {
+        "libraryID": 1347,
+        "title": "R in Action, Second Edition",
+        "author": "Robert Kabacoff"
+    },
+    {
+        "libraryID": 1215,
+        "title": "The Awesome Power of Java Beans",
+        "author": "Lawrence H. Rodrigues"
+    },
+    {
+        "libraryID": 1000,
+        "title": "Unlocking Android",
+        "author": "W. Frank Ableson,Charlie Collins,Robi Sen"
+    },
+    {
+        "libraryID": 1385,
+        "title": "D3.js in Action",
+        "author": "Elijah Meeks"
+    },
+    {
+        "libraryID": 1391,
+        "title": "Oculus Rift in Action",
+        "author": "Bradley Austin Davis,Karen Bryla,,Alex Benton"
+    },
+    {
+        "libraryID": 1192,
+        "title": "Silverlight 5 in Action",
+        "author": "Pete Brown"
+    },
+    {
+        "libraryID": 1077,
+        "title": "Validating Data with Validator",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1297,
+        "title": "PowerShell in Depth",
+        "author": "Don Jones,Richard Siddaway,,Jeffery Hicks"
+    },
+    {
+        "libraryID": 1142,
+        "title": "Erlang and OTP in Action",
+        "author": "Martin Logan,Eric Merritt,,Richard Carlsson"
+    },
+    {
+        "libraryID": 1252,
+        "title": "iPhone and iPad in Action",
+        "author": "Brandon Trebitowski,Christopher Allen,,Shannon Appelcline"
+    },
+    {
+        "libraryID": 1320,
+        "title": "Extending jQuery",
+        "author": "Keith B. Wood"
+    },
+    {
+        "libraryID": 1068,
+        "title": "Java Foundation Classes",
+        "author": "Stephen C. Drye,William C. Wake"
+    },
+    {
+        "libraryID": 1137,
+        "title": "Client/Server Yellow Pages",
+        "author": "Compiled,introduced by Ted Lewis"
+    },
+    {
+        "libraryID": 1415,
+        "title": "Java Reflection in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1047,
+        "title": "Android in Practice",
+        "author": "Charlie Collins,Michael D. Galpin,,Matthias Kaeppler"
+    },
+    {
+        "libraryID": 1267,
+        "title": "XML Programming with VB and ASP",
+        "author": "Mark Wilson,Tracey Wilson"
+    },
+    {
+        "libraryID": 1296,
+        "title": "50 Android Hacks",
+        "author": "Carlos M. Sessa"
+    },
+    {
+        "libraryID": 1106,
+        "title": "JBoss in Action",
+        "author": "Javid Jamae,Peter Johnson"
+    },
+    {
+        "libraryID": 1337,
+        "title": "Fast ASP.NET Websites",
+        "author": "Dean Alan Hume"
+    },
+    {
+        "libraryID": 1160,
+        "title": "JUnit in Action",
+        "author": "Vincent Massol with Ted Husted"
+    },
+    {
+        "libraryID": 1275,
+        "title": "Third-Party JavaScript ",
+        "author": "Ben Vinegar,Anton Kovalyov"
+    },
+    {
+        "libraryID": 1173,
+        "title": "Server-Based Java Programming",
+        "author": "Ted Neward"
+    },
+    {
+        "libraryID": 1224,
+        "title": "OpenCL in Action",
+        "author": "Matthew Scarpino"
+    },
+    {
+        "libraryID": 1034,
+        "title": "Hello! Python",
+        "author": "Anthony Briggs"
+    },
+    {
+        "libraryID": 1086,
+        "title": "GWT in Action",
+        "author": "Robert Hanson,Adam Tacy"
+    },
+    {
+        "libraryID": 1357,
+        "title": "Practical Data Science with R",
+        "author": "Nina Zumel,John Mount"
+    },
+    {
+        "libraryID": 1089,
+        "title": "Java Development with Ant",
+        "author": "Erik Hatcher,Steve Loughran"
+    },
+    {
+        "libraryID": 1313,
+        "title": "Node.js in Practice",
+        "author": "Alex Young,Marc Harter"
+    },
+    {
+        "libraryID": 1207,
+        "title": "Clojure in Action",
+        "author": "Amit Rathore"
+    },
+    {
+        "libraryID": 1001,
+        "title": "Android in Action, Second Edition",
+        "author": "W. Frank Ableson,Robi Sen"
+    },
+    {
+        "libraryID": 1428,
+        "title": "Jakarta Commons Online Bookshelf",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1153,
+        "title": "Minimal Perl",
+        "author": "Tim Maher"
+    },
+    {
+        "libraryID": 1269,
+        "title": "The Engaging Web",
+        "author": "Gabe Zichermann,Chris Cunningham"
+    },
+    {
+        "libraryID": 1166,
+        "title": "Client/Server Applications on ATM Networks",
+        "author": "Daniel Minoli,Andrew Schmidt"
+    },
+    {
+        "libraryID": 1185,
+        "title": "EJB 3 in Action, Second Edition",
+        "author": "Debu Panda,Reza Rahman,Ryan Cuprak,,Michael Remijan"
+    },
+    {
+        "libraryID": 1230,
+        "title": "Instant Messaging in Java",
+        "author": "Iain Shigeoka"
+    },
+    {
+        "libraryID": 1399,
+        "title": "XSLT Quickly",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1234,
+        "title": "Making Sense of Java",
+        "author": "Bruce Simpson,John Mitchell,Brian Christeson,Rehan Zaidi,,Jonathan Levine"
+    },
+    {
+        "libraryID": 1235,
+        "title": "C++/CLI in Action",
+        "author": "Nishant Sivakumar"
+    },
+    {
+        "libraryID": 1200,
+        "title": "Dependency Injection",
+        "author": "Dhanji R. Prasanna"
+    },
+    {
+        "libraryID": 1080,
+        "title": "Pool and DBCP: Creating and Using Object Pools",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1257,
+        "title": "XDoclet in Action",
+        "author": "Craig Walls,Norman Richards"
+    },
+    {
+        "libraryID": 1341,
+        "title": "Scalatra in Action",
+        "author": "Ivan Porto Carrero,Ross A. Baker,Dave Hrycyszyn,Stefan Ollinger,,Jared Armstrong"
+    },
+    {
+        "libraryID": 1332,
+        "title": "Action Guide (aka VB .NET)",
+        "author": "Paul Messick"
+    },
+    {
+        "libraryID": 1237,
+        "title": "C# in Depth, Second Edition",
+        "author": "Jon Skeet"
+    },
+    {
+        "libraryID": 1309,
+        "title": "Neo4j in Action",
+        "author": "Jonas Partner,Aleksa Vukotic,,Nicki Watt"
+    },
+    {
+        "libraryID": 1373,
+        "title": "Storm Applied",
+        "author": "Sean Allen,Peter Pathirana,,Matthew Jankowski"
+    },
+    {
+        "libraryID": 1323,
+        "title": "Solr in Action",
+        "author": "Trey Grainger,Timothy Potter"
+    },
+    {
+        "libraryID": 1204,
+        "title": "DSLs in Boo: Domain-Specific Languages in .NET",
+        "author": "Oren Eini writing as Ayende Rahien"
+    },
+    {
+        "libraryID": 1196,
+        "title": "Lift in Action",
+        "author": "Timothy Perrett"
+    },
+    {
+        "libraryID": 1389,
+        "title": "Chef in Action",
+        "author": "Dimitri Aivaliotis"
+    },
+    {
+        "libraryID": 1102,
+        "title": "Java Network Programming, Second Edition",
+        "author": "Merlin Hughes,Michael Shoffner,,Derek Hamner"
+    },
+    {
+        "libraryID": 1169,
+        "title": "ASP.NET 2.0 Web Parts in Action",
+        "author": "Darren Neimke"
+    },
+    {
+        "libraryID": 1133,
+        "title": "SQR in PeopleSoft and Other Applications",
+        "author": "Galina,Vlad Landres"
+    },
+    {
+        "libraryID": 1258,
+        "title": "Spring in Action",
+        "author": "Craig Walls,Ryan Breidenbach"
+    },
+    {
+        "libraryID": 1310,
+        "title": "Programming the TI-83 Plus/TI-84 Plus",
+        "author": "Christopher R. Mitchell"
+    },
+    {
+        "libraryID": 1060,
+        "title": "Essential Guide to Peoplesoft Development and Customization",
+        "author": "Tony DeLia,Galina Landres,Isidor Rivera,Prakash Sankaran"
+    },
+    {
+        "libraryID": 1190,
+        "title": "Windows PowerShell in Action, Second Edition",
+        "author": "Bruce Payette"
+    },
+    {
+        "libraryID": 1228,
+        "title": "Liferay in Action",
+        "author": "Richard Sezov,Jr"
+    },
+    {
+        "libraryID": 1159,
+        "title": "Algorithms of the Intelligent Web",
+        "author": "Haralambos Marmanis,Dmitry Babenko"
+    },
+    {
+        "libraryID": 1218,
+        "title": "Implementing Elliptic Curve Cryptography",
+        "author": "Michael Rosing"
+    },
+    {
+        "libraryID": 1209,
+        "title": "Working with Objects",
+        "author": "Trygve Reenskaug"
+    },
+    {
+        "libraryID": 1369,
+        "title": "The Programmer's Guide to Apache Thrift ",
+        "author": "Randy Abernethy"
+    },
+    {
+        "libraryID": 1284,
+        "title": "Using C-Kermit: Communication Software",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1283,
+        "title": "Implementing SAP R/3",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1417,
+        "title": "Struts Recipes",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1104,
+        "title": "Camel in Action",
+        "author": "Claus Ibsen,Jonathan Anstey"
+    },
+    {
+        "libraryID": 1174,
+        "title": "SQL Server MVP Deep Dives",
+        "author": "Contributions from 53 SQL Server MVPs,Edited by Paul Nielsen,Kalen Delaney,Greg Low,Adam Machanic,Paul S. Randal,,Kimberly L. Tripp"
+    },
+    {
+        "libraryID": 1013,
+        "title": "Team Foundation Server 2008 in Action",
+        "author": "Jamil Azher"
+    },
+    {
+        "libraryID": 1140,
+        "title": "WebWork in Action",
+        "author": "Patrick Lightbody,Jason Carreira"
+    },
+    {
+        "libraryID": 1329,
+        "title": "AOP in .NET",
+        "author": "Matthew D. Groves"
+    },
+    {
+        "libraryID": 1249,
+        "title": "Bitter EJB",
+        "author": "Bruce Tate,Mike Clark,Bob Lee,Patrick Linskey"
+    },
+    {
+        "libraryID": 1285,
+        "title": "SCWCD Exam Study Kit",
+        "author": "Hanumant Deshmukh,Jignesh Malavia"
+    },
+    {
+        "libraryID": 1281,
+        "title": "TCP/IP Programming for OS/2",
+        "author": "Steven J. Gutz"
+    },
+    {
+        "libraryID": 1413,
+        "title": "IronPython in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1066,
+        "title": "LDAP Programming, Management and Integration",
+        "author": "Clayton Donley"
+    },
+    {
+        "libraryID": 1058,
+        "title": "Open Source SOA",
+        "author": "Jeff Davis"
+    },
+    {
+        "libraryID": 1161,
+        "title": "Tika in Action",
+        "author": "Chris A. Mattmann,Jukka L. Zitting"
+    },
+    {
+        "libraryID": 1177,
+        "title": "PostGIS in Action",
+        "author": "Regina O. Obe,Leo S. Hsu"
+    },
+    {
+        "libraryID": 1303,
+        "title": "The Art of Unit Testing, Second Edition",
+        "author": "Roy Osherove"
+    },
+    {
+        "libraryID": 1229,
+        "title": "JSP Tag Libraries",
+        "author": "Gal Shachor,Adam Chace,Magnus Rydin"
+    },
+    {
+        "libraryID": 1311,
+        "title": "Functional Programming in Scala",
+        "author": "Paul Chiusano,Rúnar Bjarnason"
+    },
+    {
+        "libraryID": 1150,
+        "title": "Power-3D",
+        "author": "Kyle Lussier"
+    },
+    {
+        "libraryID": 1042,
+        "title": "Internet and Intranet Applications with PowerBuilder 6",
+        "author": "Tom Cervenka"
+    },
+    {
+        "libraryID": 1421,
+        "title": "J2EE and XML Development",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1322,
+        "title": "Kanban in Action",
+        "author": "Marcus Hammarberg,Joakim Sunden"
+    },
+    {
+        "libraryID": 1146,
+        "title": "Ant in Action",
+        "author": "Steve Loughran,Erik Hatcher"
+    },
+    {
+        "libraryID": 1375,
+        "title": "jQuery UI in Action",
+        "author": "Theodore J. (T.J.) VanToll III"
+    },
+    {
+        "libraryID": 1202,
+        "title": "Open-Source ESBs in Action",
+        "author": "Tijs Rademakers,Jos Dirksen"
+    },
+    {
+        "libraryID": 1225,
+        "title": "Multiprotocol over ATM",
+        "author": "Andrew Schmidt,Daniel Minoli"
+    },
+    {
+        "libraryID": 1043,
+        "title": "Practical Methods for Your Year 2000 Problem",
+        "author": "Robert Chapman"
+    },
+    {
+        "libraryID": 1170,
+        "title": "Sass and Compass in Action",
+        "author": "Wynn Netherland,Nathan Weizenbaum,Chris Eppstein,,Brandon Mathis"
+    },
+    {
+        "libraryID": 1109,
+        "title": "iOS 4 in Action",
+        "author": "Jocelyn Harrington,Brandon Trebitowski,Christopher Allen,,Shannon Appelcline"
+    },
+    {
+        "libraryID": 1403,
+        "title": "The Well-Grounded Java Developer",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1122,
+        "title": "Object Technology Centers of Excellence",
+        "author": "Timothy D. Korson,Vijay K. Vaishnavi"
+    },
+    {
+        "libraryID": 1223,
+        "title": "SWT/JFace in Action",
+        "author": "Matthew Scarpino,Stephen Holder,Stanford Ng,,Laurent Mihalkovic"
+    },
+    {
+        "libraryID": 1099,
+        "title": "Code Generation in Action",
+        "author": "Jack Herrington"
+    },
+    {
+        "libraryID": 1260,
+        "title": "Spring in Action, Third Edition",
+        "author": "Craig Walls"
+    },
+    {
+        "libraryID": 1388,
+        "title": "Barcodes with iOS",
+        "author": "Oliver Drobnik"
+    },
+    {
+        "libraryID": 1063,
+        "title": "Spring Roo in Action",
+        "author": "Ken Rimple,Srini Penchikala"
+    },
+    {
+        "libraryID": 1134,
+        "title": "SQR in PeopleSoft and Other Applications, Second Edition",
+        "author": "Galina Landres,Vlad Landres"
+    },
+    {
+        "libraryID": 1300,
+        "title": "Linked Data",
+        "author": "David Wood,Marsha Zaidman,Luke Ruth,with Michael Hausenblas"
+    },
+    {
+        "libraryID": 1362,
+        "title": "Programming for Musicians and Digital Artists",
+        "author": "Ajay Kapur,Perry Cook,Spencer Salazar,,Ge Wang"
+    },
+    {
+        "libraryID": 1076,
+        "title": "JXPath and Betwixt: Working with XML",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1273,
+        "title": "Arduino in Action",
+        "author": "Martin Evans,Joshua Noble,,Jordan Hochenbaum"
+    },
+    {
+        "libraryID": 1036,
+        "title": "Graphics File Formats",
+        "author": "C. Wayne Brown,Barry J. Shepherd"
+    },
+    {
+        "libraryID": 1366,
+        "title": "Giraph in Action",
+        "author": "Claudio Martella,Roman Shaposhnik,,Dionysios Logothetis"
+    },
+    {
+        "libraryID": 1355,
+        "title": "Backbone.js in Action",
+        "author": "Samuel M. Breed,Cole Krumbholz,,Phillip Whisenhunt"
+    },
+    {
+        "libraryID": 1152,
+        "title": "Subversion in Action",
+        "author": "Jeffrey Machols"
+    },
+    {
+        "libraryID": 1139,
+        "title": "Tapestry in Action",
+        "author": "Howard M. Lewis Ship"
+    },
+    {
+        "libraryID": 1015,
+        "title": "MongoDB in Action",
+        "author": "Kyle Banker"
+    },
+    {
+        "libraryID": 1292,
+        "title": "Hadoop in Practice",
+        "author": "Alex Holmes"
+    },
+    {
+        "libraryID": 1124,
+        "title": "Effective Unit Testing",
+        "author": "Lasse Koskela"
+    },
+    {
+        "libraryID": 1231,
+        "title": "Java Applets and Channels Without Programming",
+        "author": "Ronny Richardson,Michael Shoffner,Marq Singer,Bruce Murray,,Jack Gambol"
+    },
+    {
+        "libraryID": 1162,
+        "title": "Ruby in Practice",
+        "author": "Jeremy McAnally,Assaf Arkin"
+    },
+    {
+        "libraryID": 1331,
+        "title": "CMIS and Apache Chemistry in Action",
+        "author": "Florian Müller,Jay Brown,Jeff Potts"
+    },
+    {
+        "libraryID": 1351,
+        "title": "Ember.js in Action",
+        "author": "Joachim Haagen Skeie"
+    },
+    {
+        "libraryID": 1245,
+        "title": "EJB Cookbook",
+        "author": "Benjamin G. Sullins,Mark B. Whipple"
+    },
+    {
+        "libraryID": 1044,
+        "title": "Mobile Agents",
+        "author": "William R. Cockayne and Michael Zyda,editors"
+    },
+    {
+        "libraryID": 1189,
+        "title": "Windows PowerShell in Action",
+        "author": "Bruce Payette"
+    },
+    {
+        "libraryID": 1193,
+        "title": "Hibernate Quickly",
+        "author": "Patrick Peak,Nick Heudecker"
+    },
+    {
+        "libraryID": 1286,
+        "title": "Unit Testing in C++",
+        "author": "Bruce Trask,Angel Roman"
+    },
+    {
+        "libraryID": 1352,
+        "title": "Netty in Action",
+        "author": "Norman Maurer,Courtney Robinson"
+    },
+    {
+        "libraryID": 1091,
+        "title": "Lucene in Action, Second Edition",
+        "author": "Erik Hatcher,Otis Gospodnetic,,Michael McCandless"
+    },
+    {
+        "libraryID": 1240,
+        "title": "ActiveMQ in Action",
+        "author": "Bruce Snyder,Dejan Bosanac,,Rob Davies"
+    },
+    {
+        "libraryID": 1188,
+        "title": "Domino Development with Java",
+        "author": "Anthony Patton"
+    },
+    {
+        "libraryID": 1408,
+        "title": "Web Development with JavaServer Pages, Second Edition",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1395,
+        "title": "Unity in Action",
+        "author": "Joseph Hocking"
+    },
+    {
+        "libraryID": 1251,
+        "title": "JDK 1.4 Tutorial",
+        "author": "Gregory M. Travis"
+    },
+    {
+        "libraryID": 1136,
+        "title": "Tuscany SCA in Action",
+        "author": "Simon Laws,Mark Combellack,Raymond Feng,Haleh Mahbod,Simon Nash"
+    },
+    {
+        "libraryID": 1138,
+        "title": "Object Oriented Application Frameworks",
+        "author": "Ted Lewis,friends"
+    },
+    {
+        "libraryID": 1114,
+        "title": "SOA Security",
+        "author": "Ramarao Kanneganti,Prasad A. Chodavarapu"
+    },
+    {
+        "libraryID": 1430,
+        "title": "Codec: Encoders and Decoders",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1400,
+        "title": "Windows Forms Programming with C#",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1338,
+        "title": "SBT in Action",
+        "author": "Joshua Suereth,Matthew Farwell"
+    },
+    {
+        "libraryID": 1108,
+        "title": "Extending and Embedding Perl",
+        "author": "Tim Jenness,Simon Cozens"
+    },
+    {
+        "libraryID": 1157,
+        "title": "LINQ in Action",
+        "author": "Fabrice Marguerie,Steve Eichert,Jim Wooley"
+    },
+    {
+        "libraryID": 1394,
+        "title": "Practical Probabilistic Programming",
+        "author": "Avi Pfeffer"
+    },
+    {
+        "libraryID": 1318,
+        "title": "RabbitMQ in Depth",
+        "author": "Gavin M. Roy"
+    },
+    {
+        "libraryID": 1387,
+        "title": "Geoprocessing with Python",
+        "author": "Chris Garrard"
+    },
+    {
+        "libraryID": 1121,
+        "title": "Groovy in Action, Second Edition",
+        "author": "Dierk König,Guillaume Laforge,Paul King,Cédric Champeau,Hamlet D'Arcy,Erik Pragt,,Jon Skeet"
+    },
+    {
+        "libraryID": 1256,
+        "title": "RabbitMQ in Action",
+        "author": "Alvaro Videla,Jason J.W. Williams"
+    },
+    {
+        "libraryID": 1149,
+        "title": "iText in Action, Second Edition",
+        "author": "Bruno Lowagie"
+    },
+    {
+        "libraryID": 1407,
+        "title": "Location-Aware Applications",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1217,
+        "title": "The Cloud at Your Service",
+        "author": "Jothy Rosenberg,Arthur Mateos"
+    },
+    {
+        "libraryID": 1405,
+        "title": "ADO.NET Programming",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1390,
+        "title": "Hadoop in Practice, Second Edition",
+        "author": "Alex Holmes"
+    },
+    {
+        "libraryID": 1425,
+        "title": "Sencha Touch in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1342,
+        "title": "AngularJS in Action",
+        "author": "Brian Ford,Lukas Ruebbelke"
+    },
+    {
+        "libraryID": 1427,
+        "title": "Database Programming for Handheld Devices",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1340,
+        "title": "Gradle in Action",
+        "author": "Benjamin Muschko"
+    },
+    {
+        "libraryID": 1100,
+        "title": "Illustrated Guide to HTTP",
+        "author": "Paul S. Hethmon"
+    },
+    {
+        "libraryID": 1016,
+        "title": "Distributed Application Development with PowerBuilder 6.0",
+        "author": "Michael J. Barlotta"
+    },
+    {
+        "libraryID": 1216,
+        "title": "Personal Videoconferencing",
+        "author": "Evan Rosen"
+    },
+    {
+        "libraryID": 1420,
+        "title": "Remote LAN Access",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1045,
+        "title": "Spring Dynamic Modules in Action",
+        "author": "Arnaud Cogoluegnes,Thierry Templier,,Andy Piper"
+    },
+    {
+        "libraryID": 1039,
+        "title": "iPhone in Action",
+        "author": "Christopher Allen,Shannon Appelcline"
+    },
+    {
+        "libraryID": 1368,
+        "title": "Go in Action",
+        "author": "Brian Ketelsen,Erik St. Martin,,William Kennedy"
+    },
+    {
+        "libraryID": 1350,
+        "title": "Hello App Inventor!",
+        "author": "Paula Beer,Carl Simmons"
+    },
+    {
+        "libraryID": 1017,
+        "title": "Jaguar Development with PowerBuilder 7",
+        "author": "Michael Barlotta"
+    },
+    {
+        "libraryID": 1011,
+        "title": "Hello! Flex 4",
+        "author": "Peter Armstrong"
+    },
+    {
+        "libraryID": 1265,
+        "title": "C++ Concurrency in Action",
+        "author": "Anthony Williams"
+    },
+    {
+        "libraryID": 1422,
+        "title": "Eclipse in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1371,
+        "title": "CORS in Action",
+        "author": "Monsur Hossain"
+    },
+    {
+        "libraryID": 1274,
+        "title": "Node.js in Action",
+        "author": "Mike Cantelon,Marc Harter,T.J. Holowaychuk,,Nathan Rajlich"
+    },
+    {
+        "libraryID": 1095,
+        "title": "Azure in Action",
+        "author": "Chris Hay,Brian H. Prince"
+    },
+    {
+        "libraryID": 1416,
+        "title": "Programming Windows Server 2003",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1097,
+        "title": "Metaprogramming in .NET",
+        "author": "Kevin Hazzard,Jason Bock"
+    },
+    {
+        "libraryID": 1411,
+        "title": "The Joy of Clojure",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1345,
+        "title": "C# in Depth, Third Edition",
+        "author": "Jon Skeet"
+    },
+    {
+        "libraryID": 1061,
+        "title": ".NET Multithreading",
+        "author": "Alan Dennis"
+    },
+    {
+        "libraryID": 1050,
+        "title": "Ajax in Action",
+        "author": "Dave Crane,Eric Pascarello with Darren James"
+    },
+    {
+        "libraryID": 1051,
+        "title": "Ajax in Practice",
+        "author": "Dave Crane,Jord Sonneveld and Bear Bibeault with Ted Goddard,Chris Gray,Ram Venkataraman,Joe Walker"
+    },
+    {
+        "libraryID": 1276,
+        "title": "Multimedia Computing",
+        "author": "Matthew E. Hodges"
+    },
+    {
+        "libraryID": 1054,
+        "title": "Data Munging with Perl",
+        "author": "David Cross"
+    },
+    {
+        "libraryID": 1055,
+        "title": "Hello! HTML5 & CSS3",
+        "author": "Rob Crowther"
+    },
+    {
+        "libraryID": 1406,
+        "title": "WPF in Action with Visual Studio 2008",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1103,
+        "title": "Struts in Action",
+        "author": "Ted N. Husted,Cedric Dumoulin,George Franciscus,David Winterfeldt"
+    },
+    {
+        "libraryID": 1321,
+        "title": "OCA Java SE 7 Programmer I Certification Guide",
+        "author": "Mala Gupta"
+    },
+    {
+        "libraryID": 1410,
+        "title": "Spring Integration in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1372,
+        "title": "Reactive Design Patterns",
+        "author": "Roland Kuhn,Jamie Allen"
+    },
+    {
+        "libraryID": 1238,
+        "title": "Magical A-Life Avatars",
+        "author": "Peter Small"
+    },
+    {
+        "libraryID": 1354,
+        "title": "OCP Java SE 7 Programmer II Certification Guide",
+        "author": "Mala Gupta"
+    },
+    {
+        "libraryID": 1026,
+        "title": "Hibernate Search in Action",
+        "author": "Emmanuel Bernard,John Griffin"
+    },
+    {
+        "libraryID": 1299,
+        "title": "Building Well-Structured JavaScript Applications",
+        "author": "Julio C. Ody"
+    },
+    {
+        "libraryID": 1033,
+        "title": "ASP.NET 4.0 in Practice",
+        "author": "Daniele Bochicchio,Stefano Mostarda,,Marco De Sanctis"
+    },
+    {
+        "libraryID": 1412,
+        "title": "Dynamic WAP Application Development",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1262,
+        "title": "Java 2 Micro Edition",
+        "author": "James P. White,David A. Hemphill"
+    },
+    {
+        "libraryID": 1049,
+        "title": "GWT in Practice",
+        "author": "Robert Cooper,Charles Collins"
+    },
+    {
+        "libraryID": 1312,
+        "title": "Play for Scala",
+        "author": "Peter Hilton,Erik Bakker,,Francisco Canedo"
+    },
+    {
+        "libraryID": 1261,
+        "title": "Spring in Practice",
+        "author": "Willie Wheeler with Joshua White"
+    },
+    {
+        "libraryID": 1088,
+        "title": "SharePoint 2010 Site Owner's Manual",
+        "author": "Yvonne M. Harryman"
+    },
+    {
+        "libraryID": 1404,
+        "title": "Objective-C Fundamentals",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1239,
+        "title": "Becoming Agile",
+        "author": "Greg Smith,Ahmed Sidky"
+    },
+    {
+        "libraryID": 1059,
+        "title": "Struts 2 in Action",
+        "author": "Donald Brown,Chad Michael Davis,,Scott Stanlick"
+    },
+    {
+        "libraryID": 1227,
+        "title": "Java 3D Programming",
+        "author": "Daniel Selman"
+    },
+    {
+        "libraryID": 1052,
+        "title": "Prototype and Scriptaculous in Action",
+        "author": "Dave Crane,Bear Bibeault with Tom Locke"
+    },
+    {
+        "libraryID": 1319,
+        "title": "Akka in Action",
+        "author": "Raymond Roestenburg,Rob Bakker,Rob Williams,Steven Haines"
+    },
+    {
+        "libraryID": 1030,
+        "title": "Ruby for Rails",
+        "author": "David A. Black"
+    },
+    {
+        "libraryID": 1424,
+        "title": "Ext JS in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1295,
+        "title": "HTML5 for .NET Developers",
+        "author": "Jim Jackson,II,Ian Gilman"
+    },
+    {
+        "libraryID": 1409,
+        "title": "IntelliJ IDEA in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1382,
+        "title": "MongoDB in Action, Second Edition",
+        "author": "Kyle Banker,Peter Bakkum,Tim Hawkins,Shaun Verch,,Douglas Garrett"
+    },
+    {
+        "libraryID": 1402,
+        "title": "Event Processing in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1020,
+        "title": "Hibernate in Action",
+        "author": "Christian Bauer,Gavin King"
+    },
+    {
+        "libraryID": 1081,
+        "title": "Python and Tkinter Programming",
+        "author": "John E. Grayson"
+    },
+    {
+        "libraryID": 1092,
+        "title": "PowerBuilder 6.0 Questions & Answers",
+        "author": "Tim Hatton"
+    },
+    {
+        "libraryID": 1305,
+        "title": "Hello World! Second Edition",
+        "author": "Warren Sande,Carter Sande"
+    },
+    {
+        "libraryID": 1419,
+        "title": "Jess in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1220,
+        "title": "Hello World!",
+        "author": "Warren D. Sande,Carter Sande"
+    },
+    {
+        "libraryID": 1336,
+        "title": "The Responsive Web",
+        "author": "Matthew Carver"
+    },
+    {
+        "libraryID": 1287,
+        "title": "Big Data",
+        "author": "Nathan Marz,James Warren"
+    },
+    {
+        "libraryID": 1072,
+        "title": "Working with the Logging and Discovery Components",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1032,
+        "title": "Website Owner's Manual",
+        "author": "Paul A. Boag"
+    },
+    {
+        "libraryID": 1074,
+        "title": "Handling Protocols with the Net Component",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1343,
+        "title": "Software Development Metrics",
+        "author": "David Nicolette"
+    },
+    {
+        "libraryID": 1378,
+        "title": "Git in Practice",
+        "author": "Mike McQuaid"
+    },
+    {
+        "libraryID": 1268,
+        "title": "Oracle8i Database Administration",
+        "author": "Noel Yuhanna"
+    },
+    {
+        "libraryID": 1326,
+        "title": "Grails in Action, Second Edition",
+        "author": "Glen Smith,Peter Ledbrook"
+    },
+    {
+        "libraryID": 1005,
+        "title": "Collective Intelligence in Action",
+        "author": "Satnam Alag"
+    },
+    {
+        "libraryID": 1127,
+        "title": "Practical Software Requirements",
+        "author": "Benjamin L. Kovitz"
+    },
+    {
+        "libraryID": 1094,
+        "title": "The Awesome Power of Power++",
+        "author": "Tim Hatton"
+    },
+    {
+        "libraryID": 1078,
+        "title": "Enhancing Java Core Libraries with Collections",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1344,
+        "title": "F# Deep Dives",
+        "author": "Tomas Petricek,Phillip Trelford"
+    },
+    {
+        "libraryID": 1007,
+        "title": "Flex on Java",
+        "author": "Bernerd Allmon,Jeremy Anderson"
+    },
+    {
+        "libraryID": 1254,
+        "title": "Ten Years of UserFriendly.Org",
+        "author": "JD \"Illiad\" Frazer"
+    },
+    {
+        "libraryID": 1038,
+        "title": "iOS in Practice",
+        "author": "Bear P. Cahill"
+    },
+    {
+        "libraryID": 1270,
+        "title": "Enterprise OSGi In Action",
+        "author": "Holly Cummins,Timothy Ward"
+    },
+    {
+        "libraryID": 1383,
+        "title": "Getting MEAN with Mongo, Express, Angular, and Node",
+        "author": "Simon Holmes"
+    },
+    {
+        "libraryID": 1006,
+        "title": "Zend Framework in Action",
+        "author": "Rob Allen,Nick Lo,Steven Brown"
+    },
+    {
+        "libraryID": 1084,
+        "title": "Up to Speed with Swing, Second Edition",
+        "author": "Steven Gutz"
+    },
+    {
+        "libraryID": 1002,
+        "title": "Specification by Example",
+        "author": "Gojko Adzic"
+    },
+    {
+        "libraryID": 1232,
+        "title": "PowerShell in Practice",
+        "author": "Richard Siddaway"
+    },
+    {
+        "libraryID": 1029,
+        "title": "Building Secure and Reliable Network Applications",
+        "author": "Kenneth P. Birman"
+    },
+    {
+        "libraryID": 1315,
+        "title": "Windows Store App Development: C# and XAML",
+        "author": "Peter M. Brown"
+    },
+    {
+        "libraryID": 1243,
+        "title": "Scala in Depth",
+        "author": "Joshua D. Suereth"
+    },
+    {
+        "libraryID": 1003,
+        "title": "Flex 3 in Action",
+        "author": "Tariq Ahmed with Jon Hirschi,Faisal Abid"
+    },
+    {
+        "libraryID": 1046,
+        "title": "SQL Server 2008 Administration in Action",
+        "author": "Rod Colledge"
+    },
+    {
+        "libraryID": 1314,
+        "title": "SonarQube in Action",
+        "author": "G. Ann Campbell,Patroklos P. Papapetrou"
+    },
+    {
+        "libraryID": 1067,
+        "title": "Mule in Action",
+        "author": "David Dossot,John D'Emic"
+    },
+    {
+        "libraryID": 1335,
+        "title": "The Mikado Method",
+        "author": "Ola Ellnestam,Daniel Brolund"
+    },
+    {
+        "libraryID": 1298,
+        "title": "Augmented Reality Revealed",
+        "author": "Robert A. Rice Jr."
+    },
+    {
+        "libraryID": 1105,
+        "title": "Taming Text",
+        "author": "Grant S. Ingersoll,Thomas S. Morton,,Andrew L. Farris"
+    },
+    {
+        "libraryID": 1019,
+        "title": "3D User Interfaces with Java 3D",
+        "author": "Jon Barrilleaux"
+    },
+    {
+        "libraryID": 1065,
+        "title": "RSS and Atom in Action",
+        "author": "Dave Johnson"
+    },
+    {
+        "libraryID": 1057,
+        "title": "Wicket in Action",
+        "author": "Martijn Dashorst,Eelco Hillenius"
+    },
+    {
+        "libraryID": 1082,
+        "title": "Microsoft.NET for Programmers",
+        "author": "Fergal Grimes"
+    },
+    {
+        "libraryID": 1244,
+        "title": "JMX in Action",
+        "author": "Benjamin G. Sullins,Mark B. Whipple"
+    },
+    {
+        "libraryID": 1381,
+        "title": "Elixir in Action",
+        "author": "Saša Juric´"
+    },
+    {
+        "libraryID": 1259,
+        "title": "Spring in Action, Second Edition",
+        "author": "Craig Walls with Ryan Breidenbach"
+    },
+    {
+        "libraryID": 1083,
+        "title": "Grails in Action",
+        "author": "Glen Smith,Peter Ledbrook"
+    },
+    {
+        "libraryID": 1087,
+        "title": "The Quick Python Book",
+        "author": "Daryl Harms,Kenneth McDonald"
+    },
+    {
+        "libraryID": 1359,
+        "title": "ArcGIS Web Development",
+        "author": "Rene Rubalcava"
+    },
+    {
+        "libraryID": 1004,
+        "title": "Flex 4 in Action",
+        "author": "Tariq Ahmed,Dan Orlando,John C. Bland II,Joel Hooks"
+    },
+    {
+        "libraryID": 1053,
+        "title": "POJOs in Action",
+        "author": "Chris Richardson"
+    },
+    {
+        "libraryID": 1021,
+        "title": "Hibernate in Action (Chinese Edition)",
+        "author": "Christian Bauer,Gavin King"
+    },
+    {
+        "libraryID": 1393,
+        "title": "PowerShell in Depth, Second Edition",
+        "author": "Don Jones,Jeffery Hicks,,Richard Siddaway"
+    },
+    {
+        "libraryID": 1328,
+        "title": "Learn Windows PowerShell in a Month of Lunches, Second Edition",
+        "author": "Don Jones,Jeffery D. Hicks"
+    },
+    {
+        "libraryID": 1221,
+        "title": "SCBCD Exam Study Kit",
+        "author": "Paul Sanghera"
+    },
+    {
+        "libraryID": 1376,
+        "title": "Web Components in Action",
+        "author": "Chris Buckett"
+    },
+    {
+        "libraryID": 1010,
+        "title": "Flexible Rails",
+        "author": "Peter Armstrong"
+    },
+    {
+        "libraryID": 1071,
+        "title": "Understanding and Using Chain",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1288,
+        "title": "CoffeeScript in Action",
+        "author": "Patrick Lee"
+    },
+    {
+        "libraryID": 1041,
+        "title": "The Quick Python Book, Second Edition",
+        "author": "Naomi R. Ceder"
+    },
+    {
+        "libraryID": 1022,
+        "title": "Java Persistence with Hibernate",
+        "author": "Christian Bauer,Gavin King"
+    },
+    {
+        "libraryID": 1012,
+        "title": "Coffeehouse",
+        "author": "Levi Asher,Christian Crumlish"
+    },
+    {
+        "libraryID": 1233,
+        "title": "PowerShell and WMI",
+        "author": "Richard Siddaway"
+    },
+    {
+        "libraryID": 1306,
+        "title": "Dart in Action",
+        "author": "Chris Buckett"
+    },
+    {
+        "libraryID": 1247,
+        "title": "JUnit in Action, Second Edition",
+        "author": "Petar Tahchiev,Felipe Leme,Vincent Massol,,Gary Gregory"
+    },
+    {
+        "libraryID": 1025,
+        "title": "Designing Hard Software",
+        "author": "Douglas W. Bennett"
+    },
+    {
+        "libraryID": 1090,
+        "title": "Lucene in Action",
+        "author": "Erik Hatcher,Otis Gospodnetic"
+    },
+    {
+        "libraryID": 1035,
+        "title": "PFC Programmer's Reference Manual",
+        "author": "Richard Brooks"
+    },
+    {
+        "libraryID": 1396,
+        "title": "Express.js in Action",
+        "author": "Evan M. Hahn"
+    },
+    {
+        "libraryID": 1386,
+        "title": "Learn SQL Server Administration in a Month of Lunches",
+        "author": "Don Jones"
+    },
+    {
+        "libraryID": 1241,
+        "title": "Implementing PeopleSoft Financials",
+        "author": "Early Stephens"
+    },
+    {
+        "libraryID": 1107,
+        "title": "Gnuplot in Action",
+        "author": "Philipp K. Janert"
+    },
+    {
+        "libraryID": 1356,
+        "title": "Clojure in Action, Second Edition",
+        "author": "Amit Rathore"
+    },
+    {
+        "libraryID": 1093,
+        "title": "The Awesome Power of PowerJ",
+        "author": "Tim Hatton"
+    },
+    {
+        "libraryID": 1048,
+        "title": "Object Oriented Perl",
+        "author": "Damian Conway"
+    },
+    {
+        "libraryID": 1098,
+        "title": "Portlets and Apache Portals",
+        "author": "Stefan Hepper,Peter Fischer,Stephan Hesmer,Richard Jacob,David Sean Taylor"
+    },
+    {
+        "libraryID": 1370,
+        "title": "Grokking Functional Programming",
+        "author": "Aslam Khan"
+    },
+    {
+        "libraryID": 1418,
+        "title": "Hello! iOS Development",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1353,
+        "title": "RavenDB in Action",
+        "author": "Itamar Syn-Hershko"
+    },
+    {
+        "libraryID": 1056,
+        "title": "Seam in Action",
+        "author": "Dan Allen"
+    },
+    {
+        "libraryID": 1429,
+        "title": "Browsing with HttpClient",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1079,
+        "title": "Enhancing Java Core Libraries with BeanUtils and Lang",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1070,
+        "title": "Command-line Processing with CLI",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1064,
+        "title": "SOA Governance in Action",
+        "author": "Jos Dirksen"
+    },
+    {
+        "libraryID": 1263,
+        "title": "SharePoint 2010 Workflows in Action",
+        "author": "Phil Wicklund"
+    },
+    {
+        "libraryID": 1364,
+        "title": "Windows Phone 8 in Action",
+        "author": "Timothy Binkley-Jones,Massimo Perga,Michael Sync,Adam Benoit"
+    },
+    {
+        "libraryID": 1248,
+        "title": "Bitter Java",
+        "author": "Bruce A. Tate"
+    },
+    {
+        "libraryID": 1380,
+        "title": "Java 8 in Action",
+        "author": "Raoul-Gabriel Urma,Mario Fusco,,Alan Mycroft"
+    },
+    {
+        "libraryID": 1073,
+        "title": "Uploading files with FileUpload",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1085,
+        "title": "OSGi in Action",
+        "author": "Richard S. Hall,Karl Pauls,Stuart McCulloch,,David Savage"
+    },
+    {
+        "libraryID": 1037,
+        "title": "Visual Object Oriented Programming",
+        "author": "Margaret M. Burnett,Adele Goldberg,,Ted G. Lewis"
+    },
+    {
+        "libraryID": 1367,
+        "title": "The Well-Grounded Rubyist, Second Edition",
+        "author": "David A. Black"
+    },
+    {
+        "libraryID": 1358,
+        "title": "Secrets of the JavaScript Ninja pBook upgrade",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1325,
+        "title": "Jaguar Development with PowerBuilder 7 part. 2",
+        "author": "MIchael Barlotta"
+    },
+    {
+        "libraryID": 1028,
+        "title": "jQuery in Action, Second Edition",
+        "author": "Bear Bibeault,Yehuda Katz"
+    },
+    {
+        "libraryID": 1348,
+        "title": "The Joy of Clojure, Second Edition",
+        "author": "Michael Fogus,Chris Houser"
+    },
+    {
+        "libraryID": 1324,
+        "title": "Making Sense of NoSQL",
+        "author": "Daniel G. McCreary,Ann M. Kelly"
+    },
+    {
+        "libraryID": 1222,
+        "title": "Portlets in Action",
+        "author": "Ashish Sarin"
+    },
+    {
+        "libraryID": 1009,
+        "title": "OSGi in Depth",
+        "author": "Alexandre de Castro Alves"
+    },
+    {
+        "libraryID": 1014,
+        "title": "Brownfield Application Development in .NET",
+        "author": "Kyle Baley,Donald Belcham"
+    },
+    {
+        "libraryID": 1236,
+        "title": "C# in Depth",
+        "author": "Jon Skeet"
+    },
+    {
+        "libraryID": 1294,
+        "title": "Flex Mobile in Action",
+        "author": "Jonathan Campos"
+    },
+    {
+        "libraryID": 1282,
+        "title": "Implementing SAP R/3, Second Edition",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1119,
+        "title": "Laszlo in Action",
+        "author": "Norman Klein,Max Carlson with Glenn MacEwen"
+    },
+    {
+        "libraryID": 1040,
+        "title": "Silverlight 2 in Action",
+        "author": "Chad A. Campbell,John Stockton"
+    },
+    {
+        "libraryID": 1280,
+        "title": "Programming Web Services with Java",
+        "author": "Ajamu A. Wesley"
+    },
+    {
+        "libraryID": 1131,
+        "title": "AspectJ in Action, Second Edition",
+        "author": "Ramnivas Laddad"
+    },
+    {
+        "libraryID": 1110,
+        "title": "Elements of Programming with Perl",
+        "author": "Andrew L. Johnson"
+    },
+    {
+        "libraryID": 1031,
+        "title": "The Well-Grounded Rubyist",
+        "author": "David A. Black"
+    },
+    {
+        "libraryID": 1316,
+        "title": "Learn Windows IIS in a Month of Lunches",
+        "author": "Jason C. Helmick"
+    },
+    {
+        "libraryID": 1144,
+        "title": "Doing IT Right",
+        "author": "Harold Lorin"
+    },
+    {
+        "libraryID": 1291,
+        "title": "Java Persistence with Hibernate, Second Edition",
+        "author": "Christian Bauer,Gavin King,,Gary Gregory"
+    },
+    {
+        "libraryID": 1023,
+        "title": "JSTL in Action",
+        "author": "Shawn Bayern"
+    },
+    {
+        "libraryID": 1308,
+        "title": "Using the TI-83 Plus/TI-84 Plus",
+        "author": "Christopher R. Mitchell"
+    },
+    {
+        "libraryID": 1167,
+        "title": "JavaFX in Action",
+        "author": "Simon Morris"
+    },
+    {
+        "libraryID": 1226,
+        "title": "Dependency Injection in .NET",
+        "author": "Mark Seemann"
+    },
+    {
+        "libraryID": 1264,
+        "title": "SharePoint 2010 Web Parts in Action",
+        "author": "Wictor Wilén"
+    },
+    {
+        "libraryID": 1301,
+        "title": "Mule in Action, Second Edition",
+        "author": "David Dossot,John D'Emic,,Victor Romero"
+    },
+    {
+        "libraryID": 1253,
+        "title": "SQL Server 2005 Reporting Services in Action",
+        "author": "Bret Updegraff"
+    },
+    {
+        "libraryID": 1203,
+        "title": "Activiti in Action",
+        "author": "Tijs Rademakers"
+    },
+    {
+        "libraryID": 1151,
+        "title": "SNA and TCP/IP Enterprise Networking",
+        "author": "Daniel C. Lynch,James P. Gray,and Edward Rabinovitch,editors"
+    },
+    {
+        "libraryID": 1118,
+        "title": "Kermit 95+",
+        "author": "Kermit Project at Columbia University"
+    },
+    {
+        "libraryID": 1289,
+        "title": "SQL Server MVP Deep Dives, Volume 2",
+        "author": "Kalen Delaney,Louis Davidson,Greg Low,Brad McGehee,Paul Nielsen,Paul Randal,,Kimberly Tripp"
+    },
+    {
+        "libraryID": 1250,
+        "title": "Spring Batch in Action",
+        "author": "Arnaud Cogoluegnes,Thierry Templier,Gary Gregory,Olivier Bazoud"
+    },
+    {
+        "libraryID": 1242,
+        "title": "SQL Server DMVs in Action",
+        "author": "Ian W. Stirk"
+    },
+    {
+        "libraryID": 1210,
+        "title": "PHP in Action",
+        "author": "Dagfinn Reiersøl with Marcus Baker,Chris Shiflett"
+    },
+    {
+        "libraryID": 1117,
+        "title": "Technology Paradise Lost",
+        "author": "Erik Keller"
+    },
+    {
+        "libraryID": 1155,
+        "title": "Comprehensive Networking Glossary and Acronym Guide",
+        "author": "Gary Scott Malkin"
+    },
+    {
+        "libraryID": 1141,
+        "title": "MacRuby in Action",
+        "author": "Brendan G. Lim with Jerry Cheung,Jeremy McAnally"
+    },
+    {
+        "libraryID": 1277,
+        "title": "Web Development with JavaServer Pages",
+        "author": "Duane K. Fields,Mark A. Kolb"
+    },
+    {
+        "libraryID": 1123,
+        "title": "Test Driven",
+        "author": "Lasse Koskela"
+    },
+    {
+        "libraryID": 1199,
+        "title": "Machine Learning in Action",
+        "author": "Peter Harrington"
+    },
+    {
+        "libraryID": 1271,
+        "title": "Ext JS in Action, Second Edition",
+        "author": "Jesus Garcia,Grgur Grisogono,,Jacob K. Andresen"
+    },
+    {
+        "libraryID": 1183,
+        "title": "ASP.NET MVC 4 in Action",
+        "author": "Jeffrey Palermo,Jimmy Bogard,Eric Hexter,Matthew Hinze,,Jeremy Skinner"
+    },
+    {
+        "libraryID": 1179,
+        "title": "The Art of Unit Testing",
+        "author": "Roy Osherove"
+    },
+    {
+        "libraryID": 1181,
+        "title": "ASP.NET MVC in Action",
+        "author": "Jeffrey Palermo,Ben Scheirman,,Jimmy Bogard"
+    },
+    {
+        "libraryID": 1184,
+        "title": "EJB 3 in Action",
+        "author": "Debu Panda,Reza Rahman,Derek Lane"
+    },
+    {
+        "libraryID": 1182,
+        "title": "ASP.NET MVC 2 in Action",
+        "author": "Jeffrey Palermo,Ben Scheirman,Jimmy Bogard,Eric Hexter,,Matthew Hinze"
+    },
+    {
+        "libraryID": 1120,
+        "title": "Groovy in Action",
+        "author": "Dierk Koenig with Andrew Glover,Paul King,Guillaume Laforge,Jon Skeet"
+    },
+    {
+        "libraryID": 1279,
+        "title": "Manager's Guide to Open Source",
+        "author": "Maria Winslow"
+    },
+    {
+        "libraryID": 1255,
+        "title": "Graphics Programming with Perl",
+        "author": "Martien Verbruggen"
+    },
+    {
+        "libraryID": 1112,
+        "title": "R in Action",
+        "author": "Robert I. Kabacoff"
+    },
+    {
+        "libraryID": 1128,
+        "title": "NHibernate in Action",
+        "author": "Pierre Henri Kuate,Tobin Harris,Christian Bauer,,Gavin King"
+    },
+    {
+        "libraryID": 1272,
+        "title": "Android in Action, Third Edition",
+        "author": "W. Frank Ableson,Robi Sen,Chris King,C. Enrique Ortiz"
+    },
+    {
+        "libraryID": 1374,
+        "title": "Real-World Machine Learning",
+        "author": "Henrik Brink,Joseph Richards"
+    },
+    {
+        "libraryID": 1164,
+        "title": "Maximum MIDI",
+        "author": "Paul Messick"
+    },
+    {
+        "libraryID": 1398,
+        "title": "Understanding SPAs",
+        "author": "Emmit A. Scott,Jr."
+    },
+    {
+        "libraryID": 1423,
+        "title": "ASP.NET AJAX in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1363,
+        "title": "BDD in Action",
+        "author": "John F. Smart"
+    },
+    {
+        "libraryID": 1397,
+        "title": "Learn Git in a Month of Lunches",
+        "author": "Rick Umali"
+    },
+    {
+        "libraryID": 1186,
+        "title": "Explorer's Guide to the Semantic Web",
+        "author": "Thomas B. Passin"
+    },
+    {
+        "libraryID": 1330,
+        "title": "Learn PowerShell Toolmaking in a Month of Lunches",
+        "author": "Don Jones,Jeffery Hicks"
+    },
+    {
+        "libraryID": 1198,
+        "title": "Real-World Functional Programming",
+        "author": "Tomas Petricek with Jon Skeet"
+    },
+    {
+        "libraryID": 1426,
+        "title": "DSLs in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1148,
+        "title": "iText in Action",
+        "author": "Bruno Lowagie"
+    },
+    {
+        "libraryID": 1135,
+        "title": "F# in Action",
+        "author": "Amanda Laucher"
+    },
+    {
+        "libraryID": 1377,
+        "title": "JavaScript Application Design",
+        "author": "Nicolas G. Bevacqua"
+    },
+    {
+        "libraryID": 1165,
+        "title": "Planning and Managing ATM Networks",
+        "author": "Daniel Minoli,Thomas W. Golway,,Norris P. Smith"
+    },
+    {
+        "libraryID": 1156,
+        "title": "JavaServer Faces in Action",
+        "author": "Kito D. Mann"
+    },
+    {
+        "libraryID": 1214,
+        "title": "Swing Second Edition",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1365,
+        "title": "Titanium Alloy in Action",
+        "author": "Ricardo Alcocer"
+    },
+    {
+        "libraryID": 1130,
+        "title": "AspectJ in Action",
+        "author": "Ramnivas Laddad"
+    },
+    {
+        "libraryID": 1187,
+        "title": "Practical LotusScript",
+        "author": "Anthony Patton"
+    },
+    {
+        "libraryID": 1384,
+        "title": "jQuery in Action, Third Edition",
+        "author": "Bear Bibeault,Yehuda Katz,,Aurelio De Rosa"
+    },
+    {
+        "libraryID": 1147,
+        "title": "Restlet in Action",
+        "author": "Jerome Louvel,Thierry Boileau,,Philippe Mougin"
+    },
+    {
+        "libraryID": 1401,
+        "title": "Windows Forms in Action",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1206,
+        "title": "wxPython in Action",
+        "author": "Noel Rappin,Robin Dunn"
+    },
+    {
+        "libraryID": 1333,
+        "title": "Learn Active Directory Management in a Month of Lunches",
+        "author": "Richard Siddaway"
+    },
+    {
+        "libraryID": 1194,
+        "title": "Generative Art",
+        "author": "Matt Pearson"
+    },
+    {
+        "libraryID": 1178,
+        "title": "Programming Mac OS X",
+        "author": "Kevin O'Malley"
+    },
+    {
+        "libraryID": 1195,
+        "title": "Windows Phone 7 in Action",
+        "author": "Timothy Binkley-Jones,Massimo Perga,,Michael Sync"
+    },
+    {
+        "libraryID": 1213,
+        "title": "Swing",
+        "author": "Matthew Robinson,Pavel Vorobiev"
+    },
+    {
+        "libraryID": 1129,
+        "title": "Microsoft Reporting Services in Action",
+        "author": "Teo Lachev"
+    },
+    {
+        "libraryID": 1414,
+        "title": "Art of Java Web Development",
+        "author": "unknown"
+    },
+    {
+        "libraryID": 1168,
+        "title": "Entity Framework 4 in Action",
+        "author": "Stefano Mostarda,Marco De Sanctis,,Daniele Bochicchio"
+    },
+    {
+        "libraryID": 1171,
+        "title": "Core OWL 5.0",
+        "author": "Ted Neward"
+    },
+    {
+        "libraryID": 1145,
+        "title": "Adobe AIR in Action",
+        "author": "Joey Lott,Kathryn Rotondo,Sam Ahn,Ashley Atkins"
+    },
+    {
+        "libraryID": 1154,
+        "title": "Distributed Programming with Java",
+        "author": "Qusay H. Mahmoud"
+    },
+    {
+        "libraryID": 1116,
+        "title": "Continuous Integration in .NET",
+        "author": "Marcin Kawalerowicz,Craig Berntson"
+    },
+    {
+        "libraryID": 1175,
+        "title": "SQL Server MVP Deep Dives2",
+        "author": "Contributions from 53 SQL Server MVPs; Edited by Paul Nielsen,Kalen Delaney,Greg Low,Adam Machanic,Paul S. Randal,,Kimberly L. Tripp"
+    },
+    {
+        "libraryID": 1208,
+        "title": "Scala in Action",
+        "author": "Nilanjan Raychaudhuri"
+    },
+    {
+        "libraryID": 1115,
+        "title": "Rails 3 in Action",
+        "author": "Ryan Bigg,Yehuda Katz"
+    },
+    {
+        "libraryID": 1158,
+        "title": "Internet BBSs",
+        "author": "Richard Scott Mark"
+    },
+    {
+        "libraryID": 1197,
+        "title": "Web Development with Apache and Perl",
+        "author": "Theo Petersen"
+    },
+    {
+        "libraryID": 1201,
+        "title": "Understanding Enterprise SOA",
+        "author": "Eric Pulier and Hugh Taylor,Foreword by Paul Gaffney"
+    },
+    {
+        "libraryID": 1212,
+        "title": "Microsoft Office Essentials",
+        "author": "Ronny Richardson"
+    },
+    {
+        "libraryID": 1126,
+        "title": "The Awesome Power of Direct3D/DirectX",
+        "author": "Peter J. Kovach"
+    },
+    {
+        "libraryID": 1180,
+        "title": "Mahout in Action",
+        "author": "Sean Owen,Robin Anil,Ted Dunning,,Ellen Friedman"
+    },
+    {
+        "libraryID": 1205,
+        "title": "JUnit Recipes",
+        "author": "J. B. Rainsberger with contributions by Scott Stirling"
+    },
+    {
+        "libraryID": 1113,
+        "title": "Android in Practice",
+        "author": "Matthias Kaeppler,Michael D. Galpin,Charlie Collins"
+    },
+    {
+        "libraryID": 1191,
+        "title": "Silverlight 4 in Action, Revised Edition",
+        "author": "Pete Brown"
+    },
+    {
+        "libraryID": 1125,
+        "title": "Making Java Groovy",
+        "author": "Kenneth A. Kousen"
+    },
+    {
+        "libraryID": 1075,
+        "title": "XML Parsing with Digester",
+        "author": "Vikram Goyal"
+    },
+    {
+        "libraryID": 1211,
+        "title": "Secrets of the JavaScript Ninja",
+        "author": "John Resig"
+    }
+]
