@@ -14,7 +14,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 5
 as: 2022/2023
-version: '1.0.0'
+version: '1.1.0'
 
 ---  
 
@@ -492,6 +492,10 @@ Esercitazione 01 - MongoDB
 
 - Se tutto ha funzionato bene, accedendo con il browser alla porta 8081, vedremo qualcosa di simile
 
+**CREDENZIALI** -->&nbsp;&nbsp;
+`admin/pass`
+
+
 
 <br>
 
@@ -640,12 +644,15 @@ Esercitazione 03 - mongoDB e JS
 <br>
 
 ```bash
-# npm install mongoose
-
-added 24 packages in 8s
-
-1 package is looking for funding
-  run `npm fund` for details
+$ mkdir mongojs
+$
+$ cd mongojs
+$
+$ wget https://tpsi.mancusoa.it/support/package.json
+$
+$ wget https://tpsi.mancusoa.it/support/package-lock.json
+$
+$ npm ci
 ```
 
 ---
