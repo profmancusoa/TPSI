@@ -1,0 +1,224 @@
+HOME
+ABOUT THIS SITE
+ARTICLE HUB
+FEELING LUCKY?
+CONTACT ME
+“WHY DOES PHP SUCK?”
+July 31, 2014 (February 29, 2016)
+ShareTweetSend
+There are so many awful things involved in this abomination of a high-level programming language, it outright exceeds full-blown ridicularity. PHP sucks on so many levels that it isn’t even funny anymore mocking it. To be honest, it just makes me sad. Frown Its popularity is completely undeserved and I repeatedly find myself facepalming, thinking about how it is possible that this piece of junk gained even the slightest hint of acceptance. Believe it or not, I basically created this website just so that I could rant about PHP at an appropriate place.
+
+So then tell me, why does it suck?
+If you think about what’s important in terms of programming languages, you might come up with some buzzwords like portability, performance, predictability, consistency, and so on. Unfortunately, PHP doesn’t really have any of these characteristics. While portability and performance are usually implementation-dependent, predictability and consistency are logical traits that I expect to find in any language. I’d even go so far and say that PHP deliberately tries to be the complete opposite of what makes up a good language, with every “feature” being somehow broken in its own way. Anyway, let’s get started.
+
+
+
+LANGUAGE DESIGN
+PHP
+As any other language, PHP took a look at its predecessors. Its syntax seems to be heavily influenced by Java with a slightly lower degree of verbosity while its library framework is more like a bunch of C-style functions with cryptic names. It is also related to Perl — which is probably where it got some of it quirks from. Naturally, it comes with some of its own, totally arbitrary design choices that almost never seem to make sense. There is one underlying issue with all this: PHP doesn’t follow a distinct path.
+
+HISTORY & PARADIGMS
+Obviously, PHP started as a procedural language – or did it? Actually, it started as some weird html-meta-language, called PHP/FI that looked something like this:
+
+1
+2
+3
+4
+5
+6
+7
+<!--include /text/header.html-->
+<!--sql database select * from table where user='$username'-->
+<!--ifless $numentries 1-->
+    Sorry, that record does not exist<p>
+<!--endif exit-->
+    Welcome <!--$user-->!
+<!--include /text/footer.html-->
+Doesn’t this just look beautifully awful? Smile It might have had some kind of weird masochistic use a couple of centuries ago for simple websites, but still — Yikes! After that, PHP seemed to have adopted a more natural kind of the procedural paradigm as we know it today, fairly similar to the style found in C. Nowadays it tries hard to be like Java or other modern, object oriented languages. From the start, PHP has been designed with beginners in mind whose sole goal is to create simple, database driven websites. Of course, this is totally fine except that it grew too large over time. Apparently, way too less brainpower has been invested into scalability (or into anything) during the probably non-existent design process. There is nothing wrong with a language that is designed for small-scale applications, but what PHP has become and what it is being used for is clearly far away from all intentions during its inception — a personal toolkit for its creator.
+
+TYPE SYSTEM
+PHP uses the dynamic typing approach with types being determined at runtime based on how they are used in any particular situation. This already sucks in my opinion, but I won’t hold it against PHP since it is fairly common among scripting languages. What’s worse is just that there isn’t even a way to declare variables. Variables are created and initialized whenever they are used for the first time, which is just bound to result in errors that are caused by typos.
+
+Arrays are yet another weird quirk you’ll have to endure. They are not just numerically indexed but actually a freakish crossbreed of pretty much everything and can be treated as an array, list, hash table, dictionary, collection, stack, queue, and probably more. Before classes were added to PHP 4, there were no other data structures.
+
+CASTING
+The language provides C-style type conversions like $foo = (int)$bar;, even though there is no type-safety. This is strange, given that int doesn’t actually exist and isn’t used anywhere else. The same goes for other primitives. I also stumbled across the (unset) cast that always evaluates to null — there doesn’t seem to be any useful purpose for it. Ambivalent There are so many rules involved — or I’d rather call it different conditions under very specific circumstances — that make type conversions unnecessarily difficult and complex to get correct. Be prepared, you will face hard-to-detect errors that will make your life miserable.
+
+TYPE HINTING
+Hold on… didn’t I just mention before that types cannot be specified because dynamic typing is being used? Well yes — except when it comes to classes as parameter types for functions and methods. To be specific, I mean classes only. Specifying string or boolean will result in a runtime error when the function is called, stating that the argument “must be an instance of string, string given”. This is PHP’s pathetic attempt at some weird kind of static typing. Consider this declaration:
+
+1
+2
+3
+function type_hinted_function(SomeClass $foo) {
+    //
+}
+The function must be called with a valid instance of SomeClass. If $foo happened to be null or any non-class type, it crashes. Well at least it’s something… Oh and before I forget, return value types cannot be hinted, of course. Actually, there is an experimental concept called SPL Types that allows type hinting with basic types. Apparently, creating a wrapper class for basic types in order to achieve basic functionality seemed to be a good idea.
+
+INTEGER OVERFLOWS
+Take a moment to reflect on how non-retarded programming languages handle integer overflows (or underflows for that matter). I can think of three main approaches to handle such scenarios and give you one language each:
+
+C/C++ ignores the fact that an overflow happened and starts counting from the other side (usually, although technically the behavior is undefined according to the language specifications).
+
+C# will throw an exception indicating the overflow, given the operation was carried out within a checked block.
+
+Ruby features type promotion and automatically switches to arbitrary integers to deliver the correct result.
+
+Now PHP follows a completely different approach. Instead of doing something sensible, it automatically converts the value to float. Let that sink in for a while. Even worse, there is no easy mechanism to detect such overflows. Programmers that have to deal with numbers larger than signed 32bit integers* are required to use packages like GMP or BCMath. PHP does not support unsigned variables.
+*Refer to Section Platform Dependency.
+
+CASE SENSITIVITY
+Of course the inconsistency mows everything down here too. PHP code is both case-sensitive and case-insensitive, depending on the specific identifiers. In PHP, variables, constants and array keys are case-sensitive. The same rule goes with class member variables and class constants. However, keywords, functions and methods are case-insensitive. While this might not be a big issue, it may still cause problems when using autoloaders on case-sensitive file systems.
+
+OPERATOR MADNESS
+Another problem that commonly arises with languages that are not type-safe is dealing with type conversions while using operators. Normal languages clearly define the behavior in a logical way, however, PHP is a special case again here because the outcome seems to be pretty much unpredictable. Actually, let me give you a humble advice at this point:
+
+Do not, under any circumstances, use "==" if you're not 100% positive that what you're doing is correct.
+
+Instead, use the === operator to test both type and value. The standard equality operator == is completely broken and a straight out security hazard. According to the operator documentation, PHP favors numerical comparisons over what is actually specified in the statement.
+
+If you compare a number with a string or the comparison involves numerical strings, then each string is converted to a number and the comparison performed numerically. These rules also apply to the switch statement.
+
+I felt like doing a little testing on this one and created a script that compares several values with each other, outputting a nicely formatted table to visualize the madness. This is the result:
+
+PHP Value Comparison Results
+Interestingly enough, PHP thinks the boolean value true is equals to the string "foobar" while "foobar" is equal to 0, yet 0 is not equal to true. This should nicely demonstrate that there is — again — some weird inconsistency going on, with comparison results being non-transitive. Due to the fact that PHP converts “numerical strings” into numbers, the strings "4779" and "0x12AB" are also considered equal. What the hell. Confused
+
+It is a good thing that there is an additional operator === for testing whether two values are identical, i.e. of the same type with the same value. Unfortunately, this is only partially useful. While this operator solves the issues with the equality operator ==, it does not solve issues with greater-than or less-then comparisons. Frankly, there are no according >== or <== operators, so you’re stuck with the previously mentioned problems. Speaking of inconsistencies, PHP seems to be the only language in existence that implements a left-associative ternary operator ?:, rendering it useless for if-then-else-if-else constructs. Have a look at the following snippet and tell me, what output you’d expect.
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+$initial = 'J';
+$name = (($initial == 'M') ? 'Mike'
+	: ($initial == 'J') ? 'John'
+	: ($initial == 'C') ? 'Catherine'
+	: ($initial == 'T') ? 'Thomas'
+	: 'unknown');
+echo $name;
+echo "\n";
+Are you with me if I say I’d expect "John", since the initial is "J"? Well, obviously this is way too logical for PHP to grasp, so the answer is actually "Thomas". Nice try, anyway.
+
+FUNCTION & CLASS LIBRARY
+So, with a language that is this backwards and inconsistent, at least they did a good job writing the function and class libraries, right? Well… okay… hmm… no. Of course not. Actually, I do give them credit for creating quite extensive libraries that cover a decent amount of functionality one would expect from a framework like this, however they are still totally cumbersome to use. Let’s have a look at it: At the time of writing this article, the standard PHP installation on my server comes with 2489 predefined functions. The following link takes you to a list I created for quick reference:
+
+PHP Function Reference Listing
+Isn’t that nice? What a long list of so many different functions for all kinds of purposes, right? Smile Well, if you look closer you’ll see it’s actually a huge pile of crap, and here is why: inconsistency all across the board.
+
+NAMING CONVENTIONS
+Some functions use prefix + underscore, while others use C-Style (abbreviated words crunched together): strlen vs str_pad, urlencode vs utf8_encode, gethostname vs php_uname.
+
+Even though a lot of string functions start with “str”, not all of them do: trim, substr, chr, levenshtein, gethostname, php_uname.
+
+There are totally mixed occurrences of verb+noun and noun+verb all across the command set: array_merge vs get_class.
+
+Numerous functions can be found in the library that are aliases for each other and do the exact same thing, which is rather confusing to say the least. Granted, it’s “because of an API cleanup”, so I put this one last: chop and rtrim, fwrite and fputs, is_integer and is_int.
+
+The naming conventions aren’t even the same within one “logical group”, as the mentioned string functions above clearly demonstrate. Another good example I found is the function htmlentities(...), which converts all special characters into equivalent HTML entities. Now, if you want to revert the process you use the function html_entity_decode(...). These functions are direct inverses of each other, yet they use two entirely different naming schemes. Ambivalent
+
+ORDER OF ARGUMENTS
+This is probably a minor complaint, I just really hate inconsistencies in programming languages. The order of parameters varies between different functions of similar kind, e.g. strpos($haystack, $needle, $offset) and array_search($needle, $haystack, $strict). Of course this is nothing too dramatic, but it still requires you to constantly check the function reference for confirmation. Another example is the function int mktime($hour, $minute, $second, $month, $day, $year), which uses American notation for dates. I would have gone with year, month, day, hour, minute, second.
+
+GLOBAL SCOPE & LACK OF MODULARIZATION
+Another thing that really boggles me is that all regular functions are accessible from global scope. This is a huge mess, considering the large number of functions available. Functions of any kind may be called from anywhere. While PHP supports namespaces since version 5.3.0 (oh wow, it took them that long Undecided), they are not used at all for the native function / class sets, which is really unfortunate.
+
+The namespace separator in PHP is \, which is totally fine for me, although different to what most program languages use. I just wanted to point out the other, rather funny possibilities that were considered: ^^, :>, :) — seriously? That made me giggle a little. My:)Custom:)Library is one happy namespace. Crazy Even the official IRC discussion regarding the implementation details is quite entertaining.
+
+PHP follows the outdated include system we all know (and hopefully dislike) from C/C++. It’s silly copy-and-pasting of code to eventually create one long file that represents the program. PHP comes with four different statements to include code: include, include_once, require and require_once. include_once and require_once cause PHP to check whether the specified file has been included before. If this is the case, it will not be included again. include and require will always include the content, without any such checks. The only difference between the statements involving “include” and those involving “require” is that PHP will abort the execution if a “required” file could not be loaded. The “include” statements will just emit a warning and the execution will be continued.
+
+I really do not know how the “include” statements could possibly be useful. If you are including a file without requiring it, why would you include it in the first place? Most frameworks or programs I checked almost always use require_once — and so do I.
+
+DEGREE OF ABSTRACTION
+I seriously don’t understand why the PHP framework sucks this much at abstraction. PHP is supposed to be a high level programming language, intended to greatly simplify the process of creating web applications, yet the provided functions are mostly low level wrappers of C-functions. There is only a very small degree of abstraction between the PHP function and the C-equivalent.
+
+For example, the function money_format($format, $number) relies on the C-function strfmon. Unfortunately, according to the manual, this function is not natively available on Windows. So certainly the PHP developers implemented the code by themselves in order to guarantee compatibility, right? Yeah sure, as if they’d ever follow the most logical path. Angry Instead, money_format is just undefined if the C-function is unavailable. Awesome. So, better make sure that all functions you’re intending to use are actually implemented on your target system.
+
+NO UNICODE SUPPORT
+This is one of my major complaints. Seriously guys, it’s 2014 and PHP still has no native support for Unicode. How could this feature possibly not be top priority for years? It’s a freaking web language and not solely intended to control toasters and washing machines. Angry
+
+While PHP can store Unicode sequences in variables, it is not aware of it and treats it like regular ASCII strings. Applying any of the regular string functions PHP comes with to these sequences will break them or deliver incorrect results.
+
+At least there are some cumbersome ways available to deal with this mess, namely the multi-byte functions that are part of the library. It works — somehow — but it’s just highly annoying beyond belief. However, I should mention that this solution only helps with actual string manipulation. Any other native function that takes a string as an argument still expects plain old ASCII and will break your neck.
+
+Actually, some time ago I wrote a simple PHP file browser. All it’s supposed to do was to enumerate files in a specified directory on the server. I did already know back then that PHP sucks at handling Unicode, so I developed the system using the multi-byte functions as a design choice from the beginning. Internally, everything string related seemed to work flawlessly up until the point where I tried to scan files with filenames containing non-ASCII characters. While my string handling was correct, I couldn’t do anything about the fact that I was unable to call the file functions with Unicode strings. It just wouldn’t work properly. I was messing around with the system, exec and shell_exec functions to take advantage of operating system features, desperately trying to hack something together that works. It didn’t and I had to give up on that feature, it’s just simply not possible with PHP. Frown
+
+If anyone can point me into the right direction of solving this problem, please leave me a message and give me a hint. Any help is greatly appreciated.
+
+PLATFORM DEPENDENCY
+The thing about platform dependency is another question to discuss. While PHP’s claims of platform independency are technically true, there are a few differences that might just be yet another cause for your program to break. I don’t want to go into details too much since I didn’t write code for Windows based PHP before, however there is one thing I would like to mention: integers come with different bit sizes depending on the underlying operating system. On Linux, the size of an integer variable matches the number of bits the system is natively using, i.e. 32bit or 64bit, whereas on Windows the integer size is always 32bit regardless. This is really a problem in my opinion because there is no way to easily work around this issue except using signed 32bit values as the common denominator, hoping they won’t be auto-cast to float while dealing with file sizes…
+
+Oh and just for funsies, check out the awesome solution they’ve come up with to solve an issue regarding integer overflow in their PHP code. Laugh
+
+DEPLOYMENT
+I have read on numerous websites and blog posts that the simplicity of deployment is a major advantage of PHP. Alright. I have never deployed PHP on a production server by myself, so I will just give them this one. Let’s assume it is easier to deploy PHP than other environments. So what? It simply does not matter. Even if it takes you ten or fifty times longer to properly set up the system, there is no difference in the long run. What the time is really spent on is writing code for the system and that’s probably where PHP loses against other languages if you need to get something done properly that’s beyond the boundaries of a simple “Hello World” program.
+
+PHP’s “drop ‘n run” concept also has a lot of shortcomings. Sure, it’s nice to just drop a script in a folder on the web server and have it run. That is, until you realize that now you have an infinite number of entry points into your application, even though you just need one. If you take a look at the big boys like WordPress, you’ll see that all requests are being redirected to a single entry point and then dispatched further — which is how it should be. Since your entire code hierarchy is accessible by default (without using .htaccess or other mechanisms), you need to protect each PHP file individually against unwanted execution.
+
+DOCUMENTATION
+Oh yeah, the infamous PHP Manual. It’s like a mirror of the language you’re using, and in case of PHP it unambiguously reflects all its flaws and shortcomings. While it does provide some information on usage and behavior, it often lacks complete documentation. Sometimes the user comments are much more helpful than the actual text, even though half of them only reveal a fraction of what’s going on and the other half is completely worthless. It also doesn’t help that there is only one manual available that tries to cover all versions of the language at the same time. I think this is a rather bad idea since PHP isn’t doing too well with backwards compatibility.
+
+Also the quality of the manual is just, let’s put it nicely, “below average”. I particularly enjoyed this statement explaining the count function.
+
+Count all elements in an array, or something in an object.
+…”or something”, just hilarious. Laugh Of course I’m aware that the result of the function can be customized by implementing a specific method, but I wonder the amount of confusion that is caused by statements like this with programmers that try to learn the language.
+
+Due to PHP’s popularity, there is actually a large number of tutorials and example codes out there on the Internet, yet most of them are probably examples to demonstrate how things shouldn’t be done with spaghetti code being omnipresent.
+
+MISCELLANEOUS
+Here are just some other annoyances that wouldn’t really fit into other paragraphs:
+
+Why do we need thirteen different functions to sort an array?
+
+<?php ?> tags suck because they are required for all PHP code and may cause unwanted whitespace to be sent to the user.
+
+Multithreading still is not one of PHP’s strengths.
+
+Multiple aliases for exactly the same thing, e.g. real / float / double, int / integer, bool / boolean, chop($string) / rtrim($string), etc.
+
+Having to manage a configuration file is just dumb for a programming language.
+
+AN AWESOME ANALOGY
+Over on eev.ee, in a popular article on the same topic, I found this great analogy that hits the nail right on its head and perfectly describes how it is working with PHP. Ian Baker even brought the figurative hammer to life. Isn’t it just marvelous?
+
+I can’t even say what’s wrong with PHP, because — okay. Imagine you have uh, a toolbox. A set of tools. Looks okay, standard stuff in there. You pull out a screwdriver, and you see it’s one of those weird tri-headed things. Okay, well, that’s not very useful to you, but you guess it comes in handy sometimes. You pull out the hammer, but to your dismay, it has the claw part on both sides. Still serviceable though, I mean, you can hit nails with the middle of the head holding it sideways. You pull out the pliers, but they don’t have those serrated surfaces; it’s flat and smooth. That’s less useful, but it still turns bolts well enough, so whatever. And on you go. Everything in the box is kind of weird and quirky, but maybe not enough to make it completely worthless. And there’s no clear problem with the set as a whole; it still has all the tools. Now imagine you meet millions of carpenters using this toolbox who tell you “well hey what’s the problem with these tools? They’re all I’ve ever used and they work fine!” And the carpenters show you the houses they’ve built, where every room is a pentagon and the roof is upside-down. And you knock on the front door and it just collapses inwards and they all yell at you for breaking their door. That’s what’s wrong with PHP.PHP Value Comparison Results
+POSSIBLE EXPLANATION
+I have always wondered how PHP could have become this bad, yet still maintain a high level of popularity with an army of sworn fanboys behind. Even though I don’t know why people would think that PHP is a passable or even decent language, I could come up with an explanation for how it could have gotten this messed up. Some time ago I found this rather interesting interview with Rasmus Leerdorf, the creator of PHP. After hearing the following statements, I gained sudden clarity:
+
+There is code, it sort of works, that’s what we go with, that’s always been the default. It doesn’t always lead to consistency but it does lead to getting the features and actually being able to do something. […] at least it gets you there. […] We’d rather have an ugly feature than not having a feature at all.
+Rasmus Leerdorf
+Hands down, all questions answered. There is simply no way PHP could not have turned out that bad with an attitude like that. How can one expect quality when quantity is all that matters?
+
+At least he’s got a point. PHP somehow works sometimes and you can actually get things done with it. Heck, even this website here is powered by PHP and I got it up and running (Ha! Not anymore!). Then again that’s not the point. Just because you can get things done with it doesn’t mean it’s a good or even a decent programming language. It sucks, and it sucks badly. Will I continue to use it in the feature? Of course I will, because I do not really have a choice. PHP has simply grown too large, you can’t just ignore it. It’s some kind of weird parasitic relationship, or like a tumor that is attached to the World Wide Web. Frown
+
+Another reason why it turned out like it did, I strongly believe, is that PHP was not designed like other languages but rather grew up from a small toolkit to its current size. There have never been clearly designed rules or goals to achieve. It also didn’t help that Rasmus Leerdorf went with an incredible liberal development policy, placing the fate of the language in the hand of many other programmers who can freely contribute. While this may sound great it might just be the explanation for all these inconsistencies and flaws.
+
+…and this is why PHP sucks.
+ShareTweetSend
+#coding (7) #languages (6) #cloud (3) #security (2)
+Why Does This Blog Suck?
+Why Does JavaScript Suck?
+WDIS
+About This Site
+Article Hub
+Random Post
+Tag List
+Follow on Twitter
+Contact Us
+RECENT POSTS
+Seriously? Why is This Not Taught in Computer Science at University?
+Hiatus Be Gone!
+Why Does FTP Suck?
+Guys, It's True: Coding Sucks!
+Why The Singleton Pattern Sucks and You Should Avoid It
+DISCLAIMER
+Terms of Use
+Privacy Statement
+Use of Cookies
+Attribution
+Provided with  since 2014 by wdis
