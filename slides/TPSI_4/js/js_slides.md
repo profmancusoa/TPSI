@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2022/2023"
-version: "1.0.23"
+version: "1.0.22"
 ---
 
 # JavaScript
@@ -1215,7 +1215,7 @@ function add_studente() {
 }
 ```
 
-- Vedi esempio [empty_list.html](/support/4/js/empty_list.html)
+- Vedi esempio [empty_list.html](../support/empty_list.html)
 
 ---
 
@@ -1305,7 +1305,7 @@ console.log(conferma);
 
 Aggiungiamo elementi dinamici
 
-1. Dato il file [empty.html](/support/4/js/empty.html) rinominarlo in |cognome|\_esercizio_js_05.html ed aggiungere il riferimento al file |cognome|\_esercizio_js_05.js
+1. Dato il file [empty.html](../support/empty.html) rinominarlo in |cognome|\_esercizio_js_05.html ed aggiungere il riferimento al file |cognome|\_esercizio_js_05.js
 2. Creare una pagina HTML e il relativo codice JS in modo che:
    - Vengano richiesti all'utente il nome e la media dei voti di uno studente
    - Alla pressione di un bottone il nome e la media inseriti vengano aggiunti ad una linea di una tabella
@@ -1360,7 +1360,7 @@ DOMTokenList [value: '']
 
 ```
 
-- Vedi esempio [empty_list_class.html](/support/4/js/empty_list_class.html)
+- Vedi esempio [empty_list_class.html](../support/empty_list_class.html)
 
 --- #slide N
 
@@ -1389,7 +1389,7 @@ Rubrica JS
 
 Rubrica JS
 
-Partendo dai template [rubrica_js_template.html](/support/4/js/rubrica_js_template.html) e [rubrica_js_template.css](/support/4/js/rubrica_js_template.css), si richiede di realizzare una web app (in Js vanilla) che implementa una rubrica telefonica con le seguenti funzionalità:
+Partendo dai template [rubrica_js_template.html](../support/rubrica_js_template.html) e [rubrica_js_template.css](../support/rubrica_js_template.css), si richiede di realizzare una web app (in Js vanilla) che implementa una rubrica telefonica con le seguenti funzionalità:
 
 1. L'utente può inserire un nuovo contatto in rubrica (pulsante 2) se tutti i campi sono forniti, altrimenti deve visualizzare un messaggio di allerta con testo appropriato
 2. L'utente può rimuovere un contatto presente in rubrica premendo il pulsante 3
