@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
-as: "2022/2023"
-version: "1.0.24"
+as: "2024/2025"
+version: "1.1.0"
 ---
 
 # JavaScript
@@ -67,6 +67,14 @@ No brain no pain!
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    Introduzione
+</Cover>
+
+---
+
 # JS
 
 &nbsp;
@@ -82,7 +90,7 @@ Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa 
 
 ---
 
-# CSS
+# JS
 
 Allenarsi con JS
 
@@ -100,7 +108,7 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
   
 ---
 
-# CSS
+# JS
 
 Allenarsi con JS
 
@@ -245,7 +253,7 @@ Hello JS World!
 2. Verificare l'esecuzione dello script JS all'avvio della pagina
 3. Provare a modificare il codice JS
 4. Creare una pagina web, che esegue il codice JS da file esterno e e salvarlo come _|cognome|\_esercizio_js_01b.html_ e _|cognome|\_esercizio_js_01b.js_
-5. Fornire il link github ai file con nome _|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
+5. Consegnare su github i file con nom|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
 
 --- #slide N
 
@@ -359,8 +367,10 @@ Node.js
 # JS Back-End
 
 Node.js
+<Banner padding="20px">
+Importante notare che Node.js è scritto per un sistema operativo e non per un browser
+</Banner>
 
-- Importante notare che Node.js è scritto per un sistema operativo e non per un browser
 - Pertanto non tutte le API sono disponibili
 
   <br />ES:<br />
@@ -387,8 +397,8 @@ Node.js
 Dato il seguente script JS
 
 ```js
-var a = 5;
-var b = 7;
+let a = 5;
+let b = 7;
 console.log(a + b);
 ```
 
@@ -400,7 +410,32 @@ console.log(a + b);
    node |cognome|_esercizio_js_03.js
    ```
 
-4. Fornire il link github al file con nome _|cognome|\_esercizio_js_03.js_
+4. Consegnare su github il file con nome _|cognome|\_esercizio_js_03.js_
+
+--- #slide N
+
+# Nota Pratica
+
+Browser vs node.js
+
+- Nel resto di questo corso la maggioranza degli esempi ed esercizi è orientata all'apprendimento di JavaScript come linguaggio generico
+- Pertanto la maggioranza degli esempi ed esercizi può essere testata e provata sia nel Browser (console) o in modo più comodo in node.js
+
+<Banner mt="30px" mb="30px" padding="20px">
+    Si suggerisce di eseguire tutto il codice (non WEB), come esempi e esercizi in node.js
+</Banner>
+
+- Questo permette un editing spesso più semplice
+- Permette di memorizzare l'esercizio o esempio in un file per una successiva analisi (studio a casa)
+
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    Sturttura del codice e variabili
+</Cover>
+
 
 --- #slide N
 
@@ -480,10 +515,34 @@ alert(5 +
 - Pertanto non sostituendo EOL con ; l'espressione risulta completa e l'interprete è in grado di eseguire correttamente lo statement.
 - Da ciò ne consegue che, **i parametri di una funzione, possono essere forniti su più linee**.
 - Ciò è vero anche in C/C++ e Java
+
+--- #slide N
+
+# Struttura del codice
+
+Semicolons
+
+
 - NOTA: L'interprete JS non è **SEMPRE** in grado di effettuare l'automatic semicolon insertion
-<div style="background-color:green;color:yellow;padding:0px;">
-  <p>Il mio stile, che deriva dal C, prevede quindi di inserire sempre <b>;</b> alla fine di ogni statement</p>
-</div>
+
+<br>
+
+<Banner padding="20px" mt="20px" mb="30px">
+    Il mio stile, che deriva dal C, prevede quindi di inserire sempre <b>;</b> alla fine di ogni statement
+</Banner>
+
+<br>
+
+```js
+console.log("testo di esempio");
+
+let array = [1, 2, 3, 4, 5];
+
+call_to_function();
+
+let obj = { nome: 'Mario', cognome: 'Rossi' };
+```
+
 
 --- #slide N
 
@@ -540,6 +599,87 @@ Commenti
 - I commenti del codice, sono l'equivalente della parafrasi in Italiano
 - E' più facile leggere la divina commedia con la parafrasi o solo con i versi originali?
 - Ecco per il codice sorgente è esattamente la stessa cosa.
+
+--- #slide N
+
+# Variabili
+
+Tipizzazione
+
+- I linguaggi di programmazione si suddividono in `Fortemente Tipizzati` e `Debolmente Tipizzati`
+
+<br>
+
+**Fortemente Tipizzati**
+
+- In questi linguaggi, i tipi di dati sono rigidamente definiti e il compilatore o l'interprete non consente operazioni tra tipi non compatibili senza un'esplicita conversione. 
+- Ogni variabile `deve essere dichiarata con un tipo specifico` e le conversioni implicite tra tipi diversi sono generalmente limitate.
+
+  - **C/Java**: Ogni variabile deve essere dichiarata con un tipo specifico e le conversioni implicite sono limitate.
+  - **C#**: Simile a Java, richiede una dichiarazione esplicita dei tipi di dati e limita le conversioni implicite.
+  - **Haskell**: Un linguaggio funzionale dove i tipi sono fortemente controllati dal compilatore.
+  - **TypeScript**: JavaScritp fortemente tipizzato
+
+
+--- #slide N
+
+# Variabili
+
+Tipizzazione
+
+<br>
+
+**Vantaggi**
+
+- **Miglior Controllo**: Riduce gli errori di tipo, poiché il compilatore o l'interprete verifica rigorosamente i tipi.
+- **Leggibilità**: Il codice è più leggibile e prevedibile, poiché i tipi delle variabili sono chiari e definiti.
+- **Manutenibilità**: Facilita la manutenzione del codice poiché i tipi espliciti rendono il codice più comprensibile.
+- **Performance**: Può portare a ottimizzazioni migliori da parte del compilatore.
+
+<br>
+
+**Svantaggi**
+
+- **Verbosità**: Richiede più codice per dichiarare esplicitamente i tipi e per effettuare conversioni.
+- **Flessibilità Ridotta**: Meno flessibile nei casi in cui è necessario cambiare tipi dinamicamente.
+
+--- #slide N
+
+# Variabili
+
+Tipizzazione
+
+
+**Debolmente Tipizzati**
+
+- In questi linguaggi, i tipi di dati sono più flessibili e le conversioni implicite tra tipi diversi sono comuni. 
+- `Le variabili possono cambiare tipo in base al contesto` o all'operazione in cui vengono utilizzate.
+
+  - **JavaScript**: Permette conversioni implicite tra tipi diversi (es. concatenazione di stringhe e numeri)
+  - **PHP**: I tipi di dati possono cambiare in base al contesto.
+  - **Python**: Anche se in molti casi è considerato fortemente tipizzato, ha aspetti di tipizzazione debole in certe situazioni (es. concatenazione di stringhe e numeri con conversioni implicite). 
+
+
+--- #slide N
+
+# Variabili
+
+Tipizzazione
+
+<br>
+
+**Vantaggi**
+
+- **Flessibilità**: Maggiore flessibilità nel trattare variabili e tipi, rendendo il codice più rapido da scrivere.
+- **Produttività**: Spesso più rapido da scrivere per prototipi e script veloci.
+
+<br>
+
+**Svantaggi**
+
+- **Errori di Tipo**: Maggiore rischio di errori di tipo che possono essere difficili da individuare.
+- **Ambiguità**: Il codice può diventare meno leggibile e più difficile da comprendere e mantenere.
+- **Performance**: Potenziale peggioramento delle prestazioni a causa delle conversioni implicite di tipo.
 
 --- #slide N
 
@@ -620,29 +760,28 @@ let numero = 10,
 
 Regole sintattiche
 
-<div style="background-color:green;color:yellow;padding: 10px;">
+<Banner padding="15px">
 In JavaScript il nome di una variabile è determinata dalle seguenti regole:
 <ol>
   <li>il nome può contenere solo lettere, numeri, i simboli $ e _</li>
   <li>il primo carattere non può essere un numero</li>
   <li>il nome non può essere una keyword riservata</li>
 </ol>
-</div>
+</Banner>
 
 <br />
 
 ```js
 // Dichiarazioni valide
 let utente;
-let nomeUtente; //camelCase
+let nomeUtente; //camelCase (https://it.wikipedia.org/wiki/Notazione_a_cammello)
 let nome_utente; //snake case (https://en.wikipedia.org/wiki/Naming_convention_(programming))
-let NomeUtente; // pascal case
+let NomeUtente; // pascal case (https://www.theserverside.com/definition/Pascal-case)
 let $;
 let _;
-
 // Dichiarazioni non valide
 let 1utente; // viola regola 2
-let user-name; // viola regola 1
+let user-name; // viola regola 1 kebacase (https://it.wikipedia.org/wiki/Kebab_case)
 let uten*te; // viola regola 1
 let 1_user; // viola regola 2
 ```
@@ -665,7 +804,9 @@ let this; // viola la regola 3
 
 - Una lista di tutte le keyword riservate si può trovare qui: [JS Keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
 
-- Importante notare che il nome delle variabili in JS è **_case sensitive_**.
+- Importante notare che il nome delle variabili in JS è `case sensitive`.
+
+<br>
 
 ```js
 let apple;
@@ -681,9 +822,13 @@ let Apple;
 var vs let
 
 - Come visto una variabile può essere dichiarata con `var` o con `let`
+
 - Apparentemente non c'è nessuna differenza
+
 - Si fa notare che `var` fino al 2015 era l'unico modo di dichiarare una variabile in JS
-- Normalmente in JS moderno `var` non viene più utilizzato
+
+- `Normalmente in JS moderno var non viene più utilizzato`
+
 - Tuttavia siccome è ancora ampiamente diffuso in vecchi script è importante analizzare meglio le differenze
 
 --- #slide N
@@ -692,7 +837,7 @@ var vs let
 
 var vs let
 
-- le variabili dichiarate con `var` non hanno uno `scope`
+- Le variabili dichiarate con `var` non hanno uno `scope`
 - In altre parole in qualsiasi parte del programma siano dichiarate diventano globali
 
 ```js
@@ -735,6 +880,9 @@ console.log(`b è diventata globale, infatti a + b = ${a+b}`);
 valore di a 10
 b è diventata globale, infatti a + b = 30
 ```
+
+<br>
+
 
 - In questo caso l'effetto è deleterio, la variabile globale b (con valore 5) è stata sovrascritta dentro l'if
 - Questo comportamento può generare errori difficilmente debuggabili e far perdere molto tempo
@@ -817,11 +965,11 @@ valore di a 10
 b è diventata globale, infatti a + b = 15
 ```
 
-<br />
+<br>
 
-<div style="background-color:green;color:yellow;padding: 10px;">
+<Banner padding="20px" mt="10px">
 Dichiarare e definire SEMPRE le variabili usando <mark>let</mark>
-</div>
+</Banner>
 
 --- #slide N
 
@@ -869,6 +1017,15 @@ Best Practice
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    DOM Manipulation
+</Cover>
+
+
+---
+
 # JavaScript e DOM
 
 modifichiamo una pagina HTML in JS
@@ -877,11 +1034,107 @@ modifichiamo una pagina HTML in JS
 - Come abbiamo visto in precedenza, quando il browser carica una pagina viene creato un albero degli oggetti chiamato **DOM**
 - **_JavaScript può accedere e leggere o modificare qualsiasi oggetto del DOM_**
 - Questo è un meccanismo molto potente che permette di "dare vita" alle pagine HTML trasformandole da semplice pagine da consultare ad applicazione web interattive.
-- Questo è il paradigma in uso ormai da molti anni ed estremizzato con le Progressive Web App ai nostri giorni.
+- Questo è il paradigma in uso ormai da molti anni ed estremizzato con le `Progressive Web App` ai nostri giorni.
 
 <br>
-<div style="background-color:green; color:yellow;padding: 20px; font-weight:bold;box-shadow:8px 8px 10px #888888;border-radius:10px;">
+<Banner padding="25px">
 Progressive Web App (PWA) è un termine, coniato in origine da Google, che si riferisce ad applicazioni web che vengono sviluppate e caricate come normali pagine web, ma che si comportano in modo simile alle applicazioni native quando utilizzate su un dispositivo mobile (smartphone)
+</Banner>
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+I metodi principali per la manipolazione del DOM sono:
+
+`getElementById('<id_componente>')`
+- restituisce il riferimento al primo elemento del documento che ha l'attributo id corrispondente al valore specificato *<id_componente>*. 
+- Se non ci sono elementi con l'id specificato, il metodo restituisce `null`
+- Questo è uno dei metodi più utilizzati nella manipolazione del DOM in vanilla JS
+
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+```html
+<p id="par1">...</p>
+<p id="par2">...</p>
+```
+</div>
+
+<div>
+```js
+document.getElementById('par1');
+// restituisce l'oggetto del DOM corrispondente a <p id="par1">...</p>
+```
+</div>
+</div>
+
+<Banner padding="20px" mt="30px">
+Si ricorda che è buona prassi assegnare un id univoco ad un oggetto HTML. <br> In caso ciò non sia rispettato, getElementById restituisce il primo oggetto in ordine di apparizione nel codice sorgente.
+</Banner>
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+
+`getElementsByClassName('<classname>')`
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe. 
+- Questo metodo è molto utile per accedere e manipolare più elementi contemporaneamente quando condividono la stessa classe.
+- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
+
+<br>
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+```html
+<p class="importante">...</p>
+<h1 class="titolo">...</h1>
+<div class="importante">...</div>
+```
+</div>
+<div>
+```js
+document.getElementsByClassName('importante')
+//HTMLCollection(2) [p.importante, div.importante]
+//0:  p.importante
+//1: div.importan
+```
+</div>
+</div>
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+`getElementsByName('<object name'>)` 
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato attributo name. 
+- Questo metodo è comunemente utilizzato per accedere agli elementi di un form come campi di input, pulsanti radio, checkbox e selezioni.
+- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
+
+<br>
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+```html
+<input type="text" name="cognome">
+<input type="text" name="nome">
+<input type="number" name="voto">
+```
+</div>
+<div>
+```js
+document.getElementsByName('cognome');
+//NodeList [input]
+//0 : input
+```
+</div>
 </div>
 ---
 
@@ -889,21 +1142,31 @@ Progressive Web App (PWA) è un termine, coniato in origine da Google, che si ri
 
 modifichiamo una pagina HTML in JS
 
-- Un metodo molto importante dell'oggetto DOM _Document_ è `getElementById(<id_componente>)`
-- Questo è uno dei metodi più utilizzati nella manipolazione del DOM in vanilla JS
-- Il metodo restituisce **l'oggetto HTML** cha un attributo **id** pari a _<id_componente>_.
+`getElementsTagName('<tag name'>)` 
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag. 
+- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
 
 <br>
 
+<div class="grid grid-flow-col  gap-4">
+<div>
 ```html
-...
-<p class="paragrafo" id="par1">...</p>
+<p id="p1">...</p>
+<p class="importante">...</p>
+<h1>...</h1>
+<p>...</p>
 ```
-
-<br>
-
-- Se non ci sono elementi con l'id specificato, il metodo restituisce `null`
-- Si ricorda che è buona prassi assegnare un id univoco ad un oggetto HTML. In caso ciò non sia rispettato, getElementById restituisce il primo oggetto in ordine di apparizione nel codice sorgente.
+</div>
+<div>
+```js
+document.getElementsByTagName('p');
+//HTMLCollection(3) [p#p1, p.importante, p, p1: p#p1]
+//0: p#p1
+//1: p.importante
+//2: p
+```
+</div>
+</div>
 
 ---
 
@@ -911,22 +1174,164 @@ modifichiamo una pagina HTML in JS
 
 modifichiamo una pagina HTML in JS
 
-- Esistono anche dei metodi simili che permettono di selezionare oggetti del DOM in base a:
-  - `getElementsByClassName(classname)`: il metodo restituisce una collezionedi oggetti HTML che hanno la classe css specificata
-  - `getElementsByName(object name)`: il metodo restituisce una collezione di oggetti HTML che hanno il nome specificato
+`querySelector('<selettore css')` e `querySelectorAll('<selettore css')`
+- Restituiscono rispettivamente il primo o tutti gli elementi che corrispondeon a un selettore CSS specificato.
+- Questi metodi sono molto utili per manipolare il DOM in modo dinamico. 
+  
+<br>
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+```html
+<p id="p1">...</p>
+<p class="importante">...</p>
+<h1>...</h1>
+<p>...</p>
+```
+</div>
+<div>
+```js
+document.querySelector('#p1');
+//<p id="p1">...</p>
+
+document.querySelector('.importante');
+//<p class="importante">...</p>
+
+document.querySelector('h1');
+//<h1>...</h1>
+
+document.querySelectorAll('.importante');
+//NodeList [p.importante]
+//0: p.importante
+```
+</div>
+</div>
+
+--- #slide N
+
+# Modifichiamo un elemento
+
+Modificare oggetti HTML in JS
+
+- Per modificare il contenuto di un oggetto possiamo usare le proprietà o attributi:
+  - **_innerTexT_**: imposta il contenuto testuale dell'oggetto
+  - **_innerHTML_**: imposta il contenuto dell'oggetto considerando la sintassi HTML
+
+Esempio:
+
+```js
+h1.innerText = "Titolo 1";
+h1_1.innerHTML = "<u>Titolo 1_1</u>";
+p.innerText = "Questo è un paragrafo";
+```
+
+--- #slide N
+
+# Modifichiamo un elemento
+
+Modificare oggetti HTML in JS
+
+- Possiamo anche modificare lo stile (CSS) di un oggetto
+- Per far ciò utilizziamo la proprietà `style` dell'ogegtto del DOM
+
+Esempio:
+
+```js
+let h1 = document.getElementByID('titolo');
+
+h1.style.color = 'red'; //imposta il colore di foreground a rosso
+
+h1.style.backgroundColor = 'yellow'; //imposta lo sfondo a giallo
+```
+
+<Banner padding="20px" mt="30px">
+Importante notare che le proprietà CSS si transformano in JS nel seguente modo
+
+- proprietà semplice: si usa lo stesso nome
+- proprietà composta: si usa la notazione camelCase rimuovendo il dash (-)
+</Banner>
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+- Carica il [seguente file HTML](/support/4/js/js_dom_01.html) nel browser
 
 <br>
 
-```js
-let paragrafo = document.getElementsByName("paragrafo");
-NodeList [p#par1]0: p#par1length: 1[[Prototype]]: NodeList
+```html
+<p id="p1">Questo è il paragrafo id #1</p>
+<p id="p2">Questo è il paragrafo id #2</p>
+<p id="p3">Questo è il paragrafo id #3</p>
 
-let elements = docuement.getElementsByClassName("w3-bar");
-HTMLCollection(2) [div.w3-bar.w3-card-2.notranslate, div.w3-bar.w3-left]
-  0: div.w3-bar.w3-card-2.notranslate
-  1: div.w3-bar.w3-left
-  length: 2
-  [[Prototype]]: HTMLCollection
+<p class="p-rosso">Questo è un paragrafo rosso</p>
+<p class="p-verde">Questo è un paragrafo verde</p>
+<p class="p-rosso">Questo è un paragrafo rosso</p>
+<p class="p-verde">Questo è un paragrafo verde</p>
+
+<form id="myForm">
+    <input type="text" name="username" value="John Doe">
+    <input type="password" name="password">
+    <input type="radio" name="gender" value="male"> Maschio
+    <input type="radio" name="gender" value="female"> Femmina
+    <input type="checkbox" name="newsletter" value="yes"> Iscriviti alla newsletter
+    <input type="submit" value="Invia">
+</form>
+```
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+<p id="p1">Questo è il paragrafo id #1</p>
+<p id="p2">Questo è il paragrafo id #2</p>
+<p id="p3">Questo è il paragrafo id #3</p>
+
+<p class="p-rosso">Questo è un paragrafo rosso</p>
+<p class="p-verde">Questo è un paragrafo verde</p>
+<p class="p-rosso">Questo è un paragrafo rosso</p>
+<p class="p-verde">Questo è un paragrafo verde</p>
+
+<form id="myForm">
+    <input type="text" name="username" value="John Doe">
+    <input type="password" name="password">
+    <input type="radio" name="gender" value="male"> Maschio
+    <input type="radio" name="gender" value="female"> Femmina
+    <input type="checkbox" name="newsletter" value="yes"> Iscriviti alla newsletter
+    <input type="submit" value="Invia">
+</form>
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+- Modifichiamo, dalla console, l'HTML e il CSS via JavaScript
+
+```js
+//ottiene l'oggetto del DOM corrispondente al tag HTML con id=p1
+let para1 = document.getElementById("p1");
+//modifica dinamicamente, a run-time, lo stile di quest'oggetto
+para1.style.color="red";
+
+//ottiene l'oggetto del DOM corrispondente al tag HTML con id=p2
+let para2 = document.getElementById("p2");
+//modifica dinamicamente, a run-time, lo stile di quest'oggetto
+para2.style.fontWeight = 'bolder';
+
+//ottiene l'oggetto del DOM corrispondente al tag HTML con id=p3
+let para3 = document.getElementById("p3");
+//modifica l'HTML dell'oggetto
+para3.innerText = "Ora il test del paragrafo #3 è diverso da prima!!!";
+
+//ottiene l'oggetto del DOM corrispondente al tag HTML con id=p4
+let para4 = document.getElementById("p4");
+null //non esiste un oggetto con id=p4 quindi la funzione restituisce null
 
 ```
 
@@ -963,58 +1368,36 @@ function cambia_stile(){
 </div>
 
 <div>
-<p id="par1">Questo è un paragrafo di testo in una pagina HTML</p>
+<p id="par1" style="font-size: 13px;">Questo è un paragrafo di testo in una pagina HTML</p>
 <button  style="border: 1px solid black; border-radius: 5px; background-color:lightgray; padding: 5px;" onclick="let el=document.getElementById('par1'); el.style.color='white';el.style.background='green';el.style.padding='10px';el.innerHTML='Questo è un paragrafo che non esiste <br> nella pagina HTML, è stato inserito dinamicamente <br>da JavaScript.'">Premi qui!</button>
 </div>
 </div>
 
+
 ---
 
 # JavaScript e DOM
 
 modifichiamo una pagina HTML in JS
 
-- Vediamo altri esempi:
-
-<div class="grid grid-flow-col auto-cols-max gap-4">
-<div>
-
-```html
-<h1 id="t1">Titolo 1</h1>
-<h1 id="t2">Titolo 2</h1>
-<h1 id="t3">Titolo 3</h1>
-<h1 id="t4">Titolo 4</h1>
-<button onClick="cambia_DOM">Premi qui!</button>
-```
+- Modifichiamo, dalla console, l'HTML e il CSS via JavaScript
 
 <br>
 
 ```js
-function cambia_DOM(){
-  let obj_t1 = document.getElementById("t1");
-  let obj_t2 = document.getElementById("t2");
-  let obj_t3 = document.getElementById("t3");
-  let obj_t4 = document.getElementById("t1");
+//ottiene la lista (array) di oggetti del DOM corrispondente al tag HTML con classe = p-rosso
+let paraRossi = document.getElementsByClassName('p-rosso');
 
-  obj_t1.innerHTML = "TITOLO UNO";
-  obj_t2.style.color = "#88ccaa";
-  obj_t3.innerHTML = "TITOLO TRE";
-  obj_t4.style.text-decoration = "underline";
-}
+console.log(paraRossi)
+HTMLCollection(2) [p.p-rosso, p.p-rosso]
+0: p.p-rosso
+1: p.p-rosso
 ```
 
-</div>
+<br>
 
-<div>
-<h1 id="t1">Titolo 1</h1>
-<h1 id="t2">Titolo 2</h1>
-<h1 id="t3">Titolo 3</h1>
-<h1 id="t4">Titolo 4</h1>
+- Importante notare che ora otteniamo un array di oggetti del DOM in quanto più di un elemento può avere la stessa classe
 
-<button  style="border: 1px solid black; border-radius: 5px; background-color:lightgray; padding: 5px;" onclick='let obj_t1 = document.getElementById("t1");let obj_t2 = document.getElementById("t2");let obj_t3 = document.getElementById("t3");let obj_t4 = document.getElementById("t4");obj_t1.innerHTML = "TITOLO UNO";obj_t2.style.color = "#FF0000";obj_t3.innerHTML = "TITOLO TRE";obj_t4.style.textDecoration = "underline";'>Premi qui!</button>
-
-</div>
-</div>
 
 ---
 
@@ -1022,7 +1405,58 @@ function cambia_DOM(){
 
 modifichiamo una pagina HTML in JS
 
-- Vediamo altri esempi:
+```js
+//ottiene la lista (array) di oggetti del DOM corrispondente al tag HTML con classe = p-rosso
+let paraRossi = document.getElementsByClassName('p-rosso');
+
+//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista 
+for(let i = 0; i < paraRossi.length; i++)
+    paraRossi[i].style.color = 'blue';
+
+//ottiene la lista (array) di oggetti del DOM corrispondente al tag HTML con classe = p-verde
+let paraVerdi = document.getElementsByClassName('p-verde');
+
+//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista 
+paraVerdi[0].style.color = 'green';
+paraVerdi[1].style.color = 'green';
+paraVerdi[1].innerText = 'Anche questo paragrafo è diverso da prima';
+```
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
+
+```js
+//anche questo metodo restituisce un array di elementi
+//ricorda un array di un solo elemento è pur sempre un array
+let userName = document.getElementsByName('username');
+
+//modifica dinamicamente 3 prorietà dell'elemento del DOM
+userName[0].style.borderColor = 'red';
+userName[0].style.borderRadius = '10px';
+userName[0].style.borderWidth = '10px';
+```
+<br>
+
+- Da notare come vengono nominate le proprietà CSS quando usate in JS
+
+<br>
+<pre>
+
+ border-color   ->   borderColor
+border-radius  ->   borderRadius
+ border-width   ->   borderWidth
+</pre>
+
+- Come si può notare viene utilizzata la notazione `camelCase`  
+
+---
+
+# JavaScript e DOM
+
+modifichiamo una pagina HTML in JS
 
 <div class="grid grid-flow-col auto-cols-max gap-4">
 <div>
@@ -1060,7 +1494,7 @@ function cambia_DOM() {
 <h1 class="titolo_pari">Titolo Pari</h1>
 <h1 class="titolo_disp">Titolo Dispari</h1>
 
-<button  style="border: 1px solid black; border-radius: 5px; background-color:lightgray; padding: 5px;" onclick='let pari = document.getElementsByClassName("titolo_pari");let disp = document.getElementsByClassName("titolo_disp");for(let i = 0; i < pari.length; i++) {let el = pari[i];el.style.backgroundColor = "red";}for(let j = 0; j < disp.length; j++) {let el = disp[j];el.style.backgroundColor = "green";}
+<button  style="border: 1px solid black; border-radius: 5px; background-color:lightgray; padding: 5px; margin-top:20px;" onclick='let pari = document.getElementsByClassName("titolo_pari");let disp = document.getElementsByClassName("titolo_disp");for(let i = 0; i < pari.length; i++) {let el = pari[i];el.style.backgroundColor = "red";}for(let j = 0; j < disp.length; j++) {let el = disp[j];el.style.backgroundColor = "green";}
 '>Premi qui!</button>
 
 </div>
@@ -1072,10 +1506,8 @@ function cambia_DOM() {
 
 modifichiamo una pagina HTML in JS
 
-Dato il seguente script JS
-
 1. Dato il file [esercizio_js_04.html](/support/4/js/esercizio_js_04.html) rinominarlo in |cognome|\_esercizio_js_04.html
-2. Aggiungere il file |cognome|\_esercizio*js_04.js e definire una funzione chiamata *modifica_stile* in modo che:
+2. Aggiungere il file |cognome|\_esercizio_js_04.js e definire una funzione chiamata *modifica_stile* in modo che:
    - tutti i titoli di primo livello abbiano un colore di foreground rosso
    - tutti i titoli di secondo livello abbiano un colore di foreground blue su sfondo giallo
    - tutti i titoli di secondo livello abbiano la dimensione del font pari a 40px
@@ -1085,7 +1517,7 @@ Dato il seguente script JS
    - il terzo paragrafo sia scritto tutto in maiuscolo ed lo sfondo si un blue leggero
    - il sesto paragrafo sia scritto tutto in maiuscolo
    - il settimo paragrafo abbia uno stile del font _italico_
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_04.html_ e _|cognome|\_esercizio_js_04.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_04.html_ e _|cognome|\_esercizio_js_04.js_
 
 --- #slide N
 
@@ -1093,7 +1525,7 @@ Dato il seguente script JS
 
 Creare oggetti HTML in JS
 
-- L'oggetto _document_ del DOM mette a disposizione vari metodi
+- L'oggetto _document_ del DOM mette anche a disposizione metodi per creare oggetti nel DOM 
 - Uno molto utile è `createElement("<element tag>"`
 - Questo metodo crea un oggetto o elemento HTML identificato dal suo tag
 
@@ -1109,29 +1541,11 @@ let p = document.createElement("p"); //crea un oggetto di tipo p
 
 <br />
 
-- Da notare che il metodo _createElement_ crea l'oggetto ma non lo aggiunge al DOM
+- Da notare che il metodo _createElement_ crea l'oggetto ma non lo collega al DOM
 - Importante ricordarsi che questo metodo crea un oggetto vuoto esattamente come se in html scrivessimo
 
 ```html
 <h1></h1>
-```
-
---- #slide N
-
-# Creiamo un elemento
-
-Creare oggetti HTML in JS
-
-- Pertanto per aggiungere un contenuto all'oggetto appena creato possiamo usare le proprietà o attributi:
-  - **_innerTexT_**: imposta il contenuto testuale dell'oggetto
-  - **_innerHTML_**: imposta il contenuto dell'oggetto considerando la sintassi HTML
-
-Esempio:
-
-```js
-h1.innerText = "Titolo 1";
-h1_1.innerHTML = "<u>Titolo 1_1</u>";
-p.innerText = "Questo è un paragrafo";
 ```
 
 --- #slide N
@@ -1144,7 +1558,7 @@ Aggiungere oggetti HTML al DOM in JS
 - Questo perché sappiamo dall'HTML che tutti gli elementi sono _figli_ di body
 - Pertanto per aggiungere un nuovo elemento facciamo l'append in questo modo
 
-<br />
+<br>
 
 ```js
 const body = document.body; //creo una referenza all'oggetto body
@@ -1153,6 +1567,11 @@ body.append(h1); //aggiunge l'oggetto h1 al body del documento
 body.append(h1_1); //aggiunge l'elemento h1_1 al body del documento
 body.append(p); //aggiunge l'elemento p al body del documento
 ```
+
+<br>
+
+- Il metodo `append` può essere invocato anche da oggi DOM in modo da creare un HTML nested
+- Per esempio per creare una lista non ordinata, si deve chiamare il metodo `append` sull'oggetto `<ul>` e non sull'oggetto `body`
 
 --- #slide N
 
@@ -1170,11 +1589,18 @@ Rimuovere oggetti HTML dal DOM in JS
 - In questo modo l'oggetto che invoca il metodo, viene rimosso dal DOM e pertanto non più visualizzato
 - Nota che l'oggetto non viene distrutto e può essere riaggiunto in seguito
 
+<br>
+
 ```js
 h1.remove(); //rimuove l'oggetto h1 dal body del documento
 h1_1.remove(); //rimuove l'elemento h1_1 dal body del documento
 p.remove(); //rimuove l'elemento p dal body del documento
 ```
+
+<br>
+
+- Importante notare che in questo caso l'oggetto viene rimosso dal DOM e non solo nascosto
+- Quindi è importante ricordarlo in quando il layout della pagina potrebbe cambiare in modo inaspettato 
 
 --- #slide N
 
@@ -1207,110 +1633,17 @@ Creiamo una lista in JS
 
 ```js
 function add_studente() {
-  const ul = document.getElementById("lista");
-  const cognome_str = document.getElementById("cognome").value;
-  const li = document.createElement("li");
-  li.innerText = cognome_str;
-  ul.append(li);
+  const ul = document.getElementById("lista"); //prevelo l'oggetto <ul> dal DOM tramite id
+  const cognome_str = document.getElementById("cognome").value; //accedo al valore del campo text
+  const li = document.createElement("li"); //creo un nuovo elemento <li>
+  li.innerText = cognome_str; //imposto il testo del list item con il cognome inserito dall'utente
+  ul.append(li); //facciamo l'append del nuovo <li> su <ul>
 }
 ```
+
+<br>
 
 - Vedi esempio [empty_list.html](/support/4/js/empty_list.html)
-
----
-
-# Interagiamo con l'utente
-
-alert
-
-- Spesso è utile fornire un feedback all'utente ed assicurarsi che venga recepito
-- In questi casi si può utilizzare la funzione `alert("messaggio")` per visualizzare una **finestra modale** che mette tutta la pagina in attesa della pressione del tasto **_OK_**
-
-```js
-alert("Assicurati di leggere le condizioni contrattuali");
-```
-
-<br />
-<img src="/media/js11.png"  style="margin:auto;"/>
-
-- La pagina rimane "bloccata" fino a che l'utente preme il pulsante OK
-- In questo modo siamo sicuri che se l'utente procede nella consultazione della pagina ha volontariamente premuto il pulsante OK e pertanto si assume che abbia letto il messaggio.
-
----
-
-# Interagiamo con l'utente
-
-prompt
-
-- La funzione `prompt("Messaggio", ["Valore di default"])` visualizza una finestra modale con una stringa ("Messaggio") e un input field. In questo caso ci sono due bottoni **OK** e **Cancel**
-- La funzione restituisce:
-  - **null** in caso il pulsante Cancel/Annulla è premuto
-  - **"Valore di default"** in caso in cui l'utente non inserisce nessun input e preme OK
-  - **<valore inserito dall'utente>** in caso in cui l'utente inserisce un input e preme ok
-- Pertanto normalmente la funzione prompt si usa in un'assegnazione
-
-```js
-let risultato = prompt("Come ti chiami?", "Pinco Pallo");
-
-console.log(risultato);
-
-Mario // utente ha inserito Mario e premuto OK
-Pinco Pallo // utente ha solo premuto OK
-null // utente a premuto Cancel/Annulla o il tasto ESC
-```
-
----
-
-# Interagiamo con l'utente
-
-prompt
-
-```js
-let risultato = prompt("Come ti chiami?", "Pinco Pallo");
-if (risultato) {
-  alert(`L'utente si chiama ${risultato}`);
-} else {
-  alert("L'utente non ha inserito il suo nome");
-}
-```
-
-<br />
-<div  style="display: flex; justify-content: center;">
-<img src="/media/js12.png" width="350" style="float:left"/>
-<img src="/media/js13.png" width="450" />
-</div>
----
-
-# Interagiamo con l'utente
-
-confirm
-
-- La funzione `confirm("Messaggio")` visualizza una finestra modale con il messaggio e due bottoni **OK** e **Cancel/Annulla**
-- La funzione restituisce un valore boolean in base al tasto premuto **_OK->true e Cancel -> false_**
-
-```js
-let conferma = confirm("Hai letto le condizioni contrattuali?");
-console.log(conferma);
-
-// true se l'utente preme OK
-// false se l'utente preme Cancel o Annulla
-```
-
-<br />
-<img src="/media/js14.png" width="450" style="margin: auto;"/>
-
---- #slide N
-
-# Esercizio js_05
-
-Aggiungiamo elementi dinamici
-
-1. Dato il file [empty.html](/support/4/js/empty.html) rinominarlo in |cognome|\_esercizio_js_05.html ed aggiungere il riferimento al file |cognome|\_esercizio_js_05.js
-2. Creare una pagina HTML e il relativo codice JS in modo che:
-   - Vengano richiesti all'utente il nome e la media dei voti di uno studente
-   - Alla pressione di un bottone il nome e la media inseriti vengano aggiunti ad una linea di una tabella
-   - Alla pressione di un secondo bottone, tutte le linee pari vengano colorate di blue e tutte le linee dispari di rosso
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_05.html_ e _|cognome|\_esercizio_js_05.js_
 
 --- #slide N
 
@@ -1319,19 +1652,28 @@ Aggiungiamo elementi dinamici
 CSS dinamico in JS
 
 - Oltre a modificare il testo e il contenuto di un elemento HTML può essere utile modificare il suo stile in modo dinamico
-- Per far ciò in modo agevole, il metodo pi+ utilizzato e l'aggiunta o la rimozione di una o più classi CSS ad un elemento
+- Il metodo più utilizzato è l'aggiunta o la rimozione di una o più classi CSS ad un elemento
 - In tal modo da JS si può facilmente variare l'aspetto di un elemento in funzione di specifici stati della logica della pagina
 - Ogni elemento HTML ha una proprietà chiamata `classList` che fornisce la lista delle classi CSS applicate all'elemento stesso
 
+<div class="grid grid-cols-2 gap-4">
+```html
+<ul id="my-list" class="bordo rosso verde">
+    <li>item1</li>
+</ul>
+```
+
 ```js
 ul.classList
-DOMTokenList(3) ['bordo', 'rosso', 'verde', value: 'bordo rosso verde']
+DOMTokenList(3) ['bordo', 'rosso', 'verde']
 0: "bordo"
 1: "rosso"
 2: "verde"
 length: 3
 value: "bordo rosso verde"
 ```
+</div>
+
 
 --- #slide N
 
@@ -1364,6 +1706,83 @@ DOMTokenList [value: '']
 
 --- #slide N
 
+# Modifichiamo la classe di un elemento
+
+CSS dinamico in JS
+
+```js
+function studenti_rossi() {
+    const ul = document.getElementById("lista");
+    const li_items = ul.children; 
+    for(var i = 0; i < li_items.length; i++) { //length restituisce il numero di elementi dell'array
+        var li = li_items[i];
+        li.classList.remove("verde"); //per ogni figlio <li> rimuovo la classe verde
+        li.classList.add("rosso");//per ogni figlio <li> aggiungo la classe rosso
+    }
+}
+```
+
+<br>
+
+- Da notare che il metodo `children` restituisce un array contenente tutti gli oggetti figlio di un dato oggetto padre
+- `ul`: oggetto padre
+- `li_items`: array di oggetti figli
+
+--- #slide N
+
+# Eventi
+
+Ascoltiamo e gestiamo gli eventi
+
+- Una caratteristica della programmazione Web dinamica è la gestione degli `eventi`
+- La lammgioranza dei componenti HTML generano una serie di eventi
+- Per esempial click del mouse su un oggetto si genera l'evento `onClick`
+
+- Ci sono due elementi fondamentali per la gestione degli eventi
+  1. `evento name`: nome dell'evento da scoltare
+  
+  2. `event handler`: codice di gestione che viene eseguito al verificarsi dell'evento
+
+--- #slide N
+
+# Eventi
+
+Ascoltiamo e gestiamo gli eventi
+
+- Per definire un `event hanlder` per uno specifico `evento` emesso da uno specifico oggetto utilizziamo
+
+`addEventListener('<nome evento da ascoltare>', <event handler>)`
+
+```js
+let button = document.getelementById('pulsate-invio');
+
+button.addEventListener('click', gestoreClick);
+
+//event handler
+function gestoreClick() {
+    console.log("Il pulsante di invio è stato premuto');
+}
+```
+
+<button  style="border: 1px solid black; border-radius: 5px; background-color:lightgray; padding: 5px; margin-top:20px;" onclick="let p = document.getElementById('par'); p.innerText = `Il pulsante di invio è stato premuto alle ${Date.now()} `;">Premi qui!</button>
+
+<p id="par"></p>
+
+--- #slide N
+
+# Esercizio js_05
+
+Aggiungiamo elementi dinamici
+
+1. Dato il file [esercizio_js_05.html](/support/4/js/esercizio_js_05.html) rinominarlo in |cognome|\_esercizio_js_05.html ed aggiungere il riferimento al file |cognome|\_esercizio_js_05.js
+2. Creare una pagina HTML e il relativo codice JS in modo che:
+   - Vengano richiesti all'utente, il nome e la media dei voti di uno studente
+   - Alla pressione di un bottone il nome e la media inseriti vengano aggiunti ad una linea di una tabella
+   - Alla pressione di un secondo bottone, tutte le linee pari vengano colorate di blue e tutte le linee dispari di rosso
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_05.html_ e _|cognome|\_esercizio_js_05.js_
+
+--- #slide N
+
 # Esercizio js_06
 
 Aggiungiamo elementi dinamici
@@ -1373,7 +1792,7 @@ Aggiungiamo elementi dinamici
    - Sia presente un bottone "Blue" che se premuto faccia diventare tutti gli elementi della lista di colore Blue
    - Sia presente un bottone "Bordo" che se premuto faccia comparire un bordo attorno alla lista in caso non sia presente e rimuova tale bordo in caso sia già presente
    - Ogni modificazione allo style deve avvenire tramite una o più classi CSS
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_06.html_ e _|cognome|\_esercizio_js_06.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_06.html_ e _|cognome|\_esercizio_js_06.js_
 
 --- #slide N
 
@@ -1389,13 +1808,14 @@ Rubrica JS
 
 Rubrica JS
 
-Partendo dai template [rubrica_js_template.html](/support/4/js/rubrica_js_template.html) e [rubrica_js_template.css](/support/4/js/rubrica_js_template.css), si richiede di realizzare una web app (in Js vanilla) che implementa una rubrica telefonica con le seguenti funzionalità:
+Partendo dai template [rubrica_js_template.html](/support/4/js/rubrica_js_template.html) e [rubrica_js_template.css](/support/4/js/rubrica_js_template.css), si richiede di realizzare una web app (in JS vanilla) che implementa una rubrica telefonica con le seguenti funzionalità:
 
 1. L'utente può inserire un nuovo contatto in rubrica (pulsante 2) se tutti i campi sono forniti, altrimenti deve visualizzare un messaggio di allerta con testo appropriato
-2. L'utente può rimuovere un contatto presente in rubrica premendo il pulsante 3
+2. L'utente può rimuovere un contatto presente in rubrica premendo il pulsante 4
 3. L'utente può cercare un contatto in rubrica per cognome o numero di telefono tramite pulsante 1.
-4. Il contatto ricercato viene visualizzato nella parte superiore dell'interfaccia in modo che sia possibile modificarne i suoi campi e successivamente aggiornare la rubrica tramite il pulsante 2
-5. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_07.html_, _|cognome|\_esercizio_js_07.css_ e _|cognome|\_esercizio_js_07.js_
+4. Il contatto ricercato viene visualizzato nella parte superiore dell'interfaccia in modo che sia possibile modificarne i suoi campi e successivamente aggiornare la rubrica tramite il pulsante 3
+5. Dopo il salvataggio e l'aggiornamneto i campi di input devono essere vuoti
+6. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_07.html_, _|cognome|\_esercizio_js_07.css_ e _|cognome|\_esercizio_js_07.js_
 
 --- #slide N
 
@@ -1411,7 +1831,7 @@ ToDo JS
 
 ToDo JS
 
-Si richiede di realizzare una web app (in Js vanilla) che implementa una ToDo list con le seguenti funzionalità:
+Si richiede di realizzare una web app (in JS vanilla) che implementa una ToDo list con le seguenti funzionalità:
 
 1. L'utente può inserire un nuovo ToDO item e selezionare la priorità tra 3 livelli (Bassa, Media, Alta) se tutti i campi sono forniti, altrimenti deve visualizzare un messaggio di allerta con testo appropriato
 2. L'utente inserisce un nuovo ToDo item premendo l'icona 1
@@ -1419,6 +1839,14 @@ Si richiede di realizzare una web app (in Js vanilla) che implementa una ToDo li
 4. L'utente può marcare il ToDo Item come completo/attivo tramite click sull'icona 2. In caso di item completato il testo del ToDo Item deve essere barrato (vedi figura). In caso di item attivo il testo deve essere senza barra
 5. L'utente può rimuovere un ToDo item completo o no premendo l'icona 3
 6. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_08.html_, _|cognome|\_esercizio_js_08.css_ e _|cognome|\_esercizio_js_08.js_
+
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    Data Types e Operatori
+</Cover>
 
 ---
 
@@ -1944,6 +2372,88 @@ else
   result = b;
 ```
 
+---
+
+# Interagiamo con l'utente
+
+alert
+
+- Spesso è utile fornire un feedback all'utente ed assicurarsi che venga recepito
+- In questi casi si può utilizzare la funzione `alert("messaggio")` per visualizzare una **finestra modale** che mette tutta la pagina in attesa della pressione del tasto **_OK_**
+
+```js
+alert("Assicurati di leggere le condizioni contrattuali");
+```
+
+<br />
+<img src="/media/js11.png"  style="margin:auto;"/>
+
+- La pagina rimane "bloccata" fino a che l'utente preme il pulsante OK
+- In questo modo siamo sicuri che se l'utente procede nella consultazione della pagina ha volontariamente premuto il pulsante OK e pertanto si assume che abbia letto il messaggio.
+
+---
+
+# Interagiamo con l'utente
+
+prompt
+
+- La funzione `prompt("Messaggio", ["Valore di default"])` visualizza una finestra modale con una stringa ("Messaggio") e un input field. In questo caso ci sono due bottoni **OK** e **Cancel**
+- La funzione restituisce:
+  - **null** in caso il pulsante Cancel/Annulla è premuto
+  - **"Valore di default"** in caso in cui l'utente non inserisce nessun input e preme OK
+  - **<valore inserito dall'utente>** in caso in cui l'utente inserisce un input e preme ok
+- Pertanto normalmente la funzione prompt si usa in un'assegnazione
+
+```js
+let risultato = prompt("Come ti chiami?", "Pinco Pallo");
+
+console.log(risultato);
+
+Mario // utente ha inserito Mario e premuto OK
+Pinco Pallo // utente ha solo premuto OK
+null // utente a premuto Cancel/Annulla o il tasto ESC
+```
+
+---
+
+# Interagiamo con l'utente
+
+prompt
+
+```js
+let risultato = prompt("Come ti chiami?", "Pinco Pallo");
+if (risultato) {
+  alert(`L'utente si chiama ${risultato}`);
+} else {
+  alert("L'utente non ha inserito il suo nome");
+}
+```
+
+<br />
+<div  style="display: flex; justify-content: center;">
+<img src="/media/js12.png" width="350" style="float:left"/>
+<img src="/media/js13.png" width="450" />
+</div>
+---
+
+# Interagiamo con l'utente
+
+confirm
+
+- La funzione `confirm("Messaggio")` visualizza una finestra modale con il messaggio e due bottoni **OK** e **Cancel/Annulla**
+- La funzione restituisce un valore boolean in base al tasto premuto **_OK->true e Cancel -> false_**
+
+```js
+let conferma = confirm("Hai letto le condizioni contrattuali?");
+console.log(conferma);
+
+// true se l'utente preme OK
+// false se l'utente preme Cancel o Annulla
+```
+
+<br />
+<img src="/media/js14.png" width="450" style="margin: auto;"/>
+
 --- #slide N
 
 # Esercizio js_09
@@ -2460,6 +2970,15 @@ Boolean(NaN); // false
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    I costrutti base
+</Cover>
+
+
+---
+
 # Confronti
 
 operatori di confronto
@@ -2809,6 +3328,15 @@ switch (++a) {
 
 ---
 
+&nbsp;
+
+<Cover fs="140px">
+    I cicli
+</Cover>
+
+
+---
+
 # Cicli
 
 repeat yourself
@@ -3013,6 +3541,15 @@ alert("Hai interrotto l'inserimento");
 
 - In caso in cui l'utente non inserisce nulla il flusso del programma salta all'istruzione successiva alla label indicata (**uscita**). Pertanto alert viene eseguito.
 - Importante notare che questo meccanismo **NON** permette un salto incondizionato ovunque nel codice ma può essere solo chiamato dall'interno di un ciclo
+
+---
+
+&nbsp;
+
+<Cover fs="110px">
+    Le funzioni
+</Cover>
+
 
 ---
 
@@ -3839,6 +4376,15 @@ setInterval(() => console.log("tick"), 1000);
 Le arrow function sono utilizzate spessissimo in JavaScript moderno
 </div>
 
+---
+
+&nbsp;
+
+<Cover fs="110px">
+    JS Objects
+</Cover>
+
+
 --- #slide N
 
 # JS Objects
@@ -4479,6 +5025,13 @@ Ciao io sono l'utente Giuseppe Verdi
 
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_9m.js_
 
+---
+
+&nbsp;
+
+<Cover fs="120px">
+    Le Stringhe
+</Cover>
 
 
 ---
@@ -5201,6 +5754,15 @@ OUT: The quick brown fox jumps over lazy dog
 ```
 
 1. Fornire il link github al file con nome _|cognome|\_esercizio_js_10q.js_
+
+
+---
+
+&nbsp;
+
+<Cover fs="120px">
+    Gli Array
+</Cover>
 
 
 ---
@@ -7070,6 +7632,15 @@ Array
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    Le Mappe (Array associativi)
+</Cover>
+
+
+---
+
 # Map
 
 Oggetti generici o Array associativo
@@ -7345,6 +7916,15 @@ for(let [k,v] of mappa.entries())
 > Key: 2 - Value: verde
 > Key: 3 - Value: blu
 ```
+
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    I Set (Insiemi)
+</Cover>
+
 
 ---
 
@@ -7651,6 +8231,14 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 ```
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_36.js_
+
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    Destrutcuring
+</Cover>
 
 
 ---
@@ -8030,6 +8618,7 @@ console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${f
 
 2. Fornire il link github al file con nome _|cognome|\_esercizio_js_39.js_
 
+
 --- 
 
 # Esercizio js_40
@@ -8048,6 +8637,15 @@ console.log(lastName);
 2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
 
 3. Fornire il link github al file con nome _|cognome|\_esercizio_js_40.js_
+
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    Il formato JSON
+</Cover>
+
 
 ---
 
@@ -8330,6 +8928,15 @@ console.log(studente_obj)
 
 - come si vede durante la deserializzazione delle stringhe le abbiamo convertite in upper case
   
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    OOP
+</Cover>
+
+
 ---
 
 # JS Object Oriented Programming
@@ -9504,6 +10111,14 @@ JS Objects
 
 - Fornire il link github al file con nome _|cognome|\_esercizio_js_51.js_
 
+---
+
+&nbsp;
+
+<Cover fs="90px">
+    La Gestione degli Errori
+</Cover>
+
 
 ---
 
@@ -9783,6 +10398,4 @@ try {
 ---
 
 &nbsp;
-<center>
-<img src="/media/js40.jpg" width="800" />
-</center>
+<img src="/media/js40.jpg" width="800" style="margin:auto;"/>
