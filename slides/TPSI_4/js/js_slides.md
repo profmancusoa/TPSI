@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "1.1.0"
+version: "2.0.0"
 ---
 
 # JavaScript
@@ -214,7 +214,7 @@ I linguaggi più utilizzati nel mondo dello sviluppo software
 
 <img src="/media/js02.png" class="mx-auto w-130" />
 
-<arrow v-click="1" x1="800" y1="420" x2="700" y2="150" color="#0000ff" width="3" arrowSize="1" />
+<arrow v-click="1" x1="800" y1="420" x2="700" y2="150" color="#0000ff" width="5" arrowSize="1" />
 
 --- #slide N
 
@@ -431,7 +431,8 @@ Node.js
 # JS Back-End
 
 Node.js
-<Banner padding="20px">
+
+<Banner padding="20px" mb="30px">
 Importante notare che Node.js è scritto per un sistema operativo e non per un browser
 </Banner>
 
@@ -2342,7 +2343,6 @@ I 4 operatori booleani
 0 || 3 -> 3
 "ciao" || 1  -> ciao
 "" || 1  -> 1
-
 "ciao" || "mario" || "rossi" -> "ciao"
 "" || "mario" || "rossi" -> "mario"
 "" || "" || "rossi" -> "rossi"
@@ -2448,6 +2448,8 @@ I 4 operatori booleani
 - L'operatore **!** ha la precedenza maggiore di tutti
 - Pertanto la precedenza degli operatori è: `!` -> `&&` -> `||`
 
+<br>
+
 ```js
 !a && b -> (!a) && b
 
@@ -2460,8 +2462,7 @@ a && b || !c -> (a && b) || (!c)
 
 I 4 operatori booleani
 
-- L'operatore **??** chiamato _Nullish coalescing operator_ verifica se il primo operando è definito (esiste ed ha un valore valido)
-- In caso positivo restituisce la prima espressione altrimenti la seconda
+- L'operatore **??** chiamato `Nullish coalescing operator` verifica se il primo operando è definito (esiste ed ha un valore valido). In caso positivo restituisce la prima espressione altrimenti la seconda
 
 ```js
 a ?? b -> restituisce a se è valida e definita altrimenti b
@@ -2575,7 +2576,7 @@ Operatori Booleani
 <img src="/media/js09.png" width="400" style="margin: auto;"/>
 <br />
 
-1. Fornire il link github al file con nome _|cognome|\_esercizio_js_09.html_ e _|cognome|\_esercizio_js_09.js_
+1. Consegnare su github il file con nome _|cognome|\_esercizio_js_09.html_ e _|cognome|\_esercizio_js_09.js_
 
 --- #slide N
 
@@ -2754,6 +2755,8 @@ operatore unario
 
 - Un operatori si dice **_unario_** quando viene applicato ad un singolo operando
 
+<br>
+
 ```js
 let x = 1;
 
@@ -2785,6 +2788,8 @@ console.log(+str1 + +str2); // 9
 console.log(Number(str1) + Number(str2)); // 9
 ```
 
+<br>
+
 - Pertanto l'operatore unario + converte il suo operando in numero
 
 ```js
@@ -2814,7 +2819,6 @@ Operatori matematici
 6 % 3; // 0
 
 2 ** 3; // 8
-
 36 ** (1 / 2); // 6
 ```
 
@@ -2854,6 +2858,7 @@ dove **left-value** rappresenta una variabile a cui viene assegnato il valore de
 ```js
 let left-value = right-value;
 ```
+<br>
 
 - assegna right-value alla variabile left-value e restituisce right-value
 
@@ -2910,7 +2915,7 @@ increment/decrement operators prefisso e postfisso
   - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restituisce il nuovo valore calcolato
   - **postfissa**: l'operatore in forma postfissa restituisce l'operando passato e poi calcola il nuovo valore
 
-FORMA PREFISSA
+`FORMA PREFISSA`
 
 ```js
 let n = (m = 2);
@@ -2936,7 +2941,7 @@ increment/decrement operators prefisso e postfisso
   - **prefissa**: l'operatore in forma prefissa prima viene applicato e poi restituisce il nuovo valore calcolato
   - **postfissa**: l'operatore in forma postfissa restituisce l'operando passato e poi calcola il nuovo valore
 
-FORMA POSTFISSA
+`FORMA POSTFISSA`
 
 ```js
 let n = (m = 2);
@@ -3004,10 +3009,12 @@ alert("12" + "4") // "124"
 
 ```
 
-<br />
-<div style="background-color: green;color: yellow;padding: 10px;">
+<br>
+
+<Banner padding="15px">
 NOTA: l'operatore + è l'operatore di concatenazione di stringhe
-</div>
+</Banner>
+
 --- #slide N
  
 # Data Types
@@ -3015,6 +3022,8 @@ NOTA: l'operatore + è l'operatore di concatenazione di stringhe
 Conversione o Casting
 
 - Se invece vogliamo o abbiamo la necessità di convertire a stringa usiamo la funzione `String(<valore>)` che restituisce una rappresentazione di valore come stringa
+
+<br>
 
 ```js
 String(11 + 4); // "15"
@@ -3050,7 +3059,6 @@ Number(null); // 0
 Number(true); // 1
 
 Number(false); // 0
-
 Number(""); // 0
 ```
 
@@ -3061,6 +3069,8 @@ Number(""); // 0
 Conversione o Casting
 
 - Possiamo anche convertire un valore in boolean tramite la funzione `Boolean(<valore>)`
+
+<br>
 
 ```js
 Boolean(1); // true
@@ -3110,10 +3120,10 @@ console.log(a == b); // false
 console.log(a ! = c); // true
 ```
 
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner mt="10px" padding="15px">
 NOTA: per ragioni grafiche è presente uno spazio, ma in JavaScrip va rimosso 
 <mark>a  >= b</mark> e non a >&nbsp;&nbsp;= b
-</div>
+</Banner>
 
 ---
 
@@ -3181,9 +3191,9 @@ console.log(Boolean(a) == Boolean(b)); // false
 ```
 
 <br />
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner padding="20px">
 E' molto importante ricordarsi questa regola e il funzionamento dell'operatore <mark> Regular equality check</mark>
-</div>
+</Banner>
 
 ---
 
@@ -3208,8 +3218,6 @@ console.log(a == false); // true
 
 console.log(a === false); // false
 ```
-
-<br />
 
 - Questo ci permette di differenziare 0 da false
 
@@ -3238,9 +3246,9 @@ if ((anni = 16)) {
 if (anni == 16) console.log("Probabilmente sei uno studente!!");
 ```
 
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner mt=10px padding=15px>
 La forma non contratta aumenta la leggibilità del codice
-</div>
+</Banner>
 
 ---
 
@@ -3262,9 +3270,9 @@ if (anni < 25) {
 
 - In questo caso se la variabile anni assume valore inferiore a 25 viene eseguito solamente il blocco di codice immediatamente successivo
 - In caso contrario viene eseguito solamente il blocco di codice successivo ad **else**
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner mt=20px padding=15px>
 I due blocchi di codice vengono SEMPRE eseguiti in modo mutuamente esclusivo
-</div>
+</Banner>
 
 ---
 
@@ -3339,11 +3347,11 @@ let occupazione =
   anni < 25 ? "Studente" : anni > 24 && anni < 67 ? "Lavoratore" : "Pensionato";
 ```
 
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner mt=20px padding=15px>
 L'operatore <mark>?</mark> in alcuni casi può migliorare la leggibilità e compattezza del codice.<br /><br />
 In altri casi può rendere il codice poco leggibile e incomprensibile.<br /><br />
 Utilizzarlo con parsimonia solo quando è vantaggioso.
-</div>
+</Banner>
 
 ---
 
@@ -3792,9 +3800,9 @@ Ecco i parametri 10, 20 passati alla funzione
 
 don't repeat yourself
 
-<div style="background-color:green;color:yellow;padding:10px;margin-top:20px;">
+<Banner padding=20px>
 In JS esiste solo il passaggio per valore dei parametri
-</div>
+</Banner>
 
 <br />
 
@@ -4252,9 +4260,9 @@ console.log(mul(2, 3));
 
 - Pertanto un'aspetto molto importante da ricordare è
 
-<div style="background-color: green;color: yellow; padding: 10px; margin:10px;">
+<Banner mt=20px padding=20px>
 In JS una funzione è sempre un valore &lt;right-value&gt;
-</div>
+</Banner>
 
 ---
 
@@ -4495,9 +4503,9 @@ setInterval(() => console.log("tick"), 1000);
 
 <br />
 
-<div style="background-color: green;color: yellow; padding: 10px; margin:10px;">
+<Banner padding=20px>
 Le arrow function sono utilizzate spessissimo in JavaScript moderno
-</div>
+</Banner>
 
 ---
 
@@ -4713,7 +4721,7 @@ la chiave cognome ha valore Rossi
 # Esercizio js_9a
 
 - Realizzare il ciclo for..in su un oggetto utente NON utilizzando il for..in ma un ciclo for normale 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9a.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9a.js_
 
 
 --- #slide N
@@ -4969,7 +4977,7 @@ Ciao io sono l'utente Giuseppe Verdi
 - Realizzare un programma in JS che:
   - Usando gli Object Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9b.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9b.js_
 
 ---
 
@@ -4979,7 +4987,7 @@ Ciao io sono l'utente Giuseppe Verdi
   - Usando gli Object Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9c.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9c.js_
 
 
 ---
@@ -4994,7 +5002,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9d.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9d.js_
 
 ---
 
@@ -5012,7 +5020,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9e.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9e.js_
 
 ---
 
@@ -5026,7 +5034,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9f.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9f.js_ 
 
 ---
 
@@ -5040,7 +5048,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9g.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9g.js_
 
 ---
 
@@ -5054,7 +5062,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9h.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9h.js_
 
 ---
 
@@ -5068,7 +5076,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9i.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9i.js_
 
 ---
 
@@ -5086,7 +5094,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9j.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9j.js_
 
 
 ---
@@ -5119,7 +5127,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9k.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9k.js_
 
 ---
 
@@ -5133,7 +5141,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti e con 3 tre callback differenti (somma di due numeri, prodotto di due numeri, elevamento a potenza)
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9l.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9l.js_
 
 ---
 
@@ -5145,7 +5153,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento delle 4 funzioni richieste stampandone il risultato sulla console
     - invochi ciascuna funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_9m.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_9m.js_
 
 ---
 
@@ -5671,7 +5679,7 @@ IN: Antonio Mancuso
 OUT: Antonio M.
 ```
 
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_10a.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_10a.js_
 
 
 --- 
@@ -5688,7 +5696,7 @@ IN: antonio.mancuso@istitutoagnelli.it
 OUT: antonio...@istitutoagnelli.it
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10b.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10b.js_
 
 --- 
 
@@ -5704,7 +5712,7 @@ IN: Nel mezzo del cammin di nostra vita
 OUT: Nel-mezzo-del-cammin-di-nostra-vita
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10c.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10c.js_
 
 --- 
 
@@ -5720,7 +5728,7 @@ IN: ciamo mondo!!!
 OUT: Ciamo mondo!!!
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10d.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10d.js_
 
 --- 
 
@@ -5736,7 +5744,7 @@ IN: ciamo mondo la terra gira!!!
 OUT: Ciamo Mondo La Terra Gira!!!
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10e.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10e.js_
 
 
 --- 
@@ -5753,7 +5761,7 @@ IN: ciamo mondo!!!
 OUT: CIAO MONDO!!!
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10f.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10f.js_
 
 --- 
 
@@ -5769,7 +5777,7 @@ IN: Ciao Mondo!!!
 OUT: cIAO mONDO!!!
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10g.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10g.js_
 
 --- 
 
@@ -5785,7 +5793,7 @@ IN: Ciao Mondo la terra gira!!!, 10
 OUT: Ciao Mondo...
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10h.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10h.js_
 
 
 --- 
@@ -5796,7 +5804,7 @@ Stringhe
 
 1. Creare un programma che implementi una funzione che cerchi in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10i.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10i.js_
 
 --- 
 
@@ -5806,7 +5814,7 @@ Stringhe
 
 1. Creare una funzione che prenda in input due semplici stringhe che contengono una sola parola, e che restituisca le due stringhe concatenate, scambiando i primi due caratteri di ciascuna stringa.
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10l.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10l.js_
 
 --- 
 
@@ -5823,7 +5831,7 @@ IN: ciao!,4
 OUT: ciao!ciao!ciao!ciao!
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10m.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10m.js_
 
 --- 
 
@@ -5839,7 +5847,7 @@ IN: "Facciamo tanti esercizi che ci fanno bene", "JavaScript", 23
 OUT: Facciamo tanti esercizi JavaScript che ci fanno bene
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10n.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10n.js_
 
 
 --- 
@@ -5857,7 +5865,7 @@ IN: Facciamo tanti esercizi che ci fanno bene, 10
 OUT: Facciamo t...
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10o.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10o.js_
 
 
 ---
@@ -5875,7 +5883,7 @@ IN: Facciamo tanti esercizi che ci fanno bene, 3
 OUT: Facciamo tanti esercizi
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_10p.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10p.js_
 
 ---
 
@@ -5891,7 +5899,7 @@ IN: "The quick brown fox jumps over the lazy dog", "the"
 OUT: The quick brown fox jumps over lazy dog
 ```
 
-1. Fornire il link github al file con nome _|cognome|\_esercizio_js_10q.js_
+1. Consegnare su github il file con nome _|cognome|\_esercizio_js_10q.js_
 
 
 ---
@@ -5962,9 +5970,9 @@ Definizione
 
 Definizione
 
-<div style="background-color:green;color:yellow; padding:10px;">
+<Banner padding=20px>
   Nello sviluppo JS gli array sono una struttura dati fondamentale
-</div>
+</Banner>
 <br>
 
 - Gli array sono usati spessissimo e permettono di risolvere una vasta serie di problemi
@@ -7322,7 +7330,7 @@ IN: [1,2,3]
 OUT: [3,2,1]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_11.js_
 
 ---
 
@@ -7500,7 +7508,7 @@ IN: [1,2,3]
 OUT: [3,2,1]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_11a.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_11a.js_
 
 --- 
 
@@ -7516,7 +7524,7 @@ IN: [1,2,3 ], [1,2,3]
 OUT: true
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_12.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_12.js_
 
 
 --- 
@@ -7533,7 +7541,7 @@ IN: (3, 'a')
 OUT ['a', 'a', 'a']
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_13.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_13.js_
 
 
 --- 
@@ -7550,7 +7558,7 @@ IN [10, 20, 30, 40, 50], 0, 2
 OUT [20, 30, 10, 40, 50]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_14.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_14.js_
 
 
 --- 
@@ -7567,7 +7575,7 @@ IN: [1,2,3,4], 3
 OUT: [1,2,4]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_15.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_15.js_
 
 
 --- 
@@ -7586,7 +7594,7 @@ Array
    ];
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_16.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_16.js_
 
 
 --- 
@@ -7603,7 +7611,7 @@ Array
   OUTPUT ['H','E','L','L','O','W','O','R','L','D']
 ``` 
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_17.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_17.js_
 
 
 --- 
@@ -7614,7 +7622,7 @@ Array
 
 1. Scrivere una funzione che ricevuto un array di numeri, restituisca il prodotto dei quadrati
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_18.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_18.js_
 
 
 --- 
@@ -7625,7 +7633,7 @@ Array
 
 1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dai primi N elementi
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_19.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_19.js_
 
 
 --- 
@@ -7635,7 +7643,7 @@ Array
 Array
 
 1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dagli ultimi N elementi
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_20.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_20.js_
 
 --- 
 
@@ -7652,7 +7660,7 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_21.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_21.js_
 
 --- 
 
@@ -7669,7 +7677,7 @@ OUT [7, 3, 11, 1, 4, 12, 20]
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_22.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_22.js_
    
 --- 
 
@@ -7679,7 +7687,7 @@ Array
 
 1. Scrivere una funzione, che dato come parametro una stringa che rappresenta un numero binario di lunghezza arbitraria, ne calcoli il suo valore espresso in decimale
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_23.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_23.js_
 
 --- 
 
@@ -7689,7 +7697,7 @@ Array
 
 1. Usando Math.floor(Math.random() * N): numero random tra 0 e N
 2. Scrivere una funzione che restituisce un array di caratteri casuali di lunghezza 7 scelti tra tra lettere minuscole e cifre decimali 
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_24.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_24.js_
 
 
 --- 
@@ -7706,7 +7714,7 @@ IN [1,2,3,4,5,6,7] , 3
 OUT [5,6,7, 1,2,3]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_25.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_25.js_
 
 --- 
 
@@ -7723,7 +7731,7 @@ OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_26.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_26.js_
 
 --- 
 
@@ -7739,7 +7747,7 @@ IN N = [1, 2, 3, 1, 2, 4]
 OUT [1, 2, 3, 4]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_27.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_27.js_
 
 
 --- 
@@ -7758,7 +7766,7 @@ let studenti = [
 ]; 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_28.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_28.js_
 
 --- 
 
@@ -7776,7 +7784,7 @@ let studenti = [
 ]; 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_29.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_29.js_
 
 --- 
 
@@ -7786,7 +7794,7 @@ Array
 
 1. Scrivere una funzione che ricevuto un array e due numeri N e M, restituisca un array contenenti solo valori >= N e <=M
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_30.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_30.js_
 
 ---
 
@@ -8292,7 +8300,7 @@ Array, Map, Set
 
 1. Scrivere una funzione che ricevuto un array restituisca un array composto solo da valori unici in cui gli elementi duplicati sono rimossi
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_31.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_31.js_
 
 --- 
 
@@ -8308,7 +8316,7 @@ IN: ['omar', 'sette', 'roma', 'teste', 'mora', 'colazione', 'locazione']
 OUT: [ 'mora', 'teste', 'locazione' ]
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_32.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_32.js_
 
 
 --- 
@@ -8335,7 +8343,7 @@ La parola "alto" ha frequenza: 1
 La parola "livello" ha frequenza: 1
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_33.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_33.js_
 
 --- 
 
@@ -8352,7 +8360,7 @@ OUT:  [ 52, 49, 42 ]
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_34.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_34.js_
 
 --- 
 
@@ -8369,7 +8377,7 @@ OUT:  "supercalifgthdo"
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_35.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_35.js_
 
 --- 
 
@@ -8386,7 +8394,7 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 
 ```
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_36.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_36.js_
 
 ---
 
@@ -8744,7 +8752,7 @@ let utente = {
    - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente) 
 
 
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_37.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_37.js_
 
 --- 
 
@@ -8766,7 +8774,7 @@ console.log(`Item: ${name}, Quantity: ${quantity}, Price: ${price}`);
 
 2. Riscriverlo con il destructuring in modo da non dover assegnare le singole variabili
 
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_38.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_38.js_
 
 --- 
 
@@ -8786,7 +8794,7 @@ console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${f
 
 1. Riscriverlo in modo da assegnare il valore giusto alle singole variabili
 
-2. Fornire il link github al file con nome _|cognome|\_esercizio_js_39.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_39.js_
 
 
 --- 
@@ -8806,7 +8814,7 @@ console.log(lastName);
 
 2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
 
-3. Fornire il link github al file con nome _|cognome|\_esercizio_js_40.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_40.js_
 
 ---
 
@@ -9143,7 +9151,7 @@ Materiale Aggiuntivo
 
 OOP 
 
-<div style="background-color:green;color:yellow;padding:2.3rem;line-height: 3rem; font-size:1.9rem;">
+<div style="border-radius:10px;background-color:green;color:yellow;padding:2.3rem;line-height: 3rem; font-size:1.9rem;">
 Nella programmazione orientata agli oggetti, una classe è un costrutto di un linguaggio di programmazione usato come modello per creare oggetti. Il modello comprende attributi e metodi che saranno condivisi da tutti gli oggetti creati (istanze) a partire dalla classe stessa. <br> Un “oggetto” è, di fatto, l’istanza di una classe.
 </div>
 
@@ -9211,9 +9219,9 @@ mario.Saluta(); //invochiamo il metodo Saluta dell'oggetto mario
 
 <br>
 
-<div style="background-color:green;color:yellow;padding: 1rem;">
+<Banner padding=15px>
 <b>Importante</b>: al contrario degli object literal, i metodi della classe NON sono separati dalla virgola
-</div>
+</Banner>
 
 ---
 
@@ -9411,7 +9419,7 @@ OOP
 5. sia in grado di calcolare il suo perimetro
 6. sia in grado di calcolare la sua area
 7. scrivere il main che instanzi un oggetto della classe Quadrato e stampi sulla console il perimetro e in un alert l'area dello stesso
-8. Fornire il link github al file con nome _|cognome|\_esercizio_js_41.js_
+8. Consegnare su github il file con nome _|cognome|\_esercizio_js_41.js_
 
 
 ---
@@ -9510,9 +9518,9 @@ Method Chaining
   - restituisce un oggetto di tipo tartaruga
 - e così via per i metodi successivi
 
-<div style="background: green; color:yellow;padding: 1.5rem;margin-top:1rem;">  
+<Banner padding=20px mt=20px>  
 Questo paradigma viene utilizzato molto di frequente nella programmazione in JS
-</div>
+</Banner>
 
 
 --- 
@@ -9529,7 +9537,7 @@ OOP
     - 6 - 2 * 5 + 8 / 4  = ?
     - 11 * 3 + 5 - 5 / 11 = ?
     - 29 + 2 - 7 / 3 / 2 + 1 * 2 = ?
-4.  Fornire il link github al file con nome _|cognome|\_esercizio_js_42.js_
+4.  Consegnare su github il file con nome _|cognome|\_esercizio_js_42.js_
 
 
 ---
@@ -9852,7 +9860,7 @@ OOP
     - Esagono di lato 18cm
     - Ettagono di lato 9cm
     - Ottagono di lato 12cm
-3.  Fornire il link github al file con nome _|cognome|\_esercizio_js_43.js_
+3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_43.js_
 
 ---
 
@@ -10106,7 +10114,7 @@ let docente = new Docente("Mario", 4);
 
 - e li confronta utilizzando la funzione confrontaOBJ
 
-3.  Fornire il link github al file con nome _|cognome|\_esercizio_js_44.js_
+3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_44.js_
 
 
 --- #slide N
@@ -10209,7 +10217,7 @@ JS Objects
 - Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
 - Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
 
-4. Fornire il link github al file con nome _|cognome|\_esercizio_js_45.html_ e _|cognome|\_esercizio_js_45.js_
+4. Consegnare su github il file con nome _|cognome|\_esercizio_js_45.html_ e _|cognome|\_esercizio_js_45.js_
 
 
 ---
@@ -10219,7 +10227,7 @@ JS Objects
 - Realizzare un programma in JS che:
   - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_56.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_56.js_
 
 ---
 
@@ -10229,7 +10237,7 @@ JS Objects
   - Usando classi e oggetti implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_47.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_47.js_
 
 
 ---
@@ -10248,7 +10256,7 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_48.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_48.js_
 
 
 ---
@@ -10263,7 +10271,7 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_49.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_49.js_ 
 
 ---
 
@@ -10277,7 +10285,7 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_50.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_50.js_
 
 ---
 
@@ -10309,7 +10317,7 @@ JS Objects
     - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
-- Fornire il link github al file con nome _|cognome|\_esercizio_js_51.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_51.js_
 
 ---
 
