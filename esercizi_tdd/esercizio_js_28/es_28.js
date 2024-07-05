@@ -1,3 +1,3 @@
 export const upper_case = (str) => {
-    return 0;
+    //inserisci il tuo codice qui
 }

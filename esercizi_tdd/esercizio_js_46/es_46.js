@@ -1,3 +1,3 @@
 export const prod_pow2 = (n) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

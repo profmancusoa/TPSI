@@ -1,3 +1,3 @@
 export const gen_arr = (len) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

@@ -1,3 +1,3 @@
 export const tronca = (ph, l) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

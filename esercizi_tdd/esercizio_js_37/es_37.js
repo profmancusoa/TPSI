@@ -1,3 +1,3 @@
 export const rm_string = (s, r) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

@@ -1,1 +1,3 @@
-export class Automobile {}
+export class Automobile {
+    //inserisci il tuo codice qui
+}

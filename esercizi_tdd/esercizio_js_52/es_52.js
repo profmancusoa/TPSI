@@ -1,3 +1,3 @@
 export const psw_gen = (len) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

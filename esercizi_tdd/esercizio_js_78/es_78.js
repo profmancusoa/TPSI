@@ -1,1 +1,3 @@
-export class Orario {}
+export class Orario {
+    //inserisci il tuo codice qui
+}

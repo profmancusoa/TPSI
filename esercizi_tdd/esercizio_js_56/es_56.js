@@ -1,3 +1,3 @@
 export const avg_age = (l) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

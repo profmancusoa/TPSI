@@ -1,3 +1,3 @@
 export const reverse = (l) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

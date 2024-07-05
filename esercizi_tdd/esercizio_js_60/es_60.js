@@ -1,3 +1,3 @@
 export function is_anagram(arr) {
-    return 0;
+    //inserisci il tuo codice qui
 }

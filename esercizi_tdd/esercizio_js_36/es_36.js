@@ -1,3 +1,3 @@
 export const tronca_parola = (s, pos) => {
-    return 0;
+    //inserisci il tuo codice qui
 };

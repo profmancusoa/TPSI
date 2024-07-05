@@ -1,3 +1,3 @@
 export const capitalize_all = (str) => {
-    return 0;
+    //inserisci il tuo codice qui
 }

@@ -1,3 +1,3 @@
 export const sub_arr = (l, n) => {
-    return 0;
+    //inserisci il tuo codice qui
 };
