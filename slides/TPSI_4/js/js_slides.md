@@ -97,6 +97,9 @@ Allenarsi con JS
 Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso.
 Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
 
+<div class="grid grid-flow-col  gap-4">
+<div>
+
 - [Excercism](https://exercism.org/tracks/javascript)
 - [Codingame](https://www.codingame.com/start/)
 - [Codewars](https://www.codewars.com/)
@@ -105,15 +108,9 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [JScodebox](https://jscodebox.com/)
 - [AdventJS](https://adventjs.dev/)
 - [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
-  
----
 
-# JS
-
-Allenarsi con JS
-
-Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso.
-Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
+</div>
+<div>
 
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
 - [JS Code Challenges](https://jscodechallenges.vercel.app/)
@@ -122,6 +119,73 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [Lettcode](https://leetcode.com/)
 - [Edabit](https://edabit.com/)
 - [Hackerhearth](https://www.hackerearth.com/practice/)
+  
+</div>
+</div>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+`Generale`
+
+- [Perchè JS](/support/4/js/pdf/js_why_use_js_LR.pdf)
+
+<br>
+
+`Libri`
+
+- [JS Handbook](/support/4/js/pdf/js_book_01.pdf)
+- [Appunti di JS](/support/4/js/pdf/js_book_02.pdf)
+- [Data Structure & Algorithms in JS](/support/4/js/pdf/js_book_03_LR.pdf)
+</div>
+
+<div>
+
+`Cheat Sheet`
+
+- [Cheat Sheet 01](/support/4/js/pdf/js_cheatsheet_01.pdf)
+- [Cheat Sheet 02](/support/4/js/pdf/js_cheatsheet_02.pdf)
+- [Cheat Sheet 03](/support/4/js/pdf/js_cheatsheet_03.pdf)
+- [Cheat Sheet 04](/support/4/js/pdf/js_cheatsheet_04.pdf)
+- [Cheat Sheet 05](/support/4/js/pdf/js_cheatsheet_05.pdf)
+- [Cheat Sheet 06](/support/4/js/pdf/js_cheatsheet_06.pdf)
+- [Cheat Sheet 07](/support/4/js/pdf/js_cheatsheet_07.pdf)
+- [Cheat Sheet 08](/support/4/js/pdf/js_cheatsheet_08.pdf)
+- [Cheat Sheet 09](/support/4/js/pdf/js_cheatsheet_09.pdf)
+- [Cheat Sheet 10](/support/4/js/pdf/js_cheatsheet_10.pdf)
+- [Cheat Sheet 11](/support/4/js/pdf/js_cheatsheet_11.pdf)
+
+</div>
+
+<div>
+
+`Cheat Sheet`
+
+- [Cheat Sheet 12](/support/4/js/pdf/js_cheatsheet_12.pdf)
+- [Cheat Sheet 13](/support/4/js/pdf/js_cheatsheet_13.pdf)
+- [Cheat Sheet 14](/support/4/js/pdf/js_cheatsheet_14.pdf)
+- [Cheat Sheet 15](/support/4/js/pdf/js_cheatsheet_15.pdf)
+- [Cheat Sheet 16](/support/4/js/pdf/js_cheatsheet_16.pdf)
+- [Cheat Sheet 17](/support/4/js/pdf/js_cheatsheet_17.pdf)
+- [Cheat Sheet 18](/support/4/js/pdf/js_cheatsheet_18.pdf)
+- [Cheat Sheet 19](/support/4/js/pdf/js_cheatsheet_19.pdf)
+- [Cheat Sheet 20](/support/4/js/pdf/js_cheatsheet_20.pdf)
+- [Cheat Sheet 21](/support/4/js/pdf/js_cheatsheet_21.pdf)
+- [Cheat Sheet 22](/support/4/js/pdf/js_cheatsheet_22.pdf)
+
+</div>
+
+</div>
+
+
+
+
   
 --- #slide 1
 
@@ -600,6 +664,18 @@ Commenti
 - E' più facile leggere la divina commedia con la parafrasi o solo con i versi originali?
 - Ecco per il codice sorgente è esattamente la stessa cosa.
 
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Hoisting](/support/4/js/pdf/js_hoisting_01.pdf)
+  
+</div>
+</div>
+
 --- #slide N
 
 # Variabili
@@ -1023,6 +1099,16 @@ Best Practice
     DOM Manipulation
 </Cover>
 
+---
+
+# JavaScript e DOM
+
+Materiale Aggiuntivo
+
+- [Javascript DOM manipulation](/support/4/js/pdf/js_dom_01.pdf)
+- [Eventi 01](/support/4/js/pdf/js_events_01.pdf)
+- [Eventi 02](/support/4/js/pdf/js_events_02.pdf)
+- [Virtual DOM](/support/4/js/pdf/js_virtual_dom_01.pdf)
 
 ---
 
@@ -1847,6 +1933,30 @@ Si richiede di realizzare una web app (in JS vanilla) che implementa una ToDo li
 <Cover fs="90px">
     Data Types e Operatori
 </Cover>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+`Tipi`
+
+- [Tipi 01](/support/4/js/pdf/js_types_01.pdf)
+- [Tipi 02](/support/4/js/pdf/js_types_02.pdf)
+- [Tipi 03](/support/4/js/pdf/js_types_03.pdf)
+
+<br>
+
+`Operatori`
+
+- [Operatori 01](/support/4/js/pdf/js_operators_01.pdf)
+
+</div>
+</div>
 
 ---
 
@@ -3335,6 +3445,20 @@ switch (++a) {
 </Cover>
 
 
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Cicli 01](/support/4/js/pdf/js_cicli_01.pdf)
+  
+</div>
+</div>
+
 ---
 
 # Cicli
@@ -3549,7 +3673,6 @@ alert("Hai interrotto l'inserimento");
 <Cover fs="110px">
     Le funzioni
 </Cover>
-
 
 ---
 
@@ -4384,7 +4507,6 @@ Le arrow function sono utilizzate spessissimo in JavaScript moderno
     JS Objects
 </Cover>
 
-
 --- #slide N
 
 # JS Objects
@@ -5032,6 +5154,22 @@ Ciao io sono l'utente Giuseppe Verdi
 <Cover fs="120px">
     Le Stringhe
 </Cover>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Stringhe 01](/support/4/js/pdf/js_strings_01.pdf)
+- [Stringhe 02](/support/4/js/pdf/js_strings_02.pdf)
+- [Stringhe 03](/support/4/js/pdf/js_strings_03.pdf)
+
+</div>
+</div>
 
 
 ---
@@ -5764,6 +5902,26 @@ OUT: The quick brown fox jumps over lazy dog
     Gli Array
 </Cover>
 
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Array 01](/support/4/js/pdf/js_array_01.pdf)
+- [Array 02](/support/4/js/pdf/js_array_02.pdf)
+- [Array 03](/support/4/js/pdf/js_array_03.pdf)
+- [Array 04](/support/4/js/pdf/js_array_04.pdf)
+- [Array 05](/support/4/js/pdf/js_array_05.pdf)
+- [Array 06](/support/4/js/pdf/js_array_06.pdf)
+- [Array 01](/support/4/js/pdf/js_array_07.pdf)
+- [Spread Operator](/support/4/js/pdf/js_spread.pdf)
+  
+</div>
+</div>
 
 ---
 
@@ -7638,7 +7796,6 @@ Array
     Le Mappe (Array associativi)
 </Cover>
 
-
 ---
 
 # Map
@@ -7924,7 +8081,6 @@ for(let [k,v] of mappa.entries())
 <Cover fs="90px">
     I Set (Insiemi)
 </Cover>
-
 
 ---
 
@@ -8239,6 +8395,20 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 <Cover fs="90px">
     Destrutcuring
 </Cover>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Destructuring 01](/support/4/js/pdf/js_destructuring_01.pdf)
+
+</div>
+</div>
 
 
 ---
@@ -8646,6 +8816,21 @@ console.log(lastName);
     Il formato JSON
 </Cover>
 
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [JSON 01](/support/4/js/pdf/js_json_01.pdf)
+- [JSON 02](/support/4/js/pdf/js_json_02.pdf)
+- [JSON 02](/support/4/js/pdf/js_json_01.pdf)
+
+</div>
+</div>
 
 ---
 
@@ -8935,6 +9120,21 @@ console.log(studente_obj)
 <Cover fs="90px">
     OOP
 </Cover>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [OOP 01](/support/4/js/pdf/js_oop_01.pdf)
+- [OOP 02](/support/4/js/pdf/js_oop_02.pdf)
+
+</div>
+</div>
 
 
 ---
@@ -10395,6 +10595,67 @@ try {
 > MESSAGGIO: Oggetto incompleto, manca il cognome
 
 ```
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+`Advanced`
+- [Concepts 1](/support/4/js/pdf/js_advanved_concepts_01.pdf) e [Concepts 2](/support/4/js/pdf/js_advanved_concepts_02.pdf)
+- [AJAX](/support/4/js/pdf/js_advanced_ajax.pdf)
+- [Async 1](/support/4/js/pdf/js_advanced_async_01.pdf) e [Async 2](/support/4/js/pdf/js_advanced_async_01.pdf)
+- [Currying](/support/4/js/pdf/js_advanced_currying_01.pdf)
+- [Network](/support/4/js/pdf/js_advanced_network.pdf)
+- [Regex](/support/4/js/pdf/js_advanced_regex.pdf)
+- [Web API](/support/4/js/pdf/js_advanced_web_api.pdf)
+- [GroupBy](/support/4/js/pdf/js_advanved_groupBy.pdf)
+- [Promises 1](/support/4/js/pdf/js_advanved_promises_01.pdf)
+- [Promises 2](/support/4/js/pdf/js_advanved_promises_02.pdf)
+- [Promises 3](/support/4/js/pdf/js_advanved_promises_03.pdf)
+</div>
+<div>
+
+`npm`
+
+- [npm 1](/support/4/js/pdf/js_npm_01.pdf)
+- [npm 2](/support/4/js/pdf/js_npm_02.pdf)
+- [npm 3](/support/4/js/pdf/js_npm_03.pdf)
+- [npm 4](/support/4/js/pdf/js_npm_04.pdf)
+
+<br>
+
+`Local Storage`
+
+- [Local Storage 1](/support/4/js/pdf/js_local_storage_01.pdf)
+- [Local Storage 2](/support/4/js/pdf/js_local_storage_02.pdf)
+- [Local Storage 3](/support/4/js/pdf/js_local_storage_03.pdf)
+  
+</div>
+<div>
+
+`Interview`
+
+- [Interview 1](/support/4/js/pdf/js_interview_01.pdf)
+- [Interview 2](/support/4/js/pdf/js_interview_02.pdf)
+
+<br>
+
+`Misc`
+
+- [File Upload](/support/4/js/pdf/js_file_upload.pdf)
+- [React vs Svelte](/support/4/js/pdf/js_reactjs_vs_svelte.pdf)
+- [Security](/support/4/js/pdf/js_security.pdf)
+  
+</div>
+
+</div>
+
+
 ---
 
 &nbsp;
