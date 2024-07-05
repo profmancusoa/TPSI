@@ -4718,10 +4718,10 @@ la chiave cognome ha valore Rossi
 
 ---
 
-# Esercizio js_9a
+# Esercizio js_10
 
 - Realizzare il ciclo for..in su un oggetto utente NON utilizzando il for..in ma un ciclo for normale 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9a.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_10.js_
 
 
 --- #slide N
@@ -4972,27 +4972,27 @@ Ciao io sono l'utente Giuseppe Verdi
 
 ---
 
-# Esercizio js_9b
+# Esercizio js_11
 
 - Realizzare un programma in JS che:
   - Usando gli Object Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9b.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_11.js_
 
 ---
 
-# Esercizio js_9c
+# Esercizio js_12
 
 - Realizzare un programma in JS:
   - Usando gli Object Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9c.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_12.js_
 
 
 ---
 
-# Esercizio js_9d
+# Esercizio js_13
 
 - Realizzare un programma in JS che:
   - implementi una funzione che:
@@ -5002,11 +5002,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9d.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_13.js_
 
 ---
 
-# Esercizio js_9e
+# Esercizio js_14
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5020,11 +5020,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9e.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_14.js_
 
 ---
 
-# Esercizio js_9f
+# Esercizio js_15
 
 - Realizzare un programma in JS che:
   - implementi una funzione che:
@@ -5034,11 +5034,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9f.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_15.js_ 
 
 ---
 
-# Esercizio js_9g
+# Esercizio js_16
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5048,11 +5048,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9g.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_16.js_
 
 ---
 
-# Esercizio js_9h
+# Esercizio js_17
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5062,11 +5062,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9h.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_17.js_
 
 ---
 
-# Esercizio js_9i
+# Esercizio js_18
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5076,11 +5076,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9i.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_18.js_
 
 ---
 
-# Esercizio js_9j
+# Esercizio js_19
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5094,12 +5094,12 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9j.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_19.js_
 
 
 ---
 
-# Esercizio js_9k
+# Esercizio js_20
 
 - Realizzare un programma in JS:
   - fornisca il costruttore per un oggetto Automobile
@@ -5117,7 +5117,7 @@ Ciao io sono l'utente Giuseppe Verdi
 
 ---
 
-# Esercizio js_9k
+# Esercizio js_20
 
     - pulsante ON/OFF (se Automobile è accesa si spegne, se Automobile è spenta si accende)
   - Note:
@@ -5127,11 +5127,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9k.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_20.js_
 
 ---
 
-# Esercizio js_9l
+# Esercizio js_21
 
 - Realizzare un programma in JS:
   - implementi una funzione che:
@@ -5141,11 +5141,11 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 3 volte con parametri differenti e con 3 tre callback differenti (somma di due numeri, prodotto di due numeri, elevamento a potenza)
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9l.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_21.js_
 
 ---
 
-# Esercizio js_9m
+# Esercizio js_22
 
 - Realizzare un programma in JS:
   - implementi 4 arrow function che realizzano le quattro operazioni aritmetiche base, ognuna operante su due operandi
@@ -5153,7 +5153,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento delle 4 funzioni richieste stampandone il risultato sulla console
     - invochi ciascuna funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_9m.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_22.js_
 
 ---
 
@@ -5665,7 +5665,7 @@ str.trim()
 
 --- 
 
-# Esercizio js_10a
+# Esercizio js_23
 
 Stringhe
 
@@ -5679,12 +5679,12 @@ IN: Antonio Mancuso
 OUT: Antonio M.
 ```
 
-3. Consegnare su github il file con nome _|cognome|\_esercizio_js_10a.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_23.js_
 
 
 --- 
 
-# Esercizio js_10b
+# Esercizio js_24
 
 Stringhe
 
@@ -5696,11 +5696,11 @@ IN: antonio.mancuso@istitutoagnelli.it
 OUT: antonio...@istitutoagnelli.it
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10b.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_24.js_
 
 --- 
 
-# Esercizio js_10c
+# Esercizio js_25
 
 Stringhe
 
@@ -5712,11 +5712,11 @@ IN: Nel mezzo del cammin di nostra vita
 OUT: Nel-mezzo-del-cammin-di-nostra-vita
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10c.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_25.js_
 
 --- 
 
-# Esercizio js_10d
+# Esercizio js_26
 
 Stringhe
 
@@ -5728,11 +5728,11 @@ IN: ciamo mondo!!!
 OUT: Ciamo mondo!!!
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10d.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_26.js_
 
 --- 
 
-# Esercizio js_10e
+# Esercizio js_27
 
 Stringhe
 
@@ -5744,12 +5744,12 @@ IN: ciamo mondo la terra gira!!!
 OUT: Ciamo Mondo La Terra Gira!!!
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10e.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_27.js_
 
 
 --- 
 
-# Esercizio js_10f
+# Esercizio js_28
 
 Stringhe
 
@@ -5761,11 +5761,11 @@ IN: ciamo mondo!!!
 OUT: CIAO MONDO!!!
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10f.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_28.js_
 
 --- 
 
-# Esercizio js_10g
+# Esercizio js_29
 
 Stringhe
 
@@ -5777,11 +5777,11 @@ IN: Ciao Mondo!!!
 OUT: cIAO mONDO!!!
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10g.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_29.js_
 
 --- 
 
-# Esercizio js_10h
+# Esercizio js_30
 
 Stringhe
 
@@ -5793,32 +5793,32 @@ IN: Ciao Mondo la terra gira!!!, 10
 OUT: Ciao Mondo...
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10h.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_30.js_
 
 
 --- 
 
-# Esercizio js_10i
+# Esercizio js_31
 
 Stringhe
 
 1. Creare un programma che implementi una funzione che cerchi in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10i.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_31.js_
 
 --- 
 
-# Esercizio js_10l
+# Esercizio js_32
 
 Stringhe
 
 1. Creare una funzione che prenda in input due semplici stringhe che contengono una sola parola, e che restituisca le due stringhe concatenate, scambiando i primi due caratteri di ciascuna stringa.
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10l.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_32.js_
 
 --- 
 
-# Esercizio js_10m
+# Esercizio js_33
 
 Stringhe
 
@@ -5831,11 +5831,11 @@ IN: ciao!,4
 OUT: ciao!ciao!ciao!ciao!
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10m.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_33.js_
 
 --- 
 
-# Esercizio js_10n
+# Esercizio js_34
 
 Stringhe
 
@@ -5847,12 +5847,12 @@ IN: "Facciamo tanti esercizi che ci fanno bene", "JavaScript", 23
 OUT: Facciamo tanti esercizi JavaScript che ci fanno bene
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10n.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_34.js_
 
 
 --- 
 
-# Esercizio js_10o
+# Esercizio js_35
 
 Stringhe
 
@@ -5865,12 +5865,12 @@ IN: Facciamo tanti esercizi che ci fanno bene, 10
 OUT: Facciamo t...
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10o.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_35.js_
 
 
 ---
 
-# Esercizio js_10p
+# Esercizio js_36
 
 Stringhe
 
@@ -5883,11 +5883,11 @@ IN: Facciamo tanti esercizi che ci fanno bene, 3
 OUT: Facciamo tanti esercizi
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_10p.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_36.js_
 
 ---
 
-# Esercizio js_10q
+# Esercizio js_37
 
 Stringhe
 
@@ -5899,7 +5899,7 @@ IN: "The quick brown fox jumps over the lazy dog", "the"
 OUT: The quick brown fox jumps over lazy dog
 ```
 
-1. Consegnare su github il file con nome _|cognome|\_esercizio_js_10q.js_
+1. Consegnare su github il file con nome _|cognome|\_esercizio_js_37.js_
 
 
 ---
@@ -7318,7 +7318,7 @@ console.log("Numeri dall'indice 1 al 4 escludo:", numeri.slice(1, 4));
 
 ------ 
 
-# Esercizio js_11
+# Esercizio js_38
 
 Array
 
@@ -7330,7 +7330,7 @@ IN: [1,2,3]
 OUT: [3,2,1]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_11.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_38.js_
 
 ---
 
@@ -7496,7 +7496,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 --- 
 
-# Esercizio js_11a
+# Esercizio js_39
 
 Array
 
@@ -7508,11 +7508,11 @@ IN: [1,2,3]
 OUT: [3,2,1]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_11a.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_39.js_
 
 --- 
 
-# Esercizio js_12
+# Esercizio js_40
 
 Array
 
@@ -7524,12 +7524,12 @@ IN: [1,2,3 ], [1,2,3]
 OUT: true
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_12.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_40.js_
 
 
 --- 
 
-# Esercizio js_13
+# Esercizio js_41
 
 Array
 
@@ -7541,12 +7541,12 @@ IN: (3, 'a')
 OUT ['a', 'a', 'a']
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_13.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_41.js_
 
 
 --- 
 
-# Esercizio js_14
+# Esercizio js_42
 
 Array
 
@@ -7558,12 +7558,12 @@ IN [10, 20, 30, 40, 50], 0, 2
 OUT [20, 30, 10, 40, 50]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_14.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_42.js_
 
 
 --- 
 
-# Esercizio js_15
+# Esercizio js_43
 
 Array
 
@@ -7575,12 +7575,12 @@ IN: [1,2,3,4], 3
 OUT: [1,2,4]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_15.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_43.js_
 
 
 --- 
 
-# Esercizio js_16
+# Esercizio js_44
 
 Array
 
@@ -7594,12 +7594,12 @@ Array
    ];
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_16.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_44.js_
 
 
 --- 
 
-# Esercizio js_17
+# Esercizio js_45
 
 Array
 
@@ -7611,43 +7611,43 @@ Array
   OUTPUT ['H','E','L','L','O','W','O','R','L','D']
 ``` 
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_17.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_45.js_
 
 
 --- 
 
-# Esercizio js_18
+# Esercizio js_46
 
 Array
 
 1. Scrivere una funzione che ricevuto un array di numeri, restituisca il prodotto dei quadrati
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_18.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_46.js_
 
 
 --- 
 
-# Esercizio js_19
+# Esercizio js_47
 
 Array
 
 1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dai primi N elementi
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_19.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_47.js_
 
 
 --- 
 
-# Esercizio js_20
+# Esercizio js_48
 
 Array
 
 1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dagli ultimi N elementi
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_20.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_48.js_
 
 --- 
 
-# Esercizio js_21
+# Esercizio js_49
 
 Array
 
@@ -7660,11 +7660,11 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_21.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_49.js_
 
 --- 
 
-# Esercizio js_22
+# Esercizio js_50
 
 Array
 
@@ -7677,32 +7677,32 @@ OUT [7, 3, 11, 1, 4, 12, 20]
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_22.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_50.js_
    
 --- 
 
-# Esercizio js_23
+# Esercizio js_51
 
 Array
 
 1. Scrivere una funzione, che dato come parametro una stringa che rappresenta un numero binario di lunghezza arbitraria, ne calcoli il suo valore espresso in decimale
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_23.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_51.js_
 
 --- 
 
-# Esercizio js_24
+# Esercizio js_52
 
 Array
 
 1. Usando Math.floor(Math.random() * N): numero random tra 0 e N
 2. Scrivere una funzione che restituisce un array di caratteri casuali di lunghezza 7 scelti tra tra lettere minuscole e cifre decimali 
-3. Consegnare su github il file con nome _|cognome|\_esercizio_js_24.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_52.js_
 
 
 --- 
 
-# Esercizio js_25
+# Esercizio js_53
 
 Array
 
@@ -7714,11 +7714,11 @@ IN [1,2,3,4,5,6,7] , 3
 OUT [5,6,7, 1,2,3]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_25.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_53.js_
 
 --- 
 
-# Esercizio js_26
+# Esercizio js_54
 
 Array
 
@@ -7731,11 +7731,11 @@ OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_26.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_54.js_
 
 --- 
 
-# Esercizio js_27
+# Esercizio js_55
 
 Array
 
@@ -7747,12 +7747,12 @@ IN N = [1, 2, 3, 1, 2, 4]
 OUT [1, 2, 3, 4]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_27.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_55.js_
 
 
 --- 
 
-# Esercizio js_28
+# Esercizio js_56
 
 Array
 
@@ -7766,11 +7766,11 @@ let studenti = [
 ]; 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_28.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_56.js_
 
 --- 
 
-# Esercizio js_29
+# Esercizio js_57
 
 Array
 
@@ -7784,17 +7784,17 @@ let studenti = [
 ]; 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_29.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_57.js_
 
 --- 
 
-# Esercizio js_30
+# Esercizio js_58
 
 Array
 
 1. Scrivere una funzione che ricevuto un array e due numeri N e M, restituisca un array contenenti solo valori >= N e <=M
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_30.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_58.js_
 
 ---
 
@@ -8294,17 +8294,17 @@ for(let item of insieme.entries()) console.log("Elemento:", item)
 
 --- 
 
-# Esercizio js_31
+# Esercizio js_59
 
 Array, Map, Set
 
 1. Scrivere una funzione che ricevuto un array restituisca un array composto solo da valori unici in cui gli elementi duplicati sono rimossi
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_31.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_59.js_
 
 --- 
 
-# Esercizio js_32
+# Esercizio js_60
 
 Array, Map, Set
 
@@ -8316,12 +8316,12 @@ IN: ['omar', 'sette', 'roma', 'teste', 'mora', 'colazione', 'locazione']
 OUT: [ 'mora', 'teste', 'locazione' ]
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_32.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_60.js_
 
 
 --- 
 
-# Esercizio js_33
+# Esercizio js_61
 
 Array, Map, Set
 
@@ -8343,11 +8343,11 @@ La parola "alto" ha frequenza: 1
 La parola "livello" ha frequenza: 1
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_33.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_61.js_
 
 --- 
 
-# Esercizio js_34
+# Esercizio js_62
 
 Array, Map, Set
 
@@ -8360,11 +8360,11 @@ OUT:  [ 52, 49, 42 ]
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_34.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_62.js_
 
 --- 
 
-# Esercizio js_35
+# Esercizio js_63
 
 Array, Map, Set
 
@@ -8377,11 +8377,11 @@ OUT:  "supercalifgthdo"
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_35.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_63.js_
 
 --- 
 
-# Esercizio js_36
+# Esercizio js_64
 
 Array, Map, Set
 
@@ -8394,7 +8394,7 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 
 ```
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_36.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_64.js_
 
 ---
 
@@ -8733,7 +8733,7 @@ visualizza_studente(studente);
 
 --- 
 
-# Esercizio js_37
+# Esercizio js_65
 
 Destructuring
 
@@ -8752,11 +8752,11 @@ let utente = {
    - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente) 
 
 
-3. Consegnare su github il file con nome _|cognome|\_esercizio_js_37.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_65.js_
 
 --- 
 
-# Esercizio js_38
+# Esercizio js_66
 
 Destructuring
 
@@ -8774,11 +8774,11 @@ console.log(`Item: ${name}, Quantity: ${quantity}, Price: ${price}`);
 
 2. Riscriverlo con il destructuring in modo da non dover assegnare le singole variabili
 
-3. Consegnare su github il file con nome _|cognome|\_esercizio_js_38.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_66.js_
 
 --- 
 
-# Esercizio js_39
+# Esercizio js_67
 
 Destructuring
 
@@ -8794,12 +8794,12 @@ console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${f
 
 1. Riscriverlo in modo da assegnare il valore giusto alle singole variabili
 
-2. Consegnare su github il file con nome _|cognome|\_esercizio_js_39.js_
+2. Consegnare su github il file con nome _|cognome|\_esercizio_js_67.js_
 
 
 --- 
 
-# Esercizio js_40
+# Esercizio js_68
 
 Destructuring
 
@@ -8814,7 +8814,7 @@ console.log(lastName);
 
 2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
 
-3. Consegnare su github il file con nome _|cognome|\_esercizio_js_40.js_
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_68.js_
 
 ---
 
@@ -9408,7 +9408,7 @@ console.log(q.area);  // lo invoco come una proprietà e non come un metodo
 
 --- 
 
-# Esercizio js_41
+# Esercizio js_69
 
 OOP
 
@@ -9419,7 +9419,7 @@ OOP
 5. sia in grado di calcolare il suo perimetro
 6. sia in grado di calcolare la sua area
 7. scrivere il main che instanzi un oggetto della classe Quadrato e stampi sulla console il perimetro e in un alert l'area dello stesso
-8. Consegnare su github il file con nome _|cognome|\_esercizio_js_41.js_
+8. Consegnare su github il file con nome _|cognome|\_esercizio_js_69.js_
 
 
 ---
@@ -9525,7 +9525,7 @@ Questo paradigma viene utilizzato molto di frequente nella programmazione in JS
 
 --- 
 
-# Esercizio js_42
+# Esercizio js_70
 
 OOP
 
@@ -9537,7 +9537,7 @@ OOP
     - 6 - 2 * 5 + 8 / 4  = ?
     - 11 * 3 + 5 - 5 / 11 = ?
     - 29 + 2 - 7 / 3 / 2 + 1 * 2 = ?
-4.  Consegnare su github il file con nome _|cognome|\_esercizio_js_42.js_
+4.  Consegnare su github il file con nome _|cognome|\_esercizio_js_70.js_
 
 
 ---
@@ -9847,7 +9847,7 @@ console.log(voti.vuoto());
 
 --- 
 
-# Esercizio js_43
+# Esercizio js_71
 
 OOP
 
@@ -9860,7 +9860,7 @@ OOP
     - Esagono di lato 18cm
     - Ettagono di lato 9cm
     - Ottagono di lato 12cm
-3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_43.js_
+3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_71.js_
 
 ---
 
@@ -10100,7 +10100,7 @@ class Docente {
 
 ---
 
-# Esercizio js_44
+# Esercizio js_72
 
 Confronto di oggetti 
 
@@ -10114,16 +10114,16 @@ let docente = new Docente("Mario", 4);
 
 - e li confronta utilizzando la funzione confrontaOBJ
 
-3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_44.js_
+3.  Consegnare su github il file con nome _|cognome|\_esercizio_js_72.js_
 
 
 --- #slide N
 
-# Esercizio js_45
+# Esercizio js_73
 
 JS Objects
 
-- Per svolgere l'esercizio 45 è necessario utilizzare un form
+- Per svolgere l'esercizio è necessario utilizzare un form
 - Vediamo qui il classico modo di processare il form client-side e non server-side
 
 <br>
@@ -10141,7 +10141,7 @@ JS Objects
 
 --- #slide N
 
-# Esercizio js_45
+# Esercizio js_73
 
 JS Objects
 
@@ -10168,7 +10168,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 --- #slide 
 
-# Esercizio js_45
+# Esercizio js_73
 
 JS Objects
 
@@ -10193,7 +10193,7 @@ function process_form() {
 
 --- #slide N
 
-# Esercizio js_45
+# Esercizio js_73
 
 JS Objects
 
@@ -10210,19 +10210,19 @@ JS Objects
 
 --- #slide N
 
-# Esercizio js_45
+# Esercizio js_73
 
 JS Objects
 
 - Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
 - Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
 
-4. Consegnare su github il file con nome _|cognome|\_esercizio_js_45.html_ e _|cognome|\_esercizio_js_45.js_
+4. Consegnare su github il file con nome _|cognome|\_esercizio_js_73.html_ e _|cognome|\_esercizio_js_73.js_
 
 
 ---
 
-# Esercizio js_46
+# Esercizio js_74
 
 - Realizzare un programma in JS che:
   - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
@@ -10231,18 +10231,18 @@ JS Objects
 
 ---
 
-# Esercizio js_47
+# Esercizio js_75
 
 - Realizzare un programma in JS:
   - Usando classi e oggetti implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
   - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_47.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_75.js_
 
 
 ---
 
-# Esercizio js_48
+# Esercizio js_76
 
 - Realizzare un programma in JS che:
   - implementi una classe Orario:
@@ -10256,12 +10256,12 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_48.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_76.js_
 
 
 ---
 
-# Esercizio js_49
+# Esercizio js_77
 
 - Realizzare un programma in JS che:
   - implementi una classe Finonacci che:
@@ -10271,11 +10271,11 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_49.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_77.js_ 
 
 ---
 
-# Esercizio js_50
+# Esercizio js_78
 
 - Realizzare un programma in JS:
   - implementi una classe Orario che:
@@ -10285,11 +10285,11 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_50.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_78.js_
 
 ---
 
-# Esercizio js_51
+# Esercizio js_79
 
 - Realizzare un programma in JS:
   - realizzi una classe per un oggetto Automobile
@@ -10307,7 +10307,7 @@ JS Objects
 
 ---
 
-# Esercizio js_51
+# Esercizio js_79
 
     - pulsante ON/OFF (se Automobile è accesa si spegne, se Automobile è spenta si accende)
   - Note:
@@ -10317,7 +10317,7 @@ JS Objects
     - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_51.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_79.js_
 
 ---
 
