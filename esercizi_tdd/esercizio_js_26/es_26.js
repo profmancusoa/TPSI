@@ -1,3 +1,3 @@
-export const gen_arr = (len) => {
+export const capitalize = (str) => {
     return 0;
-};
+}

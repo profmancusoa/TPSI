@@ -1,3 +1,3 @@
-export function count_occurence(arr) {
+export const concatenateN = (s, n) => {
     return 0;
-}
+};

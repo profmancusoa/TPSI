@@ -1,3 +1,3 @@
-export const unique_characters = (ph) => {
+export const tronca = (s, n) => {
     return 0;
-}
+};

@@ -1,36 +1,23 @@
-import { between } from "./es_30.js";
-import fs from 'fs';
+import { tronca } from "./es_30.js";
 
 describe("ESERCIZIO 30", () => {
     test('TEST 01', () => {
-        expect(between(
-            Array.from(Array(20).keys()), 15, 18
-        ).toString()).toBe([15, 16, 17, 18].toString());
+        expect(tronca('Ciao Mondo la terra gira!!!', 10)).toBe('Ciao Mondo...');
     });
 
     test('TEST 02', () => {
-        expect(between(
-            Array.from(Array(69).keys()), 20, 36
-        ).toString()).toBe(Array.from(Array(17).keys()).map(e => e + 20).toString());
+        expect(tronca('So Nvidia FUCK YOU!!!', 12)).toBe('So Nvidia FU...');
     });
 
     test('TEST 03', () => {
-        expect(between(Array.from(Array(10).keys()), 4, 1).toString()).toBe("");
+        expect(tronca('Ciro Esposito', 15)).toBe('Ciro Esposito');
     });
 
     test('TEST 04', () => {
-        expect(between(
-            fs.readFileSync('esercizio_js_30/input_test04.txt', 'utf-8').split('\n'), 596, 829
-        ).toString().replaceAll(',', '\n')).toBe(
-            fs.readFileSync('esercizio_js_30/output_test04.txt', 'utf-8')
-        );
+        expect(tronca('C`era una volta tanto tempo fa in una galassia', 27)).toBe('C`era una volta tanto tempo...');
     });
 
     test('TEST 05', () => {
-        expect(between(
-            fs.readFileSync('esercizio_js_30/input_test05.txt', 'utf-8').split('\n'), 8101, 9374
-        ).toString().replaceAll(',', '\n')).toBe(
-            fs.readFileSync('esercizio_js_30/output_test05.txt', 'utf-8')
-        );
+        expect(tronca('gahboot1aezaeMai3xouP9AhR4EiToowai5eKofaesuere9boomoh0ahCho5Utid4za6ohyoo5paeterunietievei3fee7aekai', 69)).toBe('gahboot1aezaeMai3xouP9AhR4EiToowai5eKofaesuere9boomoh0ahCho5Utid4za6o...');
     });
 });

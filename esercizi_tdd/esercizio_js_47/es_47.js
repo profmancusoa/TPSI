@@ -1,3 +1,3 @@
-export class Animale {}
-export class Automobile {}
-export class Poligono {}
+export const sub_arr = (l, n) => {
+    return 0;
+};

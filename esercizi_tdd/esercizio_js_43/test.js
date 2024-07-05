@@ -1,58 +1,28 @@
-import { TriangoloEquilatero, Quadrato, Pentagono, Esagono, Ettagono, Ottagono  } from "./es_43.js";
-
-const triangolo = new TriangoloEquilatero();
-const quadrato = new Quadrato();
-const pentagono = new Pentagono();
-const esagono = new Esagono();
-const ettagono = new Ettagono();
-const ottagono = new Ottagono();
+import { without } from "./es_43.js";
+import fs from 'fs';
 
 describe("ESERCIZIO 43", () => {
-    test('Triangolo area', () => {
-        expect(Math.round(triangolo.fill_lati(15).area())).toBe(97);
+    test('TEST 01', () => {
+        expect(without([1, 2, 3, 4], 3).toString()).toBe('1,2,4');
     });
 
-    test('Triangolo perimetro', () => {
-        expect(triangolo.fill_lati(15).perimetro()).toBe(45);
+    test('TEST 02', () => {
+        expect(without([0, 1, 2, 3, 4], 5).toString()).toBe('0,1,2,3,4');
     });
 
-    test('Quadrato area', () => {
-        expect(quadrato.fill_lati(10).area()).toBe(100);
-    }); 
-
-     test('Quadrato perimetro', () => {
-        expect(quadrato.fill_lati(10).perimetro()).toBe(40);
-    });    
-
-    test('Pentagono area', () => {
-        expect(Math.round(pentagono.fill_lati(21).area())).toBe(1517);
+    test('TEST 03', () => {
+        expect(without(Array(104).fill(69), 69).toString()).toBe('');
     });
 
-    test('Pentagono perimetro', () => {
-        expect(pentagono.fill_lati(21).perimetro()).toBe(105);
+    test('TEST 04', () => {
+        let l = Array.from(Array(690000).keys());
+        expect(without(l, 0).toString()).toBe(l.slice(1,).toString());
     });
 
-    test('Esagono area', () => { 
-        expect(Math.round(esagono.fill_lati(18).area())).toBe(842);
-    });
-
-    test('Esagono perimetro', () => { 
-        expect(esagono.fill_lati(18).perimetro()).toBe(108);
-    });
-
-    test('Ettagono area', () => {
-        expect(Math.round(ettagono.fill_lati(9).area())).toBe(589);
-    });
-
-    test('Ettagono perimetro', () => {
-        expect(ettagono.fill_lati(9).perimetro()).toBe(63);
-    });
-
-    test('Ottagono area', () => {
-        expect(Math.round(ottagono.fill_lati(12).area())).toBe(1390);
-    });
-
-    test('Ottagono perimetro', () => {
-        expect(ottagono.fill_lati(12).perimetro()).toBe(96);
+    test('TEST 05', () => {
+        let input = fs.readFileSync('esercizio_js_15/input_test05.txt', 'utf-8').split('\n');
+        expect(without(input, 4).toString().replaceAll(',', '\n')).toBe(
+            fs.readFileSync('esercizio_js_15/output_test05.txt', 'utf-8')
+        );
     });
 });

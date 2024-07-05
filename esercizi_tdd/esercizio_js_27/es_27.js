@@ -1,3 +1,3 @@
-export const no_copies = (l) => {
+export const capitalize_all = (str) => {
     return 0;
-};
+}

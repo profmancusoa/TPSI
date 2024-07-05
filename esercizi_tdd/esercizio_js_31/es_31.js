@@ -1,3 +1,3 @@
-export function deduplicate(array) {
+export const search_words = (ph) => {
     return 0;
-}
+};

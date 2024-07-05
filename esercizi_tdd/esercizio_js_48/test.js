@@ -1,49 +1,32 @@
-import { Orario } from "./es_48.js";
-
-const ora1 = new Orario(24, 10, 30);
-const ora2 = new Orario(23, 59, 59);
-const ora3 = new Orario(10, 20, 30);
-const ora4 = new Orario(11, 20, 30);
+import { sub_arr } from "./es_48.js";
 
 describe("ESERCIZIO 48", () => {
-  test("Test ora1-ora2", () => {
-    expect(ora1.diff(ora2)).toStrictEqual({
-      milliseconds: 29000,
-      seconds: 29,
-      minutes: 49,
-      hours: 1,
+    test('TEST 01', () => {
+        expect(sub_arr([1, 2, 3, 4, 5], 3).toString()).toBe([3, 4, 5].toString());
     });
-  });
-  test("Test ora2-ora1", () => {
-    expect(ora2.diff(ora1)).toStrictEqual({
-      milliseconds: 29000,
-      seconds: 29,
-      minutes: 49,
-      hours: 1,
+
+    test('TEST 02', () => {
+        expect(sub_arr(Array.from(Array(10).keys()), 7).toString()).toBe([3, 4, 5, 6, 7, 8, 9].toString());
     });
-  });
-  test("Test ora3-ora1", () => {
-    expect(ora3.diff(ora1)).toStrictEqual({
-      milliseconds: 0,
-      seconds: 0,
-      minutes: 10,
-      hours: 14,
+
+    test('TEST 03', () => {
+        expect(sub_arr(Array.from(Array(69).keys()), -1).toString()).toBe([].toString());
     });
-  });
-  test("Test ora4-ora1", () => {
-    expect(ora4.diff(ora1)).toStrictEqual({
-      milliseconds: 0,
-      seconds: 0,
-      minutes: 10,
-      hours: 13,
+
+    test('TEST 04', () => {
+        expect(sub_arr(Array.from(Array(1000).keys()), 69).toString()).toBe([
+            931, 932, 933, 934, 935, 936, 937, 938, 939,
+            940, 941, 942, 943, 944, 945, 946, 947, 948,
+            949, 950, 951, 952, 953, 954, 955, 956, 957,
+            958, 959, 960, 961, 962, 963, 964, 965, 966,
+            967, 968, 969, 970, 971, 972, 973, 974, 975,
+            976, 977, 978, 979, 980, 981, 982, 983, 984,
+            985, 986, 987, 988, 989, 990, 991, 992, 993,
+            994, 995, 996, 997, 998, 999
+          ].toString());
     });
-  });
-  test("Test ora4-ora1", () => {
-    expect(ora2.diff(ora4)).toStrictEqual({
-      milliseconds: 29000,
-      seconds: 29,
-      minutes: 39,
-      hours: 12,
+
+    test('TEST 05', () => {
+        expect(sub_arr(Array.from(Array(1000000).keys()), 123).toString()).toBe(Array.from({ length: 123 }, (v, i) => 999877 + i).toString());
     });
-  });
 });

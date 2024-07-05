@@ -1,1 +1,3 @@
-export class Automobile {}
+export const dec_to_bin = (n) => {
+    return 0;
+};

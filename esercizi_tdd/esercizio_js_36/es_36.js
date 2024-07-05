@@ -1,3 +1,3 @@
-export const count_vocals = (ph) => {
-  return 0;
+export const tronca_parola = (s, pos) => {
+    return 0;
 };

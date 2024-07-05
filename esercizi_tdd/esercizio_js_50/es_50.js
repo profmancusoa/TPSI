@@ -1,1 +1,3 @@
-export class Orario {}
+export const order = (l) => {
+    return 0;
+};

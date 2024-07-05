@@ -1,40 +1,39 @@
-import { Automobile, Animale, Poligono } from "./es_47.js";
-
-const car = new Automobile();
-car.brand = "Honda";
-car.model = "Civic Type R";
-car.year = 2023;
-
-const animale = new Animale();
-animale.mammifero = true;
-animale.peso = 100;
-animale.specie = "Scimmia";
-
-const poligono = new Poligono();
-poligono.equiangolo = true;
-poligono.add_lato(10);
-poligono.triangolo = false;
+import {sub_arr} from './es_47.js';
+import fs from 'fs';
 
 describe("ESERCIZIO 47", () => {
-    test('Test car enum', () => {
-        expect(car.enumera()).toBe(JSON.stringify({
-            _brand: "Honda",
-            _model: "Civic Type R",
-            _year: 2023
-        }));
+    test('TEST 01', () => {
+        expect(sub_arr([0, 1, 2, 3, 4], 3).toString()).toBe('0,1,2');
     });
-    test('Test animal enum', () => {
-        expect(animale.enumera()).toBe(JSON.stringify({
-            _mammifero: true,
-            _peso: 100,
-            _specie: "Scimmia"
-        }));
+
+    test('TEST 02', () => {
+        expect(sub_arr([
+            0, 1, 2 ,3, 4,
+            5, 6, 7, 8, 9,
+        ], -1).toString()).toBe('');
     });
-    test('Test poligono enum', () => {
-        expect(poligono.enumera()).toBe(JSON.stringify({
-            _lati: [10],
-            _equiangolo: true,
-            _triangolo: false
-        }));
+
+    test('TEST 03', () => {
+        expect(sub_arr(
+            Array.from(Array(1000).keys()), 69
+        ).toString()).toBe(
+            Array.from(Array(69).keys()).toString()
+        );
+    });
+
+    test('TEST 04', () => {
+        expect(sub_arr(
+            fs.readFileSync('esercizio_js_19/input_test04.txt', 'utf-8').split('\n'), 1633
+        ).toString().replaceAll(',', '\n')).toBe(
+            fs.readFileSync('esercizio_js_19/output_test04.txt', 'utf-8')
+        );
+    });
+
+    test('TEST 05', () => {
+        expect(sub_arr(
+            fs.readFileSync('esercizio_js_19/input_test05.txt', 'utf-8').split('\n'), 3177720
+        ).toString().replaceAll(',', '\n')).toBe(
+            fs.readFileSync('esercizio_js_19/output_test05.txt', 'utf-8')
+        );
     });
 });

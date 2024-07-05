@@ -1,3 +1,3 @@
-export const psw_gen = (len) => {
+export const protect_email = (email) => {
     return 0;
 };

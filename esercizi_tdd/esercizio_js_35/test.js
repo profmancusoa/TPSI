@@ -1,35 +1,30 @@
-import { unique_characters } from "./es_35.js";
-import fs from 'fs';
-
-const wordlist_path = process.cwd().includes("esercizio_js_35")
-  ? "../esercizio_js_33/"
-  : "./esercizio_js_33/";
-
-  const base_path = process.cwd().includes("esercizio_js_35")
-  ? "./"
-  : "esercizio_js_35/";
-
+import { tronca } from "./es_35.js";
+import fs from "fs";
 
 describe("ESERCIZIO 35", () => {
-  test("TEST 01", () => {
-    expect(unique_characters("supercalifragilistichespiralidoso")).toBe("supercalifgthdo");
-  });
-  test("TEST 02", () => {
-    const wordlist1 = fs.readFileSync(wordlist_path.concat("wordlist1.txt"), "utf-8").split("\n");
-    const result = JSON.parse(fs.readFileSync(base_path.concat("wordlist1_result.txt"), "utf-8"));
-    expect(wordlist1.map(x => unique_characters(x))).toStrictEqual(result)
-  });
-  test("TEST 03", () => {
-    const wordlist2 = fs.readFileSync(wordlist_path.concat("wordlist2.txt"), "utf-8").split("\n");
-    const result = JSON.parse(fs.readFileSync(base_path.concat("wordlist2_result.txt"), "utf-8"));
-    expect(wordlist2.map(x => unique_characters(x))).toStrictEqual(result)
-  });
-  test("TEST 04", () => {
-    const wordlist3 = fs.readFileSync(wordlist_path.concat("wordlist3.txt"), "utf-8").split("\n");
-    const result = JSON.parse(fs.readFileSync(base_path.concat("wordlist3_result.txt"), "utf-8"));
-    expect(wordlist3.map(x => unique_characters(x))).toStrictEqual(result)
-  });
-  test("TEST 05", () => {
-    expect(unique_characters("Linus Benedict Torvalds")).toBe("Linus BedctTorval");
-  });
+    test('TEST 01', () => {
+        expect(tronca("Facciamo tanti esercizi che ci fanno bene", 10)).toBe("Facciamo t...");
+    });
+
+    test('TEST 02', () => {
+        expect(tronca("C'era una volta tanto tempo fa", 15)).toBe("C'era una volta...");
+    });
+
+    test('TEST 03', () => {
+        expect(tronca("Ciro Esposito", 0)).toBe("...");
+    });
+
+    test('TEST 04', () => {
+        expect(tronca(
+            fs.readFileSync("esercizio_js_10o/input_test04.txt", "utf-8"),
+            538
+        )).toBe(fs.readFileSync("esercizio_js_10o/output_test04.txt", "utf-8"));
+    });
+
+    test('TEST 05', () => {
+        expect(tronca(
+            fs.readFileSync("esercizio_js_10o/input_test05.txt", "utf-8"),
+            666
+        )).toBe(fs.readFileSync("esercizio_js_10o/output_test05.txt", "utf-8" ));
+    });
 });

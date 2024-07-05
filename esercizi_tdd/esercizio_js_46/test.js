@@ -1,26 +1,28 @@
-import { Automobile } from "./es_46.js";
-
-const car = new Automobile();
-car.brand = "Honda";
-car.model = "Civic Type R";
-car.year = 2023;
-car.color = "Red";
-car.cc = 3000;
+import { prod_pow2 } from './es_46.js'
+import fs from 'fs';
 
 describe("ESERCIZIO 46", () => {
-    test('Get brand', () => {
-        expect(car.brand).toBe("Honda");
+    test('TEST 01', () => {
+        expect(prod_pow2([1, 2, 3, 4, 5])).toBe(14400);
     });
-    test('Get model', () => {
-        expect(car.model).toBe("Civic Type R");
+
+    test('TEST 02', () => {
+        expect(prod_pow2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(13168189440000);
     });
-    test('Get year', () => {
-        expect(car.year).toBe(2023);
+
+    test('TEST 03', () => {
+        expect(prod_pow2(Array.from(Array(69).keys()))).toBe(0);
     });
-    test('Get color', () => {
-        expect(car.color).toBe("Red");
+
+    test('TEST 04', () => {
+        expect(prod_pow2(
+            fs.readFileSync('esercizio_js_18/input_test04.txt', 'utf-8').split('\n')
+        )).toBe(9.732575642175275e+291);
     });
-    test('Get cc', () => {
-        expect(car.cc).toBe(3000);
+
+    test('TEST 05', () => {
+        expect(prod_pow2(
+            fs.readFileSync('esercizio_js_18/input_test05.txt', 'utf-8').split('\n')
+        )).toBe(Infinity);
     });
 });

@@ -1,26 +1,29 @@
-import { Calcolatrice } from "./es_42.js";
+import { swap } from "./es_42.js";
+import fs from 'fs';
 
-const calc = new Calcolatrice();
-
-describe("ESERCIZIO 42", () => {
+describe("ESERCIZIO 14", () => {
     test('TEST 01', () => {
-        expect(calc.set_result(6).sub(2).mul(5).sum(8).div(4).get_result()).toBe(7);
+        expect(swap([10, 20, 30, 40, 50], 0, 2).toString()).toBe('20,30,10,40,50');
     });
 
     test('TEST 02', () => {
-        expect(calc.set_result(11).mul(3).sum(5).sub(5).div(11).get_result()).toBe(3);
-    }); 
-
-    test('TEST 03', () => {
-        expect(calc.set_result(29).sum(2).sub(7).div(3).div(2).sum(1).mul(2).get_result()).toBe(10);
+        expect(swap([0, 1, 2, 3], -1, 0).toString()).toBe('3,0,1,2');
     });
 
-    // Floating point tests
-    test('TEST 04', () => { 
-        expect(Math.round(calc.set_result(100).sum(23).sub(70).div(300).div(210).sum(31).mul(20).get_result())).toBe(620);
+    test('TEST 03', () => {
+        expect(swap([0, 1, 2, 3], -2, -3).toString()).toBe('0,2,1,3');
+    });
+
+    test('TEST 04', () => {
+        expect(swap([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 3, -3).toString()).toBe('0,1,2,4,5,6,7,3,8,9');
     });
 
     test('TEST 05', () => {
-        expect(calc.set_result(3).div(2).result).toBe(1.5);
+        expect(swap(
+            fs.readFileSync('esercizio_js_14/input_test05.txt', 'utf-8').split('\n'),
+            692937, 671305
+        ).toString().replaceAll(',', '\n')).toBe(
+            fs.readFileSync('esercizio_js_14/output_test05.txt', 'utf-8')
+        );
     });
 });

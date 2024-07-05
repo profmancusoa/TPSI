@@ -1,31 +1,24 @@
-import { psw_gen } from "./es_24.js";
-
-const regex = /^[a-zA-Z0-9]+$/;
-let generated;
+import { protect_email } from './es_24.js';
 
 describe("ESERCIZIO 24", () => {
     test('TEST 01', () => {
-        generated = psw_gen(5).join('');
-        expect(generated.length + +regex.test(generated)).toBe(6);
+        expect(protect_email('antonio.mancuso@istitutoagnelli.it')).toBe('antonio...@istitutoagnelli.it');
     });
 
     test('TEST 02', () => {
-        generated = psw_gen(69).join('');
-        expect(generated.length + +regex.test(generated)).toBe(70);
+        expect(protect_email('marco.pai@gmail.com')).toBe('marc...@gmail.com');
     });
 
     test('TEST 03', () => {
-        generated = psw_gen(123).join('');
-        expect(generated.length + +regex.test(generated)).toBe(124);
+        expect(protect_email('massimoRossi@gmail.it')).toBe('massim...@gmail.it');
     });
 
     test('TEST 04', () => {
-        generated = psw_gen(102349).join('');
-        expect(generated.length + +regex.test(generated)).toBe(102350);
+        expect(protect_email('a@email.it')).toBe('...@email.it');
     });
 
     test('TEST 05', () => {
-        generated = psw_gen(1900069).join('');
-        expect(generated.length + +regex.test(generated)).toBe(1900070);
+        expect(protect_email('andre@email.com')).toBe('an...@email.com');
     });
 });
+

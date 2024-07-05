@@ -1,3 +1,3 @@
-export const between = (l, n, m) => {
+export const tronca = (ph, l) => {
     return 0;
 };

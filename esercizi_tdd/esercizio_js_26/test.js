@@ -1,30 +1,24 @@
-import { gen_arr } from "./es_26.js";
-
-let generated;
+import { capitalize } from './es_26.js';
 
 describe("ESERCIZIO 26", () => {
     test('TEST 01', () => {
-        generated = gen_arr(5);
-        expect(+(generated[0].toString() == generated[1].reverse().toString()) + generated.flat().length).toBe(11);
+        expect(capitalize('ciamo mondo!!!')).toBe('Ciamo mondo!!!');
     });
 
     test('TEST 02', () => {
-        generated = gen_arr(69);
-        expect(+(generated[0].toString() == generated[1].reverse().toString()) + generated.flat().length).toBe(139);
+        expect(capitalize('o0ciao-mondo!')).toBe('O0ciao-mondo!');
     });
 
     test('TEST 03', () => {
-        generated = gen_arr(104);
-        expect(+(generated[0].toString() == generated[1].reverse().toString()) + generated.flat().length).toBe(209);
+        expect(capitalize('questo mondo in JS')).not.toBe('questo mondo in JS');
     });
 
     test('TEST 04', () => {
-        generated = gen_arr(6969);
-        expect(+(generated[0].toString() == generated[1].reverse().toString()) + generated.flat().length).toBe(13939);
+        expect(capitalize('ciao Mondo')).toBe('Ciao Mondo');
     });
 
     test('TEST 05', () => {
-        generated = gen_arr(1040000);
-        expect(+(generated[0].toString() == generated[1].reverse().toString()) + generated.flat().length).toBe(2080001);
+        expect(capitalize('')).toBe('');
     });
 });
+
