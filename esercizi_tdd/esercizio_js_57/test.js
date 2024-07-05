@@ -44,17 +44,17 @@ describe("ESERCIZIO 57", () => {
 
     test('TEST 04', () => {
         expect(names(JSON.parse(
-            fs.readFileSync('esercizio_js_29/input_test04.json', 'utf-8')
+            fs.readFileSync('esercizio_js_57/input_test04.json', 'utf-8')
         )).toString()).toBe(JSON.parse(
-            fs.readFileSync('esercizio_js_29/output_test04.json', 'utf-8')
+            fs.readFileSync('esercizio_js_57/output_test04.json', 'utf-8')
         ).toString());
     });
 
     test('TEST 05', () => {
         expect(names(JSON.parse(
-            fs.readFileSync('esercizio_js_29/input_test05.json', 'utf-8')
+            fs.readFileSync('esercizio_js_57/input_test05.json', 'utf-8')
         )).toString()).toBe(JSON.parse(
-            fs.readFileSync('esercizio_js_29/output_test05.json', 'utf-8')
+            fs.readFileSync('esercizio_js_57/output_test05.json', 'utf-8')
         ).toString());
     });
 });
