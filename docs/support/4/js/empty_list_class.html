@@ -1,0 +1,67 @@
+<!DOCTYPE html> <!-- HTML5-->
+<html lang="it">
+<!-- Pagina HTML -->
+
+<head>
+    <!-- Qui vanno inserite informazioni relative alla pagina ma che non saranno visualizzate -->
+    <!-- sezione meta Fornisce informazioni al web browser e ai motori di ricerca per il processo di indicizzazione -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Antonio Mancuso" />
+    <meta name="description" content="Empty Page" />
+    <meta name="keywords" content="js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>empty</title>
+    <style>
+        .rosso {color: red;}
+        .verde {color: green;}
+        .bordo {border: 1px solid black;}
+    </style>
+    <script>
+        function add_studente() {
+            const ul = document.getElementById("lista");
+            const cognome_str = document.getElementById("cognome").value;
+            const li = document.createElement("li");
+            li.innerText = cognome_str;
+            ul.append(li);
+            console.log("Studente %s creato", cognome_str);
+        }
+
+        function studenti_rossi() {
+            const ul = document.getElementById("lista");
+            const li_items = ul.children;
+            for(var i = 0; i < li_items.length; i++) {
+                var li = li_items[i];
+                li.classList.remove("verde");
+                li.classList.add("rosso");
+            }
+        }
+
+        function studenti_verdi() {
+            const ul = document.getElementById("lista");
+            const li_items = ul.children;
+            for(var i = 0; i < li_items.length; i++) {
+                var li = li_items[i];
+                li.classList.remove("rosso");
+                li.classList.add("verde");
+            }
+        }
+
+        function studenti_bordo() {
+            const ul = document.getElementById("lista");
+            ul.classList.toggle("bordo");
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Pagina Vuota</h1>
+    <input id="cognome" type="text" placeholder="Cognome Studente"/>
+    <button onclick="add_studente()">Aggiungi uno studente</button>
+    <ul id="lista"></ul>
+    <button onclick="studenti_rossi()">Rosso</button>
+    <button onclick="studenti_verdi()">Verde</button>
+    <button onclick="studenti_bordo()">Bordo</button>
+</body>
+
+</html>
