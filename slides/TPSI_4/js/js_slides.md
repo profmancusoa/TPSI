@@ -20,6 +20,7 @@ version: "2.0.0"
 
 No brain no pain!
 
+
 <div class="pt-12">
   <span class="px-2 py-1">
     Premi spazio o <carbon:arrow-right class="inline"/> per la prossima slide
@@ -101,25 +102,25 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 <div>
 
 - [Excercism](https://exercism.org/tracks/javascript)
+- [Lettcode](https://leetcode.com/)
 - [Codingame](https://www.codingame.com/start/)
 - [Codewars](https://www.codewars.com/)
 - [Codecombat](https://codecombat.com/)
 - [JSChallenger](https://www.jschallenger.com/)
 - [JScodebox](https://jscodebox.com/)
 - [AdventJS](https://adventjs.dev/)
-- [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
 
 </div>
 <div>
 
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
+- [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
 - [JS Code Challenges](https://jscodechallenges.vercel.app/)
 - [Codecademy](https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/)
 - [Codechef](https://www.codechef.com/)
-- [Lettcode](https://leetcode.com/)
 - [Edabit](https://edabit.com/)
 - [Hackerhearth](https://www.hackerearth.com/practice/)
-  
+
 </div>
 </div>
 
@@ -186,7 +187,7 @@ Materiale Aggiuntivo
 
 
 
-  
+
 --- #slide 1
 
 # Developer Survey 2021
@@ -569,7 +570,7 @@ Semicolons
 <br/>
 
 ```js
-alert(5 + 
+alert(5 +
      2)
 ```
 
@@ -673,7 +674,7 @@ Materiale Aggiuntivo
 <div>
 
 - [Hoisting](/support/4/js/pdf/js_hoisting_01.pdf)
-  
+
 </div>
 </div>
 
@@ -689,7 +690,7 @@ Tipizzazione
 
 **Fortemente Tipizzati**
 
-- In questi linguaggi, i tipi di dati sono rigidamente definiti e il compilatore o l'interprete non consente operazioni tra tipi non compatibili senza un'esplicita conversione. 
+- In questi linguaggi, i tipi di dati sono rigidamente definiti e il compilatore o l'interprete non consente operazioni tra tipi non compatibili senza un'esplicita conversione.
 - Ogni variabile `deve essere dichiarata con un tipo specifico` e le conversioni implicite tra tipi diversi sono generalmente limitate.
 
   - **C/Java**: Ogni variabile deve essere dichiarata con un tipo specifico e le conversioni implicite sono limitate.
@@ -729,12 +730,12 @@ Tipizzazione
 
 **Debolmente Tipizzati**
 
-- In questi linguaggi, i tipi di dati sono più flessibili e le conversioni implicite tra tipi diversi sono comuni. 
+- In questi linguaggi, i tipi di dati sono più flessibili e le conversioni implicite tra tipi diversi sono comuni.
 - `Le variabili possono cambiare tipo in base al contesto` o all'operazione in cui vengono utilizzate.
 
   - **JavaScript**: Permette conversioni implicite tra tipi diversi (es. concatenazione di stringhe e numeri)
   - **PHP**: I tipi di dati possono cambiare in base al contesto.
-  - **Python**: Anche se in molti casi è considerato fortemente tipizzato, ha aspetti di tipizzazione debole in certe situazioni (es. concatenazione di stringhe e numeri con conversioni implicite). 
+  - **Python**: Anche se in molti casi è considerato fortemente tipizzato, ha aspetti di tipizzazione debole in certe situazioni (es. concatenazione di stringhe e numeri con conversioni implicite).
 
 
 --- #slide N
@@ -1137,7 +1138,7 @@ modifichiamo una pagina HTML in JS
 I metodi principali per la manipolazione del DOM sono:
 
 `getElementById('<id_componente>')`
-- restituisce il riferimento al primo elemento del documento che ha l'attributo id corrispondente al valore specificato *<id_componente>*. 
+- restituisce il riferimento al primo elemento del documento che ha l'attributo id corrispondente al valore specificato *<id_componente>*.
 - Se non ci sono elementi con l'id specificato, il metodo restituisce `null`
 - Questo è uno dei metodi più utilizzati nella manipolazione del DOM in vanilla JS
 
@@ -1170,7 +1171,7 @@ modifichiamo una pagina HTML in JS
 
 
 `getElementsByClassName('<classname>')`
-- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe. 
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe.
 - Questo metodo è molto utile per accedere e manipolare più elementi contemporaneamente quando condividono la stessa classe.
 - Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
 
@@ -1200,8 +1201,8 @@ document.getElementsByClassName('importante')
 
 modifichiamo una pagina HTML in JS
 
-`getElementsByName('<object name'>)` 
-- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato attributo name. 
+`getElementsByName('<object name'>)`
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato attributo name.
 - Questo metodo è comunemente utilizzato per accedere agli elementi di un form come campi di input, pulsanti radio, checkbox e selezioni.
 - Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
 
@@ -1229,8 +1230,8 @@ document.getElementsByName('cognome');
 
 modifichiamo una pagina HTML in JS
 
-`getElementsTagName('<tag name'>)` 
-- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag. 
+`getElementsTagName('<tag name'>)`
+- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag.
 - Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
 
 <br>
@@ -1263,8 +1264,8 @@ modifichiamo una pagina HTML in JS
 
 `querySelector('<selettore css')` e `querySelectorAll('<selettore css')`
 - Restituiscono rispettivamente il primo o tutti gli elementi che corrispondeon a un selettore CSS specificato.
-- Questi metodi sono molto utili per manipolare il DOM in modo dinamico. 
-  
+- Questi metodi sono molto utili per manipolare il DOM in modo dinamico.
+
 <br>
 
 <div class="grid grid-flow-col  gap-4">
@@ -1496,14 +1497,14 @@ modifichiamo una pagina HTML in JS
 //ottiene la lista (array) di oggetti del DOM corrispondente al tag HTML con classe = p-rosso
 let paraRossi = document.getElementsByClassName('p-rosso');
 
-//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista 
+//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista
 for(let i = 0; i < paraRossi.length; i++)
     paraRossi[i].style.color = 'blue';
 
 //ottiene la lista (array) di oggetti del DOM corrispondente al tag HTML con classe = p-verde
 let paraVerdi = document.getElementsByClassName('p-verde');
 
-//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista 
+//modifica dinamicamente, a run-time, lo stile di ogni oggetto della lista
 paraVerdi[0].style.color = 'green';
 paraVerdi[1].style.color = 'green';
 paraVerdi[1].innerText = 'Anche questo paragrafo è diverso da prima';
@@ -1537,7 +1538,7 @@ border-radius  ->   borderRadius
  border-width   ->   borderWidth
 </pre>
 
-- Come si può notare viene utilizzata la notazione `camelCase`  
+- Come si può notare viene utilizzata la notazione `camelCase`
 
 ---
 
@@ -1612,7 +1613,7 @@ modifichiamo una pagina HTML in JS
 
 Creare oggetti HTML in JS
 
-- L'oggetto _document_ del DOM mette anche a disposizione metodi per creare oggetti nel DOM 
+- L'oggetto _document_ del DOM mette anche a disposizione metodi per creare oggetti nel DOM
 - Uno molto utile è `createElement("<element tag>"`
 - Questo metodo crea un oggetto o elemento HTML identificato dal suo tag
 
@@ -1687,7 +1688,7 @@ p.remove(); //rimuove l'elemento p dal body del documento
 <br>
 
 - Importante notare che in questo caso l'oggetto viene rimosso dal DOM e non solo nascosto
-- Quindi è importante ricordarlo in quando il layout della pagina potrebbe cambiare in modo inaspettato 
+- Quindi è importante ricordarlo in quando il layout della pagina potrebbe cambiare in modo inaspettato
 
 --- #slide N
 
@@ -1800,7 +1801,7 @@ CSS dinamico in JS
 ```js
 function studenti_rossi() {
     const ul = document.getElementById("lista");
-    const li_items = ul.children; 
+    const li_items = ul.children;
     for(var i = 0; i < li_items.length; i++) { //length restituisce il numero di elementi dell'array
         var li = li_items[i];
         li.classList.remove("verde"); //per ogni figlio <li> rimuovo la classe verde
@@ -1827,7 +1828,7 @@ Ascoltiamo e gestiamo gli eventi
 
 - Ci sono due elementi fondamentali per la gestione degli eventi
   1. `evento name`: nome dell'evento da scoltare
-  
+
   2. `event handler`: codice di gestione che viene eseguito al verificarsi dell'evento
 
 --- #slide N
@@ -2675,7 +2676,7 @@ let data_ora = new Date();
 console.log(data_ora); //2022-08-26T15:43:51.504Z
 
 console.log("YYYY:", data_ora.getFullYear()); // YYYY: 2022
- 
+
 console.log("MM:", data_ora.getMonth()); // MM: 7 (Gennaio = 0 - Dicembre = 11)
 
 console.log("DD:", data_ora.getDay()); // DD: 5 giorno della settimana (Domenica = 0 - Sabato = 6)
@@ -3016,7 +3017,7 @@ NOTA: l'operatore + è l'operatore di concatenazione di stringhe
 </Banner>
 
 --- #slide N
- 
+
 # Data Types
 
 Conversione o Casting
@@ -3121,7 +3122,7 @@ console.log(a ! = c); // true
 ```
 
 <Banner mt="10px" padding="15px">
-NOTA: per ragioni grafiche è presente uno spazio, ma in JavaScrip va rimosso 
+NOTA: per ragioni grafiche è presente uno spazio, ma in JavaScrip va rimosso
 <mark>a  >= b</mark> e non a >&nbsp;&nbsp;= b
 </Banner>
 
@@ -3463,7 +3464,7 @@ Materiale Aggiuntivo
 <div>
 
 - [Cicli 01](/support/4/js/pdf/js_cicli_01.pdf)
-  
+
 </div>
 </div>
 
@@ -4720,7 +4721,7 @@ la chiave cognome ha valore Rossi
 
 # Esercizio js_10
 
-- Realizzare il ciclo for..in su un oggetto utente NON utilizzando il for..in ma un ciclo for normale 
+- Realizzare il ciclo for..in su un oggetto utente NON utilizzando il for..in ma un ciclo for normale
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_10.js_
 
 
@@ -4976,7 +4977,7 @@ Ciao io sono l'utente Giuseppe Verdi
 
 - Realizzare un programma in JS che:
   - Usando gli Object Literals implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
-  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
+  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi.
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_11.js_
 
 ---
@@ -4986,7 +4987,7 @@ Ciao io sono l'utente Giuseppe Verdi
 - Realizzare un programma in JS:
   - Usando gli Object Literals implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
-  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
+  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera()
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_12.js_
 
 
@@ -5034,7 +5035,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_15.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_15.js_
 
 ---
 
@@ -5215,13 +5216,13 @@ Caratteri Speciali
 - Come in altri linguaggi JS definisce una serie di caratteri speciali
   - `\n` : a capo su una nuova linea
   - `\t`: introduce un tab
-  - `\' o \" o \{backtick}`: introduce il carattere **'** o **"** o **`** 
+  - `\' o \" o \{backtick}`: introduce il carattere **'** o **"** o **`**
   - `\\` : introduce il carattere **\\**
-  - `\u{codice}` : stampa il carattere UTF-16 corrispondente a {codice} 
+  - `\u{codice}` : stampa il carattere UTF-16 corrispondente a {codice}
 
 ```js
 console.log("Una linea molto \n lunga la mandiamo a capo");
-> Una linea molto 
+> Una linea molto
  lunga la mandiamo a capo
 
 console.log("linea con \t tab")
@@ -5293,7 +5294,7 @@ Qui la lista dei principali metodi delle stringhe che studieremo (ci sono 55 met
 
 accedere ad uno specifico carattere: charAt()
 
-`charAt(indice)` 
+`charAt(indice)`
 
 ***restituisce il carattere ad uno specifico indice***
 
@@ -5319,7 +5320,7 @@ console.log(str[6]); // undefined
 
 codice UTF-16 di uno specifico carattere: charCodeAt()
 
-`charCodeAt(indice)` 
+`charCodeAt(indice)`
 
 ***restituisce il codice UTF-16 del carattere ad uno specifico indice***
 
@@ -5338,7 +5339,7 @@ console.log(str.charCodeAt(56)); // Nan
 
 trova la prima occorrenza di una stringa o carattere: indexOf()
 
-`indexOf(stringa)` 
+`indexOf(stringa)`
 
 ***viene utilizzato per ottenere l'indice della prima occorrenza di un valore specificato in una stringa***
 
@@ -5346,7 +5347,7 @@ trova la prima occorrenza di una stringa o carattere: indexOf()
 let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
 
 str.indexOf("vita") // 31
-str.indexOf("Vita") // -1 
+str.indexOf("Vita") // -1
 str.indexOf("v") // 31
 ```
 
@@ -5358,7 +5359,7 @@ str.indexOf("v") // 31
 
 trova l'ultima occorrenza di una stringa o carattere: lastIndexOf()
 
-`lastIndexOf(stringa)` 
+`lastIndexOf(stringa)`
 
 ***viene utilizzato per ottenere l'indice dell'ultima occorrenza di un valore specificato in una stringa***
 
@@ -5366,7 +5367,7 @@ trova l'ultima occorrenza di una stringa o carattere: lastIndexOf()
 let str = "Nel mezzo del cammin di nostra vita.... La vita non era più possibile";
 
 str.lastIndexOf("vita") // 43
-str.lastIndexOf("Vita") // -1 
+str.lastIndexOf("Vita") // -1
 str.lastIndexOf("v") // 43
 ```
 
@@ -5378,7 +5379,7 @@ str.lastIndexOf("v") // 43
 
 verifica l'inizio di una stringa: startsWith()
 
-`startsWith(stringa)` 
+`startsWith(stringa)`
 
 ***determina se una stringa inizia con una determinata sottostringa o meno. Se inizia con la stringa desiderata, restituisce true altrimenti restituisce false.***
 
@@ -5396,7 +5397,7 @@ str.startsWith("mezzo") // false
 
 verifica la fine di una stringa: endsWith()
 
-`endsWith(stringa)` 
+`endsWith(stringa)`
 
 ***determina se una stringa finisce con una determinata sottostringa o meno. Se finisce con la stringa desiderata, restituisce true altrimenti restituisce false.***
 
@@ -5416,7 +5417,7 @@ str.endsWith("lE") // false
 
 stringa contiene stringa: includes()
 
-`includes(stringa)` 
+`includes(stringa)`
 
 ***viene utilizzato determina se una determinata sottostringa è presente o meno nella stringa chiamante.In caso affermativo restituisce true altrimenti restituisce false***
 
@@ -5436,7 +5437,7 @@ str.includes("....") // true
 
 desc: search()
 
-`search(regex)` 
+`search(regex)`
 
 ***viene utilizzato per determinare se un modello esiste o meno all'interno della stringa chiamante, se esiste, il metodo restituisce il valore di indice della prima corrispondenza all'interno della stringa.***
 
@@ -5450,7 +5451,7 @@ desc: search()
 
 concatenazione di stringhe: concat()
 
-`concat(item1, item2, ..., itemN)` 
+`concat(item1, item2, ..., itemN)`
 
 ***concatena le stringhe passate come argomento con la stringa chiamante***
 
@@ -5471,14 +5472,14 @@ console.log(str.concat(str2));
 
 ripetizione di stringhe: repeat()
 
-`repeat(n)` 
+`repeat(n)`
 
 ***viene utilizzato per creare una nuova stringa ripetendo e concatenando la stringa esistente per il numero di volte specificato. Il metodo restituisce una nuova stringa contenente copie della stringa su cui viene chiamato il metodo.***
 
 ```js
 let str = "*";
 
-str.repeat(10) // ********** 
+str.repeat(10) // **********
 str.repeat(0) // ''
 str.repeat(Infinity) // Uncaught RangeError: Invalid count value: Infinity
 ```
@@ -5489,7 +5490,7 @@ str.repeat(Infinity) // Uncaught RangeError: Invalid count value: Infinity
 
 sostituzione di stringhe: replace()
 
-`replace(src, dest)` 
+`replace(src, dest)`
 
 ***rimpiazza la prima occorrenza della sottostringa src, se presente, con la stringa dest***
 
@@ -5512,7 +5513,7 @@ str.replace("VITA", "XXXX")
 
 sostituzione di stringhe: replaceAll()
 
-`replaceAll(src, dest)` 
+`replaceAll(src, dest)`
 
 ***rimpiazza tutte le occorrenze della sottostringa src, se presente, con la stringa dest***
 
@@ -5535,7 +5536,7 @@ str.replaceAll("VITA", "XXXX")
 
 estrazione di una stringa: slice()
 
-`slice(start, end)` 
+`slice(start, end)`
 
 ***estrae la sottostringa inclusa tra l'indice start(incluso) e end(non incluso) e la restituisce come nuova stringa, senza modificare la stringa originale.***
 
@@ -5558,7 +5559,7 @@ str.slice(10,0) // ''
 
 suddividere una stringa: split()
 
-`split(char)` 
+`split(char)`
 
 ***suddivide una stringa in sottostringhe separate da char. Restituisce un array di stringhe***
 
@@ -5581,7 +5582,7 @@ str.split('')
 
 estrazione di sottostringhe: substr()
 
-`substr(start, length)` 
+`substr(start, length)`
 
 ***estrae una sottostringa a partire dall'indice start fino all'indice end***
 
@@ -5592,7 +5593,7 @@ estrazione di sottostringhe: substr()
 
 estrazione di sottostringhe: substring()
 
-`substring(start, end)` 
+`substring(start, end)`
 
 ***estrae una sottostringa a partire dall'indice start fino all'indice end***
 
@@ -5617,7 +5618,7 @@ str.substring(10,0) // 'Nel mezzo '
 
 tutto minuscolo: toLowerCase()
 
-`toLowerCase()` 
+`toLowerCase()`
 
 ***converte una stringa tutto in minuscolo e restituisce una nuova stringa senza modificare la stringa originale***
 
@@ -5634,7 +5635,7 @@ str.toLowerCase()
 
 TUTTO MAIUSCOLO: toUpperCase()
 
-`toUpperCase())` 
+`toUpperCase())`
 
 ***converte una stringa tutto in maiuscolo e restituisce una nuova stringa senza modificare la stringa originale***
 
@@ -5652,7 +5653,7 @@ str.toUpperCase()
 
 togliamo gli spazi: trim()
 
-`trim()` 
+`trim()`
 
 ***rimuove gli spazi alle due estremità di una stringa e restituisce una nuova stringa senza modificare la stringa originale***
 
@@ -5663,7 +5664,344 @@ str.trim()
 > 'Nel mezzo del cammin di nostra vita.... La vita non era più possibile'
 ```
 
---- 
+---
+
+# Test Drive Development
+
+Introduzione
+
+- La metodologia `Test-Driven Development (TDD)` è un processo di sviluppo del software che si basa sull'idea di scrivere prima i test e poi il codice.
+- Questo approccio aiuta a creare software di alta qualità e a mantenere un ciclo di sviluppo disciplinato.
+
+<br>
+
+I tre passaggi fondamentali di TDD:
+- <span style="color:red;"><b><i>Red</i></b></span> : Scrivi un test che fallisce.
+- <span style="color:green;"><b><i>Green</i></b></span> : Scrivi il codice minimo necessario per far passare il test.
+- <span style="color:blue;"><b><i>Refactor</i></b></span> : Migliora il codice mantenendo tutti i test verdi.
+
+
+---
+
+# Test Drive Development
+
+Introduzione
+
+<div class="grid grid-cols-2 gap-4" >
+<div>
+	<img src="/media/js43.png" width="400" style="margin:auto;"/>
+</div>
+<div>
+
+-	Il ciclo Red-Green-Refactor si ripete iterativamente per ogni nuova funzionalità o modifica richiesta.
+
+- Ogni ciclo aumenta gradualmente la copertura dei test e migliora la qualità del codice.
+
+</div>
+</div>
+
+---
+
+# Test Drive Development
+
+Introduzione
+
+<span style="color: red;">Scrittura del Test (Red):</span>
+
+- Si inizia scrivendo un test automatizzato per una funzionalità che deve ancora essere implementata.
+- Questo test deve essere specifico, chiaro e fallire inizialmente perché la funzionalità non esiste ancora.
+
+<br>
+
+**Esempio:**
+
+- Se si sta implementando una funzione per sommare due numeri, il test potrebbe verificare che:
+	- la funzione restituisca 4 quando si passano 2 e 2 come argomenti.
+	- la funzioni restituisca 6 quando si passano 2 e 4 come argomenti.
+	- la funzioni restituisca 0 quando si passano 2 e -2 come argomenti.
+	- ...
+
+---
+
+# Test Drive Development
+
+Introduzione
+
+<span style="color: green;">Implementazione del Codice (Green):</span>
+
+- Si scrive il minimo codice necessario per far passare il test.
+- L'obiettivo è soddisfare il test scritto nel passaggio precedente, anche se il codice è ancora semplice e può non essere ottimale.
+
+<br>
+
+**Esempio:**
+
+- Si implementa una funzione che semplicemente ritorna la somma dei due numeri passati.
+
+---
+
+# Test Drive Development
+
+Introduzione
+
+<span style="color: blue;">Refactoring (Refactor):</span>
+
+- Una volta che il test è passato, si rivede il codice per migliorarlo, ottimizzarlo e renderlo più leggibile e mantenibile, senza modificare il comportamento esterno.
+- Durante questa fase, si possono applicare principi di design come il DRY (Don't Repeat Yourself) o il KISS (Keep It Simple Stupid).
+
+<br>
+
+**Esempio:**
+
+- Se nella funzione di somma c'è del codice ridondante o non chiaro, lo si ripulisce mantenendo la funzionalità invariata.
+
+---
+
+# Test Drive Development
+
+Vantaggi del TDD
+
+- **Qualità del Codice**:
+	- Il codice è testato fin dall'inizio, riducendo il numero di bug e problemi.
+	- Il refactoring continuo migliora la struttura e la leggibilità del codice.
+	- Riduce il rischio di introdurre **regressioni**.
+
+- **Documentazione Vivente**:
+	- I test fungono da documentazione automatica del comportamento del software.
+	- Aiutano i nuovi sviluppatori a comprendere rapidamente cosa fa il codice e come dovrebbe funzionare.
+
+- **Feedback Rapido**:
+	- Gli sviluppatori ricevono feedback immediato sui cambiamenti del codice.
+	- I test falliti indicano subito dove sono presenti problemi o errori.
+
+---
+
+# Test Drive Development
+
+Sfide del TDD
+
+- **Curva di Apprendimento**:
+	- Può essere difficile per gli sviluppatori abituarsi a scrivere test prima del codice.
+	- Richiede una buona comprensione di come scrivere test efficaci e significativi.
+
+- **Tempo Iniziale**:
+	- Scrivere test e poi il codice può sembrare che richieda più tempo inizialmente.
+	- Tuttavia, questo tempo è spesso recuperato grazie alla riduzione dei bug e della necessità di debugging in seguito.
+
+- **Manutenzione dei Test**:
+	- I test devono essere mantenuti e aggiornati insieme al codice.
+	- Se non gestiti correttamente, possono diventare un onere aggiuntivo.
+
+---
+
+# Test Drive Development
+
+Introduzione
+
+<Banner padding=30px mt=80px>
+In conclusione, la metodologia TDD è un approccio potente per migliorare la qualità del software e facilitare il mantenimento del codice, sebbene richieda disciplina e pratica per essere applicata efficacemente.
+</Banner>
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+- Lo svolgimento degli esercizi assegnati dal docente prevede di utilizzare il metodo TDD
+
+- Pertanto l'esercizio descrive la richiesta e/o la descrizione di un problema che lo studente deve risolvere tramite la scrittura di un codice in JS che risolve il problema in tutti i suoi casi
+
+- In base al punto #1 della metodologia TDD la prima cosa da fare è scrivere i test.
+
+- Questa fase è già stata svolta dal docente (grazie all'aiuto di volenterosi studenti degli anni passati)
+
+- Pertanto lo studente deve solo occuparsi dei punti #2 e # della metodologia descritta prima
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+Iniziamo ad installare l'ambiente di testing
+
+1- Vai nella directory del tuo repo per TPSI (....../4INFO2425/\<cognome\>/TPSI/)
+
+2- Scarica il seguente pacchetto [esercizi_TDD]()
+
+3-Scompattalo nella directory corrente
+
+4- Installa le dipendenze con `npm ci`
+
+<Banner padding=20px mt=50px>
+Se tutto è andato a buon fine sei pronto ad iniziare a sviluppare e risolvere gli esercizi assegnati utilizzando la metodologia TDD
+</Banner>
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+- Ci sono vari framework e librerie per l'implementazione di TDD
+- Noi utilizziamo [JEST](https://jestjs.io) che è perfetto per JavaScript
+
+<br>
+<img src="/media/js44.png" style="width:500px; margin: auto;">
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+<div class="grid grid-cols-2 gap-4" >
+<div>
+
+Vediamo un esempio passo passo:
+
+- Esercizio:
+
+**scrivere una funzione javascript (somma) che presi due argomenti in input restituisca la loro somma**
+
+
+- Per prima cosa dobbiamo scrivere tutti i test che vogliamo eseguire <span style="color:red;">(Fase #1 Rossa)</span>
+- I test sono sempre scritti in un file chiamato `test.js` presente dentro la directory dell'esercizio (in questo caso esercizio_somma)
+
+</div>
+<div>
+
+```js
+import { somma } from './es_somma.js';
+
+describe("ESERCIZIO SOMMA", () => {
+    test('TEST 01', () => {
+        expect(somma(2, 2)).toBe(4);
+    });
+
+    test('TEST 02', () => {
+        expect(somma(3, 6)).toBe(9);
+    });
+
+    test('TEST 03', () => {
+        expect(somma(5, -5)).toBe(0);
+    });
+
+    test('TEST 04', () => {
+        expect(somma(-4, 4)).toBe(0);
+    });
+
+    test('TEST 05', () => {
+        expect(somma(1, 1)).not.toBe(4);
+    });
+});
+```
+
+</div>
+</div>
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+- Ora dobbiamo implementare il codice <span style="color:green;">(Fase #2 Verde)</span> che soddisfa tutti i test definiti nella fase #1
+
+<br>
+
+```js
+//es_somma.js
+
+export const somma = (n1, n2) => {
+    //inserisci il tuo codice qui
+}
+```
+
+<br>
+
+- Il docente fornisce la dichiarazione della funzione
+- Lo studente deve scrivere il corpo della funzione tenendo conto di tutti i casi dei test
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+Per eseguire il test (test suite) bisogna fare così
+
+1. Andare nella directory principale degli esercizi(*esercizi_tdd*)
+2. Eseguire il test per esercizio_somma in questo modo
+
+```bash
+$ npm run test esercizio_somma
+
+ESERCIZIO SOMMA
+✕ TEST 01 (3 ms)
+✕ TEST 02 (1 ms)
+✕ TEST 03 (1 ms)
+✕ TEST 04 (1 ms)
+✓ TEST 05
+
+● ESERCIZIO SOMMA › TEST 01
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: 4
+Received: undefined
+```
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+- Ovviamente tutti i test (tranne il 5) falliscono in quanto la funzione somma restituisce *undefined*
+- Ora implementiamo la funzione in modo corretto e rieseguiamo i test
+
+```js
+export const somma = (n1, n2) => {
+    return n1 + n2;
+}
+```
+
+```bash
+PASS   RUNNING  esercizio_somma/test.js
+  ESERCIZIO SOMMA
+    ✓ TEST 01 (2 ms)
+    ✓ TEST 02
+    ✓ TEST 03
+    ✓ TEST 04
+    ✓ TEST 05
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        0.357 s, estimated 1 s
+```
+
+---
+
+# Test Drive Development
+
+Esercizi con la metodologia TDD
+
+- Bene ora tutti i test sono `VERDI` cioè sono stati superati con successo
+- Ora inizia la fase #3 del refactoring (in questo caso data la banalità del codice non c'è nulla da fare)
+
+<br>
+
+- Questa è l'essenza della metologia TDD
+- Tutti gli esercizi successivi (se non altrimenti specificato) vanno risolti seguendo questo motodo e passi
+
+<Banner padding=30px mt=30px>
+Il vantaggio per lo studente è che ha la certezza (se tutti i test sono superati con successo) che la sua soluzione sia corretta
+</Banner>
+
+---
 
 # Esercizio js_23
 
@@ -5671,7 +6009,7 @@ Stringhe
 
 1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel forato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
 2. Inoltre la prima lettera del nome e del cognome deve essere in maiuscolo
-   
+
 
 ```js
 IN: Antonio Mancuso
@@ -5682,7 +6020,7 @@ OUT: Antonio M.
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_23.js_
 
 
---- 
+---
 
 # Esercizio js_24
 
@@ -5698,7 +6036,7 @@ OUT: antonio...@istitutoagnelli.it
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_24.js_
 
---- 
+---
 
 # Esercizio js_25
 
@@ -5714,7 +6052,7 @@ OUT: Nel-mezzo-del-cammin-di-nostra-vita
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_25.js_
 
---- 
+---
 
 # Esercizio js_26
 
@@ -5730,7 +6068,7 @@ OUT: Ciamo mondo!!!
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_26.js_
 
---- 
+---
 
 # Esercizio js_27
 
@@ -5747,7 +6085,7 @@ OUT: Ciamo Mondo La Terra Gira!!!
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_27.js_
 
 
---- 
+---
 
 # Esercizio js_28
 
@@ -5763,7 +6101,7 @@ OUT: CIAO MONDO!!!
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_28.js_
 
---- 
+---
 
 # Esercizio js_29
 
@@ -5779,7 +6117,7 @@ OUT: cIAO mONDO!!!
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_29.js_
 
---- 
+---
 
 # Esercizio js_30
 
@@ -5796,7 +6134,7 @@ OUT: Ciao Mondo...
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_30.js_
 
 
---- 
+---
 
 # Esercizio js_31
 
@@ -5806,7 +6144,7 @@ Stringhe
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_31.js_
 
---- 
+---
 
 # Esercizio js_32
 
@@ -5816,7 +6154,7 @@ Stringhe
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_32.js_
 
---- 
+---
 
 # Esercizio js_33
 
@@ -5833,7 +6171,7 @@ OUT: ciao!ciao!ciao!ciao!
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_33.js_
 
---- 
+---
 
 # Esercizio js_34
 
@@ -5842,7 +6180,7 @@ Stringhe
 1. Scrivere una funzione (insert) in JS che ricevute due stringhe ed un numero N, inserisca la seconda stringa dentro la prima stringa a partire dalla posizione N
 
 ```js
-IN: "Facciamo tanti esercizi che ci fanno bene", "JavaScript", 23 
+IN: "Facciamo tanti esercizi che ci fanno bene", "JavaScript", 23
 
 OUT: Facciamo tanti esercizi JavaScript che ci fanno bene
 ```
@@ -5850,7 +6188,7 @@ OUT: Facciamo tanti esercizi JavaScript che ci fanno bene
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_34.js_
 
 
---- 
+---
 
 # Esercizio js_35
 
@@ -5927,7 +6265,7 @@ Materiale Aggiuntivo
 - [Array 06](/support/4/js/pdf/js_array_06.pdf)
 - [Array 01](/support/4/js/pdf/js_array_07.pdf)
 - [Spread Operator](/support/4/js/pdf/js_spread.pdf)
-  
+
 </div>
 </div>
 
@@ -6003,7 +6341,7 @@ Qui la lista dei principali metodi degli array che studieremo (ci sono 39 metodi
 <div style="font-weight:bolder;">forEach()</div>
 <div style="font-weight:bolder;">from()</div>
 <div style="font-weight:bolder;">includes()</div>
-<div style="font-weight:bolder;">indexOf()</div> 
+<div style="font-weight:bolder;">indexOf()</div>
 <div style="font-weight:bolder;">join()</div>
 <div style="font-weight:bolder;">lastIndexOf()</div>
 <div style="font-weight:bolder;">map()</div>
@@ -6050,7 +6388,7 @@ let frutti = Array(); // dichiara una array vuoto
 let frutti = Array(5); // dichiara un array composto da 5 elementi vuoti
 
 let matrice = [[], [], []]; // dichiara un array di array o matrice
-let matrice = Array(Array(3), Array(3), Array(3)); // 
+let matrice = Array(Array(3), Array(3), Array(3)); //
 let matrice = Array(3).fill(Array(3)); //Stile js
 ```
 
@@ -6279,7 +6617,7 @@ frutti_numeri[8] = 32;
 
 Aggiungere elementi: push()
 
-`push(item1, item2, ..., itemN)` 
+`push(item1, item2, ..., itemN)`
 
 ***aggiunge uno o più elementi in coda ad un array e restituisce la nuova lunghezza dell'array.***
 
@@ -6306,7 +6644,7 @@ console.log(parola);
 
 Rimuovere elementi: pop()
 
-`pop()` 
+`pop()`
 
 ***rimuove l'ultimo elemento da un array e restituisce quell'elemento. Questo metodo modifica la lunghezza dell'array.***
 
@@ -6422,7 +6760,7 @@ Aggiungere e rimuovere elementi
   - **shift()** è il complementare di **pop()**
   - **unshift()** è il complementare di **push()**
 
-- In genere, i metodi pop() e push() sono più veloci rispetto ai metodi shift() e unshift() 
+- In genere, i metodi pop() e push() sono più veloci rispetto ai metodi shift() e unshift()
 
 <br>
 
@@ -6432,7 +6770,7 @@ Aggiungere e rimuovere elementi
 
 ---
 
-# Array 
+# Array
 
 unshift() vs push()
 
@@ -6444,11 +6782,11 @@ unshift() vs push()
     console.log("unshift di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
-    for (var i = 0; i < 100000; i++) 
+    for (var i = 0; i < 100000; i++)
         a.unshift(1);
     end = new Date();
     console.log("Fine   ciclo:", end);
-    console.log(`Tempo totale di esecuzione: 
+    console.log(`Tempo totale di esecuzione:
                 ${end - start} ms`);
 })();
 
@@ -6467,11 +6805,11 @@ Tempo totale di esecuzione: 2372 ms
     console.log("push di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
-    for (var i = 0; i < 100000; i++) 
+    for (var i = 0; i < 100000; i++)
         a.push(1);
     end = new Date();
     console.log("Fine   ciclo:", end);
-    console.log(`Tempo totale di esecuzione: 
+    console.log(`Tempo totale di esecuzione:
                 ${end - start} ms`);
 })();
 
@@ -6486,7 +6824,7 @@ Tempo totale di esecuzione: 10 ms
 
 ---
 
-# Array 
+# Array
 
 shift() vs pop()
 
@@ -6498,11 +6836,11 @@ shift() vs pop()
     console.log("shift di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
-    for (var i = 0; i < 100000; i++) 
+    for (var i = 0; i < 100000; i++)
         a.shift(1);
     end = new Date();
     console.log("Fine   ciclo:", end);
-    console.log(`Tempo totale di esecuzione: 
+    console.log(`Tempo totale di esecuzione:
                 ${end - start} ms`);
 })();
 
@@ -6521,11 +6859,11 @@ Tempo totale di esecuzione: 2543 ms
     console.log("pop di 100.000 elementi...");
     start = new Date();
     console.log("Inizio ciclo:", start);
-    for (var i = 0; i < 100000; i++) 
+    for (var i = 0; i < 100000; i++)
         a.pop(1);
     end = new Date();
     console.log("Fine   ciclo:", end);
-    console.log(`Tempo totale di esecuzione: 
+    console.log(`Tempo totale di esecuzione:
                 ${end - start} ms`);
 })();
 
@@ -6755,13 +7093,13 @@ L'elemento [5] dell'array contiene ciliegie
 
 Test di tutti gli elementi di un array: every()
 
-`every(function(element, index)` 
+`every(function(element, index)`
 
 ***verifica se tutti gli elementi nell'array superano il test implementato dalla funzione fornita. Restituisce true se tutti gli elementi dell'array superano il test.***
 
 ```js
 // tutti gli elementi dell'array sono pari?
-let numeri = [1, 2, 5, 11, 4, 6]; 
+let numeri = [1, 2, 5, 11, 4, 6];
 
 let pari = numeri.every((value) => value % 2 == 0);
 console.log("Tutti i numeri sono pari?", pari);
@@ -6869,7 +7207,7 @@ let studenti = [
   { nome: "Marco", classe: 4, eta: 17 },
   { nome: "Alex", classe: 2, eta: 15 },
   { nome: "William", classe: 4, eta: 18 }
-];  
+];
 let Studente = studenti.find((studente) => studente.nome == "Alex");
 console.log(
   `Lo studente ${Studente.nome} frequenta la classe ${Studente.classe} ed ha ${Studente.eta} anni`
@@ -7179,7 +7517,7 @@ console.log("Mesi dell'anno:", mesi.sort());
 <br>
 
 - L'ordinamento avviene in ordine crescente delle stringhe, quindi D viene prima di G, perciò Dicembre viene prima di Gennaio
-   
+
 ---
 
 # Array
@@ -7205,7 +7543,7 @@ function confronta(a, b) {
     }
 }
 ```
- 
+
 ---
 
 # Array
@@ -7316,7 +7654,7 @@ console.log("Numeri dall'indice 1 al 4 escludo:", numeri.slice(1, 4));
 > Numeri dall'indice 1 al 4 escludo: [ 3, 5, 7 ]
 ```
 
------- 
+------
 
 # Esercizio js_38
 
@@ -7374,7 +7712,7 @@ console.log("Parte di array rimosso:", rimosso);
 let numeri = [1, 4, 5, 7, 9, 11];
 
 // rimuove 0 elementi a partire dall'indice 1 ed inserisce gli elementi 2 e 3
-numeri.splice(1, 0, 2, 3); 
+numeri.splice(1, 0, 2, 3);
 
 console.log("Array tagliato dall'indice 3 fino alla fine:", numeri);
 > Array tagliato dall'indice 3 fino alla fine: [ 1, 2, 3,  4, 5, 7, 9, 11 ]
@@ -7433,7 +7771,7 @@ Ridurre un array: reduce()
 
 `reduce(function(accumulatore, currentValue), initialValue)`
 
-***esegue una funzione "riduttore" su ciascun elemento dell'array, passando il valore restituito dal calcolo sull'elemento precedente. 
+***esegue una funzione "riduttore" su ciascun elemento dell'array, passando il valore restituito dal calcolo sull'elemento precedente.
 Il risultato finale dell'esecuzione del riduttore su tutti gli elementi dell'array è un valore singolo***
 
 <br>
@@ -7494,7 +7832,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 > Valore totale del magazzino: 12000
 ```
 
---- 
+---
 
 # Esercizio js_39
 
@@ -7510,7 +7848,7 @@ OUT: [3,2,1]
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_39.js_
 
---- 
+---
 
 # Esercizio js_40
 
@@ -7527,7 +7865,7 @@ OUT: true
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_40.js_
 
 
---- 
+---
 
 # Esercizio js_41
 
@@ -7544,7 +7882,7 @@ OUT ['a', 'a', 'a']
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_41.js_
 
 
---- 
+---
 
 # Esercizio js_42
 
@@ -7561,7 +7899,7 @@ OUT [20, 30, 10, 40, 50]
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_42.js_
 
 
---- 
+---
 
 # Esercizio js_43
 
@@ -7578,16 +7916,16 @@ OUT: [1,2,4]
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_43.js_
 
 
---- 
+---
 
 # Esercizio js_44
 
 Array
 
 1. Scrivere una funzione ordini in ordine decrescente di titolo questo array
-   
+
 ```js
-  var library = [ 
+  var library = [
    { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
    { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
    { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
@@ -7597,24 +7935,24 @@ Array
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_44.js_
 
 
---- 
+---
 
 # Esercizio js_45
 
 Array
 
 1. Scrivere una funzione che dato una stringa di lettere maiuscole e minuscole, restituisca un array composto solo dai caratteri maiuscoli della stringa
-   
+
 ```js
   IN "ccHEewLtfL2Oq sWrdsOgtvfdcRwLffDff"
-  
+
   OUTPUT ['H','E','L','L','O','W','O','R','L','D']
-``` 
+```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_45.js_
 
 
---- 
+---
 
 # Esercizio js_46
 
@@ -7625,7 +7963,7 @@ Array
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_46.js_
 
 
---- 
+---
 
 # Esercizio js_47
 
@@ -7636,7 +7974,7 @@ Array
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_47.js_
 
 
---- 
+---
 
 # Esercizio js_48
 
@@ -7645,7 +7983,7 @@ Array
 1. Scrivere una funzione che dato un array ed un numero N, restituisca un array composto solo dagli ultimi N elementi
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_48.js_
 
---- 
+---
 
 # Esercizio js_49
 
@@ -7662,14 +8000,14 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_49.js_
 
---- 
+---
 
 # Esercizio js_50
 
 Array
 
 1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri
-   
+
 ```js
 IN [1, 4, 7, 3, 11, 12, 20]
 
@@ -7678,8 +8016,8 @@ OUT [7, 3, 11, 1, 4, 12, 20]
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_50.js_
-   
---- 
+
+---
 
 # Esercizio js_51
 
@@ -7689,34 +8027,34 @@ Array
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_51.js_
 
---- 
+---
 
 # Esercizio js_52
 
 Array
 
 1. Usando Math.floor(Math.random() * N): numero random tra 0 e N
-2. Scrivere una funzione che restituisce un array di caratteri casuali di lunghezza 7 scelti tra tra lettere minuscole e cifre decimali 
+2. Scrivere una funzione che restituisce un array di caratteri casuali di lunghezza 7 scelti tra tra lettere minuscole e cifre decimali
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_52.js_
 
 
---- 
+---
 
 # Esercizio js_53
 
 Array
 
-1. Scrivere una funzione, che dati come parametri un array di lunghezza N ed un indice M, restituisca un nuovo array in cui i sotto array 0-M e M+1-N-1 siano invertiti. 
-   
+1. Scrivere una funzione, che dati come parametri un array di lunghezza N ed un indice M, restituisca un nuovo array in cui i sotto array 0-M e M+1-N-1 siano invertiti.
+
 ```js
-IN [1,2,3,4,5,6,7] , 3 
+IN [1,2,3,4,5,6,7] , 3
 
 OUT [5,6,7, 1,2,3]
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_53.js_
 
---- 
+---
 
 # Esercizio js_54
 
@@ -7733,7 +8071,7 @@ OUT [3, 5, 10, 2, 8], array invertito = [8, 2, 10, 5, 3]
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_54.js_
 
---- 
+---
 
 # Esercizio js_55
 
@@ -7750,43 +8088,43 @@ OUT [1, 2, 3, 4]
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_55.js_
 
 
---- 
+---
 
 # Esercizio js_56
 
 Array
 
 1. Scrivere una funzione che ricevuto il seguente array di oggetti calcoli l'età media degli studenti.
-   
+
 ```js
 let studenti = [
   { nome: "Marco", classe: 4, eta: 17 },
   { nome: "Alex", classe: 2, eta: 15 },
   { nome: "William", classe: 4, eta: 18 }
-]; 
+];
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_56.js_
 
---- 
+---
 
 # Esercizio js_57
 
 Array
 
 1. Scrivere una funzione che ricevuto il seguente array di oggetti, restituisca un array di nomi.
-   
+
 ```js
 let studenti = [
   { nome: "Marco", classe: 4, eta: 17 },
   { nome: "Alex", classe: 2, eta: 15 },
   { nome: "William", classe: 4, eta: 18 }
-]; 
+];
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_57.js_
 
---- 
+---
 
 # Esercizio js_58
 
@@ -8292,7 +8630,7 @@ for(let item of insieme.entries()) console.log("Elemento:", item)
 > Elemento: [ 4, 4 ]
 ```
 
---- 
+---
 
 # Esercizio js_59
 
@@ -8302,7 +8640,7 @@ Array, Map, Set
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_59.js_
 
---- 
+---
 
 # Esercizio js_60
 
@@ -8319,7 +8657,7 @@ OUT: [ 'mora', 'teste', 'locazione' ]
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_60.js_
 
 
---- 
+---
 
 # Esercizio js_61
 
@@ -8330,7 +8668,7 @@ Array, Map, Set
 ```js
 IN: "JavaScript è un linguaggio molto bello. JavaScript è un linguaggio di alto livello"
 
-OUT: 
+OUT:
 
 La parola "JavaScript" ha frequenza: 2
 La parola "è" ha frequenza: 2
@@ -8345,7 +8683,7 @@ La parola "livello" ha frequenza: 1
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_61.js_
 
---- 
+---
 
 # Esercizio js_62
 
@@ -8362,7 +8700,7 @@ OUT:  [ 52, 49, 42 ]
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_62.js_
 
---- 
+---
 
 # Esercizio js_63
 
@@ -8379,7 +8717,7 @@ OUT:  "supercalifgthdo"
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_63.js_
 
---- 
+---
 
 # Esercizio js_64
 
@@ -8642,7 +8980,7 @@ let options = {
     width: 100,
     height: 200
   };
-  
+
   // { proprietà oggetto: variabile di assegnazione }
   let {width: larghezza, height: altezza, title} = options;
 
@@ -8660,12 +8998,12 @@ let options = {
 Destructuring assignment
 
 - Possiamo anche assegnar eun valore di default alle variabili
- 
+
 ```js
 let options = {
-    title: "Rettangolo",  
+    title: "Rettangolo",
 };
-  
+
   // { sourceProperty: targetVariable = valore di default }
   let {width: larghezza = 100, height: altezza = 200, title} = options;
 
@@ -8731,7 +9069,7 @@ visualizza_studente(studente);
 
 - Questo approccio si rivela essere molto pratico soprattutto con oggetti complessi.
 
---- 
+---
 
 # Esercizio js_65
 
@@ -8749,12 +9087,12 @@ let utente = {
 2. Scrivere il destructuring assignment in modo che:
    - la variabile nome contenga il valore della proprietà nome
    - la variabile role contenga il valore della proprietà role
-   - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente) 
+   - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente)
 
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_65.js_
 
---- 
+---
 
 # Esercizio js_66
 
@@ -8776,7 +9114,7 @@ console.log(`Item: ${name}, Quantity: ${quantity}, Price: ${price}`);
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_66.js_
 
---- 
+---
 
 # Esercizio js_67
 
@@ -8797,7 +9135,7 @@ console.log(`One: ${one}, Two: ${two}, Three: ${three}, Four: ${four}, Five: ${f
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_67.js_
 
 
---- 
+---
 
 # Esercizio js_68
 
@@ -8852,7 +9190,7 @@ Formato dati
   - Diventato estremamente popolare con l'avvento del web 2.0 (AJAX)
   - Universalmente adottato anche al difuori del mondo web data la sua semplicità ed immediatezza
   - E' "auto-descrittivo" e facile da comprendere
-  
+
 - Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
 - Ha rimpiazzato il vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
 
@@ -8860,7 +9198,7 @@ Formato dati
 
 # JSON
 
-Formato dati 
+Formato dati
 
 - Un oggetto JSON è così composto:
   - Un insieme di coppie nome/valore. In diversi linguaggi, questo è realizzato come un oggetto, un record, uno struct, un dizionario, una tabella hash, un elenco di chiavi o un array associativo.
@@ -8934,10 +9272,10 @@ console.log(studente_str)
 
 Da oggetto a JSON: stringify()
 
-- Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa 
+- Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa
 - La stringa risultate si dice JSON-encoded
 - Questa operazione di conversionie si chiama `serializzazione`
-  
+
 - Importante notare le principali differenze tra oggetto literal e JSON
   - JSON usa **sempre** le doppie virgolette **'Mario'** diventa **"Mario"**
   - Anche per le proprietà dell'oggetto vengono sempre usate le doppie virgolette, pertanto **nome** diventa **"nome"**
@@ -8960,7 +9298,7 @@ let studente_obj = {
     media: () => console.log("calcola la media")
 }
 
-console.log(JSON.stringify(studente_obj)) 
+console.log(JSON.stringify(studente_obj))
 > {"nome":"Mario","cognome":"Rossi","classe":4}
 ```
 <br>
@@ -8986,7 +9324,7 @@ let studente_obj = {
     media: () => console.log("calcola la media")
 }
 
-console.log(JSON.stringify(studente_obj, ['nome','classe'])) 
+console.log(JSON.stringify(studente_obj, ['nome','classe']))
 > {"nome":"Mario", "classe":4}
 ```
 
@@ -8999,7 +9337,7 @@ console.log(JSON.stringify(studente_obj, ['nome','classe']))
 # JSON
 
 Da oggetto a JSON: stringify()
-  
+
 ```js
 let studente_obj = {
     nome: 'Mario',
@@ -9012,7 +9350,7 @@ let studente_obj = {
     media: () => console.log("calcola la media")
 }
 
-console.log(JSON.stringify(studente_obj, ['nome', 'cognome', 'classe', 'peso', 'altezza', 'telefono'])) 
+console.log(JSON.stringify(studente_obj, ['nome', 'cognome', 'classe', 'peso', 'altezza', 'telefono']))
 > {"nome":"Mario","cognome":"Rossi","classe":4,"peso":65,"altezza":181,"telefono":"3339090990"}
 ```
 
@@ -9024,7 +9362,7 @@ console.log(JSON.stringify(studente_obj, ['nome', 'cognome', 'classe', 'peso', '
 # JSON
 
 Da oggetto a JSON: stringify()
-  
+
 ```js
 let studente_obj = {
     nome: 'Mario',
@@ -9037,7 +9375,7 @@ let studente_obj = {
     media: () => console.log("calcola la media")
 }
 
-console.log(JSON.stringify(studente_obj, (k,v) => k == 'eta' ? undefined : v)) 
+console.log(JSON.stringify(studente_obj, (k,v) => k == 'eta' ? undefined : v))
 > {"nome":"Mario","cognome":"Rossi","classe":4,"peso":65,"altezza":181,"telefono":"3339090990"}
 
 ```
@@ -9060,7 +9398,7 @@ Da JSON a oggetto: parse()
 let json_str = '{"nome":"Mario","cognome":"Rossi","classe":4}';
 
 console.log(typeof(json_str));
-> string 
+> string
 
 let studente_obj =JSON.parse(json_str);
 
@@ -9120,7 +9458,7 @@ console.log(studente_obj)
 <br>
 
 - come si vede durante la deserializzazione delle stringhe le abbiamo convertite in upper case
-  
+
 ---
 
 &nbsp;
@@ -9149,7 +9487,7 @@ Materiale Aggiuntivo
 
 # JS Object Oriented Programming
 
-OOP 
+OOP
 
 <div style="border-radius:10px;background-color:green;color:yellow;padding:2.3rem;line-height: 3rem; font-size:1.9rem;">
 Nella programmazione orientata agli oggetti, una classe è un costrutto di un linguaggio di programmazione usato come modello per creare oggetti. Il modello comprende attributi e metodi che saranno condivisi da tutti gli oggetti creati (istanze) a partire dalla classe stessa. <br> Un “oggetto” è, di fatto, l’istanza di una classe.
@@ -9159,9 +9497,9 @@ Nella programmazione orientata agli oggetti, una classe è un costrutto di un li
 
 # JS Object Oriented Programming
 
-OOP 
+OOP
 
-- Come abbiamo visto in precedenza in JS ci sono vari modi per creare un oggetto 
+- Come abbiamo visto in precedenza in JS ci sono vari modi per creare un oggetto
   - Object Literals
   - Map
   - JSON deserialization
@@ -9182,17 +9520,17 @@ Classe: sintassi
 class MiaClasse {
     filed1 = 10;          //class field o member variables
     field2 = "nome";      // attributo della classe
-    constructor() { ... } //costruttore dell'oggetto 
+    constructor() { ... } //costruttore dell'oggetto
     metodo1() { ... }     //Gli altri metodi implementano
     metodo2() { ... }     // i vari comportamenti dell'oggetto
     ...
     metodoN() { ... }
 }
-``` 
+```
 
 <br>
 
-- Il metodo `constructor()` viene chiamato automaticamente da new e quindi viene utilizzato per inizializzare l’oggetto 
+- Il metodo `constructor()` viene chiamato automaticamente da new e quindi viene utilizzato per inizializzare l’oggetto
 
 ---
 
@@ -9252,7 +9590,7 @@ let mario = new Studente("Mario", 4);
 
 # JS Object Oriented Programming
 
-this 
+this
 
 <div style="width: 55%;">
 
@@ -9270,7 +9608,7 @@ this
 
 # JS Object Oriented Programming
 
-this 
+this
 
 ```js
 class Studente {
@@ -9296,7 +9634,7 @@ mario.Saluta();
 
 # JS Object Oriented Programming
 
-Getter e Setter 
+Getter e Setter
 
 - In OOP `Getter` e `Setter` sono particolari metodi che vengono richiamati quando si accede ad una proprietà dell'oggetto
 - Per ogni variabile di istanza, un metodo `getter` restituisce il suo valore mentre un metodo `setter` imposta o aggiorna il suo valore
@@ -9312,7 +9650,7 @@ Getter e Setter
 
 # JS Object Oriented Programming
 
-Getter e Setter 
+Getter e Setter
 
 ```js
 class Studente {
@@ -9341,7 +9679,7 @@ console.log(mario.nome);
 
 # JS Object Oriented Programming
 
-Getter e Setter 
+Getter e Setter
 
 - quindi `get prop()` definisce il getter per la proprietà **prop**
 - mentre `set prop()` definisce il setter per la proprietà **prop**
@@ -9352,7 +9690,7 @@ Getter e Setter
 
 # JS Object Oriented Programming
 
-Getter e Setter 
+Getter e Setter
 
 
 ```js
@@ -9361,11 +9699,11 @@ class Studente {
         this.nome = nome; //chiama il setter della properità nome
         this.classe = classe;
     }
-    get nome() { 
-        return this.nome.toUpperCase(); 
-    }    
+    get nome() {
+        return this.nome.toUpperCase();
+    }
     set nome(valore) {
-        this.nome = "**".concat(valore).concat("**"); 
+        this.nome = "**".concat(valore).concat("**");
     }
 }
 
@@ -9382,7 +9720,7 @@ Uncaught RangeError: Maximum call stack size exceeded
 
 # JS Object Oriented Programming
 
-Pseudo Proprietà 
+Pseudo Proprietà
 
 - I metodi get e set permettono la creazione di `pseudo proprietà`
 - In altre parole in JS è possibile creare una proprietà di un oggetto che non è suo attributo diretto
@@ -9398,7 +9736,7 @@ class Quadrato {
 
     //non esiste un attributo dell'oggetto chiamato area
     // questa è una pseudo proprietà
-    get area() { return this._lato ** 2; } 
+    get area() { return this._lato ** 2; }
 }
 
 q = new Quadrato(5);
@@ -9406,7 +9744,7 @@ console.log(q.area);  // lo invoco come una proprietà e non come un metodo
 > 25
 ```
 
---- 
+---
 
 # Esercizio js_69
 
@@ -9443,7 +9781,7 @@ console.log(str.replace(' ', '_').replaceAll('!', '').toUpperCase())
 
 - Come si vede sull'oggetto str viene invocata una catena, una sequenza di metodi
 - Questo meccanismo prende il nome di `method chaining`
-- Ma come è possibile? 
+- Ma come è possibile?
 - Come è possibile replicare questo comportamento nelle mie classi?
 
 ---
@@ -9518,12 +9856,12 @@ Method Chaining
   - restituisce un oggetto di tipo tartaruga
 - e così via per i metodi successivi
 
-<Banner padding=20px mt=20px>  
+<Banner padding=20px mt=20px>
 Questo paradigma viene utilizzato molto di frequente nella programmazione in JS
 </Banner>
 
 
---- 
+---
 
 # Esercizio js_70
 
@@ -9558,7 +9896,7 @@ Inheritance e Overriding
 
 # JS Object Oriented Programming
 
-Inheritance e Overriding 
+Inheritance e Overriding
 
 - In JS una classe per ereditare il comportamento e gli attributi da una classe madre, si utilizza la keyword `extends`
 - Pertanto la forma generale è
@@ -9588,7 +9926,7 @@ class Ornitorinco extends Animale
 
 # JS Object Oriented Programming
 
-Inheritance e Overriding 
+Inheritance e Overriding
 
 ```js
 class Mammifero {
@@ -9611,7 +9949,7 @@ mammifero.verso();
 
 # JS Object Oriented Programming
 
-Inheritance e Overriding 
+Inheritance e Overriding
 
 ```js
 class Cane extends Mammifero {
@@ -9637,7 +9975,7 @@ cane.verso();
 
 # JS Object Oriented Programming
 
-Inheritance e Overriding 
+Inheritance e Overriding
 
 ```js
 class Gatto extends Mammifero {
@@ -9701,7 +10039,7 @@ cane.verso();
 ```
 
 - il metodo verso() ora ha un comportamento totalemnte diverso dal metodo verso della superclasse
-  
+
 ---
 
 # JS Object Oriented Programming
@@ -9729,7 +10067,7 @@ gatto.verso();
 ```
 
 - anche in questo caso, il metodo verso() ha un comportamento totalemnte diverso dal metodo verso della superclasse e da quello della classe derivata Cane
-  
+
 ---
 
 # JS Object Oriented Programming
@@ -9758,7 +10096,7 @@ cane.verso();
 ```
 
 - il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
-  
+
 ---
 
 # JS Object Oriented Programming
@@ -9814,7 +10152,7 @@ console.log(`Il numero N vale ${N.arrotonda()}`);
 ```
 
 - Numero ha tutte le proprietà e metodi di Number, ma ora fornisce anche un metodo che arrotonda il valore del numero
-  
+
 
 ---
 
@@ -9845,7 +10183,7 @@ console.log(voti.vuoto());
 ```
 
 
---- 
+---
 
 # Esercizio js_71
 
@@ -9866,7 +10204,7 @@ OOP
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - Uno dei concetti più importanti della programmazione ad oggetti è `l’incapsulamento`, ovvero la delimitazione delle interfacce interne da quelle esterne.
 - Per comprenderla, usciamo dal mondo dello sviluppo e guardiamo al mondo reale.
@@ -9877,12 +10215,12 @@ Visibilità di metodi e attributi
   - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tasiera e OS
   - tuttavia l'utente vede ed usa solo le interfacce esterne, mentre ignora la presenza ed il funzionamento di quelle interne
 - Questo è il principio di `incapsulamento` nel mondo fisico. Ciò è utile anche nel mondo del software
-  
+
 ---
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - Pertanto nella programmazione OOP, le proprietà ed i metodi sono divisi in due gruppi:
   - ***Interfaccia interna privata***: metodi e proprietà, accessibili dagli altri metodi della classe, ma non dall’esterno.
@@ -9891,13 +10229,13 @@ Visibilità di metodi e attributi
 - Nell'esempio precedente:
   - il computer visualizza i risultati generati tramite l'interfaccia pubblica chiamata Display
   - il computer adatta lo scambio di informazioni tra CPU e momoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
-  
+
 
 ---
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - Originariamente JS non forniva nessun modo per determinare lo stato di visibilità di metodi e proprietà
 - In altre parole tutti i metodi e attibuti erano **Public**
@@ -9920,12 +10258,12 @@ class Studente {
 ```
 
 - La proprietà _classe viene considerata privata in quanto la classe mette a disposizione un getter e setter per la proprietà classe
-  
+
 ---
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - In modo analogo per i metodi
 
@@ -9945,12 +10283,12 @@ class Studente {
 
 - il metodo _promosso viene considerato privato in quanto viene esposto il metodo promosso()
 - tuttavia sia _classe che _promosso sono in realtà accessibili dall'esterno
-  
+
 ---
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - Recentemente la specifica ECMA script 6 ha introdotto uno specifico delimitatore `#` per indicare un metodo o un attributo **privato**
 - Pertanto tutti i metodi e attributi identificati da `#` NON sono accessibili dall'esterno della classe, ma solamente dal suo interno, e quindi **privati**
@@ -9975,7 +10313,7 @@ console.log(studente.#classe);
 
 # JS Object Oriented Programming
 
-Visibilità di metodi e attributi 
+Visibilità di metodi e attributi
 
 - In modo analogo per i metodi
 
@@ -10000,12 +10338,12 @@ studente.#promosso();
 ```
 
 - #classe e #promosso sono ora effettivamente privati e inaccessibili dall'esterno
-  
+
 ---
 
 # JS Object Oriented Programming
 
-Confronto di oggetti 
+Confronto di oggetti
 
 - Può essere utile verificare se un oggetto è di uno specifico tipo, o meglio se un oggetto è un'istanza di una determinata classe
 - JS mette a disposizione la keywork `instanceof` che serve proprio a questo scopo
@@ -10029,11 +10367,11 @@ marco instanceof Docente; // true
 
 # JS Object Oriented Programming
 
-Confronto di oggetti 
+Confronto di oggetti
 
 ```js
 class Studente {
-    constructor(nome, classe) { 
+    constructor(nome, classe) {
         this.nome = nome;
         this.classe = classe;
     }
@@ -10056,7 +10394,7 @@ mario == mariolino // false
 
 # JS Object Oriented Programming
 
-Confronto di oggetti 
+Confronto di oggetti
 
 - In JS non c'è un modo nativo per confrontare due oggetti
 - Un metodo spesso utilizzato è il seguente
@@ -10073,22 +10411,22 @@ JSON.stringify(mariolino) == JSON.stringify(mariolino) // true
 
 ---
 
-# Esercizio     
+# Esercizio
 
-Confronto di oggetti 
+Confronto di oggetti
 
-- date le classi 
+- date le classi
 
 ```js
 class Studente {
-    constructor(nome, classe) { 
+    constructor(nome, classe) {
         this.nome = nome;
         this.classe = classe;
     }
 }
 
 class Docente {
-    constructor(nome, classe) { 
+    constructor(nome, classe) {
         this.nome = nome;
         this.classe = classe;
     }
@@ -10102,7 +10440,7 @@ class Docente {
 
 # Esercizio js_72
 
-Confronto di oggetti 
+Confronto di oggetti
 
 2. scrivere un main che definisce i due seguenti oggetti
 
@@ -10166,7 +10504,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
---- #slide 
+--- #slide
 
 # Esercizio js_73
 
@@ -10226,7 +10564,7 @@ JS Objects
 
 - Realizzare un programma in JS che:
   - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
-  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi. 
+  - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi.
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_56.js_
 
 ---
@@ -10236,7 +10574,7 @@ JS Objects
 - Realizzare un programma in JS:
   - Usando classi e oggetti implementi tre classi: Animale, Automobile, Poligono, ognuna con 2 metodi diversi e 3 attributi diversi
   - Ogni classe deve contenere un metodo, oltre ai tre, che si chiama enumera() e deve stampare sulla console tutti i nomi degli attributi dell'oggetto stesso
-  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera() 
+  - Istanziare 2 oggetti per ciascuna classe, e su ognuno richiamare il metodo enumera()
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_75.js_
 
 
@@ -10271,7 +10609,7 @@ JS Objects
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 5 volte con parametri differenti
 
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_77.js_ 
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_77.js_
 
 ---
 
@@ -10372,7 +10710,7 @@ try...catch
 - Esempi di errori di runtime sono:
 
 ```js
-console.log(una_variabile); // genera un errore di runtime 
+console.log(una_variabile); // genera un errore di runtime
 console.log("LINEA ESEGUITA"); // questa istruzione  NON viene eseguita
 > Uncaught ReferenceError ReferenceError: una_variabile is not defined
 
@@ -10418,16 +10756,16 @@ try...catch
 <div style="width: 64%;">
 
 - Il codice all’interno del blocco try {...} viene eseguito.
-- Se non si verifica alcun errore, allora catch(exception) viene ignorato: 
+- Se non si verifica alcun errore, allora catch(exception) viene ignorato:
   - viene eseguito tutto il codice all’interno del try e viene saltato quello all’interno del catch.
-- Se si verifica un errore, allora l’esecuzione del resto del codice all’interno del try viene interrotta, e si passa all’esecuzione del codice all’interno di catch(exception). 
+- Se si verifica un errore, allora l’esecuzione del resto del codice all’interno del try viene interrotta, e si passa all’esecuzione del codice all’interno di catch(exception).
 - La variabile exception (può essere usato ogni nome) contiene un oggetto di tipo Error (Error Object) con i dettagli riguardo a cosa è successo.
 
 </div>
 
 <img src="/media/js39.png" width="350" style="position: relative; right: -35rem; top: -20rem;"/>
 
---- 
+---
 
 # Gestione degli errori
 
@@ -10586,7 +10924,7 @@ try...catch
 function CustomError(code, mex) {
     (this.code = code),
     (this.message = mex)
-} 
+}
 
 try {
     let json = '{"nome": "mario"}';
@@ -10642,7 +10980,7 @@ Materiale Aggiuntivo
 - [Local Storage 1](/support/4/js/pdf/js_local_storage_01.pdf)
 - [Local Storage 2](/support/4/js/pdf/js_local_storage_02.pdf)
 - [Local Storage 3](/support/4/js/pdf/js_local_storage_03.pdf)
-  
+
 </div>
 <div>
 
@@ -10658,7 +10996,7 @@ Materiale Aggiuntivo
 - [File Upload](/support/4/js/pdf/js_file_upload.pdf)
 - [React vs Svelte](/support/4/js/pdf/js_reactjs_vs_svelte.pdf)
 - [Security](/support/4/js/pdf/js_security.pdf)
-  
+
 </div>
 
 </div>

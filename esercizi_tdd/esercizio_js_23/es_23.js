@@ -1,4 +1,4 @@
-export const abbr = (str) => {
+export const abbreviazione = (str) => {
     //inserisci il tuo codice qui
 }
 
