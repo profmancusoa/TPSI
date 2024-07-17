@@ -5828,13 +5828,22 @@ Iniziamo ad installare l'ambiente di testing
 
 1- Vai nella directory del tuo repo per TPSI (....../4INFO2425/\<cognome\>/TPSI/)
 
-2- Scarica il seguente pacchetto [esercizi_TDD]()
+2- Scarica il seguente pacchetto [esercizi_TDD](/support/4/js/esercizi_tdd.tar.xz)
+
+```bash
+$ wget https://tpsi.mancusoa.it/support/4/js/esercizi_tdd.tar.xz
+
+```
 
 3-Scompattalo nella directory corrente
 
+```bash
+$ tar xvJf esercizi_tdd.tar.xz
+```
+
 4- Installa le dipendenze con `npm ci`
 
-<Banner padding=20px mt=50px>
+<Banner padding=20px mt=20px>
 Se tutto è andato a buon fine sei pronto ad iniziare a sviluppare e risolvere gli esercizi assegnati utilizzando la metodologia TDD
 </Banner>
 
