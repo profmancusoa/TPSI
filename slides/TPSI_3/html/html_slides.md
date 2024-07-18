@@ -11,8 +11,11 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.4.5'
----
+materia: "TPSI"
+as: "2024/2025"
+version: '1.5.0'
+--- 
+
 
 # Hyper Text Markup Language
 
@@ -23,6 +26,15 @@ HTML per sviluppatori
     Premi spazio o <carbon:arrow-right class="inline"/> per la prossima slide
   </span>
 </div>
+
+---
+
+&nbsp;
+
+<Cover fs="100px">
+    Introduzione
+</Cover>
+
 
 ---
 
@@ -97,16 +109,30 @@ I **link** sono collegamenti che portano ad altre pagine o altre risorse.
 
 Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa fonte di informazioni per apprendere le tecnologie del web.
 
+<br>
+
+<div grid="~ cols-2 gap-32">
+<div>
+
 ### HTML
 - [https://www.w3schools.com/html/default.asp](https://www.w3schools.com/html/default.asp)
 - [https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp)
 - [https://htmlreference.io/](https://htmlreference.io/)
+
+</div>
+<div>
 
 ### CSS
 
 - [https://www.w3schools.com/css/default.asp](https://www.w3schools.com/css/default.asp)
 - [https://www.w3schools.com/cssref/default.asp](https://www.w3schools.com/cssref/default.asp)
 - [https://cssreference.io/](https://cssreference.io/)
+
+
+</div>
+</div>
+
+<br>
 
 ### Java Script
 
@@ -125,20 +151,41 @@ Qui una serie di link a risorse esterne molto utili per mettere a frutto quando 
 
 Per apprendere correttamente ed efficaciemente HTML è necessario fare tanto esercizio sviluppando pagine di complessità crescente in modo da capire come usare i vari tag ed imparare a risolvere i problemi che si presentano durante la realizzazione di una pagina web
 
+<div grid="~ cols-2 gap-32">
+<div>
+
 - [Build a Cat Photo App](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-html-by-building-a-cat-photo-app)
+- [W3Docs HTML Excercie](https://www.w3docs.com/exercise/html)
+- [Google Web.dev HTML](https://web.dev/learn/html/welcome)
 - [Learn HTML Forms by Building a Registration Form](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-html-forms-by-building-a-registration-form)
 - [Learn HTML on Codecademy](https://www.codecademy.com/learn/learn-html)
 - [Codier](https://codier.io/)
 - [30 Days of Challenges](https://codedamn.com/challenge/30-days-of-html-css)
+- [10 Challenges](https://www.codecademy.com/resources/blog/html-and-css-code-challenges-for-beginners/)
+
+</div>
+<div>
+
+- [Learn HTML](https://www.codecademy.com/learn/learn-html)
+- [Brainstation HTML](https://brainstation.io/learn/html)
+- [Geek for Geek](https://www.geeksforgeeks.org/html-exercises/)
 - [HTML Challenges](https://www.101computing.net/html-css-javascript-challenges/)
 - [Testing Challenge](http://testingchallenges.thetestingmap.org/)
 - [W3C HTML Quiz](https://www.w3schools.com/html/html_quiz.asp)
 - [W3C HTML Excerices](https://www.w3schools.com/html/html_exercises.asp)
+- [7 Projects](https://www.codechef.com/practice/html)
+- [W3 Resouce](https://www.w3resource.com/html-css-exercise/basic/)
+
+</div>
+</div>
 
 ---
-layout: section
----
-<h1 class="sezione">Ambiente di Sviluppo</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Ambiente di Sviluppo
+</Cover>
 
 ---
 
@@ -196,9 +243,14 @@ Disponendo le finestre di vscode e di chrome come in figura si ottiene un ambien
 - La pagina viene visualizzata all'interno del browser
 
 ---
-layout: section
----
-<h1 class="sezione">Tag e Attributi</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Tag e Attributi
+</Cover>
+
+
 
 ---
 
@@ -288,7 +340,8 @@ Caratteristiche addizionali di un TAG
 <tagname nome="valore">...Contenuto del tag...</tagname>
 <tagname nome1="valore1" nome2="valore2" nome3="valore3">...Contenuto del tag...</tagname>
 ```
-### Esempio:
+
+<br>**Esempio:**
 ```html
 <meta name="author" content="Antonio Mancuso" />
 <a href="https://www.w3schools.com">Visit W3Schools</a>
@@ -296,9 +349,12 @@ Caratteristiche addizionali di un TAG
 ```
 
 ---
-layout: section
----
-<h1 class="sezione">La struttura di una pagina Web</h1>
+
+&nbsp;
+
+<Cover fs="80px">
+    La struttura di una pagina Web
+</Cover>
 
 
 ---
@@ -329,10 +385,14 @@ Rappresentazione grafica della struttura di una pagina HTML
 Documento HTML
 
 - Tutti i documenti HTML devono iniziare con la dichiarazione DOCTYPE che deve essere seguita dal TAG di più alto livello 
+
+<br>
 ```html
 <!DOCTYPE html>
 <html>
 ```
+
+<br>
 
 - **&lt;!DOCTYPE html&gt;**: rappresenta il tipo di documento (html) e permette al browser di visualizzare la pagina HTML in modo corretto.
 - Deve apparire nella pagina 1 sola volta come prima linea e prima di qualsiasi altro elemento o tag.
@@ -350,6 +410,9 @@ Header del documento
 - I metadati sono dati che descrivono delle caratteristiche del documento, per esempip il titolo, il set di caratteri, l'autore,etc...
 - La sezione header ed i metadati contenuti  **NON** sono visualizzati.
 - Il più importante elemento della sezione head è il titolo identificato dal tag
+
+<br>
+
 ```html
 <title>Titolo della pagina</title>
 ```
@@ -361,12 +424,18 @@ Header del documento
 Body e contenuto del documento
 
 - La sezione del documento identificata dal tag
+
+<br>
+
 ```html
 <body>
   ...
   ...
 </body>
 ```
+
+<br>
+
 - Rappresenta e contiene tutti i tag di descrizione e markup della pagina.
 - In questa sezione viene definito il contenuto che si vuole visualizzare nel browser.
 
@@ -406,12 +475,12 @@ Questo è il codice della pagina HTML minimale, che contiene solo le sezioni pri
 I tag dell'header
 
 La sezione &lt;head&gt; può contenere i seguenti tag:
-- &lt;title&gt;: definisce il titolo della pagina HTML.
-- &lt;style&gt;: definisce lo stile da applicare alla pagina HTML.
-- &lt;meta&gt;: definisce specifici metadata per il documento.
-- &lt;link&gt;: utilizzato per referenziare elementi o documenti esterni.
-- &lt;script&gt;: definisce la logica da eseguire durante la visualizzazione delle pagina.
-- &lt;base&gt;: specifica un UTL di base da applicare a tutto il documento.
+- **&lt;title&gt;:** definisce il titolo della pagina HTML.
+- **&lt;style&gt;:** definisce lo stile da applicare alla pagina HTML.
+- **&lt;meta&gt;:** definisce specifici metadata per il documento.
+- **&lt;link&gt;:** utilizzato per referenziare elementi o documenti esterni.
+- **&lt;script&gt;:** definisce la logica da eseguire durante la visualizzazione delle pagina.
+- **&lt;base&gt;:** specifica un UTL di base da applicare a tutto il documento.
 
 
 ---
@@ -422,9 +491,14 @@ I tag dell'header: &lt;title&gt;
 
 - Il più importante elemento della sezione head è il titolo identificato dal tag
 
+<br>
+
 ```html
 <title>Titolo della pagina</title>
 ```
+
+<br>
+
 - Il titolo deve contenere solo informazioni testuali ed è visualizzato nel bordo o tab della finestra del browser.
 - Il titolo è molto importante in quanto viene utilizzato dai motori di ricerca per classificare la pagina e influisce sull'algoritmo che decide in quale ordine visualizzare le pagine trovate.
 
@@ -435,14 +509,15 @@ I tag dell'header: &lt;title&gt;
 I tag dell'header: &lt;meta&gt;
 
 Viene utilizzato per specificare vari tipi di metadati, tra cui:
-- *character set*: set di caratteri usato dalla pagina web
-- *descrizione pagina*: descrizione della pagina e dei suoi contenuti
-- *keywords*: parole chiave per le ricerche web
-- *autore del documento*: autore/i del documento
-- *viewport settings*: impostazioni del viewport, spesso utile per dispositivi mobili
+- **character set**: set di caratteri usato dalla pagina web
+- **descrizione pagina**: descrizione della pagina e dei suoi contenuti
+- **keywords**: parole chiave per le ricerche web
+- **autore del documento**: autore/i del documento
+- **viewport settings**: impostazioni del viewport, spesso utile per dispositivi mobili
 
-
+<Banner padding=25px mt=25px>
 Importante notare che i metadati, non sono visualizzati dal browser, ma utilizzati dai motori di ricerca per comprendere meglio il contenuto della pagina stessa.
+</Banner>
 
 ---
 
@@ -451,6 +526,9 @@ Importante notare che i metadati, non sono visualizzati dal browser, ma utilizza
 I tag dell'header: &lt;style&gt;
 
 - Definisce uno o più stili che vanno a modificare la visualizzazione della pagina HTML
+
+<br>
+
 ```html
 <style>
   body {background-color: powderblue;}
@@ -458,6 +536,8 @@ I tag dell'header: &lt;style&gt;
   p {color: blue;}
 </style>
 ```
+
+<br>
 
 - Normalmente non si usa mai in quanto non è una buona pratica di programmazione
 - Per pagine di media/alta complessità non si include in quanto è più pulito definire gli stili della pagina in un file esterno di tipo **CSS**
@@ -472,6 +552,8 @@ I tag dell'header: &lt;script&gt;
 - Permette di eseguire un programma lato client direttamente all'interno del browser.
 - Normalmente utilizzato per interagire con l'utente o per modificare l'aspetto della pagina stessa.
 
+<br>
+
 ```ts
 <script>
     function myFunction() { 
@@ -480,6 +562,7 @@ I tag dell'header: &lt;script&gt;
 </script>
 ```
 
+<br>
 
 - Normalmente non si usa mai in quanto non è una buona pratica di programmazione
 - Per pagine di media/alta complessità non si include in quanto è più pulito definire gli script della pagina in un file esterno di tipo **JS** 
@@ -546,11 +629,13 @@ Pagina HTML base
 5. Provare a modificare la sezione *script* e verificare i cambiamenti
 
 
+---
 
----
-layout: section
----
-<h1 class="sezione">Titoli e Paragrafi in HTML</h1>
+&nbsp;
+
+<Cover fs=100px>
+  Titoli e Paragrafi in HTML
+</Cover>
 
 ---
 
@@ -558,7 +643,7 @@ layout: section
 
 Titoli e sottotitoli
 
-- Heading o intestazione: sono marcatori HTML che permettono di definire titoli e sottotitoli in una pagina web.
+- Heading/intestazione: sono marcatori HTML che permettono di definire titoli e sottotitoli in una pagina web.
 - HTML definisce 6 livelli di heading, dal più importante al meno importante:
 
 <div grid="~ cols-2 gap-32">
@@ -594,6 +679,9 @@ Blocchi di testo
 
 - Nell'editing di una pagina HTML, è spesso utile poter inserire un blocco di testo o paragrafo
 - HTML mette a disposizione un tag specifico **&lt;p&gt;** che definisce un paragrafo di testo, lungo a piacere, da visualizzare in una pagina web 
+
+<br>
+
 ```html
 <p>
   ...
@@ -601,6 +689,9 @@ Blocchi di testo
   ...
 </p>
 ```
+
+<br>
+
 - Ogni paragrafo è preceduto e seguito da una linea bianca distanziatrice.
 - Il browser è libero di aggiunge automaticamente degli spazi (un margine) prima e dopo il testo.
 - Non si può essere sicuri di come il browser visualizzi il paragrafo. 
@@ -620,10 +711,12 @@ Heading e paragrafi
 5. Fornire il link github al file con nome |cognome|_esercizio_html_02.html
 
 ---
-layout: section
----
-<h1 class="sezione">Elementi block e inline</h1>
 
+&nbsp;
+
+<Cover fs=100px>
+  Elementi block e inline
+</Cover>
 
 ---
 
@@ -663,6 +756,7 @@ Elementi inline e block
 - Un elemento inline non comincia su una nuova linea
 - Un elemento inline occupa solo la larghezza minima necessaria
 
+<br>
 <pre>
 
 <span style="padding:0px 5px 0px 5px; border: 1px solid black;">&lt;span&gt; is a inline-level element.</span><span style="padding:0px 5px 0px 5px; border: 1px solid black;">&lt;input&gt; is another inline-level element.</span>
@@ -688,7 +782,9 @@ Contenitore di contenitori block
 - Pertanto DIV è utilizzato per creare delle strutture di layout del contenuto web.
 - Insieme a CSS è utilizzato per definire lo stile di blocchi di contenuto
 
-### esempio
+<br>
+
+### Esempio
 <div style="background-color:red;color:white;padding:20px;">
   <h2>ATTENZIONE</h2>
   <p>Si richiede a tutti gli studenti di studiare e sperimentare il più possibile con HTML.</p>
@@ -706,14 +802,18 @@ Contenitore di contenitori inline
 - E' comunemente usato per modificare una parte di testo in un paragrafo on in altre sezione di un documento HTML.
 - Insieme a CSS è utilizzato per definire lo stile di parti di testo.
 
-### esempio
+<br>
+
+### Esempio
 <p>Comunicato a tutti gli studenti: <span style="color:white;background:red;font-weight:bold">ATTENZIONE</span> Si richiede a tutti gli studenti di <span style="color:darkolivegreen;font-weight:bold">studiare</span> e sperimentare il più possibile con HTML.</p>
 
 ---
-layout: section
----
-<h1 class="sezione">Ancore e Link</h1>
 
+&nbsp;
+
+<Cover fs=100px>
+  Ancore e Link
+</Cover>
 
 ---
 
@@ -725,19 +825,21 @@ Collegamenti a contenuti esterni
 - I link servono per creare dei *collegamenti* tra documenti diversi in modo da formare un unico *ipertesto*.
 - Un link ad una risorsa o documento esterno si crea usando il tag *ancora* **&lt;a&gt;**
 
+<br>
+
 ```html
 <a href="url">link text</a>
 
 Esempio
 <a href="https://agnelli.it/" target="_blank">Istituto Internazionale E.Agnelli</a>
 ```
+
 Qui puoi visitare L'<a href="https://agnelli.it/" target="_parent">Istituto Internazionale E.Agnelli</a>
 
 - **href**: attributo che definisce la destinazione dell'ancora e pertanto il link
 - **target**: per default il link viene visualizzato nella finestra corrente del browser. Questo attributo permette di modificare il comportamento standard.
 
-Il principale valore per *target* è **_blank**, e permette di aprire il documento in un una nuova finestra o tab del browser.
-
+Il principale valore per *target* è **_blank**, e permette di aprire il documento in un una nuova tab del browser.
 
 ---
 
@@ -767,12 +869,13 @@ Link
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
 
-
 ---
-layout: section
----
-<h1 class="sezione">Web grafico con le Immagini</h1>
 
+&nbsp;
+
+<Cover fs=100px>
+  Web grafico con le immagini
+</Cover>
 
 ---
 
@@ -783,9 +886,14 @@ Il Web diventa grafico
 - La versione iniziale del WWW, prevedeva solo l'uso di informazioni testuali e non supportava l'uso di immagini all'interno delle pagine web.
 - Con la nuova specifica HTML 2.0 del 1995, viene introdotto il nuovo tag &lt;img&gt; che permette di inserire immagini nelle pagine web.
 
+<br>
+
 ```html
 <img src="url" alt="alternatetext">
 ``` 
+
+<br>
+
 - **src**: attributo che specifica il percorso/link (relativo o assoluto) all'immagine
 - **alt**: in caso in cui l'immagine non possa essere visualizzata, specifica un testo alternativo
 
@@ -802,6 +910,8 @@ Il Web diventa grafico
 ```html
 <img src="https://cdn.ttgtmedia.com/rms/computerweekly/berners-lee-with-next.jpg" width="250" alt="primo web server"/>
 ```
+
+<br>
 <center>
 <img src="https://cdn.ttgtmedia.com/rms/computerweekly/berners-lee-with-next.jpg" width="250" alt="primo web server"/>
 </center>
@@ -842,13 +952,13 @@ Link
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
-
-
 ---
-layout: section
----
-<h1 class="sezione">Formattazione del testo in HTML</h1>
 
+&nbsp;
+
+<Cover fs=80px>
+  Formattazione del testo in HTML
+</Cover>
 
 ---
 
@@ -885,19 +995,19 @@ Tag di formattazione
 ```html
 In un paragrafo spesso vogliamo poter evidenziare una parola in <b>grassetto</b>.
 ```
-In un paragrafo spesso vogliamo poter evidenziare una parola in <b>grassetto</b>.
+<br>In un paragrafo spesso vogliamo poter evidenziare una parola in <b>grassetto</b>.<br><br>
 
 - strong
 ```html
 Spesso è necessario definire una parola <strong>molto importante</strong>.
 ``` 
-Spesso è necessario definire una parola <strong>molto importante</strong>.
+<br>Spesso è necessario definire una parola <strong>molto importante</strong>.<br><br>
 
 - italico
 ```html
 Alcune volte è necessario definire un termine tecnico come <i>Web Server</i>
 ```
-Alcune volte è necessario definire un termine tecnico come <i>Web Server</i>
+<br>Alcune volte è necessario definire un termine tecnico come <i>Web Server</i>
 
 ---
 
@@ -909,19 +1019,19 @@ Tag di formattazione
 ```html
 In un testo ci sono specifiche parole a cui si vuole dare <em>enfasi</em>.
 ```
-In un testo ci sono specifiche parole a cui si vuole dare <em>enfasi</em>.
+<br>In un testo ci sono specifiche parole a cui si vuole dare <em>enfasi</em>.<br><br>
 
 - mark
 ```html
 Un altro modo per <mark>evidenziare</mark> una o più parole è usare il tag <b>mark</b>
 ```
-Un altro modo per <mark>evidenziare</mark> una o più parole è usare il tag <b>mark</b>
+<br>Un altro modo per <mark>evidenziare</mark> una o più parole è usare il tag <b>mark</b><br><br>
 
 - small
 ```html
 Al contrario quando un testo <small>è di poca importanza</small> si può usare il tag <b>small</b>
 ```
-Al contrario quando un testo <small>è di poca importanza</small> si può usare il tag <b>small</b>
+<br>Al contrario quando un testo <small>è di poca importanza</small> si può usare il tag <b>small</b>
 
 ---
 
@@ -933,7 +1043,7 @@ Tag di formattazione
 ```html
 Il mio cibo preferito è il <del>pollo</del> <ins>tacchino</ins>.
 ```
-Il mio cibo preferito è il <del>pollo</del> <ins>tacchino</ins>.
+<br>Il mio cibo preferito è il <del>pollo</del> <ins>tacchino</ins>.<br><br>
 
 - sub e sup
 ```html
@@ -941,9 +1051,8 @@ Il logaritmo in base 2 di 8 è 3: log<sub>2</sub> 8 = 3
 In modo analogo 2 elevato alla 3 fa 8: 2<sup>3</sup> = 8
 In generale gli <sup>apici</sup> si ottengono son il tag <b>sup</b> 
 mentre i <sub>pedici</sub> con il tag <b>sub</b>
-
 ```
-Il logaritmo in base 2 di 8 è 3: log<sub>2</sub> 8 = 3
+<br>Il logaritmo in base 2 di 8 è 3: log<sub>2</sub> 8 = 3
 
 In modo analogo 2 elevato alla 3 fa 8: 2<sup>3</sup> = 8
 
@@ -982,7 +1091,9 @@ Tag per Quotazioni e Citazioni
 - HTML mette a disposizione 4 tag specifici per la definizione di testo che rappresenta una citazione o una quote.
 - Questi tag definiscono la semantica e cioè il significato del testo che racchiudono.
 - Il browser decide come visualizzare il testo racchiuso in questi tag
-  
+
+<br>
+
 ```html
 <blockquote>: definisce una porzione di testo come una citazione esterna
 <q>: definisce una breve citazione
@@ -997,6 +1108,9 @@ Tag per Quotazioni e Citazioni
 Tag per Quotazioni e Citazioni
 
 - blockquote
+
+<br>
+
 ```html
 Alle volte in un testo si vuole "quotare" un altro autore.
 Tuttavia non sempre è possibile riportare il riferimento all'autore in modo integrale.
@@ -1006,6 +1120,8 @@ indicando la sorgente dell'informazione
   La sottrazione di benevolenza è un castigo che eccita l'emulazione
 </blockquote>
 ```
+
+<br>
 Alle volte in un testo si vuole "quotare" un altro autore.
 Tuttavia non sempre è possibile riportare il riferimento all'autore in modo integrale.
 Quindi con il tag <b>blockquote</b> si può definire una quotazione
@@ -1013,6 +1129,8 @@ indicando la sorgente dell'informazione
 <blockquote cite="https://it.wikipedia.org/wiki/Giovanni_Bosco">
   La sottrazione di benevolenza è un castigo che eccita l'emulazione
 </blockquote>
+
+<br>
 
 -  Come si può notare la citazione è indentata. Il link alla citazione  non ha un effetto visivo ma può essere utile al motore di ricerca o altri tool.
 
@@ -1026,20 +1144,20 @@ Tag per Quotazioni e Citazioni
 ```html
 Quando in un testo vogliamo fare una <q>breve citazione</q>, basta inserire il testo nel tag <b>q</b> 
 ``` 
-Quando in un testo vogliamo fare una <q>breve citazione</q>, basta inserire il testo nel tag <b>q</b> 
+<br>Quando in un testo vogliamo fare una <q>breve citazione</q>, basta inserire il testo nel tag <b>q</b> <br><br>
 
 - abbreviazione
 ```html
 <abbr title="Gnu is Not Unix">GNU</abbr>di GNU/Linux sembra una  parola ma in realtà è un acronimo.
 ```
-<abbr title="Gnu is Not Unix">GNU</abbr> di GNU/Linux sembra una parola ma in realtà è un acronimo.
+<br><abbr title="Gnu is Not Unix">GNU</abbr> di GNU/Linux sembra una parola ma in realtà è un acronimo.<br><br>
 
 - citazione lavoro altrui
 ```html
 Un alternativa per una citazione è usare il tag <b>cite</b>. 
 In una disicussione accesa Linus disse: <cite>"Parlare è facile. Mostrami il codice".</cite>
 ```
-Un alternativa per una citazione è usare il tag <b>cite</b>. In una disicussione accesa Linus disse: <cite>"Parlare è facile. Mostrami il codice".</cite>
+<br>Un alternativa per una citazione è usare il tag <b>cite</b>. In una disicussione accesa Linus disse: <cite>"Parlare è facile. Mostrami il codice".</cite>
 
 ---
 
@@ -1071,20 +1189,23 @@ Tag addizionali
 ```html
 <u>: definisce un testo sottolineato
 <s>: definisce una testo sbarrato
+  <pre>: marca una porzione di testo come pre formattato
 <code>: definisce un blocco di testo come codice sorgente
-<pre>: marca una porzione di testo come pre formattato
 ```
+
+<br>
+
 - sottolineato
 ```html
 Se si vuole <u>sottolineare</u> una parola basta usare il tag <u></u> 
 ``` 
-Se si vuole <u>sottolineare</u> una parola basta usare il tag &lt;u&gt; 
+<br>Se si vuole <u>sottolineare</u> una parola basta usare il tag &lt;u&gt; <br><br>
 
 - sbarrato
 ```html
 Se si vuole <s>sbarrare</s> una parola basta usare il tag <s></s>
 ```
-Se si vuole <s>sbarrare</s> una parola basta usare il tag &lt;s&gt;
+<br>Se si vuole <s>sbarrare</s> una parola basta usare il tag &lt;s&gt;
 
 
 
@@ -1095,14 +1216,20 @@ Se si vuole <s>sbarrare</s> una parola basta usare il tag &lt;s&gt;
 Tag addizionali
 
 - codice sorgente
+
+<br>
+
 ```html
 Spesso negli articoli informatici vengono riportati comandi o porzioni di codice.
 Per farlo in modo corretto usa il tag <b>code</b>.<br>
 Per installare vscode in Linux usa il comando: <code>apt install vscode</code>
 ``` 
-Spesso negli articoli informatici vengono riportati comandi o porzioni di codice.
-Per farlo in modo corretto usa il tag <b>code</b>.<br>
+<br>
 
+- Spesso negli articoli informatici vengono riportati comandi o porzioni di codice.
+- Per farlo in modo corretto usa il tag <b>code</b>.<br>
+
+<br>
 Per installare vscode in Linux usa il comando: <code>apt install vscode</code>
 
 
@@ -1113,6 +1240,9 @@ Per installare vscode in Linux usa il comando: <code>apt install vscode</code>
 Tag addizionali
 
 - pre formattato
+
+<br>
+
 ```html
 Negli articoli può essere necessario riportare una porzione di testo con una formattazione specifica.
 Per evitare che il browser foramtti il testo in modo autonomo usa il tag <b>pre</b>. <br>
@@ -1124,7 +1254,7 @@ Per evitare che il browser foramtti il testo in modo autonomo usa il tag <b>pre<
     capo.
 </pre>
 ```
-<br />
+<br><br>
 <pre>
     Questo testo       viene visualizzato esatta 
     mente come fornito dallo sviluppatore.    
@@ -1163,16 +1293,23 @@ Tag addizionali
 
 - ritorno a capo
 ```html
-In alcuni casi è necessario forzare un ritorno a capo. <br/>
-Per fare ciò basta usare il tag <br/>
+In alcuni casi è necessario forzare un ritorno a capo. <br>
+Per fare ciò basta usare il tag <br>
 ```
-In alcuni casi è necessario forzare un ritorno a capo. <br/>
-Per fare ciò basta usare il tag &lt;br/&gt;
+
+<br>
+In alcuni casi è necessario forzare un ritorno a capo. <br>
+<br>Per fare ciò basta usare il tag &lt;br&gt;<br>
+
+<br>
 
 - linea orizzontale
 ```html
-Per inserire una linea orizzontale di separazione usa <hr />
+Per inserire una linea orizzontale di separazione usa <hr>
 ```
+
+<br>
+
 <hr style="height:5px; background-color:grey">
 
 ---
@@ -1182,6 +1319,9 @@ Per inserire una linea orizzontale di separazione usa <hr />
 Tag addizionali
 
 - barra per metrica
+
+<br>
+
 ```html
 Un modo molto efficace per visualizzare il progresso di un attività o evento è l'uso del tag <meter>
 
@@ -1192,6 +1332,8 @@ Studente 2 <meter min="0" max="10" value="6.5">6.5 su 10</meter><br />
 Studente 3 <meter min="0" max="10" value="9.5">9.5 su 10</meter><br />
 Studente 4 <meter min="0" max="10" value="4.5">4.5 su 10</meter><br />
 ```
+
+<br>
 Un modo molto efficace per visualizzare il progresso di un attività o evento è l'uso del tag &lt;meter&gt;
 
 Andamento dei voti:<br>
@@ -1218,6 +1360,8 @@ Studente 2 <progress min="0" max="10" value="6.5">6.5 di 10</progress><br />
 Studente 3 <progress min="0" max="10" value="9.5">9.5 di 10</progress><br />
 Studente 4 <progress min="0" max="10" value="4.5">4.5 di 10</progress><br />
 ```
+
+<br>
 In alternativa si può visualizzare un progress bar tramite l'uso del tag &lt;progress&gt;
 
 Andamento dei voti:<br>
@@ -1244,13 +1388,13 @@ Link
 
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
-
-
 ---
-layout: section
----
-<h1 class="sezione">Caratteri speciali in HTML</h1>
 
+&nbsp;
+
+<Cover fs=100px>
+  Caratteri speciali in HTML
+</Cover>
 
 ---
 
@@ -1287,11 +1431,15 @@ Uso di caratteri riservati
 - Per fare ciò si usa il carattere *non breaking space*
 - In altre parole inserendo questo carattere, si inserisce uno spazio che non può mandare la linea a capo
 
+<br>
+
 ```html
 non breaking space
 
 &nbsp;
 ```
+
+<br>
 
 - In modo analogo, ricordiamoci che se inserisco 10 spazi, il browser ne rimuove 9
 - Pertanto se voglio inserire esattamente 10 spazi, devo inserire 10 volte `&nbsp;`
@@ -1315,11 +1463,13 @@ Uso di caratteri riservati
 |€	|euro	|`&euro;`	|`&#8364;`|
 |©	|copyright	|`&copy;`	|`&#169;`|
 
+---
 
----
-layout: section
----
-<h1 class="sezione">Liste (non)ordinate</h1>
+&nbsp;
+
+<Cover fs=90px>
+  Liste (non)ordinate
+</Cover>
 
 ---
 
@@ -1334,7 +1484,7 @@ Ci sono 2 tipi principali di liste:
 1. **Unordered List** (Liste non ordinate)
 2. **Ordered List** (Liste ordinate)
 
-
+<br>
 <div grid="~ cols-2 gap-4">
 <div>
 
@@ -1371,7 +1521,7 @@ Le liste di tipo non ordinato che si creano con 2 tag:
 <li>: List Item - tag che definisce l'elemento/item della lista 
 ```
 <br />
-<div grid="~ cols-2 gap-4">
+<div grid="~ cols-2 gap-32">
 <div>
 
 ```html
@@ -1413,7 +1563,7 @@ Le liste di tipo ordinato che si creano con 2 tag:
 <li>: List Item - tag che definisce l'elemento/item della lista 
 ```
 <br />
-<div grid="~ cols-2 gap-4">
+<div grid="~ cols-2 gap-32">
 <div>
 
 ```html
@@ -1455,13 +1605,13 @@ Link
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
-
-
 ---
-layout: section
----
-<h1 class="sezione">Rappresentazioni tabulari con le Tabelle</h1>
 
+&nbsp;
+
+<Cover fs=75px>
+  Rappresentazioni tabulari con le Tabelle
+</Cover>
 
 ---
 
@@ -1625,13 +1775,31 @@ Link
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
+---
 
+# Esercizio html_10a
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle il menù del ristorante qui a fianco
+2. Obiettivo non è riprodurlo fedelmente con colori ed effetti, ma riprodurne il layout tramite l'uso delle tabelle
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10a.html
+</div>
+<div>
+<img src="/media/html5_12.jpg" width="370" style="float:right; position:relative;top:-100px;"/>
+</div>
+</div>
 
 ---
-layout: section
----
-<h1 class="sezione">Interagiamo con l'utente attraverso i Form</h1>
 
+&nbsp;
+
+<Cover fs=80px>
+  Interagiamo con l'utente attraverso i From
+</Cover>
 
 ---
 
@@ -1668,12 +1836,16 @@ I principali widget sono:
 - Permette di ricevere un input dall'utente
 - Questo widget può assumere molte forme diverse in funzione dell'attributo *type*
 
+<br>
+
 ```html
 <form>
   <input type="text" id="idnome" name="nome" placeholder="Nome">
   <input type="text" id="idcognome" name="cognnome" placeholder="Cognome">
 </form>
 ```
+
+<br><br>
 <input type="text" id="idnome" name="nome" placeholder="Nome" style="border: 1px solid black;background:Gainsboro;"> <br /><br />
 <input type="text" id="idcognome" name="cognome" placeholder="Cognome" style="border: 1px solid black;background:Gainsboro;">
 
@@ -1687,6 +1859,8 @@ I principali widget sono:
 - Questo tag è molto importante in quanto gli screen-reader, per persone ipovedenti, leggono ad alta voce la label di un widget
 - Per associare una label ad un widget, si usa l'attributo *for* che deve coincidere con l'attributo *id* del widget
   
+<br>
+
 ```html
 <form>
   <label for="idnome">Nome: </label>
@@ -1695,6 +1869,8 @@ I principali widget sono:
   <input type="text" id="idcognome" name="cognnome" placeholder="Cognome">
 </form>
 ```
+
+<br>
 <label for="idnome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nome:&nbsp;</label>
 <input type="text" id="idnome" name="nome" placeholder="Nome" style="border: 1px solid black;background:Gainsboro;"> <br /><br />
 
@@ -1764,8 +1940,11 @@ I principali widget sono:
   <input type="button" id="idbutton" value="Cliccami!!">
 </form>
 ```
+
 <label for="idbutton">Premi il pulsante: </label>
 <input type="button" id="idbutton" onclick="alert('Magie di JavaScript!! :)')" value="Cliccami!!">
+
+<br>
 
 ```html
 <form>
@@ -1843,8 +2022,8 @@ I principali widget sono:
 <form>
   <input type="date" id="iddata" name="birthday"><br><br>
 </form>
-```
-<br />
+```<br>
+<br>
 <h3>Data di Nascita</h3><br>
 <input type="date" id="iddata" name="birthday"><br><br>
 
@@ -1859,19 +2038,43 @@ Form
 3. Fornire il link github al file con nome |cognome|_esercizio_html_11.html
 
 
+<br>
+
 Il form deve contenere i seguenti widgets:
+<br>
 <div grid="~ cols-2 gap-4">
 <div>
 
-- almeno 2 widget di testo
-- almeno 1 bottone
-- almeno 3 scelte mutuamente esclusive tramite radio
-- almeeno 5 scelte multiple tramite checkbox
-- almeno 1 campo data
-- ogni widget deve essere dotato della propria label
+  - almeno 2 widget di testo
+  - almeno 1 bottone
+  - almeno 3 scelte mutuamente esclusive tramite radio
 </div>
+<div>
+
+  - almeeno 5 scelte multiple tramite checkbox
+  - almeno 1 campo data
+  - ogni widget deve essere dotato della propria label
 
 </div>
+</div>
+
+---
+
+# Esercizio html_11a
+
+Form
+
+1. Progettare e realizzare un documento HTML contenente una form contenente i seguenti campi:
+    - cognome e nome (casella di testo editabile lunga 50 caratteri)
+    - sesso (selezionabile tramite due bottoni radio)
+    - ateneo (da scegliere da un menu che riporta le 3 universit romane)
+    - CAP (casella di testo editabile lunga 5 caratteri)
+    - studente lavoratore (selezionabile tramite checkbox)
+    - descrizione del lavoro svolto (casella di testo editabile lunga 80 caratteri)
+    - bottone di invio
+    - bottone di reset
+2. Consegnare su github il file con nome |cognome|_esercizio_html_11a.html
+
 
 
 
@@ -1958,7 +2161,8 @@ Il form deve contenere i seguenti widgets:
   <label for="bio">Biografia:</label>
   <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Inserisci la tua biografia"></textarea>    
 </form>
-```
+```<br>
+
 
 <label for="bio">Biografia:</label>
 <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Inserisci la tua biografia" style="border: 1px solid black;"></textarea>
@@ -1975,13 +2179,12 @@ Form
 
 
 Il form deve contenere i seguenti widgets aggiuntivi:
-
-- almeno 4 widget number con valore minimo e massimo
-- almeno 1 widget color picker
-- almeno 3 widget range con valore minimo e massimo
-- almeeno 2 combo box o select con almeno 5 valori ciascuna
-- almeno 1 campo text area con dimensione minima 6 righe e 60 colonne
-- ogni widget deve essere dotato della propria label
+  - almeno 4 widget number con valore minimo e massimo
+  - almeno 1 widget color picker
+  - almeno 3 widget range con valore minimo e massimo
+  - almeeno 2 combo box o select con almeno 5 valori ciascuna
+  - almeno 1 campo text area con dimensione minima 6 righe e 60 colonne
+  - ogni widget deve essere dotato della propria label
 
 
 
@@ -2070,6 +2273,25 @@ Il form deve contenere i seguenti widgets aggiuntivi:
 
 ---
 
+# Esercizio html_12a
+
+Form
+
+1. Progettare e realizzare un documento HTML contenente una form contenente i seguenti campi:
+- cognome (casella di testo editabile lunga 40 caratteri)
+- nome (casella di testo editabile lunga 30 caratteri)
+- matricola (casella di testo editabile lunga 12 caratteri)
+- regione di residenza (da scegliere da un menu che riporta le 20 regioni italiane)
+- email (casella di testo editabile lunga 30 caratteri)
+- telefono (casella di testo editabile lunga 15 caratteri)
+- richieste particolari (area di testo editabile di 12 righe per 60 colonne)
+- bottone di invio
+- bottone di reset
+2. Consgenare su github tutti il file |cognome|_es12a.html
+
+
+---
+
 # Esercizio html_13
 
 Form
@@ -2102,7 +2324,24 @@ Il form deve contenere i seguenti campi:
 </div>
 </div>
 
+---
 
+# Esercizio html_13a
+
+Form
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Progettare e realizzare in HTML il form di di iscrizione al PCTO rappresentato qui a fianco e disponibile [qui](/support/3/html/convenzione_pcto.pdf)
+2. Obiettivo è riprodurlo il più fedelmente possibile
+3. Consegnare su github il file con nome |cognome|_esercizio_html_13a.html
+
+</div>
+<div>
+<img src="/media/html5_20.png" width="450" style="float:right; position:relative;top:-100px;"/>
+</div>
+</div>
 
 ---
 
@@ -2187,6 +2426,13 @@ Si richiede di:
 7. ```NON deve essere presente nel repository la directory **node_modules**```
 
 
+---
+
+&nbsp;
+
+<Cover fs=90px>
+  HTML Linter e validità sintattica
+</Cover>
 
 --- 
 
