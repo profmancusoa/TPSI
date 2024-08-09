@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.0"
+version: "2.0.2"
 ---
 
 # JavaScript
@@ -102,24 +102,41 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 <div>
 
 - [Excercism](https://exercism.org/tracks/javascript)
-- [Lettcode](https://leetcode.com/)
+- [Leetcode](https://leetcode.com/)
 - [Codingame](https://www.codingame.com/start/)
 - [Codewars](https://www.codewars.com/)
 - [Codecombat](https://codecombat.com/)
 - [JSChallenger](https://www.jschallenger.com/)
 - [JScodebox](https://jscodebox.com/)
-- [AdventJS](https://adventjs.dev/)
+- [Khan Academy](https://www.khanacademy.org/hourofcode)
+- [JS 30](https://javascript30.com)
 
 </div>
+
 <div>
 
+- [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript)
+- [AdventJS](https://adventjs.dev/)
+- [FreeCodeCamp](https://www.freecodecamp.org)
+- [Count-to-6](https://github.com/domenic/count-to-6)
+- [lololodash](https://github.com/mdunisch/lololodash)
+- [ES5-Workshopper](https://github.com/timoxley/es5-workshop)
+- [Javascripting](https://github.com/workshopper/javascripting)
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
+- [Learn JS](https://learnjavascript.online)
+
+</div>
+
+<div>
+
+- [Create Code](https://cratecode.com)
 - [Code Guppy](https://codeguppy.com/blog/javascript-coding-challenges-for-beginners/index.html)
 - [JS Code Challenges](https://jscodechallenges.vercel.app/)
 - [Codecademy](https://www.codecademy.com/resources/blog/10-javascript-code-challenges-for-beginners/)
 - [Codechef](https://www.codechef.com/)
 - [Edabit](https://edabit.com/)
 - [Hackerhearth](https://www.hackerearth.com/practice/)
+- [p5js](https://p5js.org)
 
 </div>
 </div>
@@ -184,9 +201,23 @@ Materiale Aggiuntivo
 
 </div>
 
+---
 
+# Certificazione Java Script
 
+https://skillsforall.com/course/javascript-essentials-1
 
+<br>
+
+<img src="/media/js45.png" class="mx-auto w-320" />
+
+---
+
+&nbsp;  
+
+<Cover fs="90px">
+    Java Script
+</Cover>
 
 --- #slide 1
 
@@ -1111,6 +1142,7 @@ Materiale Aggiuntivo
 - [Eventi 01](/support/4/js/pdf/js_events_01.pdf)
 - [Eventi 02](/support/4/js/pdf/js_events_02.pdf)
 - [Virtual DOM](/support/4/js/pdf/js_virtual_dom_01.pdf)
+
 
 ---
 
