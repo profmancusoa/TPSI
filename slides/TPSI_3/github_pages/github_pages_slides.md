@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 #background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /assets/intro01.jpg
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,12 +13,10 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
-as: 2023/2024
-version: '1.0.0'
-
+as: 2024/2025
+version: '1.1.0'
 ---  
 
-# Github Pages
 
 Rendi pubblico il tuo sito Web
 
@@ -54,6 +52,7 @@ Rendi pubblico il tuo sito Web
 > https://&lt;nome utente&gt;.github.io
 
 <br>
+<br>
 
 - Mentre il sito legato ad uno specifico repository avrà un URL di questo tipo
 
@@ -61,6 +60,7 @@ Rendi pubblico il tuo sito Web
 
 > https://&lt;nome utente&gt;.github.io/&lt;repository name&gt; <br><br>
 
+<br>
 <br>
 
 - Se possiedi un dominio potrai anche configurare Github pages in modo da utilizzare il tuo nome di dominio anzichè *github.io*
@@ -72,7 +72,7 @@ Rendi pubblico il tuo sito Web
 
 Rendi pubblico il tuo sito Web
 
-<img src="/media/pages_01.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+<img src="/media/pages_07.png" width="800" style="margin:auto;position:relative; left: 0px; top: 0px;">
 
 
 ---
@@ -85,7 +85,7 @@ Rendi pubblico il tuo sito Web
 - Supponiamo che il tuo repository si chiami `MyWebSite`
 
 <br>
-<Banner padding=20px>
+<Banner padding=25px mt=20px>
 Il repository deve essere PUBBLICO per poter essere pubblicato su GitHub Pages ed accessibile a tutti
 </Banner>
 
@@ -171,7 +171,12 @@ Rendi pubblico il tuo sito Web
 
 - Bene, come visto, pubblicare il proprio  sito è facilissimo
 - Il servizio offerto da GitHub Pages è affidabile, velocissimo e gratuito
-- Per tale motivo è un OTTIMA soluzione per pubblicare i tuoi siti e Web App che vuoi condividere con Internet
+- Per tale motivo è un' OTTIMA soluzione per pubblicare i tuoi siti e Web App che vuoi pubblicare su Internet
 
 
 <img src="/media/pages_08.png" width="400" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+layout: image
+image: /media/hh01.webp
+---
