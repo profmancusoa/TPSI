@@ -177,6 +177,5 @@ Rendi pubblico il tuo sito Web
 <img src="/media/pages_08.png" width="400" style="margin:auto;position:relative; left: 0px; top: 20px;">
 
 ---
-layout: image
-image: /media/hh01.webp
----
+
+<img src="/media/hh01.webp" style="position:relative;top:-20px;">

@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 #background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /assets/intro01.jpg
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,8 +13,8 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
-as: 2023/2024
-version: '1.0.0'
+as: 2024/2025
+version: '1.1.0'
 
 ---  
 
@@ -31,6 +31,15 @@ Git & GitHub
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    Il ciclo di vita del software
+</Cover>
+
+
+---
+
 # Sviluppo Software
 
 Il ciclo di vita 
@@ -41,7 +50,7 @@ Il ciclo di vita
 - Nell'ambito dello sviluppo e dell'ingegneria del software si parla di `ciclo di vita del software`
 
 <br>
-<Banner padding="20px">
+<Banner padding="30px" mt=20px>
 Il ciclo di vita del software (Software Development Life Cycle o SDLC) è un processo strutturato che descrive le varie fasi di realizzazione di un software e che aiuta a organizzare e guidare il processo di sviluppo del software, consentendo di gestire in modo efficace tutte le attività coinvolte
 </Banner>
 <br>
@@ -107,6 +116,15 @@ Il versioning del software è dunque una parte fondamentale della produzione.
 
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    Version Control
+</Cover>
+
+
+---
+
 # Sviluppo Software
 
 Version Control Software 
@@ -167,6 +185,77 @@ Questi sono solo alcuni dei problemi che un sistema di versioning del codice aiu
  
 ---
 
+&nbsp;
+
+<Cover fs="90px">
+    GIT - GitHub
+</Cover>
+
+
+---
+
+# Git & GitHub
+
+Allenarsi con Git
+
+Qui una serie di link a risorse esterne molto utili per mettere a frutto quanto si apprenderà durante il corso.
+Per apprendere correttamente ed efficaciemente git e github è necessario fare tante prove ed esercizi.
+
+<Banner padding=20px>
+Useremo git & github per tutto il triennio
+</Banner>
+
+<br>
+
+- Il sito di reiferimento per [Git](https://git-scm.com/) contiene tutta la documentazione e le risorse necessarie per apprendere al meglio l'uso di git
+- Sul sito di [Atlassian](https://www.atlassian.com/git) puoi trovare ottimi tutorial e informazioni che spiegano l'uso di git 
+
+<br>
+<div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
+<div>
+
+  - [OhMyGit!!](https://ohmygit.org)
+  - [Learn Git Branching](https://learngitbranching.js.org/?locale=it_IT)
+  - [GitHub Minesweeper](https://profy.dev/project/github-minesweeper)
+  - [The Odin Project](https://www.theodinproject.com/lessons/foundations-git-basics)
+</div>
+<div>
+
+  - [Learn Git with Bitbucket Cloud](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
+  - [Git Immersion](https://gitimmersion.com/)
+  - [Idiot proof git](https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html)
+  - [The Perfect Commit](https://simonwillison.net/2022/Oct/29/the-perfect-commit/)
+</div>
+</div>
+
+---
+
+# Git & GitHub
+
+Materiale Aggiuntivo
+
+<br>
+
+<div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
+ <div>
+
+ - [Git dalla A alla Z](/support/3/git/pdf/git_a_z.pdf) 
+ - [Git Basic](/support/3/git/pdf/git_basic.pdf) 
+ - [Git Cheatsheet 1](/support/3/git/pdf/git_cheatsheet_01.pdf)
+ 
+</div>
+
+ <div>
+
+ - [Git Cheatsheet 2](/support/3/git/pdf/git_cheatsheet_01.pdf)
+ - [Git Cheatsheet 3](/support/3/git/pdf/git_cheatsheet_01.pdf)
+ - [Git Cheatsheet 4](/support/3/git/pdf/git_cheatsheet_01.pdf)
+ 
+</div>
+</div>
+
+---
+
 # Git
 
 SCM 
@@ -200,7 +289,7 @@ SCM
   - Git
 
 <br>
-<Banner padding="30px">
+<Banner padding="30px" mt=30px>
  GitHub è un sito Web e un servizio cloud che aiuta gli sviluppatori a archiviare e gestire il proprio codice, nonché a tenere traccia e controllare le modifiche al proprio codice. 
 </Banner>
 
@@ -337,7 +426,7 @@ Account Github
 - Oggi quando un'azienda è interessata ad una persona, i primi servizi che consulta sono Linkedin e Github. In tale modo è possibile farsi un'idea del possibile collaboratore. Qual'è la sua rete dui relzioni e quali sono i progetti che ha già sviluppato
 
 
-<Banner padding="20px">
+<Banner padding="30px" mt=40px>
 Pertanto è importantissimo sviluppare e curare bene il proprio profilo Linkedin e il proprio account GitHub
 </Banner>
 
@@ -349,11 +438,12 @@ Esercitazione_01: creiamo un Account Github
 
 - Andare su [GitHub](https://github.com/) e fare click su signup
 
+<br>
 <img src="/media/git_09.png" width="800" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
 <br>
 
-- Seguire le istruzioni a video e il realtime del professore
+- Seguire le istruzioni a video e lo schermo del professore
 
 
 ---
@@ -366,7 +456,7 @@ Esercitazione_02: creiamo un nuovo repository remoto su Github
 
 <img src="/media/git_10.png" width="800" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
-<br>
+<br><br>
 
 - Seguire le istruzioni a video e il realtime del professore
 
@@ -441,14 +531,18 @@ Esercitazione_03: Personal Access Token
 Esercitazione_03: Personal Access Token
 
 
-<img src="/media/git_18.png" width="650" style="margin:auto;position:relative; left: 0px; top: 20px;">
+<img src="/media/git_18.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
 
 <br>
 
-**IMPORTANTE**: 
+<!-- **IMPORTANTE**: 
 
-`fare una copia del PAT appena generato, NON SARA' PIU' POSSIBILE VISUALIZZARLO`
+`fare una copia del PAT appena generato, NON SARA' PIU' POSSIBILE VISUALIZZARLO` -->
 
+<Banner padding=20px>
+<mark>IMPORTANTE</mark><br><br>
+fare una copia del PAT appena generato, <mark>NON SARA' PIU' POSSIBILE VISUALIZZARLO</mark>
+</Banner>
 
 ---
 
@@ -463,6 +557,13 @@ Esercitazione_04: Installazione di git
 ```bash
 # sudo apt install git
 ```
+
+oppure 
+
+```bash
+# sudo dnf install git
+```
+
 <br>
 
 - Al termine verifica la versione installata eseguedo
@@ -809,7 +910,7 @@ Esercitazione_09: Lavoriamo in coppia sul repository
 - A sincronizza il suo repository locale con quello remoto
 
 <br>
-<Banner padding="30px">
+<Banner padding="40px" mt=20px>
 Quanto visto finora è alla base dell'uso di Git in qualsiasi ambiente professionale.<br>
 Come visto Git permette a svilupaptori indipendenti di lavorare e collaborare su uno stesso progetto o repository indipendentemente dalla loro posizione geografica.
 
@@ -828,21 +929,6 @@ Esercitazione_10: oh my Git
 <img src="/media/git_22.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
 
+--- 
 
----
-
-# Git & GitHub
-
-Risorse
-
-- Il sito di reiferimento per [Git](https://git-scm.com/) contiene tutta la documentazione e le risorse necessarie per apprendere al meglio l'uso di git
-- Sul sito di [Atlassian](https://www.atlassian.com/git) puoi trovare ottimi tutorial e informazioni che spiegano l'uso di git 
-- Altre risorse interattive per apprendere git sono
-  - [Learn Git Branching](https://learngitbranching.js.org/?locale=it_IT)
-  - [GitHub Minesweeper](https://profy.dev/project/github-minesweeper)
-  - [The Odin Project](https://www.theodinproject.com/lessons/foundations-git-basics)
-  - [Learn Git with Bitbucket Cloud](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
-  - [Git Immersion](https://gitimmersion.com/)
-  - [Idiot proof git](https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html)
-  - [The Perfect Commit](https://simonwillison.net/2022/Oct/29/the-perfect-commit/)
-
+<img src="/media/hh02.webp" style="position:relative;top:-20px;">
