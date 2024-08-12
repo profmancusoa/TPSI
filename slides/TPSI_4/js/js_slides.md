@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.2"
+version: "2.0.4"
 ---
 
 # JavaScript
@@ -95,17 +95,17 @@ Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa 
 
 Allenarsi con JS
 
-Qui una serie di link a risorse esterne molto utili per mettere a frutto quando si apprenderà durante il corso.
+Qui una serie di link a risorse esterne molto utili per mettere a frutto quanto si apprenderà durante il corso.
 Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
 
 <div class="grid grid-flow-col  gap-4">
 <div>
 
 - [Excercism](https://exercism.org/tracks/javascript)
+- [Coddy](https://coddy.tech)
 - [Leetcode](https://leetcode.com/)
 - [Codingame](https://www.codingame.com/start/)
 - [Codewars](https://www.codewars.com/)
-- [Codecombat](https://codecombat.com/)
 - [JSChallenger](https://www.jschallenger.com/)
 - [JScodebox](https://jscodebox.com/)
 - [Khan Academy](https://www.khanacademy.org/hourofcode)
@@ -124,6 +124,7 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [Javascripting](https://github.com/workshopper/javascripting)
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
 - [Learn JS](https://learnjavascript.online)
+- [Codecombat](https://codecombat.com/)
 
 </div>
 
@@ -150,23 +151,89 @@ Materiale Aggiuntivo
 <div class="grid grid-flow-col  gap-4">
 <div>
 
-`Generale`
 
 - [Perchè JS](/support/4/js/pdf/js_why_use_js_LR.pdf)
-
-<br>
-
-`Libri`
-
-- [JS Handbook](/support/4/js/pdf/js_book_01.pdf)
-- [Appunti di JS](/support/4/js/pdf/js_book_02.pdf)
-- [Data Structure & Algorithms in JS](/support/4/js/pdf/js_book_03_LR.pdf)
+- [DOM](/support/4/js/pdf/js_dom_01.pdf)
+- [Virtual DOM](/support/4/js/pdf/js_virtual_dom_01.pdf)
+- [JS Types 1](/support/4/js/pdf/js_types_01.pdf)
+- [JS Types 2](/support/4/js/pdf/js_types_02.pdf)
+- [JS Types 3](/support/4/js/pdf/js_types_03.pdf)
+- [Events 1](/support/4/js/pdf/js_events_01.pdf)
+- [Events 2](/support/4/js/pdf/js_events_02.pdf)
+- [Cicli](/support/4/js/pdf/js_cicli_01.pdf)
+- [Spread](/support/4/js/pdf/js_spread.pdf)
+- [Strings 1](/support/4/js/pdf/js_strings_01.pdf)
+- [Strings 2](/support/4/js/pdf/js_strings_02.pdf)
+- [Strings 3](/support/4/js/pdf/js_strings_03.pdf)
 </div>
 
 <div>
 
-`Cheat Sheet`
+- [Operators](/support/4/js/pdf/js_operators_01.pdf)
+- [Array 1](/support/4/js/pdf/js_array_01.pdf)
+- [Array 2](/support/4/js/pdf/js_array_02.pdf)
+- [Array 3](/support/4/js/pdf/js_array_03.pdf)
+- [Array 4](/support/4/js/pdf/js_array_04.pdf)
+- [Array 5](/support/4/js/pdf/js_array_05.pdf)
+- [Array 6](/support/4/js/pdf/js_array_06.pdf)
+- [Array 7](/support/4/js/pdf/js_array_07.pdf)
+- [Destructuring](/support/4/js/pdf/js_destructuring_01.pdf)
+- [JSON 1](/support/4/js/pdf/js_json_01.pdf)
+- [JSON 2](/support/4/js/pdf/js_json_02.pdf)
+- [JSON 3](/support/4/js/pdf/js_json_03.pdf)
+- [Ajax](/support/4/js/pdf/js_advanced_ajax.pdf)
 
+</div>
+
+<div>
+
+- [Async 01](/support/4/js/pdf/js_advanced_async_01.pdf)
+- [Async 02](/support/4/js/pdf/js_advanced_async_02.pdf)
+- [Advanced Concepts 1](/support/4/js/pdf/js_advanced_concepts_01.pdf)
+- [Advanced Concepts 2](/support/4/js/pdf/js_advanced_concepts_02.pdf)
+- [Currying](/support/4/js/pdf/js_advanced_currying_01.pdf)
+- [Group By](/support/4/js/pdf/js_advanced_groupBy.pdf)
+- [JS Network](/support/4/js/pdf/js_advanced_network.pdf)
+- [JS Regex](/support/4/js/pdf/js_advanced_regex.pdf)
+- [JS Web API](/support/4/js/pdf/js_advanced_web_api.pdf)
+- [Advanced Promise 1](/support/4/js/pdf/js_advanced_promises_01.pdf)
+- [Advanved Promise 2](/support/4/js/pdf/js_advanced_promises_02.pdf)
+- [Advanced Promise 3](/support/4/js/pdf/js_advanced_promises_03.pdf)
+- [File Upload](/support/4/js/pdf/js_file_upload.pdf)
+
+</div>
+
+</div>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+<div>
+
+- [Hoisting](/support/4/js/pdf/js_hoisting_01.pdf)
+- [Local Storage 1](/support/4/js/pdf/js_local_storage_01.pdf)
+- [Local Storage 2](/support/4/js/pdf/js_local_storage_02.pdf)
+- [Local Storage 3](/support/4/js/pdf/js_local_storage_03.pdf)
+- [OOP 1](/support/4/js/pdf/js_oop_01.pdf)
+- [OOP 2](/support/4/js/pdf/js_oop_02.pdf)
+- [NPM 1](/support/4/js/pdf/js_npm_01.pdf)
+- [NPM 2](/support/4/js/pdf/js_npm_02.pdf)
+- [NPM 3](/support/4/js/pdf/js_npm_03.pdf)
+- [NPM 4](/support/4/js/pdf/js_npm_04.pdf)
+- [NPM 5](/support/4/js/pdf/js_npm_05.pdf)
+- [React vs Svelte](/support/4/js/pdf/js_reactjs_vs_svelte.pdf)
+- [JS Security](/support/4/js/pdf/js_security.pdf)
+
+
+</div>
+<div>
+
+- [Interview 1](/support/4/js/pdf/js_interview_01.pdf)
+- [Interview 2](/support/4/js/pdf/js_interview_02.pdf)
 - [Cheat Sheet 01](/support/4/js/pdf/js_cheatsheet_01.pdf)
 - [Cheat Sheet 02](/support/4/js/pdf/js_cheatsheet_02.pdf)
 - [Cheat Sheet 03](/support/4/js/pdf/js_cheatsheet_03.pdf)
@@ -183,7 +250,10 @@ Materiale Aggiuntivo
 
 <div>
 
-`Cheat Sheet`
+
+</div>
+
+<div>
 
 - [Cheat Sheet 12](/support/4/js/pdf/js_cheatsheet_12.pdf)
 - [Cheat Sheet 13](/support/4/js/pdf/js_cheatsheet_13.pdf)
@@ -200,6 +270,54 @@ Materiale Aggiuntivo
 </div>
 
 </div>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+
+<div>
+
+- [Beginning_HTML5_Games_with_CreateJS](/support/4/js/epub/Beginning_HTML5_Games_with_CreateJS_Brad_Manderscheid.epub)
+- [Beginning_JavaScript](/support/4/js/epub/Beginning_JavaScript_5th_Edition_Jeremy_McPeak.epub)
+- [Beginning_JavaScript_The_Ultimate_Guide](/support/4/js/epub/Beginning_JavaScript_The_Ultimate_Guide_to_Modern_JavaScript_Development_Russ_Ferguson.epub)
+- [Eloquent_JavaScript](/support/4/js/epub/Eloquent_JavaScript_3rd_Edition_Marijn_Haverbeke.epub)
+- [Introducing_JavaScript_Game_Development](/support/4/js/epub/Introducing_JavaScript_Game_Development_Build_a_2D_Game_from_the_Ground_Up_Graeme_Stuart.epub)
+- [JavaScript_Absolute_Beginners_Guide,_2nd_Edition_Kirupa_Chinnathambi.epub](/support/4/js/epub/JavaScript_Absolute_Beginners_Guide,_2nd_Edition_Kirupa_Chinnathambi.epub)
+- [JavaScript_Crash_Course_Nick_Morgan.epub](/support/4/js/epub/JavaScript_Crash_Course_Nick_Morgan.epub)
+- [JavaScript_for_Kids_Nick_Morgan.epub](/support/4/js/epub/JavaScript_for_Kids_Nick_Morgan.epub)
+- [JavaScript_on_Things_Lyza_Gardner.epub](/support/4/js/epub/JavaScript_on_Things_Lyza_Gardner.epub)
+
+</div>
+</div>
+
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
+
+<div>
+
+- [JavaScript_The_Definitive_Guide_7th_Edition_David_Flanagan.epub](/support/4/js/epub/JavaScript_The_Definitive_Guide_7th_Edition_David_Flanagan.epub)
+- [Learning_JavaScript_Data_Structures_and_Algorithms_Third_Edition_Loiane_Groner.epub](/support/4/js/epub/Learning_JavaScript_Data_Structures_and_Algorithms_Third_Edition_Loiane_Groner.epub)
+- [Learn_JavaScript_with_p5.js_Coding_for_Visual_Learners_Engin_Arslan.epub](/support/4/js/epub/Learn_JavaScript_with_p5.js_Coding_for_Visual_Learners_Engin_Arslan.epub)
+- [modern-javascript-for-the-impatient.pdf](/support/4/js/epub/modern-javascript-for-the-impatient.pdf)
+- [Sams_Teach_Yourself_JavaScript_in_24_Hours_Seventh_Edition_Phil_Ballard.epub](/support/4/js/epub/Sams_Teach_Yourself_JavaScript_in_24_Hours_Seventh_Edition_Phil_Ballard.epub)
+- [The_JavaScript_Beginners_Handbook_Flavio_Copes.epub](/support/4/js/epub/The_JavaScript_Beginners_Handbook_Flavio_Copes.epub)
+- [The_Joy_of_JavaScript_Luis_Atencio.epub](/support/4/js/epub/The_Joy_of_JavaScript_Luis_Atencio.epub)
+- [You_Dont_Know_JS_Scope_Closures_Kyle_Simpson.epub](/support/4/js/epub/You_Dont_Know_JS_Scope_Closures_Kyle_Simpson.epub)
+- [You_Dont_Know_JS_Types_Grammar_Kyle_Simpson.epub](/support/4/js/epub/You_Dont_Know_JS_Types_Grammar_Kyle_Simpson.epub)
+
+</div>
+</div>
+
 
 ---
 
