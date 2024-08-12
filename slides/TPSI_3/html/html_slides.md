@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,7 +13,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: "TPSI"
 as: "2024/2025"
-version: '1.5.0'
+version: '1.5.2'
 --- 
 
 
@@ -178,6 +178,44 @@ Per apprendere correttamente ed efficaciemente HTML è necessario fare tanto ese
 
 </div>
 </div>
+
+---
+
+# HTML
+
+Materiale Aggiuntivo
+
+<br>
+
+<div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
+ <div>
+
+ - [HTML Attributes 1](/support/3/html/pdf/html_attributes_01.pdf)
+ - [HTML Attributes 2](/support/3/html/pdf/html_attributes_02.pdf)
+ - [HTML UI design](/support/3/html/pdf/html_ui_design.pdf)
+ - [Ducket](/support/3/html/pdf/duckett.pdf)
+ - [Build HTML5 Game](/support/3/html/epub/Build_an_HTML5_Game_Karl_Bunyan.epub)
+ - [HTML5 Canvas](/support/3/html/epub/Foundation_HTML5_Canvas_Rob_Hawkes.epub)
+ - [HTML5 Game Development](/support/3/html/epub/HTML5_Game_Development_by_Example.epub)
+ - [HTML5 Game MOst Wanted](/support/3/html/epub/HTML5_Games_Most_Wanted_Build_the_Best_HTML5_Games.epub)
+ - [HTML5 Game Novice to Ninja](/support/3/html/epub/HTML5_Games_Novice_to_Ninja_Earle_Castledine.epub)
+
+</div>
+
+ <div>
+
+ - [HTML SEO](/support/3/html/pdf/html_seo.pdf)
+ - [HTML Cheatsheet 1](/support/3/html/pdf/html_cheatsheet_01.pdf)
+ - [HTML Cheatsheet 2](/support/3/html/pdf/html_cheatsheet_02.pdf)
+ - [HTML5 Quick Markup Guide](/support/3/html/epub/HTML5_Quick_Markup_Reference_Wallace_Jackson.epub)
+ - [HTML Manual of Style](/support/3/html/epub/HTML_Manual_of_Style_A_Clear_Concise_Reference.epub)
+ - [Essential Guide to HTML5](/support/3/html/epub/The_Essential_Guide_to_HTML5_Games.epub)
+ - [HTML Handkbook](/support/3/html/epub/The_HTML_Handbook_Flavio_Copes.epub)
+ - [Web Coding Development](/support/3/html/epub/Web_Coding_Development_AllinOne_For_Dummies_Paul_McFedries.epub)
+
+</div>
+</div>
+
 
 ---
 
@@ -2628,11 +2666,7 @@ Mediante il linter da liena di comando si richiede di:
 3. Correggere gli errori ed i warning
 4. Consegnare su github il file |cognome|_esercizio_html_17_glossario_corretto.html
 
-
-
 ---
 
-&nbsp;
-<center>
-<img src="/media/html5_11.jpg" width="800" />
-</center>
+<img src="/media/hh03.webp" style="position:relative;top:-20px;">
+
