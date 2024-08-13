@@ -12,7 +12,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: "2024/2025"
-version: '1.8.0'
+version: '1.8.1'
 
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
@@ -58,7 +58,7 @@ version: '1.8.0'
 35 -> 54
 36 -> 55
 37 -> 56
-38 -> 59 -->
+38 -> 57 -->
 
 
 
@@ -9764,19 +9764,19 @@ Mobile
 
 ---
 
-# Esercizio css_59
+# Esercizio css_57
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_59.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_59.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_57.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_57.css*
 3. Realizzare il proprio CV (vedi esempio) utilizzando il grid layout e grid of grid in modo che sia responsive
-4. Fornire il link github al file con nome |cognome|_esercizio_css_59.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_59.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_57.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_57.css
 
 ---
 
-# Esercizio css_59
+# Esercizio css_57
 
 CV
 
