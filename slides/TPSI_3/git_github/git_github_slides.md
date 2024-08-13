@@ -14,7 +14,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
 as: 2024/2025
-version: '1.1.0'
+version: '1.1.1'
 
 ---  
 
@@ -239,18 +239,26 @@ Materiale Aggiuntivo
 <div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
  <div>
 
- - [Git dalla A alla Z](/support/3/git/pdf/git_a_z.pdf) 
- - [Git Basic](/support/3/git/pdf/git_basic.pdf) 
- - [Git Cheatsheet 1](/support/3/git/pdf/git_cheatsheet_01.pdf)
+- [Git dalla A alla Z](/support/3/git/pdf/git_a_z.pdf) 
+- [Git Basic](/support/3/git/pdf/git_basic.pdf) 
+- [Git Cheatsheet 1](/support/3/git/pdf/git_cheatsheet_01.pdf)
+- [Git Cheatsheet 2](/support/3/git/pdf/git_cheatsheet_01.pdf)
+- [Git Cheatsheet 3](/support/3/git/pdf/git_cheatsheet_01.pdf)
+- [Git Cheatsheet 4](/support/3/git/pdf/git_cheatsheet_01.pdf)
  
 </div>
 
  <div>
 
- - [Git Cheatsheet 2](/support/3/git/pdf/git_cheatsheet_01.pdf)
- - [Git Cheatsheet 3](/support/3/git/pdf/git_cheatsheet_01.pdf)
- - [Git Cheatsheet 4](/support/3/git/pdf/git_cheatsheet_01.pdf)
- 
+- [Beginning_Git_and_GitHub.epub](/support/3/git/epub/Beginning_Git_and_GitHub_A_Comprehensive_Guide_to_Vand_Teamwork_for_the_New_Developer_Mariot_Tsitoara.epub)
+- [Beginning_Git_and_GitHub_A_Comprehensive](/support/3/git/epub/Beginning_Git_and_GitHub_A_Comprehensive_Mariot_Tsitoara.epub)
+- [Git_Essentials.epub](/support/3/git/epub/Git_Essentials_Second_Edition_Ferdinando_Santacroce.epub)
+- [Git_Guida_per_imparare.epub](/support/3/git/epub/Git_Guida_per_imparare_a_gestire_distribuire_e_versionare_codice.epub)
+- [GitHub_Essentials_Achilleas_Pipinellis.epub](/support/3/git/epub/GitHub_Essentials_Achilleas_Pipinellis.epub) 
+- [GitHub_For_Dummies_Phil_Haack.epub](/support/3/git/epub/GitHub_For_Dummies_Phil_Haack.epub)
+- [Git_Pocket_Guide_Richard_Silverman.epub](/support/3/git/epub/Git_Pocket_Guide_Richard_Silverman.epub)
+- [Learn_Git_in_a_Month_of_Lunches_Rick_Umali.epub](/support/3/git/epub/Learn_Git_in_a_Month_of_Lunches_Rick_Umali.epub)
+- [Practical_Git.epub](/support/3/git/epub/Practical_Git_Confident_Git_Through_Practice_Johan_Abildskov.epub)
 </div>
 </div>
 
