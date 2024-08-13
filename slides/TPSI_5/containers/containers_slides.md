@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: "RETI"
-as: "2022/2023"
-version: '1.0.0'
+as: "2024/2025"
+version: '1.1.0'
 
 #https://www.cisco.com/c/en/us/support/docs/routers/1700-series-modular-access-routers/71462-rtr-l2l-ipsec-split.html
 ---  
@@ -28,6 +28,21 @@ Linux Containers e Docker
     Premi spazio o <carbon:arrow-right class="inline"/> per la prossima slide
   </span>
 </div>
+
+---
+
+# Materiale Aggiuntivo
+
+- [Dockers Intro 1](/support/5/containers/docker_intro_01.pdf)
+- [Dockers Intro 2](/support/5/containers/docker_intro_02.pdf)
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Intro
+</Cover>
 
 
 --- 
@@ -139,6 +154,14 @@ Intro
 
 
 <img src="/media/container_07.png" style="width:350px;margin:auto;"/>
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Docker
+</Cover>
 
 --- 
 
@@ -262,6 +285,14 @@ I componenti principali di Docker sono
 </div>
 
 <img src="/media/container_13.png" style="width:450px;position:relative; top:-20rem;left: 29rem;"/>
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Esercitazioni
+</Cover>
 
 --- 
 
@@ -850,5 +881,6 @@ Esercitazione #3: Server LAMP
 
 <img src="/media/container_20.png" style="width:600px;margin:auto;"/>
 
+---
 
-
+<img src="/media/hh01.webp" style="position:relative;top:-20px;">
