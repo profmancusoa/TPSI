@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -11,10 +11,57 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-version: '1.7.0'
+as: "2024/2025"
+version: '1.8.0'
+
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
 <!-- https://gridbyexample.com/examples/ -->
+
+<!-- mapping esercizi
+
+1-12 -> 1-12
+
+12a -> 13
+13-22-> 14-23
+
+22a -> 24
+22b -> 25
+22c -> 26
+22d -> 27
+23 -> 28
+23a -> 29
+24 -> 30
+25 -> 31
+25a -> 32
+25b -> 33
+25c -> 34
+25d -> 35
+25e -> 36
+25f -> 37
+25g -> 38
+25h -> 39
+25i -> 40
+25j -> 41
+25k -> 42
+25l -> 43
+26 -> 44
+27 -> 45
+28 -> 46
+29 -> 47
+30 -> 48
+30a -> 49
+31 -> 50
+32 -> 51
+33 -> 52
+34 -> 53
+35 -> 54
+36 -> 55
+37 -> 56
+38 -> 59 -->
+
+
+
 
 # Cascading Style Sheets
 
@@ -149,6 +196,9 @@ Per apprendere correttamente ed efficaciemente il CSS è necessario fare tanto e
 
 Allenarsi con HTML e CSS
 
+<div class="grid grid-cols-2 grid-rows-1 gap-4" style="padding: 0px; margin-left:0%;">
+<div>
+
 - [Learn Responsive Web Design by Building a Piano](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-responsive-web-design-by-building-a-piano)
 - [Learn CSS Variables by Building a City Skyline](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-variables-by-building-a-city-skyline)
 - [Learn CSS Grid by Building a Magazine](https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-grid-by-building-a-magazine)
@@ -158,11 +208,8 @@ Allenarsi con HTML e CSS
 - [Frontend Practice](https://www.frontendpractice.com/)
 - [Codewell](https://www.codewell.cc/)
 
----
-
-# CSS
-
-Allenarsi con HTML e CSS
+</div>
+<div>
 
 - [Frontend Mentor](https://www.frontendmentor.io/)
 - [Dev Challenges](https://devchallenges.io/)
@@ -171,11 +218,57 @@ Allenarsi con HTML e CSS
 - [Learn CSS](https://www.codecademy.com/learn/learn-css)
 - [CSS Diner](https://flukeout.github.io/)
 - [Flex Zombie](https://mastery.games/flexboxzombies/)
-  
+
+</div>
+</div>
+
+
 ---
-layout: section
+
+# HTML
+
+Materiale Aggiuntivo
+
+<br>
+
+<div class="grid grid-cols-2 gap-0" style="padding: 0px; margin-left:0%;">
+ <div>
+
+- [CSS Concepts](/support/3/css/pdf/css_concepts.pdf)
+- [Background](/support/3/css/pdf/css_background.pdf)
+- [Advanced Query](/support/3/css/pdf/css_advanced_container_query.pdf)
+- [Flexbox](/support/3/css/pdf/css_flebox.pdf)
+- [Grid](/support/3/css/pdf/css_flex_vs_grid.pdf)
+- [Cheatsheet 1](/support/3/css/pdf/css_cheatsheet_01.pdf)
+- [Cheatsheet 2](/support/3/css/pdf/css_cheatsheet_02.pdf)
+- [Cheatsheet 3](/support/3/css/pdf/css_cheatsheet_03.pdf)
+- [Cheatsheet 4](/support/3/css/pdf/css_cheatsheet_04.pdf)
+
+</div>
+
+ <div>
+
+- [CSS3_Foundations](/support/3/css/epub/CSS3_Foundations_Ian_Lunn.epub)
+- [CSS_CSS3_20_Lessons](/support/3/css/epub/CSS_CSS3_20_Lessons_to_Successful_Web_Development_Robin_Nixon.epub)
+- [HTML5_and_CSS3_Building_Responsive_Websites](/support/3/css/epub/HTML5_and_CSS3_Building_Responsive_Websites_Thoriq_Firdaus_Ben_Frain_Benjamin_LaGrone.epub)
+- [HTML5_CSS3_For_The_Real_World](/support/3/css/epub/HTML5_CSS3_For_The_Real_World_2nd_Edition_Estelle_Weyl_Louis_Lazaris_Alexis_Goldstein.epub)
+- [HTML5_e_CSS3_Gabriele_Gigliotti.epub](/support/3/css/epub/HTML5_e_CSS3_Gabriele_Gigliotti.epub)
+- [Responsive_Web_Design_with_HTML5_and_CSS](/support/3/css/epub/Responsive_Web_Design_with_HTML5_and_CSS_Third_Edition_Ben_Frain.epub)
+- [The_HTML_and_CSS_Workshop](/support/3/css/epub/The_HTML_and_CSS_Workshop_Lewis_Coulson_Brett_Jephson_Rob_Larsen_Matt_Park_Marian_Zburlea.epub)
+
+</div>
+</div>
+
+
+
 ---
-<h1 class="sezione">Regole, dichiarazioni e sintassi CSS</h1>
+
+&nbsp;
+
+<Cover fs="80px">
+    Regole, dichiarazioni e sintassi CSS
+</Cover>
+
 
 
 ---
@@ -223,9 +316,12 @@ p1 { color: green; }
 ```
 
 ---
-layout: section
----
-<h1 class="sezione">Priorità Cascade CSS</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Priorità Cascade CSS
+</Cover>
 
 
 ---
@@ -322,7 +418,7 @@ CSS Inline
 
 1. Editare il file *|cognome|_esercizio_html_02.html* e salvarlo come *|cognome|_esercizio_css_01.html*
 2. Definire lo stile inline per 4 tag `h2` e impostare il colore a rosso
-3. Fornire il link github al file con nome |cognome|_esercizio_css_01.html
+3. Consegnare su github il file con nome |cognome|_esercizio_css_01.html
 
 
 
@@ -384,7 +480,7 @@ CSS Internal
 3. Rispondere alle seguenti domande:
    - Tutti i tag h2 sono diventati blue?
    -  Perchè? 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_02.html
+4. Consegnare su github il file con nome |cognome|_esercizio_css_02.html
 
 
 
@@ -420,7 +516,10 @@ Cascade Style
 ```html
 <link rel="stylesheet" href="path/to/file.css" type="text/css" />
 ```     
+<br>
+
 dove:
+
 - **rel="stylesheet"**: indica che il contenuto del file modificherà la parte di stile della pagina
 - **href="path/to/file.css"**: indica la posizione del file .css (percorso relativo o assoluto)
 - **type="text/css"**: indica che il file è di tipo style sheet (CSS)
@@ -479,8 +578,7 @@ CSS External
 4. Rispondere alle seguenti domande:
    - Tutti i tag h1 e h2 sono diventati verdi?
    -  Perchè? 
-5. Fornire il link github al file con nome |cognome|_esercizio_css_03.html
-6. Fornire il link github al file con nome |cognome|_esercizio_css_03.css
+5. Consegnare su github il file con nome |cognome|_esercizio_css_03.html e il file con nome |cognome|_esercizio_css_03.css
 
 
 
@@ -501,9 +599,9 @@ Quindi, se per un elemento sono definiti 3 stili, **quale si applica?**
   - se è presente uno stile exgternal e uno stile internal, quello internal viene applicato
   - se sono presenti tutti e tre i livelli di stile, quello inline viene applicato
 
-<div style="border: 1px solid black;margin: 15px; padding:15px; background: green; color: yellow;">
+<Banner padding=20px mt=20px>
 In altre parole viene applicato lo stile più vicino al tag.
-</div>
+</Banner>
 
 ---
 
@@ -518,16 +616,16 @@ CSS External
 5. Rispondere alle seguenti domande:
    - Tutti i tag h1 e h2 sono diventati verdi?
    -  Perchè? 
-6. Fornire il link github al file con nome |cognome|_esercizio_css_04.html
-7. Fornire il link github al file con nome |cognome|_esercizio_css_04.css
-
-
-
+6. Consegnare su github il file con nome |cognome|_esercizio_css_04.html e il file con nome |cognome|_esercizio_css_04.css
 
 ---
-layout: section
----
-<h1 class="sezione">I Selettori</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    I Selettori
+</Cover>
+
 
 
 ---
@@ -547,9 +645,12 @@ Selettori
 
 
 ---
-layout: section
----
-<h1 class="sezione">Selettori Simple</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Selettori Simple
+</Cover>
 
 
 ---
@@ -611,8 +712,7 @@ CSS element selector
    - tutti i tag `h1` siano Rossi
    - tutti i tag `h2` siano Verdi
    - tutti i tag `p` siano Blue
-4. Fornire il link github al file con nome |cognome|_esercizio_css_05.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_05.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_05.html e il file con nome |cognome|_esercizio_css_05.css
 
 
 
@@ -747,8 +847,7 @@ CSS id selector
    - i tag `h2` numero 2,4,6 (partendo dall'alto) siano Verdi
    - i tag `p` numero 1,3,5 (partendo dall'alto) siano Grigi
    - i tag `p` numero 2,4,6 (partendo dall'alto) siano Arancioni
-4. Fornire il link github al file con nome |cognome|_esercizio_css_06.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_06.css
+4. consegnare su github il file con nome |cognome|_esercizio_css_06.html e il file con nome |cognome|_esercizio_css_06.css
 
 
 
@@ -882,8 +981,7 @@ CSS class selector
    - i tag `h2` numero 2,4,6 (partendo dall'alto) siano Rossi
    - i tag `p` numero 1,3,5 (partendo dall'alto) siano Arancioni
    - i tag `p` numero 2,4,6 (partendo dall'alto) siano Grigi
-4. Fornire il link github al file con nome |cognome|_esercizio_css_07.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_07.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_07.html e il file con nome |cognome|_esercizio_css_07.css
 
 
 
@@ -990,15 +1088,17 @@ CSS simple selector
 6. definire lo stile per il settimo paragrafo con colore rosso e allineamento del testo a destra
 7. definire lo stile per tutti i tag `<hr>` pari con colore nero e spessore 10px (contando dal primo tag hr)
 8. definire lo stile per tutti i tag `<hr>` dispari con colore rosso e spessore 3px (contando dal primo tag hr)
-9. Fornire il link github al file con nome |cognome|_esercizio_css_08.html
-10. Fornire il link github al file con nome |cognome|_esercizio_css_08.css
+9. Consegnare su github il file con nome |cognome|_esercizio_css_08.html e il file con nome |cognome|_esercizio_css_08.css
 
 
 
 ---
-layout: section
----
-<h1 class="sezione">Selettori Combinator</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Selettori Combinator
+</Cover>
 
 
 ---
@@ -1232,14 +1332,13 @@ Selettori Combinator
 
 CSS child selector
 
-1. Dato il file [esercizio_css_10.html](https://profmancusoa.github.io/TPSI/support/esercizio_css_10.html)
+1. Dato il file [esercizio_css_10.html](/support/3/css/esercizio_css_10.html)
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_10.css*
 3. Definire lo stile per tutti i tag span figli diretti di h1 in modo che siano di colore blue
 4. Definire lo stile per tutti i tag span figli diretti di h2 in modo che siano di colore rossi
 5. Definire lo stile per tutti i tag span figli diretti di un paragrafo in modo che siano di colore viola
 6. Definire lo stile per tutti i tag span nipoti di div e figli di p in modo che siano di colore verde scuro
-7. Fornire il link github al file con nome |cognome|_esercizio_css_10.html
-8. Fornire il link github al file con nome |cognome|_esercizio_css_10.css
+7. Consegnare su github il file con nome |cognome|_esercizio_css_10.html e il file con nome |cognome|_esercizio_css_10.css
 
 ---
 
@@ -1357,20 +1456,22 @@ Selettori Combinator
 CSS descendant selector
 
 
-1. Dato il file [esercizio_css_11.html](https://profmancusoa.github.io/TPSI/support/esercizio_css_11.html)
+1. Dato il file [esercizio_css_11.html](/support/3/css/esercizio_css_11.html)
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_11.css*
 3. definire lo stile per tutti i tag `<mark>` che sono figli di `<p>` con colore verde
 4. definire lo stile per tutti i tag `<b>` che sono figli di `<p>` con colore giallo e sfondo nero
 5. definire lo stile per tutti i tag `<em>` che sono discendenti di `<div>` con rosso su sfondo giallo
 6. definire lo stile per tutti i tag `<span>` che sono discendenti di `<div>` con sfondo giallo e colore nero
-7.  Fornire il link github al file con nome |cognome|_esercizio_css_11.html
-8.  Fornire il link github al file con nome |cognome|_esercizio_css_11.css
+7.  Consegnare su github il file con nome |cognome|_esercizio_css_11.html e il file con nome |cognome|_esercizio_css_11.css
 
 
 ---
-layout: section
----
-<h1 class="sezione">Selettori Pseudo-Class</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Selettroi Pseudo-Class
+</Cover>
 
 
 ---
@@ -1559,8 +1660,7 @@ CSS pseudo-class selector
 4. definire lo stile per il primo titolo di livello 1 in modo che siano sottolineati e di colore blue
 5. definire lo stile per il primo titolo di livello 2 in modo che siano di colore verde
 6. definire lo stile per il primo paragrafo in modo che siano colore rosso ed il testo sia allineato a sinistra
-7. Fornire il link github al file con nome |cognome|_esercizio_css_12.html
-8. Fornire il link github al file con nome |cognome|_esercizio_css_12.css
+7. Consegnare su github il file con nome |cognome|_esercizio_css_12.html e il file con nome |cognome|_esercizio_css_12.css
 
 
 ---
@@ -1901,22 +2001,24 @@ li:nth-child(2n) {
 
 ---
 
-# Esercizio css_12a
+# Esercizio css_13
 
 CSS pseudo-class selector
 
-1. Creare un file *|cognome|_esercizio_html_12a.html* e inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_12a.css*
+1. Creare un file *|cognome|_esercizio_html_13.html* e inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_13.css*
 2. Creare una scacchiera 8x8 in cui 
    1. in ogni cella viene scritta la coordinata in forma righa,colonna (partendo da zero)
    2. colorare le celle esattamente come in una scacchiera per scacchi
-3. Fornire il link github al file con nome |cognome|_esercizio_css_12a.html
-4. Fornire il link github al file con nome |cognome|_esercizio_css_12a.css
+3. Consegnare su github il file con nome |cognome|_esercizio_css_13.html e il file con nome |cognome|_esercizio_css_13.css
 
 
 ---
-layout: section
----
-<h1 class="sezione"><span style="color: green;">Un Web a Colori</span></h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Un Web a Colori
+</Cover>
 
 
 ---
@@ -2008,11 +2110,11 @@ Colori
 
 ---
 
-# Esercizio css_13
+# Esercizio css_14
 
 Colori
 
-1. Creare un nuovo file e nominarlo *|cognome|_esercizio_css_13.html*
+1. Creare un nuovo file e nominarlo *|cognome|_esercizio_css_14.html*
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_13.css*
 3. Creare una scacchiera 4 righe x 3 colonne
 4. Con l'aiuto di un tool di palette generation:
@@ -2022,14 +2124,15 @@ Colori
    4. colorare lo sfondo di 2 celle usando la funzione rgba ed impostare la trasparenza 
    5. colorare lo sfondo di 2 celle usando la funzione hls
    6. colorare lo sfondo di 2 celle usando la funzione hlsa ed impostare la trasparenza
-5. Fornire il link github al file con nome |cognome|_esercizio_css_13.html
-6. Fornire il link github al file con nome |cognome|_esercizio_css_13.css
-
+5. Consegnare su github il file con nome |cognome|_esercizio_css_14.html e il file con nome |cognome|_esercizio_css_14.css
 
 ---
-layout: section
----
-<h1 class="sezione">Larghezza e Altezza degli elementi Web</h1>
+
+&nbsp;
+
+<Cover fs="80px">
+    Larghezza e Altezza degli elementi Web
+</Cover>
 
 
 ---
@@ -2128,22 +2231,24 @@ Larghezza ed Altezza
 
 ---
 
-# Esercizio css_14
+# Esercizio css_15
 
 Colori
 
-1. Creare un nuovo file e nominarlo *|cognome|_esercizio_css_14.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_14.css*
+1. Creare un nuovo file e nominarlo *|cognome|_esercizio_css_15.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_15.css*
 3. Creare un rettangolo con sfondo rosso con larghezza 400px ed altezza 200px
 4. Creare quattro rettangoli con sfondo viola con larghezza rispettivamente pari a 1/4, 2/4, 3/4 e 4/4 della larghezza della pagine e altezza pari a 150 px
 5. Creare quattro rettangoli con sfondo verde e trasparenza al 65% con larghezza rispettivamente pari a 1/8, 3/6, 5/8 e 2/9 della larghezza della pagine e altezza pari a 221 px
-6.  Fornire il link github al file con nome |cognome|_esercizio_css_14.html
-7.  Fornire il link github al file con nome |cognome|_esercizio_css_14.css
+6.  Consegnare su github il file con nome |cognome|_esercizio_css_15.html e il file con nome |cognome|_esercizio_css_15.css
 
 ---
-layout: section
----
-<h1 class="sezione"><div style="color: rgb(178,28,128); background-image: linear-gradient(to right top, #9198a3, #7f91b9, #7588ce, #797bde, #8a69e7);">Lo sfondo degli elementi</div></h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Lo sfondo degli elementi
+</Cover>
 
 
 
@@ -2328,11 +2433,11 @@ background-repeat
 
 ---
 
-# Esercizio css_15
+# Esercizio css_16
 
 background-repeat
 
-1. Creare ed editare i file *|cognome|_esercizio_css_15.html* e *|cognome|_esercizio_css_15.css*.
+1. Creare ed editare i file *|cognome|_esercizio_css_16.html* e *|cognome|_esercizio_css_16.css*.
 2. Creare una pagina contenente: 
    1. 2xDIV con un immagine di background con path relativo e con dimesioni assolute
    2. 2xDIV con un immagine di background con path assoluto e con dimesioni relative
@@ -2340,14 +2445,15 @@ background-repeat
    4. 2xDIV con un immagine di background che usi la proprietà del background no-repeat
    5. 2xDIV con un immagine di background che usi la proprietà del background repeat-x
    6. 2xDIV con un immagine di background che usi la proprietà del background repeat-y
-3.  Fornire il link github al file con nome |cognome|_esercizio_css_15.html
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_15.css
-
+3.  Consegnare su github il file con nome |cognome|_esercizio_css_16.html e il file con nome |cognome|_esercizio_css_16.css
 
 ---
-layout: section
----
-<h1 class="sezione">Attorno al contenuto: Box Model</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Attorno al contenuto: Box model
+</Cover>
 
 
 ---
@@ -2653,19 +2759,17 @@ total_width = 120 + 20 + 10 + 0 = 150px
 
 ---
 
-# Esercizio css_16
+# Esercizio css_17
 
 Box model
 
-1. Creare ed editare i file *|cognome|_esercizio_css_16.html* e *|cognome|_esercizio_css_16.css*.
+1. Creare ed editare i file *|cognome|_esercizio_css_17.html* e *|cognome|_esercizio_css_17.css*.
 2. Creare una foto gallery statica e centrata nella pagina, così formata:
    1. 1 riga per 4 colonne
    2. ogni cella deve contenere al centro un immagine di dimensione width pari a 250px
    3. ogni immagine deve avere una didascalia nel bordo inferiore con bordo rosso di spessore 5px
    4. nella didascalia deve esserci un breve titolo dell'immagine con padding pari a 8px
-3.  Fornire il link github al file con nome |cognome|_esercizio_css_16.html
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_16.css
-
+3.  Consegnare su github il file con nome |cognome|_esercizio_css_17.html e il file con nome |cognome|_esercizio_css_17.css
 
 ---
 
@@ -2733,26 +2837,28 @@ Total height = height + top padding+bottom padding+top border+bottom border+top 
 
 ---
 
-# Esercizio css_17
+# Esercizio css_18
 
 CSS box model
 
 <!-- risultato esercizio: 100,250,353 -->
 
-1. Data la seguente pagina html: [esercizio_css_17.html](/TPSI/support/esercizio_css_17.html) e relativo css:  [esercizio_css_17.css](/TPSI/support/esercizio_css_17.css)
+1. Data la seguente pagina html: [esercizio_css_18.html](/support/3/css/esercizio_css_18.html) e relativo css:  [esercizio_css_18.css](/support/3/css/esercizio_css_18.css)
 2. Editare il file e determinare il valore corretto per la proprietà **width** della regola CSS *#div1*,*#div2* e *#div3* in modo che:
    1. il componente **div1** abbia dimensione complessiva pari a **200px**
    2. il componente **div2** abbia dimensione complessiva pari a **300px**
    3. il componente **div3** abbia dimensione complessiva pari a **408px**
-3. Fornire il link github al file con nome |cognome|_esercizio_css_17.html
-4. Fornire il link github al file con nome |cognome|_esercizio_css_17.css
-
+3. Consegnare su github il file con nome |cognome|_esercizio_css_18.html e il file con nome |cognome|_esercizio_css_18.css
 
 
 ---
-layout: section
----
-<h1 class="sezione">I bordi di un elemento</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    I bordi di un elemento
+</Cover>
+
 
 ---
 
@@ -2833,25 +2939,25 @@ Borders
 
 ---
 
-# Esercizio css_18
+# Esercizio css_19
 
 CSS borders
 
-1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_18.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_18.css*
+1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_19.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_19.css*
 3. Dichiarare lo stile della pagina in modo che tutti i titoli di primo livello abbiano un bordo inferiore solido, spesso 5px e di colore blue ed un bordo sinistro spesso 7px di colore nero 
 4. Dichiarare lo stile della pagina in modo che tutti i titoli di secondo livello abbiano un bordo superiore trattegiato, spesso 2px di colore verde
 5. Dichiarare lo stile della pagina in modo che tutti i paragrafi abbiano un bordo un bordo inferiore tratteggiato spesso 3px di colore grigio e i bordi laterali di color verde 
-6. Fornire il link github al file con nome |cognome|_esercizio_css_18.html
-7.  Fornire il link github al file con nome |cognome|_esercizio_css_18.css
-
+6. Consegnare su github il file con nome |cognome|_esercizio_css_19.html e il file con nome |cognome|_esercizio_css_19.css
 
 
 ---
-layout: section
----
-<h1 class="sezione">Formattazione del Testo</h1>
 
+&nbsp;
+
+<Cover fs="80px">
+    Formattazione del testo
+</Cover>
 
 ---
 
@@ -3019,25 +3125,26 @@ text-shadow
 
 ---
 
-# Esercizio css_19
+# Esercizio css_20
 
 Text formatting
 
-1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_19.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_19.css*
+1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_20.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_20.css*
 3. Dichiarare gli stili necessari affinchè:
    1. tutti i titoli di primo livello siano upper case e di colore blue
    2. tutti i titoli di secondo livello inizino con una lettera maiuscola e di colore rosso e siano sottolineati
    3. tutti i paragrafi siano giustificati tranne il 3zo paragrafo che deve avere un allineamento a destra
    4. una frase o citazione importante del testo, deve possedere un effetto di ombreggiatura a piacere
-4. Fornire il link github al file con nome |cognome|_esercizio_css_19.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_19.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_20.html e il file con nome |cognome|_esercizio_css_20.css
 
 ---
-layout: section
----
-<h1 class="sezione">Font ed Icone</h1>
 
+&nbsp;
+
+<Cover fs="100px">
+    Font e Icone
+</Cover>
 
 ---
 
@@ -3489,25 +3596,27 @@ li:before{
 
 ---
 
-# Esercizio css_20
+# Esercizio css_21
 
 CSS text formatting
 
-1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_20.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_20.css*
+1. Editare il file *|cognome|_esercizio_html_07.html* e salvarlo come *|cognome|_esercizio_css_21.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_21.css*
 3. Dichiarare gli stili necessari affinchè:
    1. i primi tre titoli di primo livelli abbiano 3 font differenti scelti tra quelli forniti da google (oltre 1000)
    2. nel testo compaiano, laddove appropriato, delle icone selezionate tra le migliaia messe a disposizione da google
    3. nel testo compaia una lista unordered con stile *circle*
    4. nel testo compaina una lista ordered con stile  con numeri romani
    5. nel testo compaina una lista unordered che abbiamo come bullet item un'icona fornita da google 
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_20.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_20.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_21.html e il file con nome |cognome|_esercizio_css_21.css
 
 ---
-layout: section
----
-<h1 class="sezione">Elementi nascosti e elementi fantasma</h1>
+
+&nbsp;
+
+<Cover fs="80px">
+    Elementi nascosti e elementi fantasma
+</Cover>
 
 
 ---
@@ -3681,9 +3790,12 @@ Display e Visibility
 </style>
 
 ---
-layout: section
----
-<h1 class="sezione">Elementi galleggianti</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Elementi galleggianti
+</Cover>
 
 
 ---
@@ -3960,27 +4072,6 @@ Layout - Float
 
 ---
 
-# Esercizio css_21
-
-Barra Navigazione orizzontale
-
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_21.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_21.css*
-3. Creare in HTML e CSS una barra di navigazione orizzontale con le seguenti caratteristiche:
-   1. Deve includere le seguenti voci: `Home, ATS, Servizi, Contatti, About`
-   2. Si deve usare solo una lista
-   3. La barra di navigazione deve avere un colore di sfondo
-   4. Al passaggio con il mouse su ogni singola voce, il colore di sfondo deve cambiare in modo congruo
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_21.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_21.css
-
-<br />
-<center>
-<img src="/media/css_19.jpg" width="500">
-</center>
-
----
-
 # Esercizio css_22
 
 Barra Navigazione orizzontale
@@ -3989,11 +4080,10 @@ Barra Navigazione orizzontale
 2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22.css*
 3. Creare in HTML e CSS una barra di navigazione orizzontale con le seguenti caratteristiche:
    1. Deve includere le seguenti voci: `Home, ATS, Servizi, Contatti, About`
-   2. NON si può usare una lista
+   2. Si deve usare solo una lista
    3. La barra di navigazione deve avere un colore di sfondo
    4. Al passaggio con il mouse su ogni singola voce, il colore di sfondo deve cambiare in modo congruo
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_22.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_22.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_22.html e il file con nome |cognome|_esercizio_css_22.css
 
 <br />
 <center>
@@ -4002,30 +4092,49 @@ Barra Navigazione orizzontale
 
 ---
 
-# Esercizio css_22a
+# Esercizio css_23
+
+Barra Navigazione orizzontale
+
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_23.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_23.css*
+3. Creare in HTML e CSS una barra di navigazione orizzontale con le seguenti caratteristiche:
+   1. Deve includere le seguenti voci: `Home, ATS, Servizi, Contatti, About`
+   2. NON si può usare una lista
+   3. La barra di navigazione deve avere un colore di sfondo
+   4. Al passaggio con il mouse su ogni singola voce, il colore di sfondo deve cambiare in modo congruo
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_23.html e il file con nome |cognome|_esercizio_css_23.css
+
+
+<br />
+<center>
+<img src="/media/css_19.jpg" width="500">
+</center>
+
+---
+
+# Esercizio css_24
 
 Scacchiera
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_22a.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22a.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_24.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_24.css*
 3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA)
 4. Creare una scacchiera 8x8 in cui 
    1. in ogni cella viene scritta la coordinata in forma righa,colonna (partendo da zero)
    2. colorare le celle esattamente come in una scacchiera per scacchi
-3. Fornire il link github al file con nome |cognome|_esercizio_css_22a.html
-4. Fornire il link github al file con nome |cognome|_esercizio_css_22a.css
+3. Consegnare su github il file con nome |cognome|_esercizio_css_24.html e il file con nome |cognome|_esercizio_css_24.css
 
 ---
 
-# Esercizio css_22b
+# Esercizio css_25
 
 Float
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_22b.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22b.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_25.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_25.css*
 3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
-4. Fornire il link github al file con nome |cognome|_esercizio_css_22b.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_22b.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_25.html e il file con nome |cognome|_esercizio_css_25.css
 
 <br>
 <center>
@@ -4034,15 +4143,14 @@ Float
 
 ---
 
-# Esercizio css_22c
+# Esercizio css_26
 
 Float
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_22c.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22c.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_26.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_26.css*
 3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
-4. Fornire il link github al file con nome |cognome|_esercizio_css_22c.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_22c.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_26.html e il file con nome |cognome|_esercizio_css_26.css
 
 <br>
 <center>
@@ -4051,15 +4159,14 @@ Float
 
 ---
 
-# Esercizio css_22d
+# Esercizio css_27
 
 Float
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_22d.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_22d.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_27.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_27.css*
 3. Creare in HTML e CSS (NON E' POSSIBILE UTILIZZARE UNA TABELLA) il layout sotto raffigurato
-4. Fornire il link github al file con nome |cognome|_esercizio_css_22d.html
-5. Fornire il link github al file con nome |cognome|_esercizio_css_22d.css
+4. Consegnare su github il file con nome |cognome|_esercizio_css_27.html e il file con nome |cognome|_esercizio_css_27.css
 
 <br>
 <center>
@@ -4067,9 +4174,12 @@ Float
 </center>
 
 ---
-layout: section
----
-<h1 class="sezione">Elementi allineati</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Elementi allineati
+</Cover>
 
 ---
 
@@ -4295,12 +4405,12 @@ Layout - Align di un img
 
 ---
 
-# Esercizio css_23
+# Esercizio css_28
 
 Foto Gallery
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_23.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_23.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_28.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_28.css*
 3. Creare in HTML (solo markup) e CSS(tutti gli stili) una foto gallery con le seguenti caratteristiche
    1. centrata rispetto alla pagina con bordo di 20px blu chiaro
    2. contiene 5 colonne
@@ -4309,12 +4419,11 @@ Foto Gallery
    5. ogni colonna ha un bordo di 1px
    6. le colonne sono distanziate di 5px
    7. per uniformità usare la seguente immagine [TUX](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1717px-Tux.svg.png)
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_23.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_23.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_28.html e il file con nome |cognome|_esercizio_css_28.css
 
 ---
 
-# Esercizio css_23
+# Esercizio css_28
 
 Foto Gallery
 
@@ -4324,12 +4433,12 @@ Foto Gallery
 
 ---
 
-# Esercizio css_23a
+# Esercizio css_29
 
 Foto Gallery
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_23a.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_23a.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_29.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_29.css*
 3. Creare in HTML (solo markup) e CSS(tutti gli stili) una foto gallery con le seguenti caratteristiche
    1. centrata rispetto alla pagina con bordo di 20px blu chiaro
    2. contiene 5 colonne
@@ -4339,14 +4448,16 @@ Foto Gallery
    6. le colonne sono distanziate di 5px
    7. per uniformità usare la seguente immagine [TUX](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1717px-Tux.svg.png)
    8. non si può utilizzare una tabella ma bisogna usare i DIV
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_23a.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_23a.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_29.html e il file con nome |cognome|_esercizio_css_29.css
 
 
 ---
-layout: section
----
-<h1 class="sezione">La posizione degli elementi</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    La posizione degli elementi
+</Cover>
 
 
 ---
@@ -4606,15 +4717,14 @@ div.sticky {
 
 ---
 
-# Esercizio css_24
+# Esercizio css_30
 
 Position
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_24.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_24.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_30.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_30.css*
 3. Creare in HTML e CSS il posizionamento di una stringa su di un immagine, in modo che la stringa sia posizionata nell'angolo in alto a sinistra
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_24.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_24.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_30.html e il file con nome |cognome|_esercizio_css_30.css
 
 <br />
 <center>
@@ -4623,15 +4733,14 @@ Position
 
 ---
 
-# Esercizio css_25
+# Esercizio css_31
 
 Position
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_25.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_25.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_31.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_31.css*
 3. Creare in HTML e CSS quanto raffigurato sotto (L'immagine può essere diversa)
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_25.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_25.css
+4.  Consegnare su github il file con nome |cognome|_esercizio_css_31.html e il file con nome |cognome|_esercizio_css_31.css
 
 <br />
 <center>
@@ -4640,13 +4749,13 @@ Position
 
 ---
 
-# Esercizio css_25a
+# Esercizio css_32
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25a.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25a.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_32.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_32.css
 
 <br />
 <center>
@@ -4655,13 +4764,13 @@ Position
 
 ---
 
-# Esercizio css_25b
+# Esercizio css_33
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25b.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25b.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_33.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_33.css
 
 <br />
 <center>
@@ -4670,13 +4779,13 @@ Position
 
 ---
 
-# Esercizio css_25c
+# Esercizio css_34
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25c.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25c.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_34.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_34.css
 
 <br />
 <center>
@@ -4685,13 +4794,13 @@ Position
 
 ---
 
-# Esercizio css_25d
+# Esercizio css_35
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25d.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25d.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_35.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_35.css
 
 <br />
 <center>
@@ -4701,13 +4810,13 @@ Position
 
 ---
 
-# Esercizio css_25e
+# Esercizio css_36
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25e.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25e.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_36.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_36.css
 
 <br />
 <center>
@@ -4716,13 +4825,13 @@ Position
 
 ---
 
-# Esercizio css_25f
+# Esercizio css_37
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25f.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25f.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_37.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_37.css
 
 <br />
 <center>
@@ -4731,13 +4840,13 @@ Position
 
 ---
 
-# Esercizio css_25g
+# Esercizio css_38
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25g.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25g.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_38.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_38.css
 
 <br />
 <center>
@@ -4746,13 +4855,13 @@ Position
 
 ---
 
-# Esercizio css_25h
+# Esercizio css_39
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25h.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25h.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_39.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_39.css
 
 <br />
 <center>
@@ -4761,13 +4870,13 @@ Position
 
 ---
 
-# Esercizio css_25i
+# Esercizio css_40
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25i.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25i.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_40.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_40.css
 
 <br />
 <center>
@@ -4776,13 +4885,13 @@ Position
 
 ---
 
-# Esercizio css_25j
+# Esercizio css_41
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25j.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25j.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_41.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_41.css
 
 <br />
 <center>
@@ -4791,13 +4900,13 @@ Position
 
 ---
 
-# Esercizio css_25k
+# Esercizio css_42
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25k.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25k.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_42.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_42.css
 
 <br />
 <center>
@@ -4806,13 +4915,13 @@ Position
 
 ---
 
-# Esercizio css_25l
+# Esercizio css_43
 
 Position
 
 1. Realizzare in html e CSS la pagina sotto raffigurata
-2.  Consegnare su github il file chiamato |cognome|_esercizio_css_25l.html
-3.  Consegnare su github il file chiamato |cognome|_esercizio_css_25l.css
+2.  Consegnare su github il file chiamato |cognome|_esercizio_css_43.html
+3.  Consegnare su github il file chiamato |cognome|_esercizio_css_43.css
 
 <br />
 <center>
@@ -4820,9 +4929,12 @@ Position
 </center>
 
 ---
-layout: section
----
-<h1 class="sezione">Flexbox Layout</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Flexbox Layout
+</Cover>
 
 
 ---
@@ -7529,12 +7641,12 @@ Permette di definire il fattore di riduzione di un items quando viene calcolata 
 
 ---
 
-# Esercizio css_26
+# Esercizio css_44
 
 Flexbox
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_26.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_26.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_44.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_44.css*
 3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
 
 <br>
@@ -7543,17 +7655,17 @@ Flexbox
 </center>
 <br>
 
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_26.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_26.css
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_44.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_44.css
 
 ---
 
-# Esercizio css_27
+# Esercizio css_45
 
 Flexbox
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_27.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_27.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_45.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_45.css*
 3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
 
 <br>
@@ -7562,17 +7674,17 @@ Flexbox
 </center>
 <br>
 
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_27.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_27.css
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_45.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_45.css
 
 ---
 
-# Esercizio css_28
+# Esercizio css_46
 
 Flexbox
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_28.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_28.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_46.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_46.css*
 3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
 
 <br>
@@ -7581,18 +7693,18 @@ Flexbox
 </center>
 <br>
 
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_28.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_28.css
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_46.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_46.css
 
 
 ---
 
-# Esercizio css_29
+# Esercizio css_47
 
 Flexbox
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_29.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_29.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_47.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_47.css*
 3. Creare in HTML e CSS utilizzando il flexbox quanto raffigurato sotto 
 
 <br>
@@ -7601,8 +7713,8 @@ Flexbox
 </center>
 <br>
 
-4.  Fornire il link github al file con nome |cognome|_esercizio_css_29.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_29.css
+4.  Fornire il link github al file con nome |cognome|_esercizio_css_47.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_47.css
 
 
 ---
@@ -7618,9 +7730,12 @@ FlexboxFroggy
 <img src="/media/css_68.png" width="900" style="margin:auto;">
 
 ---
-layout: section
----
-<h1 class="sezione">Grid Layout</h1>
+
+&nbsp;
+
+<Cover fs="100px">
+    Grid Layout
+</Cover>
 
 
 ---
@@ -7882,15 +7997,15 @@ Basic
 
 ---
 
-# Esercizio css_30
+# Esercizio css_48
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_30.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_30.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_48.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_48.css*
 3. Creare in HTML e CSS utilizzando Grid, la scacchiera del gioco del 15, raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_30.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_30.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_48.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_48.css
 
 <img src="/media/css_47.png" width="250" style="margin:auto;">
 
@@ -8983,89 +9098,89 @@ Proprietà grid items
 
 ---
 
-# Esercizio css_30a
+# Esercizio css_49
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_30a.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_30a.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_49.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_49.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_30a.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_30a.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_49.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_49.css
 
 <img src="/media/css_80.png" width="600" style="margin:auto;">
 
 
 ---
 
-# Esercizio css_31
+# Esercizio css_50
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_31.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_31.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_50.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_50.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_31.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_31.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_50.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_50.css
 
 <img src="/media/css_63.png" width="400" style="margin:auto;">
 
 
 ---
 
-# Esercizio css_32
+# Esercizio css_51
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_32.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_32.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_51.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_51.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_32.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_32.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_51.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_51.css
 
 <img src="/media/css_64.png" width="400" style="margin:auto;">
 
 ---
 
-# Esercizio css_33
+# Esercizio css_52
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_33.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_33.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_52.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_52.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_33.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_33.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_52.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_52.css
 
 <img src="/media/css_65.png" width="400" style="margin:auto;">
 
 
 ---
 
-# Esercizio css_34
+# Esercizio css_53
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_34.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_34.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_53.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_53.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_34.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_34.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_53.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_53.css
 
 <img src="/media/css_67.png" width="400" style="margin:auto;">
 
 
 ---
 
-# Esercizio css_35
+# Esercizio css_54
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_35.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_35.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_54.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_54.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto 
-4. Fornire il link github al file con nome |cognome|_esercizio_css_35.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_35.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_54.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_54.css
 
 <img src="/media/css_66.png" width="400" style="margin:auto;">
 
@@ -9096,9 +9211,12 @@ GridAttack
 
 
 ---
-layout: section
----
-<h1 class="sezione">Responsive Web & Media Queries</h1>
+
+&nbsp;
+
+<Cover fs="80px">
+    Responsive Web & Media Queries
+</Cover>
 
 
 ---
@@ -9587,19 +9705,19 @@ es:
 
 ---
 
-# Esercizio css_36
+# Esercizio css_55
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_36.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_36.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_55.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_55.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto sia per desktop che per mobile con media queries
-4. Fornire il link github al file con nome |cognome|_esercizio_css_36.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_36.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_55.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_55.css
 
 ---
 
-# Esercizio css_36
+# Esercizio css_55
 
 Desktop
 
@@ -9608,7 +9726,7 @@ Desktop
 
 ---
 
-# Esercizio css_36
+# Esercizio css_55
 
 Mobile
 
@@ -9616,19 +9734,19 @@ Mobile
 
 ---
 
-# Esercizio css_37
+# Esercizio css_56
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_37.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_37.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_56.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_56.css*
 3. Creare in HTML e CSS utilizzando Grid, la griglia raffigurata sotto sia per desktop che per mobile con media queries
-4. Fornire il link github al file con nome |cognome|_esercizio_css_37.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_37.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_56.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_56.css
 
 ---
 
-# Esercizio css_37
+# Esercizio css_56
 
 Desktop
 
@@ -9637,7 +9755,7 @@ Desktop
 
 ---
 
-# Esercizio css_37
+# Esercizio css_56
 
 Mobile
 
@@ -9646,19 +9764,19 @@ Mobile
 
 ---
 
-# Esercizio css_38
+# Esercizio css_59
 
 Grid
 
-1. Creare un file e salvarlo come *|cognome|_esercizio_css_38.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_38.css*
+1. Creare un file e salvarlo come *|cognome|_esercizio_css_59.html*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_59.css*
 3. Realizzare il proprio CV (vedi esempio) utilizzando il grid layout e grid of grid in modo che sia responsive
-4. Fornire il link github al file con nome |cognome|_esercizio_css_38.html
-5.  Fornire il link github al file con nome |cognome|_esercizio_css_38.css
+4. Fornire il link github al file con nome |cognome|_esercizio_css_59.html
+5.  Fornire il link github al file con nome |cognome|_esercizio_css_59.css
 
 ---
 
-# Esercizio css_38
+# Esercizio css_59
 
 CV
 
@@ -9667,7 +9785,4 @@ CV
 
 ---
 
-&nbsp;
-<center>
-<img src="/media/css_21.jpg" width="800" />
-</center>
+<img src="/media/hh04.webp" style="position:relative;top:-20px;">
