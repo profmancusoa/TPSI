@@ -12,7 +12,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: "2024/2025"
-version: '1.8.1'
+version: '1.8.2'
 
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
@@ -248,6 +248,8 @@ Materiale Aggiuntivo
 
  <div>
 
+- [CSS_Flexbox_Breakdown](/support/3/css/pdf/CSS_Flexbox_Breakdown.pdf)
+- [CSS_Interview_Questions](/support/3/css/pdf/CSS_Interview_Questions.pdf)
 - [CSS3_Foundations](/support/3/css/epub/CSS3_Foundations_Ian_Lunn.epub)
 - [CSS_CSS3_20_Lessons](/support/3/css/epub/CSS_CSS3_20_Lessons_to_Successful_Web_Development_Robin_Nixon.epub)
 - [HTML5_and_CSS3_Building_Responsive_Websites](/support/3/css/epub/HTML5_and_CSS3_Building_Responsive_Websites_Thoriq_Firdaus_Ben_Frain_Benjamin_LaGrone.epub)

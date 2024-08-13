@@ -278,6 +278,54 @@ Materiale Aggiuntivo
 Materiale Aggiuntivo
 
 <div class="grid grid-flow-col  gap-4">
+<div>
+
+
+- [JavaScript_Array_Questions](/support/4/js/pdf/JavaScript_Array_Questions_.pdf)
+- [Javascript_destructuring](/support/4/js/pdf/Javascript_destructuring.pdf)
+- [Lets_understand_JSON](/support/4/js/pdf/Lets_understand_JSON.pdf)
+- [Node.js_For_EveryOne](/support/4/js/pdf/Node.js_For_EveryOne.pdf)
+- [Javascript_Ninja](/support/4/js/pdf/Javascript_Ninja.pdf)
+- [Javasript_operators](/support/4/js/pdf/Javasript_operators.pdf)
+- [JS_Array](/support/4/js/pdf/JS_Array.pdf)
+- [JS_for_vip](/support/4/js/pdf/js_for_vip.pdf)
+
+
+</div>
+
+<div>
+
+- [Console_methods](/support/4/js/pdf/console_methods.pdf)
+- [Avoid_these_mistakes_when_js_code](/support/4/js/pdf/Avoid_these_mistakes_when_js_code.pdf)
+- [DOM_in_JavaScript](/support/4/js/pdf/DOM_in_JavaScript.pdf)
+- [Functions_in_js](/support/4/js/pdf/functions_in_js.pdf)
+- [20_Coding_patterns](/support/4/js/pdf/20_Coding_patterns.pdf)
+- [JS_Functions](/support/4/js/pdf/JS_Functions.pdf)
+- [Type_Conversion_in_JavaScript](/support/4/js/pdf/Type_Conversion_in_JavaScript.pdf)
+- [JS-2](/support/4/js/pdf/js-2.pdf)
+
+</div>
+
+<div>
+
+- [JS_project_ideas_for_beginner](/support/4/js/pdf/JS_project_ideas_for_beginner.pdf)
+- [JS](/support/4/js/pdf/js.pdf)
+- [Top_8_Build_Tools_for_Modern_Web_Development](/support/4/js/pdf/Top_8_Build_Tools_for_Modern_Web_Development.pdf)
+- [map_reduce_filter](/support/4/js/pdf/map_reduce_filter.pdf)
+- [Arrow_Function_Types_In_JS](/support/4/js/pdf/Arrow_Function_Types_In_JS.pdf)
+- [DSA_Beginners_to_Advanced_Guide](/support/4/js/pdf/DSA_Beginners_to_Advanced_Guide.pdf)
+
+</div>
+
+</div>
+
+--- #slide 1
+
+# JS
+
+Materiale Aggiuntivo
+
+<div class="grid grid-flow-col  gap-4">
 
 <div>
 

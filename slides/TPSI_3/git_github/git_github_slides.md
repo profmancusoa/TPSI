@@ -14,7 +14,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
 as: 2024/2025
-version: '1.1.1'
+version: '1.1.2'
 
 ---  
 
@@ -241,10 +241,12 @@ Materiale Aggiuntivo
 
 - [Git dalla A alla Z](/support/3/git/pdf/git_a_z.pdf) 
 - [Git Basic](/support/3/git/pdf/git_basic.pdf) 
+- [GitandGithub](/support/3/git/pdf/GitandGithub.pdf)
 - [Git Cheatsheet 1](/support/3/git/pdf/git_cheatsheet_01.pdf)
 - [Git Cheatsheet 2](/support/3/git/pdf/git_cheatsheet_01.pdf)
 - [Git Cheatsheet 3](/support/3/git/pdf/git_cheatsheet_01.pdf)
 - [Git Cheatsheet 4](/support/3/git/pdf/git_cheatsheet_01.pdf)
+
  
 </div>
 
