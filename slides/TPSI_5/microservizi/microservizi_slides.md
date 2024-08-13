@@ -2,7 +2,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: "RETI"
-as: "2022/2023"
-version: '1.0.0'
+as: "2024/2025"
+version: '1.1.0'
 
 ---  
 
@@ -207,3 +207,6 @@ Introduzione
 <img src="/media/microservizi_04.png" style="width:250px;margin:auto;"/>
 <img src="/media/microservizi_05.png" style="width:100px;position:relative; top: -7rem;left: 40rem;"/>
 
+---
+
+<img src="/media/hh03.webp" style="position:relative;top:-20px;">
