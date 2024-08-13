@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 #background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /assets/intro01.jpg
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,12 +13,12 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 5
-as: 2023/2024
-version: '1.1.0'
+as: 2024/2025
+version: '1.2.0'
 
 ---  
 
-# TPSI 5
+# REST API
 
 API & RESTful Web Sercices
 
@@ -28,6 +28,24 @@ API & RESTful Web Sercices
   </span>
 </div>
 
+---
+
+# REST API
+
+Materiale Aggiuntivo
+
+- [REST fundamentals](/support/5/rest/rest_fundamentals.pdf)
+- [Cheatsheet 1](/support/5/rest/rest_cheatsheet_01.pdf)
+- [Cheatsheet 2](/support/5/rest/rest_cheatsheet_02.pdf)
+
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Intro
+</Cover>
 
 ---
 
@@ -223,6 +241,14 @@ Intro
 
 ---
 
+&nbsp;
+
+<Cover fs=100px>
+Architettura RESTfull
+</Cover>
+
+---
+
 # REST Web Services
 
 Architettura RESTfull
@@ -370,6 +396,14 @@ RESTfull
 <Banner padding="30px">
 In sintesi, i RESTful web services sono un metodo popolare e efficace per creare servizi web scalabili e mantenibili basati sull'architettura REST. Utilizzano il protocollo HTTP per manipolare le risorse e comunicare lo stato delle operazioni, offrendo vantaggi in termini di scalabilità, mantenibilità, interoperabilità e performance.
 </Banner>
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Esercitazioni
+</Cover>
 
 ---
 
@@ -790,4 +824,8 @@ Conclusioni
 - Abbiamo visto come creare in modo semplicissimo un RESTful web service e come interrogarlo tramite i metodi HTTP
 - Abbiamo verificato la perfetta aderenza dei verbi/metodi HTTP e le operazioni CRUD
 - In conlcusione abbiamo imparato ad usare un RESTful web service, strumento importantissimo nel  moderno sviluppo software web e non solo
+
+---
+
+<img src="/media/hh01.webp" style="position:relative;top:-20px;">
 
