@@ -3,7 +3,7 @@ theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 #background: https://source.unsplash.com/collection/94734566/1920x1080
-background: /assets/intro01.jpg
+background: /cover.webp
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -13,8 +13,8 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 5
-as: 2022/2023
-version: '1.1.0'
+as: 2024/2025
+version: '1.2.0'
 
 ---  
 
@@ -27,6 +27,14 @@ I Data Base NoSQL
     Premi spazio o <carbon:arrow-right class="inline"/> per la prossima slide
   </span>
 </div>
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Intro
+</Cover>
 
 ---
 
@@ -168,9 +176,9 @@ Intro
 
 Intro
 
-<div style="background-color: green;color: yellow; font-size: 2rem; line-height: 3rem;padding: 20px;">
+<Banner padding=40px mt=50px>
 I database NoSQL sono una soluzione ideale per molte applicazioni moderne, quali dispositivi mobili, Web e videogiochi che richiedono database flessibili, scalabili, con prestazioni elevate ed altamente funzionali per offrire un'esperienza utente eccezionale
-</div>
+</Banner>
 
 ---
 
@@ -183,6 +191,14 @@ I DB NoSQL offrono e sono
 - **Scalabilità**: i database NoSQL in genere sono progettati per il dimensionamento orizzontalmente, attuato usando cluster distribuiti di hardware, invece del dimensionamento verticalmente, che avviene aggiungendo server costosi e di grosse dimensioni. Alcuni fornitori di cloud gestiscono queste operazioni dietro le quinte offrendo un servizio completamente gestito (cloud DB).
 - **Elevate prestazioni**: i database NoSQL sono ottimizzati per modelli di dati specifici e schemi di accesso che consentono prestazioni più elevate rispetto ai risultati che si ottengono cercando di raggiungere una funzionalità simile con i database relazionali.
 - **Altamente funzionali**: i database NoSQL offrono API altamente funzionali e tipi di dati che sono dedicati a ciascuno dei rispettivi modelli di dati.
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Tipologie di DB NOSQL
+</Cover>
 
 ---
 
@@ -338,6 +354,14 @@ Intro
   - Neo4J
   - HBase
   - ...
+
+---
+
+&nbsp;
+
+<Cover fs=100px>
+Esercitazioni - MONGODB
+</Cover>
 
 ---
 
@@ -1058,7 +1082,5 @@ Esercitazione 03 - mongoDB e JS
 
 ---
 
-&nbsp;
-<center>
-<img src="/media/nosql_27.jpg" width="800" />
-</center>
+
+<img src="/media/hh04.webp" style="position:relative;top:-20px;">
