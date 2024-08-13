@@ -13,8 +13,22 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: "TPSI"
 as: "2024/2025"
-version: '1.5.2'
+version: '1.5.3'
 --- 
+
+<!-- mapping esercizi
+
+1-10 -> 1-10
+10a -> 11
+11 -> 12
+11a -> 13
+12 -> 14
+12a -> 15
+13 -> 16
+13a -> 17
+14 -> 18
+15 -> 19
+16 -> 20 -->
 
 
 # Hyper Text Markup Language
@@ -742,11 +756,11 @@ Blocchi di testo
 
 Heading e paragrafi
 
-1. Trasformare il file di test [*esercizio_html_02.txt*](../../support/esercizio_html_02.txt) in *|cognome|_esercizio_html_02.html*
+1. Trasformare il file di test [*esercizio_html_02.txt*](/support/3/html/esercizio_html_02.txt) in *|cognome|_esercizio_html_02.html*
 2. Creare la struttura della pagina HTML inserendo anche i metadati appropriati
 3. Impaginare il testo inserendo, in modo appropriato, gli heading necessari per titoli e sottotitoli
 4. Suddividere il testo in paragrafi in modo opportuno
-5. Fornire il link github al file con nome |cognome|_esercizio_html_02.html
+5. Consegnare su github il file con nome |cognome|_esercizio_html_02.html
 
 ---
 
@@ -901,7 +915,7 @@ Link
 2. Trasformare almeno 5 parole in link a risorse esterne
 3. Trasformare altre 5 parole in modo che siano visualizzate in verde, blue o rosso
 4. Selezionare almeno 2 frasi particolarmente importanti e inserirle in un rettangolo con sfondo blue e testo di color bianco.
-5. Fornire il link github al file con nome |cognome|_esercizio_html_03.html
+5. Consegnare su github il file con nome |cognome|_esercizio_html_03.html
 
 
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -985,7 +999,7 @@ Link
 2. Aggiungere almeno 1 immagine, relative al testo, come risorsa esterna (link assoluto)
 3. Aggiungere almeno 1 immagine, relative al testo, come risorsa interna (link relativo)
 4. Aggiungere almeno 1 immagine, relative al testo, che sia anche un link ad una pagina esterna
-5. Fornire il link github al file con nome |cognome|_esercizio_html_04.html
+5. Consegnare su github il file con nome |cognome|_esercizio_html_04.html
 
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1112,7 +1126,7 @@ Link
 8. marcare 5 parole come eliminate dal testo
 9. marcare 5 parole come inserite nel testo
 10. dove possibile marcare almeno 1 parola come apice ed 1 come pedice
-11. Fornire il link github al file con nome |cognome|_esercizio_html_05.html
+11. Consegnare su github il file con nome |cognome|_esercizio_html_05.html
 
     
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1209,7 +1223,7 @@ Link
 3. marcare 3 frasi o parole come brevi citazioni
 4. marcare almeno 3 abbreviazioni
 5. marcare 1 citazione (cite) di qualche altro autore
-6. Fornire il link github al file con nome |cognome|_esercizio_html_06.html
+6. Consegnare su github il file con nome |cognome|_esercizio_html_06.html
 
     
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1312,7 +1326,7 @@ Link
 3. marcare 5 parole come sbarrate
 4. aggiungere una porzione di codice sorgente o comando linux
 5. aggiungere una sezione di testo pre formattata
-6. Fornire il link github al file con nome |cognome|_esercizio_html_07.html
+6. Consegnare su github il file con nome |cognome|_esercizio_html_07.html
 
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1421,7 +1435,7 @@ Link
 3. Inserire 3 linee orizzontali di separazione
 4. Inserire 5 meter bar
 5. Inserire 5 progress bar
-6. Fornire il link github al file con nome |cognome|_esercizio_html_08.html
+6. Consegnare su github il file con nome |cognome|_esercizio_html_08.html
 
 
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1638,7 +1652,7 @@ Link
 2. Inserire 5 caratteri speciali in modo congruo con il testo
 3. Creare 1 lista ordinata in modo congruo con il testo
 4. Creare 1 lista non ordinata in modo congruo con il testo
-5. Fornire il link github al file con nome |cognome|_esercizio_html_09.html
+5. Consegnare su github il file con nome |cognome|_esercizio_html_09.html
 
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
@@ -1808,14 +1822,14 @@ Link
 
 1. Editare il file *|cognome|_esercizio_html_09.html* e salvarlo come *|cognome|_esercizio_html_10.html*
 2. Creare 1 tabella modo congruo con il testo
-3. Fornire il link github al file con nome |cognome|_esercizio_html_10.html
+3. Consegnare su  github il file con nome |cognome|_esercizio_html_10.html
 
    
 *far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
 ---
 
-# Esercizio html_10a
+# Esercizio html_11
 
 Tabelle
 
@@ -1824,7 +1838,7 @@ Tabelle
 
 1. Realizzare in HTML con l'uso delle tabelle il menù del ristorante qui a fianco
 2. Obiettivo non è riprodurlo fedelmente con colori ed effetti, ma riprodurne il layout tramite l'uso delle tabelle
-3. Consegnare su github il file con nome |cognome|_esercizio_html_10a.html
+3. Consegnare su github il file con nome |cognome|_esercizio_html_11.html
 </div>
 <div>
 <img src="/media/html5_12.jpg" width="370" style="float:right; position:relative;top:-100px;"/>
@@ -2067,13 +2081,13 @@ I principali widget sono:
 
 ---
 
-# Esercizio html_11
+# Esercizio html_12
 
 Form
 
-1. Creare un file con nome *|cognome|_esercizio_html_11.html*
+1. Creare un file con nome *|cognome|_esercizio_html_12.html*
 2. Creare 1 form per la raccolta di dati in uno scenario scelto dallo studente
-3. Fornire il link github al file con nome |cognome|_esercizio_html_11.html
+3. Consegnare su github il file con nome |cognome|_esercizio_html_12.html
 
 
 <br>
@@ -2098,7 +2112,7 @@ Il form deve contenere i seguenti widgets:
 
 ---
 
-# Esercizio html_11a
+# Esercizio html_13
 
 Form
 
@@ -2111,7 +2125,7 @@ Form
     - descrizione del lavoro svolto (casella di testo editabile lunga 80 caratteri)
     - bottone di invio
     - bottone di reset
-2. Consegnare su github il file con nome |cognome|_esercizio_html_11a.html
+2. Consegnare su github il file con nome |cognome|_esercizio_html_13.html
 
 
 
@@ -2207,13 +2221,13 @@ Form
       
 ---
 
-# Esercizio html_12
+# Esercizio html_14
 
 Form
 
-1. Modificare il file *|cognome|_esercizio_html_11.html* e salvarlo come *|cognome|_esercizio_html_12.html*
+1. Modificare il file *|cognome|_esercizio_html_12.html* e salvarlo come *|cognome|_esercizio_html_14.html*
 2. Modificare il form (vedi dettagli sotto)
-3. Fornire il link github al file con nome |cognome|_esercizio_html_12.html
+3. Consegnare su github il file con nome |cognome|_esercizio_html_14.html
 
 
 Il form deve contenere i seguenti widgets aggiuntivi:
@@ -2311,7 +2325,7 @@ Il form deve contenere i seguenti widgets aggiuntivi:
 
 ---
 
-# Esercizio html_12a
+# Esercizio html_15
 
 Form
 
@@ -2325,18 +2339,18 @@ Form
 - richieste particolari (area di testo editabile di 12 righe per 60 colonne)
 - bottone di invio
 - bottone di reset
-2. Consgenare su github tutti il file |cognome|_es12a.html
+2. Consgenare su github il file |cognome|_es15.html
 
 
 ---
 
-# Esercizio html_13
+# Esercizio html_16
 
 Form
 
-1. Creare un file con nome *|cognome|_esercizio_html_13.html*
+1. Creare un file con nome *|cognome|_esercizio_html_16.html*
 2. Creare 1 form per la raccolta di dati personali
-3. Fornire il link github al file con nome |cognome|_esercizio_html_13.html
+3. Consegnare su github il file con nome |cognome|_esercizio_html_16.html
 
 
 Il form deve contenere i seguenti campi:
@@ -2364,7 +2378,7 @@ Il form deve contenere i seguenti campi:
 
 ---
 
-# Esercizio html_13a
+# Esercizio html_17
 
 Form
 
@@ -2373,7 +2387,7 @@ Form
 
 1. Progettare e realizzare in HTML il form di di iscrizione al PCTO rappresentato qui a fianco e disponibile [qui](/support/3/html/convenzione_pcto.pdf)
 2. Obiettivo è riprodurlo il più fedelmente possibile
-3. Consegnare su github il file con nome |cognome|_esercizio_html_13a.html
+3. Consegnare su github il file con nome |cognome|_esercizio_html_17.html
 
 </div>
 <div>
@@ -2429,7 +2443,7 @@ Form lifecycle client-side
 
 ---
 
-# Esercizio html_14
+# Esercizio html_18
 
 Form validation server-side
 
@@ -2440,7 +2454,7 @@ Per fare ciò abbiamo bisonog di due componenti fondamentali:
 2. Un web server che implementa la logica di validazione
 
 Per questa esercitazione il form e il web server sono forniti
-1. Scaricare il seguente pacchetto:[esercizio_html_14.tgz](https://profmancusoa.github.io/TPSI/support/esercizio_html_14.tgz)
+1. Scaricare il seguente pacchetto:[esercizio_html_18.tgz](/support/3/html/esercizio_html_18.tgz)
 2. Installare i pacchetti necessari con `npm install`
 4. Lanciare il web server con `node form_server.js`
 5. Aprire la pagina fornita dal server locale sulla posta 8080
@@ -2449,7 +2463,7 @@ Per questa esercitazione il form e il web server sono forniti
 
 ---
 
-# Esercizio html_14
+# Esercizio html_18
 
 
 &nbsp;
@@ -2460,7 +2474,7 @@ Si richiede di:
 3. Modificare il form in modo che l'età venga fornita come un ```range```
 4. Modificare il form in modo che sia presente anche il campo `Cognome`
 5. Modificare il codice del server in modo che sia presente **anche** la validazione dell'età, in modo che siano accettati solo valori compresi tra 19 e 31
-6. Fornire il link github alla directory con nome |cognome|_esercizio_html_14 contenente i file aggiornati *form.html* e *form_server.js*
+6. Fornire il link github alla directory con nome |cognome|_esercizio_html_18 contenente i file aggiornati *form.html* e *form_server.js*
 7. ```NON deve essere presente nel repository la directory **node_modules**```
 
 
@@ -2534,7 +2548,7 @@ W3C Markup Validation Service
 
 ---
 
-# Esercizio html_15
+# Esercizio html_19
 
 HTML lint
 
@@ -2638,33 +2652,19 @@ node-w3c-validator -i /path/to/file.html -f html > report.html
 
 ---
 
-# Esercizio html_16
+# Esercizio html_20
 
 HTML lint
 
 Mediante il linter da liena di comando si richiede di:
-1. Effettuare la verifica sintattica del file |cognome|_glossario.html
+1. Effettuare la verifica sintattica del file |cognome|_esercizio_html_11.html generando un report in formato txt
 2. Leggere in dettaglio il report e comprendere i principali errori e warning verificando il codice sorgente
-3. Effettuare la verifica sintattica del file |cognome|_glossario.html generando un report in formato txt
-4. Consegnare su github il file |cognome|_esercizio_html_16.txt
-5. Effettuare la verifica sintattica del file |cognome|_glossario.html generando un report in formato lint
-6. Consegnare su github il file |cognome|_esercizio_html_16.lint
-7. Effettuare la verifica sintattica del file |cognome|_glossario.html generando un report in formato html
-8. Consegnare su github il file |cognome|_esercizio_html_16.html
+3. Consegnare su github il file |cognome|_esercizio_html_20.txt
+4. Effettuare la verifica sintattica del file |cognome|_esercizio_html_11.html generando un report in formato lint
+5. Consegnare su github il file |cognome|_esercizio_html_20.lint
+6. Effettuare la verifica sintattica del file |cognome|_esercizio_html_11.html generando un report in formato html
+7. Consegnare su github il file |cognome|_esercizio_html_20.html
 
-
-
----
-
-# Esercizio html_17
-
-HTML lint
-
-Mediante il linter da liena di comando si richiede di:
-1. Effettuare la verifica sintattica del file |cognome|_glossario.html
-2. Leggere in dettaglio il report e comprendere i principali errori e warning verificando il codice sorgente
-3. Correggere gli errori ed i warning
-4. Consegnare su github il file |cognome|_esercizio_html_17_glossario_corretto.html
 
 ---
 
