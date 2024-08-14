@@ -12,15 +12,15 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-as: 2023/2024
-version: '1.0.2'
+as: 2024/2025
+version: '1.1.0'
 
 ---  
 
 
 # SvelteKit
 
-Static Web Site
+Static Web Site e GitHub Pages
 
 <div class="pt-12">
   <span class="px-2 py-1">
@@ -40,7 +40,7 @@ Static Web Site
   - solo front-end
   - back-end e front-end (full stack)
 - Le applicazioni che includono un back-end hanno bisogno di *node.js* pertanto devono essere eseguite su un server che dispone di node
-- Tuttavia spesso, seguendo il nuovo paradigma *serverless* la nostra applicazione Web o sito, avrà solo un front-end
+- Tuttavia spesso, seguendo il nuovo paradigma `serverless` la nostra applicazione Web o sito, avrà solo un front-end
 - In questo scenario non è necessario un server per eseguire l'applicazione
 - E' sufficiente pubblicare il sito su un normale web server (tramite uno degli infiniti servizi disponibili - vedi GitHub Pages)
 
@@ -55,6 +55,25 @@ Static Web Site
 - Questo blog è realizzato in SvelteKit e generato staticamente
 - Infatti lo pubblico su github pages e non ho bisogno di un server node.js e del relativo servizio di hosting che può essere costoso
 - Chiaramente siccome il sito sarà statico dobbiamo assicurarci di abilitare il pre-render in quanto le pagine NON possono essere di tipo SSR, ma necessariamente di tipo CSR
+- Vediamo come creare un sito statico con SvelteKit e come publiccarlo su GitHub Pages
+---
+
+# SvelteKit
+
+Esercitazione 01
+
+- Crea sul tuo GitHub un repo  di nome `mystaticsvelte`
+- Fai il clone sul tuo PC
+- Crea un nuovo progetto svelte con
+
+```bash
+$ npm create svelte@latest mystaticsvelte                     
+Need to install the following packages:
+create-svelte@6.3.7
+Ok to proceed? (y) 
+```
+
+<img src="/media/static_02.png" width="500" style="margin:auto;position:relative; left: 300px; top: -250px;">
 
 ---
 
@@ -62,19 +81,7 @@ Static Web Site
 
 Static Web Site
 
-- Aggiungiamo al nostro file *+layout.svelte*, o se non presente al file *+page.server.js* oppure *+page.js*
-
-<br>
-
-```js
-export const prerender = true;
-```
-
-<br>
-
-- Questo garantisce che le pagine sono tutte di tipo CSR e per ogni pagina avviene un pre-rendering
-- Nota che in questo scenario la funzione *load* può ancora essere utilizzata per effettuare delle funzioni server side, ma ciò p possibile solo durante la compilazione del sito (***build phase***) e non durante il **run-time** del sito
-- Ottimo esempio di questo meccanismo è il mio blog dove durante il pre-rendering trasformo gli articoli scritti in markdown in HTML
+<img src="/media/static_03.png" width="500" style="margin:auto;position:relative; left: 0px; top: 0px;">
 
 ---
 
@@ -89,72 +96,6 @@ Static Web Site
 ```
 
 - Dopo di ciò edita il file ***svelte.config.js*** in questo modo
-
-```js
-import adapter from '@sveltejs/adapter-static';
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	kit: {
-		adapter: adapter({
-            pages: 'build-static',
-            assets: 'build-static',
-            fallback: undefined,
-            precompress: false,
-            strict: true
-        })
-	}
-};
-export default config;
-```
-
----
-
-# SvelteKit
-
-Static Web Site
-
-- Ora uno volta terminato lo sviluppo, basta fare il build del sito così
-
-```bash
-# npm run build
-...
-...
-Run npm run preview to preview your production build locally.
-
-> Using @sveltejs/adapter-static
-  Wrote site to "build-static"
-  ✔ done
-✓ built in 4.40s
-```
-
----
-
-# SvelteKit
-
-Static Web Site
-
-- Ora il tuo sito statico è disponibile nella directory `build-static`
-
- ```bash
-totale 16K
-drwxrwxr-x 3 antonio antonio 4,0K lug 11 19:17 _app
--rw-rw-r-- 1 antonio antonio   71 lug 11 19:17 __data.json
--rw-rw-r-- 1 antonio antonio 1,6K lug 11 19:17 favicon.png
--rw-rw-r-- 1 antonio antonio 3,1K lug 11 19:17 index.html 
- ```
-
-- Come si vede c'è il file *index.html* che è la root del sito e tutte le altre pagine e risorse sono statiche
-- Il contenuto di questa cartella può essere trasferito sul tuo hosting per andare direttamente online
-
----
-
-# SvelteKit
-
-Static Web Site
-
-- Se usi Github Pages è necessario qualche piccolo accorgimento
-- Per prima cosa GitHub Pages pubblica le pagine contenute nella directory docs, quindi è preferibile usare il seguente file ***svelte.config.js*** 
 
 ```js
 import adapter from '@sveltejs/adapter-static';
@@ -180,6 +121,26 @@ export default config;
 
 Static Web Site
 
+- Aggiungiamo al nostro progetto il file  `+layout.js` nella directory `src/routes`
+
+<br>
+
+```js
+export const prerender = true;
+```
+
+<br>
+
+- Questo garantisce che le pagine sono tutte di tipo CSR e per ogni pagina avviene un pre-rendering
+- Nota che in questo scenario la funzione *load* può ancora essere utilizzata per effettuare delle funzioni server side, ma ciò p possibile solo durante la compilazione del sito (***build phase***) e non durante il **run-time** del sito
+- Ottimo esempio di questo meccanismo è il mio blog dove durante il pre-rendering trasformo gli articoli scritti in markdown in HTML
+
+---
+
+# SvelteKit
+
+Static Web Site
+
 - Siccome GitHub Pages usa jekyll (il primo esempio importante di static web site generator scritto in ruby) i file e directory che iniziano con _(underscore) vengono ignorati
 - Per evitare questo comportamento, basta aggiungere il file vuoto **.nojekyll** nella directory *docs*
 - In questo modo saremo sicuri che il nostro sito o app generate con sveltekit venga servito correttamente (altrimenti ci sono degli errori 404)
@@ -196,16 +157,212 @@ Per evitare di dover creare il file *.nojekyll* tutte le volte a mano, modifichi
 ...
 ```
 
-Static Web Site
 ---
 
 # SvelteKit
 
-Esercitazione_01
+Static Web Site
 
-- Creare un semplice sito in svelteKit, o usarne uno già preparato in passato
-- Fare il build statico
-- Pubblicarlo su Github Pages
-- Consegnare via email, il link pubblico al sito 
+- Uno volta terminato lo sviluppo, basta fare il build del sito così
 
-<img src="/media/static_01.png" width="350" style="margin:auto;position:relative; left: 0px; top: 20px;">
+```bash
+# npm run build
+...
+...
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-static
+  Wrote site to "docs"
+  ✔ done
+✓ built in 4.40s
+```
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora il tuo sito statico è disponibile nella directory `docs`
+
+<br>
+
+ ```bash
+totale 16K
+drwxrwxr-x 3 antonio antonio 4,0K lug 11 19:17 _app
+-rw-rw-r-- 1 antonio antonio 1,6K lug 11 19:17 favicon.png
+-rw-rw-r-- 1 antonio antonio 3,1K lug 11 19:17 index.html 
+-rw-rw-r-- 1 antonio antonio 3,1K lug 11 19:17 .nojekyll 
+ ```
+
+<br>
+
+- Come si vede c'è il file *index.html* che è la root del sito e tutte le altre pagine e risorse sono statiche
+- Il contenuto di questa cartella può essere trasferito sul tuo hosting per andare direttamente online
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora fai il push del progetto su github
+
+<img src="/media/static_04.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora è necessario configurare GitHub Pages in modo che pubblichi il nostro sito statico
+
+<img src="/media/static_05.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora basta attendere la pubblicazione del sito (qualche minuto)
+
+
+<img src="/media/static_06.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora possiamo visitare il nostro sito pubblicato su github pages
+
+
+<img src="/media/static_07.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ed ecco il sito è disponibile su Internet per essere consultato da tutti
+
+
+<img src="/media/static_08.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- In questo modo ad ogni modifica del sito dobbiamo farne il `build` e fare il push sia del progetto che della directory *docs*
+- Possiamo utilizzare una funzionalità di GitHub che si chiama `GitHub Actions`
+  - Sono una funzionalità di GitHub che consente di automatizzare, personalizzare e orchestrare flussi di lavoro per lo sviluppo software direttamente all'interno di un repository GitHub
+  - Sono un potente strumento di Continuous Integration (CI) e Continuous Delivery/Deployment (CD), che permette agli sviluppatori di automatizzare attività relative al progetto e al repository
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Aggoungiamo un `GitHub Action` che avrà il compito ad ogni push di:
+  - fare il pull del repository
+  - fare il build del progetto (npm run build)
+  - pubblicare il sito su GitHub Pages
+
+
+<img src="/media/static_09.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Crea il file `/.github/workflows/deploy.yml` con questo contenuto
+
+```yml
+name: Deploy mystaticsite
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+```
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+```yml
+      - name: Install dependencies
+        run: npm i
+      - name: Build website
+        run: npm run build
+      - name: Deploy pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          build_dir: docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+<br>
+
+- Fate il push di questo file
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora configuriamo GitHub Pages nel seguente modo
+
+
+<img src="/media/static_10.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Da ora in poi ad ogni push del vostro sito l'Action farà il buil del sito per noi e lo pubblicherà online
+
+<img src="/media/static_08.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
+
+---
+
+<img src="/media/hh04.webp" style="position:relative;top:-20px;">
+
