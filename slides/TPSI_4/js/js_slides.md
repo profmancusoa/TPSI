@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.4"
+version: "2.0.5"
 ---
 
 # JavaScript
@@ -110,6 +110,8 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [JScodebox](https://jscodebox.com/)
 - [Khan Academy](https://www.khanacademy.org/hourofcode)
 - [JS 30](https://javascript30.com)
+- [Codecombat](https://codecombat.com/)
+- [Mimo](https://mimo.org)
 
 </div>
 
@@ -124,7 +126,7 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [Javascripting](https://github.com/workshopper/javascripting)
 - [HackerRank](https://www.hackerrank.com/contests/javascript-challenges/challenges)
 - [Learn JS](https://learnjavascript.online)
-- [Codecombat](https://codecombat.com/)
+- [Warrior JS](https://warriorjs.com)
 
 </div>
 
@@ -138,6 +140,9 @@ Per apprendere correttamente ed efficaciemente JS è necessario fare tanto eserc
 - [Edabit](https://edabit.com/)
 - [Hackerhearth](https://www.hackerearth.com/practice/)
 - [p5js](https://p5js.org)
+- [Code Monster](https://www.crunchzilla.com/code-monster)
+- [Code Maven](https://www.crunchzilla.com/code-maven)
+- [Game Maven](https://www.crunchzilla.com/game-maven)
 
 </div>
 </div>
@@ -403,7 +408,6 @@ Most commonly used programming language
 
 --- #slide 3
 preload: false
-
 ---
 
 # JavaScript
