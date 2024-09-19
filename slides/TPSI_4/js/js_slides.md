@@ -862,7 +862,7 @@ Commenti
 <br />
 
 - Ricorda che è una buona pratica di programmazione commentare in modo intelligente il codice
-- La **_leggibilità_** del codice è un parametro molto importante. I commenti aumentano la comprensione e la capacità di leggere e comprender eil codice sorgente.
+- La **_leggibilità_** del codice è un parametro molto importante. I commenti aumentano la comprensione e la capacità di leggere e comprendere il codice sorgente.
 - I commenti del codice, sono l'equivalente della parafrasi in Italiano
 - E' più facile leggere la divina commedia con la parafrasi o solo con i versi originali?
 - Ecco per il codice sorgente è esattamente la stessa cosa.
