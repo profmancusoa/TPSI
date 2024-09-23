@@ -1375,7 +1375,7 @@ modifichiamo una pagina HTML in JS
 `getElementsByClassName('<classname>')`
 - restituisce un NodeList(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe.
 - Questo metodo è molto utile per accedere e manipolare più elementi contemporaneamente quando condividono la stessa classe.
-- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
+- Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
 
 <br>
 
