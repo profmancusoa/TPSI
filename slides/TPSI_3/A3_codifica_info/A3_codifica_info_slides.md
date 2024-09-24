@@ -4,14 +4,14 @@ theme: default
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
-class: 'text-center'
+class: "text-center"
 # https://sli.dev/custom/highlighters.html
 #highlighter: shiki
 # show line numbers in code blocks
 lineNumbers: false
-aspectRatio: '16_/9'
-routerMode: 'hash'
-version: '1.0.0'
+aspectRatio: "16_/9"
+routerMode: "hash"
+version: "2.0.0"
 ---  
 
 # TPSI
@@ -156,17 +156,17 @@ version: '1.0.0'
 
 ![/media/Diapositiva33.jpg](/media/Diapositiva33.jpg)
 
---- #slide 34
+<!-- --- #slide 34
 
-![/media/Diapositiva34.jpg](/media/Diapositiva34.jpg)
+![/media/Diapositiva34.jpg](/media/Diapositiva34.jpg) -->
 
---- #slide 35
+<!-- --- #slide 35
 
-![/media/Diapositiva35.jpg](/media/Diapositiva35.jpg)
+![/media/Diapositiva35.jpg](/media/Diapositiva35.jpg) -->
 
---- #slide 36
+<!-- --- #slide 36
 
-![/media/Diapositiva36.jpg](/media/Diapositiva36.jpg)
+![/media/Diapositiva36.jpg](/media/Diapositiva36.jpg) -->
 
 --- #slide 37
 
@@ -212,425 +212,425 @@ version: '1.0.0'
 
 ![/media/Diapositiva47.jpg](/media/Diapositiva47.jpg)
 
---- #slide 48
+<!-- --- #slide 48
 
-![/media/Diapositiva48.jpg](/media/Diapositiva48.jpg)
+![/media/Diapositiva48.jpg](/media/Diapositiva48.jpg) -->
 
---- #slide 49
+<!-- --- #slide 49
 
-![/media/Diapositiva49.jpg](/media/Diapositiva49.jpg)
+![/media/Diapositiva49.jpg](/media/Diapositiva49.jpg) -->
 
---- #slide 50
+<!-- --- #slide 50
 
-![/media/Diapositiva50.jpg](/media/Diapositiva50.jpg)
+![/media/Diapositiva50.jpg](/media/Diapositiva50.jpg) -->
 
---- #slide 51
+<!-- --- #slide 51
 
-![/media/Diapositiva51.jpg](/media/Diapositiva51.jpg)
+![/media/Diapositiva51.jpg](/media/Diapositiva51.jpg) -->
 
---- #slide 52
+<!-- --- #slide 52
 
-![/media/Diapositiva52.jpg](/media/Diapositiva52.jpg)
+![/media/Diapositiva52.jpg](/media/Diapositiva52.jpg) -->
 
---- #slide 53
+<!-- --- #slide 53
 
-![/media/Diapositiva53.jpg](/media/Diapositiva53.jpg)
+![/media/Diapositiva53.jpg](/media/Diapositiva53.jpg) -->
 
---- #slide 54
+<!-- --- #slide 54
 
-![/media/Diapositiva54.jpg](/media/Diapositiva54.jpg)
+![/media/Diapositiva54.jpg](/media/Diapositiva54.jpg) -->
 
---- #slide 55
+<!-- --- #slide 55
 
-![/media/Diapositiva55.jpg](/media/Diapositiva55.jpg)
+![/media/Diapositiva55.jpg](/media/Diapositiva55.jpg) -->
 
---- #slide 56
+<!-- --- #slide 56
 
-![/media/Diapositiva56.jpg](/media/Diapositiva56.jpg)
+![/media/Diapositiva56.jpg](/media/Diapositiva56.jpg) -->
 
---- #slide 57
+<!-- --- #slide 57
 
-![/media/Diapositiva57.jpg](/media/Diapositiva57.jpg)
+![/media/Diapositiva57.jpg](/media/Diapositiva57.jpg) -->
 
---- #slide 58
+<!-- --- #slide 58
 
-![/media/Diapositiva58.jpg](/media/Diapositiva58.jpg)
+![/media/Diapositiva58.jpg](/media/Diapositiva58.jpg) -->
 
---- #slide 59
+<!-- --- #slide 59
 
-![/media/Diapositiva59.jpg](/media/Diapositiva59.jpg)
+![/media/Diapositiva59.jpg](/media/Diapositiva59.jpg) -->
 
---- #slide 60
+<!-- --- #slide 60
 
-![/media/Diapositiva60.jpg](/media/Diapositiva60.jpg)
+![/media/Diapositiva60.jpg](/media/Diapositiva60.jpg) -->
 
---- #slide 61
+<!-- --- #slide 61
 
-![/media/Diapositiva61.jpg](/media/Diapositiva61.jpg)
+![/media/Diapositiva61.jpg](/media/Diapositiva61.jpg) -->
 
---- #slide 62
+<!-- --- #slide 62
 
-![/media/Diapositiva62.jpg](/media/Diapositiva62.jpg)
+![/media/Diapositiva62.jpg](/media/Diapositiva62.jpg) -->
 
---- #slide 63
+<!-- --- #slide 63
 
-![/media/Diapositiva63.jpg](/media/Diapositiva63.jpg)
+![/media/Diapositiva63.jpg](/media/Diapositiva63.jpg) -->
 
---- #slide 64
+<!-- --- #slide 64
 
-![/media/Diapositiva64.jpg](/media/Diapositiva64.jpg)
+![/media/Diapositiva64.jpg](/media/Diapositiva64.jpg) -->
 
---- #slide 65
+<!-- --- #slide 65
 
-![/media/Diapositiva65.jpg](/media/Diapositiva65.jpg)
+![/media/Diapositiva65.jpg](/media/Diapositiva65.jpg) -->
 
---- #slide 66
+<!-- --- #slide 66
 
-![/media/Diapositiva66.jpg](/media/Diapositiva66.jpg)
+![/media/Diapositiva66.jpg](/media/Diapositiva66.jpg) -->
 
---- #slide 67
+<!-- --- #slide 67
 
-![/media/Diapositiva67.jpg](/media/Diapositiva67.jpg)
+![/media/Diapositiva67.jpg](/media/Diapositiva67.jpg) -->
 
---- #slide 68
+<!-- --- #slide 68
 
-![/media/Diapositiva68.jpg](/media/Diapositiva68.jpg)
+![/media/Diapositiva68.jpg](/media/Diapositiva68.jpg) -->
 
---- #slide 69
+<!-- --- #slide 69
 
-![/media/Diapositiva69.jpg](/media/Diapositiva69.jpg)
+![/media/Diapositiva69.jpg](/media/Diapositiva69.jpg) -->
 
---- #slide 70
+<!-- --- #slide 70
 
-![/media/Diapositiva70.jpg](/media/Diapositiva70.jpg)
+![/media/Diapositiva70.jpg](/media/Diapositiva70.jpg) -->
 
---- #slide 71
+<!-- --- #slide 71
 
-![/media/Diapositiva71.jpg](/media/Diapositiva71.jpg)
+![/media/Diapositiva71.jpg](/media/Diapositiva71.jpg) -->
 
---- #slide 72
+<!-- --- #slide 72
 
-![/media/Diapositiva72.jpg](/media/Diapositiva72.jpg)
+![/media/Diapositiva72.jpg](/media/Diapositiva72.jpg) -->
 
---- #slide 73
+<!-- --- #slide 73
 
-![/media/Diapositiva73.jpg](/media/Diapositiva73.jpg)
+![/media/Diapositiva73.jpg](/media/Diapositiva73.jpg) -->
 
---- #slide 74
+<!-- --- #slide 74
 
-![/media/Diapositiva74.jpg](/media/Diapositiva74.jpg)
+![/media/Diapositiva74.jpg](/media/Diapositiva74.jpg) -->
 
---- #slide 75
+<!-- --- #slide 75
 
-![/media/Diapositiva75.jpg](/media/Diapositiva75.jpg)
+![/media/Diapositiva75.jpg](/media/Diapositiva75.jpg) -->
 
---- #slide 76
+<!-- --- #slide 76
 
-![/media/Diapositiva76.jpg](/media/Diapositiva76.jpg)
+![/media/Diapositiva76.jpg](/media/Diapositiva76.jpg) -->
 
---- #slide 77
+<!-- --- #slide 77
 
-![/media/Diapositiva77.jpg](/media/Diapositiva77.jpg)
+![/media/Diapositiva77.jpg](/media/Diapositiva77.jpg) -->
 
---- #slide 78
+<!-- --- #slide 78
 
-![/media/Diapositiva78.jpg](/media/Diapositiva78.jpg)
+![/media/Diapositiva78.jpg](/media/Diapositiva78.jpg) -->
 
---- #slide 79
+<!-- --- #slide 79
 
-![/media/Diapositiva79.jpg](/media/Diapositiva79.jpg)
+![/media/Diapositiva79.jpg](/media/Diapositiva79.jpg) -->
 
---- #slide 80
+<!-- --- #slide 80
 
-![/media/Diapositiva80.jpg](/media/Diapositiva80.jpg)
+![/media/Diapositiva80.jpg](/media/Diapositiva80.jpg) -->
 
---- #slide 81
+<!-- --- #slide 81
 
-![/media/Diapositiva81.jpg](/media/Diapositiva81.jpg)
+![/media/Diapositiva81.jpg](/media/Diapositiva81.jpg) -->
 
---- #slide 82
+<!-- --- #slide 82
 
-![/media/Diapositiva82.jpg](/media/Diapositiva82.jpg)
+![/media/Diapositiva82.jpg](/media/Diapositiva82.jpg) -->
 
---- #slide 83
+<!-- --- #slide 83
 
-![/media/Diapositiva83.jpg](/media/Diapositiva83.jpg)
+![/media/Diapositiva83.jpg](/media/Diapositiva83.jpg) -->
 
---- #slide 84
+<!-- --- #slide 84
 
-![/media/Diapositiva84.jpg](/media/Diapositiva84.jpg)
+![/media/Diapositiva84.jpg](/media/Diapositiva84.jpg) -->
 
---- #slide 85
+<!-- --- #slide 85
 
-![/media/Diapositiva85.jpg](/media/Diapositiva85.jpg)
+![/media/Diapositiva85.jpg](/media/Diapositiva85.jpg) -->
 
---- #slide 86
+<!-- --- #slide 86
 
-![/media/Diapositiva86.jpg](/media/Diapositiva86.jpg)
+![/media/Diapositiva86.jpg](/media/Diapositiva86.jpg) -->
 
---- #slide 87
+<!-- --- #slide 87
 
-![/media/Diapositiva87.jpg](/media/Diapositiva87.jpg)
+![/media/Diapositiva87.jpg](/media/Diapositiva87.jpg) -->
 
---- #slide 88
+<!-- --- #slide 88
 
-![/media/Diapositiva88.jpg](/media/Diapositiva88.jpg)
+![/media/Diapositiva88.jpg](/media/Diapositiva88.jpg) -->
 
---- #slide 89
+<!-- --- #slide 89
 
-![/media/Diapositiva89.jpg](/media/Diapositiva89.jpg)
+![/media/Diapositiva89.jpg](/media/Diapositiva89.jpg) -->
 
---- #slide 90
+<!-- --- #slide 90
 
-![/media/Diapositiva90.jpg](/media/Diapositiva90.jpg)
+![/media/Diapositiva90.jpg](/media/Diapositiva90.jpg) -->
 
---- #slide 91
+<!-- --- #slide 91
 
-![/media/Diapositiva91.jpg](/media/Diapositiva91.jpg)
+![/media/Diapositiva91.jpg](/media/Diapositiva91.jpg) -->
 
---- #slide 92
+<!-- --- #slide 92
 
-![/media/Diapositiva92.jpg](/media/Diapositiva92.jpg)
+![/media/Diapositiva92.jpg](/media/Diapositiva92.jpg) -->
 
---- #slide 93
+<!-- --- #slide 93
 
-![/media/Diapositiva93.jpg](/media/Diapositiva93.jpg)
+![/media/Diapositiva93.jpg](/media/Diapositiva93.jpg) -->
 
---- #slide 94
+<!-- --- #slide 94
 
-![/media/Diapositiva94.jpg](/media/Diapositiva94.jpg)
+![/media/Diapositiva94.jpg](/media/Diapositiva94.jpg) -->
 
---- #slide 95
+<!-- --- #slide 95
 
-![/media/Diapositiva95.jpg](/media/Diapositiva95.jpg)
+![/media/Diapositiva95.jpg](/media/Diapositiva95.jpg) -->
 
---- #slide 96
+<!-- --- #slide 96
 
-![/media/Diapositiva96.jpg](/media/Diapositiva96.jpg)
+![/media/Diapositiva96.jpg](/media/Diapositiva96.jpg) -->
 
---- #slide 97
+<!-- --- #slide 97
 
-![/media/Diapositiva97.jpg](/media/Diapositiva97.jpg)
+![/media/Diapositiva97.jpg](/media/Diapositiva97.jpg) -->
 
---- #slide 98
+<!-- --- #slide 98
 
-![/media/Diapositiva98.jpg](/media/Diapositiva98.jpg)
+![/media/Diapositiva98.jpg](/media/Diapositiva98.jpg) -->
 
---- #slide 99
+<!-- --- #slide 99
 
-![/media/Diapositiva99.jpg](/media/Diapositiva99.jpg)
+![/media/Diapositiva99.jpg](/media/Diapositiva99.jpg) -->
 
---- #slide 100
+<!-- --- #slide 100
 
-![/media/Diapositiva100.jpg](/media/Diapositiva100.jpg)
+![/media/Diapositiva100.jpg](/media/Diapositiva100.jpg) -->
 
---- #slide 101
+<!-- --- #slide 101
 
-![/media/Diapositiva101.jpg](/media/Diapositiva101.jpg)
+![/media/Diapositiva101.jpg](/media/Diapositiva101.jpg) -->
 
---- #slide 102
+<!-- --- #slide 102
 
-![/media/Diapositiva102.jpg](/media/Diapositiva102.jpg)
+![/media/Diapositiva102.jpg](/media/Diapositiva102.jpg) -->
 
---- #slide 103
+<!-- --- #slide 103
 
-![/media/Diapositiva103.jpg](/media/Diapositiva103.jpg)
+![/media/Diapositiva103.jpg](/media/Diapositiva103.jpg) -->
 
---- #slide 104
+<!-- --- #slide 104
 
-![/media/Diapositiva104.jpg](/media/Diapositiva104.jpg)
+![/media/Diapositiva104.jpg](/media/Diapositiva104.jpg) -->
 
---- #slide 105
+<!-- --- #slide 105
 
-![/media/Diapositiva105.jpg](/media/Diapositiva105.jpg)
+![/media/Diapositiva105.jpg](/media/Diapositiva105.jpg) -->
 
---- #slide 106
+<!-- --- #slide 106
 
-![/media/Diapositiva106.jpg](/media/Diapositiva106.jpg)
+![/media/Diapositiva106.jpg](/media/Diapositiva106.jpg) -->
 
---- #slide 107
+<!-- --- #slide 107
 
-![/media/Diapositiva107.jpg](/media/Diapositiva107.jpg)
+![/media/Diapositiva107.jpg](/media/Diapositiva107.jpg) -->
 
---- #slide 108
+<!-- --- #slide 108
 
-![/media/Diapositiva108.jpg](/media/Diapositiva108.jpg)
+![/media/Diapositiva108.jpg](/media/Diapositiva108.jpg) -->
 
---- #slide 109
+<!-- --- #slide 109
 
-![/media/Diapositiva109.jpg](/media/Diapositiva109.jpg)
+![/media/Diapositiva109.jpg](/media/Diapositiva109.jpg) -->
 
---- #slide 110
+<!-- --- #slide 110
 
-![/media/Diapositiva110.jpg](/media/Diapositiva110.jpg)
+![/media/Diapositiva110.jpg](/media/Diapositiva110.jpg) -->
 
---- #slide 111
+<!-- --- #slide 111
 
-![/media/Diapositiva111.jpg](/media/Diapositiva111.jpg)
+![/media/Diapositiva111.jpg](/media/Diapositiva111.jpg) -->
 
---- #slide 112
+<!-- --- #slide 112
 
-![/media/Diapositiva112.jpg](/media/Diapositiva112.jpg)
+![/media/Diapositiva112.jpg](/media/Diapositiva112.jpg) -->
 
---- #slide 113
+<!-- --- #slide 113
 
-![/media/Diapositiva113.jpg](/media/Diapositiva113.jpg)
+![/media/Diapositiva113.jpg](/media/Diapositiva113.jpg) -->
 
---- #slide 114
+<!-- --- #slide 114
 
-![/media/Diapositiva114.jpg](/media/Diapositiva114.jpg)
+![/media/Diapositiva114.jpg](/media/Diapositiva114.jpg) -->
 
---- #slide 115
+<!-- --- #slide 115
 
-![/media/Diapositiva115.jpg](/media/Diapositiva115.jpg)
+![/media/Diapositiva115.jpg](/media/Diapositiva115.jpg) -->
 
---- #slide 116
+<!-- --- #slide 116
 
-![/media/Diapositiva116.jpg](/media/Diapositiva116.jpg)
+![/media/Diapositiva116.jpg](/media/Diapositiva116.jpg) -->
 
---- #slide 117
+<!-- --- #slide 117
 
-![/media/Diapositiva117.jpg](/media/Diapositiva117.jpg)
+![/media/Diapositiva117.jpg](/media/Diapositiva117.jpg) -->
 
---- #slide 118
+<!-- --- #slide 118
 
-![/media/Diapositiva118.jpg](/media/Diapositiva118.jpg)
+![/media/Diapositiva118.jpg](/media/Diapositiva118.jpg) -->
 
---- #slide 119
+<!-- --- #slide 119
 
-![/media/Diapositiva119.jpg](/media/Diapositiva119.jpg)
+![/media/Diapositiva119.jpg](/media/Diapositiva119.jpg) -->
 
---- #slide 120
+<!-- --- #slide 120
 
-![/media/Diapositiva120.jpg](/media/Diapositiva120.jpg)
+![/media/Diapositiva120.jpg](/media/Diapositiva120.jpg) -->
 
---- #slide 121
+<!-- --- #slide 121
 
-![/media/Diapositiva121.jpg](/media/Diapositiva121.jpg)
+![/media/Diapositiva121.jpg](/media/Diapositiva121.jpg) -->
 
---- #slide 122
+<!-- --- #slide 122
 
-![/media/Diapositiva122.jpg](/media/Diapositiva122.jpg)
+![/media/Diapositiva122.jpg](/media/Diapositiva122.jpg) -->
 
---- #slide 123
+<!-- --- #slide 123
 
-![/media/Diapositiva123.jpg](/media/Diapositiva123.jpg)
+![/media/Diapositiva123.jpg](/media/Diapositiva123.jpg) -->
 
---- #slide 124
+<!-- --- #slide 124
 
-![/media/Diapositiva124.jpg](/media/Diapositiva124.jpg)
+![/media/Diapositiva124.jpg](/media/Diapositiva124.jpg) -->
 
---- #slide 125
+<!-- --- #slide 125
 
-![/media/Diapositiva125.jpg](/media/Diapositiva125.jpg)
+![/media/Diapositiva125.jpg](/media/Diapositiva125.jpg) -->
 
---- #slide 126
+<!-- --- #slide 126
 
-![/media/Diapositiva126.jpg](/media/Diapositiva126.jpg)
+![/media/Diapositiva126.jpg](/media/Diapositiva126.jpg) -->
 
---- #slide 127
+<!-- --- #slide 127
 
-![/media/Diapositiva127.jpg](/media/Diapositiva127.jpg)
+![/media/Diapositiva127.jpg](/media/Diapositiva127.jpg) -->
 
---- #slide 128
+<!-- --- #slide 128
 
-![/media/Diapositiva128.jpg](/media/Diapositiva128.jpg)
+![/media/Diapositiva128.jpg](/media/Diapositiva128.jpg) -->
 
---- #slide 129
+<!-- --- #slide 129
 
-![/media/Diapositiva129.jpg](/media/Diapositiva129.jpg)
+![/media/Diapositiva129.jpg](/media/Diapositiva129.jpg) -->
 
---- #slide 130
+<!-- --- #slide 130
 
-![/media/Diapositiva130.jpg](/media/Diapositiva130.jpg)
+![/media/Diapositiva130.jpg](/media/Diapositiva130.jpg) -->
 
---- #slide 131
+<!-- --- #slide 131
 
-![/media/Diapositiva131.jpg](/media/Diapositiva131.jpg)
+![/media/Diapositiva131.jpg](/media/Diapositiva131.jpg) -->
 
---- #slide 132
+<!-- --- #slide 132
 
-![/media/Diapositiva132.jpg](/media/Diapositiva132.jpg)
+![/media/Diapositiva132.jpg](/media/Diapositiva132.jpg) -->
 
---- #slide 133
+<!-- --- #slide 133
 
-![/media/Diapositiva133.jpg](/media/Diapositiva133.jpg)
+![/media/Diapositiva133.jpg](/media/Diapositiva133.jpg) -->
 
---- #slide 134
+<!-- --- #slide 134
 
-![/media/Diapositiva134.jpg](/media/Diapositiva134.jpg)
+![/media/Diapositiva134.jpg](/media/Diapositiva134.jpg) -->
 
---- #slide 135
+<!-- --- #slide 135
 
-![/media/Diapositiva135.jpg](/media/Diapositiva135.jpg)
+![/media/Diapositiva135.jpg](/media/Diapositiva135.jpg) -->
 
---- #slide 136
+<!-- --- #slide 136
 
-![/media/Diapositiva136.jpg](/media/Diapositiva136.jpg)
+![/media/Diapositiva136.jpg](/media/Diapositiva136.jpg) -->
 
---- #slide 137
+<!-- --- #slide 137
 
-![/media/Diapositiva137.jpg](/media/Diapositiva137.jpg)
+![/media/Diapositiva137.jpg](/media/Diapositiva137.jpg) -->
 
---- #slide 138
+<!-- --- #slide 138
 
-![/media/Diapositiva138.jpg](/media/Diapositiva138.jpg)
+![/media/Diapositiva138.jpg](/media/Diapositiva138.jpg) -->
 
---- #slide 139
+<!-- --- #slide 139
 
-![/media/Diapositiva139.jpg](/media/Diapositiva139.jpg)
+![/media/Diapositiva139.jpg](/media/Diapositiva139.jpg) -->
 
---- #slide 140
+<!-- --- #slide 140
 
-![/media/Diapositiva140.jpg](/media/Diapositiva140.jpg)
+![/media/Diapositiva140.jpg](/media/Diapositiva140.jpg) -->
 
---- #slide 141
+<!-- --- #slide 141
 
-![/media/Diapositiva141.jpg](/media/Diapositiva141.jpg)
+![/media/Diapositiva141.jpg](/media/Diapositiva141.jpg) -->
 
---- #slide 142
+<!-- --- #slide 142
 
-![/media/Diapositiva142.jpg](/media/Diapositiva142.jpg)
+![/media/Diapositiva142.jpg](/media/Diapositiva142.jpg) -->
 
---- #slide 143
+<!-- --- #slide 143
 
-![/media/Diapositiva143.jpg](/media/Diapositiva143.jpg)
+![/media/Diapositiva143.jpg](/media/Diapositiva143.jpg) -->
 
---- #slide 144
+<!-- --- #slide 144
 
-![/media/Diapositiva144.jpg](/media/Diapositiva144.jpg)
+![/media/Diapositiva144.jpg](/media/Diapositiva144.jpg) -->
 
---- #slide 145
+<!-- --- #slide 145
 
-![/media/Diapositiva145.jpg](/media/Diapositiva145.jpg)
+![/media/Diapositiva145.jpg](/media/Diapositiva145.jpg) -->
 
---- #slide 146
+<!-- --- #slide 146
 
-![/media/Diapositiva146.jpg](/media/Diapositiva146.jpg)
+![/media/Diapositiva146.jpg](/media/Diapositiva146.jpg) -->
 
---- #slide 147
+<!-- --- #slide 147
 
-![/media/Diapositiva147.jpg](/media/Diapositiva147.jpg)
+![/media/Diapositiva147.jpg](/media/Diapositiva147.jpg) -->
 
---- #slide 148
+<!-- --- #slide 148
 
-![/media/Diapositiva148.jpg](/media/Diapositiva148.jpg)
+![/media/Diapositiva148.jpg](/media/Diapositiva148.jpg) -->
 
---- #slide 149
+<!-- --- #slide 149
 
-![/media/Diapositiva149.jpg](/media/Diapositiva149.jpg)
+![/media/Diapositiva149.jpg](/media/Diapositiva149.jpg) -->
 
---- #slide 150
+<!-- --- #slide 150
 
-![/media/Diapositiva150.jpg](/media/Diapositiva150.jpg)
+![/media/Diapositiva150.jpg](/media/Diapositiva150.jpg) -->
 
---- #slide 151
+<!-- --- #slide 151
 
-![/media/Diapositiva151.jpg](/media/Diapositiva151.jpg)
+![/media/Diapositiva151.jpg](/media/Diapositiva151.jpg) -->
 
---- #slide 152
+<!-- --- #slide 152
 
-![/media/Diapositiva152.jpg](/media/Diapositiva152.jpg)
+![/media/Diapositiva152.jpg](/media/Diapositiva152.jpg) -->
 
 --- #slide 153
 
@@ -656,29 +656,29 @@ version: '1.0.0'
 
 ![/media/Diapositiva158.jpg](/media/Diapositiva158.jpg)
 
---- #slide 159
+<!-- --- #slide 159
 
-![/media/Diapositiva159.jpg](/media/Diapositiva159.jpg)
+![/media/Diapositiva159.jpg](/media/Diapositiva159.jpg) -->
 
---- #slide 160
+<!-- --- #slide 160
 
-![/media/Diapositiva160.jpg](/media/Diapositiva160.jpg)
+![/media/Diapositiva160.jpg](/media/Diapositiva160.jpg) -->
 
---- #slide 161
+<!-- --- #slide 161
 
-![/media/Diapositiva161.jpg](/media/Diapositiva161.jpg)
+![/media/Diapositiva161.jpg](/media/Diapositiva161.jpg) -->
 
---- #slide 162
+<!-- --- #slide 162
 
-![/media/Diapositiva162.jpg](/media/Diapositiva162.jpg)
+![/media/Diapositiva162.jpg](/media/Diapositiva162.jpg) -->
 
---- #slide 163
+<!-- --- #slide 163
 
-![/media/Diapositiva163.jpg](/media/Diapositiva163.jpg)
+![/media/Diapositiva163.jpg](/media/Diapositiva163.jpg) -->
 
---- #slide 164
+<!-- --- #slide 164
 
-![/media/Diapositiva164.jpg](/media/Diapositiva164.jpg)
+![/media/Diapositiva164.jpg](/media/Diapositiva164.jpg) -->
 
 --- #slide 165
 
