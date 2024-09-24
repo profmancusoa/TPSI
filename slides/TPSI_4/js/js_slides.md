@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.5"
+version: "2.0.6"
 ---
 
 # JavaScript
@@ -1362,7 +1362,7 @@ document.getElementById('par1');
 </div>
 
 <Banner padding="20px" mt="30px">
-Si ricorda che è buona prassi assegnare un id univoco ad un oggetto HTML. <br> In caso ciò non sia rispettato, getElementById restituisce il primo oggetto in ordine di apparizione nel codice sorgente.
+Si ricorda che è buona prassi (obbligatorio) assegnare un id univoco ad un oggetto HTML. <br> In caso ciò non sia rispettato, getElementById restituisce il primo oggetto in ordine di apparizione nel codice sorgente.
 </Banner>
 
 ---
@@ -1406,7 +1406,7 @@ modifichiamo una pagina HTML in JS
 `getElementsByName('<object name'>)`
 - restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato attributo name.
 - Questo metodo è comunemente utilizzato per accedere agli elementi di un form come campi di input, pulsanti radio, checkbox e selezioni.
-- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
+- Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
 
 <br>
 
@@ -1434,7 +1434,7 @@ modifichiamo una pagina HTML in JS
 
 `getElementsTagName('<tag name'>)`
 - restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag.
-- Se non ci sono corrispondenzwe restituisce una lista vuota (length = 0)
+- Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
 
 <br>
 
@@ -1816,7 +1816,7 @@ modifichiamo una pagina HTML in JS
 Creare oggetti HTML in JS
 
 - L'oggetto _document_ del DOM mette anche a disposizione metodi per creare oggetti nel DOM
-- Uno molto utile è `createElement("<element tag>"`
+- Uno molto utile è `createElement("<element tag>")`
 - Questo metodo crea un oggetto o elemento HTML identificato dal suo tag
 
 Esempio:
