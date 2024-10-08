@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.6"
+version: "2.0.7"
 ---
 
 # JavaScript
@@ -1638,7 +1638,7 @@ modifichiamo una pagina HTML in JS
 
 ```html
 <p id="par1">Questo è un paragrafo di testo in una pagina HTML</p>
-<button onClick="cambia_stile">Premi qui!</button>
+<button onclick="cambia_stile()">Premi qui!</button>
 ```
 
 <br>
@@ -1756,7 +1756,7 @@ modifichiamo una pagina HTML in JS
 <h1 class="titolo_disp">Titolo Dispari</h1>
 <h1 class="titolo_pari">Titolo Pari</h1>
 <h1 class="titolo_disp">Titolo Dispari</h1>
-<button onClick="cambia_DOM">Premi qui!</button>
+<button onclick="cambia_DOM()">Premi qui!</button>
 ```
 
 <br>
@@ -2025,8 +2025,8 @@ function studenti_rossi() {
 Ascoltiamo e gestiamo gli eventi
 
 - Una caratteristica della programmazione Web dinamica è la gestione degli `eventi`
-- La lammgioranza dei componenti HTML generano una serie di eventi
-- Per esempial click del mouse su un oggetto si genera l'evento `onClick`
+- La maggioranza dei componenti HTML generano una serie di eventi
+- Per esempial click del mouse su un oggetto si genera l'evento `onclick`
 
 - Ci sono due elementi fondamentali per la gestione degli eventi
   1. `evento name`: nome dell'evento da scoltare
