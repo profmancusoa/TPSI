@@ -5,17 +5,16 @@ theme: default
 #background: https://source.unsplash.com/collection/94734566/1920x1080
 background: /cover.webp
 # apply any windi css classes to the current slide
-class: 'text-center'
+class: "text-center"
 # https://sli.dev/custom/highlighters.html
 #highlighter: shiki
 # show line numbers in code blocks
 lineNumbers: false
-aspectRatio: '16_/9'
-routerMode: 'hash'
+aspectRatio: "16_/9"
+routerMode: "hash"
 materia: TPSI 5
 as: 2024/2025
-version: '1.2.0'
-
+version: "1.2.1"
 ---  
 
 # TPSI 5
@@ -761,7 +760,7 @@ const create_collection = async () => {
     // creiamo la collezione
     let collection = await studente.createCollection();
 
-    return collection;
+    return studente;
 }
 ```
 
