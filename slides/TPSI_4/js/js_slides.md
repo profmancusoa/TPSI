@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.7"
+version: "2.0.8"
 ---
 
 # JavaScript
@@ -2078,9 +2078,9 @@ Aggiungiamo elementi dinamici
 Aggiungiamo elementi dinamici
 
 1. Partendo dai file |cognome|\_esercizio_js_05.html e |cognome|\_esercizio_js_05.js modificarli in modo che:
-   - Sia presente un bottone "Grassetto" che se premuto faccia diventare tutti gli elementi della lista in grassetto
-   - Sia presente un bottone "Blue" che se premuto faccia diventare tutti gli elementi della lista di colore Blue
-   - Sia presente un bottone "Bordo" che se premuto faccia comparire un bordo attorno alla lista in caso non sia presente e rimuova tale bordo in caso sia già presente
+   - Sia presente un bottone "Grassetto" che se premuto faccia diventare tutti gli elementi della tabella in grassetto
+   - Sia presente un bottone "Blue" che se premuto faccia diventare tutti gli elementi della tabella di colore Blue
+   - Sia presente un bottone "Bordo" che se premuto faccia comparire un bordo attorno alla tabella in caso non sia presente e rimuova tale bordo in caso sia già presente
    - Ogni modificazione allo style deve avvenire tramite una o più classi CSS
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_06.html_ e _|cognome|\_esercizio_js_06.js_
 
