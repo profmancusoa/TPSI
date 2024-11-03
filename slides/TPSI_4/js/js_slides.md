@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.8"
+version: "2.0.9"
 ---
 
 # JavaScript
@@ -2129,6 +2129,54 @@ Si richiede di realizzare una web app (in JS vanilla) che implementa una ToDo li
 4. L'utente può marcare il ToDo Item come completo/attivo tramite click sull'icona 2. In caso di item completato il testo del ToDo Item deve essere barrato (vedi figura). In caso di item attivo il testo deve essere senza barra
 5. L'utente può rimuovere un ToDo item completo o no premendo l'icona 3
 6. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_08.html_, _|cognome|\_esercizio_js_08.css_ e _|cognome|\_esercizio_js_08.js_
+
+---
+
+# Esercizio js_paghe
+
+Gestione Paghe JS
+
+<img src="/media/js46.png" style="margin: auto;"/>
+
+--- #slide N
+
+# Esercizio js_paghe
+
+Gestione Paghe JS
+
+Si richiede di realizzare una web app (in JS vanilla), che implementa una semplice gestione paghe di un azienda, con le seguenti funzionalità:
+
+1. L'utente può inserire una nuova registrazione di pagha compilando TUTTI i campi del form. Se uno o più campi sono assenti informare l'utente con un appropriate messaggio di errore
+2. L'utente aggiunge una nuova paga premendo l'icona 1
+3. Alla pressione dell'icona 2, se sono presenti almeno 2 paghe viene visualizzato il totale delle paghe presenti
+4. Alla pressione dell'icona 3, se sono presenti almeno 2 paghe viene visualizzata la media aritmetica delle paghe presenti
+5. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_paghe.html_, _|cognome|\_esercizio_js_paghe.css_ e _|cognome|\_esercizio_js_paghe.js_
+
+
+---
+
+# Esercizio js_carrello
+
+Gestione Carrello JS
+
+<img src="/media/js47.png" style="margin: auto;"/>
+
+--- #slide N
+
+# Esercizio js_carrello
+
+Gestione Carrello JS
+
+Si richiede di realizzare una web app (in JS vanilla), che implementa un semplice shopping cart di un sito di e-commerce, con le seguenti funzionalità:
+
+1. L'utente inserisce un prodotto, la quantità che desidera acquistare e il costo unitario
+2. Alla pressione del pulsante 1, il prodotto viene aggiunto al carrello e viene calcolato il prezzo finale in modo corretto (quantità x costo unitario)
+3. Se l'utente, una volta che un prodotto è nel carrello, modifica la quantità (3) allora il prezzo totale dovrà essere automaticamente aggiornato (4)
+4. La quantità deve essere maggiore o uguale ad 1
+5. Se viene premuto il pulsante 2 viene calcolato il valore complessivo del carrello (5)
+6. Se l'utente, una volta che un prodotto è nel carrello, modifica la quantità (3) allora il valore totale del carrello dovrà essere automaticamente aggiornato (5)
+7. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_carrello.html_, _|cognome|\_esercizio_js_carrello.css_ e _|cognome|\_esercizio_js_carrello.js_
+
 
 ---
 
