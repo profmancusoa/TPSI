@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.10"
+version: "2.0.11"
 ---
 
 # JavaScript
@@ -2148,10 +2148,18 @@ Partendo dai template [paghe_js_template.html](/support/4/js/paghe_js_template.h
 
 1. L'utente può inserire una nuova registrazione di pagha compilando TUTTI i campi del form. Se uno o più campi sono assenti informare l'utente con un appropriate messaggio di errore
 2. L'utente aggiunge una nuova paga premendo l'icona 1
-3. Alla pressione dell'icona 2, se sono presenti almeno 2 paghe viene visualizzato il totale delle paghe presenti
-4. Alla pressione dell'icona 3, se sono presenti almeno 2 paghe viene visualizzata la media aritmetica delle paghe presenti
-5. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_paghe.html_, _|cognome|\_esercizio_js_paghe.css_ e _|cognome|\_esercizio_js_paghe.js_
+3. Alla prima pressione dell'icona 2, se sono presenti almeno 2 paghe viene visualizzato il totale delle paghe presenti
+4. Ad ogni successiva pressione dell'icona 2 il totale delle paghe viene aggiornato (no rimozione e aggiunta linea, ma aggiornamento)
+5. Alla prima pressione dell'icona 3, se sono presenti almeno 2 paghe viene visualizzata la media aritmetica delle paghe presenti
 
+--- #slide N
+
+# Esercizio js_paghe
+
+Gestione Paghe JS
+
+6. Ad ogni successiva pressione dell'icona 3 la media delle paghe viene aggiornata (no rimozione e aggiunta linea, ma aggiornamento)
+7. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_paghe.html_, _|cognome|\_esercizio_js_paghe.css_ e _|cognome|\_esercizio_js_paghe.js_
 
 ---
 
@@ -2174,7 +2182,7 @@ Partendo dai template [carrello_js_template.html](/support/4/js/carrello_js_temp
 3. Se l'utente, una volta che un prodotto è nel carrello, modifica la quantità (3) allora il prezzo totale dovrà essere automaticamente aggiornato (4)
 4. La quantità deve essere maggiore o uguale ad 1
 5. Se viene premuto il pulsante 2 viene calcolato il valore complessivo del carrello (5)
-6. Se l'utente, una volta che un prodotto è nel carrello, modifica la quantità (3) allora il valore totale del carrello dovrà essere automaticamente aggiornato (5)
+6. Se l'utente, una volta che un prodotto è nel carrello, modifica la quantità (3) o rimuove un prodotto, il valore totale del carrello dovrà essere automaticamente aggiornato (5)
 7. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_carrello.html_, _|cognome|\_esercizio_js_carrello.css_ e _|cognome|\_esercizio_js_carrello.js_
 
 
