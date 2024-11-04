@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.9"
+version: "2.0.10"
 ---
 
 # JavaScript
@@ -2144,7 +2144,7 @@ Gestione Paghe JS
 
 Gestione Paghe JS
 
-Si richiede di realizzare una web app (in JS vanilla), che implementa una semplice gestione paghe di un azienda, con le seguenti funzionalità:
+Partendo dai template [paghe_js_template.html](/support/4/js/paghe_js_template.html) e [paghe_js_template.css](/support/4/js/paghe_js_template.css), si richiede di realizzare una web app (in JS vanilla) che implementa una semplice gestione paghe di un azienda, con le seguenti funzionalità:
 
 1. L'utente può inserire una nuova registrazione di pagha compilando TUTTI i campi del form. Se uno o più campi sono assenti informare l'utente con un appropriate messaggio di errore
 2. L'utente aggiunge una nuova paga premendo l'icona 1
@@ -2167,7 +2167,7 @@ Gestione Carrello JS
 
 Gestione Carrello JS
 
-Si richiede di realizzare una web app (in JS vanilla), che implementa un semplice shopping cart di un sito di e-commerce, con le seguenti funzionalità:
+Partendo dai template [carrello_js_template.html](/support/4/js/carrello_js_template.html) e [carrello_js_template.css](/support/4/js/carrello_js_template.css), si richiede di realizzare una web app (in JS vanilla) che implementa un semplice shopping cart di un sito di e-commerce, con le seguenti funzionalità:
 
 1. L'utente inserisce un prodotto, la quantità che desidera acquistare e il costo unitario
 2. Alla pressione del pulsante 1, il prodotto viene aggiunto al carrello e viene calcolato il prezzo finale in modo corretto (quantità x costo unitario)
