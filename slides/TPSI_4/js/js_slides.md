@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.11"
+version: "2.0.12"
 ---
 
 # JavaScript
@@ -6270,6 +6270,18 @@ Il vantaggio per lo studente è che ha la certezza (se tutti i test sono superat
 
 ---
 
+# Test Drive Development
+
+
+<Banner padding=50px mt=50px >
+<span  style="font-size: 30px;">
+  Nei seguenti esercizi, da svolgere con la metodologia TDD, è fornita una breve descrizione testuale. Tuttavia si ricorda che la descrizione ufficiale dell'eserczio è il file dei test fornito dal docente test.js
+</span>
+</Banner>
+
+
+---
+
 # Esercizio js_23
 
 Stringhe
@@ -6390,7 +6402,7 @@ OUT: cIAO mONDO!!!
 
 Stringhe
 
-1. Scrivere una funzione (tronca) in JS che ricevuta in input una stringa di lunghezza arbitraria ed una lunghezza L, restituisca la stringa iniziale troncata alla lunghezza L ed aggiunga un ellipsis ... al fondo della stringa
+1. Scrivere una funzione (tronca) in JS che ricevuta in input una stringa di lunghezza arbitraria ed una lunghezza L, restituisca la stringa iniziale troncata alla lunghezza L ed aggiunga un ellipsis ... al fondo della stringa, in caso in cui L < della lunghezza della stringa
 
 ```js
 IN: Ciao Mondo la terra gira!!!, 10
@@ -6407,7 +6419,7 @@ OUT: Ciao Mondo...
 
 Stringhe
 
-1. Creare un programma che implementi una funzione che cerchi in una frase la sottostringa composta dalle parole **coding** e **creativo**. Se trova entrambe le parole restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
+1. Creare un programma che implementi una funzione che cerchi in una frase le sottostringhe  **coding** o **creativo**. Se ne trova almeno una restituisce la frase, altrimenti stampa come risultato **parole non trovate**.
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_31.js_
 
@@ -8105,12 +8117,12 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 Array
 
-1. Scrivere una funzione che dato un array in input, restituisca un array con gli elementi in ordine inverso, senza usare la funzione reverse
+1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementti, il tutto senza usare la funzione reverse
 
 ```js
 IN: [1,2,3]
 
-OUT: [3,2,1]
+OUT: [6,3,2,1]
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_39.js_
@@ -8189,7 +8201,7 @@ OUT: [1,2,4]
 
 Array
 
-1. Scrivere una funzione ordini in ordine decrescente di titolo questo array
+1. Scrivere una funzione che ordini in ordine decrescente di titolo questo array
 
 ```js
   var library = [
@@ -8256,7 +8268,8 @@ Array
 
 Array
 
-1. Scrivere una funzione che dato un array di 100 elementi e un numero N, restituisca un array riempito con numeri interi casuali da 1 a 50 ed azzeri tutti gli elementi che sono multipli di N.
+1. Scrivere una funzione che dato un array di numeri e un numero N, restituisca un array in cui tutti i multipli di N sono azzeati.
+
 
 ```js
 IN [1, 5, 8, 10, 19, 20, ....., 50], N=5
@@ -8273,12 +8286,12 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 Array
 
-1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri
+1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri (considera 1 come numero primo)
 
 ```js
 IN [1, 4, 7, 3, 11, 12, 20]
 
-OUT [7, 3, 11, 1, 4, 12, 20]
+OUT [1, 7, 3, 11, 4, 12, 20]
 
 ```
 
