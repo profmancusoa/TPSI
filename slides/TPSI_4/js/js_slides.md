@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.12"
+version: "2.0.13"
 ---
 
 # JavaScript
@@ -2607,7 +2607,7 @@ I 4 operatori booleani
 "" || "" || "rossi" -> "rossi"
 ```
 
-Quindi spesso l'operatore || viene spesso usato per trovare il primo valore vero o impostare un default
+Quindi l'operatore || viene spesso usato per trovare il primo valore vero o impostare un default
 
 ```js
 let nome = ""; let cognome = "";
@@ -2737,7 +2737,7 @@ let result = a ?? b;
 
 let result;
 if (a ! = null && a ! = undefined) //no spazio tra ! e =
-  reult = a;
+  result = a;
 else
   result = b;
 ```
@@ -2831,11 +2831,11 @@ console.log(conferma);
 Operatori Booleani
 
 1. Creare una pagina HTML con il relativo Javascript, usando **prompt() e alert()**, che richieda delle credenziali di login Username e Password in base alla seguente logica:
+2. La soluzione non deve far uso di `if`-`?`-`switch`, ma deve solo utilizzare gli operatori logici
+3. Consegnare su github il file con nome _|cognome|\_esercizio_js_09.html_ e _|cognome|\_esercizio_js_09.js_
 
-<img src="/media/js09.png" width="400" style="margin: auto;"/>
-<br />
+<img src="/media/js09.png" width="380" style="margin: auto;"/>
 
-1. Consegnare su github il file con nome _|cognome|\_esercizio_js_09.html_ e _|cognome|\_esercizio_js_09.js_
 
 --- #slide N
 
