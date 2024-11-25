@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.13"
+version: "2.0.14"
 ---
 
 # JavaScript
@@ -8943,24 +8943,7 @@ OUT: [ 'mora', 'teste', 'locazione' ]
 
 Array, Map, Set
 
-1. Scrivere una funzione che ricevuta un testo in una stringa, stampi il numero di occorrenze per ogni parola
-
-```js
-IN: "JavaScript è un linguaggio molto bello. JavaScript è un linguaggio di alto livello"
-
-OUT:
-
-La parola "JavaScript" ha frequenza: 2
-La parola "è" ha frequenza: 2
-La parola "un" ha frequenza: 2
-La parola "linguaggio" ha frequenza: 2
-La parola "molto" ha frequenza: 1
-La parola "bello." ha frequenza: 1
-La parola "di" ha frequenza: 1
-La parola "alto" ha frequenza: 1
-La parola "livello" ha frequenza: 1
-```
-
+1. Scrivere una funzione che ricevuta un testo in una stringa e restituisca una mappa parola-occorrenza
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_61.js_
 
 ---
