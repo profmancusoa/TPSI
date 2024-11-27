@@ -1898,7 +1898,7 @@ p.remove(); //rimuove l'elemento p dal body del documento
 
 Creiamo una lista in JS
 
-- Il metodo visto per la creazione i visualizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
+- Il metodo visto per la creazione e visualizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
 - Immaginiamo di voler visualizzare la lista degli studenti di una classe provenienti da un DataBase
 - Il contenuto della lista non è noto quando scriviamo il markup della pagina HTML
 - Pertanto creeremo la lista in modo dinamico a runtime tramite JavaScript
