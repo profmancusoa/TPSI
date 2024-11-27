@@ -424,7 +424,7 @@ I linguaggi più utilizzati nel mondo dello sviluppo software
 
 Il tag \<script\>
 
-- Uno programma JavaScript è inserito in una pagina HTML, tramite il tag `<script>...</script>`
+- Un programma JavaScript è inserito in una pagina HTML, tramite il tag `<script>...</script>`
 - Il tag **\<script\>** può essere inserito ovunque nella pagina, ma normalmente viene inserito nella sezione \<head\>
 - Spesso, per ragioni di performance viene inserito al fondo della pagina, alla fine della sezione \<body\>
 
