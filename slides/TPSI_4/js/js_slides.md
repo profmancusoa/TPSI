@@ -1522,7 +1522,7 @@ p.innerText = "Questo è un paragrafo";
 Modificare oggetti HTML in JS
 
 - Possiamo anche modificare lo stile (CSS) di un oggetto
-- Per far ciò utilizziamo la proprietà `style` dell'ogegtto del DOM
+- Per far ciò utilizziamo la proprietà `style` dell'oggetto del DOM
 
 Esempio:
 
@@ -1535,7 +1535,7 @@ h1.style.backgroundColor = 'yellow'; //imposta lo sfondo a giallo
 ```
 
 <Banner padding="20px" mt="30px">
-Importante notare che le proprietà CSS si transformano in JS nel seguente modo
+Importante notare che le proprietà CSS si trasformano in JS nel seguente modo
 
 - proprietà semplice: si usa lo stesso nome
 - proprietà composta: si usa la notazione camelCase rimuovendo il dash (-)
