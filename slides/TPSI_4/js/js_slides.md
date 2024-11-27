@@ -2026,7 +2026,7 @@ Ascoltiamo e gestiamo gli eventi
 
 - Una caratteristica della programmazione Web dinamica è la gestione degli `eventi`
 - La maggioranza dei componenti HTML generano una serie di eventi
-- Per esempial click del mouse su un oggetto si genera l'evento `onclick`
+- Per esempio al click del mouse su un oggetto si genera l'evento `onclick`
 
 - Ci sono due elementi fondamentali per la gestione degli eventi
   1. `evento name`: nome dell'evento da scoltare
