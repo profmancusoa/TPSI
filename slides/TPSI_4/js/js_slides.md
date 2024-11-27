@@ -1465,7 +1465,7 @@ document.getElementsByTagName('p');
 modifichiamo una pagina HTML in JS
 
 `querySelector('<selettore css')` e `querySelectorAll('<selettore css')`
-- Restituiscono rispettivamente il primo o tutti gli elementi che corrispondeon a un selettore CSS specificato.
+- Restituiscono rispettivamente il primo o tutti gli elementi che corrispondono ad un selettore CSS specificato.
 - Questi metodi sono molto utili per manipolare il DOM in modo dinamico.
 
 <br>
