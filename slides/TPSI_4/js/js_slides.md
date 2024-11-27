@@ -424,7 +424,7 @@ I linguaggi più utilizzati nel mondo dello sviluppo software
 
 Il tag \<script\>
 
-- Uno programma JavaScript è inserito in una pagina HTML, tramite il tag `<script>...</script>`
+- Un programma JavaScript è inserito in una pagina HTML, tramite il tag `<script>...</script>`
 - Il tag **\<script\>** può essere inserito ovunque nella pagina, ma normalmente viene inserito nella sezione \<head\>
 - Spesso, per ragioni di performance viene inserito al fondo della pagina, alla fine della sezione \<body\>
 
@@ -519,7 +519,7 @@ Hello JS World!
 2. Verificare l'esecuzione dello script JS all'avvio della pagina
 3. Provare a modificare il codice JS
 4. Creare una pagina web, che esegue il codice JS da file esterno e e salvarlo come _|cognome|\_esercizio_js_01b.html_ e _|cognome|\_esercizio_js_01b.js_
-5. Consegnare su github i file con nom|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
+5. Consegnare su github i file con nome|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
 
 --- #slide N
 
@@ -1323,7 +1323,7 @@ modifichiamo una pagina HTML in JS
 - Prima di continuare con l'apprendimento di JS vediamo come interagire con una pagina HTML
 - Come abbiamo visto in precedenza, quando il browser carica una pagina viene creato un albero degli oggetti chiamato **DOM**
 - **_JavaScript può accedere e leggere o modificare qualsiasi oggetto del DOM_**
-- Questo è un meccanismo molto potente che permette di "dare vita" alle pagine HTML trasformandole da semplice pagine da consultare ad applicazione web interattive.
+- Questo è un meccanismo molto potente che permette di "dare vita" alle pagine HTML trasformandole da semplici pagine da consultare ad applicazione web interattive.
 - Questo è il paradigma in uso ormai da molti anni ed estremizzato con le `Progressive Web App` ai nostri giorni.
 
 <br>
@@ -1465,7 +1465,7 @@ document.getElementsByTagName('p');
 modifichiamo una pagina HTML in JS
 
 `querySelector('<selettore css')` e `querySelectorAll('<selettore css')`
-- Restituiscono rispettivamente il primo o tutti gli elementi che corrispondeon a un selettore CSS specificato.
+- Restituiscono rispettivamente il primo o tutti gli elementi che corrispondono ad un selettore CSS specificato.
 - Questi metodi sono molto utili per manipolare il DOM in modo dinamico.
 
 <br>
@@ -1522,7 +1522,7 @@ p.innerText = "Questo è un paragrafo";
 Modificare oggetti HTML in JS
 
 - Possiamo anche modificare lo stile (CSS) di un oggetto
-- Per far ciò utilizziamo la proprietà `style` dell'ogegtto del DOM
+- Per far ciò utilizziamo la proprietà `style` dell'oggetto del DOM
 
 Esempio:
 
@@ -1535,7 +1535,7 @@ h1.style.backgroundColor = 'yellow'; //imposta lo sfondo a giallo
 ```
 
 <Banner padding="20px" mt="30px">
-Importante notare che le proprietà CSS si transformano in JS nel seguente modo
+Importante notare che le proprietà CSS si trasformano in JS nel seguente modo
 
 - proprietà semplice: si usa lo stesso nome
 - proprietà composta: si usa la notazione camelCase rimuovendo il dash (-)
@@ -1898,7 +1898,7 @@ p.remove(); //rimuove l'elemento p dal body del documento
 
 Creiamo una lista in JS
 
-- Il metodo visto per la creazione i visualizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
+- Il metodo visto per la creazione e visualizzazione di elementi HTML in modo dinamico è utilissimo nella creazioni di Web App
 - Immaginiamo di voler visualizzare la lista degli studenti di una classe provenienti da un DataBase
 - Il contenuto della lista non è noto quando scriviamo il markup della pagina HTML
 - Pertanto creeremo la lista in modo dinamico a runtime tramite JavaScript
@@ -2026,7 +2026,7 @@ Ascoltiamo e gestiamo gli eventi
 
 - Una caratteristica della programmazione Web dinamica è la gestione degli `eventi`
 - La maggioranza dei componenti HTML generano una serie di eventi
-- Per esempial click del mouse su un oggetto si genera l'evento `onclick`
+- Per esempio al click del mouse su un oggetto si genera l'evento `onclick`
 
 - Ci sono due elementi fondamentali per la gestione degli eventi
   1. `evento name`: nome dell'evento da scoltare
