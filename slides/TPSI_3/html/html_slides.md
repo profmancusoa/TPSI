@@ -4,16 +4,16 @@ theme: default
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: /cover.webp
 # apply any windi css classes to the current slide
-class: 'text-center'
+class: "text-center"
 # https://sli.dev/custom/highlighters.html
 #highlighter: shiki
 # show line numbers in code blocks
 lineNumbers: false
-aspectRatio: '16_/9'
-routerMode: 'hash'
+aspectRatio: "16_/9"
+routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: '1.5.4'
+version: "1.5.5"
 --- 
 
 <!-- mapping esercizi
@@ -1832,6 +1832,135 @@ Link
 
 ---
 
+# Esercizio html_10a
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10a.html
+</div>
+<div>
+<img src="/media/html6.png" width="470" style="float:right; position:relative;top:0px;"/>
+</div>
+</div>
+
+---
+
+# Esercizio html_10b
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10b.html
+</div>
+<div>
+<img src="/media/html7.jpg" width="470" style="float:right; position:relative;top:0px;"/>
+</div>
+</div>
+
+---
+
+# Esercizio html_10c
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10c.html
+</div>
+<div>
+<img src="/media/html8.png" width="270" style="float:right; position:relative;left:-100px;"/>
+</div>
+</div>
+
+---
+
+# Esercizio html_10d
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10d.html
+</div>
+<div>
+<img src="/media/html9.png" width="470" style="float:right; position:relative;top:0px;"/>
+</div>
+</div>
+
+---
+
+# Esercizio html_10e
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10e.html
+</div>
+<div>
+&nbsp;
+</div>
+</div>
+
+<img src="/media/html10.png"  style="position:relative;left:0px;top:20px;"/>
+
+---
+
+# Esercizio html_10f
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10f.html
+</div>
+<div>
+<img src="/media/html11.png"  width="400" style="position:relative;left:0px;top:20px;"/>
+</div>
+</div>
+
+---
+
+# Esercizio html_10g
+
+Tabelle
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+1. Realizzare in HTML con l'uso delle tabelle quanto rappresentato in figura
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
+3. Consegnare su github il file con nome |cognome|_esercizio_html_10g.html
+</div>
+<div>
+<img src="/media/html12.png"  width="300" style="position:relative;left:100px;top:20px;"/>
+</div>
+</div>
+
+
+---
+
 # Esercizio html_11
 
 Tabelle
@@ -1840,7 +1969,7 @@ Tabelle
 <div>
 
 1. Realizzare in HTML con l'uso delle tabelle il menù del ristorante qui a fianco
-2. Obiettivo non è riprodurlo fedelmente con colori ed effetti, ma riprodurne il layout tramite l'uso delle tabelle
+2. Obiettivo è riprodurlo il più fedelmente possibile tramite l'uso delle tabelle e di quanto appreso fino ad ora
 3. Consegnare su github il file con nome |cognome|_esercizio_html_11.html
 </div>
 <div>
