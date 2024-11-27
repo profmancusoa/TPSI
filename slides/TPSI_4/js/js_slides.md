@@ -1323,7 +1323,7 @@ modifichiamo una pagina HTML in JS
 - Prima di continuare con l'apprendimento di JS vediamo come interagire con una pagina HTML
 - Come abbiamo visto in precedenza, quando il browser carica una pagina viene creato un albero degli oggetti chiamato **DOM**
 - **_JavaScript può accedere e leggere o modificare qualsiasi oggetto del DOM_**
-- Questo è un meccanismo molto potente che permette di "dare vita" alle pagine HTML trasformandole da semplice pagine da consultare ad applicazione web interattive.
+- Questo è un meccanismo molto potente che permette di "dare vita" alle pagine HTML trasformandole da semplici pagine da consultare ad applicazione web interattive.
 - Questo è il paradigma in uso ormai da molti anni ed estremizzato con le `Progressive Web App` ai nostri giorni.
 
 <br>
