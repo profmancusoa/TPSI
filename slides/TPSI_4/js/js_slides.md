@@ -519,7 +519,7 @@ Hello JS World!
 2. Verificare l'esecuzione dello script JS all'avvio della pagina
 3. Provare a modificare il codice JS
 4. Creare una pagina web, che esegue il codice JS da file esterno e e salvarlo come _|cognome|\_esercizio_js_01b.html_ e _|cognome|\_esercizio_js_01b.js_
-5. Consegnare su github i file con nom|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
+5. Consegnare su github i file con nome|cognome|\_esercizio_js_01a.html, |cognome|\_esercizio_js_01b.html e |cognome|\_esercizio_js_01b.js_
 
 --- #slide N
 
