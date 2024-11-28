@@ -9653,7 +9653,7 @@ console.log(JSON.stringify(studente_obj, (k,v) => k == 'eta' ? undefined : v))
 Da JSON a oggetto: parse()
 
 - L'operazione inversa, cioè fare il parsing di un JSON in oggetto JS si realizza tramite il metodo **parse()**
-- Questa operazione prende il none di `deserializzazione`
+- Questa operazione prende il nome di `deserializzazione`
 
 <br>
 
