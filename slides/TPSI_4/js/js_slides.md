@@ -10501,7 +10501,7 @@ Visibilità di metodi e attributi
 Visibilità di metodi e attributi
 
 - Originariamente JS non forniva nessun modo per determinare lo stato di visibilità di metodi e proprietà
-- In altre parole tutti i metodi e attibuti erano **Public**
+- In altre parole tutti i metodi e attributi erano **Public**
 - Tuttavia con l'uso di getter e setter è possibile "simulare" un attributo privato
 
 ```js
