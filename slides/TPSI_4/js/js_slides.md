@@ -9413,7 +9413,7 @@ const students = ['Christina', 'Jon', 'Alexandare'];
 console.log(lastName);
 ```
 
-2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
+2. Riscriverlo in modo da ottenere il nome dell'ultimo studente
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_68.js_
 
