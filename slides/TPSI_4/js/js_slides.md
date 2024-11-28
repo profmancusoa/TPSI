@@ -9455,7 +9455,7 @@ Formato dati
   - E' "auto-descrittivo" e facile da comprendere
 
 - Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
-- Ha rimpiazzato il vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
+- Ha rimpiazzato i vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
 
 ---
 
