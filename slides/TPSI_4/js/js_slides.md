@@ -9490,7 +9490,7 @@ Formato dati
 
 JSON come formato universale di trasporto dati
 
-- Come menzionato prima, JSON è diventato estremamente popolare con l'avvendo della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
+- Come menzionato prima, JSON è diventato estremamente popolare con l'avvento della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
 - Il formato dati utilizzato da AJAX è JSON
 - Pertanto un oggetto file/oggetto JSON è identico ad un oggetto JS, ma il primo è in formato testuale
 - Quindi quando il server vuole inviare un oggetto al client `deve convertirlo in JSON`
