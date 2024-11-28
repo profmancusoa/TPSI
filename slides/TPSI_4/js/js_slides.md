@@ -8485,7 +8485,7 @@ Prelevare un valore:get()
 
 `get(key)`
 
-**restituisce un valore associate ad una chiave(key). Se la chiave non esiste restituisce undefined**
+**restituisce un valore associato ad una chiave(key). Se la chiave non esiste restituisce undefined**
 
 ```js
 let valore = mappa.get(2);
