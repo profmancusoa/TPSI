@@ -9946,8 +9946,8 @@ Getter e Setter
 
 - quindi `get prop()` definisce il getter per la proprietà **prop**
 - mentre `set prop()` definisce il setter per la proprietà **prop**
-- Importante notare che NON è possibile avere contemporaneamente un getter e un setter associati a una proprietà e fare in modo che quella proprietà contenga effettivamente un valore
-- In questo scenario si genera un erroere in quanto getter e setter vengono richiamati ricorsivamente
+- Importante notare che NON è possibile avere contemporaneamente un getter ed un setter associati ad una proprietà e fare in modo che quella proprietà contenga effettivamente un valore
+- In questo scenario si genera un errore in quanto getter e setter vengono richiamati ricorsivamente
 
 ---
 
