@@ -3618,8 +3618,8 @@ Utilizzarlo con parsimonia solo quando è vantaggioso.
 
 if multipli
 
-- Come abbiamo visto tramite il costrutto `if...else if...else` possiamo valutare il verificarsi di una serie di condizione esclusive
-- Tuttavia quando il numero di queste condizione è maggiore di 2 o 3, il codice risulta pesante da leggere e poco elegante o poco espressivo
+- Come abbiamo visto tramite il costrutto `if...else if...else` possiamo valutare il verificarsi di una serie di condizioni esclusive
+- Tuttavia quando il numero di queste condizioni è maggiore di 2 o 3, il codice risulta pesante da leggere e poco elegante o poco espressivo
 - In taluni scenari possiamo usare lo statement `switch` che permette di raggiungere lo stesso obiettivo in modo più elegante
 
 ---
