@@ -9574,7 +9574,7 @@ console.log(JSON.stringify(studente_obj))
 
 Da oggetto a JSON: stringify()
 
-- ma se volessi evitare di seriazlizzare altre proprietà?
+- ma se volessi evitare di serializzare altre proprietà?
 - Basta passare il parametro `replacer` al metodo stringify
 
 <br>
