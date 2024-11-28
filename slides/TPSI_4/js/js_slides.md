@@ -10865,7 +10865,7 @@ JS Objects
 # Esercizio js_77
 
 - Realizzare un programma in JS che:
-  - implementi una classe Finonacci che:
+  - implementi una classe Fibonacci che:
     - implementi un metodo che calcoli e restituisca l'ennesimo numero della successione di Fibonacci
 
   - fornisca il main che:
