@@ -10301,7 +10301,7 @@ cane.verso();
 > bau bau bau!!!
 ```
 
-- il metodo verso() ora ha un comportamento totalemnte diverso dal metodo verso della superclasse
+- il metodo verso() ora ha un comportamento totalmente diverso dal metodo verso della superclasse
 
 ---
 
