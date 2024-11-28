@@ -4617,7 +4617,7 @@ processUserInput(console_saluti);
 ```
 
 - Come si vede possiamo cambiare il comportamento di processUserInput senza modificarne il codice
-- Le `callback` sono all abase della programmazione ad eventi asincrona tipica di JS
+- Le `callback` sono alla base della programmazione ad eventi asincrona tipica di JS
 
 ---
 
