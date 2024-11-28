@@ -4693,7 +4693,7 @@ somma(5, 3);
 > 8
 ```
 
-- arrow **=>** vine dopo i parametri e prima del body della funzione
+- arrow **=>** viene dopo i parametri e prima del body della funzione
 - Pertanto può essere facilmente letta in questo modo: questi input/parametri generano un risultato attraverso questo blocco di codice (body della funzione)
 
 ---
