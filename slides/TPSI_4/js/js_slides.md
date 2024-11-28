@@ -9889,7 +9889,7 @@ let mario = new Studente("Mario", 4);
 mario.Saluta();
 ```
 
-- Quandi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
+- Quindi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
   -  acceddi allla proprietà *nome* dell'oggetto *mario* e di nessun'altro oggetto eventualemnte istanziato dalla stessa classe
 
 
