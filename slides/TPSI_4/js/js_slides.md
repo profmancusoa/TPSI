@@ -3460,7 +3460,7 @@ E' molto importante ricordarsi questa regola e il funzionamento dell'operatore <
 
 operatori di confronto
 
-- JavaScript definisce anche un'altro operatore di uguaglianza <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">===</span> chiamato `Strict equality check`
+- JavaScript definisce anche un altro operatore di uguaglianza <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">===</span> chiamato `Strict equality check`
 - Questo operatore non esiste in altri linguaggi come il C/C++
 - Questo operatore al contrario di **==** effettua un controllo di uguaglianza sui suo i operandi <mark>SENZA</mark> effettuare una conversione di tipo
 - E' anche definito l'operatore di disuguaglianza strict <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">!==</span>
