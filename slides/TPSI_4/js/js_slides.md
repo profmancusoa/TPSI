@@ -3362,7 +3362,7 @@ Boolean(NaN); // false
 
 operatori di confronto
 
-- In JavaScript, sono presenti i comuni operatori di confronto con un comportamento identico al C/C++ e molto altri linguaggi
+- In JavaScript, sono presenti i comuni operatori di confronto con un comportamento identico al C/C++ e molti altri linguaggi
 - Questi operatori sono utilizzati per creare delle espressioni logiche che restituisco un valore **Boolean**
 - Pertanto un'espressione di confronto può restituire o **True** o **False**
 
