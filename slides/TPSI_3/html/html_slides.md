@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "1.5.5"
+version: "1.5.6"
 --- 
 
 <!-- mapping esercizi
@@ -1474,6 +1474,7 @@ oppure
 < --> &lt; o &#60;
 > --> &gt; o &#62;
 ```
+
 [Qui si può consultare la lista completa di entities HTML.](https://www.freeformatter.com/html-entities.html)
 
 ---
@@ -1765,7 +1766,7 @@ Organizzazione tabulare dei contenuti
 
 ```html
 <table border="1">
-    <caption>A AND B</caption>
+    <caption>A OR B</caption>
     <thead style="background:gray;text-align: center;">
         <tr>
             <td>A</td> <td>B</td> <td>A | B</td>
