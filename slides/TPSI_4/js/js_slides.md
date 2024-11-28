@@ -10387,7 +10387,7 @@ gatto.verso();
 > miao miao miao!!!
 ```
 
-- anche inq uesto caso il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
+- anche in questo caso il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
 
 
 ---
