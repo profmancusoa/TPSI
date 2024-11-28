@@ -2548,7 +2548,7 @@ console.log(`Il rettangolo ha area pari a ${b * h} cm2`);
 
 Boolean
 
-- Il tipo boolean rappresenta uno stato logico è può assumere solo due valori:
+- Il tipo boolean rappresenta uno stato logico e può assumere solo due valori:
   - `true` : vero
   - `false` : falso
 
@@ -3362,7 +3362,7 @@ Boolean(NaN); // false
 
 operatori di confronto
 
-- In JavaScript, sono presenti i comuni operatori di confronto con un comportamento identico al C/C++ e molto altri linguaggi
+- In JavaScript, sono presenti i comuni operatori di confronto con un comportamento identico al C/C++ e molti altri linguaggi
 - Questi operatori sono utilizzati per creare delle espressioni logiche che restituisco un valore **Boolean**
 - Pertanto un'espressione di confronto può restituire o **True** o **False**
 
@@ -3460,7 +3460,7 @@ E' molto importante ricordarsi questa regola e il funzionamento dell'operatore <
 
 operatori di confronto
 
-- JavaScript definisce anche un'altro operatore di uguaglianza <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">===</span> chiamato `Strict equality check`
+- JavaScript definisce anche un altro operatore di uguaglianza <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">===</span> chiamato `Strict equality check`
 - Questo operatore non esiste in altri linguaggi come il C/C++
 - Questo operatore al contrario di **==** effettua un controllo di uguaglianza sui suo i operandi <mark>SENZA</mark> effettuare una conversione di tipo
 - E' anche definito l'operatore di disuguaglianza strict <span style="background-color: rgb(248,248,248);padding: 1px 5px 1px 5px; border-radius: 6px; border: 1px solid black;">!==</span>
@@ -3618,8 +3618,8 @@ Utilizzarlo con parsimonia solo quando è vantaggioso.
 
 if multipli
 
-- Come abbiamo visto tramite il costrutto `if...else if...else` possiamo valutare il verificarsi di una serie di condizione esclusive
-- Tuttavia quando il numero di queste condizione è maggiore di 2 o 3, il codice risulta pesante da leggere e poco elegante o poco espressivo
+- Come abbiamo visto tramite il costrutto `if...else if...else` possiamo valutare il verificarsi di una serie di condizioni esclusive
+- Tuttavia quando il numero di queste condizioni è maggiore di 2 o 3, il codice risulta pesante da leggere e poco elegante o poco espressivo
 - In taluni scenari possiamo usare lo statement `switch` che permette di raggiungere lo stesso obiettivo in modo più elegante
 
 ---
@@ -4157,7 +4157,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Per ovviare a questo problema. possiamo specificare un valore di **default** per i parametri di una funzione
+- Per ovviare a questo problema, possiamo specificare un valore di **default** per i parametri di una funzione
 - In tal modo se il parametro non viene passato, assumerà il valore di default e non undefined
 
 ```js
@@ -4179,7 +4179,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un espressione qualsiasi, purché sia valida in JS
+- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un'espressione qualsiasi, purché sia valida in JS
 
 ```js
 function merge(nome, cognome = "Mancuso".toUpperCase()) {
@@ -4517,7 +4517,7 @@ console.log(mul(2, 3));
 
 <br />
 
-- Pertanto un'aspetto molto importante da ricordare è
+- Pertanto un aspetto molto importante da ricordare è
 
 <Banner mt=20px padding=20px>
 In JS una funzione è sempre un valore &lt;right-value&gt;
@@ -4617,7 +4617,7 @@ processUserInput(console_saluti);
 ```
 
 - Come si vede possiamo cambiare il comportamento di processUserInput senza modificarne il codice
-- Le `callback` sono all abase della programmazione ad eventi asincrona tipica di JS
+- Le `callback` sono alla base della programmazione ad eventi asincrona tipica di JS
 
 ---
 
@@ -4625,7 +4625,7 @@ processUserInput(console_saluti);
 
 don't repeat yourself
 
-- Un'altro scenario che si incontra spesso, specie nei framework e librerie JS, è l'esecuzione di una funzione anonima
+- Un altro scenario che si incontra spesso, specie nei framework e librerie JS, è l'esecuzione di una funzione anonima
 
 ```js
 let c = 20;
@@ -4693,7 +4693,7 @@ somma(5, 3);
 > 8
 ```
 
-- arrow **=>** vine dopo i parametri e prima del body della funzione
+- arrow **=>** viene dopo i parametri e prima del body della funzione
 - Pertanto può essere facilmente letta in questo modo: questi input/parametri generano un risultato attraverso questo blocco di codice (body della funzione)
 
 ---
