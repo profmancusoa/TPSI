@@ -9350,7 +9350,7 @@ let utente = {
 2. Scrivere il destructuring assignment in modo che:
    - la variabile nome contenga il valore della proprietà nome
    - la variabile role contenga il valore della proprietà role
-   - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente)
+   - la variabile is_admin contenga il valore della proprietà isAdmin (false se non presente)
 
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_65.js_
