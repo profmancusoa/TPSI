@@ -10453,7 +10453,7 @@ console.log(voti.vuoto());
 OOP
 
 - scrivere un programma in JS che:
-1. implementi una classe Poligono che definisce le properietà principlai di un poligono regolare (lunghezza e numero lati) e che implementi i metodi Perimetro e Area per il calcolo e la stampa rispettivamente del perimetro e dell'area del poligono
+1. implementi una classe Poligono che definisce le properietà principali di un poligono regolare (lunghezza e numero lati) e che implementi i metodi Perimetro e Area per il calcolo e la stampa rispettivamente del perimetro e dell'area del poligono
 2.  scrivere il main che utilizzando la classe Poligono, calcoli e stampi perimetro e area per:
     - Triangolo equilatero di lato 15cm
     - Quadrato di lato 10cm
