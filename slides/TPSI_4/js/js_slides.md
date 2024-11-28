@@ -6642,7 +6642,7 @@ Qui la lista dei principali metodi degli array che studieremo (ci sono 39 metodi
 
 Strumenti di visualizzazione
 
-- Ci sono degli strumenti che aiutano a visualizzare il funzionamento dei principlai metodi degli array
+- Ci sono degli strumenti che aiutano a visualizzare il funzionamento dei principali metodi degli array
 
 - js-arrays-visualized
 [![js-arrays-visualized](/media/js41.png)](https://js-arrays-visualized.com/)
