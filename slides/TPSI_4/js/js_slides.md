@@ -10961,7 +10961,7 @@ let arr = [1,2,3,4];
 arr.forItem(item => console.log(item)); // arr non ha il metodo for Item
 ```
 
-- insmomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
+- insomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
 - Quindi prevedibili e risolvibili prima dell'esecuzione del codice
 
 ---
