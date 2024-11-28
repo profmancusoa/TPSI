@@ -2548,7 +2548,7 @@ console.log(`Il rettangolo ha area pari a ${b * h} cm2`);
 
 Boolean
 
-- Il tipo boolean rappresenta uno stato logico è può assumere solo due valori:
+- Il tipo boolean rappresenta uno stato logico e può assumere solo due valori:
   - `true` : vero
   - `false` : falso
 
