@@ -9903,7 +9903,7 @@ Getter e Setter
 - Per ogni variabile di istanza, un metodo `getter` restituisce il suo valore mentre un metodo `setter` imposta o aggiorna il suo valore
 - In altre parole:
   - quando leggiamo una proprietà viene invocato il metodo ***getter*** che restituisce la proprietà stessa
-  - quando scriviamo una proprità viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
+  - quando scriviamo una proprietà viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
 - Ciò è estremamente flessibile in quanto ora è possibile manipolare la proprietà in modo trasparente senza dover aggiungere altri metodo specifici
 
 <img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 10px;"/>
