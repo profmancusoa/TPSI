@@ -8943,7 +8943,7 @@ OUT: [ 'mora', 'teste', 'locazione' ]
 
 Array, Map, Set
 
-1. Scrivere una funzione che ricevuta un testo in una stringa e restituisca una mappa parola-occorrenza
+1. Scrivere una funzione che ricevuto un testo in una stringa e restituisca una mappa parola-occorrenza
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_61.js_
 
 ---
