@@ -9549,7 +9549,7 @@ Da oggetto a JSON: stringify()
 
 Da oggetto a JSON: stringify()
 
-- Importante notare che è un formato solo per i dati, pertanto qualsiasi altra proprietà di un ogegtto JS non verrà serializzata
+- Importante notare che è un formato solo per i dati, pertanto qualsiasi altra proprietà di un oggetto JS non verrà serializzata
 
 <br>
 
