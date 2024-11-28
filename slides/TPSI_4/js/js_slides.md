@@ -4517,7 +4517,7 @@ console.log(mul(2, 3));
 
 <br />
 
-- Pertanto un'aspetto molto importante da ricordare è
+- Pertanto un aspetto molto importante da ricordare è
 
 <Banner mt=20px padding=20px>
 In JS una funzione è sempre un valore &lt;right-value&gt;
