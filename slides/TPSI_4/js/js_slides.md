@@ -4625,7 +4625,7 @@ processUserInput(console_saluti);
 
 don't repeat yourself
 
-- Un'altro scenario che si incontra spesso, specie nei framework e librerie JS, è l'esecuzione di una funzione anonima
+- Un altro scenario che si incontra spesso, specie nei framework e librerie JS, è l'esecuzione di una funzione anonima
 
 ```js
 let c = 20;
