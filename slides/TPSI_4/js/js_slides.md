@@ -10915,7 +10915,7 @@ JS Objects
     - Le variazioni di velocità e marcia sono consentite solo se l’auto è accesa.
     - Dopo ogni operazione, sullo schermo occorre visualizzare lo stato attuale dell’automobile (persone, velocità, marcia, on/off), tramite apposito metodo
   - fornisca il main che:
-    - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
+    - verifichi il corretto funzionamento della classe Automobile instanziandone un oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_79.js_
