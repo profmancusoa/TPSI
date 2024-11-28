@@ -4157,7 +4157,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Per ovviare a questo problema. possiamo specificare un valore di **default** per i parametri di una funzione
+- Per ovviare a questo problema, possiamo specificare un valore di **default** per i parametri di una funzione
 - In tal modo se il parametro non viene passato, assumerà il valore di default e non undefined
 
 ```js
