@@ -8268,7 +8268,7 @@ Array
 
 Array
 
-1. Scrivere una funzione che dato un array di numeri e un numero N, restituisca un array in cui tutti i multipli di N sono azzeati.
+1. Scrivere una funzione che dato un array di numeri e un numero N, restituisca un array in cui tutti i multipli di N sono azzerati.
 
 
 ```js
