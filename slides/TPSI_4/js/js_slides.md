@@ -8117,7 +8117,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 Array
 
-1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementti, il tutto senza usare la funzione reverse
+1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementi, il tutto senza usare la funzione reverse
 
 ```js
 IN: [1,2,3]
