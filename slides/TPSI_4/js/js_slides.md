@@ -10473,7 +10473,7 @@ Visibilità di metodi e attributi
 - Per comprenderla, usciamo dal mondo dello sviluppo e guardiamo al mondo reale.
 - Solitamente, i dispositivi che utilizziamo sono piuttosto complessi. Poter delimitare la loro interfaccia interna da quella esterna, ci consente di utilizzarli senza grossi problemi.
 - Per esempio un computer:
-  - il suo uso avviene facilemente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
+  - il suo uso avviene facilmente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
   - tuttavia il suo funzionamento interno (incapsulato) è piuttosto complesso
   - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tasiera e OS
   - tuttavia l'utente vede ed usa solo le interfacce esterne, mentre ignora la presenza ed il funzionamento di quelle interne
