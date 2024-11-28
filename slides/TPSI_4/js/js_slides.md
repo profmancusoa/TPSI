@@ -10329,7 +10329,7 @@ gatto.verso();
 > miao miao miao!!!
 ```
 
-- anche in questo caso, il metodo verso() ha un comportamento totalemnte diverso dal metodo verso della superclasse e da quello della classe derivata Cane
+- anche in questo caso, il metodo verso() ha un comportamento totalmente diverso dal metodo verso della superclasse e da quello della classe derivata Cane
 
 ---
 
