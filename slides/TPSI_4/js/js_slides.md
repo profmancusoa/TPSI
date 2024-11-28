@@ -10491,7 +10491,7 @@ Visibilità di metodi e attributi
 
 - Nell'esempio precedente:
   - il computer visualizza i risultati generati tramite l'interfaccia pubblica chiamata Display
-  - il computer adatta lo scambio di informazioni tra CPU e momoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
+  - il computer adatta lo scambio di informazioni tra CPU e memoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
 
 
 ---
