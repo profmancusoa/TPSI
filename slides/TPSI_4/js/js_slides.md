@@ -9260,7 +9260,7 @@ let options = {
 
 Destructuring assignment
 
-- Possiamo anche assegnar eun valore di default alle variabili
+- Possiamo anche assegnare un valore di default alle variabili
 
 ```js
 let options = {
