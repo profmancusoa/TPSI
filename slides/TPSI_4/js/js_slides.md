@@ -8286,7 +8286,7 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 Array
 
-1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri (considera 1 come numero primo)
+1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutti i numeri primi poi gli altri numeri (considera 1 come numero primo)
 
 ```js
 IN [1, 4, 7, 3, 11, 12, 20]
