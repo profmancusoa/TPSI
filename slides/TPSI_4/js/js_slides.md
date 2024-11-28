@@ -9858,7 +9858,7 @@ this
 <div style="width: 55%;">
 
 - Come visto nell'esempio precedente, una situazione molto frequente è quella di dover accedere agli attributi dell'oggetto, per esempio *nome*, *classe* e *istituto*
-- Quindi quando in un metodo di una classe vogliamo accedere agli attributi, dobbiamo essere sicuro di accedere a quelli dell'oggetto specifico che vuole effettuare l'operazione
+- Quindi quando in un metodo di una classe vogliamo accedere agli attributi, dobbiamo essere sicuri di accedere a quelli dell'oggetto specifico che vuole effettuare l'operazione
 - Per tale motivo, in un metodo possiamo far riferimento all'oggetto stesso tramite la keyword `this`
 - Pertanto **this** rappresenta l'oggetto specifico, tra tutti quelli instanziati, che sta eseguendo l'operazione
 
