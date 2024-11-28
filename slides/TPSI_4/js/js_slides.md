@@ -10114,7 +10114,7 @@ Method Chaining
 - In questo modo la prima chiamata *tarta.nord(10)*  viene valutata e:
   - stampa il messaggio
   - restituisce un oggetto di tipo tartaruga
-- Ora su questo oeggetto *(tarta.nord(10))* chiamo il metodo *est(10)* che viene valutato e:
+- Ora su questo oggetto *(tarta.nord(10))* chiamo il metodo *est(10)* che viene valutato e:
   - stampa il messaggio
   - restituisce un oggetto di tipo tartaruga
 - e così via per i metodi successivi
