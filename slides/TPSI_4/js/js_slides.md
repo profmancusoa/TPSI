@@ -9536,7 +9536,7 @@ console.log(studente_str)
 Da oggetto a JSON: stringify()
 
 - Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa
-- La stringa risultate si dice JSON-encoded
+- La stringa risultante si dice JSON-encoded
 - Questa operazione di conversionie si chiama `serializzazione`
 
 - Importante notare le principali differenze tra oggetto literal e JSON
