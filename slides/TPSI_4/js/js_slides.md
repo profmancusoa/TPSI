@@ -10053,7 +10053,7 @@ console.log(str.replace(' ', '_').replaceAll('!', '').toUpperCase())
 
 Method Chaining
 
-- Creaimo una classe che rappresenta la tartaruga del logo, composta da 4 metodi che permettonodi muoversi nelle quattro direzioni cardinali per una data distanza
+- Creiamo una classe che rappresenta la tartaruga del logo, composta da 4 metodi che permettono di muoversi nelle quattro direzioni cardinali per una data distanza
 
 ```js
 class tartaruga {
