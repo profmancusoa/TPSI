@@ -10651,7 +10651,7 @@ let mariolino = new Studente("Mario", 4);
 mario == mariolino // false
 ```
 
-- siccome gli oggetti sono in realtà delle referenze, è chairo che mario e mariolino sono due referenze  diverse che puntano a due oggetti uguali
+- siccome gli oggetti sono in realtà delle referenze, è chiaro che mario e mariolino sono due referenze  diverse che puntano a due oggetti uguali
 
 ---
 
