@@ -10799,7 +10799,7 @@ function process_form() {
 JS Objects
 
 1. Creare una pagina HTML e JS contenente un form di registrazione utente
-2. Il form deve contener ei seguenti campi
+2. Il form deve contenere i seguenti campi
    1. nome
    2. cognome
    3. età
