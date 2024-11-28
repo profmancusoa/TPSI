@@ -4179,7 +4179,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un espressione qualsiasi, purché sia valida in JS
+- Importante notare che il parametro di default non deve essere necessariamente un tipo base, ma può essere un'espressione qualsiasi, purché sia valida in JS
 
 ```js
 function merge(nome, cognome = "Mancuso".toUpperCase()) {
