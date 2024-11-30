@@ -6642,7 +6642,7 @@ Qui la lista dei principali metodi degli array che studieremo (ci sono 39 metodi
 
 Strumenti di visualizzazione
 
-- Ci sono degli strumenti che aiutano a visualizzare il funzionamento dei principlai metodi degli array
+- Ci sono degli strumenti che aiutano a visualizzare il funzionamento dei principali metodi degli array
 
 - js-arrays-visualized
 [![js-arrays-visualized](/media/js41.png)](https://js-arrays-visualized.com/)
@@ -8117,7 +8117,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 Array
 
-1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementti, il tutto senza usare la funzione reverse
+1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementi, il tutto senza usare la funzione reverse
 
 ```js
 IN: [1,2,3]
@@ -8268,7 +8268,7 @@ Array
 
 Array
 
-1. Scrivere una funzione che dato un array di numeri e un numero N, restituisca un array in cui tutti i multipli di N sono azzeati.
+1. Scrivere una funzione che dato un array di numeri e un numero N, restituisca un array in cui tutti i multipli di N sono azzerati.
 
 
 ```js
@@ -8286,7 +8286,7 @@ OUT [1, 0, 8, 0, 19, 0, ....., 0]
 
 Array
 
-1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutto i numeri primi poi gli altri numeri (considera 1 come numero primo)
+1. Scrivere una funzione che dato un array di interi positivi, restituisca un array in cui gli elementi originali sono organizzati così: prima tutti i numeri primi poi gli altri numeri (considera 1 come numero primo)
 
 ```js
 IN [1, 4, 7, 3, 11, 12, 20]
@@ -8485,7 +8485,7 @@ Prelevare un valore:get()
 
 `get(key)`
 
-**restituisce un valore associate ad una chiave(key). Se la chiave non esiste restituisce undefined**
+**restituisce un valore associato ad una chiave(key). Se la chiave non esiste restituisce undefined**
 
 ```js
 let valore = mappa.get(2);
@@ -8943,7 +8943,7 @@ OUT: [ 'mora', 'teste', 'locazione' ]
 
 Array, Map, Set
 
-1. Scrivere una funzione che ricevuta un testo in una stringa e restituisca una mappa parola-occorrenza
+1. Scrivere una funzione che ricevuto un testo in una stringa e restituisca una mappa parola-occorrenza
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_61.js_
 
 ---
@@ -9260,7 +9260,7 @@ let options = {
 
 Destructuring assignment
 
-- Possiamo anche assegnar eun valore di default alle variabili
+- Possiamo anche assegnare un valore di default alle variabili
 
 ```js
 let options = {
@@ -9350,7 +9350,7 @@ let utente = {
 2. Scrivere il destructuring assignment in modo che:
    - la variabile nome contenga il valore della proprietà nome
    - la variabile role contenga il valore della proprietà role
-   - la variabile is_admin contenga il valore della proprietà isAdim (false se non presente)
+   - la variabile is_admin contenga il valore della proprietà isAdmin (false se non presente)
 
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_65.js_
@@ -9413,7 +9413,7 @@ const students = ['Christina', 'Jon', 'Alexandare'];
 console.log(lastName);
 ```
 
-2. Riscriverlo in modo da ottenre il nome dell'ultimo studente
+2. Riscriverlo in modo da ottenere il nome dell'ultimo studente
 
 3. Consegnare su github il file con nome _|cognome|\_esercizio_js_68.js_
 
@@ -9455,7 +9455,7 @@ Formato dati
   - E' "auto-descrittivo" e facile da comprendere
 
 - Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
-- Ha rimpiazzato il vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
+- Ha rimpiazzato i vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
 
 ---
 
@@ -9490,7 +9490,7 @@ Formato dati
 
 JSON come formato universale di trasporto dati
 
-- Come menzionato prima, JSON è diventato estremamente popolare con l'avvendo della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
+- Come menzionato prima, JSON è diventato estremamente popolare con l'avvento della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
 - Il formato dati utilizzato da AJAX è JSON
 - Pertanto un oggetto file/oggetto JSON è identico ad un oggetto JS, ma il primo è in formato testuale
 - Quindi quando il server vuole inviare un oggetto al client `deve convertirlo in JSON`
@@ -9536,7 +9536,7 @@ console.log(studente_str)
 Da oggetto a JSON: stringify()
 
 - Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa
-- La stringa risultate si dice JSON-encoded
+- La stringa risultante si dice JSON-encoded
 - Questa operazione di conversionie si chiama `serializzazione`
 
 - Importante notare le principali differenze tra oggetto literal e JSON
@@ -9549,7 +9549,7 @@ Da oggetto a JSON: stringify()
 
 Da oggetto a JSON: stringify()
 
-- Importante notare che è un formato solo per i dati, pertanto qualsiasi altra proprietà di un ogegtto JS non verrà serializzata
+- Importante notare che è un formato solo per i dati, pertanto qualsiasi altra proprietà di un oggetto JS non verrà serializzata
 
 <br>
 
@@ -9574,7 +9574,7 @@ console.log(JSON.stringify(studente_obj))
 
 Da oggetto a JSON: stringify()
 
-- ma se volessi evitare di seriazlizzare altre proprietà?
+- ma se volessi evitare di serializzare altre proprietà?
 - Basta passare il parametro `replacer` al metodo stringify
 
 <br>
@@ -9653,7 +9653,7 @@ console.log(JSON.stringify(studente_obj, (k,v) => k == 'eta' ? undefined : v))
 Da JSON a oggetto: parse()
 
 - L'operazione inversa, cioè fare il parsing di un JSON in oggetto JS si realizza tramite il metodo **parse()**
-- Questa operazione prende il none di `deserializzazione`
+- Questa operazione prende il nome di `deserializzazione`
 
 <br>
 
@@ -9858,7 +9858,7 @@ this
 <div style="width: 55%;">
 
 - Come visto nell'esempio precedente, una situazione molto frequente è quella di dover accedere agli attributi dell'oggetto, per esempio *nome*, *classe* e *istituto*
-- Quindi quando in un metodo di una classe vogliamo accedere agli attributi, dobbiamo essere sicuro di accedere a quelli dell'oggetto specifico che vuole effettuare l'operazione
+- Quindi quando in un metodo di una classe vogliamo accedere agli attributi, dobbiamo essere sicuri di accedere a quelli dell'oggetto specifico che vuole effettuare l'operazione
 - Per tale motivo, in un metodo possiamo far riferimento all'oggetto stesso tramite la keyword `this`
 - Pertanto **this** rappresenta l'oggetto specifico, tra tutti quelli instanziati, che sta eseguendo l'operazione
 
@@ -9889,7 +9889,7 @@ let mario = new Studente("Mario", 4);
 mario.Saluta();
 ```
 
-- Quandi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
+- Quindi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
   -  acceddi allla proprietà *nome* dell'oggetto *mario* e di nessun'altro oggetto eventualemnte istanziato dalla stessa classe
 
 
@@ -9903,7 +9903,7 @@ Getter e Setter
 - Per ogni variabile di istanza, un metodo `getter` restituisce il suo valore mentre un metodo `setter` imposta o aggiorna il suo valore
 - In altre parole:
   - quando leggiamo una proprietà viene invocato il metodo ***getter*** che restituisce la proprietà stessa
-  - quando scriviamo una proprità viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
+  - quando scriviamo una proprietà viene invocato il metodo ***setter*** che aggiorna il valore della proprietà stessa
 - Ciò è estremamente flessibile in quanto ora è possibile manipolare la proprietà in modo trasparente senza dover aggiungere altri metodo specifici
 
 <img src="/media/js34.png" width="400" style="display:inline; position:relative; top: 10px;"/>
@@ -9946,8 +9946,8 @@ Getter e Setter
 
 - quindi `get prop()` definisce il getter per la proprietà **prop**
 - mentre `set prop()` definisce il setter per la proprietà **prop**
-- Importante notare che NON è possibile avere contemporaneamente un getter e un setter associati a una proprietà e fare in modo che quella proprietà contenga effettivamente un valore
-- In questo scenario si genera un erroere in quanto getter e setter vengono richiamati ricorsivamente
+- Importante notare che NON è possibile avere contemporaneamente un getter ed un setter associati ad una proprietà e fare in modo che quella proprietà contenga effettivamente un valore
+- In questo scenario si genera un errore in quanto getter e setter vengono richiamati ricorsivamente
 
 ---
 
@@ -10053,7 +10053,7 @@ console.log(str.replace(' ', '_').replaceAll('!', '').toUpperCase())
 
 Method Chaining
 
-- Creaimo una classe che rappresenta la tartaruga del logo, composta da 4 metodi che permettonodi muoversi nelle quattro direzioni cardinali per una data distanza
+- Creiamo una classe che rappresenta la tartaruga del logo, composta da 4 metodi che permettono di muoversi nelle quattro direzioni cardinali per una data distanza
 
 ```js
 class tartaruga {
@@ -10114,7 +10114,7 @@ Method Chaining
 - In questo modo la prima chiamata *tarta.nord(10)*  viene valutata e:
   - stampa il messaggio
   - restituisce un oggetto di tipo tartaruga
-- Ora su questo oeggetto *(tarta.nord(10))* chiamo il metodo *est(10)* che viene valutato e:
+- Ora su questo oggetto *(tarta.nord(10))* chiamo il metodo *est(10)* che viene valutato e:
   - stampa il messaggio
   - restituisce un oggetto di tipo tartaruga
 - e così via per i metodi successivi
@@ -10301,7 +10301,7 @@ cane.verso();
 > bau bau bau!!!
 ```
 
-- il metodo verso() ora ha un comportamento totalemnte diverso dal metodo verso della superclasse
+- il metodo verso() ora ha un comportamento totalmente diverso dal metodo verso della superclasse
 
 ---
 
@@ -10329,7 +10329,7 @@ gatto.verso();
 > miao miao miao!!!
 ```
 
-- anche in questo caso, il metodo verso() ha un comportamento totalemnte diverso dal metodo verso della superclasse e da quello della classe derivata Cane
+- anche in questo caso, il metodo verso() ha un comportamento totalmente diverso dal metodo verso della superclasse e da quello della classe derivata Cane
 
 ---
 
@@ -10387,7 +10387,7 @@ gatto.verso();
 > miao miao miao!!!
 ```
 
-- anche inq uesto caso il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
+- anche in questo caso il metodo verso() aggiunge un comportamento rispetto al metodo ereditato
 
 
 ---
@@ -10453,7 +10453,7 @@ console.log(voti.vuoto());
 OOP
 
 - scrivere un programma in JS che:
-1. implementi una classe Poligono che definisce le properietà principlai di un poligono regolare (lunghezza e numero lati) e che implementi i metodi Perimetro e Area per il calcolo e la stampa rispettivamente del perimetro e dell'area del poligono
+1. implementi una classe Poligono che definisce le properietà principali di un poligono regolare (lunghezza e numero lati) e che implementi i metodi Perimetro e Area per il calcolo e la stampa rispettivamente del perimetro e dell'area del poligono
 2.  scrivere il main che utilizzando la classe Poligono, calcoli e stampi perimetro e area per:
     - Triangolo equilatero di lato 15cm
     - Quadrato di lato 10cm
@@ -10473,7 +10473,7 @@ Visibilità di metodi e attributi
 - Per comprenderla, usciamo dal mondo dello sviluppo e guardiamo al mondo reale.
 - Solitamente, i dispositivi che utilizziamo sono piuttosto complessi. Poter delimitare la loro interfaccia interna da quella esterna, ci consente di utilizzarli senza grossi problemi.
 - Per esempio un computer:
-  - il suo uso avviene facilemente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
+  - il suo uso avviene facilmente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
   - tuttavia il suo funzionamento interno (incapsulato) è piuttosto complesso
   - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tasiera e OS
   - tuttavia l'utente vede ed usa solo le interfacce esterne, mentre ignora la presenza ed il funzionamento di quelle interne
@@ -10491,7 +10491,7 @@ Visibilità di metodi e attributi
 
 - Nell'esempio precedente:
   - il computer visualizza i risultati generati tramite l'interfaccia pubblica chiamata Display
-  - il computer adatta lo scambio di informazioni tra CPU e momoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
+  - il computer adatta lo scambio di informazioni tra CPU e memoria RAM attraverso un'interfaccia interna, privata e NON accessibile dal'esterno chiamata Cache
 
 
 ---
@@ -10501,7 +10501,7 @@ Visibilità di metodi e attributi
 Visibilità di metodi e attributi
 
 - Originariamente JS non forniva nessun modo per determinare lo stato di visibilità di metodi e proprietà
-- In altre parole tutti i metodi e attibuti erano **Public**
+- In altre parole tutti i metodi e attributi erano **Public**
 - Tuttavia con l'uso di getter e setter è possibile "simulare" un attributo privato
 
 ```js
@@ -10651,7 +10651,7 @@ let mariolino = new Studente("Mario", 4);
 mario == mariolino // false
 ```
 
-- siccome gli oggetti sono in realtà delle referenze, è chairo che mario e mariolino sono due referenze  diverse che puntano a due oggetti uguali
+- siccome gli oggetti sono in realtà delle referenze, è chiaro che mario e mariolino sono due referenze  diverse che puntano a due oggetti uguali
 
 ---
 
@@ -10799,7 +10799,7 @@ function process_form() {
 JS Objects
 
 1. Creare una pagina HTML e JS contenente un form di registrazione utente
-2. Il form deve contener ei seguenti campi
+2. Il form deve contenere i seguenti campi
    1. nome
    2. cognome
    3. età
@@ -10865,7 +10865,7 @@ JS Objects
 # Esercizio js_77
 
 - Realizzare un programma in JS che:
-  - implementi una classe Finonacci che:
+  - implementi una classe Fibonacci che:
     - implementi un metodo che calcoli e restituisca l'ennesimo numero della successione di Fibonacci
 
   - fornisca il main che:
@@ -10915,7 +10915,7 @@ JS Objects
     - Le variazioni di velocità e marcia sono consentite solo se l’auto è accesa.
     - Dopo ogni operazione, sullo schermo occorre visualizzare lo stato attuale dell’automobile (persone, velocità, marcia, on/off), tramite apposito metodo
   - fornisca il main che:
-    - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
+    - verifichi il corretto funzionamento della classe Automobile instanziandone un oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_79.js_
@@ -10961,7 +10961,7 @@ let arr = [1,2,3,4];
 arr.forItem(item => console.log(item)); // arr non ha il metodo for Item
 ```
 
-- insmomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
+- insomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
 - Quindi prevedibili e risolvibili prima dell'esecuzione del codice
 
 ---
