@@ -283,7 +283,7 @@ Svelte vs Others
 
 **PRO**
 
-- Tempo di compilazione velocissimo rispetto a React o altri framework e dimensione del pacchetto generato è più piccola rispetto a React
+- Tempo di compilazione velocissimo rispetto a React o altri framework e dimensione del pacchetto generato è più piccolo rispetto a React
 - Tempi di caricamento e rendering della Web app più veloci rispetto a React o altri framework.
 - Più facile da capire rispetto a altri framework poiché Svelte è semplice JavaScript, HTML e CSS.
 - Permette di scrivere meno codice rispetto ad altri framework
