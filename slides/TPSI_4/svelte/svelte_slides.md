@@ -492,7 +492,7 @@ Hello World
   - dello sviluppo per componenti
   - delle funzioni più importanti di SvelteKit
 
-- Di seguito i link alla documentazione e tutoria di Svelte e SvelteKit
+- Di seguito i link alla documentazione e tutorial di Svelte e SvelteKit
   - [Svelte tutorial](https://svelte.dev/tutorial/basics)
   - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
   - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
