@@ -142,7 +142,7 @@ Framework JS
 
 Framework JS
 
-- L'uso di un frameowrk non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
+- L'uso di un framework non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
 - Proprio per queste sue caratteristiche, sono diventati sempre più fondamentali per lo sviluppo di siti web e app.
 - I framework consentono di:
   - ottimizzare tempi, costi e benefici;
