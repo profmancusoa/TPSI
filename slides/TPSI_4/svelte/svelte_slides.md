@@ -1944,7 +1944,7 @@ Logic Statements
 
 - Pertanto se la condizione è vera viene visualizzato il *&lt;blocco HTML&gt;* altrimenti viene visualizzato il *&lt;blocco HTML alternativo&gt;*
 - In questo modo abbiamo aggiunto al puro HTML una delle capacità proprie di un linguaggio di programmazione
-- Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HML con colore rosso e in caso contrario con colore verde
+- Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HTML con colore rosso e in caso contrario con colore verde
 
 
 ---
