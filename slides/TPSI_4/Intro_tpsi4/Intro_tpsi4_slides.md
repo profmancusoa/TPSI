@@ -39,7 +39,7 @@ a.s. 2022-2023
   relative allo sviluppo Web
 - Ci concentreremo prevalentemente sui seguenti temi
   - **HTML**: markup e descrizione di una pagina
-  - **CSS**: stile della pagine e dei suoli elementi
+  - **CSS**: stile della pagine e dei suoi elementi
   - **JavaScript (JS)**: business logic
 - Il corso ha un approccio molto pratico e quindi è importantissimo `saper fare`
 
