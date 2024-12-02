@@ -474,7 +474,7 @@ Svelte Components
 ```
 
 - Questo è un componente Svelte valido.
-- Non ha nessuno contenuto e non verrà visualizzato.
+- Non ha nessun contenuto e non verrà visualizzato.
 - Anche se apparentemente non ha senso, lo ha in quanto posso avere componenti che svolgono solo funzioni utilizzate da altri componenti.
 
 Esempio: 
