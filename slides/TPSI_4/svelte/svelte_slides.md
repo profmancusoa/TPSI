@@ -1905,7 +1905,7 @@ Component Bindings
 
 DOM Events: Esercitazione_12
 
-- Creare un nuovo componente chiamato DoubeClounter (double_counter.svelte)
+- Creare un nuovo componente chiamato DoubleCounter (double_counter.svelte)
 - Questo componente funziona in modo simile a Counter, ma quando l'utente preme + il suo valore aumenta di due unità, mentre quando preme - il suo valore viene decrementato di 3 unità
 - Aggiungere il componente alla pagina counter
 - Tramite il component binding visualizzare nella pagina counter anche il valore del componente DoubleCounter
