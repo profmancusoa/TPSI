@@ -1794,7 +1794,7 @@ DOM Events
 <br>
 
 - Quando l'utente fa click sul pulsante, viene invocata ed eseguita la funzione *button_handler*
-- In questo semplicissimo modo Svelte permette una facile gestioni degli eventi DOM
+- In questo semplicissimo modo Svelte permette una facile gestione degli eventi DOM
 - Svelte permette anche di utilizzare un `inline handler`
 
 <br>
