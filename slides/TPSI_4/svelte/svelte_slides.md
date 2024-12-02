@@ -176,7 +176,7 @@ OOP per il Web
 
 - Un elemento di input può essere un componente.
 - Un form può essere un componente. 
-- Una pagina intera può essere è un componente.
+- Una pagina intera può essere un componente.
 
 <img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
 
