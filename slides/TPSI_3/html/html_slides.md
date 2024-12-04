@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "1.5.6"
+version: "1.5.7"
 --- 
 
 <!-- mapping esercizi
@@ -2367,10 +2367,12 @@ Il form deve contenere i seguenti widgets aggiuntivi:
   - almeno 4 widget number con valore minimo e massimo
   - almeno 1 widget color picker
   - almeno 3 widget range con valore minimo e massimo
-  - almeeno 2 combo box o select con almeno 5 valori ciascuna
+  - almeno 1 combo box o select con almeno 5 valori
+  - almeno 1 data list con almeno 5 valori
   - almeno 1 campo text area con dimensione minima 6 righe e 60 colonne
   - ogni widget deve essere dotato della propria label
 
+Consegnare su github il file *|cognome|_esercizio_html_14.html*
 
 
 ---
