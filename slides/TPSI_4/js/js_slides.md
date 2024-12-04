@@ -9447,12 +9447,12 @@ Materiale Aggiuntivo
 
 Formato dati
 
-- JSON significaJavaScript Object Notation
-  - E'  un semplice formato **testuale** per lo scambio e lo storage di dati
+- JSON significa: Java Script Object Notation
+  - È  un semplice formato **testuale** per lo scambio e lo storage di dati
   - Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.
   - Diventato estremamente popolare con l'avvento del web 2.0 (AJAX)
   - Universalmente adottato anche al difuori del mondo web data la sua semplicità ed immediatezza
-  - E' "auto-descrittivo" e facile da comprendere
+  - È "auto-descrittivo" e facile da comprendere
 
 - Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
 - Ha rimpiazzato i vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
