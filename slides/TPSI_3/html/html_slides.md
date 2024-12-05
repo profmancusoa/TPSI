@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "1.5.7"
+version: "1.5.8"
 --- 
 
 <!-- mapping esercizi
@@ -953,7 +953,7 @@ Il Web diventa grafico
 - **alt**: in caso in cui l'immagine non possa essere visualizzata, specifica un testo alternativo
 
 Normalmente si specificano anche gli attributi:
-- **width**: specifica la larghezza dell'immaggine in pixel
+- **width**: specifica la larghezza dell'immagine in pixel
 - **height**: specifica l'altezza dell'immagine in pixel
 
 ---
@@ -1681,7 +1681,7 @@ Organizzazione tabulare dei contenuti
 - Oggi il layout di una pagine, NON si realizza più con le tabelle ma con il blocco DIV.
 - Tuttavia lo scopo originario delle tabelle, cioè visualizzare contenuti in formato tabellare rimane valido.
 
-I principlai tag per la definizione di una tabella sono:
+I principali tag per la definizione di una tabella sono:
 
 ```html
 <table>: definisce un contenitore per dati organizzati in formato tabellare
