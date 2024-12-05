@@ -142,7 +142,7 @@ Framework JS
 
 Framework JS
 
-- L'uso di un frameowrk non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
+- L'uso di un framework non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
 - Proprio per queste sue caratteristiche, sono diventati sempre più fondamentali per lo sviluppo di siti web e app.
 - I framework consentono di:
   - ottimizzare tempi, costi e benefici;
@@ -176,7 +176,7 @@ OOP per il Web
 
 - Un elemento di input può essere un componente.
 - Un form può essere un componente. 
-- Una pagina intera può essere è un componente.
+- Una pagina intera può essere un componente.
 
 <img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
 
@@ -283,7 +283,7 @@ Svelte vs Others
 
 **PRO**
 
-- Tempo di compilazione velocissimo rispetto a React o altri framework e dimensione del pacchetto generato è più piccola rispetto a React
+- Tempo di compilazione velocissimo rispetto a React o altri framework e dimensione del pacchetto generato è più piccolo rispetto a React
 - Tempi di caricamento e rendering della Web app più veloci rispetto a React o altri framework.
 - Più facile da capire rispetto a altri framework poiché Svelte è semplice JavaScript, HTML e CSS.
 - Permette di scrivere meno codice rispetto ad altri framework
@@ -474,7 +474,7 @@ Svelte Components
 ```
 
 - Questo è un componente Svelte valido.
-- Non ha nessuno contenuto e non verrà visualizzato.
+- Non ha nessun contenuto e non verrà visualizzato.
 - Anche se apparentemente non ha senso, lo ha in quanto posso avere componenti che svolgono solo funzioni utilizzate da altri componenti.
 
 Esempio: 
@@ -492,7 +492,7 @@ Hello World
   - dello sviluppo per componenti
   - delle funzioni più importanti di SvelteKit
 
-- Di seguito i link alla documentazione e tutoria di Svelte e SvelteKit
+- Di seguito i link alla documentazione e tutorial di Svelte e SvelteKit
   - [Svelte tutorial](https://svelte.dev/tutorial/basics)
   - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
   - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
@@ -1794,7 +1794,7 @@ DOM Events
 <br>
 
 - Quando l'utente fa click sul pulsante, viene invocata ed eseguita la funzione *button_handler*
-- In questo semplicissimo modo Svelte permette una facile gestioni degli eventi DOM
+- In questo semplicissimo modo Svelte permette una facile gestione degli eventi DOM
 - Svelte permette anche di utilizzare un `inline handler`
 
 <br>
@@ -1905,7 +1905,7 @@ Component Bindings
 
 DOM Events: Esercitazione_12
 
-- Creare un nuovo componente chiamato DoubeClounter (double_counter.svelte)
+- Creare un nuovo componente chiamato DoubleCounter (double_counter.svelte)
 - Questo componente funziona in modo simile a Counter, ma quando l'utente preme + il suo valore aumenta di due unità, mentre quando preme - il suo valore viene decrementato di 3 unità
 - Aggiungere il componente alla pagina counter
 - Tramite il component binding visualizzare nella pagina counter anche il valore del componente DoubleCounter
@@ -1944,7 +1944,7 @@ Logic Statements
 
 - Pertanto se la condizione è vera viene visualizzato il *&lt;blocco HTML&gt;* altrimenti viene visualizzato il *&lt;blocco HTML alternativo&gt;*
 - In questo modo abbiamo aggiunto al puro HTML una delle capacità proprie di un linguaggio di programmazione
-- Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HML con colore rosso e in caso contrario con colore verde
+- Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HTML con colore rosso e in caso contrario con colore verde
 
 
 ---
