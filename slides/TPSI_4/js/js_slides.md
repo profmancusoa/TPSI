@@ -4840,7 +4840,7 @@ utente.nome = "Pino";
 - Possiamo aggiungere o rimuovere proprietà anche dopo la definizione dell'oggetto
 
 ```js
-utente.altezza = 170; //eta non esiste e viene creata
+utente.altezza = 170; //altezza non esiste e viene creata
 
 {nome: 'Mario', cognome: 'Rossi', eta: 30, altezza: 170}
 
