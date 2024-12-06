@@ -4409,7 +4409,7 @@ function tick() {
   console.log("tick");
 }
 
-setInterval(tick, 1000);
+setTimeout(tick, 1000);
 ```
 
 <br />
@@ -4417,7 +4417,7 @@ setInterval(tick, 1000);
 - Vediamo un modo più veloce e pratico di usare setInterval usando una funzione anonima
 
 ```js
-setInterval(function () {
+setTimeout(function () {
   console.log("tick");
 }, 1000);
 ```
