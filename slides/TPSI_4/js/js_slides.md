@@ -4409,7 +4409,7 @@ function tick() {
   console.log("tick");
 }
 
-setInterval(tick, 1000);
+setTimeout(tick, 1000);
 ```
 
 <br />
@@ -4417,7 +4417,7 @@ setInterval(tick, 1000);
 - Vediamo un modo più veloce e pratico di usare setInterval usando una funzione anonima
 
 ```js
-setInterval(function () {
+setTimeout(function () {
   console.log("tick");
 }, 1000);
 ```
@@ -4840,7 +4840,7 @@ utente.nome = "Pino";
 - Possiamo aggiungere o rimuovere proprietà anche dopo la definizione dell'oggetto
 
 ```js
-utente.altezza = 170; //eta non esiste e viene creata
+utente.altezza = 170; //altezza non esiste e viene creata
 
 {nome: 'Mario', cognome: 'Rossi', eta: 30, altezza: 170}
 
