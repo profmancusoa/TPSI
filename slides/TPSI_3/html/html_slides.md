@@ -2472,7 +2472,7 @@ Form
 - richieste particolari (area di testo editabile di 12 righe per 60 colonne)
 - bottone di invio
 - bottone di reset
-2. Consgenare su github il file |cognome|_es15.html
+2. Consgenare su github il file |cognome|_esercizio_html_15.html
 
 
 ---
