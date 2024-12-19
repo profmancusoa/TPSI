@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.14"
+version: "2.0.15"
 ---
 
 # JavaScript
@@ -5569,7 +5569,7 @@ console.log(str.charAt(56)); // ''
 console.log(str[0]); // C
 console.log(str[1]); // i
 console.log(str[6]); // o
-console.log(str[6]); // undefined
+console.log(str[56]); // undefined
 ```
 
 ---
