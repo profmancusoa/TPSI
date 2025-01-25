@@ -14,7 +14,7 @@ aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
 as: 2024/2025
-version: '1.1.2'
+version: '1.1.3'
 
 ---  
 
@@ -439,6 +439,14 @@ Account Github
 <Banner padding="30px" mt=40px>
 Pertanto è importantissimo sviluppare e curare bene il proprio profilo Linkedin e il proprio account GitHub
 </Banner>
+
+---
+
+
+&nbsp; 
+
+<img src="/media/git.gif" width="440" style="margin:auto;position:relative; left: 0px; top: -80px;">
+
 
 ---
 
