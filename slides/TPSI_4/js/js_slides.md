@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2024/2025"
-version: "2.0.15"
+version: "2.1.0"
 ---
 
 # JavaScript
@@ -11263,6 +11263,669 @@ Materiale Aggiuntivo
 </div>
 
 </div>
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Base)
+
+B01: Tipi di dato e Operatori
+
+Scrivi un programma che prende un numero e una stringa come input:
+
+- Verifica se il numero è un intero o un decimale.
+- Controlla se la stringa è vuota.
+- Stampa il tipo di dato di ciascun input.
+
+
+Metodi utilizzati:
+
+- typeof
+- Number.isInteger()
+- String.trim()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Base)
+
+B02: Manipolazione delle Stringhe
+
+- Crea una funzione che accetta una stringa e restituisce la stringa con la prima lettera maiuscola e tutte le altre lettere in minuscolo.
+
+Metodi utilizzati:
+
+- String.charAt()
+- String.toUpperCase()
+- String.toLowerCase()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Base)
+
+B03: Operazioni di Base sugli Array
+
+Scrivi una funzione che prende un array di numeri e restituisce:
+
+- La somma di tutti gli elementi.
+- La media dei numeri nell'array.
+
+Metodi utilizzati:
+
+- Array.reduce()
+- Array.length
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Base)
+
+B04: Verifica del Tipo di Dato
+
+Scrivi una funzione che prende in input una variabile e stampa:
+
+- "Il tipo di dato è [tipo]" se la variabile è un tipo di dato valido.
+- "Non è un tipo valido" nel caso in cui la variabile non corrisponda a un tipo valido (ad esempio, se è undefined).
+
+Metodi utilizzati:
+
+- typeof
+
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Base)
+
+B05:  Concatena Due Stringhe
+
+- Scrivi una funzione che accetta due stringhe come parametri e restituisce una nuova stringa che è la concatenazione delle due (senza usare l'operatore +).
+
+Metodi utilizzati:
+
+- String.concat()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I01: Gestione degli Errori
+
+- Crea una funzione che accetta un numero come input e ritorna il risultato della divisione del numero per 2. Usa un blocco try...catch per gestire l'errore nel caso in cui l'input non sia un numero valido.
+
+Metodi utilizzati:
+
+- isNaN()
+- try...catch
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I02: Oggetti e Manipolazione delle Stringhe
+
+Scrivi una funzione che accetta un oggetto con le proprietà nome, cognome, e dataDiNascita (in formato YYYY-MM-DD). La funzione deve:
+
+- Calcolare l'età della persona in base alla data di nascita.
+- Restituire una stringa formattata con il nome, il cognome e l'età.
+
+Metodi utilizzati:
+
+- Object.keys()
+- String.split()
+- Date()
+- Date.getFullYear()
+- Date.getMonth()
+- Date.getDate()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I03: Map e Set
+
+- Crea una Map che memorizza i nomi degli studenti e i loro voti.
+- Aggiungi almeno 5 studenti con i relativi voti.
+- Usa un ciclo for...of per stampare tutti i nomi e i voti.
+- Crea un Set con i voti unici degli studenti.
+
+Metodi utilizzati:
+
+- Map.set()
+- Map.get()
+- Map.has()
+- Set.add()
+- for...of
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I04: Funzione di Filtraggio degli Array
+
+- Crea una funzione che prende un array di numeri e restituisce un nuovo array contenente solo i numeri che sono multipli di 3.
+
+Metodi utilizzati:
+
+- Array.filter()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I05: Creazione e Manipolazione di Oggetti
+
+Crea un oggetto che rappresenta un libro, con le proprietà:
+
+- titolo, autore, anno, genere. Aggiungi una funzione che modifichi il genere del libro e restituisca un messaggio con il nuovo genere.
+
+Metodi utilizzati:
+
+- Object.assign()
+- Proprietà dell'oggetto
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I06: Ordinamento di Array con Oggetti
+
+- Crea un array di oggetti dove ciascun oggetto rappresenta una persona con le proprietà nome e età. Scrivi una funzione che ordina l'array in ordine crescente di età e restituisce l'array ordinato.
+
+Metodi utilizzati:
+
+- Array.sort()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I07: Funzione di Ricerca in un Array di Oggetti
+
+- Scrivi una funzione che prende un array di oggetti rappresentanti libri (ogni oggetto ha le proprietà titolo, autore, anno) e un parametro anno. La funzione deve restituire un array contenente solo i libri pubblicati dopo l'anno specificato.
+
+Metodi utilizzati:
+
+- Array.filter()
+- Object.keys()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I08: Gestione di Oggetti con Funzione
+
+- Crea una funzione che accetta due oggetti con la stessa struttura (ad esempio, oggetti rappresentanti un libro con titolo, autore, anno) e verifica se i due oggetti sono uguali in base ai valori delle loro proprietà. Restituisce true se sono uguali, altrimenti false.
+
+Metodi utilizzati:
+
+- Object.keys()
+- Array.every()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I09: Ricerca con Map
+
+- Scrivi una funzione che crea una Map dove le chiavi sono le categorie di prodotti (ad esempio, "elettronica", "abbigliamento", "alimentari") e i valori sono array di oggetti rappresentanti i prodotti in ciascuna categoria (con le proprietà nome, prezzo). La funzione deve cercare una categoria nella Map e restituire l'elenco di tutti i prodotti di quella categoria.
+
+Metodi utilizzati:
+
+- Map.set()
+- Map.get()
+- Map.has()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Intermedio)
+
+I10:  Manipolazione di Array di Oggetti e Ordinamento
+
+- Crea una funzione che accetta un array di oggetti con le proprietà nome e età e ordina l'array prima per età crescente, poi per nome in ordine alfabetico crescente (se le età sono uguali).
+
+Metodi utilizzati:
+
+- Array.sort()
+- Array.map()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A01: OOP con Metodi e Costruttori
+
+Crea una classe Libro con:
+
+- Le proprietà titolo, autore, e anno.
+- Un metodo dettagli() che restituisce una stringa formattata con tutte le informazioni del libro.
+- Un metodo statico comparareAnno(l1, l2) che confronta l'anno di pubblicazione di due libri e restituisce il più recente.
+
+Metodi utilizzati:
+
+- class e constructor
+- this
+- static
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A02: JSON e Destructuring
+
+- Scrivi un programma che prende una stringa JSON rappresentante un oggetto che contiene informazioni su un libro (titolo, autore, anno). Usa il JSON.parse() per convertirla in un oggetto e il destructuring per estrarre le proprietà del libro. Stampa il titolo e l'autore.
+
+Metodi utilizzati:
+
+- JSON.parse()
+- Destructuring
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A03: Programmazione Funzionale con Array
+
+Crea una funzione che prende in input un array di oggetti rappresentanti delle persone, ognuno con le proprietà nome, cognome, e età. La funzione deve:
+
+- Filtrare le persone che hanno più di 18 anni.
+- Ordinare le persone per età, in ordine crescente.
+- Restituire un array contenente solo i nomi e cognomi delle persone filtrate e ordinate.
+
+Metodi utilizzati:
+
+- Array.filter()
+- Array.sort()
+- Array.map()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A04: Programmazione ad Oggetti con Ereditarietà
+
+- Crea una classe Animale con una proprietà nome e un metodo saluta() che stampa un messaggio di saluto. Crea una classe Cane che estende la classe Animale e aggiunge un metodo abbaia(). Scrivi un codice che crea un'istanza di Cane e chiama entrambi i metodi.
+
+Metodi utilizzati:
+
+- class e extends
+- super()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A05: Utilizzo Avanzato di Map e Set
+
+- Crea una Map che memorizza il nome di un prodotto e il suo prezzo.
+- Crea una funzione che applica uno sconto del 10% su ogni prodotto nel Map e restituisce un nuovo Map con i prezzi scontati.
+- Crea un Set per memorizzare i nomi dei prodotti unici.
+
+Metodi utilizzati:
+
+- Map.set()
+- Map.get()
+- Map.forEach()
+- Set.add()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A06: Funzioni e JSON
+
+- Crea una funzione che accetta un oggetto in formato JSON che rappresenta un prodotto con le proprietà nome, categoria e prezzo. La funzione deve restituire una stringa formattata che mostra le informazioni del prodotto.
+
+Metodi utilizzati:
+
+- JSON.stringify()
+- JSON.parse()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A07: Destructuring e Spread Operator
+
+- Scrivi una funzione che prende un array di oggetti e usa il destructuring per estrarre il nome e il prezzo di ciascun oggetto. Inoltre, usa lo spread operator per restituire un nuovo array che contiene gli oggetti con il 10% di sconto applicato al prezzo.
+
+Metodi utilizzati:
+
+- Destructuring
+- Spread operator (...)
+- Array.map()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A08: Composizione di Classi con Metodi e Ereditarietà
+
+- Crea una classe Persona con le proprietà nome e cognome. Aggiungi un metodo saluta() che restituisce una stringa di saluto. Successivamente, crea una classe Studente che estende Persona e aggiungi una proprietà voti (array di numeri) e un metodo mediaVoti() che calcola e restituisce la media dei voti.
+- Crea un'istanza di Studente, aggiungi dei voti e usa il metodo mediaVoti(). Assicurati che l'istanza erediti il metodo saluta() da Persona.
+
+Metodi utilizzati:
+
+- class e extends
+- super()
+- Array.reduce()
+
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A09: Async/Await con Gestione di Errori
+
+- Crea una funzione fetchDati() che simula l'estrazione di dati da un'API (usa setTimeout per simulare una richiesta asincrona). La funzione deve restituire una promessa che risolve un oggetto con proprietà nome e eta. Crea un'altra funzione che invoca fetchDati() e utilizza async/await per ottenere i dati. Usa un blocco try...catch per gestire eventuali errori (ad esempio, se la promessa viene rifiutata).
+
+Metodi utilizzati:
+
+- async/await
+- Promise.resolve()
+- try...catch
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (Livello Avanzato)
+
+A10: Manipolazione Avanzata di JSON e Funzioni
+
+- Crea una funzione che accetta un array di stringhe JSON. Ogni stringa rappresenta un oggetto che contiene informazioni su una persona, con le proprietà nome, cognome, età. La funzione deve:
+
+- Convertire ogni stringa JSON in un oggetto JavaScript.
+- Ordinare le persone per età.
+- Restituire una lista di tutte le persone con età maggiore di 30 anni in formato JSON.
+
+Metodi utilizzati:
+
+- JSON.parse()
+- JSON.stringify()
+- Array.sort()
+- Array.filter()
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A11:  Lista di Parole con Ordinamento e Filtraggio
+
+Crea una pagina HTML con un campo di input per aggiungere parole a una lista. Quando l'utente inserisce una parola e preme un pulsante "Aggiungi", la parola deve essere aggiunta alla lista e visualizzata sulla pagina. Ogni volta che una parola viene aggiunta,:
+
+- La lista deve essere ordinata alfabeticamente.
+- Le parole duplicate devono essere rimosse.
+- Puoi utilizzare un Set per mantenere solo parole uniche.
+
+HTML:
+
+- Un campo di input per le parole
+- Un pulsante per aggiungere le parole
+- Una lista (ul) per visualizzare le parole
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A11:  Lista di Parole con Ordinamento e Filtraggio
+
+
+CSS:
+
+- Stile di base per la lista e il pulsante
+
+JavaScript:
+
+- Usa un Set per evitare duplicati.
+- Usa Array.sort() per ordinare le parole alfabeticamente.
+- Aggiungi eventi con addEventListener() per l'input e il pulsante.
+
+Metodi utilizzati:
+
+- Set.add()
+- Array.sort()
+- Array.forEach()
+- addEventListener()
+
+
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A12: Contatore di Occorrenze delle Parole
+
+- Crea una pagina HTML con un campo di input e un pulsante. L'utente inserisce una frase, e quando preme il pulsante, la frase viene divisa in parole. Ogni parola deve essere conteggiata e visualizzata con il numero di occorrenze. Usa una Map per memorizzare il numero di occorrenze di ciascuna parola.
+
+HTML:
+
+- Un campo di input per la frase
+- Un pulsante per inviare la frase
+- Un div per visualizzare il risultato
+
+CSS:
+
+- Stile di base per il campo di input, il pulsante e il risultato
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A12: Contatore di Occorrenze delle Parole
+
+
+JavaScript:
+
+- Usa split() per separare la frase in parole.
+- Usa una Map per memorizzare e contare le occorrenze.
+- Visualizza il risultato in un formato leggibile.
+
+Metodi utilizzati:
+
+- String.split()
+- Map.set()
+- Map.get()
+- Map.has()
+- forEach()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A13:  Ricerca di Elementi in una Lista e Modifica
+
+- Crea una pagina HTML che contiene una lista di elementi. Ogni elemento della lista deve essere un oggetto con un nome e una categoria. L'utente deve poter filtrare la lista in base alla categoria e visualizzare solo gli elementi che appartengono a quella categoria. Per fare ciò, usa un Set per le categorie uniche e una Map per associare ogni categoria ai suoi elementi.
+
+HTML:
+
+- Un ul per visualizzare gli elementi della lista
+- Un campo di input per filtrare per categoria
+- Un pulsante per applicare il filtro
+
+CSS:
+
+- Stile di base per la lista, i pulsanti e il campo di input
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A13:  Ricerca di Elementi in una Lista e Modifica
+
+
+JavaScript:
+
+- Usa un Set per raccogliere le categorie uniche.
+- Usa una Map per associare ogni categoria ai suoi elementi.
+- Filtra gli elementi della lista in base alla categoria selezionata.
+
+Metodi utilizzati:
+
+- Set.add()
+- Map.set()
+- Array.filter()
+- Array.forEach()
+- addEventListener()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A14: Manipolazione di Stringhe e Array con una Tabella Dinamica
+
+- Crea una tabella HTML che mostri una lista di nomi e cognomi. Ogni volta che l'utente inserisce un nuovo nome e cognome in due campi di input e preme "Aggiungi", il nome e il cognome vengono aggiunti alla tabella. Usa Array per memorizzare i dati e String per manipolare il testo (ad esempio, capitalizzare la prima lettera di ogni nome e cognome).
+
+HTML:
+
+- Due campi di input per nome e cognome
+- Un pulsante per aggiungere il nome e cognome
+- Una tabella (table) per visualizzare i dati
+
+CSS:
+
+- Stile di base per la tabella, i campi di input e il pulsante
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A14: Manipolazione di Stringhe e Array con una Tabella Dinamica
+
+
+JavaScript:
+
+- Usa Array.push() per aggiungere i dati alla lista.
+- Usa String.charAt() e String.toUpperCase() per capitalizzare i nomi.
+- Usa document.createElement() per creare e aggiungere righe alla tabella.
+
+Metodi utilizzati:
+
+- Array.push()
+- String.charAt()
+- String.toUpperCase()
+- document.createElement()
+- addEventListener()
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+A15: Gestione di Prodotti con Aggiunta e Rimozione (Map e Set)
+
+- Crea una pagina HTML che simula una lista della spesa. L'utente può aggiungere prodotti alla lista e vedere i dettagli di ciascun prodotto (nome e prezzo). Ogni volta che un prodotto viene aggiunto, assicurati che non ci siano duplicati (usa un Set per evitare duplicati di nome prodotto) e memorizza i dettagli di ogni prodotto in una Map. Inoltre, l'utente deve poter rimuovere i prodotti dalla lista.
+
+HTML:
+
+- Un campo di input per il nome del prodotto
+- Un campo di input per il prezzo del prodotto
+- Un pulsante per aggiungere il prodotto
+- Un pulsante per rimuovere il prodotto
+- Una lista (ul) per visualizzare i prodotti
+
+---
+
+# JS
+
+Esercizi Aggiuntivi (HTML CSS JS)
+
+
+
+CSS:
+
+- Stile di base per i campi di input, i pulsanti e la lista
+
+JavaScript:
+
+- Usa un Set per memorizzare i nomi unici dei prodotti.
+- Usa una Map per memorizzare i dettagli (nome, prezzo) dei prodotti.
+- Usa addEventListener() per aggiungere e rimuovere i prodotti dalla lista.
+
+Metodi utilizzati:
+
+- Set.add()
+- Map.set()
+- Map.get()
+- Map.has()
+- Array.forEach()
+- addEventListener()
+
+
 
 
 ---

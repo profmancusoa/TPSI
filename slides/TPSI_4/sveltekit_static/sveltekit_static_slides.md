@@ -13,7 +13,7 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 as: 2024/2025
-version: '1.1.0'
+version: '1.2.0'
 
 ---  
 
@@ -51,7 +51,7 @@ Static Web Site
 Static Web Site
 
 - Per default SvelteKit crea un sito full-stack e quindi abbiamo bisogno di modificare questo comportamento per generare un sito completamente statico
-- Esempio importante è [https://prof.mancusoa.it/](https://prof.mancusoa.it/)
+- Esempio importante è [https://lambsoffame.mancusoa.it/](https://lambsoffame.mancusoa.it/)
 - Questo blog è realizzato in SvelteKit e generato staticamente
 - Infatti lo pubblico su github pages e non ho bisogno di un server node.js e del relativo servizio di hosting che può essere costoso
 - Chiaramente siccome il sito sarà statico dobbiamo assicurarci di abilitare il pre-render in quanto le pagine NON possono essere di tipo SSR, ma necessariamente di tipo CSR
@@ -67,13 +67,26 @@ Esercitazione 01
 - Crea un nuovo progetto svelte con
 
 ```bash
-$ npm create svelte@latest mystaticsvelte                     
-Need to install the following packages:
-create-svelte@6.3.7
-Ok to proceed? (y) 
+$ npx sv create mystaticsvelte                                
+┌  Welcome to the Svelte CLI! (v0.6.13)
+│
+◇  Directory not empty. Continue?
+│  Yes
+│
+◇  Which template would you like?
+│  SvelteKit minimal
+│
+◇  Add type checking with Typescript?
+│  No
+│
+◆  Project created
+│
+◇  Which package manager do you want to install dependencies with?
+│  npm
+
 ```
 
-<img src="/media/static_02.png" width="500" style="margin:auto;position:relative; left: 300px; top: -250px;">
+<img src="/media/static_02.png" width="500" style="margin:auto;position:relative; left: 300px; top: -500px;">
 
 ---
 
@@ -81,7 +94,9 @@ Ok to proceed? (y)
 
 Static Web Site
 
-<img src="/media/static_03.png" width="500" style="margin:auto;position:relative; left: 0px; top: 0px;">
+- Aggiungi una route About
+
+<img src="/media/static_03.png" width="500" style="margin:auto;position:relative; left: 0px; top: 100px;">
 
 ---
 
@@ -99,10 +114,12 @@ Static Web Site
 
 ```js
 import adapter from '@sveltejs/adapter-static';
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
+		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter({
             pages: 'docs',
             assets: 'docs',
@@ -112,6 +129,7 @@ const config = {
         })
 	}
 };
+
 export default config;
 ```
 
@@ -188,11 +206,14 @@ Static Web Site
 <br>
 
  ```bash
-totale 16K
-drwxrwxr-x 3 antonio antonio 4,0K lug 11 19:17 _app
--rw-rw-r-- 1 antonio antonio 1,6K lug 11 19:17 favicon.png
--rw-rw-r-- 1 antonio antonio 3,1K lug 11 19:17 index.html 
--rw-rw-r-- 1 antonio antonio 3,1K lug 11 19:17 .nojekyll 
+total 24
+drwxr-xr-x 3 mancusoa mancusoa 4096 20 gen 11.19 .
+drwxr-xr-x 8 mancusoa mancusoa 4096 20 gen 11.19 ..
+-rw-r--r-- 1 mancusoa mancusoa 1633 20 gen 11.19 about.html
+drwxr-xr-x 3 mancusoa mancusoa 4096 20 gen 11.19 _app
+-rw-r--r-- 1 mancusoa mancusoa 1571 20 gen 11.19 favicon.png
+-rw-r--r-- 1 mancusoa mancusoa 1773 20 gen 11.19 index.html
+-rw-r--r-- 1 mancusoa mancusoa    0 20 gen 11.19 .nojekyll
  ```
 
 <br>
@@ -206,9 +227,9 @@ drwxrwxr-x 3 antonio antonio 4,0K lug 11 19:17 _app
 
 Static Web Site
 
-- Ora fai il push del progetto su github
+- Ora fai il push del progetto su github - `non fare il commit di node_modules` aggiungendo node_modules al file `.gitignore` 
 
-<img src="/media/static_04.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
+<img src="/media/static_04.png" width="550" style="margin:auto;position:relative; left: 0px; top: 0px;">
 
 
 ---
@@ -219,7 +240,7 @@ Static Web Site
 
 - Ora è necessario configurare GitHub Pages in modo che pubblichi il nostro sito statico
 
-<img src="/media/static_05.png" width="600" style="margin:auto;position:relative; left: 0px; top: 0px;">
+<img src="/media/static_05.png" width="600" style="margin:auto;position:relative; left: 0px; top: 20px;">
 
 
 ---
@@ -256,8 +277,7 @@ Static Web Site
 - Ed ecco il sito è disponibile su Internet per essere consultato da tutti
 
 
-<img src="/media/static_08.png" width="700" style="margin:auto;position:relative; left: 0px; top: 0px;">
-
+<img src="/media/static_08.png" width="700" style="margin:auto;position:relative; left: 0px; top: 20px;">
 
 ---
 
@@ -265,7 +285,78 @@ Static Web Site
 
 Static Web Site
 
-- In questo modo ad ogni modifica del sito dobbiamo farne il `build` e fare il push sia del progetto che della directory *docs*
+- Tuttavia abbiamo ancora un problema, se proviamo a clickare su About  otteniamo un 404, in quanto https://prof.mancusoa.github.io/about non esiste
+- Github ha pubblicato la nostra app nella directory `mysveltestatic` quindi significa che tutte le URL del nostro progetto devono includere questo prefisso
+- Per esempio la pagina `/about` deve diventare `/mysveltestatic/about' per non incorrere nel HTTP 404
+
+<img src="/media/static_11.png" width="400" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Per risolvere questo problema possiamo impostare una direcctory base in questo modo:
+  - DEV: stringa vuota in quanto in sviluppo vogliamo che rimanga /about
+  - PROD: in produzione vogliamo che le nostre URL vengano precedute dal prefisso `mysveltestatic` (o comunque dal nome del vostro progetto)
+
+- Modifichiamo il file `svelte.config.js` in questo modo
+
+```js
+  ....
+    adapter: adapter({
+    }),
+		paths: {
+			base: process.argv.includes('dev') ? '' : '/mysveltekit'
+		}
+	}
+};
+```
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora dobbiamo modificare tutte le URL del progetto in modo che partano da `base`.
+- Modifichiamo la URL della pagina About in questo modo
+
+<br>
+
+```js
+<script>
+  import { base } from "$app/paths";
+</script>
+
+<h1>Welcome to SvelteKit</h1>
+<p>
+  Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the
+  documentation
+</p>
+
+<a href="{base}/about">ABOUT</a>
+```
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Ora il link alla pagina About fnziona correttamente sia in sviluppo che su github pages
+
+
+<img src="/media/static_12.png" width="600" style="margin:auto;position:relative; left: 0px; top: 20px;">
+
+---
+
+# SvelteKit
+
+Static Web Site
+
+- Quanto visto finora implica che ad ogni modifica del sito dobbiamo farne il `build` e fare il push sia del progetto che della directory *docs*
 - Possiamo utilizzare una funzionalità di GitHub che si chiama `GitHub Actions`
   - Sono una funzionalità di GitHub che consente di automatizzare, personalizzare e orchestrare flussi di lavoro per lo sviluppo software direttamente all'interno di un repository GitHub
   - Sono un potente strumento di Continuous Integration (CI) e Continuous Delivery/Deployment (CD), che permette agli sviluppatori di automatizzare attività relative al progetto e al repository
