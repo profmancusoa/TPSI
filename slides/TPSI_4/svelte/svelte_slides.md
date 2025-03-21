@@ -5,25 +5,22 @@ theme: default
 # background: https://source.unsplash.com/collection/94734566/1920x1080
 background: /cover.webp
 # apply any windi css classes to the current slide
-class: 'text-center'
+class: "text-center"
 # https://sli.dev/custom/highlighters.html
 #highlighter: shiki
 # show line numbers in code blocks
 lineNumbers: false
-aspectRatio: '16_/9'
-routerMode: 'hash'
+aspectRatio: "16_/9"
+routerMode: "hash"
 as: 2023/2024
-version: '1.2.1'
-
----  
+version: "1.2.2"
+---
 
 <!-- https://reteinformaticalavoro.it/blog/framework-cosa-sono-e-quali-dominano-le-classifiche/#:~:text=In%20informatica%2C%20un%20framework%20%C3%A8,in%20modo%20semplice%20e%20veloce.
 
 https://www.okupter.com/blog/svelte-vs-sveltekit-the-difference
 
 https://www.okupter.com/blog/sveltekit-full-stack-framework -->
-
-
 
 # Svelte e SvelteKit
 
@@ -41,7 +38,6 @@ CYBERNETICALLY ENHANCED WEB APPS
 
 Vanilla Software
 
-
 - Un software `Vanilla` è un programma per computer (e per altri sistemi informatici come hardware o algoritmi) che non viene alterato rispetto alla propria forma originale.
 - Il termine deriva dal tradizionale gusto di gelato, la vaniglia.
 - In altre parole con il termine **Vanilla** si intende un linguaggio, un kernel, un programma non modificato ma utilizzato nella sua forma base
@@ -55,10 +51,10 @@ Vanilla Software
 
 <div style="float: left; width: 50%;">
 
-- Vanilla JavaScript (o VanillaJS) si riferisce all'uso di JavaScript puro, senza alcun componente aggiuntivo come librerie o framework. 
+- Vanilla JavaScript (o VanillaJS) si riferisce all'uso di JavaScript puro, senza alcun componente aggiuntivo come librerie o framework.
 - È una specie di battuta tra informatici per indicare le potenzialità attuali del puro e semplice JavaScript.
 - Agli albori del Web era normale programmare in vanillaJS
-  
+
 </div>
 
 <img src="/media/svelte_000.png" class="mx-auto" width="400" />
@@ -70,7 +66,7 @@ Vanilla Software
 Librerie JS
 
 - Una libreria NON è un'unità eseguibile indipendentemente, ma un modulo aggiuntivo richiesto da un programma.
-- In altre parole, le librerie sono raccolte di classi e funzioni, motivo per cui a volte vengono anche chiamate librerie di componenti o di classi. 
+- In altre parole, le librerie sono raccolte di classi e funzioni, motivo per cui a volte vengono anche chiamate librerie di componenti o di classi.
 - Il programma principale utilizza una o più funzioni, messe a disposizione dalla libreria.
 
 <img src="/media/svelte_001.png" class="mx-auto" style="margin-top:2rem;" width="500" />
@@ -84,7 +80,7 @@ Librerie JS
 - Una libreria JavaScript è una libreria di codice JavaScript pre-scritto che consente uno sviluppo più semplice di applicazioni basate su JavaScript
 - Ci sono centinaia di librerie JS per qualsiasi funzionalità possa venire in mente allo sviluppatore
 - Una delle più note librerie che ha dominato il web per molti anni si chiama `jQuery`
-- **jQuery** è una libreria JavaScript veloce, piccola e ricca di funzionalità. 
+- **jQuery** è una libreria JavaScript veloce, piccola e ricca di funzionalità.
 - Rende funzionalità complesse come l'attraversamento e la manipolazione di documenti HTML, la gestione degli eventi, l'animazione e Ajax molto più semplici che in vanillaJS
 - Con una combinazione di versatilità ed estensibilità, jQuery ha cambiato il modo in cui milioni di persone scrivono JavaScript.
 
@@ -103,9 +99,9 @@ In informatica, **un framework** è un sistema che consente di estendere le funz
 
 </div>
 
-- **Un framework** è un tipo speciale di libreria che non contiene funzioni "finite" come una normale libreria. 
-- In sostanza, si può definire un framework come un insieme di funzioni e tool già “pronti all’uso”, ovvero che si possono utilizzare senza doverli progettare da zero ogni volta. 
-  
+- **Un framework** è un tipo speciale di libreria che non contiene funzioni "finite" come una normale libreria.
+- In sostanza, si può definire un framework come un insieme di funzioni e tool già “pronti all’uso”, ovvero che si possono utilizzare senza doverli progettare da zero ogni volta.
+
 ---
 
 # Introduzione
@@ -113,9 +109,8 @@ In informatica, **un framework** è un sistema che consente di estendere le funz
 Framework JS
 
 - I framework sono piuttosto impalcature/scheletri/template di programmi che forniscono il progetto, le linee guida e l'organizzazione del codice ma non l'unità finita.
-- Il framework, quindi, fornisce il progetto e il framework di base e mostra anche ciò che è ancora necessario al programmatore in termini di personalizzazione. 
+- Il framework, quindi, fornisce il progetto e il framework di base e mostra anche ciò che è ancora necessario al programmatore in termini di personalizzazione.
 - Il framework fornisce il flusso di un'applicazione software e comunica allo sviluppatore ciò di cui ha bisogno e chiama il codice fornito dallo sviluppatore come richiesto
-
 
 ---
 
@@ -124,7 +119,6 @@ Framework JS
 Framework JS
 
 <img src="/media/svelte_004.png" class="mx-auto" style="margin-top:0rem;" width="800" />
-
 
 ---
 
@@ -142,7 +136,7 @@ Framework JS
 
 Framework JS
 
-- L'uso di un framework non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente. 
+- L'uso di un framework non è indispensabile: si tratta più che altro di uno dei tanti strumenti che lo sviluppatore ha a sua disposizione per programmare meglio e più velocemente.
 - Proprio per queste sue caratteristiche, sono diventati sempre più fondamentali per lo sviluppo di siti web e app.
 - I framework consentono di:
   - ottimizzare tempi, costi e benefici;
@@ -160,13 +154,13 @@ OOP per il Web
 
 <div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;margin:10px;">
 
-*Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.* (source MDN)
+_Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps._ (source MDN)
 
 </div>
 
-- Un componente è un elemento atomico e auto sufficiente,  di un'applicazione Web. 
+- Un componente è un elemento atomico e auto sufficiente, di un'applicazione Web.
 - In altre parole un componente è un "mattoncino", ben definito, che viene utilizzato all'interno di un'applicazione più ampia
-- Da ciò ne consegue che una  moderna applicazione web è composta da uno o più componenti indipendenti che interagiscono tra loro per fornire il layout e la funzionalità desiderata
+- Da ciò ne consegue che una moderna applicazione web è composta da uno o più componenti indipendenti che interagiscono tra loro per fornire il layout e la funzionalità desiderata
 
 ---
 
@@ -175,7 +169,7 @@ OOP per il Web
 OOP per il Web
 
 - Un elemento di input può essere un componente.
-- Un form può essere un componente. 
+- Un form può essere un componente.
 - Una pagina intera può essere un componente.
 
 <img src="/media/svelte_03.png" style="position: relative; left: 450px;top:-150px;" width="500" />
@@ -196,7 +190,7 @@ Svelte ~ SvelteKit
 
 - Svelte è un framework **che propone un approccio radicalmente nuovo alla creazione di applicazioni Web**.
 - Svelte è un modo per scrivere componenti dell'interfaccia utente, come una barra di navigazione, una sezione dei commenti o un modulo di contatto
-- Se hai già esperienza con React, Vue, Angular o altri framework frontend rimarrai   piacevolmente sorpreso da Svelte.
+- Se hai già esperienza con React, Vue, Angular o altri framework frontend rimarrai piacevolmente sorpreso da Svelte.
 - Lavorando con Svelte tutto sembra molto più simile al JavaScript-vanilla rispetto che a lavorare con altri framework.
 - In generale la maggior parte delle cose che sono complicate con altri framework sono molto semplici e leggeri con Svelte.
 
@@ -214,18 +208,16 @@ Introduzione
 
 <img src="/media/svelte_00.png" class="mx-auto" width="750" />
 
-
 ---
 
 # SvelteKit
 
 Svelte vs Others
 
-- Mentre i framework tradizionali come React e Vue fanno la maggior parte del loro lavoro nel browser, Svelte sposta il lavoro in una fase di compilazione che si verifica quando crei la tua app, in modo da non dover far scaricare l'intero framework a tutti i tuoi visitatori del sito. 
+- Mentre i framework tradizionali come React e Vue fanno la maggior parte del loro lavoro nel browser, Svelte sposta il lavoro in una fase di compilazione che si verifica quando crei la tua app, in modo da non dover far scaricare l'intero framework a tutti i tuoi visitatori del sito.
 - Di conseguenza, la fruizione dell'esperienza è più fluida, consuma meno larghezza di banda e tutto risulta più veloce e leggero.
 - Al momento della distribuzione, Svelte scompare e tutto ciò che ottieni è puro JavaScript Vanilla (molto veloce!).
 - In altre parole `Svelte è un compilatore` che trasforma il codice della tua applicazione Web in puro JavaScript, raggiungendo così massime prestazioni
-
 
 ---
 
@@ -241,7 +233,7 @@ Svelte vs Others
 <br>
 <div style="background-color:green;color:yellow;padding: 10px;line-height: 40px;">
 La principale differenza tra Svelte e gli altri framework Web è che Svelte è un compilatore che converte la tua applicazione Web in JavaScript-vanilla durante la fase di build. Al contrario gli altri framework usano un virtual DOM interpretato dall'applicazione Web durante il runtime sul browser.
-</div> 
+</div>
 
 ---
 
@@ -249,9 +241,9 @@ La principale differenza tra Svelte e gli altri framework Web è che Svelte è u
 
 Svelte vs Others
 
-- React utilizza un concetto noto come Virtual DOM (VDOM), in cui una rappresentazione virtuale dell'interfaccia utente viene mantenuta in memoria e sincronizzata con il DOM reale attraverso un processo chiamato **riconciliazione**. 
-- Il processo di riconciliazione troverà la differenza (diffing) tra il Virtual DOM (un oggetto in memoria, dove inviamo gli ultimi aggiornamenti all'interfaccia utente) e il vero DOM (DOM che contiene l'interfaccia utente precedentemente renderizzata). 
-- Utilizzando specifici algoritmi, il framework decide come aggiornare l'interfaccia utente. 
+- React utilizza un concetto noto come Virtual DOM (VDOM), in cui una rappresentazione virtuale dell'interfaccia utente viene mantenuta in memoria e sincronizzata con il DOM reale attraverso un processo chiamato **riconciliazione**.
+- Il processo di riconciliazione troverà la differenza (diffing) tra il Virtual DOM (un oggetto in memoria, dove inviamo gli ultimi aggiornamenti all'interfaccia utente) e il vero DOM (DOM che contiene l'interfaccia utente precedentemente renderizzata).
+- Utilizzando specifici algoritmi, il framework decide come aggiornare l'interfaccia utente.
 - Ovviamente questo processo, non è efficiente e veloce
 - Per raggiungere questo obiettivo, React introduce un overhead (la libreria), che verrà eseguito nel motore JS del browser per monitorare e aggiornare il DOM in base alle varie interazioni dell'utente.
 
@@ -269,7 +261,7 @@ Svelte vs Others
 
 Svelte vs Others
 
-- Svelte è solamente un compilatore, che converte la tua applicazione in codice JavaScript durante la fase di sviluppo e build. 
+- Svelte è solamente un compilatore, che converte la tua applicazione in codice JavaScript durante la fase di sviluppo e build.
 - Ciò significa che non inietterà alcun codice aggiuntivo (no librerie aggiuntive) da eseguire nel browser quando l'applicazione è in esecuzione per aggiornare il DOM.
 - Questo approccio è generalmente più veloce dell'approccio basato su Virtual DOM.
 
@@ -300,9 +292,9 @@ Svelte vs Others
 
 Fullstack Framework
 
-- `SvelteKit` è un framework per lo sviluppo rapido di applicazioni Web robuste e performanti che utilizza Svelte. 
+- `SvelteKit` è un framework per lo sviluppo rapido di applicazioni Web robuste e performanti che utilizza Svelte.
 - Se provieni da React, SvelteKit è simile a Next. Se vieni da Vue, SvelteKit è simile a Nuxt
-- Sveltekit è il framework che permette agli sviluppatori di creare e gestire la user experience della loro applicazione. 
+- Sveltekit è il framework che permette agli sviluppatori di creare e gestire la user experience della loro applicazione.
 - Fornisce un ambiente unificato per lavorare con componenti, dati, routing, back-end, front-end e altro ancora.
 - SvelteKit e Svelte sono **totalmente allineati** al paradigma e modello di sviluppo per componenti caratteristico del web moderno.
 
@@ -316,12 +308,11 @@ Fullstack Framework
   - Routing (navigazione tra le pagine)
   - Server-side rendering (supporto al back-end)
   - Data fetching ()
-  - Service workers 
-  - Supporto TypeScript (la versione di JavaScript con steroidi) 
+  - Service workers
+  - Supporto TypeScript (la versione di JavaScript con steroidi)
   - Prerendering (per applicazioni statiche. vedi blog profmancusoa)
   - Single-page apps (SPA: approccio moderno che sostituisce lo sviluppo desktop)
-  - Supporto per diversi hosting providers molto comuni su Internet (vercel, netlify, ...) 
-
+  - Supporto per diversi hosting providers molto comuni su Internet (vercel, netlify, ...)
 
 ---
 
@@ -331,13 +322,13 @@ Svelte vs SvelteKit
 
 **SVELTE**
 
- - Un linguaggio di programmazione che si basa su HTML, CSS e JS
- - Svelte permette la creazione di  **componenti** web. 
- - Un componente è un blocco di codice autonomo riutilizzabile che incapsula HTML, CSS e JavaScript scritti in un file **.svelte**. 
- 
+- Un linguaggio di programmazione che si basa su HTML, CSS e JS
+- Svelte permette la creazione di **componenti** web.
+- Un componente è un blocco di codice autonomo riutilizzabile che incapsula HTML, CSS e JavaScript scritti in un file **.svelte**.
+
 **SVELTE KIT**
 
-- Sveltekit è il framework, basato su Svelte, che permette agli sviluppatori di creare e gestire applicazioni full stack che combinano insieme componenti Svelte. 
+- Sveltekit è il framework, basato su Svelte, che permette agli sviluppatori di creare e gestire applicazioni full stack che combinano insieme componenti Svelte.
 - Fornisce un ambiente unificato per lavorare con componenti, dati, routing e altro ancora.
 - Sveltekit è un `full stack framework` ricco di funzionalità e permette lo sviluppo di un applicazione web completa di back-end e front-end
 
@@ -349,7 +340,6 @@ Web App Architecture
 
 <img src="/media/svelte_005.png" class="mx-auto" width="900" />
 
-
 ---
 
 # SvelteKit
@@ -357,7 +347,7 @@ Web App Architecture
 Svelte Components
 
 - Un componente web è assimilabile al concetto di Oggetto nella programmazione OOP
-- Come un oggetto incapsula dati e metodi, un componente Web incapsula tutto ciò che è necessario per eseguire il rendering della sua interfaccia utente e per gestire la sua logica di funzionamento.  
+- Come un oggetto incapsula dati e metodi, un componente Web incapsula tutto ciò che è necessario per eseguire il rendering della sua interfaccia utente e per gestire la sua logica di funzionamento.
 - Ogni componente Svelte è dichiarato in un file `.svelte`, che contiene:
   - il contenuto (markup) in HTML
   - la presentazione o stile (CSS)
@@ -380,15 +370,13 @@ Svelte Components
 
 <img src="/media/svelte_007.png" class="mx-auto" width="700" />
 
-
 ---
 
 # SvelteKit
 
 Esempio di componente Svelte
- 
-<img src="/media/svelte_008.png" class="mx-auto" width="350" />
 
+<img src="/media/svelte_008.png" class="mx-auto" width="350" />
 
 ---
 
@@ -399,7 +387,6 @@ Svelte Components
 <br><br>
 
 <img src="/media/svelte_04.png" class="mx-auto" />
-
 
 ---
 
@@ -418,7 +405,7 @@ Sia il codice JS e lo stile CSS sono confinati solo all'interno di questo compon
 </div>
 <br>
 
-- Se un altro componente ha un tag h1, lo stile non sarà modificato. 
+- Se un altro componente ha un tag h1, lo stile non sarà modificato.
 - Questo è molto utile quando riutilizzi componenti che hai già scritto per altre applicazioni o quando includi librerie Open Source pubblicate da altre persone.
 
 ---
@@ -435,7 +422,6 @@ Svelte Components
 - Include solo la parte di contenuto
 - Non ha nessuno stile e nessuna logica di controllo
 
-
 ---
 
 # SvelteKit
@@ -446,15 +432,15 @@ Svelte Components
 <h1>My name is John Doe!</h1>
 
 <style>
-	h1 {
-		width: 30%;
-		border: 20px solid green;
-		border-radius: 20px;
-		color: red;
-		text-align: center;
-		margin: 30px auto;
-		padding: 20px;
-	}
+  h1 {
+    width: 30%;
+    border: 20px solid green;
+    border-radius: 20px;
+    color: red;
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+  }
 </style>
 ```
 
@@ -469,7 +455,7 @@ Svelte Components
 
 ```html
 <script>
-	let name = 'John Doe';
+  let name = "John Doe";
 </script>
 ```
 
@@ -477,7 +463,8 @@ Svelte Components
 - Non ha nessun contenuto e non verrà visualizzato.
 - Anche se apparentemente non ha senso, lo ha in quanto posso avere componenti che svolgono solo funzioni utilizzate da altri componenti.
 
-Esempio: 
+Esempio:
+
 - un componente che fornisce accesso ad un DB nosql non ha nessuna parte di UI, ma è di grande utilità all'interno della mia applicazione.
 
 ---
@@ -488,6 +475,7 @@ Hello World
 
 - Vediamo i semplici passi per creare un progetto base SvelteKit
 - Utilizzeremo il progetto base per provare a analizzare e comprendere le principali caratteristiche:
+
   - del linguaggio Svelte e delle principali funzionalità
   - dello sviluppo per componenti
   - delle funzioni più importanti di SvelteKit
@@ -497,7 +485,7 @@ Hello World
   - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
   - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
 
-***Questi link sono il riferimento per gli studenti e vi suggerisco di studiarli e di utilizzarli per tutto il tempo necessario ad apprendere Svelte e SvelteKit***
+**_Questi link sono il riferimento per gli studenti e vi suggerisco di studiarli e di utilizzarli per tutto il tempo necessario ad apprendere Svelte e SvelteKit_**
 
 ---
 
@@ -515,10 +503,10 @@ Hello World: Creare un Progetto SvelteKit
 > node --version
 v19.2.0
 
-> npm --version 
+> npm --version
 9.1.3
 
-> git --version          
+> git --version
 git version 2.34.1
 ```
 
@@ -529,23 +517,21 @@ git version 2.34.1
 Hello World: Creare un Progetto SvelteKit
 
 - Spostati nella tua directory di lavoro (es: cd ~/tmp)
-- Da qui crea lo [**scaffolding**](https://en.wikipedia.org/wiki/Scaffold_(programming)) di un'applicazione base seguendo le semplici istruzioni a video
-  
+- Da qui crea lo [**scaffolding**](<https://en.wikipedia.org/wiki/Scaffold_(programming)>) di un'applicazione base seguendo le semplici istruzioni a video
+
 ```bash
-> npm create svelte@latest hello-word-svelte-kit
+> npx sv create  hello-word-svelte-kit
 
-create-svelte version 4.2.0
-
-┌  Welcome to SvelteKit!
+ Welcome to the Svelte CLI! (v0.6.26)
 │
-◆  Which Svelte app template?
-│  ● SvelteKit demo app (A demo app showcasing some of the features of SvelteKit)
-│  ○ Skeleton project
-│  ○ Library project
-└
-◆  Add type checking with TypeScript?
-│  ○ Yes, using JavaScript with JSDoc comments
+◆  Which template would you like?
+│  ○ SvelteKit minimal
+│  ● SvelteKit demo (showcase app with a word guessing game that works without JavaScript)
+│  ○ Svelte library
+
+ Add type checking with TypeScript?
 │  ○ Yes, using TypeScript syntax
+│  ○ Yes, using JavaScript with JSDoc comments
 │  ● No
 └
 ```
@@ -557,25 +543,37 @@ create-svelte version 4.2.0
 Hello World: Creare un Progetto SvelteKit
 
 ```bash
-◆  Select additional options (use arrow keys/space bar)
-│  ◻ Add ESLint for code linting
-│  ◻ Add Prettier for code formatting
-│  ◻ Add Playwright for browser testing
-│  ◻ Add Vitest for unit testing
+
+◆  What would you like to add to your project? (use arrow keys / space bar)
+│  ◻ prettier (formatter - https://prettier.io)
 └
+Which package manager do you want to install dependencies with?
+│  ○ None
+│  ● npm
+│  ○ yarn
+│  ○ pnpm
+│  ○ bun
+│  ○ deno
 
-└  Your project is ready!
+ Installing dependencies with npm...
 
-Install community-maintained integrations:
-  https://github.com/svelte-add/svelte-add
 
-Next steps:
-  1: cd hello-word-svelte-kit
-  2: npm install (or pnpm install, etc)
-  3: git init && git add -A && git commit -m "Initial commit" (optional)
-  4: npm run dev -- --open
+Successfully installed dependencies
+│
+◇  Project next steps ─────────────────────────────────────────────────────╮
+│                                                                          │
+│  1: cd hello-word-svelte-kit                                             │
+│  2: git init && git add -A && git commit -m "Initial commit" (optional)  │
+│  3: npm run dev -- --open                                                │
+│                                                                          │
+│  To close the dev server, hit Ctrl-C                                     │
+│                                                                          │
+│  Stuck? Visit us at https://svelte.dev/chat                              │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+│
+└  You're all set!
 
-To close the dev server, hit Ctrl-C
 ```
 
 ---
@@ -602,7 +600,6 @@ found 0 vulnerabilities
 - Se non si sono verificatri errori, il progetto è pronto per l'esecuzione
 
 <img src="/media/svelte_0000.png" class="mx-auto" width="100" />
-
 
 ---
 
@@ -684,7 +681,6 @@ src
         └── +page.svelte --> la pagina sverdle (componente svelte)
 ```
 
-
 ---
 
 # SvelteKit
@@ -692,10 +688,11 @@ src
 Hello World: Analisi del progetto base
 
 - Da questa prima analisi possiamo dedurre che:
+
   - Ogni pagina è composta da:
-    - una directory all'interno di src/router. Il nome della directory coincide con la URL della pagina (quindi niente spazi, ma usiamo _)
-    - un file nominato **+page-svelte** che è un componente completo ed indipendente che include HTML, CSS e JS  
-  - Ogni componente che non è una pagina è formato da un file chiamato ***<nome_componente>.svelte***
+    - una directory all'interno di src/router. Il nome della directory coincide con la URL della pagina (quindi niente spazi, ma usiamo \_)
+    - un file nominato **+page-svelte** che è un componente completo ed indipendente che include HTML, CSS e JS
+  - Ogni componente che non è una pagina è formato da un file chiamato **_<nome_componente>.svelte_**
   - Il routing tra pagine viene gestito automaticamente da SvelteKit se si rispetta la convenzione descritta sopra
 
 - **Segue ora un'analisi live a cura del professore (`necessario prendere appunti`)**
@@ -709,8 +706,7 @@ Hello World: Esercitazione_01
 - Creare ed installare il progetto base SvelteKit come spiegato sopra
 - Eseguire l'applicazione
 - Consegnare su github il progetto appena creato
-- IMPORTANTE: non fare il push della directory ***node_modules***
-
+- IMPORTANTE: non fare il push della directory **_node_modules_**
 
 ---
 
@@ -724,7 +720,6 @@ Hello World: Esercitazione_02
 
 - Consegnare su github il progetto modificato
 
-
 ---
 
 # SvelteKit
@@ -732,12 +727,11 @@ Hello World: Esercitazione_02
 Hello World: Esercitazione_03
 
 - provare a modificare il layout del progetto in modo che appaia come in figura
-  
+
 <br><br>
 <img src="/media/svelte_012.png" class="mx-auto" width="650" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -746,11 +740,10 @@ Hello World: Esercitazione_03
 Hello World: Esercitazione_04
 
 - provare a modificare la pagina about in modo che appaia come in figura
-  
+
 <img src="/media/svelte_013.png" class="mx-auto" width="550" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -764,7 +757,6 @@ Hello World: Esercitazione_05
 <img src="/media/svelte_014.png" class="mx-auto" width="500" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -785,9 +777,9 @@ Creiamo un componente
 Creiamo un componente
 
 - Per una corretta organizzazione del codice metteremo i nostri componenti nella directory lib
-- Il nostro componente si chiama **Banner** 
-- Quindi dobbiamo creare una directory *components* in src/lib e al suo interno creare un file *banner.svelte*
-  
+- Il nostro componente si chiama **Banner**
+- Quindi dobbiamo creare una directory _components_ in src/lib e al suo interno creare un file _banner.svelte_
+
 ```bash
 > cd src/lib
 > mkdir components
@@ -802,7 +794,6 @@ Creiamo un componente
 ```
 
 - Ora editiamo il file banner.svelte ed utilizziamo il codice di slide #28
-  
 
 ---
 
@@ -811,14 +802,14 @@ Creiamo un componente
 Creiamo un componente
 
 - Il componente **banner** è ora disponibile per essere utilizzato
-- Per fare ciò dobbiamo ***importarlo*** nella pagina in cui vogliamo utilizzarlo
-- Partiamo modificando la home e quindi editiamo il file *src/routes/+page.svelte*
+- Per fare ciò dobbiamo **_importarlo_** nella pagina in cui vogliamo utilizzarlo
+- Partiamo modificando la home e quindi editiamo il file _src/routes/+page.svelte_
 
 ```html
 <script>
-    import Counter from './Counter.svelte';
-    ......
-    import Banner from '../lib/components/banner.svelte'; // aggiungi questa linea
+  import Counter from './Counter.svelte';
+  ......
+  import Banner from '../lib/components/banner.svelte'; // aggiungi questa linea
 </script>
 ```
 
@@ -836,22 +827,21 @@ Creiamo un componente
 
 ```html
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+  <h1>
+    <span class="welcome">
+      <picture>
+        <source srcset="{welcome}" type="image/webp" />
+        <img src="{welcome_fallback}" alt="Welcome" />
+      </picture>
+    </span>
 
-		alla tua nuova <br />applicazione SvelteKit
-	</h1>
+    alla tua nuova <br />applicazione SvelteKit
+  </h1>
 
-	<h2>
-		prova a editare il file <strong>src/routes/+page.svelte</strong>
-	</h2>
+  <h2>prova a editare il file <strong>src/routes/+page.svelte</strong></h2>
 
-	<Banner /> <!-- Utilizza Banner al posto di Counter-->
+  <Banner />
+  <!-- Utilizza Banner al posto di Counter-->
 </section>
 ```
 
@@ -872,13 +862,12 @@ Creiamo un componente
 
 Hello World: Esercitazione_06
 
-- provare a modificare la pagina about aggiungendo il componente Banner 
+- provare a modificare la pagina about aggiungendo il componente Banner
 
 <br>  
 <img src="/media/svelte_016.png" class="mx-auto" width="550" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -904,13 +893,13 @@ Variable Substitution
 
 ```html
 <script>
-    let name = 'John Doe';
+  let name = "John Doe";
 </script>
 
 <h1>My name is {name}!</h1>
 ```
 
-- Nella sezione JS del componente abbiamo solo definito una variabile di nome *name* ed assegnato un valore string
+- Nella sezione JS del componente abbiamo solo definito una variabile di nome _name_ ed assegnato un valore string
 - Nella sezione HTML del componente abbiamo utilizzato la variabile all'interno di normale codice HTML tramite `{}`
 
 <div style="background-color:green;color:yellow;padding: 10px;line-height: 30px;">
@@ -919,7 +908,7 @@ In svelte il costrutto {< var name >} rappresenta una sostituzione di variabili
 
 </div>
 
-- Pertanto quando il componente sarà compilato ogni occorrenza di `{< var name>}` sarà sostituito con il valore attribuito alla variabile *var name* 
+- Pertanto quando il componente sarà compilato ogni occorrenza di `{< var name>}` sarà sostituito con il valore attribuito alla variabile _var name_
 
 ---
 
@@ -928,13 +917,12 @@ In svelte il costrutto {< var name >} rappresenta una sostituzione di variabili
 Hello World: Esercitazione_07
 
 - Provare a modificare il componente Banner in modo che visualizzi il proprio nome e cognome
-- Verificare che il banner appaia modificato in tutte le pagine 
+- Verificare che il banner appaia modificato in tutte le pagine
 
 <br>  
 <img src="/media/svelte_017.png" class="mx-auto" width="450" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -949,14 +937,14 @@ Code Execution
 
 ```html
 <script>
-    let name = 'John Doe';
+  let name = "John Doe";
 </script>
 
 <h1>My name is {name.toLocaleUpperCase()}!</h1>
 ```
 
-- Quando questo codice viene compilato, viene prima richiamato il metodo *toUpperCase* sulla variabile(oggetto) name
-- Successivamente il risultato di questa esecuzione viene sostituito *verbatim* nel codice HTML
+- Quando questo codice viene compilato, viene prima richiamato il metodo _toUpperCase_ sulla variabile(oggetto) name
+- Successivamente il risultato di questa esecuzione viene sostituito _verbatim_ nel codice HTML
 
 ---
 
@@ -965,7 +953,6 @@ Code Execution
 Code Execution
 
 <img src="/media/svelte_018.png" class="mx-auto" width="500" />
-
 
 ---
 
@@ -979,16 +966,15 @@ Code Execution
 
 ```html
 <script>
-    let name = 'Antonio Mancuso';
+  let name = "Antonio Mancuso";
 
-    function reverse_string(str) {
-        return str.split('').reverse().join('').toUpperCase();
-    }
+  function reverse_string(str) {
+    return str.split("").reverse().join("").toUpperCase();
+  }
 </script>
 
 <h1>My name is {reverse_string(name)}!</h1>
 ```
-
 
 ---
 
@@ -996,12 +982,11 @@ Code Execution
 
 Code Execution
 
-- Quando questo codice viene compilato, viene prima richiamato la nostra funzione *reverse_string* 
-- Successivamente il risultato di questa esecuzione viene sostitutito *verbatim* nel codice HTML
+- Quando questo codice viene compilato, viene prima richiamato la nostra funzione _reverse_string_
+- Successivamente il risultato di questa esecuzione viene sostitutito _verbatim_ nel codice HTML
 
 <br>
 <img src="/media/svelte_019.png" class="mx-auto" width="400" />
-
 
 ---
 
@@ -1066,11 +1051,11 @@ Creazione Web App: scaffolding del progetto
 Creazione Web App: scaffolding del progetto
 
 - Iniziamo con la creazione del `layout` della pagina
-- Il ***layout*** della pagina è il contenitore principale della nostra applicazione
+- Il **_layout_** della pagina è il contenitore principale della nostra applicazione
 - Esso sarà sempre visualizzato in ciascuna pagina del sito
 - Il vantaggio principale è che in questo modo il layout sarà scritto una sola volta ed utilizzato per tutte le pagine
 - Questo meccanismo implementa il principio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself) molto importante nello sviluppo del software
-- Creiamo quindi un file chiamato `+layout.svelte` in ***src/routes***
+- Creiamo quindi un file chiamato `+layout.svelte` in **_src/routes_**
 
 ```bash
 src
@@ -1081,7 +1066,7 @@ src
 ```
 
 - Inseriamo il codice HTML e CSS
-  
+
 ---
 
 # SvelteKit
@@ -1096,10 +1081,8 @@ Creazione Web App: il layout
 
 Creazione Web App: il layout
 
-
 <img src="/media/svelte_022.png" class="mx-auto" width="400" style="position: relative; left: -200px;"/>
 <img src="/media/svelte_023.png" class="mx-auto" width="360" style="position: relative; left: 200px;top: -500px;"/>
-
 
 ---
 
@@ -1109,7 +1092,6 @@ Creazione Web App: il layout
 
 <img src="/media/svelte_024.png" class="mx-auto" width="600" />
 
-
 ---
 
 # SvelteKit
@@ -1117,12 +1099,13 @@ Creazione Web App: il layout
 Creazione Web App: il layout
 
 - Abbiamo definito il layout della nostra applicazione, composto da:
+
   - header
   - navbar
   - main content area (article)
   - footer
 
-- Le pagine che andremo a sviluppare verranno visualizzate nel main content area 
+- Le pagine che andremo a sviluppare verranno visualizzate nel main content area
 
 ---
 
@@ -1138,13 +1121,12 @@ Creazione Web App: il layout
 
 - Ciò è necessario in quanto lo style del componente (layout è un componente) è **scoped**
 - In altre parole lo stile di un componente è confinato al solo componente stesso e non può modificare lo stile di altri componenti
-- L'uso di *:global* ci permette di fare un'eccezione a questa regola
+- L'uso di _:global_ ci permette di fare un'eccezione a questa regola
 
 <br>
 <Banner bg="green" fg="yellow">
 Si suggerisce di non abusare di questa possibilità in quanto rende il codice meno leggibile e meno comprensibile
 </Banner>
-
 
 ---
 
@@ -1159,12 +1141,12 @@ Component Slot
 
 ```html
 <div>
-	<p>Io sono figlio di div</p>
+  <p>Io sono figlio di div</p>
 </div>
-``` 
+```
 
 - Anche un componente Svelte può avere un contenuto (o figlio) tramite il costrutto `<slot />`
-- In altre parole all'interno di un componente Svelte possiamo decidere dove visualizzare il contenuto del "figlio" usando `<slot />` 
+- In altre parole all'interno di un componente Svelte possiamo decidere dove visualizzare il contenuto del "figlio" usando `<slot />`
 
 ---
 
@@ -1175,10 +1157,10 @@ Component Slot
 - Modifichiamo +layout.svelte aggiungendo lo slot nella sezione article
 
 ```html
-... 
-   <article>
-      <slot />
-   </article>
+...
+<article>
+  <slot />
+</article>
 ...
 ```
 
@@ -1191,7 +1173,6 @@ Component Slot
 Component Slot
 
 <img src="/media/svelte_026.png" class="mx-auto" width="650" />
-
 
 ---
 
@@ -1206,7 +1187,6 @@ Hello World: Esercitazione_08
 
 - Consegnare su github il progetto modificato
 
-
 ---
 
 # SvelteKit
@@ -1217,7 +1197,6 @@ Pagina Chi Sono
 - In questa pagina faremo una breve introduzione di noi stessi
 - E' importante che nella descrizione di noi stessi includiamo cognome, nome ed età (questo ci sarà utile dopo)
 - Quindi per creare la pagina "Chi Sono" creiamo una directory in modo da ottenere questo risultato
-
 
 ```bash
 src
@@ -1240,7 +1219,6 @@ Pagina Chi Sono
 <br>  
 <img src="/media/svelte_029.png" class="mx-auto" width="600" />
 
-
 ---
 
 # SvelteKit
@@ -1256,7 +1234,6 @@ Pagina Chi Sono
 
 - In tal modo quando clicchiamo sul link Chi Sono la pagina omonima verrà visualizzata nella main content area
 
-
 ---
 
 # SvelteKit
@@ -1265,15 +1242,14 @@ Pagina Chi Sono
 
 <img src="/media/svelte_028.png" class="mx-auto" width="650" />
 
-
 ---
 
 # SvelteKit
 
 Il componente WhoAmI
 
-- Ora trasformiamo la pagina "Chi Sono" in modo che visualizzi un solo componente chiamato ***WhoAmI***
-- Quindi creiamo un nuovo componente ***WhoAmI***
+- Ora trasformiamo la pagina "Chi Sono" in modo che visualizzi un solo componente chiamato **_WhoAmI_**
+- Quindi creiamo un nuovo componente **_WhoAmI_**
 
 ```bash
 src
@@ -1288,7 +1264,6 @@ src
     └── +page.svelte
 ```
 
-
 ---
 
 # SvelteKit
@@ -1296,7 +1271,6 @@ src
 Il componente WhoAmI
 
 who_am_i.svelte
-
 
 <img src="/media/svelte_031.png" class="mx-auto" width="600" />
 <br>
@@ -1306,8 +1280,6 @@ who_am_i.svelte
 <br>
 <img src="/media/svelte_032.png" class="mx-auto" width="600" />
 
-
-
 ---
 
 # SvelteKit
@@ -1315,7 +1287,6 @@ who_am_i.svelte
 Il componente WhoAmI
 
 <img src="/media/svelte_033.png" class="mx-auto" width="550" />
-
 
 ---
 
@@ -1343,7 +1314,7 @@ Props
 Esempio
 
 ```js
-export let nome;  //dichiara la variabile nome come parametro fornito dal chiamante
+export let nome; //dichiara la variabile nome come parametro fornito dal chiamante
 export let cognome = "Rossi"; //variabile esterna con valore di default Rossi
 export let eta; //dichiara la variabile nome come parametro fornito dal chiamante
 ```
@@ -1358,14 +1329,14 @@ export let eta; //dichiara la variabile nome come parametro fornito dal chiamant
 
 Props
 
-- Pertanto riscriviamo il componente WhoAmI utilizzando le ***Props***
+- Pertanto riscriviamo il componente WhoAmI utilizzando le **_Props_**
 
 <br>
 <img src="/media/svelte_034.png" class="mx-auto" width="700" />
 
 <br>
 
-- Abbiamo usato il *variable substitution di svelte* per utilizzare i parametri all'interno del corpo HTML del componente
+- Abbiamo usato il _variable substitution di svelte_ per utilizzare i parametri all'interno del corpo HTML del componente
 
 ---
 
@@ -1387,7 +1358,7 @@ Siccome non abbiamo modificato il chiamante, vengono utilizzati i valori di defa
 Props
 
 - Modifichiamo ora il chiamante e cioè la pagina Chi Sono in modo da passare dei parametri corretti al componente WhoAmI
-  
+
 <br>
 <img src="/media/svelte_036.png" class="mx-auto" width="750" />
 
@@ -1419,7 +1390,6 @@ Props
 
 <img src="/media/svelte_039.png" class="mx-auto" width="600" />
 
-
 ---
 
 # SvelteKit
@@ -1432,12 +1402,11 @@ Dynamic Attributes
 - Per esempio per definire il src di un immagine in modo dinamico si può fare così
 
 ```html
-<img src={url} >
+<img src="{url}" />
 ```
-  
+
 - In questo modo la sorgente dell'immagine non sarà statica ma dipenderà dal valore della variabile url
 - Ovviamente cambiando il valore della variabile l'immagine verrà automaticamente aggiornata in modo dinamico
-
 
 ---
 
@@ -1445,7 +1414,7 @@ Dynamic Attributes
 
 Dynamic Attributes
 
-- Per comprendere meglio i ***Dynamic Attributes*** modifichiamo il componente WhoAmI aggiungendo la nostra foto
+- Per comprendere meglio i **_Dynamic Attributes_** modifichiamo il componente WhoAmI aggiungendo la nostra foto
 
 <img src="/media/svelte_040.png" class="mx-auto" width="700" />
 
@@ -1459,16 +1428,13 @@ Dynamic Attributes
 
 <img src="/media/svelte_041.png" class="mx-auto" width="700" />
 
-
 ---
 
 # SvelteKit
 
 Dynamic Attributes
 
-
 <img src="/media/svelte_042.png" class="mx-auto" width="550" />
-
 
 ---
 
@@ -1479,26 +1445,26 @@ Dynamic Attributes: shorthand
 - Prima abbiamo scritto
 
 ```html
-<img src={url} >
+<img src="{url}" />
 ```
 
 - Immaginando che la variabile si chiami src, scriveremo
 
 ```html
-<img src={src} >
+<img src="{src}" />
 ```
 
-- Questo risulta abbastanza ridondante, pertanto Svelte ci semplifica la vita mettendo a disposizione degli ***shorthand*** o delle scorciatoie
+- Questo risulta abbastanza ridondante, pertanto Svelte ci semplifica la vita mettendo a disposizione degli **_shorthand_** o delle scorciatoie
 - Quindi in questo caso potremmo scrivere
 
 ```html
-<img {src} >
+<img {src} />
 ```
 
 - Pertanto le due notazioni sono perfettamente equivalenti e sortiscono lo stesso effetto
 
 ```html
-<img src={src} > vs <img {src} >
+<img src="{src}" /> vs <img {src} />
 ```
 
 ---
@@ -1511,7 +1477,6 @@ Dynamic Attributes: Esercitazione_09
 - Utilizzare lo shorthand per il dynamic attribute
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -1532,7 +1497,6 @@ Il binding permette la propagazione del valore di una variabile di un componente
 - Uno scenario classico è fare il binding della props di un input text ad una variabile del componente chiamante
 - In questo modo sarà facilissimo ed immediato accedere al valore dell'input text (pensate quanto è macchinoso in vanilla JS)
 
-
 ---
 
 # SvelteKit
@@ -1547,7 +1511,6 @@ Binding: Esercitazione_10
 <img src="/media/svelte_043.png" class="mx-auto" width="650" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -1568,7 +1531,7 @@ Bindings
 
 <img src="/media/svelte_045.png" class="mx-auto" width="600" />
 
-- Come si vede le variabili sono sostituite dal valore *undefined*
+- Come si vede le variabili sono sostituite dal valore _undefined_
 - Questo succede perché abbiamo creato il binding tra il contenuto dei input text (undefined) e le variabili nome, cognome e eta
 - Compilando i campi la pagina si aggiornerà in modo automatico e dinamico
 - Anche in questo caso realizzare la stessa cosa in vanilla JS sarebbe molto più laborioso
@@ -1591,14 +1554,13 @@ Bindings
 
 - Vediamo un altro esempio dell'uso del binding
 - Modificare la pagina Input nel seguente modo
-- In questo caso creiamo un binding tra la checkbox e la variabile *confermato*
-- Poi settiamo tramite dynamic attributes l'attribute *disabled* del pulsante
+- In questo caso creiamo un binding tra la checkbox e la variabile _confermato_
+- Poi settiamo tramite dynamic attributes l'attribute _disabled_ del pulsante
 - Pertanto il pulsante diventa attivo solo se l'utente ha confermato selezionando la checkbox
 
 </div>
 
 <img src="/media/svelte_047.png" class="mx-auto" width="450" style="position:relative;top: -300px;right:-250px;"/>
-
 
 ---
 
@@ -1614,14 +1576,13 @@ Bindings
 
 Binding: Esercitazione_11
 
-- Modificare la pagina *Input* in modo che venga aggiunto un nuovo input text per leggere in input la residenza
+- Modificare la pagina _Input_ in modo che venga aggiunto un nuovo input text per leggere in input la residenza
 - Utilizzare il meccanismo del binding
 
 <br>
 <img src="/media/svelte_049.png" class="mx-auto" width="750" />
 
 - Consegnare su github il progetto modificato
-
 
 ---
 
@@ -1633,7 +1594,6 @@ La pagina e il component Counter
 
 <br>
 <img src="/media/svelte_050.png" class="mx-auto" width="800" />
-
 
 ---
 
@@ -1655,14 +1615,14 @@ Stateful component
 
 - Ogni componente, oltre a definire il markup, la logica CSS e JavaScript, può ospitare il proprio stato.
 - Lo stato è un qualsiasi dato necessario per il corretto funzionamento del componente stesso e dell'applicazione
-- Ad esempio, se un campo di input di un modulo contiene la stringa "test", ci sarà una variabile da qualche parte che contiene questo valore. 
+- Ad esempio, se un campo di input di un modulo contiene la stringa "test", ci sarà una variabile da qualche parte che contiene questo valore.
 - Questo è lo stato del campo di input.
 - Il campo è selezionato? Una variabile da qualche parte registrerà questo fatto. E così via.
-- Lo stato è ospitato nella sezione `<script>` del componente 
+- Lo stato è ospitato nella sezione `<script>` del componente
 
 ```html
 <script>
-	let counter = 0; // stato di un contatore
+  let counter = 0; // stato di un contatore
 </script>
 ```
 
@@ -1678,17 +1638,17 @@ Stateful component
 
 ```html
 <script>
-	let counter = 0;
+  let counter = 0;
 
-	function incrementa() {
-		counter++;
-	}
+  function incrementa() {
+    counter++;
+  }
 </script>
-``` 
+```
+
 <br>
 
-- In altre parole in Svelte, per aggiornare lo stato di un componente, basta solo un'operazione di assegnazione in qualsiasi parte del componente 
-
+- In altre parole in Svelte, per aggiornare lo stato di un componente, basta solo un'operazione di assegnazione in qualsiasi parte del componente
 
 ---
 
@@ -1696,9 +1656,9 @@ Stateful component
 
 La pagina e il component Counter
 
-- Ora realizziamo un componente chiamato *Counter* (*counter.svelte*)
-- Questo componente permette di incrementare/decrementare un contatore 
-- Il valore iniziale è una props esterna con default (zero) 0 
+- Ora realizziamo un componente chiamato _Counter_ (_counter.svelte_)
+- Questo componente permette di incrementare/decrementare un contatore
+- Il valore iniziale è una props esterna con default (zero) 0
 
 <br>
 <img src="/media/svelte_051.png" class="mx-auto" width="500" />
@@ -1708,7 +1668,6 @@ La pagina e il component Counter
 # SvelteKit
 
 La pagina e il component Counter
-
 
 <img src="/media/svelte_054.png" class="mx-auto" width="600" />
 
@@ -1754,7 +1713,6 @@ La pagina e il component Counter
 
 <img src="/media/svelte_057.png" class="mx-auto" width="800" />
 
-
 ---
 
 # SvelteKit
@@ -1762,7 +1720,7 @@ La pagina e il component Counter
 DOM Events
 
 - A questo punto il nostro componente **Counter** viene visualizzato correttamente
-- E se il chiamante passa un valore iniziale per *counter* questo viene visualizzato correttamente 
+- E se il chiamante passa un valore iniziale per _counter_ questo viene visualizzato correttamente
 - Tuttavia se interagiamo con il componente, premiamo il pulsante `+` o il pulsante `-` non succede nulla
 - Ciò è normale perché quando premiamo su uno dei pulsanti **VIENE** generato un evento, ma **NON** viene gestito dal nostro componente
 - Quindi in pratica l'evento viene perso e pertanto nessuna operazione particolare viene eseguita
@@ -1793,7 +1751,7 @@ DOM Events
 
 <br>
 
-- Quando l'utente fa click sul pulsante, viene invocata ed eseguita la funzione *button_handler*
+- Quando l'utente fa click sul pulsante, viene invocata ed eseguita la funzione _button_handler_
 - In questo semplicissimo modo Svelte permette una facile gestione degli eventi DOM
 - Svelte permette anche di utilizzare un `inline handler`
 
@@ -1802,7 +1760,6 @@ DOM Events
 ```js
 <button on:click={() => counter++}>Premi Qui</button>
 ```
-
 
 ---
 
@@ -1818,7 +1775,6 @@ DOM Events
 </div>
 
 <img src="/media/svelte_059.png" class="mx-auto" width="450" style="position:relative; left:250px;top:-170px;"/>
-
 
 ---
 
@@ -1838,7 +1794,6 @@ DOM Events
 
 <img src="/media/svelte_060.gif" class="mx-auto" width="700" />
 
-
 ---
 
 # SvelteKit
@@ -1849,7 +1804,7 @@ Component Bindings
 - Come possiamo fare in modo che il valore della variabile counter venga condiviso con il componente chiamante (pagina)?
 - Per realizzare quanto descritto possiamo utilizzare il concetto di `Component Binding`
 - In modo analogo al binding dei valori dei tag HTML, possiamo creare, nel chiamante, un binding alle props del componente
-- Nel nostro caso la props counter è esposta al chiamante (*extern*) e quindi possiamo fare un binding a tale variabile
+- Nel nostro caso la props counter è esposta al chiamante (_extern_) e quindi possiamo fare un binding a tale variabile
 - Pertanto ogni volta che la variabile counter cambierà anche la variabile con cui abbiamo fatto il binding cambierà
 
 ---
@@ -1863,7 +1818,6 @@ Component Bindings
 <br>
 <img src="/media/svelte_061.png" class="mx-auto" width="700" />
 
-
 ---
 
 # SvelteKit
@@ -1873,10 +1827,11 @@ Component Bindings
 - Come si vede dall'esempio il binding di props dei nostri componenti si implementa nel seguente modo
 
 ```html
-<Componente bind:props={variabile_locale}>
+<Componente bind:props="{variabile_locale}"></Componente>
 ```
 
 dove:
+
 - `props`: è la proprietà del componente a cui vogliamo fare il binding
 - `variabile_locale`: è la variabile, locale al chiamante, che vogliamo "collegare" (bind) alla props del componente
 
@@ -1888,8 +1843,8 @@ Importante notare che il bind è bidirezionale
 
 <br>
 
-- Perciò se cambio il valore di *variabile_locale* cambierà anche il valore di *props*
-- E viceversa: se cambia il valore di *props* cambia il valore di *variabile_locale*
+- Perciò se cambio il valore di _variabile_locale_ cambierà anche il valore di _props_
+- E viceversa: se cambia il valore di _props_ cambia il valore di _variabile_locale_
 
 ---
 
@@ -1912,7 +1867,6 @@ DOM Events: Esercitazione_12
 
 - Consegnare su github il progetto modificato
 
-
 ---
 
 # SvelteKit
@@ -1925,15 +1879,14 @@ Logic Statements
 - Il funzionamento è molto semplice, svelte mette a disposizione il seguente costrutto
 
 ```html
-{#if <condizione>}
-    ....
-    <blocco HTML>
-    ....
-{:else}
-    ....
-    <blocco HTML alternativo>
-    ....
-{/if}
+{#if
+<condizione
+  >} ....
+  <blocco HTML>
+    .... {:else} ....
+    <blocco HTML alternativo> .... {/if}</blocco></blocco
+  ></condizione
+>
 ```
 
 ---
@@ -1942,10 +1895,9 @@ Logic Statements
 
 Logic Statements
 
-- Pertanto se la condizione è vera viene visualizzato il *&lt;blocco HTML&gt;* altrimenti viene visualizzato il *&lt;blocco HTML alternativo&gt;*
+- Pertanto se la condizione è vera viene visualizzato il _&lt;blocco HTML&gt;_ altrimenti viene visualizzato il _&lt;blocco HTML alternativo&gt;_
 - In questo modo abbiamo aggiunto al puro HTML una delle capacità proprie di un linguaggio di programmazione
 - Ma vediamo un esempio modificando la pagina Counter in modo che se il contatore è &lt; 5 visualizzi la scritta in HTML con colore rosso e in caso contrario con colore verde
-
 
 ---
 
@@ -1971,7 +1923,6 @@ Logic Statements
 
 <img src="/media/svelte_064.gif" class="mx-auto" width="600" />
 
-
 ---
 
 # SvelteKit
@@ -1984,16 +1935,12 @@ Each block
 - Se abbiamo la necessità di iterare una lista (array) di elementi, possiamo usare `Each block`
 
 ```html
-{#each <array> as elemento}
-    ...
-    blocco HTML in cui uso {elemento}
-    ...
-{/each}
+{#each
+<array> as elemento} ... blocco HTML in cui uso {elemento} ... {/each}</array>
 ```
 
 - In questo modo il blocco HTML sarà ripetuto tante volte quanti sono gli elementi dell'array o in altre parole sarà ripetuto un numero di volte pari alla lunghezza dell'array
 - Questo rende la generazione di strutture HTML dinamiche molto semplice
-
 
 ---
 
@@ -2015,7 +1962,6 @@ Each block
 
 <img src="/media/svelte_066.png" class="mx-auto" width="650" />
 
-
 ---
 
 # SvelteKit
@@ -2026,11 +1972,11 @@ Each block
 - Per fare ciò basta modificare il costruttore nel seguente modo
 
 ```html
-{#each <array> as elemento, indice}
-    ...
-    blocco HTML in cui uso {elemento} e {indice}
-    ...
-{/each}
+{#each
+<array>
+  as elemento, indice} ... blocco HTML in cui uso {elemento} e {indice} ...
+  {/each}</array
+>
 ```
 
 - Quindi modifichiamo la pagina in questo modo
@@ -2046,7 +1992,6 @@ Each block
 
 <img src="/media/svelte_068.png" class="mx-auto" width="650" />
 
-
 ---
 
 # SvelteKit
@@ -2061,7 +2006,6 @@ Advances Styling
 
 <br>
 <img src="/media/svelte_069.png" class="mx-auto" width="350" />
-
 
 ---
 
@@ -2089,11 +2033,9 @@ Advances Styling
 Advances Styling
 
 - Questo è un caso così comune che Svelte ci fornisce un modo più compatto di scrivere questo codice
-  
+
 ```html
-<h2 class:rosso={contatore < 5}>
-    Il valore del contatore vale: {contatore}
-</h2>
+<h2 class:rosso="{contatore" < 5}>Il valore del contatore vale: {contatore}</h2>
 ```
 
 - class:rosso è il nome della classe che vogliamo assegnare
@@ -2102,9 +2044,7 @@ Advances Styling
 - Spesso il nome della classe coincide con il nome della variabile da cui dipende. In questi casi è possibile scrivere il codice in modo ancora più compatto
 
 ```html
-<h2 class:sottolineato>
-    Il valore del contatore vale: {contatore}
-</h2>
+<h2 class:sottolineato>Il valore del contatore vale: {contatore}</h2>
 ```
 
 - se sottolineato == true allora viene applicata la classe sottolineato
@@ -2117,7 +2057,6 @@ Advances Styling
 
 <img src="/media/svelte_070.png" class="mx-auto" width="450" style="position: relative; top:-80px;" />
 
-
 ---
 
 # SvelteKit
@@ -2126,14 +2065,13 @@ Advances Styling
 
 <img src="/media/svelte_071.png" class="mx-auto" width="700" />
 
-
 ---
 
 # SvelteKit
 
 Reactivity
 
-- Come abbiamo visto negli esempi precedenti al centro di Svelte c'è un potente sistema di reattività per mantenere il DOM sincronizzato con lo stato dell'applicazione, ad esempio in risposta a un evento 
+- Come abbiamo visto negli esempi precedenti al centro di Svelte c'è un potente sistema di reattività per mantenere il DOM sincronizzato con lo stato dell'applicazione, ad esempio in risposta a un evento
 - Ovviamente questo processo non avviene in automatico, e Svelte "instrumenta" il codice in modo che al variare del valore della variabile il DOM venga aggiornato in modo coerente
 - La reattività di Svelte non solo mantiene il DOM sincronizzato con le variabili della tua applicazione, come visto.
 - Svelte può anche mantenere le variabili sincronizzate tra loro utilizzando dichiarazioni reattive. Questo meccanismo è molto potente e permette di scrivere codice in maniera facile che in vanilla JS sarebbe piuttosto tedioso
@@ -2147,7 +2085,6 @@ Reactivity
 
 <img src="/media/svelte_072.png" class="mx-auto" width="500" />
 
-
 ---
 
 # SvelteKit
@@ -2155,19 +2092,15 @@ Reactivity
 Reactivity
 
 - Questo costrutto non è comune e quindi non preoccuparti se non ti risulta subito chiaro.
-- Il costrutto `$:`, introduce un blocco di JavaScript valido, che Svelte interpreta nel senso di "riesegui questo codice ogni volta che uno dei valori di riferimento cambia". 
-- Pertanto siccome il valore di *doppio* dipende dal valore di *contatore*, ogni volta che *contatore* cambierà l'espressione verrà nuovamente calcolata (contatore * 2) e il risultato assegnato a *doppio*
+- Il costrutto `$:`, introduce un blocco di JavaScript valido, che Svelte interpreta nel senso di "riesegui questo codice ogni volta che uno dei valori di riferimento cambia".
+- Pertanto siccome il valore di _doppio_ dipende dal valore di _contatore_, ogni volta che _contatore_ cambierà l'espressione verrà nuovamente calcolata (contatore * 2) e il risultato assegnato a *doppio\*
 - In questo modo possiamo correlare 2 o più variabili senza dover scrivere del codice condizionale
-- Questa è una soluzione elegante e **UNICA di SVELTE**. 
+- Questa è una soluzione elegante e **UNICA di SVELTE**.
 - Non è presente nello stesso modo in nessun altro framework JS
 - In generale il costrutto reattivo assume la seguente forma
 
 ```html
-$: {
-    ....
-    codice JS
-    ...
-}
+$: { .... codice JS ... }
 ```
 
 ---
@@ -2175,7 +2108,6 @@ $: {
 # SvelteKit
 
 Reactivity
-
 
 <img src="/media/svelte_073.gif" class="mx-auto" width="650" />
 
@@ -2189,7 +2121,6 @@ Reactivity: Esercitazione_13
 
 - Consegnare su github il progetto modificato
 
-
 ---
 
 # SvelteKit
@@ -2200,7 +2131,7 @@ Component Events
 - Chiaramente sarebbe molto utile avere la stessa possibilità per i componenti sviluppati da noi
 - Svelte ci viene incontro per risolvere questo problema con il meccanismo del `Component Events`
 - In altre parole possiamo fare in modo che i nostri componenti emettano degli eventi e che il chiamante si registri su questi eventi e li gestisca tramite un handler, esattamente come per gli eventi standard del DOM
-- In altre parole, esattamente come un componente HTML standard, anche i nostri componenti diventano *emettitori* di eventi
+- In altre parole, esattamente come un componente HTML standard, anche i nostri componenti diventano _emettitori_ di eventi
 - Questo è un meccanismo molto importante e Svelte lo rende semplicissimo
 - Vediamo....
 
@@ -2210,19 +2141,19 @@ Component Events
 
 Component Events
 
-- Vogliamo modificare il componente Counter in modo che ogni volta l'utente preme il tasto + venga emesso l'evento *plus* e ogni volta che preme - vengo emesso l'evento *minus*
+- Vogliamo modificare il componente Counter in modo che ogni volta l'utente preme il tasto + venga emesso l'evento _plus_ e ogni volta che preme - vengo emesso l'evento _minus_
 - Il chiamante, la pagina counter, si registrerà su questi eventi e fornirà un handler per ciascuno di essi
-- Per prima cosa dobbiamo fare in modo che il nostro componente sia in grado di generare eventi. Per questo usiamo il metodo ***createEventDispatcher***
-- Il metodo *createEventDispatcher* deve essere chiamato durante l'inizializzazione del componente cioè all'inizio della sua sezione script
+- Per prima cosa dobbiamo fare in modo che il nostro componente sia in grado di generare eventi. Per questo usiamo il metodo **_createEventDispatcher_**
+- Il metodo _createEventDispatcher_ deve essere chiamato durante l'inizializzazione del componente cioè all'inizio della sua sezione script
 - Successivamente potremo generare ed emettere un evento tramite il metodo
 
 ```html
-dispatch('<nome_evento>', {
-			<oggetto o valore da trasportare nell'evento>
-		});
+dispatch('<nome_evento
+  >', { <oggetto o valore da trasportare nell'evento> });</nome_evento
+>
 ```
 
-- Quindi una volta eseguito il metodo *dispatch*, l'evento sarà generato e gestito dall'handler specificato dal chiamante, esattamente come per un componente standard HTML
+- Quindi una volta eseguito il metodo _dispatch_, l'evento sarà generato e gestito dall'handler specificato dal chiamante, esattamente come per un componente standard HTML
 
 ---
 
@@ -2232,13 +2163,12 @@ Component Events
 
 <div style="width:40%;">
 
-- Iniziamo a  modificare il componente Counter in questo modo
+- Iniziamo a modificare il componente Counter in questo modo
 
 </div>
 
 <br>
 <img src="/media/svelte_074.png" class="mx-auto" width="430" style="position:relative; top:-180px; left: 200px;"/>
-
 
 ---
 
@@ -2250,7 +2180,6 @@ Component Events
 
 <br>
 <img src="/media/svelte_075.png" class="mx-auto" width="550" />
-
 
 ---
 
@@ -2283,7 +2212,6 @@ Component Events: Esercitazione_14
 
 - Consegnare su github il progetto modificato
 
-
 ---
 
 # SvelteKit
@@ -2291,7 +2219,7 @@ Component Events: Esercitazione_14
 Stores
 
 - Siccome i componenti Web implementano il concetto di incapsulamento, proprio della OOP, lo stato di un componente rimane invisibile agli altri componenti
-- Abbiamo visto tramite il *Component Binding* e il *Component Events* come è possible condividere tale stato tra componenti gerarchicamente correlati
+- Abbiamo visto tramite il _Component Binding_ e il _Component Events_ come è possible condividere tale stato tra componenti gerarchicamente correlati
 - Ma con questi metodi è impossibile condivider elo stato di un componente con un altro componente o pagina non correlato
 - Per esempio,nel nostro caso, come visualizziamo il valore del contatore nella pagina About?
 - Questo meccanismo è estremamente utile nello sviluppo di un'applicazione web di media complessità, sarà quasi certamente sicuro che ci saranno più componenti che devono condividere uno stato comune
@@ -2307,7 +2235,7 @@ Stores
 
 Uno <b>Store</b> in Svelte è un oggetto che permette di condividere un valore tra componenti non gerarchicamente correlati
 
-</Banner> 
+</Banner>
 
 <br>
 
@@ -2337,7 +2265,6 @@ Stores
 <img src="/media/svelte_078.png" class="mx-auto" width="250" style="position:relative; top:-200px; left: 50px;" />
 <img src="/media/svelte_079.png" class="mx-auto" width="300" style="position:relative; top:-100px; left: 50px;" />
 
-
 ---
 
 # SvelteKit
@@ -2363,7 +2290,7 @@ src/routes
 ```
 
 - Non dimenticarti di linkare la pagina About alla navbar
-  
+
 ---
 
 # SvelteKit
@@ -2388,7 +2315,6 @@ Stores
 
 <img src="/media/svelte_081.gif" class="mx-auto" width="600" />
 
-
 ---
 
 # SvelteKit
@@ -2396,10 +2322,7 @@ Stores
 Stores: Esercitazione_15
 
 - Modificare il codice dell'applicazione in modo che nella pagina About venga visualizzato anche il valore del componente DoubleCounter
-  
 - Consegnare su github il progetto modificato
-
-
 
 ---
 
