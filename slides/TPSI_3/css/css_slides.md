@@ -11,8 +11,8 @@ class: 'text-center'
 lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
-as: "2024/2025"
-version: '1.8.2'
+as: "2025/2026"
+version: '1.9.0'
 
 ---  
 <!-- https://css-tricks.com/snippets/css/complete-guide-grid/#top-of-site -->
@@ -23,7 +23,7 @@ version: '1.8.2'
 1-12 -> 1-12
 
 12a -> 13
-13-22-> 14-23
+13-22-> 14-23 
 
 22a -> 24
 22b -> 25
@@ -2117,7 +2117,7 @@ Colori
 Colori
 
 1. Creare un nuovo file e nominarlo *|cognome|_esercizio_css_14.html*
-2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_13.css*
+2. Inserire il link ad un foglio di stile esterno norminato *|cognome|_esercizio_css_14.css*
 3. Creare una scacchiera 4 righe x 3 colonne
 4. Con l'aiuto di un tool di palette generation:
    1. colorare lo sfondo di 2 celle specificando il nome del colore
@@ -2147,7 +2147,7 @@ Larghezza ed Altezza
   - ***width***: definisce la larghezza di un elemento HTML all'interno della pagina
   - ***height***: definisce l'altezza di un elemento HTML all'interno della pagina
 - Queste misure possono essere espresse in due modi:
-  1. ***valore aasoluto*** : specificando il valore in pixel (px)
+  1. ***valore assoluto*** : specificando il valore in pixel (px)
   2. ***valore relativo*** : specificando un valore percentuale (%) rispetto all'elemento padre 
 - Per default *width* e *height* sono impostate ad `auto` e pertanto il browser calcola le dimensioni minime per visualizzare l'elemento.
 
@@ -2243,6 +2243,390 @@ Colori
 4. Creare quattro rettangoli con sfondo viola con larghezza rispettivamente pari a 1/4, 2/4, 3/4 e 4/4 della larghezza della pagine e altezza pari a 150 px
 5. Creare quattro rettangoli con sfondo verde e trasparenza al 65% con larghezza rispettivamente pari a 1/8, 3/6, 5/8 e 2/9 della larghezza della pagine e altezza pari a 221 px
 6.  Consegnare su github il file con nome |cognome|_esercizio_css_15.html e il file con nome |cognome|_esercizio_css_15.css
+
+---
+
+# Funzioni in CSS
+
+
+
+- Le funzioni CSS sono strumenti che permettono di eseguire operazioni particolari o di trasformare valori all'interno della sintassi CSS. 
+- Sono racchiuse tra parentesi tonde e vengono utilizzate per calcolare o modificare dinamicamente i valori delle proprietà. 
+- Ecco una breve panoramica delle principali funzioni CSS e a cosa servono:
+  - **calc()**: Permette di effettuare calcoli matematici (somma, sottrazione, moltiplicazione, divisione) tra unità diverse, utile per rendere responsive le dimensioni.
+  - **var()**: Serve per utilizzare variabili CSS definite con la sintassi delle custom properties. 
+    
+    Esempio: color: var(--colore-primario);.
+  - **url()**:Inserisce un indirizzo URL come valore di una proprietà (ad esempio, per immagini di sfondo o font personalizzati).
+    
+    Esempio: background-image: url('immagine.jpg');.
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+- La funzione calc() in CSS permette di eseguire calcoli matematici direttamente all’interno delle proprietà CSS. 
+- Questo significa che puoi sommare, sottrarre, moltiplicare o dividere valori diversi (ad esempio, percentuali, pixel, em, rem, ecc.) per ottenere una maggiore flessibilità nei layout e nelle dimensioni degli elementi.
+
+La sintassi generale è:
+
+<Banner padding=2rem>
+proprieta: calc(espressione);
+</Banner>
+
+<br>
+
+- **proprieta** è la proprietà CSS che vuoi impostare (es: width, height, margin...).
+- **calc()** contiene l’espressione matematica.
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**Operatori supportati**:
+
+- Somma: +
+- Sottrazione: -
+- Moltiplicazione: *
+- Divisione: /
+
+**Importante**
+
+<Banner padding=2rem>
+Lascia sempre uno spazio tra i numeri, le unità e gli operatori! 
+<br>Ad esempio:<br>
+calc(100% - 80px) (corretto)<br>
+calc(100%-80px) (errore).
+</Banner>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**A cosa serve calc()**
+
+- calc() è utile quando hai bisogno di combinare valori diversi per dimensionare un elemento. 
+- Ad esempio: Un elemento deve occupare ciò che resta dello schermo dopo aver tolto una sidebar di larghezza fissa.
+- Vuoi calcolare la dimensione esatta di margini o padding usando sia valori fissi che dinamici.
+
+Vediamo ora degli esempi di utilizzo
+
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**Larghezza dinamica con sidebar**
+
+- Supponiamo tu abbia una sidebar fissa di 200px e vuoi che il contenuto principale occupi tutto lo spazio rimanente.
+
+<br>
+<div class="grid grid-flow-col gap-8">
+<div>
+
+```html
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main-content"></div>
+</div>
+```
+
+</div>
+<div>
+
+```css
+.wrapper { width: 300px; }
+.sidebar {
+  width: 200px;
+  height: 350px;
+  float: left;
+  background-color: red;
+}
+
+.main-content {
+  width: calc(100% - 200px);
+  height: 350px;
+  float: left;
+  background-color: blue;
+}
+```
+
+</div>
+</div>
+
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**wrapper width: 300px**
+
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main-content"></div>
+</div>
+
+<style>
+  .wrapper {
+    width: 300px;
+  }
+  .sidebar {
+    width: 200px;
+    height: 350px;
+    float: left;
+    background-color: red;
+  }
+
+  .main-content {
+    width: calc(100% - 200px);
+    height: 350px;
+    float: left;
+    background-color: blue;
+  }
+</style>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**wrapper width: 500px**
+
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main-content"></div>
+</div>
+
+<style>
+  .wrapper {
+    width: 500px;
+  }
+  .sidebar {
+    width: 200px;
+    height: 350px;
+    float: left;
+    background-color: red;
+  }
+
+  .main-content {
+    width: calc(100% - 200px);
+    height: 350px;
+    float: left;
+    background-color: blue;
+  }
+</style>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**wrapper width: 700px**
+
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main-content"></div>
+</div>
+
+<style>
+  .wrapper {
+    width: 700px;
+  }
+  .sidebar {
+    width: 200px;
+    height: 350px;
+    float: left;
+    background-color: red;
+  }
+
+  .main-content {
+    width: calc(100% - 200px);
+    height: 350px;
+    float: left;
+    background-color: blue;
+  }
+</style>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**wrapper width: 900px**
+
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main-content"></div>
+</div>
+
+<style>
+  .wrapper {
+    width: 900px;
+  }
+  .sidebar {
+    width: 200px;
+    height: 350px;
+    float: left;
+    background-color: red;
+  }
+
+  .main-content {
+    width: calc(100% - 200px);
+    height: 350px;
+    float: left;
+    background-color: blue;
+  }
+</style>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**Altezza: tutto lo schermo meno un header**
+
+- Se hai un header di 60px e vuoi che il contenuto occupi il resto della pagina:
+
+<br>
+<div class="grid grid-flow-col gap-8">
+<div>
+```html
+<div class="wrapper">
+  <div class="header">
+  </div>
+  <div class="content">
+  </div>
+</div>
+```
+</div>
+
+<div>
+
+```css
+.wrapper {
+  height: 350px;
+}
+.header {
+  height: 60px;
+  background-color: red;
+}
+.content {
+  height: calc(100% - 60px);
+  background-color: blue;
+}
+```
+
+</div>
+
+</div>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+<div class="wrapper">
+  <div class="header">
+  </div>
+  <div class="content">
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    height: 350px;
+  }
+  .header {
+    height: 60px;
+    background-color: red;
+  }
+  .content {
+    height: calc(100% - 60px);
+    background-color: blue;
+  }
+</style>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**Margine calcolato**
+
+- Puoi centrare un elemento con margini dinamici rispetto alla sua larghezza:
+
+<br>
+<div class="grid grid-flow-col gap-8">
+<div>
+```html
+<div class="box">
+</div>
+```
+</div>
+
+<div>
+
+```css
+.box {
+  height: 200px;
+  width: 500px;
+  margin-left: calc((100% - 500px) / 2);
+  background-color: red;
+}
+```
+
+</div>
+
+</div>
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+<div class="box">
+</div>
+
+<style>
+  .box {
+    height: 200px;
+    width: 500px;
+    margin-left: calc((100% - 500px) / 2);
+    background-color: red;
+}
+</style>
+
+
+---
+
+# Funzioni in CSS
+
+calc()
+
+**Conclusioni**
+
+- calc() è potente per rendere il tuo CSS più flessibile e adattivo.
+- Puoi combinarlo con percentuali, px, em, rem o altre unità.
+ -Ricorda di mettere sempre gli spazi tra operatori e valori!
+
+Questa funzione ti aiuterà a scrivere CSS più dinamici, specialmente quando lavori con layout responsivi o complessi.
 
 ---
 
@@ -9536,21 +9920,21 @@ and (max-width: 1023px) {
 - Magari è anche necessario che queste immagini abbiamo una dimensione specifica
 - Per velocizzare la ricerca delle immagini, possiamo usare un servizio che ci fornisce delle immagini placeholder
 
-`http://via.placeholder.com/wxh` permette di creare un'immagine placeholder larga w pixel e alta h pixel
+`https://placehold.co/wxh` permette di creare un'immagine placeholder larga w pixel e alta h pixel
 
 es:
 
-- http://via.placeholder.com/100x100
-- http://via.placeholder.com/200x100
-- http://via.placeholder.com/100x200
+- https://placehold.co/100x100
+- https://placehold.co/200x100
+- https://placehold.co/100x200
 
 <br>
-<img src="http://via.placeholder.com/100x100">
+<img src="https://placehold.co/100x100">
 
-<img src="http://via.placeholder.com/200x100" style="position:relative; top: -100px; right: -300px;">
+<img src="https://placehold.co/200x100" style="position:relative; top: -100px; right: -300px;">
 
 
-<img src="http://via.placeholder.com/100x200" style="position:relative; top: -300px; right: -700px;">
+<img src="https://placehold.co/100x200" style="position:relative; top: -300px; right: -700px;">
 
 
 ---
