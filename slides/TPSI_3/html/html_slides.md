@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
-as: "2024/2025"
-version: "1.5.8"
+as: "2025/2026"
+version: "1.6.0"
 --- 
 
 <!-- mapping esercizi
@@ -952,7 +952,7 @@ Il Web diventa grafico
 - **src**: attributo che specifica il percorso/link (relativo o assoluto) all'immagine
 - **alt**: in caso in cui l'immagine non possa essere visualizzata, specifica un testo alternativo
 
-Normalmente si specificano anche gli attributi:
+Attributi utili sono:
 - **width**: specifica la larghezza dell'immagine in pixel
 - **height**: specifica l'altezza dell'immagine in pixel
 
@@ -963,7 +963,7 @@ Normalmente si specificano anche gli attributi:
 Il Web diventa grafico
 
 ```html
-<img src="https://cdn.ttgtmedia.com/rms/computerweekly/berners-lee-with-next.jpg" width="250" alt="primo web server"/>
+<img src="https://tinyurl.com/59m2nndc" width="250" alt="primo web server"/>
 ```
 
 <br>
@@ -982,7 +982,7 @@ Il Web diventa grafico
 
 ```html
 <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">
-<img src="https://cdn.ttgtmedia.com/rms/computerweekly/berners-lee-with-next.jpg" width="250" alt="primo web server"/>
+  <img src="https://tinyurl.com/59m2nndc" width="250" alt="primo web server"/>
 </a>
 ```
 <center>
@@ -1678,18 +1678,18 @@ Organizzazione tabulare dei contenuti
 - In passato lo sviluppo web era ampiamente basato sull'uso di tabelle
 - Principalmente le tabelle venivano usato per creare il layout della pagina Web
 - Tuttavia questo metodo era laborioso e poco funzionale in quanto il supporto delle tabelle dai vari browser non era omogeneo.
-- Oggi il layout di una pagine, NON si realizza più con le tabelle ma con il blocco DIV.
+- Oggi il layout di una pagine, NON si realizza più con le tabelle ma con il blocco DIV e il CSS.
 - Tuttavia lo scopo originario delle tabelle, cioè visualizzare contenuti in formato tabellare rimane valido.
 
 I principali tag per la definizione di una tabella sono:
 
 ```html
 <table>: definisce un contenitore per dati organizzati in formato tabellare
-<caption>: definisce il titolo di una tabella
-<thead>: definisce l'header della tabella
+<thead>: definisce l'header della tabella, solitamente contiene i titoli delle colonne
+<tbody>: definisce il corpo principale della tabella, cioè i dati veri e propri
 <tr>: definisce una riga della tabella
-<td>: definisce una cella della tabella.
-<tbody>: definisce il corpo principale della tabella
+<td>: definisce una cella della tabella
+<th>: definisce una cella dell'header in grassetto e centrato
 ```
 
 ---
@@ -1698,59 +1698,47 @@ I principali tag per la definizione di una tabella sono:
 
 Organizzazione tabulare dei contenuti
 
-<div grid="~ cols-2 gap-4">
-<div>
+- Struttura base di una tabella
 
+<div class="flex gap-8">
+<div class="w-2/3">
 ```html
 <table border="1">
-        <caption>A AND B</caption>
-        <thead>
-            <tr>
-                <td>A</td> <td>B</td> <td>A & B</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0</td> <td>0</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>0</td> <td>1</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td> <td>0</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td> <td>1</td> <td>1</td>
-            </tr>
-        </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Età</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Marco</td>
+      <td>Rossi</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
 ```
-
 </div>
-<div>
+<div class="w-1/3">
 
 <table border="1">
-        <caption>A AND B</caption>
-        <thead>
-            <tr>
-                <td>A</td> <td>B</td> <td>A & B</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0</td> <td>0</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>0</td> <td>1</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td> <td>0</td> <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td> <td>1</td> <td>1</td>
-            </tr>
-        </tbody>
-    </table>
+  <thead>
+    <tr>
+      <td align="center"><b>Nome</b></td>
+      <td align="center"><b>Cognome</b></td>
+      <td align="center"><b>Età</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Marco</td>
+      <td>Rossi</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 </div>
@@ -1761,28 +1749,280 @@ Organizzazione tabulare dei contenuti
 
 Organizzazione tabulare dei contenuti
 
-<div grid="~ cols-2 gap-4">
-<div>
+- Per modificare e stilizzare la tabella ci sono degli attributi molto utili
+- Importante notare che nel web moderno questi attributi sono **deprecati** in quanto sostituiti da CSS
+- Vediamo gli attributi più utili
+
+<br>
+
+**border**
+
+- **Scopo**: server per specificare la larghezza del bordo della tabella in pixel.
+- **Uso**: si può applicare a `<table>`
+- **Valori possibili**: un numero che rappresenta lo spessore del bordo
+
+<br>
 
 ```html
 <table border="1">
-    <caption>A OR B</caption>
-    <thead style="background:gray;text-align: center;">
+```
+
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**bgcolor**
+
+- **Scopo**: imposta il colore di sfondo di una tabella, una riga o una cella.
+- **Uso**: si può applicare a `<table>, <tr>, <td>, <th>`
+
+<br>
+
+```html
+<td bgcolor="yellow">Testo</td>
+```
+
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td>Mario</td><td>Rossi</td><td bgcolor="yellow">20</td></tr>
+</table>
+
+
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**align**
+
+- **Scopo**: allinea il contenuto orizzontalmente (a sinistra, destra, centro) all’interno di una cella o di una tabella.
+- **Uso**: `<table align="center"> oppure <td align="right">`
+- **Valori possibili**: `left, right, center`
+
+<br>
+
+```html
+<td align="center">Centrato</td>
+```
+
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td>Mario</td><td>Rossi</td><td align="center">20</td></tr>
+</table>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**valign**
+
+- **Scopo**: allinea verticalmente il contenuto dentro una cella.
+- **Uso**: Su `<td>, <th>, <tr>`.
+- **Valori possibili**: `top, middle, bottom, baseline`.
+
+<br>
+
+```html
+<td valign="bottom">In basso</td>
+```
+
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td  height="120">Mario</td><td>Rossi</td><td valign="bottom">20</td></tr>
+</table>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**rowspan**
+
+- **Scopo**: fa “occupare” a una cella più righe, fondendo celle verticalmente.
+- **Uso**: su `<td> o <th>`.
+- **Valore**: un numero che rappresenta quante righe occupa la cella.
+
+<br>
+
+```html
+<td rowspan="2">Testo</td>
+```
+
+<br>
+<table>
+  <tr><td rowspan="2" border="1">Num.</td><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td>Mario</td><td>Rossi</td><td align="center">20</td></tr>
+</table>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**colspan**
+
+- **Scopo**: fa “occupare” a una cella più colonne, fondendo celle orizzontalmente.
+- **Uso**: su `<td> o <th>`.
+- **Valore**: un numero che rappresenta quante colonne occupa la cella.
+
+<br>
+
+```html
+<td colspan="2">Testo</td>
+```
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td>Mario</td><td colspan="2" bgcolor="red">Rossi</td></tr>
+</table>
+
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**width**
+
+- **Scopo**: imposta la larghezza (in pixel o percentuale) di celle, colonne o tabella.
+- **Uso**: Su `<table>, <td>, <th>`.
+
+<br>
+
+```html
+<td width="100">Larga 100px</td>
+<table width="80%"> <!-- tabella larga l’80% del contenitore -->
+```
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td bgcolor="blue">Mario</td><td bgcolor="green">Rossi</td><td width="100" bgcolor="red">20</td></tr>
+</table>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+**height**
+
+- **Scopo**: definisce l’altezza di una cella o di una tabella.
+- **Uso**: Su `<table>, <td>, <th>`.
+
+<br>
+
+```html
+<td height="100">Alta 100px</td>
+```
+
+<br>
+<table>
+  <tr><td>Nome</td><td>Cognome</td><td>Età</td></tr>
+  <tr><td bgcolor="blue" height="100">Mario</td><td bgcolor="green">Rossi</td><td width="100" bgcolor="red">20</td></tr>
+</table>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+<div class="flex gap-8">
+<div class="w-2/3">
+
+```html
+<table border="1">
+        <thead>
+            <tr>
+                <th>A</th> <th>B</th> <th>A & B</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  align="center">
+                <td>0</td> <td>0</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td>0</td> <td>1</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td>1</td> <td>0</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td>1</td> <td>1</td> <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+```
+
+</div>
+<div class="w-1/3">
+
+<table border="1" style="width:300px;">
+        <thead>
+            <tr>
+                <td border="1" align="center"><b>A</b></td> <td border="1" align="center"><b>B</b></td> <td align="center"><b>A & B</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  align="center">
+                <td border="1">0</td> <td border="1">0</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td border="1">0</td> <td border="1">1</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td border="1">1</td> <td border="1">0</td> <td>0</td>
+            </tr>
+            <tr  align="center">
+                <td border="1">1</td> <td border="1">1</td> <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+---
+
+# Tabelle
+
+Organizzazione tabulare dei contenuti
+
+<div class="flex gap-8">
+<div class="w-2/3">
+
+```html
+<table border="1">
+    <thead bgcolor="grey" align="center">
         <tr>
-            <td>A</td> <td>B</td> <td>A | B</td>
+            <th>A</th> <th>B</th> <th>A | B</th>
         </tr>
     </thead>
-    <tbody style="color:blue;text-align: center;">
+    <tbody align="center">
         <tr>
             <td>0</td> <td>0</td> <td>0</td>
         </tr>
-        <tr style="background:Gainsboro;">
+        <tr bgcolor="Gainsboro">
             <td>0</td> <td>1</td> <td>1</td>
         </tr>
         <tr>
             <td>1</td> <td>0</td> <td>1</td>
         </tr>
-        <tr style="background:Gainsboro;">
+        <tr bgcolor="Gainsboro">
             <td>1</td> <td>1</td> <td>1</td>
         </tr>
     </tbody>
@@ -1790,26 +2030,25 @@ Organizzazione tabulare dei contenuti
 ```
 
 </div>
-<div>
+<div class="w-1/3">
 
-<table border="1">
-    <caption>A OR B</caption>
-    <thead style="background:gray;text-align: center;">
+<table border="1" style="width:300px;">
+    <thead bgcolor="grey" align="center">
         <tr>
             <td>A</td> <td>B</td> <td>A | B</td>
         </tr>
     </thead>
-    <tbody style="color:blue;text-align: center;">
+    <tbody align="center">
         <tr>
             <td>0</td> <td>0</td> <td>0</td>
         </tr>
-        <tr style="background:Gainsboro;">
+        <tr bgcolor="Gainsboro">
             <td>0</td> <td>1</td> <td>1</td>
         </tr>
         <tr>
             <td>1</td> <td>0</td> <td>1</td>
         </tr>
-        <tr style="background:Gainsboro;">
+        <tr bgcolor="Gainsboro">
             <td>1</td> <td>1</td> <td>1</td>
         </tr>
     </tbody>
@@ -1817,19 +2056,6 @@ Organizzazione tabulare dei contenuti
 
 </div>
 </div>
-
----
-
-# Esercizio html_10
-
-Link
-
-1. Editare il file *|cognome|_esercizio_html_09.html* e salvarlo come *|cognome|_esercizio_html_10.html*
-2. Creare 1 tabella modo congruo con il testo
-3. Consegnare su  github il file con nome |cognome|_esercizio_html_10.html
-
-   
-*far riferimento all'articolo orginale https://en.wikipedia.org/wiki/Localhost*
 
 ---
 
@@ -1863,7 +2089,7 @@ Tabelle
 3. Consegnare su github il file con nome |cognome|_esercizio_html_10b.html
 </div>
 <div>
-<img src="/media/html7.jpg" width="470" style="float:right; position:relative;top:0px;"/>
+<img src="/media/html7.png" width="470" style="float:right; position:relative;top:0px;"/>
 </div>
 </div>
 
