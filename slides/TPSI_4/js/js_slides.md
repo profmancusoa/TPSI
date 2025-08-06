@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
-as: "2024/2025"
-version: "2.1.0"
+as: "2025/2026"
+version: "2.1.1"
 ---
 
 # JavaScript
@@ -859,7 +859,6 @@ Commenti
 - In VS Code è possibile inserire un commento, selezionando il codice e premendo i tasti `CTRL + SHIFT + /`
 
 <br />
-<br />
 
 - Ricorda che è una buona pratica di programmazione commentare in modo intelligente il codice
 - La **_leggibilità_** del codice è un parametro molto importante. I commenti aumentano la comprensione e la capacità di leggere e comprendere il codice sorgente.
@@ -867,17 +866,6 @@ Commenti
 - E' più facile leggere la divina commedia con la parafrasi o solo con i versi originali?
 - Ecco per il codice sorgente è esattamente la stessa cosa.
 
-# JS
-
-Materiale Aggiuntivo
-
-<div class="grid grid-flow-col  gap-4">
-<div>
-
-- [Hoisting](/support/4/js/pdf/js_hoisting_01.pdf)
-
-</div>
-</div>
 
 --- #slide N
 
@@ -7396,7 +7384,7 @@ console.log("Tutti i numeri sono > di 5:", maggiori_di_5);
 
 # Array
 
-Test di al meno un elemento di un array: some()
+Test di almeno un elemento di un array: some()
 
 
 `some(function(item, index))`
@@ -9447,7 +9435,7 @@ Materiale Aggiuntivo
 
 Formato dati
 
-- JSON significaJavaScript Object Notation
+- JSON significa JavaScript Object Notation
   - E'  un semplice formato **testuale** per lo scambio e lo storage di dati
   - Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.
   - Diventato estremamente popolare con l'avvento del web 2.0 (AJAX)
