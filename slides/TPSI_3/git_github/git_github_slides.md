@@ -13,8 +13,8 @@ lineNumbers: false
 aspectRatio: '16_/9'
 routerMode: 'hash'
 materia: TPSI 3
-as: 2024/2025
-version: '1.1.3'
+as: 2025/2026
+version: '1.2.0'
 
 ---  
 
@@ -934,6 +934,67 @@ Come visto Git permette a svilupaptori indipendenti di lavorare e collaborare su
 
 </Banner>
  
+--- 
+
+# Git & GitHub
+
+Branching
+
+**Cos'è un branch?**
+
+- Un **branch** è un puntatore mobile a uno specifico commit nella storia del repository.
+- Permette di sviluppare funzionalità o fix separatamente dal ramo principale.
+  - Quando vuoi aggiungere una nuova funzionalità o correggere un bug, indipendentemente da quanto sia grande o piccolo, crei un nuovo branch per racchiudere le tue modifiche.
+- Ogni branch ha un proprio flusso di commit indipendente.
+
+<img src="/media/git_24.png" width="350" style="margin:auto;">
+
+--- 
+
+# Git & GitHub
+
+Branching
+
+- Il diagramma sopra visualizza un repository con due linee di sviluppo isolate, una per una piccola funzionalità e l’altra per una funzionalità di più lungo termine
+- Sviluppandole nei branch, non solo è possibile lavorare su entrambe in parallelo, ma si mantiene anche il ramo main libero da codice potenzialmente instabile.
+- L’implementazione dei branch in Git è molto più leggera rispetto ai modelli di altri sistemi di controllo versione. 
+- I branch in Git sono una parte integrante del flusso di lavoro quotidiano. 
+
+--- 
+
+# Git & GitHub
+
+Branching
+
+- Un branch rappresenta una linea di sviluppo indipendente. 
+- I branch fungono da astrazione per il processo di modifica, staging e commit. 
+- Puoi immaginarli come un modo per richiedere una nuova working directory, una nuova area di staging e una nuova cronologia del progetto. 
+- I nuovi commit vengono registrati nella cronologia del branch corrente, il che genera una biforcazione nella storia del progetto.
+
+<img src="/media/git_24.png" width="350" style="margin:auto;">
+
+--- 
+
+# Git & GitHub
+
+Branching
+
+**Comandi Principali**
+
+
+```git
+git branch <nome-branch> # Creare un nuovo branch
+
+git checkout <nome-branch> # Passare a un branch esistente
+
+git checkout -b <nome-branch> # Creare e passare subito al branch
+
+git branch -d <nome-branch> # Eliminare un branch se non più necessario
+
+git branch -a # visualizza tutti i branch presenti
+```
+
+
 ---
 
 # Git & GitHub
@@ -947,6 +1008,26 @@ Esercitazione_10: oh my Git
 <img src="/media/git_22.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
 
 
+---
+
+# Git & GitHub
+
+Esercitazione_11: Learn git Branching
+
+- Esercitiamoci con git tramite un bel videogioco chiamato `Learn git Branching`
+- Gioca direttamente online [qui](https://learngitbranching.js.org)
+- Svolgi almeno i Livelli:
+  - **Main**: 1,2,3,4
+  - **Remote**: tutti e 16 i livelli
+
+<br><br>
+<Banner padding=20px>
+se vuoi veramente imparare ad usare git <br> svolgi tutti i livelli
+</Banner>
+
+<img src="/media/git_23.png" width="500" style="margin:auto;position:relative; left: 200px; top: -200px;">
+
 --- 
 
 <img src="/media/hh02.webp" style="position:relative;top:-20px;">
+
