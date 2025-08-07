@@ -994,25 +994,11 @@ git branch -d <nome-branch> # Eliminare un branch se non più necessario
 git branch -a # visualizza tutti i branch presenti
 ```
 
-
 ---
 
 # Git & GitHub
 
-Esercitazione_10: oh my Git
-
-- Esercitiamoci con git tramite un bel videogioco chiamato `oh my Git`
-- Scarica ed installa [oh my Git](https://ohmygit.org/)
-
-
-<img src="/media/git_22.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
-
-
----
-
-# Git & GitHub
-
-Esercitazione_11: Learn git Branching
+Esercitazione_10: Learn git Branching
 
 - Esercitiamoci con git tramite un bel videogioco chiamato `Learn git Branching`
 - Gioca direttamente online [qui](https://learngitbranching.js.org)
@@ -1026,6 +1012,20 @@ se vuoi veramente imparare ad usare git <br> svolgi tutti i livelli
 </Banner>
 
 <img src="/media/git_23.png" width="500" style="margin:auto;position:relative; left: 200px; top: -200px;">
+
+
+---
+
+# Git & GitHub
+
+Esercitazione_11: oh my Git
+
+- Esercitiamoci con git tramite un bel videogioco chiamato `oh my Git`
+- Scarica ed installa [oh my Git](https://ohmygit.org/)
+
+
+<img src="/media/git_22.png" width="700" style="margin:auto;position:relative; left: 0px; top: 10px;">
+
 
 --- 
 
