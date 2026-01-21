@@ -13,8 +13,8 @@ lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
 materia: TPSI 5
-as: 2024/2025
-version: "1.2.1"
+as: 2025/2026
+version: "1.2.2"
 ---  
 
 # TPSI 5
@@ -682,7 +682,7 @@ $ npm ci
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 04 - mongoDB e JS
 
 - Creiamo la connessione al DB fornendo le credenziali e il nome del DB a cui vogliamo accedere
 
@@ -710,7 +710,7 @@ const connect = async (user, passwd, dbname) => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 04 - mongoDB e JS
 
 - Creiamo la connessione al DB fornendo le credenziali e il nome del DB a cui vogliamo accedere
 
@@ -741,18 +741,22 @@ DISCONNESSO DAL DB!!!
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 05 - mongoDB e JS
 
 - Creiamo una collezione chiamata *studente*
 
 ```js
 const create_collection = async () => {
     //definiamo lo schema della nostra collezione
+    // impostando  strict: "throw" quando aggiungiamo un documento
+    // avviene una validazione e se il documento non rispetta il modello
+    // viene generata un eccezione
     const schema = new mongoose.Schema({ 
                                         nome: "string", 
                                         cognome: "string", 
                                         classe: "number" 
-    });
+    },
+    { strict: "throw"});
 
     //creiamo un modello a partire dallo schema
     const studente = mongoose.model("studente", schema);
@@ -768,7 +772,7 @@ const create_collection = async () => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 05 - mongoDB e JS
 
 ```js
 //main 
@@ -794,7 +798,7 @@ Esercitazione 03 - mongoDB e JS
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 05 - mongoDB e JS
 
 - Eseguiamo il programma e verifichiamo in mongo-express che la nuova collezzione sia stata effettivamente creata
 
@@ -810,22 +814,23 @@ Esercitazione 03 - mongoDB e JS
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 06 - mongoDB e JS
 
 - Ora aggiungiamo dei documenti alla collezzione appena creata
 
 ```js
 const add_document = async (model, doc) => {
-    await model.create(doc);
+    try {
+        await model.create(doc);
+    } catch(e) {
+        console.log('Errore documento non rispetta lo schema');
+    }
 }
 //main
 (async () => {
     // connettiamoci al DB usando le credenziali corrette
     let db = await connect('mongoadmin', 'qwe123', 'studenti');   
     ...
-    ...
-    console.log("COLLEZIONE CREATA: OK");
-
     //aggiungiamo un documento singolo
     await add_document(collection, {
         nome: "Mario",
@@ -834,7 +839,6 @@ const add_document = async (model, doc) => {
     });
     console.log("DOCUMENTO AGGIUNTO!!!");
     ...
-    ...
 ```
 
 
@@ -842,7 +846,7 @@ const add_document = async (model, doc) => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 06 - mongoDB e JS
 
 - Verifichiamo che il documento sia stato aggiunto correttamente
 
@@ -855,7 +859,7 @@ Esercitazione 03 - mongoDB e JS
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 07 - mongoDB e JS
 
 - Ora proviamo a fare una ricerca per gli studenti della classe 5
 
@@ -883,7 +887,7 @@ const search_document = async (model, params) => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 07 - mongoDB e JS
 
 ```bash
 CONNESSIONE AL DB: OK!!!
@@ -911,7 +915,7 @@ DISCONNESSO DAL DB!!!
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 07 - mongoDB e JS
 
 ```bash
 let studenti = await search_document(collection, {classe: 4});
@@ -935,7 +939,7 @@ DISCONNESSO DAL DB!!!
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 07 - mongoDB e JS
 
 ```bash
 let studenti = await search_document(collection, {classe: 3});
@@ -950,7 +954,7 @@ DISCONNESSO DAL DB!!!
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 08 - mongoDB e JS
 
 - Ora facciamo l'update di un documento presente nella collezione
 
@@ -982,7 +986,7 @@ const update_document = async (model, doc, new_doc) => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 08 - mongoDB e JS
 
 - Verifichiamo che il documento sia effettivamente aggiornato
 
@@ -995,7 +999,7 @@ Esercitazione 03 - mongoDB e JS
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 09 - mongoDB e JS
 
 - Ora rimuoviamo un documento dalla collezione
 
@@ -1025,7 +1029,7 @@ const delete_document = async (model, params) => {
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 09 - mongoDB e JS
 
 - Verifichiamo che il documento sia effettivamente rimosso
 
@@ -1036,7 +1040,52 @@ Esercitazione 03 - mongoDB e JS
 
 # NoSQL
 
-Esercitazione 03 - mongoDB e JS
+Esercitazione 10 - ToDo WebApp
+
+<img src="/media/nosql_28.png" style="margin: auto;"/>
+
+---
+
+# NoSQL
+
+Esercitazione 10 - ToDo WebApp
+
+Si richiede di realizzare una web app (con SvelteKit, mongoDB e mongoose) che implementa una ToDo list con le seguenti funzionalità:
+
+1. L'utente può inserire un nuovo ToDO item (premendo l'icona 1) e selezionare la priorità tra 3 livelli (Bassa, Media, Alta) se tutti i campi sono forniti, altrimenti deve visualizzare un messaggio di allerta con testo appropriato
+2. Una volta inserito un nuovo ToDO Item, viene visualizzato in modo che la priorità sia rappresentata da un'icona diversa per i 3 livelli di priorità (vedi figura)
+3. L'utente può marcare il ToDo Item come completo/attivo tramite click sull'icona 2. In caso di item completato il testo del ToDo Item deve essere barrato (vedi figura). In caso di item attivo il testo deve essere senza barra
+4. L'utente può rimuovere un ToDo item completo o no premendo l'icona 3
+5. Consegnare su github il file *|cognome|\_esercizio_nosql_10.tar.gz* contenente la directory dell'applicazione (no node_modules) 
+
+---
+
+# NoSQL
+
+Esercitazione 11 - Rubrica
+
+<img src="/media/nosql_29.png" style="margin: auto;"/>
+
+---
+
+# NoSQL
+
+Esercitazione 11- Rubrica
+
+Partendo dai template [rubrica_js_template.html](/support/4/js/rubrica_js_template.html) e [rubrica_js_template.css](/support/4/js/rubrica_js_template.css), si richiede di realizzare una web app (con SvelteKit, mongoDB e mongoose) che implementa una rubrica telefonica con le seguenti funzionalità:
+
+1. L'utente può inserire un nuovo contatto in rubrica (pulsante 2) se tutti i campi sono forniti, altrimenti deve visualizzare un messaggio di allerta con testo appropriato
+2. L'utente può rimuovere un contatto presente in rubrica premendo il pulsante 4
+3. L'utente può cercare un contatto in rubrica per cognome o numero di telefono tramite pulsante 1.
+4. Il contatto ricercato viene visualizzato nella parte superiore dell'interfaccia in modo che sia possibile modificarne i suoi campi e successivamente aggiornare la rubrica tramite il pulsante 3
+5. Dopo il salvataggio e l'aggiornamneto i campi di input devono essere vuoti
+6. Consegnare su github il file *|cognome|\_esercizio_nosql_11.tar.gz* contenente la directory dell'applicazione (no node_modules) 
+
+---
+
+# NoSQL
+
+mongoDB e JS
 
 - Qui i link ai vari programmi che implementano le funzionalità appena viste
 
