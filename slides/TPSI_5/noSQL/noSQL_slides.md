@@ -14,7 +14,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: TPSI 5
 as: 2025/2026
-version: "1.2.2"
+version: "1.2.3"
 ---  
 
 # TPSI 5
@@ -1043,6 +1043,53 @@ Esercitazione 09 - mongoDB e JS
 Esercitazione 10 - ToDo WebApp
 
 <img src="/media/nosql_28.png" style="margin: auto;"/>
+
+---
+
+# NoSQL
+
+mongoose e sveltekit
+
+- Per usare mongoose in sveltekit è necessario apportare tre minime modifiche
+
+1- non chiamare mai il metodo disconnect()
+
+2- 
+
+```js
+
+node.js: const mongoose = require("mongoose");
+
+sveltekit: import mongoose from 'mongoose';
+```
+
+
+---
+
+# NoSQL
+
+mongoose e sveltekit
+
+3-
+
+```js
+
+node.js: 
+const create_collection = async () => {
+    ...
+    //creiamo un modello a partire dallo schema
+    const studente = mongoose.model("studente", schema);
+    ...
+}
+
+sveltekit:
+const create_collection = async () => {
+    ...
+    //creiamo un modello a partire dallo schema solo una volta
+    const studente = mongoose.models.studente ||  mongoose.model("studente", schema);
+    ...
+}
+```
 
 ---
 
