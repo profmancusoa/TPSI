@@ -13,7 +13,7 @@ aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
 as: "2025/2026"
-version: "1.6.0"
+version: "1.6.1"
 --- 
 
 <!-- mapping esercizi
@@ -2209,7 +2209,7 @@ Tabelle
 &nbsp;
 
 <Cover fs=80px>
-  Interagiamo con l'utente attraverso i From
+  Interagiamo con l'utente attraverso i Form
 </Cover>
 
 ---
@@ -2462,7 +2462,7 @@ Il form deve contenere i seguenti widgets:
 </div>
 <div>
 
-  - almeeno 5 scelte multiple tramite checkbox
+  - almeno 5 scelte multiple tramite checkbox
   - almeno 1 campo data
   - ogni widget deve essere dotato della propria label
 

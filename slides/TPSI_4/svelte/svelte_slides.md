@@ -12,8 +12,8 @@ class: "text-center"
 lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
-as: 2023/2024
-version: "1.2.2"
+as: 2026/2027
+version: "1.2.3"
 ---
 
 <!-- https://reteinformaticalavoro.it/blog/framework-cosa-sono-e-quali-dominano-le-classifiche/#:~:text=In%20informatica%2C%20un%20framework%20%C3%A8,in%20modo%20semplice%20e%20veloce.
@@ -481,7 +481,7 @@ Hello World
   - delle funzioni più importanti di SvelteKit
 
 - Di seguito i link alla documentazione e tutorial di Svelte e SvelteKit
-  - [Svelte tutorial](https://svelte.dev/tutorial/basics)
+  - [Svelte tutorial](https://svelte.dev/tutorial/)
   - [Tutorial Interattivo Svelte](https://learn.svelte.dev/tutorial/welcome-to-svelte)
   - [Introduzione a SvelteKit](https://kit.svelte.dev/docs/introduction)
 
@@ -494,7 +494,7 @@ Hello World
 Hello World: Creare un Progetto SvelteKit
 
 - Per sviluppare con Svelte e SvelteKit è necessario:
-  - nodejs (almeno versione 18) ---> [Come installare nodejs su Linux](http://cedws)
+  - nodejs (almeno versione 18) ---> [Come installare nodejs su Linux](https://github.com/nvm-sh/nvm)
   - npm
   - git
 - Assicurati che siano installati sul tuo sistema eseguendo i seguenti comandi:
