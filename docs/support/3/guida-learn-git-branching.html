@@ -1,0 +1,925 @@
+<title>Guida Learn Git Branching</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: indice laterale fisso con avanzamento + colonna di lettura; ogni livello è una scheda con grafo prima/obiettivo nello stile a cerchi del gioco */
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --surface-2:#f6f8fb; --fg:#162034; --muted:#56617a; --line:#d6dce7;
+  --accent:#2b3d9c; --accent-soft:#e3e8fb; --commit:#2fb38f; --commit-ink:#06291f; --branch:#24337a; --branch-ink:#ffffff;
+  --head:#0f9cc8; --tag:#7a3fa8; --remote:#4f5d86; --edge:#8a93a8;
+  --ok:#1d7f37; --ok-soft:#e1f3e6; --warn:#a8420c; --warn-soft:#fbeadf;
+  --term-bg:#0d0f15; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1117; --surface:#171a23; --surface-2:#1d2130; --fg:#e7eaf2; --muted:#9aa3b8; --line:#2b3040;
+  --accent:#9cadff; --accent-soft:#232a4a; --commit:#5fd6b4; --commit-ink:#062a20; --branch:#33449a; --branch-ink:#ffffff;
+  --head:#3ccff4; --tag:#b77ce0; --remote:#6b78a3; --edge:#6c7488;
+  --ok:#55c774; --ok-soft:#18301f; --warn:#ff9a62; --warn-soft:#352015;
+  --term-bg:#07080c; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0f1117; --surface:#171a23; --surface-2:#1d2130; --fg:#e7eaf2; --muted:#9aa3b8; --line:#2b3040;
+  --accent:#9cadff; --accent-soft:#232a4a; --commit:#5fd6b4; --commit-ink:#062a20; --branch:#33449a; --branch-ink:#ffffff;
+  --head:#3ccff4; --tag:#b77ce0; --remote:#6b78a3; --edge:#6c7488;
+  --ok:#55c774; --ok-soft:#18301f; --warn:#ff9a62; --warn-soft:#352015;
+  --term-bg:#07080c; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16.5px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+a{color:var(--accent)}
+code,kbd,.mono{font-family:var(--f-mono);font-size:.88em}
+p code,li code,td code{background:var(--accent-soft);padding:.08em .35em;border-radius:4px}
+:focus-visible{outline:3px solid var(--head);outline-offset:2px}
+
+.wrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;padding-block:28px 80px}
+@media (max-width:980px){.wrap{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* sidebar */
+.side{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 16px);align-self:start;max-height:calc(100vh - 32px);overflow:auto;
+  display:flex;flex-direction:column;gap:14px;padding-right:6px}
+@media (max-width:980px){.side{position:static;max-height:none;overflow:visible;padding-right:0}}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+.brand b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:-.01em}
+.progress{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.progress .row{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--muted)}
+.progress .row strong{color:var(--fg);font-variant-numeric:tabular-nums;font-size:1.05rem}
+.bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--commit);transition:width .3s}
+.search{width:100%;font:inherit;font-size:.95rem;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.toc{display:flex;flex-direction:column;gap:2px;font-size:.9rem}
+.toc .chap{font-family:var(--f-display);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:10px}
+.toc a{display:flex;gap:8px;align-items:baseline;text-decoration:none;color:var(--fg);padding:3px 6px;border-radius:6px}
+.toc a:hover{background:var(--surface)}
+.toc a .n{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);min-width:1.6em;font-variant-numeric:tabular-nums}
+.toc a.done .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ok)}
+.toc a.done .n{color:var(--ok)}
+@media (max-width:980px){.toc{display:none}.chips{display:flex}}
+.chips{display:none;flex-wrap:wrap;gap:6px}
+.chips a{font-size:.82rem;padding:4px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+
+main{min-width:0;display:flex;flex-direction:column;gap:56px}
+.hero{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--commit);-webkit-text-stroke:0}
+.lead{font-size:1.12rem;max-width:62ch;color:var(--fg)}
+.prose{max-width:68ch;display:flex;flex-direction:column;gap:12px}
+.prose p,.prose ul,.prose ol{margin:0}
+.prose ul,.prose ol{padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+
+.section-h{display:flex;flex-direction:column;gap:6px;border-bottom:2px solid var(--line);padding-bottom:12px}
+.section-h h2{font-size:clamp(1.6rem,3.2vw,2.1rem);letter-spacing:-.01em}
+.section-h .eyebrow b{color:var(--commit)}
+
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;gap:12px;align-items:flex-start;font-size:.95rem;min-width:0}
+.legend svg{flex:none;margin-top:3px}
+
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.tips div{border-left:3px solid var(--accent);background:var(--surface);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.95rem;min-width:0}
+.tips b{display:block;font-family:var(--f-display);font-size:1rem;margin-bottom:2px}
+
+.model{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;overflow-x:auto}
+.model svg{display:block;min-width:640px;width:100%;height:auto}
+.model text{font-family:var(--f-body)}
+
+.chapter{display:flex;flex-direction:column;gap:22px;scroll-margin-top:16px}
+.chapter-intro{max-width:68ch;color:var(--fg)}
+.chapter-intro b{font-family:var(--f-display)}
+
+.level{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:16px}
+@media (max-width:560px){.level{padding:18px 16px}}
+.level.is-done{border-color:color-mix(in srgb,var(--ok) 55%,var(--line))}
+.lv-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.lv-title{display:flex;flex-direction:column;gap:4px;min-width:0}
+.lv-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.lv-meta .num{background:var(--commit);color:var(--commit-ink);font-weight:600;padding:1px 7px;border-radius:4px}
+.lv-title h3{font-size:1.45rem;letter-spacing:-.01em}
+.lv-title .it{color:var(--muted);font-size:.98rem}
+.done-toggle{display:flex;align-items:center;gap:8px;font-size:.9rem;cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;background:var(--surface-2)}
+.done-toggle input{width:18px;height:18px;accent-color:var(--ok);margin:0}
+.level.is-done .done-toggle{border-color:var(--ok);color:var(--ok)}
+.story{margin:0;max-width:68ch}
+.goals{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:8px}
+.goals h4,.block h4{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.goals ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.goals li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:start}
+.goals li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--warn);margin-top:6px}
+.level.is-done .goals li::before{background:var(--ok)}
+.goals .en{font-style:italic}
+.goals .tr{display:block;color:var(--muted);font-size:.92rem}
+.concepts{display:flex;flex-wrap:wrap;gap:6px}
+.concepts span{font-family:var(--f-mono);font-size:.8rem;padding:2px 9px;border-radius:99px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft)}
+.block{display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.block p,.block ul{margin:0}
+.block ul{padding-left:1.2em}
+
+.graphs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.graph{border:1px solid var(--line);border-radius:var(--r);background:var(--surface-2);padding:10px 12px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.graph .cap{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.graph .sc{overflow-x:auto}
+.graph svg{display:block}
+.graph text{font-family:var(--f-body)}
+
+details{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+details>summary{cursor:pointer;list-style:none;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:10px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s;flex:none}
+details[open]>summary::before{transform:rotate(45deg)}
+details>.in{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+details.hint>summary{color:var(--accent)}
+details.sol>summary{color:var(--ok)}
+details.quiz>summary{color:var(--tag)}
+
+.term{background:var(--term-bg);color:var(--term-fg);border-radius:8px;font-family:var(--f-mono);font-size:.86rem;line-height:1.5;overflow-x:auto;position:relative}
+.term ol{list-style:none;margin:0;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:max-content}
+.term li{display:flex;flex-direction:column}
+.term .cmd::before{content:"$ ";color:var(--term-prompt)}
+.term .cmd{white-space:pre}
+.term .cm{color:var(--term-dim);font-family:var(--f-body);font-size:.84rem;white-space:normal;max-width:60ch}
+.copy{position:sticky;left:100%;float:right;margin:8px 8px 0 0;font:inherit;font-family:var(--f-body);font-size:.78rem;background:transparent;color:var(--term-fg);border:1px solid #3a4152;border-radius:6px;padding:3px 9px;cursor:pointer}
+.copy:hover{border-color:var(--term-prompt)}
+
+.why{border-left:3px solid var(--ok);background:var(--ok-soft);padding:10px 14px;border-radius:0 8px 8px 0}
+.warn{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:0 8px 8px 0}
+.why b,.warn b{font-family:var(--f-display)}
+.why p,.warn p{margin:0}
+
+.cheat{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.cheat table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+.cheat th,.cheat td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.cheat th{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--surface-2)}
+.cheat td:first-child{font-family:var(--f-mono);font-size:.85rem;white-space:nowrap}
+.cheat tr.grp td{font-family:var(--f-display);font-weight:600;background:var(--surface-2);font-size:.95rem}
+.empty{display:none;color:var(--muted);font-style:italic}
+.foot{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.graph .sub{font-size:.8rem;color:var(--muted);font-weight:700}
+.graph .nolocal{margin:0;font-size:.88rem;color:var(--muted);font-style:italic}
+.wc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;font-size:.82rem}
+.wc li{padding:2px 9px;border-radius:99px;border:1px solid var(--line);background:var(--surface)}
+.wc li.modified{border-color:var(--warn);color:var(--warn)}
+.wc li.staged{border-color:var(--ok);color:var(--ok)}
+.wc li.clean{color:var(--muted)}
+.block.wide{max-width:none}
+.graphs.stack{grid-template-columns:minmax(0,1fr)}
+.term .cmd.ui{color:var(--term-dim);font-style:italic}
+.term .cmd.ui::before{content:"» "}
+.story b{font-family:var(--f-display)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:var(--edge)"/>
+    </marker>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <aside class="side" aria-label="Indice e avanzamento">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="9" cy="24" r="6.5" style="fill:var(--commit)"/>
+        <circle cx="25" cy="24" r="6.5" style="fill:var(--commit)"/>
+        <circle cx="17" cy="8" r="6.5" style="fill:var(--commit)"/>
+        <path d="M11.5 19.5 L15 13 M22.5 19.5 L19 13" style="stroke:var(--edge);stroke-width:2"/>
+      </svg>
+      <b>Guida Learn Git Branching</b>
+    </div>
+    <div class="progress">
+      <div class="row"><span>Livelli completati</span><strong id="pcount">0 / 36</strong></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </div>
+    <label for="q" class="eyebrow">Cerca un livello o un comando</label>
+    <input id="q" class="search" type="search" placeholder="es. rebase, fetch, tag…" autocomplete="off">
+    <nav class="toc" id="toc" aria-label="Livelli"></nav>
+    <nav class="chips" id="chips" aria-label="Sezioni"></nav>
+  </aside>
+
+  <main id="main">
+    <header class="hero">
+      <span class="eyebrow">Learn Git Branching · 7 sezioni · 36 livelli</span>
+      <h1>Impara i branch di Git <em>un grafo</em> alla volta</h1>
+      <p class="lead">Questa guida accompagna ogni livello di <b>Learn Git Branching</b> (<a href="https://learngitbranching.js.org/?locale=it_IT">learngitbranching.js.org</a>): la situazione di partenza, l'obiettivo, il concetto di Git che c'è dietro, una soluzione commentata e una domanda per verificare di averlo capito davvero.</p>
+      <div class="prose">
+        <p><b>Come usarla.</b> Leggi la situazione e l'obiettivo, guarda il grafo "prima e dopo" e prova da solo nel gioco. Se ti blocchi apri prima il <b>suggerimento</b>, poi la <b>soluzione</b>. Alla fine rispondi alla <b>domanda di verifica</b> senza guardare la risposta e segna il livello come completato: il segno resta salvato in questo browser.</p>
+        <p>Tutte le soluzioni sono state provate una per una nel gioco, digitando i comandi nel suo terminale. Usano il numero minimo di comandi: il gioco le giudica uguali o migliori della soluzione ufficiale.</p>
+      </div>
+    </header>
+
+    <section class="chapter" id="come-funziona" aria-labelledby="h-cf">
+      <div class="section-h"><span class="eyebrow">Prima di iniziare</span><h2 id="h-cf">Come si legge lo schermo del gioco</h2></div>
+      <div class="legend">
+        <div><svg width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="10" style="fill:var(--commit)"/><text x="12" y="15.5" text-anchor="middle" style="fill:var(--commit-ink);font-size:9px;font-weight:700;font-family:var(--f-mono)">C1</text></svg><span><b>Cerchio</b>: un <b>commit</b>. I nomi C0, C1, C2… sostituiscono gli hash di Git. Un apice (<code>C2'</code>) indica una <b>copia</b> fatta da rebase o cherry-pick.</span></div>
+        <div><svg width="30" height="24" aria-hidden="true"><path d="M2 12 H26" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/></svg><span><b>Freccia</b>: collega un commit al suo genitore. Nel gioco la storia scende dall'alto verso il basso, in questa guida va da sinistra a destra.</span></div>
+        <div><svg width="44" height="24" aria-hidden="true"><rect x="1" y="4" width="42" height="16" rx="8" style="fill:var(--branch)"/><text x="22" y="16" text-anchor="middle" style="fill:var(--branch-ink);font-size:10px;font-family:var(--f-body)">main</text></svg><span><b>Etichetta</b>: un <b>branch</b>. Nel gioco l'asterisco (<code>main*</code>) indica il branch su cui ti trovi.</span></div>
+        <div><svg width="44" height="24" aria-hidden="true"><rect x="1" y="4" width="42" height="16" rx="8" style="fill:var(--head)"/><text x="22" y="16" text-anchor="middle" style="fill:var(--commit-ink);font-size:10px;font-family:var(--f-body)">HEAD</text></svg><span><b>HEAD</b> da solo compare quando è <b>scollegato</b>, cioè punta direttamente a un commit. In questa guida l'etichetta del branch attivo ha un pallino.</span></div>
+        <div><svg width="44" height="24" aria-hidden="true"><rect x="1" y="4" width="42" height="16" rx="8" style="fill:var(--remote)"/><text x="22" y="16" text-anchor="middle" style="fill:var(--branch-ink);font-size:10px;font-family:var(--f-body)">o/main</text></svg><span><b>Branch remoto</b>: dove si trovava <code>main</code> sul remoto <code>origin</code> l'ultima volta che ci hai comunicato. Le etichette viola sono i <b>tag</b>.</span></div>
+        <div><svg width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="10" style="fill:none;stroke:var(--commit);stroke-width:2;stroke-dasharray:3 3"/></svg><span><b>Cerchi tratteggiati</b>: il <b>repository remoto</b>, a destra nel gioco. I cerchi sbiaditi sono commit che nessun branch usa più.</span></div>
+      </div>
+
+      <div class="tips">
+        <div><b>Comandi del gioco</b><code>levels</code> apre il menu, <code>level intro1</code> va a un livello, <code>show goal</code> mostra l'obiettivo, <code>objective</code> rilegge le istruzioni.</div>
+        <div><b>Hai sbagliato?</b><code>undo</code> annulla l'ultimo comando, <code>reset</code> riporta il livello all'inizio. Puoi provare senza paura.</div>
+        <div><b>Suggerimenti</b><code>hint</code> mostra il suggerimento ufficiale del livello. <code>show solution</code> mostra la soluzione: usalo solo come ultima risorsa.</div>
+        <div><b>Conta i comandi</b>A fine livello il gioco confronta il numero dei tuoi comandi con quello della soluzione ufficiale. Prova a eguagliarla.</div>
+        <div><b>Niente <code>-m</code></b>Nel gioco <code>git commit</code> non chiede il messaggio. Nel Git vero scrivi sempre <code>git commit -m "messaggio"</code>.</div>
+        <div><b>Due schede</b>Nel menu dei livelli la scheda <b>Principale</b> contiene le prime cinque sezioni, la scheda <b>Remoto</b> le ultime due.</div>
+      </div>
+
+      <div class="prose"><p><b>Il modello mentale per i remoti.</b> Le ultime due sezioni lavorano con due repository: il tuo e <code>origin</code>. Il branch <code>o/main</code> è la "memoria" locale di dove si trova <code>main</code> sul remoto.</p></div>
+      <div class="model" role="img" aria-label="Schema: repository locale con main e o/main, repository remoto origin con main, e i comandi fetch, pull e push che li collegano">
+        <svg viewBox="0 0 860 210">
+          <g style="font-size:14px">
+            <rect x="20" y="40" width="330" height="120" rx="12" style="fill:var(--surface-2);stroke:var(--commit);stroke-width:2"/>
+            <text x="185" y="70" text-anchor="middle" style="fill:var(--fg);font-weight:700">Repository locale</text>
+            <text x="185" y="98" text-anchor="middle" style="fill:var(--muted);font-size:12.5px">main, bugFix…: i tuoi branch</text>
+            <text x="185" y="122" text-anchor="middle" style="fill:var(--muted);font-size:12.5px">o/main, o/bugFix…: copia dello stato remoto</text>
+            <text x="185" y="146" text-anchor="middle" style="fill:var(--muted);font-size:12.5px">si aggiornano solo comunicando</text>
+            <rect x="510" y="40" width="330" height="120" rx="12" style="fill:var(--surface-2);stroke:var(--remote);stroke-width:2;stroke-dasharray:6 4"/>
+            <text x="675" y="70" text-anchor="middle" style="fill:var(--fg);font-weight:700">Remoto (origin)</text>
+            <text x="675" y="98" text-anchor="middle" style="fill:var(--muted);font-size:12.5px">main, bugFix…: i branch condivisi</text>
+            <text x="675" y="122" text-anchor="middle" style="fill:var(--muted);font-size:12.5px">ad esempio su GitHub</text>
+            <path d="M354 72 H506" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="430" y="62" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12.5px">git push</text>
+            <path d="M506 112 H354" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="430" y="102" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12.5px">git fetch</text>
+            <text x="430" y="135" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12.5px">git pull = fetch + merge</text>
+            <text x="430" y="192" text-anchor="middle" style="fill:var(--muted);font-size:12px">git clone crea la prima copia e collega i due repository</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <div id="chapters"></div>
+    <p class="empty" id="empty">Nessun livello corrisponde alla ricerca.</p>
+
+    <section class="chapter" id="riepilogo" aria-labelledby="h-rp">
+      <div class="section-h"><span class="eyebrow">Da tenere a portata di mano</span><h2 id="h-rp">Riepilogo dei comandi</h2></div>
+      <div class="cheat"><table id="cheat"><thead><tr><th>Comando</th><th>Cosa fa</th><th>Livelli</th></tr></thead><tbody></tbody></table></div>
+      <p class="foot">Guida preparata per gli studenti sulla versione online del gioco, in italiano (<code>?locale=it_IT</code>). I grafi "prima e dopo" sono generati dagli stati iniziali e dagli obiettivi ufficiali dei livelli. Gli ID dei commit (C0, C1…) sono gli stessi che vedrai nel gioco.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const CH = [
+ {id:"intro", tab:"Principale", name:"Sequenza introduttiva", intro:"I quattro mattoni di Git: <b>commit</b>, <b>branch</b>, <b>merge</b> e <b>rebase</b>. Se capisci bene questi, il resto del gioco è una combinazione di questi quattro."},
+ {id:"rampup", tab:"Principale", name:"Diamoci dentro", intro:"Muoversi nell'albero dei commit: <b>HEAD</b> e HEAD scollegato, i riferimenti relativi <code>^</code> e <code>~</code>, spostare i branch con <code>-f</code>, annullare con <b>reset</b> e <b>revert</b>."},
+ {id:"move", tab:"Principale", name:"Spostare il lavoro in giro", intro:"Copiare commit dove servono (<b>cherry-pick</b>), riordinarli o scartarli (<b>rebase interattivo</b>) e scegliere cosa entra in un commit con l'<b>area di staging</b> e <b>git restore</b>."},
+ {id:"mixed", tab:"Principale", name:"Un po' di tutto", intro:"Situazioni realistiche che mettono insieme i comandi già visti, più i <b>tag</b> e <b>git describe</b>."},
+ {id:"advanced", tab:"Principale", name:"Argomenti avanzati", intro:"Rebase multipli, commit con più genitori (<code>^2</code>) e un livello finale in cui servono precisione e ordine."},
+ {id:"remote", tab:"Remoto", name:"Push & Pull: Git remoto", intro:"Il repository remoto (<b>origin</b>) e i branch di tracciamento (<code>o/main</code>): <b>clone</b>, <b>fetch</b>, <b>pull</b>, <b>push</b> e cosa fare quando la storia locale e quella remota divergono."},
+ {id:"remoteAdvanced", tab:"Remoto", name:"Verso origin e oltre: Git remoto avanzato", intro:"Flussi di lavoro con più branch di feature, il <b>tracciamento</b> tra branch locali e remoti, e gli argomenti completi di push, fetch e pull: <code>&lt;sorgente&gt;:&lt;destinazione&gt;</code>."}
+];
+
+const L = [
+/* ---------------- INTRO ---------------- */
+{id:"intro1", ch:"intro", t:"Introduzione ai commit in Git", en:"Introduction to Git Commits",
+ story:`Il repository ha due commit, <code>C0</code> e <code>C1</code>, e il branch <code>main</code> punta a <code>C1</code>.`,
+ goal:`Aggiungi due commit in fila su <code>main</code>.`,
+ concepts:["git commit","commit","genitore"],
+ learn:`<p>Un <b>commit</b> è una fotografia del progetto in un certo momento. Ogni commit ricorda il suo <b>genitore</b> (la freccia nel grafo), quindi la storia è una catena. Git salva solo le differenze rispetto al genitore, per questo i commit occupano poco spazio.</p>`,
+ hint:`Il comando si scrive due volte, uguale.`,
+ sol:[["git commit","Crea C2, figlio di C1. main avanza su C2."],["git commit","Crea C3, figlio di C2. main avanza su C3."]],
+ why:`Il branch su cui sei (<code>main*</code>, con l'asterisco) <b>avanza da solo</b> a ogni nuovo commit.`,
+ q:`Dopo i due commit, qual è il genitore di C3?`,
+ a:`C2. Ogni commit punta al commit da cui è partito.`},
+
+{id:"intro2", ch:"intro", t:"Creare rami in Git", en:"Branching in Git",
+ story:`Stesso repository: <code>C0</code> → <code>C1</code>, con <code>main</code> su <code>C1</code>.`,
+ goal:`Crea un branch di nome <code>bugFix</code> e spostati su di esso.`,
+ concepts:["git branch","git checkout","git switch","checkout -b"],
+ learn:`<p>Un <b>branch</b> è solo un'etichetta leggera che punta a un commit: crearne uno non copia nessun file. Con <code>git checkout</code> (o <code>git switch</code>) scegli su quale branch lavorare: da quel momento i nuovi commit faranno avanzare quel branch.</p>`,
+ hint:`Prima crea il branch, poi spostati su di esso. Si può fare anche con un solo comando: <code>git checkout -b</code>.`,
+ sol:[["git branch bugFix","Crea l'etichetta bugFix sullo stesso commit di main."],["git checkout bugFix","Sposta HEAD su bugFix: nel grafo l'asterisco passa a bugFix*."]],
+ why:`Il livello controlla che <code>bugFix</code> esista e che sia il branch attivo.`,
+ warn:`<code>git branch bugFix</code> da solo crea il branch ma <b>non</b> ti ci sposta: i commit successivi andrebbero ancora su <code>main</code>.`,
+ q:`Quale singolo comando crea un branch e ti ci sposta subito?`,
+ a:`<code>git checkout -b bugFix</code> (oppure <code>git switch -c bugFix</code>).`},
+
+{id:"intro3", ch:"intro", t:"Fusione in Git", en:"Merging in Git",
+ story:`Si parte da <code>C0</code> → <code>C1</code>, con <code>main</code> su <code>C1</code>.`,
+ goal:`Crea <code>bugFix</code>, fai un commit su <code>bugFix</code>, torna su <code>main</code>, fai un commit e poi fondi <code>bugFix</code> in <code>main</code>.`,
+ concepts:["git merge","merge commit","due genitori"],
+ learn:`<p>Quando due branch hanno lavorato in parallelo, <code>git merge</code> li riunisce creando un <b>merge commit</b>, un commit speciale con <b>due genitori</b>. Il branch su cui sei avanza sul merge commit, mentre l'altro resta dov'era.</p>`,
+ hint:`L'ordine conta: prima il commit su <code>bugFix</code>, poi quello su <code>main</code>. Il merge si fa stando su <code>main</code>.`,
+ sol:[["git checkout -b bugFix","Crea bugFix e ci si sposta."],["git commit","C2 su bugFix."],["git checkout main","Torna su main."],["git commit","C3 su main: ora le storie sono separate."],["git merge bugFix","C4 ha due genitori, C3 e C2. main avanza su C4."]],
+ why:`<code>git merge X</code> porta <b>dentro il branch corrente</b> il lavoro di X. Ora <code>main</code> contiene tutti i commit.`,
+ q:`Dopo il merge, <code>bugFix</code> si sposta su C4?`,
+ a:`No. Si sposta solo il branch su cui eri (<code>main</code>). <code>bugFix</code> resta su C2.`},
+
+{id:"intro4", ch:"intro", t:"Introduzione al rebase (ribasare)", en:"Rebase Introduction",
+ story:`Ancora <code>C0</code> → <code>C1</code>, con <code>main</code> su <code>C1</code>.`,
+ goal:`Crea <code>bugFix</code> con un commit, fai un commit anche su <code>main</code>, poi sposta il lavoro di <code>bugFix</code> sopra <code>main</code> con un rebase.`,
+ concepts:["git rebase","storia lineare","commit copiato (C2')"],
+ learn:`<p>Il <b>rebase</b> è l'alternativa al merge: invece di unire due storie con un commit a due genitori, <b>ricopia</b> i commit del tuo branch in cima a un altro. Il risultato è una storia <b>lineare</b>, come se avessi lavorato in sequenza. La copia ha un apice: <code>C2'</code>. L'originale <code>C2</code> resta nel grafo, sbiadito, perché nessun branch lo usa più.</p>`,
+ hint:`Il rebase si lancia stando su <code>bugFix</code>, indicando su quale base spostarlo.`,
+ sol:[["git checkout -b bugFix","Crea bugFix e ci si sposta."],["git commit","C2 su bugFix."],["git checkout main","Torna su main."],["git commit","C3 su main."],["git checkout bugFix","Torna su bugFix."],["git rebase main","Copia C2 sopra C3 come C2'. bugFix ora punta a C2'."]],
+ why:`<code>git rebase main</code> prende i commit di <code>bugFix</code> che non sono in <code>main</code> e li riapplica in cima a <code>main</code>.`,
+ warn:`Il rebase <b>riscrive la storia</b> (crea commit nuovi). Non farlo su commit che hai già condiviso con altri.`,
+ q:`Merge e rebase: quale dei due crea un commit con due genitori?`,
+ a:`Il merge. Il rebase crea copie dei commit e lascia una storia lineare.`},
+
+/* ---------------- RAMPUP ---------------- */
+{id:"rampup1", ch:"rampup", t:"Perdere la testa (HEAD)", en:"Detach yo' HEAD",
+ story:`<code>main</code> è su <code>C2</code>, <code>bugFix</code> è su <code>C4</code> e tu sei su <code>bugFix</code>.`,
+ goal:`Stacca HEAD da <code>bugFix</code> e collegalo direttamente al commit <code>C4</code>.`,
+ concepts:["HEAD","HEAD scollegato","checkout di un commit"],
+ learn:`<p><b>HEAD</b> indica dove ti trovi. Di solito punta a un branch, che a sua volta punta a un commit. Se fai checkout di un <b>commit</b> invece che di un branch, HEAD punta direttamente al commit: è lo stato di <b>HEAD scollegato</b> (detached HEAD). Nel grafo compare l'etichetta <code>HEAD</code> separata.</p>`,
+ hint:`Usa l'identificativo (hash) scritto sul commit.`,
+ sol:[["git checkout C4","HEAD ora punta a C4 e non più a bugFix."]],
+ why:`Nella vita reale gli hash sono lunghi (<code>fed2da64…</code>), ma basta scriverne i primi caratteri. Nel gioco si chiamano semplicemente C0, C1…`,
+ warn:`Con HEAD scollegato i nuovi commit non fanno avanzare nessun branch: se poi ti sposti, rischi di "perderli".`,
+ q:`In che cosa differiscono <code>git checkout bugFix</code> e <code>git checkout C4</code>, se bugFix punta a C4?`,
+ a:`I file sono gli stessi, ma nel primo caso HEAD è attaccato al branch (i commit lo fanno avanzare), nel secondo è scollegato.`},
+
+{id:"rampup2", ch:"rampup", t:"Riferimenti relativi (^)", en:"Relative Refs (^)",
+ story:`<code>main</code> su <code>C2</code>, <code>bugFix</code> su <code>C4</code>, HEAD su <code>bugFix</code>.`,
+ goal:`Sposta HEAD sul <b>genitore</b> di <code>bugFix</code> (il commit <code>C3</code>).`,
+ concepts:["^ (genitore)","HEAD^","riferimenti relativi"],
+ learn:`<p>Copiare hash è scomodo. I <b>riferimenti relativi</b> partono da un nome noto: <code>main^</code> è il genitore di main, <code>main^^</code> il nonno. Funziona anche con HEAD: <code>HEAD^</code> è il commit prima di dove sei.</p>`,
+ hint:`Il genitore di un riferimento si indica con l'accento circonflesso <code>^</code>.`,
+ sol:[["git checkout bugFix^","HEAD si scollega e va su C3, il genitore di C4."]],
+ why:`<code>bugFix^</code> si legge "il genitore di bugFix". Andava bene anche <code>git checkout HEAD^</code>, visto che eri su bugFix.`,
+ q:`Se sei su C4, dove ti porta <code>git checkout HEAD^^</code>?`,
+ a:`Al nonno di C4, cioè C1 (C4 → C3 → C1).`},
+
+{id:"rampup3", ch:"rampup", t:"Riferimenti relativi #2 (~)", en:"The ~ operator",
+ story:`Due linee di sviluppo partono da <code>C1</code>: <code>main</code> e <code>bugFix</code>. HEAD è scollegato su <code>C2</code>. Sotto <code>bugFix</code> c'è anche <code>C6</code>, sbiadito perché nessun branch lo usa.`,
+ goal:`Porta <code>main</code> su <code>C6</code>, <code>bugFix</code> su <code>C0</code> e HEAD su <code>C1</code>.`,
+ concepts:["~n","git branch -f","spostare un branch"],
+ learn:`<p><code>~n</code> risale di <b>n</b> genitori in un colpo: <code>HEAD~3</code> equivale a <code>HEAD^^^</code>. Con <code>git branch -f nome destinazione</code> puoi <b>spostare a forza</b> un branch su un altro commit, senza fare checkout.</p>`,
+ hint:`Serve almeno un riferimento diretto (un hash). Per <code>bugFix</code> e HEAD bastano gli ID scritti sui commit.`,
+ sol:[["git branch -f main C6","Sposta l'etichetta main su C6."],["git branch -f bugFix C0","Sposta bugFix sul primo commit."],["git checkout C1","HEAD scollegato su C1."]],
+ why:`<code>-f</code> (force) dice a Git di spostare un branch esistente invece di crearne uno nuovo. Al posto di <code>C0</code> avresti potuto scrivere un riferimento relativo, ad esempio <code>bugFix~3</code>.`,
+ warn:`Non puoi usare <code>git branch -f</code> sul branch su cui ti trovi: prima devi spostarti altrove.`,
+ q:`A quale commit corrisponde <code>main~2</code> se main punta a C6 e la catena è C6 → C5 → C3?`,
+ a:`C3: <code>~2</code> risale di due genitori.`},
+
+{id:"rampup4", ch:"rampup", t:"Annullare i cambiamenti in Git", en:"Reversing Changes in Git",
+ story:`Da <code>C1</code> partono <code>local</code> (commit <code>C3</code>, solo tuo) e <code>pushed</code> (commit <code>C2</code>, già condiviso). Sei su <code>local</code>.`,
+ goal:`Annulla l'ultimo commit di entrambi i branch: con <b>reset</b> quello locale e con <b>revert</b> quello già condiviso.`,
+ concepts:["git reset","git revert","storia condivisa"],
+ learn:`<p>Ci sono due modi per annullare un commit.</p><ul><li><b>reset</b> sposta indietro il branch, come se il commit non fosse mai esistito. Va bene solo per lavoro <b>locale</b>.</li><li><b>revert</b> crea un <b>nuovo commit</b> che fa l'opposto di quello da annullare (<code>C2'</code>). La storia resta intatta, quindi è il modo giusto per annullare commit <b>già condivisi</b>.</li></ul>`,
+ hint:`<code>reset</code> e <code>revert</code> prendono argomenti diversi: reset vuole dove riportare il branch, revert vuole il commit da annullare.`,
+ sol:[["git reset HEAD~1","local torna su C1: C3 sparisce dal branch."],["git checkout pushed","Passa sul branch condiviso."],["git revert HEAD","Crea C2', che annulla le modifiche di C2."]],
+ why:`Chi ha già scaricato C2 riceverà semplicemente un commit in più (C2'). Con un reset, invece, la sua storia e la tua diventerebbero incompatibili.`,
+ q:`Perché non si usa <code>git reset</code> su un branch già pubblicato?`,
+ a:`Perché riscrive la storia: i compagni che hanno già quei commit si troverebbero con una storia diversa dalla tua. <code>git revert</code> aggiunge invece un commit e non toglie nulla.`},
+
+/* ---------------- MOVE ---------------- */
+{id:"move1", ch:"move", t:"Introduzione al cherry-pick", en:"Cherry-pick Intro",
+ story:`Da <code>C1</code> partono tre branch: <code>bugFix</code> (C2, C3), <code>side</code> (C4, C5) e <code>another</code> (C6, C7). Sei su <code>main</code>, fermo a <code>C1</code>.`,
+ goal:`Copia in <code>main</code> solo i commit <code>C3</code>, <code>C4</code> e <code>C7</code>, in quest'ordine.`,
+ concepts:["git cherry-pick","copiare commit"],
+ learn:`<p><code>git cherry-pick</code> copia uno o più commit, scelti per nome, in cima al branch corrente. È utile quando ti servono solo <b>alcuni</b> commit di un altro branch e non tutto il branch.</p>`,
+ hint:`Si possono indicare più commit nello stesso comando, nell'ordine in cui vuoi copiarli.`,
+ sol:[["git cherry-pick C3 C4 C7","Crea C3', C4', C7' in cima a main."]],
+ why:`I commit originali restano dove sono: il cherry-pick crea copie (con l'apice) sul branch corrente.`,
+ q:`Che differenza c'è tra <code>git cherry-pick C3</code> e <code>git merge bugFix</code>?`,
+ a:`Il cherry-pick copia solo C3. Il merge porta tutto il lavoro di bugFix (C2 e C3).`},
+
+{id:"move2", ch:"move", t:"Introduzione al rebase interattivo", en:"Interactive Rebase Intro",
+ story:`Su <code>main</code> ci sono, in fila, <code>C2</code>, <code>C3</code>, <code>C4</code>, <code>C5</code>. Il branch <code>overHere</code> è fermo su <code>C1</code>.`,
+ goal:`Ricostruisci <code>main</code> sopra <code>overHere</code> scartando <code>C2</code> e con l'ordine <code>C3</code>, <code>C5</code>, <code>C4</code>.`,
+ concepts:["git rebase -i","riordinare","omettere commit"],
+ learn:`<p>Il <b>rebase interattivo</b> (<code>-i</code>) mostra l'elenco dei commit da ricopiare e ti lascia decidere: puoi <b>riordinarli</b>, <b>ometterne</b> alcuni o unirli. Nel gioco si apre una finestra: trascini i commit per cambiare ordine e premi <i>Click to Drop/Omit</i> per scartarne uno.</p>`,
+ hint:`La base si può indicare con un branch (<code>overHere</code>) o con un riferimento relativo (<code>HEAD~4</code>).`,
+ sol:[["git rebase -i overHere","Si apre la finestra con C2, C3, C4, C5."],["(finestra) Drop su C2","C2 diventa grigio: non verrà copiato."],["(finestra) trascina C5 sopra C4","L'ordine diventa C3, C5, C4."],["(finestra) Conferma","main = C1 → C3' → C5' → C4'."]],
+ why:`Il rebase interattivo è il modo di "riscrivere" con cura una serie di commit prima di condividerla: togliere commit di prova e mettere in ordine logico gli altri.`,
+ q:`Che cosa succede a un commit marcato come <i>Drop/Omit</i>?`,
+ a:`Non viene copiato: dopo il rebase non fa più parte del branch.`},
+
+{id:"move3", ch:"move", t:"L'area di staging", en:"The Staging Area",
+ story:`Sei su <code>main</code> (<code>C1</code>). Nella working directory hai modificato due file: <code>app.js</code> e <code>styles.css</code>. Lo staging è vuoto.`,
+ goal:`Crea <b>due commit separati</b>: il primo solo con <code>app.js</code>, il secondo solo con <code>styles.css</code>.`,
+ concepts:["git add","staging area","git status","commit piccoli"],
+ learn:`<p>Prima di un commit le modifiche passano dall'<b>area di staging</b> (o index): è la bozza del prossimo commit. Con <code>git add file</code> scegli <b>quali</b> modifiche ci finiscono. Così puoi dividere il lavoro in commit piccoli, ognuno con un solo scopo. Il riquadro sotto il grafo mostra cosa c'è nella working directory e cosa nello staging.</p>`,
+ hint:`Aggiungi un file, fai il commit, poi ripeti con l'altro. <code>git status</code> mostra la situazione in ogni momento.`,
+ sol:[["git add app.js","app.js passa nello staging (verde)."],["git commit","C2 contiene solo app.js."],["git add styles.css","Ora tocca a styles.css."],["git commit","C3 contiene solo styles.css."]],
+ why:`<code>git commit</code> registra <b>solo ciò che è nello staging</b>, non tutto quello che hai modificato.`,
+ q:`Hai modificato tre file ma fai <code>git add</code> solo su uno. Che cosa entra nel commit?`,
+ a:`Solo quel file. Gli altri due restano modificati nella working directory.`},
+
+{id:"move4", ch:"move", t:"Annullare le modifiche con git restore", en:"Undoing with git restore",
+ story:`In staging ci sono <code>app.js</code> e <code>secret.env</code> (un file con dati riservati!). Nella working directory c'è <code>experiment.js</code>, un esperimento da buttare.`,
+ goal:`Fai un commit con il solo <code>app.js</code>: togli <code>secret.env</code> dallo staging (lasciandolo modificato) e scarta le modifiche a <code>experiment.js</code>.`,
+ concepts:["git restore --staged","git restore","scartare modifiche"],
+ learn:`<p><code>git restore</code> ha due usi:</p><ul><li><code>git restore --staged file</code> toglie il file dallo staging, ma <b>conserva</b> le modifiche nella working directory;</li><li><code>git restore file</code> <b>scarta</b> le modifiche nella working directory e riporta il file com'era nell'ultimo commit.</li></ul>`,
+ hint:`Tre comandi: uno per secret.env, uno per experiment.js, poi il commit.`,
+ sol:[["git restore --staged secret.env","secret.env esce dallo staging ma resta modificato."],["git restore experiment.js","Le modifiche all'esperimento vengono buttate."],["git commit","C2 contiene solo app.js."]],
+ why:`Alla fine <code>secret.env</code> è ancora modificato ma fuori dal commit: è esattamente lo stato richiesto.`,
+ warn:`<code>git restore file</code> (senza <code>--staged</code>) cancella le modifiche non salvate e non si può annullare.`,
+ q:`Hai fatto <code>git add password.txt</code> per sbaglio. Quale comando lo toglie dal prossimo commit senza perdere il file?`,
+ a:`<code>git restore --staged password.txt</code>.`},
+
+/* ---------------- MIXED ---------------- */
+{id:"mixed1", ch:"mixed", t:"Prendi solo 1 commit", en:"Grabbing Just 1 Commit",
+ story:`Su <code>bugFix</code> hai tre commit in fila: <code>C2</code> (debug), <code>C3</code> (printf) e <code>C4</code> (la vera correzione). <code>main</code> è fermo su <code>C1</code>.`,
+ goal:`Porta in <code>main</code> solo la correzione (<code>C4</code>), senza i commit di debug.`,
+ concepts:["cherry-pick","rebase -i","scartare commit di debug"],
+ learn:`<p>Capita spesso: per trovare un bug aggiungi istruzioni di debug e stampe, poi lo correggi. Nel branch principale vuoi solo la correzione. Si può fare con un <b>cherry-pick</b> del solo commit buono, oppure con un rebase interattivo che scarta gli altri.</p>`,
+ hint:`Mettiti su <code>main</code> e copia lì un solo commit.`,
+ sol:[["git checkout main","Spostati sul branch di destinazione."],["git cherry-pick C4","main = C1 → C4'."]],
+ why:`Il livello controlla solo <code>main</code>: deve contenere la correzione e nessuno dei commit di debug.`,
+ q:`Con quale altro comando avresti potuto ottenere lo stesso risultato?`,
+ a:`Con <code>git rebase -i main</code> stando su bugFix, scartando C2 e C3, e poi spostando main sulla copia di C4.`},
+
+{id:"mixed2", ch:"mixed", t:"Giocoliere di commit", en:"Juggling Commits",
+ story:`<code>newImage</code> è su <code>C2</code> e <code>caption</code> è su <code>C3</code>, figlio di C2. Sei su <code>caption</code>. Devi modificare un po' <code>C2</code>, che però non è l'ultimo commit.`,
+ goal:`Modifica <code>C2</code> lasciando invariato l'ordine dei commit, poi porta <code>main</code> in cima.`,
+ concepts:["git commit --amend","rebase -i","riordinare due volte"],
+ learn:`<p><code>git commit --amend</code> modifica solo l'<b>ultimo</b> commit (in realtà lo sostituisce con una copia corretta). Per correggere un commit più vecchio lo si porta in cima con un rebase interattivo, lo si "emenda" e poi si ripristina l'ordine con un altro rebase interattivo.</p>`,
+ hint:`Il primo comando è <code>git rebase -i HEAD~2</code>.`,
+ sol:[["git rebase -i HEAD~2","Nella finestra trascina C3 sopra C2 e conferma: ora C2' è l'ultimo."],["git commit --amend","Modifica C2' (diventa C2'')."],["git rebase -i HEAD~2","Rimetti C2'' prima di C3' e conferma."],["git branch -f main caption","main raggiunge la cima del lavoro."]],
+ why:`Il gioco non guarda il contenuto dei file ma la forma della storia: C2 modificato (più apici) seguito da C3, con main in cima.`,
+ warn:`Ogni rebase crea commit nuovi: più apici (<code>C2''</code>) significano più riscritture dello stesso commit.`,
+ q:`Perché non basta fare subito <code>git commit --amend</code> stando su caption?`,
+ a:`Perché emenderebbe C3, cioè l'ultimo commit, e non C2.`},
+
+{id:"mixed3", ch:"mixed", t:"Giocoliere di commit #2", en:"Juggling Commits #2",
+ story:`Stessa situazione del livello precedente: <code>newImage</code> su <code>C2</code>, <code>caption</code> su <code>C3</code>, <code>main</code> su <code>C1</code>.`,
+ goal:`Stesso risultato, ma senza rebase: usa il <b>cherry-pick</b>.`,
+ concepts:["cherry-pick","--amend"],
+ learn:`<p>Il cherry-pick permette di ricostruire la storia un commit alla volta: copi C2 su main, lo emendi subito perché ora è l'ultimo, e poi copi C3 sopra. Si evitano due rebase.</p>`,
+ hint:`Lavora direttamente su <code>main</code>.`,
+ sol:[["git checkout main","Parti da C1."],["git cherry-pick C2","Copia C2 su main."],["git commit --amend","Modifica la copia: diventa C2''."],["git cherry-pick C3","Aggiungi C3 sopra: main è in cima."]],
+ why:`Il cherry-pick mette ogni commit in cima, quindi l'amend agisce proprio sul commit da modificare.`,
+ q:`Quale dei due metodi (rebase o cherry-pick) ti sembra più semplice qui, e perché?`,
+ a:`Di solito il cherry-pick: 4 comandi in fila, senza finestre di riordino e senza dover ricordare l'ordine originale.`},
+
+{id:"mixed4", ch:"mixed", t:"Git Tag", en:"Git Tags",
+ story:`<code>main</code> è su un merge commit <code>C5</code>, <code>side</code> su <code>C3</code>.`,
+ goal:`Crea il tag <code>v0</code> su <code>C1</code> e il tag <code>v1</code> su <code>C2</code>, poi sposta HEAD su <code>C2</code>.`,
+ concepts:["git tag","versioni","etichette fisse"],
+ learn:`<p>Un <b>tag</b> è un'etichetta <b>fissa</b>: a differenza di un branch non si sposta quando fai nuovi commit. Si usa per segnare momenti importanti, come le versioni pubblicate (<code>v1.0</code>).</p>`,
+ hint:`Puoi fare checkout direttamente del commit o del tag appena creato.`,
+ sol:[["git tag v0 C1","Etichetta fissa su C1."],["git tag v1 C2","Etichetta fissa su C2."],["git checkout C2","HEAD scollegato su C2 (equivale a git checkout v1)."]],
+ why:`Fare checkout di un tag porta in stato di HEAD scollegato, perché un tag non può avanzare.`,
+ q:`Fai un commit dopo <code>git checkout v1</code>. Il tag v1 si sposta?`,
+ a:`No: i tag non si muovono mai. Il nuovo commit resta "appeso" a HEAD scollegato.`},
+
+{id:"mixed5", ch:"mixed", t:"Git Describe", en:"Git Describe",
+ story:`Ci sono i tag <code>v0</code> (su C0) e <code>v1</code> (su C3) e tre branch: <code>main</code>, <code>side</code> e <code>bugFix</code>.`,
+ goal:`Sperimenta con <code>git describe</code>. Quando hai capito, fai un commit su <code>bugFix</code> per chiudere il livello.`,
+ concepts:["git describe","tag più vicino"],
+ learn:`<p><code>git describe rif</code> ti dice dove ti trovi rispetto al <b>tag più vicino</b> nella storia passata. Il formato è <code>&lt;tag&gt;_&lt;n&gt;_g&lt;hash&gt;</code>: il tag, quanti commit di distanza, e il commit descritto. Ad esempio <code>v1_2_gC6</code> significa "C6, due commit dopo v1".</p>`,
+ hint:`Prova <code>git describe main</code>, <code>git describe side</code> e <code>git describe bugFix</code> prima di fare il commit.`,
+ sol:[["git describe bugFix","Risposta: v1_2_gC6."],["git commit","Il livello si chiude con un commit su bugFix."]],
+ why:`Questo livello serve a esplorare: basta un commit su bugFix per completarlo.`,
+ q:`Che cosa risponde <code>git describe main</code> (main su C2, figlio di C1, figlio di C0 = v0)?`,
+ a:`<code>v0_2_gC2</code>: C2 si trova due commit dopo il tag v0.`},
+
+/* ---------------- ADVANCED ---------------- */
+{id:"advanced1", ch:"advanced", t:"Rebasing livello 9000", en:"Rebasing over 9000 times",
+ story:`<code>main</code> è su <code>C2</code>. Ci sono tre branch di lavoro: <code>bugFix</code> (C3), <code>side</code> (C4, C5, C6) e <code>another</code> (C7, che parte da C5).`,
+ goal:`Metti tutti i lavori in un'unica fila sopra <code>main</code>, in ordine <code>bugFix</code>, <code>side</code>, <code>another</code>, e porta anche <code>main</code> in cima.`,
+ concepts:["git rebase base branch","rebase a catena"],
+ learn:`<p><code>git rebase base branch</code> accetta due argomenti: prima <b>dove</b> mettere i commit, poi <b>quale</b> branch spostare. Così non serve fare checkout ogni volta. Se il branch è già un antenato della base, Git fa solo avanzare l'etichetta (fast-forward).</p>`,
+ hint:`Conviene aggiornare <code>main</code> per ultimo.`,
+ sol:[["git rebase main bugFix","C3' sopra C2."],["git rebase bugFix side","C4' C5' C6' sopra C3'."],["git rebase side another","C7' sopra C6'."],["git rebase another main","main avanza in cima (fast-forward)."]],
+ why:`Ogni rebase usa come base il branch appena sistemato, così i lavori si "impilano" uno sopra l'altro.`,
+ q:`Nell'ultimo comando main viene ricopiato?`,
+ a:`No: main era già un antenato di another, quindi la sua etichetta viene solo fatta avanzare.`},
+
+{id:"advanced2", ch:"advanced", t:"Genitori multipli", en:"Multiple parents",
+ story:`Su <code>main</code> c'è una storia con un merge commit <code>C6</code>, che ha due genitori: <code>C4</code> (il primo) e <code>C5</code> (il secondo).`,
+ goal:`Crea il branch <code>bugWork</code> sul commit <code>C2</code>, usando solo riferimenti relativi a partire da <code>main</code>.`,
+ concepts:["^2 (secondo genitore)","concatenare ~ e ^"],
+ learn:`<p>Un merge commit ha due genitori. <code>^</code> (o <code>^1</code>) segue il <b>primo</b> genitore, <code>^2</code> il <b>secondo</b>. Gli operatori si possono concatenare: <code>main~^2~</code> si legge da sinistra a destra.</p>`,
+ hint:`Da <code>main</code> (C7): un passo indietro, poi il secondo genitore del merge, poi un altro passo indietro.`,
+ sol:[["git branch bugWork main~^2~","C7 → ~ → C6 → ^2 → C5 → ~ → C2."]],
+ why:`Un singolo comando sostituisce una lunga serie di <code>git checkout HEAD^</code>.`,
+ q:`Partendo da C6, dove porta <code>C6^</code> e dove <code>C6^2</code>?`,
+ a:`<code>C6^</code> porta a C4 (primo genitore), <code>C6^2</code> a C5 (secondo genitore).`},
+
+{id:"advanced3", ch:"advanced", t:"Rami spaghettificati", en:"Branch Spaghetti",
+ story:`<code>main</code> ha i commit C2…C5. I branch <code>one</code>, <code>two</code> e <code>three</code> sono tutti fermi su <code>C1</code>.`,
+ goal:`Dai a ciascun branch la sua serie di commit: <code>one</code> = C4, C3, C2 (ordine invertito, senza C5); <code>two</code> = C5, C4, C3, C2; <code>three</code> = solo C2.`,
+ concepts:["cherry-pick multipli","git branch -f","pianificare"],
+ learn:`<p>Qui non c'è un comando nuovo: bisogna <b>pianificare</b>. Il cherry-pick permette di copiare commit in qualunque ordine. Per <code>three</code> non serve copiare nulla: C2 esiste già ed è figlio di C1, quindi basta spostare l'etichetta.</p>`,
+ hint:`Prima il primo branch, poi il secondo, poi il terzo.`,
+ sol:[["git checkout one","Lavora su one."],["git cherry-pick C4 C3 C2","Ordine invertito, senza C5."],["git checkout two","Lavora su two."],["git cherry-pick C5 C4 C3 C2","Tutti, in ordine invertito."],["git branch -f three C2","three punta direttamente all'originale C2."]],
+ why:`Il cherry-pick accetta i commit nell'ordine che vuoi tu. Riusare C2 per three fa risparmiare un'altra copia.`,
+ q:`Perché per <code>three</code> non serve un cherry-pick?`,
+ a:`Perché C2 è già figlio diretto di C1: basta spostare l'etichetta three su C2.`},
+
+/* ---------------- REMOTE ---------------- */
+{id:"remote1", ch:"remote", t:"Introduzione al clone", en:"Clone Intro",
+ story:`Hai un repository locale con <code>C0</code> → <code>C1</code>. Non c'è ancora nessun remoto.`,
+ goal:`Crea una copia remota del repository.`,
+ concepts:["git clone","origin","o/main"],
+ learn:`<p>Un <b>repository remoto</b> è una copia del progetto su un altro computer (per esempio GitHub). Nella realtà <code>git clone</code> scarica un remoto in locale; nel gioco crea il remoto (cerchi tratteggiati, a destra) a partire dal tuo. Compare anche <code>o/main</code>: il <b>branch remoto</b>, che ricorda dove si trovava <code>main</code> sul remoto l'ultima volta che hai comunicato con lui.</p>`,
+ hint:`Basta un comando.`,
+ sol:[["git clone","Compaiono il remoto e il branch o/main."]],
+ why:`Il nome completo sarebbe <code>origin/main</code>: <code>origin</code> è il nome predefinito del remoto, il gioco lo abbrevia in <code>o</code>.`,
+ q:`Che cosa indica <code>o/main</code>?`,
+ a:`Lo stato di main sul remoto origin al momento dell'ultima comunicazione (clone, fetch, pull o push).`},
+
+{id:"remote2", ch:"remote", t:"Rami remoti", en:"Remote Branches",
+ story:`Il repository è già clonato: <code>main</code> e <code>o/main</code> sono su <code>C1</code>.`,
+ goal:`Fai un commit su <code>main</code>, poi spostati su <code>o/main</code> e fai un altro commit. Osserva cosa succede.`,
+ concepts:["branch remoti","HEAD scollegato su o/main"],
+ learn:`<p>I branch remoti come <code>o/main</code> sono di <b>sola lettura</b>: si aggiornano solo quando comunichi con il remoto. Se fai checkout di <code>o/main</code> finisci in HEAD scollegato, e un commit non fa avanzare <code>o/main</code>.</p>`,
+ hint:`L'ordine conta: prima il commit su <code>main</code>.`,
+ sol:[["git commit","C2 su main."],["git checkout o/main","HEAD scollegato su C1."],["git commit","C3 nasce scollegato; o/main resta su C1."]],
+ why:`<code>o/main</code> descrive il remoto: può cambiare solo se cambia il remoto, non con i tuoi commit locali.`,
+ q:`Perché <code>o/main</code> non si sposta quando fai un commit?`,
+ a:`Perché rispecchia lo stato del remoto, che non è cambiato. Si aggiorna solo con fetch, pull o push.`},
+
+{id:"remote3", ch:"remote", t:"Git Fetch", en:"Git Fetch",
+ story:`Sul remoto qualcuno ha aggiunto due commit a <code>main</code> e due a <code>bugFix</code>. In locale non li hai ancora.`,
+ goal:`Scarica i commit nuovi dal remoto.`,
+ concepts:["git fetch","scaricare senza toccare i branch locali"],
+ learn:`<p><code>git fetch</code> scarica dal remoto i commit che ti mancano e <b>aggiorna i branch remoti</b> (<code>o/main</code>, <code>o/bugFix</code>). Non tocca i tuoi branch locali né i tuoi file: ti informa, ma non unisce nulla.</p>`,
+ hint:`Un solo comando.`,
+ sol:[["git fetch","Arrivano C4, C5, C6, C7. o/main e o/bugFix si spostano; main e bugFix restano fermi."]],
+ why:`Dopo il fetch decidi tu cosa fare: merge, rebase o niente.`,
+ q:`Dopo <code>git fetch</code>, il tuo branch <code>main</code> contiene i nuovi commit?`,
+ a:`No. Li contiene solo <code>o/main</code>. Per portarli in main serve un merge o un rebase (oppure un pull).`},
+
+{id:"remote4", ch:"remote", t:"Git Pull", en:"Git Pull",
+ story:`In locale hai il commit <code>C2</code>, sul remoto c'è <code>C3</code>. Le due storie divergono da <code>C1</code>.`,
+ goal:`Scarica il lavoro remoto e uniscilo al tuo.`,
+ concepts:["git pull","fetch + merge"],
+ learn:`<p><code>git pull</code> è una scorciatoia per <b>fetch seguito da merge</b>: scarica i commit, aggiorna <code>o/main</code> e poi fonde <code>o/main</code> nel tuo branch. Qui si crea un merge commit <code>C4</code>.</p>`,
+ hint:`Un solo comando.`,
+ sol:[["git pull","Fetch di C3, poi merge: C4 ha come genitori C2 e C3."]],
+ why:`Equivale a <code>git fetch</code> seguito da <code>git merge o/main</code>.`,
+ q:`Quali due comandi equivalgono a <code>git pull</code>?`,
+ a:`<code>git fetch</code> e poi <code>git merge o/main</code>.`},
+
+{id:"remote5", ch:"remote", t:"Simulare il lavoro di squadra", en:"Faking Teamwork",
+ story:`Esiste solo il repository remoto (cerchi tratteggiati, <code>C0</code> → <code>C1</code>): prima va clonato. Il gioco offre anche un comando speciale per simulare un compagno che lavora sul remoto: <code>git fakeTeamwork</code>.`,
+ goal:`Clona, fai lavorare il "compagno" con due commit, fai un tuo commit e poi recupera il suo lavoro.`,
+ concepts:["git fakeTeamwork (solo nel gioco)","clone","pull con divergenza"],
+ learn:`<p><code>git fakeTeamwork n</code> esiste <b>solo nel gioco</b>: aggiunge n commit al remoto, come se li avesse fatti un compagno. Serve a ricreare la situazione tipica del lavoro in squadra: mentre lavori, il remoto va avanti.</p>`,
+ hint:`Puoi indicare quanti commit simulare: <code>git fakeTeamwork 2</code>.`,
+ sol:[["git clone","Copia il remoto in locale: main e o/main su C1."],["git fakeTeamwork 2","Il remoto riceve C2 e C3."],["git commit","Il tuo C4 in locale."],["git pull","Fetch + merge: C5 unisce il tuo lavoro e quello del compagno."]],
+ why:`Dopo il pull hai tutti i commit e <code>o/main</code> indica C3, l'ultimo commit del remoto.`,
+ warn:`Non cercare <code>fakeTeamwork</code> nel Git vero: non esiste.`,
+ q:`Dopo il pull, su quale commit si trova <code>o/main</code>?`,
+ a:`Su C3, l'ultimo commit del remoto. main invece è sul merge commit C5.`},
+
+{id:"remote6", ch:"remote", t:"Git Push", en:"Git Push",
+ story:`Repository clonato: <code>main</code> e <code>o/main</code> su <code>C1</code>.`,
+ goal:`Fai due commit e inviali al remoto.`,
+ concepts:["git push","pubblicare commit"],
+ learn:`<p><code>git push</code> fa l'opposto del fetch: <b>invia</b> i tuoi commit al remoto e sposta il branch remoto. Poi aggiorna anche <code>o/main</code>, visto che ora sai dove si trova main sul remoto.</p>`,
+ hint:`Due commit, poi push.`,
+ sol:[["git commit","C2."],["git commit","C3."],["git push","Il remoto riceve C2 e C3; o/main va su C3."]],
+ why:`Dopo il push locale e remoto coincidono.`,
+ q:`Dopo il push, perché si sposta anche <code>o/main</code>?`,
+ a:`Perché Git sa che il main remoto ora è su C3, e o/main ne rispecchia lo stato.`},
+
+{id:"remote7", ch:"remote", t:"Storico divergente", en:"Diverged History",
+ story:`Esiste solo il repository remoto (<code>C0</code> → <code>C1</code>), da clonare. Poi simulerai la situazione più comune: mentre lavori, un compagno fa push prima di te.`,
+ goal:`Ottieni una storia lineare in cui il tuo commit sta <b>dopo</b> quello del compagno, e pubblicala.`,
+ concepts:["push rifiutato","git pull --rebase","storia lineare"],
+ learn:`<p>Se il remoto ha commit che tu non hai, Git <b>rifiuta</b> il push: prima devi integrare il lavoro degli altri. Hai due strade: <code>git pull</code> (merge) oppure <code>git pull --rebase</code>, che ricopia i tuoi commit sopra quelli remoti e lascia una storia lineare.</p>`,
+ hint:`Controlla l'obiettivo: il tuo commit (C3') deve venire dopo quello del compagno (C2).`,
+ sol:[["git clone","Copia il remoto in locale."],["git fakeTeamwork","Il compagno pubblica C2."],["git commit","Tu fai C3 in locale."],["git pull --rebase","Fetch di C2, poi C3 ricopiato come C3' sopra C2."],["git push","Il remoto accetta: main = C3'."]],
+ why:`Dopo il rebase la tua storia contiene quella remota, quindi il push è un semplice avanzamento.`,
+ warn:`Senza <code>--rebase</code> otterresti un merge commit invece di una storia lineare.`,
+ q:`Perché un push viene rifiutato quando la storia è divergente?`,
+ a:`Perché il remoto perderebbe i commit che tu non hai. Git accetta solo push che fanno avanzare il branch remoto.`},
+
+{id:"remote8", ch:"remote", t:"Main bloccato", en:"Locked Main",
+ story:`Hai fatto il commit <code>C2</code> direttamente su <code>main</code>, ma il <code>main</code> remoto è <b>protetto</b>: si può modificare solo tramite pull request.`,
+ goal:`Sposta il tuo lavoro su un branch <code>feature</code>, pubblica quel branch e riallinea <code>main</code> al remoto.`,
+ concepts:["branch protetto","pull request","git reset --hard","git push origin &lt;branch&gt;"],
+ learn:`<p>Nei team il <code>main</code> remoto è spesso bloccato: le modifiche entrano solo da un branch, dopo una revisione (pull request). Se hai fatto commit su main per sbaglio, crei un branch che contenga quel lavoro, lo pubblichi e riporti main allo stato del remoto.</p>`,
+ hint:`Crea il branch per la feature partendo dal tuo commit, prima o dopo aver resettato main a <code>o/main</code>.`,
+ sol:[["git reset --hard o/main","main torna su C1, come sul remoto."],["git checkout -b feature C2","Il branch feature nasce sul tuo commit C2."],["git push origin feature","Il remoto riceve il branch feature."]],
+ why:`Il lavoro non si perde: C2 resta raggiungibile tramite <code>feature</code>. Ora si può aprire la pull request.`,
+ warn:`<code>reset --hard</code> scarta anche le modifiche non salvate dei file. Nel gioco non ce ne sono, nella realtà controlla prima con <code>git status</code>.`,
+ q:`Che cosa succederebbe facendo <code>git push</code> stando su main con C2?`,
+ a:`Il remoto lo rifiuterebbe, perché main è protetto.`},
+
+/* ---------------- REMOTE ADVANCED ---------------- */
+{id:"remoteAdvanced1", ch:"remoteAdvanced", t:"Push main!", en:"Push Main!",
+ story:`Hai tre branch di feature, <code>side1</code>, <code>side2</code> e <code>side3</code>, tutti partiti da <code>C1</code>. Nel frattempo sul remoto è arrivato <code>C8</code>.`,
+ goal:`Metti in fila le tre feature sopra il lavoro remoto e pubblica tutto su <code>main</code>.`,
+ concepts:["fetch","rebase a catena","push"],
+ learn:`<p>È il flusso classico: <b>aggiorni</b> (fetch), <b>ricolleghi</b> il tuo lavoro sopra quello remoto (rebase) e <b>pubblichi</b> (push). Con più feature si ricopiano una sopra l'altra.</p>`,
+ hint:`Puoi sempre usare <code>undo</code> o <code>reset</code> se sbagli l'ordine.`,
+ sol:[["git fetch","o/main va su C8."],["git rebase o/main side1","side1 sopra C8."],["git rebase side1 side2","side2 sopra side1."],["git rebase side2 side3","side3 sopra side2."],["git rebase side3 main","main avanza in cima."],["git push","Il remoto riceve tutto."]],
+ why:`Il risultato è una storia lineare: C8 e poi tutte le feature.`,
+ q:`Perché si fa il fetch prima dei rebase?`,
+ a:`Per avere C8 in locale (su o/main) e poter ricopiare le feature sopra di lui.`},
+
+{id:"remoteAdvanced2", ch:"remoteAdvanced", t:"Fondere in remoto", en:"Merging with remotes",
+ story:`Stessa situazione del livello precedente: tre feature e un nuovo commit <code>C8</code> sul remoto.`,
+ goal:`Questa volta integra le feature con <b>merge</b> invece che con rebase, poi pubblica.`,
+ concepts:["pull","merge multipli","rebase o merge?"],
+ learn:`<p>Merge e rebase sono due filosofie. Con il <b>rebase</b> la storia è pulita e lineare ma riscritta. Con il <b>merge</b> la storia è conservata così com'è, anche se il grafo è più ramificato. Molti team scelgono il merge proprio per non riscrivere mai la storia.</p>`,
+ hint:`Guarda bene l'albero dell'obiettivo: ogni feature entra con un merge commit.`,
+ sol:[["git checkout main","Lavora su main."],["git pull","main riceve C8."],["git merge side1","C9."],["git merge side2","C10."],["git merge side3","C11."],["git push","Il remoto riceve tutto."]],
+ why:`I commit delle feature restano gli originali (nessun apice): il merge non ricopia nulla.`,
+ q:`Cita un vantaggio del merge e uno del rebase.`,
+ a:`Merge: non riscrive la storia e mostra quando sono state unite le feature. Rebase: storia lineare, più facile da leggere.`},
+
+{id:"remoteAdvanced3", ch:"remoteAdvanced", t:"Tracciamento remoto", en:"Remote Tracking",
+ story:`Il remoto ha <code>C2</code>, che tu non hai ancora. In locale ci sono solo <code>main</code> e <code>o/main</code> su <code>C1</code>.`,
+ goal:`Crea un branch locale <code>side</code> che <b>tracci</b> <code>o/main</code>, fai un commit e pubblicalo sul <code>main</code> remoto, lasciando fermo il tuo <code>main</code> locale.`,
+ concepts:["tracking","checkout -b nome o/main","branch -u"],
+ learn:`<p>Ogni branch locale può <b>tracciare</b> un branch remoto: è così che <code>git pull</code> e <code>git push</code> senza argomenti sanno con chi comunicare. Di solito <code>main</code> traccia <code>o/main</code>, ma puoi far tracciare <code>o/main</code> anche a un branch con un altro nome.</p>`,
+ hint:`Ci sono due modi: <code>git checkout -b side o/main</code> oppure <code>git branch -u o/main side</code>.`,
+ sol:[["git checkout -b side o/main","Crea side, che traccia o/main."],["git commit","C3 su side."],["git pull --rebase","Scarica C2 e ricopia C3 sopra (C3')."],["git push","Siccome side traccia o/main, il push va sul main remoto."]],
+ why:`Il push senza argomenti usa il branch tracciato: pubblica <code>side</code> sul <code>main</code> remoto.`,
+ q:`Come fa <code>git push</code> a sapere dove inviare i commit di side?`,
+ a:`Dal tracciamento: side è collegato a o/main, quindi il push va sul main del remoto.`},
+
+{id:"remoteAdvanced4", ch:"remoteAdvanced", t:"Parametri di git push", en:"Git push arguments",
+ story:`HEAD è scollegato su <code>C0</code>. In locale <code>main</code> ha <code>C2</code> e <code>foo</code> ha <code>C3</code>, nessuno dei due ancora pubblicato.`,
+ goal:`Pubblica sia <code>main</code> che <code>foo</code>.`,
+ concepts:["git push origin &lt;branch&gt;","argomenti espliciti"],
+ learn:`<p><code>git push origin main</code> significa: "prendi <code>main</code> locale e mettilo sul <code>main</code> del remoto <code>origin</code>". Con gli argomenti espliciti non conta dove si trova HEAD, ed è per questo che il livello parte con HEAD scollegato.</p>`,
+ hint:`Il comando <code>objective</code> mostra di nuovo l'ultima pagina delle istruzioni.`,
+ sol:[["git push origin main","Il main remoto riceve C2."],["git push origin foo","Il foo remoto riceve C3."]],
+ why:`Senza argomenti il push userebbe il branch corrente, ma con HEAD scollegato non c'è un branch corrente.`,
+ q:`Che cosa vuol dire <code>origin</code> in <code>git push origin main</code>?`,
+ a:`È il nome del remoto a cui inviare (quello predefinito si chiama origin).`},
+
+{id:"remoteAdvanced5", ch:"remoteAdvanced", t:"Parametri di git push: espansione!", en:"Git push arguments -- Expanded!",
+ story:`In locale <code>main</code> è su <code>C6</code> e <code>foo</code> sul merge commit <code>C4</code>. Sul remoto entrambi sono ancora su <code>C1</code>.`,
+ goal:`Il <code>foo</code> remoto deve finire su <code>C5</code> e il <code>main</code> remoto su <code>C4</code>: i nomi locali e remoti sono "incrociati".`,
+ concepts:["sorgente:destinazione","git push origin a:b"],
+ learn:`<p>La forma completa è <code>git push origin &lt;sorgente&gt;:&lt;destinazione&gt;</code>. La <b>sorgente</b> è un qualunque riferimento locale (anche <code>main^</code> o un hash), la <b>destinazione</b> è il nome del branch sul remoto. Se la destinazione non esiste, Git la crea.</p>`,
+ hint:`C5 è il genitore di main (<code>main^</code>). C4 è dove punta <code>foo</code>.`,
+ sol:[["git push origin main^:foo","Il foo remoto va su C5."],["git push origin foo:main","Il main remoto va su C4."]],
+ why:`I due punti separano "cosa invio" da "dove lo metto".`,
+ q:`Che cosa fa <code>git push origin C3:nuovo</code>?`,
+ a:`Crea sul remoto il branch <code>nuovo</code>, che punta a C3.`},
+
+{id:"remoteAdvanced6", ch:"remoteAdvanced", t:"Parametri di git fetch", en:"Fetch arguments",
+ story:`In locale c'è solo <code>C1</code>. Sul remoto <code>main</code> è arrivato a <code>C4</code> (C2, C3, C4) e <code>foo</code> a <code>C6</code> (C5, C6).`,
+ goal:`Scarica <code>C3</code> nel tuo <code>foo</code> e <code>C6</code> nel tuo <code>main</code>, senza aggiornare <code>o/main</code> e <code>o/foo</code>, poi fondi <code>main</code> in <code>foo</code>.`,
+ concepts:["git fetch origin a:b","sorgente remota, destinazione locale"],
+ learn:`<p>Anche il fetch accetta <code>&lt;sorgente&gt;:&lt;destinazione&gt;</code>, ma <b>al contrario</b> del push: la sorgente è sul remoto, la destinazione è un branch <b>locale</b>. Con una destinazione esplicita Git aggiorna direttamente quel branch e lascia fermi i branch <code>o/…</code>.</p>`,
+ hint:`Attenzione: gli ID dei commit sono "incrociati" rispetto ai nomi dei branch.`,
+ sol:[["git fetch origin C3:foo","Il tuo foo va su C3 (il penultimo commit del main remoto)."],["git fetch origin C6:main","Il tuo main va su C6 (la cima del foo remoto)."],["git checkout foo","Passa su foo."],["git merge main","C7 unisce C3 e C6."]],
+ why:`Nella versione attuale del gioco <code>main~1</code> non viene riconosciuto come sorgente remota ("riferimento sconosciuto"): con l'ID del commit funziona.`,
+ warn:`Nella realtà un fetch verso il branch su cui ti trovi viene rifiutato. Qui funziona perché HEAD è scollegato.`,
+ q:`In <code>git fetch origin X:Y</code>, quale dei due nomi è sul remoto?`,
+ a:`X, la sorgente. Y è il branch locale da aggiornare.`},
+
+{id:"remoteAdvanced7", ch:"remoteAdvanced", t:"Fonte del nulla", en:"Source of nothing",
+ story:`Sul remoto esiste il branch <code>foo</code>, che non serve più. In locale non c'è nessun branch <code>bar</code>.`,
+ goal:`Elimina <code>foo</code> dal remoto e crea il branch locale <code>bar</code>, senza usare <code>git branch</code>.`,
+ concepts:["push con sorgente vuota","fetch con sorgente vuota"],
+ learn:`<p>Una curiosità della sintassi: se la sorgente è <b>vuota</b>, succede qualcosa di speciale.</p><ul><li><code>git push origin :foo</code> invia "niente" su foo, cioè <b>elimina</b> il branch remoto (si scrive anche <code>git push origin --delete foo</code>);</li><li><code>git fetch origin :bar</code> scarica "niente" in bar, cioè <b>crea</b> il branch locale bar su HEAD.</li></ul>`,
+ hint:`In questo livello il comando <code>git branch</code> è disabilitato: devi usare push e fetch.`,
+ sol:[["git push origin :foo","foo sparisce dal remoto (e o/foo dal locale)."],["git fetch origin :bar","Nasce il branch locale bar."]],
+ why:`Sono effetti collaterali della forma <code>&lt;sorgente&gt;:&lt;destinazione&gt;</code> con la sorgente vuota.`,
+ q:`Qual è la forma più leggibile per cancellare un branch remoto?`,
+ a:`<code>git push origin --delete foo</code>.`},
+
+{id:"remoteAdvanced8", ch:"remoteAdvanced", t:"Parametri di git pull", en:"Pull arguments",
+ story:`In locale <code>main</code> ha il commit <code>C4</code>. Sul remoto <code>main</code> ha <code>C2</code> e <code>bar</code> ha <code>C3</code>.`,
+ goal:`Crea i branch locali <code>foo</code> (con C3) e <code>side</code> (con C2) e fondili entrambi nel tuo <code>main</code>, in quest'ordine.`,
+ concepts:["git pull origin a:b","fetch + merge con argomenti"],
+ learn:`<p><code>git pull origin X:Y</code> equivale a <code>git fetch origin X:Y</code> seguito da <code>git merge Y</code>: scarica X nel branch locale Y e poi fonde Y nel <b>branch corrente</b>. Così crei e integri un branch in un solo comando.</p>`,
+ hint:`Il primo merge riguarda il commit di <code>bar</code> (C3), il secondo quello di <code>main</code> (C2).`,
+ sol:[["git pull origin C3:foo","Crea foo su C3 e lo fonde in main (C5)."],["git pull origin C2:side","Crea side su C2 e lo fonde in main (C6)."]],
+ why:`I branch <code>o/main</code> e <code>o/bar</code> restano su C1, perché la destinazione era esplicita.`,
+ q:`Quali due comandi equivalgono a <code>git pull origin C3:foo</code>?`,
+ a:`<code>git fetch origin C3:foo</code> e poi <code>git merge foo</code>.`}
+];
+
+const CHEAT = [
+ ["Commit e branch"],
+ ["git commit","registra un nuovo commit","1"],
+ ["git branch &lt;nome&gt; [commit]","crea un branch","2, 20"],
+ ["git checkout &lt;rif&gt; / git switch &lt;branch&gt;","sposta HEAD","2, 5"],
+ ["git checkout -b &lt;nome&gt; [punto di partenza]","crea un branch e ci passa","3, 28, 31"],
+ ["git branch -f &lt;nome&gt; &lt;commit&gt;","sposta a forza un branch","7, 14, 20"],
+ ["Unire e riscrivere"],
+ ["git merge &lt;branch&gt;","unisce nel branch corrente (merge commit)","3, 30"],
+ ["git rebase &lt;base&gt; [branch]","ricopia i commit sopra la base","4, 18, 29"],
+ ["git rebase -i &lt;base&gt;","riordina o scarta commit","10, 14"],
+ ["git cherry-pick &lt;c1&gt; &lt;c2&gt;…","copia commit scelti","9, 13, 15, 20"],
+ ["git commit --amend","sostituisce l'ultimo commit","14, 15"],
+ ["Riferimenti"],
+ ["rif^ / rif^2","primo / secondo genitore","6, 19"],
+ ["rif~n","n genitori indietro","7, 19"],
+ ["git tag &lt;nome&gt; [commit]","etichetta fissa","16"],
+ ["git describe &lt;rif&gt;","distanza dal tag più vicino","17"],
+ ["Annullare"],
+ ["git reset &lt;commit&gt;","riporta indietro il branch (solo locale)","8, 28"],
+ ["git revert &lt;commit&gt;","annulla con un nuovo commit","8"],
+ ["git add &lt;file&gt;","mette un file nello staging","11"],
+ ["git restore --staged &lt;file&gt;","toglie un file dallo staging","12"],
+ ["git restore &lt;file&gt;","scarta le modifiche al file","12"],
+ ["Remoti"],
+ ["git clone","copia un repository (nel gioco: crea il remoto)","21"],
+ ["git fetch [origin a:b]","scarica commit, aggiorna o/…","23, 34"],
+ ["git pull [--rebase] [origin a:b]","fetch + merge (o rebase)","24, 27, 36"],
+ ["git push [origin a:b]","invia commit al remoto","26, 32, 33"],
+ ["git push origin :branch","elimina un branch remoto","35"],
+ ["git branch -u o/main [branch]","imposta il tracciamento","31"],
+ ["Comandi del gioco"],
+ ["levels / level &lt;id&gt;","elenco livelli / vai a un livello","—"],
+ ["show goal / hide goal / objective","mostra l'obiettivo o le istruzioni","—"],
+ ["hint / undo / reset","suggerimento / annulla ultimo comando / ricomincia","—"],
+ ["git fakeTeamwork [n]","simula n commit di un compagno sul remoto","25, 27"]
+];
+
+const TREES = {"intro1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}}},"intro2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["bugFix","C1","branch"]],"h":"bugFix"}}},"intro3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",0,"C3",0],["C4","C3,C2",0,"C4",0]],"r":[["main","C4","branch"],["bugFix","C2","branch"]],"h":"main"}}},"intro4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",2,"C2",1],["C3","C1",0,"C3",0],["C2'","C3",1,"C2'",0]],"r":[["main","C3","branch"],["bugFix","C2'","branch"]],"h":"bugFix"}}},"rampup1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0]],"r":[["main","C2","branch"],["bugFix","C4","branch"]],"h":"bugFix"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0]],"r":[["main","C2","branch"],["bugFix","C4","branch"]],"h":"C4"}}},"rampup2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0]],"r":[["main","C2","branch"],["bugFix","C4","branch"]],"h":"bugFix"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0]],"r":[["main","C2","branch"],["bugFix","C4","branch"]],"h":"C3"}}},"rampup3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C2",0,"C4",0],["C5","C3",1,"C5",0],["C6","C5",2,"C6",1]],"r":[["main","C4","branch"],["bugFix","C5","branch"]],"h":"C2"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",1],["C3","C1",0,"C3",0],["C4","C2",1,"C4",1],["C5","C3",0,"C5",0],["C6","C5",0,"C6",0]],"r":[["main","C6","branch"],["bugFix","C0","branch"]],"h":"C1"}}},"rampup4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",2,"C3",0]],"r":[["main","C1","branch"],["pushed","C2","branch"],["local","C3","branch"]],"h":"local"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C2'","C2",1,"C2'",0],["C3","C1",2,"C3",1]],"r":[["main","C1","branch"],["pushed","C2'","branch"],["local","C1","branch"]],"h":"pushed"}}},"move1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",1,"C3",0],["C4","C1",2,"C4",0],["C5","C4",2,"C5",0],["C6","C1",3,"C6",0],["C7","C6",3,"C7",0]],"r":[["main","C1","branch"],["bugFix","C3","branch"],["side","C5","branch"],["another","C7","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",1,"C3",0],["C3'","C1",0,"C3'",0],["C4","C1",2,"C4",0],["C4'","C3'",0,"C4'",0],["C5","C4",2,"C5",0],["C6","C1",3,"C6",0],["C7","C6",3,"C7",0],["C7'","C4'",0,"C7'",0]],"r":[["main","C7'","branch"],["bugFix","C3","branch"],["side","C5","branch"],["another","C7","branch"]],"h":"main"}}},"move2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0],["C4","C3",0,"C4",0],["C5","C4",0,"C5",0]],"r":[["main","C5","branch"],["overHere","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",1],["C3","C2",1,"C3",1],["C3'","C1",0,"C3'",0],["C4","C3",1,"C4",1],["C5'","C3'",0,"C5'",0],["C4'","C5'",0,"C4'",0],["C5","C4",1,"C5",1]],"r":[["main","C4'","branch"],["overHere","C1","branch"]],"h":"main"}}},"move3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main","w":{"app.js":"modified","styles.css":"modified"}}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}}},"move4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main","w":{"app.js":"staged","secret.env":"staged","experiment.js":"modified"}}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"]],"h":"main","w":{"secret.env":"modified"}}}},"mixed1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",2,"C3",0],["C4","C3",3,"C4",0]],"r":[["main","C1","branch"],["debug","C2","branch"],["printf","C3","branch"],["bugFix","C4","branch"]],"h":"bugFix"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",2,"C3",0],["C4","C3",3,"C4",1],["C4'","C1",0,"C4'",0]],"r":[["main","C4'","branch"],["debug","C2","branch"],["printf","C3","branch"],["bugFix","C4'","branch"]],"h":"main"}}},"mixed2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",2,"C3",0]],"r":[["main","C1","branch"],["newImage","C2","branch"],["caption","C3","branch"]],"h":"caption"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3'","C1",3,"C3'",1],["C2'","C3'",4,"C2'",1],["C2''","C3'",3,"C2''",1],["C2'''","C1",0,"C2'''",0],["C3","C2",2,"C3",1],["C3''","C2'''",0,"C3''",0]],"r":[["main","C3''","branch"],["newImage","C2","branch"],["caption","C3''","branch"]],"h":"main"}}},"mixed3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",2,"C3",0]],"r":[["main","C1","branch"],["newImage","C2","branch"],["caption","C3","branch"]],"h":"caption"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C2'","C1",3,"C2'",1],["C2''","C1",0,"C2''",0],["C3","C2",2,"C3",0],["C3'","C2''",0,"C3'",0]],"r":[["main","C3'","branch"],["newImage","C2","branch"],["caption","C3","branch"]],"h":"main"}}},"mixed4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",1,"C3",0],["C4","C1",2,"C4",0],["C5","C2,C4",0,"C5",0]],"r":[["main","C5","branch"],["side","C3","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",1,"C3",0],["C4","C1",2,"C4",0],["C5","C2,C4",0,"C5",0]],"r":[["main","C5","branch"],["side","C3","branch"],["v1","C2","tag"],["v0","C1","tag"]],"h":"C2"}}},"mixed5":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0],["C5","C3",2,"C5",0],["C6","C5",2,"C6",0]],"r":[["main","C2","branch"],["side","C4","branch"],["bugFix","C6","branch"],["v0","C0","tag"],["v1","C3","tag"]],"h":"bugFix"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C3",1,"C4",0],["C5","C3",2,"C5",0],["C6","C5",2,"C6",0],["C7","C6",2,"C7",0]],"r":[["main","C2","branch"],["side","C4","branch"],["bugFix","C7","branch"],["v0","C0","tag"],["v1","C3","tag"]],"h":"bugFix"}}},"advanced1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C0",2,"C4",0],["C5","C4",2,"C5",0],["C6","C5",2,"C6",0],["C7","C5",3,"C7",0]],"r":[["main","C2","branch"],["bugFix","C3","branch"],["side","C6","branch"],["another","C7","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",3,"C3",1],["C3'","C2",0,"C3'",0],["C4","C0",1,"C4",1],["C4'","C3'",0,"C4'",0],["C5","C4",1,"C5",1],["C5'","C4'",0,"C5'",0],["C6","C5",2,"C6",1],["C6'","C5'",0,"C6'",0],["C7","C5",1,"C7",1],["C7'","C6'",0,"C7'",0]],"r":[["main","C7'","branch"],["bugFix","C3'","branch"],["side","C6'","branch"],["another","C7'","branch"]],"h":"main"}}},"advanced2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",0,"C3",0],["C4","C3",0,"C4",0],["C5","C2",1,"C5",0],["C6","C4,C5",0,"C6",0],["C7","C6",0,"C7",0]],"r":[["main","C7","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",0,"C3",0],["C4","C3",0,"C4",0],["C5","C2",2,"C5",0],["C6","C4,C5",0,"C6",0],["C7","C6",0,"C7",0]],"r":[["main","C7","branch"],["bugWork","C2","branch"]],"h":"main"}}},"advanced3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0],["C4","C3",0,"C4",0],["C5","C4",0,"C5",0]],"r":[["main","C5","branch"],["one","C1","branch"],["two","C1","branch"],["three","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C4'","C1",1,"C4'",0],["C3'","C4'",1,"C3'",0],["C2'","C3'",1,"C2'",0],["C5'","C1",2,"C5'",0],["C4''","C5'",2,"C4''",0],["C3''","C4''",2,"C3''",0],["C2''","C3''",2,"C2''",0],["C3","C2",0,"C3",0],["C4","C3",0,"C4",0],["C5","C4",0,"C5",0]],"r":[["main","C5","branch"],["one","C2'","branch"],["two","C2''","branch"],["three","C2","branch"]],"h":"two"}}},"remote1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}}},"remote2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C3","C1",0,"C3",0],["C4","C1",1,"C4",0]],"r":[["main","C3","branch"],["o/main","C1","remote"]],"h":"C4"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"]],"h":"main"}}},"remote3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["bugFix","C3","branch"],["o/main","C2","remote"],["o/bugFix","C3","remote"]],"h":"bugFix"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C2",0,"C4",0],["C5","C4",0,"C5",0],["C6","C3",1,"C6",0],["C7","C6",1,"C7",0]],"r":[["main","C5","branch"],["bugFix","C7","branch"]],"h":"bugFix"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C2",2,"C4",0],["C5","C4",2,"C5",0],["C6","C3",3,"C6",0],["C7","C6",3,"C7",0]],"r":[["main","C2","branch"],["bugFix","C3","branch"],["o/main","C5","remote"],["o/bugFix","C7","remote"]],"h":"bugFix"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C2",0,"C4",0],["C5","C4",0,"C5",0],["C6","C3",1,"C6",0],["C7","C6",1,"C7",0]],"r":[["main","C5","branch"],["bugFix","C7","branch"]],"h":"bugFix"}}},"remote4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C3","C1",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0],["C4","C2,C3",0,"C4",0]],"r":[["main","C4","branch"],["o/main","C3","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C3","C1",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}}},"remote5":{"b":{"loc":null,"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0],["C4","C1",1,"C4",0],["C5","C3,C4",0,"C5",0]],"r":[["main","C5","branch"],["o/main","C3","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}}},"remote6":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0]],"r":[["main","C3","branch"],["o/main","C3","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0]],"r":[["main","C3","branch"]],"h":"main"}}},"remote7":{"b":{"loc":null,"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",1],["C3'","C2",0,"C3'",0]],"r":[["main","C3'","branch"],["o/main","C3'","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3'","C2",0,"C3'",0]],"r":[["main","C3'","branch"]],"h":"main"}}},"remote8":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0]],"r":[["main","C1","branch"],["o/main","C1","remote"],["feature","C2","branch"],["o/feature","C2","remote"]],"h":"feature"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0]],"r":[["main","C1","branch"],["feature","C2","branch"]],"h":"main"}}},"remoteAdvanced1":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",2,"C3",0],["C4","C3",2,"C4",0],["C5","C1",3,"C5",0],["C6","C5",3,"C6",0],["C7","C6",3,"C7",0]],"r":[["main","C1","branch"],["o/main","C1","remote"],["side1","C2","branch"],["side2","C4","branch"],["side3","C7","branch"]],"h":"side3"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C8","C1",0,"C8",0]],"r":[["main","C8","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",3,"C2",1],["C8","C1",0,"C8",0],["C2'","C8",0,"C2'",0],["C3","C1",2,"C3",1],["C3'","C2'",0,"C3'",0],["C4","C3",2,"C4",1],["C4'","C3'",0,"C4'",0],["C5","C1",1,"C5",1],["C5'","C4'",0,"C5'",0],["C6","C5",1,"C6",1],["C6'","C5'",0,"C6'",0],["C7","C6",1,"C7",1],["C7'","C6'",0,"C7'",0]],"r":[["main","C7'","branch"],["o/main","C7'","remote"],["side1","C2'","branch"],["side2","C4'","branch"],["side3","C7'","branch"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C8","C1",0,"C8",0],["C2'","C8",0,"C2'",0],["C3'","C2'",0,"C3'",0],["C4'","C3'",0,"C4'",0],["C5'","C4'",0,"C5'",0],["C6'","C5'",0,"C6'",0],["C7'","C6'",0,"C7'",0]],"r":[["main","C7'","branch"]],"h":"main"}}},"remoteAdvanced2":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",2,"C3",0],["C4","C3",2,"C4",0],["C5","C1",3,"C5",0],["C6","C5",3,"C6",0],["C7","C6",3,"C7",0]],"r":[["main","C1","branch"],["o/main","C1","remote"],["side1","C2","branch"],["side2","C4","branch"],["side3","C7","branch"]],"h":"side3"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C8","C1",0,"C8",0]],"r":[["main","C8","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C8","C1",0,"C8",0],["C2","C1",1,"C2",0],["C9","C8,C2",0,"C9",0],["C3","C1",2,"C3",0],["C4","C3",2,"C4",0],["C10","C9,C4",0,"C10",0],["C5","C1",3,"C5",0],["C6","C5",3,"C6",0],["C7","C6",3,"C7",0],["C11","C10,C7",0,"C11",0]],"r":[["main","C11","branch"],["o/main","C11","remote"],["side1","C2","branch"],["side2","C4","branch"],["side3","C7","branch"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C8","C1",0,"C8",0],["C2","C1",3,"C2",0],["C9","C8,C2",0,"C9",0],["C3","C1",2,"C3",0],["C4","C3",2,"C4",0],["C10","C9,C4",0,"C10",0],["C5","C1",1,"C5",0],["C6","C5",1,"C6",0],["C7","C6",1,"C7",0],["C11","C10,C7",0,"C11",0]],"r":[["main","C11","branch"]],"h":"main"}}},"remoteAdvanced3":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0]],"r":[["main","C2","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C1",2,"C3",1],["C3'","C2",1,"C3'",0]],"r":[["main","C1","branch"],["o/main","C3'","remote"],["side","C3'","branch"]],"h":"side"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3'","C2",0,"C3'",0]],"r":[["main","C3'","branch"]],"h":"main"}}},"remoteAdvanced4":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["foo","C3","branch"],["o/main","C1","remote"],["o/foo","C1","remote"]],"h":"C0"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["foo","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["foo","C3","branch"],["o/main","C2","remote"],["o/foo","C3","remote"]],"h":"C0"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["foo","C3","branch"]],"h":"main"}}},"remoteAdvanced5":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",2,"C3",0],["C4","C2,C3",1,"C4",0],["C5","C2",0,"C5",0],["C6","C5",0,"C6",0]],"r":[["main","C6","branch"],["foo","C4","branch"],["o/main","C1","remote"],["o/foo","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["foo","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",2,"C3",0],["C4","C2,C3",1,"C4",0],["C5","C2",0,"C5",0],["C6","C5",0,"C6",0]],"r":[["main","C6","branch"],["foo","C4","branch"],["o/main","C4","remote"],["o/foo","C5","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",2,"C3",0],["C4","C2,C3",0,"C4",0],["C5","C2",1,"C5",0]],"r":[["main","C4","branch"],["foo","C5","branch"]],"h":"main"}}},"remoteAdvanced6":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["foo","C1","branch"],["o/main","C1","remote"],["o/foo","C1","remote"]],"h":"C1"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0],["C4","C3",0,"C4",0],["C5","C1",1,"C5",0],["C6","C5",1,"C6",0]],"r":[["main","C4","branch"],["foo","C6","branch"]],"h":"foo"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",1,"C2",0],["C3","C2",1,"C3",0],["C5","C1",0,"C5",0],["C6","C5",0,"C6",0],["C7","C3,C6",1,"C7",0]],"r":[["main","C6","branch"],["foo","C7","branch"],["o/main","C1","remote"],["o/foo","C1","remote"]],"h":"foo"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C2",0,"C3",0],["C4","C3",0,"C4",0],["C5","C1",1,"C5",0],["C6","C5",1,"C6",0]],"r":[["main","C4","branch"],["foo","C6","branch"]],"h":"foo"}}},"remoteAdvanced7":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"],["o/foo","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["foo","C1","branch"]],"h":"main"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"],["o/main","C1","remote"],["bar","C1","branch"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0]],"r":[["main","C1","branch"]],"h":"main"}}},"remoteAdvanced8":{"b":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C4","C1",0,"C4",0]],"r":[["main","C4","branch"],["o/main","C1","remote"],["o/bar","C1","remote"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["bar","C3","branch"]],"h":"bar"}},"a":{"loc":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",2,"C2",0],["C3","C1",1,"C3",0],["C4","C1",0,"C4",0],["C5","C4,C3",0,"C5",0],["C6","C5,C2",0,"C6",0]],"r":[["main","C6","branch"],["o/main","C1","remote"],["o/bar","C1","remote"],["foo","C3","branch"],["side","C2","branch"]],"h":"main"},"rem":{"c":[["C0","",0,"C0",0],["C1","C0",0,"C1",0],["C2","C1",0,"C2",0],["C3","C1",1,"C3",0]],"r":[["main","C2","branch"],["bar","C3","branch"]],"h":"bar"}}}};
+
+/* ---------- utility ---------- */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+let store = {};
+try { store = JSON.parse(localStorage.getItem("lgb-guida-fatti") || "{}") || {}; } catch(e) { store = {}; }
+const save = () => { try { localStorage.setItem("lgb-guida-fatti", JSON.stringify(store)); } catch(e) {} };
+
+/* g: c = [id, genitori separati da virgola, corsia, etichetta, sbiadito]; r = [nome, commit, tipo]; h = branch o commit di HEAD */
+function graphSVG(G, remote){
+  const NS = "http://www.w3.org/2000/svg";
+  const gen = {}, lane = {}, ghost = {}, parents = {}, kids = {};
+  G.c.forEach(([id,p,ln,label,gh]) => {
+    const ps = p ? p.split(",") : [];
+    parents[id] = ps; lane[id] = ln; ghost[id] = !!gh;
+    gen[id] = ps.length ? Math.max(...ps.map(x => gen[x])) + 1 : 0;
+    ps.forEach(x => (kids[x] = kids[x] || []).push(id));
+  });
+  const DX = 70, DY = 50, PADX = 20, R = 13, LH = 19;
+  const refsAt = {};
+  G.r.forEach(([n,t,k]) => (refsAt[t] = refsAt[t] || []).push({n, k: k || "branch", head: !remote && G.h === n}));
+  if (!remote && G.h && lane[G.h] !== undefined) (refsAt[G.h] = refsAt[G.h] || []).unshift({n:"HEAD", k:"head"});
+  /* spazio verticale di ogni corsia: base + etichette impilate sopra i commit che hanno figli */
+  const nl = Math.max(...G.c.map(c => c[2])) + 1, stack = Array(nl).fill(0), laneY = [];
+  G.c.forEach(([id]) => { if (kids[id] && refsAt[id]) stack[lane[id]] = Math.max(stack[lane[id]], refsAt[id].length); });
+  let acc = 22;
+  for (let l = 0; l < nl; l++) { acc += stack[l]*LH + (l ? DY - 12 : 0); laneY[l] = acc; acc += 0; }
+  const X = id => PADX + gen[id]*DX, Y = id => laneY[lane[id]] + (stack[lane[id]] ? 6 : 0);
+  const pw = r => r.n.length*6.6 + (r.head ? 30 : 14);
+  let maxX = 0, maxY = 0;
+  G.c.forEach(([id]) => {
+    let right = X(id) + 40;
+    if (refsAt[id] && !kids[id]) right = X(id) + R + 6 + refsAt[id].reduce((s,r) => s + pw(r) + 4, 0);
+    else if (refsAt[id]) right = Math.max(right, X(id) + Math.max(...refsAt[id].map(pw))/2 + 4);
+    maxX = Math.max(maxX, right); maxY = Math.max(maxY, Y(id));
+  });
+  const W = maxX + 10, H = maxY + R + 12;
+  let s = `<svg xmlns="${NS}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img">`;
+  G.c.forEach(([id]) => parents[id].forEach(p => {
+    const x1 = X(p)+R, y1 = Y(p), x2 = X(id)-R-3, y2 = Y(id);
+    const d = y1 === y2 ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} C${x1+30},${y1} ${x2-30},${y2} ${x2},${y2}`;
+    s += `<path d="${d}" style="fill:none;stroke:var(--edge);stroke-width:2;opacity:${ghost[id]?0.35:1}" marker-end="url(#arr)"/>`;
+  }));
+  G.c.forEach(([id]) => {
+    const o = ghost[id] ? 0.35 : 1, isHead = G.h === id;
+    s += remote
+      ? `<circle cx="${X(id)}" cy="${Y(id)}" r="${R}" style="fill:var(--surface);stroke:var(--commit);stroke-width:2.2;stroke-dasharray:3.5 3;opacity:${o}"/>`
+      : `<circle cx="${X(id)}" cy="${Y(id)}" r="${R}" style="fill:var(--commit);opacity:${o}"/>`;
+    if (isHead) s += `<circle cx="${X(id)}" cy="${Y(id)}" r="${R+4}" style="fill:none;stroke:var(--head);stroke-width:2"/>`;
+    const fs = id.length > 4 ? 7.5 : id.length > 3 ? 8.5 : 9.5;
+    s += `<text x="${X(id)}" y="${Y(id)+3.4}" text-anchor="middle" style="fill:${remote ? "var(--fg)" : "var(--commit-ink)"};font-family:var(--f-mono);font-size:${fs}px;font-weight:600;opacity:${o}">${esc(id)}</text>`;
+    const rs = refsAt[id]; if (!rs) return;
+    if (!kids[id]) {
+      let x = X(id) + R + 6;
+      rs.forEach(r => { s += pill(x, Y(id)-8, r); x += pw(r) + 4; });
+    } else {
+      rs.forEach((r,i) => { const w = pw(r); s += pill(X(id)-w/2, Y(id)-R-20-i*LH, r); });
+    }
+  });
+  function pill(x, y, r){
+    const w = pw(r);
+    const fill = r.k === "head" ? "var(--head)" : r.k === "tag" ? "var(--tag)" : r.k === "remote" ? "var(--remote)" : "var(--branch)";
+    const ink = r.k === "head" ? "var(--commit-ink)" : "var(--branch-ink)";
+    let t = `<rect x="${x}" y="${y}" width="${w}" height="16" rx="8" style="fill:${fill}"/>`;
+    if (r.head) t += `<circle cx="${x+10}" cy="${y+8}" r="4.5" style="fill:var(--head)"/>`;
+    t += `<text x="${x + (r.head ? 19 : 7)}" y="${y+12}" style="fill:${ink};font-size:10.5px;font-weight:700">${esc(r.n)}</text>`;
+    return t;
+  }
+  return s + `</svg>`;
+}
+const WC = {modified:"modificato", staged:"in staging"};
+function stateHTML(st, cap){
+  let h = `<div class="graph"><span class="cap">${cap}</span>`;
+  h += st.loc ? `<span class="sub">Locale</span><div class="sc">${graphSVG(st.loc, false)}</div>` : `<span class="sub">Locale</span><p class="nolocal">Nessun repository locale: va ancora clonato.</p>`;
+  if (st.loc && st.loc.w) h += `<ul class="wc">${Object.entries(st.loc.w).map(([f,v]) => `<li class="${v}"><code>${esc(f)}</code> ${WC[v] || v}</li>`).join("")}</ul>`;
+  else if (st.loc && LV_STAGING) h += `<ul class="wc"><li class="clean">working directory pulita</li></ul>`;
+  if (st.rem) h += `<span class="sub">Remoto (origin)</span><div class="sc">${graphSVG(st.rem, true)}</div>`;
+  return h + `</div>`;
+}
+let LV_STAGING = false;
+
+/* ---------- render ---------- */
+const chaptersEl = document.getElementById("chapters");
+const tocEl = document.getElementById("toc");
+const chipsEl = document.getElementById("chips");
+let n = 0;
+CH.forEach((c, ci) => {
+  const levels = L.filter(l => l.ch === c.id);
+  const sec = document.createElement("section");
+  sec.className = "chapter"; sec.id = "cap-" + c.id; sec.setAttribute("aria-labelledby", "h-" + c.id);
+  sec.innerHTML = `<div class="section-h"><span class="eyebrow">Scheda ${esc(c.tab)} · sezione ${ci+1} · ${levels.length} livelli</span><h2 id="h-${c.id}">${esc(c.name)}</h2></div><p class="chapter-intro">${c.intro}</p>`;
+  tocEl.insertAdjacentHTML("beforeend", `<div class="chap">${esc(c.name)}</div>`);
+  chipsEl.insertAdjacentHTML("beforeend", `<a href="#cap-${c.id}">${esc(c.name)}</a>`);
+  levels.forEach((l, li) => {
+    n++; const key = l.id;
+    const art = document.createElement("article");
+    art.className = "level"; art.id = key;
+    const T = TREES[l.id];
+    LV_STAGING = !!(T.b.loc && T.b.loc.w);
+    const graph = T ? `<div class="block wide"><h4>Il grafo prima e dopo</h4><div class="graphs">${stateHTML(T.b, "Prima")}${stateHTML(T.a, "Obiettivo")}</div></div>` : "";
+    const cmds = l.sol.filter(s => !s[0].startsWith("(")).map(s => s[0]).join("\n");
+    art.innerHTML = `
+      <div class="lv-head">
+        <div class="lv-title">
+          <div class="lv-meta"><span class="num">Livello ${n}</span><span>${esc(c.name)} · ${li+1}</span><span>level ${esc(l.id)}</span></div>
+          <h3>${esc(l.t)}</h3><span class="it">${esc(l.en)}</span>
+        </div>
+        <label class="done-toggle" for="d-${key}"><input type="checkbox" id="d-${key}" data-k="${key}"> Completato</label>
+      </div>
+      <p class="story"><b>Situazione.</b> ${l.story}</p>
+      <div class="goals"><h4>Obiettivo</h4><ul><li><span>${l.goal}</span></li></ul></div>
+      <div class="concepts" aria-label="Concetti">${l.concepts.map(x => `<span>${x}</span>`).join("")}</div>
+      <div class="block"><h4>Cosa impari</h4>${l.learn}</div>
+      ${graph}
+      <details class="hint"><summary>Suggerimento</summary><div class="in"><p style="margin:0">${l.hint}</p></div></details>
+      <details class="sol"><summary>Soluzione passo passo</summary><div class="in">
+        <div class="term"><button class="copy" type="button" data-cmds="${esc(cmds)}">Copia comandi</button><ol>${l.sol.map(s => `<li><span class="cmd${s[0].startsWith("(") ? " ui" : ""}">${esc(s[0])}</span>${s[1] ? `<span class="cm">${esc(s[1])}</span>` : ""}</li>`).join("")}</ol></div>
+        <div class="why"><p><b>Perché funziona.</b> ${l.why}</p></div>
+        ${l.warn ? `<div class="warn"><p><b>Attenzione.</b> ${l.warn}</p></div>` : ""}
+      </div></details>
+      <details class="quiz"><summary><span>Verifica: ${l.q}</span></summary><div class="in"><p style="margin:0">${l.a}</p></div></details>`;
+    art.dataset.search = (l.id + " " + l.t + " " + l.en + " " + l.story + " " + l.goal + " " + l.concepts.join(" ") + " " + cmds + " " + c.name).toLowerCase().replace(/<[^>]+>/g, "");
+    sec.appendChild(art);
+    tocEl.insertAdjacentHTML("beforeend", `<a href="#${key}" data-k="${key}"><span class="n">${n}</span><span class="t">${esc(l.t)}</span></a>`);
+  });
+  chaptersEl.appendChild(sec);
+});
+
+/* grafi larghi: uno sotto l'altro invece che affiancati */
+function layoutGraphs(){
+  document.querySelectorAll(".graphs").forEach(g => {
+    const w = Math.max(...[...g.querySelectorAll("svg")].map(v => v.width.baseVal.value));
+    g.classList.toggle("stack", w > g.clientWidth / 2 - 30);
+  });
+}
+layoutGraphs(); addEventListener("resize", layoutGraphs);
+
+/* cheat sheet */
+const tb = document.querySelector("#cheat tbody");
+CHEAT.forEach(r => {
+  tb.insertAdjacentHTML("beforeend", r.length === 1 ? `<tr class="grp"><td colspan="3">${r[0]}</td></tr>` : `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`);
+});
+
+/* progress */
+const total = L.length;
+function refresh(){
+  let done = 0;
+  document.querySelectorAll(".level").forEach(a => {
+    const k = a.id, on = !!store[k];
+    a.classList.toggle("is-done", on);
+    const cb = a.querySelector("input[type=checkbox]"); if (cb) cb.checked = on;
+    const t = tocEl.querySelector(`a[data-k="${k}"]`); if (t) t.classList.toggle("done", on);
+    if (on) done++;
+  });
+  document.getElementById("pcount").textContent = `${done} / ${total}`;
+  document.getElementById("pbar").style.width = (done / total * 100) + "%";
+}
+document.addEventListener("change", e => {
+  const k = e.target.dataset && e.target.dataset.k;
+  if (!k) return;
+  if (e.target.checked) store[k] = 1; else delete store[k];
+  save(); refresh();
+});
+refresh();
+
+/* copy */
+document.addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.cmds;
+  const ok = () => { const o = b.textContent; b.textContent = "Copiato"; setTimeout(() => b.textContent = o, 1400); };
+  const fallback = () => {
+    const ol = b.parentElement.querySelector("ol"); const r = document.createRange(); r.selectNodeContents(ol);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selezionato: premi Ctrl+C";
+  };
+  try { navigator.clipboard.writeText(text).then(ok, fallback); } catch(err) { fallback(); }
+});
+
+/* search */
+const q = document.getElementById("q");
+q.addEventListener("input", () => {
+  const v = q.value.trim().toLowerCase(); let shown = 0;
+  document.querySelectorAll(".level").forEach(a => { const m = !v || a.dataset.search.includes(v); a.hidden = !m; if (m) shown++; });
+  document.querySelectorAll("#chapters .chapter").forEach(s => { s.hidden = !s.querySelector(".level:not([hidden])"); });
+  document.getElementById("empty").style.display = shown ? "none" : "block";
+});
+</script>
