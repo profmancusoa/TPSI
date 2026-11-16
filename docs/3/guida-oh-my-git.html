@@ -1,0 +1,1034 @@
+<title>Guida Oh My Git!</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: indice laterale fisso con avanzamento + colonna di lettura; i livelli sono schede in sequenza, il grafo dei commit riprende i colori del gioco */
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --surface-2:#f6f8fb; --fg:#162034; --muted:#56617a; --line:#d6dce7;
+  --accent:#2b3d9c; --accent-soft:#e3e8fb; --commit:#c2ad12; --commit-ink:#3a3300; --branch:#24337a; --branch-ink:#ffffff;
+  --head:#0f9cc8; --tag:#7a3fa8; --remote:#4f5d86; --edge:#8a93a8;
+  --ok:#1d7f37; --ok-soft:#e1f3e6; --warn:#a8420c; --warn-soft:#fbeadf;
+  --term-bg:#0d0f15; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1117; --surface:#171a23; --surface-2:#1d2130; --fg:#e7eaf2; --muted:#9aa3b8; --line:#2b3040;
+  --accent:#9cadff; --accent-soft:#232a4a; --commit:#e2ce38; --commit-ink:#2a2500; --branch:#33449a; --branch-ink:#ffffff;
+  --head:#3ccff4; --tag:#b77ce0; --remote:#6b78a3; --edge:#6c7488;
+  --ok:#55c774; --ok-soft:#18301f; --warn:#ff9a62; --warn-soft:#352015;
+  --term-bg:#07080c; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0f1117; --surface:#171a23; --surface-2:#1d2130; --fg:#e7eaf2; --muted:#9aa3b8; --line:#2b3040;
+  --accent:#9cadff; --accent-soft:#232a4a; --commit:#e2ce38; --commit-ink:#2a2500; --branch:#33449a; --branch-ink:#ffffff;
+  --head:#3ccff4; --tag:#b77ce0; --remote:#6b78a3; --edge:#6c7488;
+  --ok:#55c774; --ok-soft:#18301f; --warn:#ff9a62; --warn-soft:#352015;
+  --term-bg:#07080c; --term-fg:#e4e7ee; --term-dim:#8b93a6; --term-prompt:#e9d54a;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16.5px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+a{color:var(--accent)}
+code,kbd,.mono{font-family:var(--f-mono);font-size:.88em}
+p code,li code,td code{background:var(--accent-soft);padding:.08em .35em;border-radius:4px}
+:focus-visible{outline:3px solid var(--head);outline-offset:2px}
+
+.wrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;padding-block:28px 80px}
+@media (max-width:980px){.wrap{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* sidebar */
+.side{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 16px);align-self:start;max-height:calc(100vh - 32px);overflow:auto;
+  display:flex;flex-direction:column;gap:14px;padding-right:6px}
+@media (max-width:980px){.side{position:static;max-height:none;overflow:visible;padding-right:0}}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+.brand b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:-.01em}
+.progress{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.progress .row{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--muted)}
+.progress .row strong{color:var(--fg);font-variant-numeric:tabular-nums;font-size:1.05rem}
+.bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--commit);transition:width .3s}
+.search{width:100%;font:inherit;font-size:.95rem;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.toc{display:flex;flex-direction:column;gap:2px;font-size:.9rem}
+.toc .chap{font-family:var(--f-display);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:10px}
+.toc a{display:flex;gap:8px;align-items:baseline;text-decoration:none;color:var(--fg);padding:3px 6px;border-radius:6px}
+.toc a:hover{background:var(--surface)}
+.toc a .n{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);min-width:1.6em;font-variant-numeric:tabular-nums}
+.toc a.done .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ok)}
+.toc a.done .n{color:var(--ok)}
+@media (max-width:980px){.toc{display:none}.chips{display:flex}}
+.chips{display:none;flex-wrap:wrap;gap:6px}
+.chips a{font-size:.82rem;padding:4px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+
+main{min-width:0;display:flex;flex-direction:column;gap:56px}
+.hero{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--commit);-webkit-text-stroke:0}
+.lead{font-size:1.12rem;max-width:62ch;color:var(--fg)}
+.prose{max-width:68ch;display:flex;flex-direction:column;gap:12px}
+.prose p,.prose ul,.prose ol{margin:0}
+.prose ul,.prose ol{padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+
+.section-h{display:flex;flex-direction:column;gap:6px;border-bottom:2px solid var(--line);padding-bottom:12px}
+.section-h h2{font-size:clamp(1.6rem,3.2vw,2.1rem);letter-spacing:-.01em}
+.section-h .eyebrow b{color:var(--commit)}
+
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;gap:12px;align-items:flex-start;font-size:.95rem;min-width:0}
+.legend svg{flex:none;margin-top:3px}
+
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.tips div{border-left:3px solid var(--accent);background:var(--surface);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.95rem;min-width:0}
+.tips b{display:block;font-family:var(--f-display);font-size:1rem;margin-bottom:2px}
+
+.model{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;overflow-x:auto}
+.model svg{display:block;min-width:640px;width:100%;height:auto}
+.model text{font-family:var(--f-body)}
+
+.chapter{display:flex;flex-direction:column;gap:22px;scroll-margin-top:16px}
+.chapter-intro{max-width:68ch;color:var(--fg)}
+.chapter-intro b{font-family:var(--f-display)}
+
+.level{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:16px}
+@media (max-width:560px){.level{padding:18px 16px}}
+.level.is-done{border-color:color-mix(in srgb,var(--ok) 55%,var(--line))}
+.lv-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.lv-title{display:flex;flex-direction:column;gap:4px;min-width:0}
+.lv-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.lv-meta .num{background:var(--commit);color:var(--commit-ink);font-weight:600;padding:1px 7px;border-radius:4px}
+.lv-title h3{font-size:1.45rem;letter-spacing:-.01em}
+.lv-title .it{color:var(--muted);font-size:.98rem}
+.done-toggle{display:flex;align-items:center;gap:8px;font-size:.9rem;cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;background:var(--surface-2)}
+.done-toggle input{width:18px;height:18px;accent-color:var(--ok);margin:0}
+.level.is-done .done-toggle{border-color:var(--ok);color:var(--ok)}
+.story{margin:0;max-width:68ch}
+.goals{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:8px}
+.goals h4,.block h4{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.goals ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.goals li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:start}
+.goals li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--warn);margin-top:6px}
+.level.is-done .goals li::before{background:var(--ok)}
+.goals .en{font-style:italic}
+.goals .tr{display:block;color:var(--muted);font-size:.92rem}
+.concepts{display:flex;flex-wrap:wrap;gap:6px}
+.concepts span{font-family:var(--f-mono);font-size:.8rem;padding:2px 9px;border-radius:99px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft)}
+.block{display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.block p,.block ul{margin:0}
+.block ul{padding-left:1.2em}
+
+.graphs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.graph{border:1px solid var(--line);border-radius:var(--r);background:var(--surface-2);padding:10px 12px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.graph .cap{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.graph .sc{overflow-x:auto}
+.graph svg{display:block}
+.graph text{font-family:var(--f-body)}
+
+details{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+details>summary{cursor:pointer;list-style:none;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:10px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s;flex:none}
+details[open]>summary::before{transform:rotate(45deg)}
+details>.in{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+details.hint>summary{color:var(--accent)}
+details.sol>summary{color:var(--ok)}
+details.quiz>summary{color:var(--tag)}
+
+.term{background:var(--term-bg);color:var(--term-fg);border-radius:8px;font-family:var(--f-mono);font-size:.86rem;line-height:1.5;overflow-x:auto;position:relative}
+.term ol{list-style:none;margin:0;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:max-content}
+.term li{display:flex;flex-direction:column}
+.term .cmd::before{content:"$ ";color:var(--term-prompt)}
+.term .cmd{white-space:pre}
+.term .cm{color:var(--term-dim);font-family:var(--f-body);font-size:.84rem;white-space:normal;max-width:60ch}
+.copy{position:sticky;left:100%;float:right;margin:8px 8px 0 0;font:inherit;font-family:var(--f-body);font-size:.78rem;background:transparent;color:var(--term-fg);border:1px solid #3a4152;border-radius:6px;padding:3px 9px;cursor:pointer}
+.copy:hover{border-color:var(--term-prompt)}
+
+.why{border-left:3px solid var(--ok);background:var(--ok-soft);padding:10px 14px;border-radius:0 8px 8px 0}
+.warn{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:0 8px 8px 0}
+.why b,.warn b{font-family:var(--f-display)}
+.why p,.warn p{margin:0}
+
+.cheat{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.cheat table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+.cheat th,.cheat td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.cheat th{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--surface-2)}
+.cheat td:first-child{font-family:var(--f-mono);font-size:.85rem;white-space:nowrap}
+.cheat tr.grp td{font-family:var(--f-display);font-weight:600;background:var(--surface-2);font-size:.95rem}
+.empty{display:none;color:var(--muted);font-style:italic}
+.foot{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:var(--edge)"/>
+    </marker>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <aside class="side" aria-label="Indice e avanzamento">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <rect x="2" y="11" width="12" height="12" rx="2.5" style="fill:var(--commit)"/>
+        <rect x="20" y="11" width="12" height="12" rx="2.5" style="fill:var(--commit)"/>
+        <path d="M14 17 H19" style="stroke:var(--edge);stroke-width:2.2"/>
+        <circle cx="26" cy="6" r="4" style="fill:var(--head)"/>
+      </svg>
+      <b>Guida Oh My Git!</b>
+    </div>
+    <div class="progress">
+      <div class="row"><span>Livelli completati</span><strong id="pcount">0 / 44</strong></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </div>
+    <label for="q" class="eyebrow">Cerca un livello o un comando</label>
+    <input id="q" class="search" type="search" placeholder="es. rebase, stash, conflitto…" autocomplete="off">
+    <nav class="toc" id="toc" aria-label="Livelli"></nav>
+    <nav class="chips" id="chips" aria-label="Capitoli"></nav>
+  </aside>
+
+  <main id="main">
+    <header class="hero">
+      <span class="eyebrow">Oh My Git! · 13 capitoli · 41 livelli + 3 sandbox</span>
+      <h1>Impara Git viaggiando nel <em>tempo</em></h1>
+      <p class="lead">Questa guida accompagna ogni livello del gioco <b>Oh My Git!</b>: cosa succede, quale concetto di Git c'è dietro, come superarlo dal terminale e come verificare di averlo capito davvero.</p>
+      <div class="prose">
+        <p><b>Come usarla.</b> Leggi la storia e gli obiettivi, prova da solo nel gioco. Se ti blocchi apri prima il <b>suggerimento</b>, poi la <b>soluzione</b>. Alla fine rispondi alla <b>domanda di verifica</b> senza guardare la risposta e segna il livello come completato: il segno resta salvato in questo browser.</p>
+        <p>Le soluzioni sono state provate una per una dentro il gioco, digitando i comandi nel suo terminale. Usare il terminale invece delle carte ti fa guadagnare il <b>badge d'oro</b> del livello.</p>
+      </div>
+    </header>
+
+    <section class="chapter" id="come-funziona" aria-labelledby="h-cf">
+      <div class="section-h"><span class="eyebrow">Prima di iniziare</span><h2 id="h-cf">Come si legge lo schermo del gioco</h2></div>
+      <div class="legend">
+        <div><svg width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="3" style="fill:var(--commit)"/></svg><span><b>Quadratino giallo</b>: un <b>commit</b>, cioè una fotografia dei file in un certo momento.</span></div>
+        <div><svg width="30" height="22" aria-hidden="true"><path d="M2 11 H26" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/></svg><span><b>Freccia</b>: va dal commit genitore al commit successivo. La storia scorre da sinistra a destra.</span></div>
+        <div><svg width="40" height="22" aria-hidden="true"><rect x="1" y="3" width="38" height="16" rx="8" style="fill:var(--branch)"/><text x="20" y="15" text-anchor="middle" style="fill:var(--branch-ink);font-size:10px;font-family:var(--f-body)">main</text></svg><span><b>Etichetta blu</b>: un <b>branch</b> (o un tag), un nome che punta a un commit.</span></div>
+        <div><svg width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="8" style="fill:var(--head)"/></svg><span><b>Il gufo-scoiattolo azzurro</b>: <b>HEAD</b>, ti dice dove sei adesso nella storia.</span></div>
+        <div><svg width="22" height="22" aria-hidden="true"><rect x="2" y="5" width="18" height="12" rx="3" style="fill:var(--warn)"/></svg><span><b>Obiettivi a destra</b>: rossi finché non li raggiungi, poi verdi. Quando sono tutti verdi compare <b>Next level</b>.</span></div>
+        <div><svg width="22" height="22" aria-hidden="true"><rect x="5" y="2" width="12" height="16" rx="2" style="fill:var(--surface-2);stroke:var(--accent);stroke-width:2"/></svg><span><b>Icone dei file</b>: bianco = file reale, aura blu = versione nell'<b>index</b>, ombra scura = versione nell'ultimo commit.</span></div>
+      </div>
+
+      <div class="tips">
+        <div><b>Sempre <code>-m</code> nei commit</b>Senza <code>-m "messaggio"</code> Git apre un editor (nel gioco una finestra di testo). Con <code>-m</code> fai tutto in una riga.</div>
+        <div><b>Gli hash cambiano</b>Gli identificativi dei commit (es. <code>a1b2c3d</code>) sono diversi per ogni partita. Copia sempre quelli che vedi tu.</div>
+        <div><b>Tasto destro su un commit</b>Inserisce il suo hash nel terminale. Utile dopo aver scritto <code>git checkout </code>.</div>
+        <div><b>Frecce e Tab</b>Freccia su/giù richiama i comandi precedenti; Tab completa i nomi dei file.</div>
+        <div><b>Reload</b>Se pasticci, il pulsante <b>Reload</b> riporta il livello allo stato iniziale.</div>
+        <div><b>Messaggi in italiano</b>Il terminale usa il Git vero del computer: se il sistema è in italiano, leggerai "Si è passati al branch…", "HEAD scollegato" e simili.</div>
+      </div>
+
+      <div class="prose"><p><b>Il modello mentale.</b> Quasi tutto Git si capisce con quattro "posti" in cui può trovarsi una versione di un file. I livelli dei capitoli <i>index</i>, <i>remotes</i> e <i>shit-happens</i> ti fanno muovere tra questi posti.</p></div>
+      <div class="model" role="img" aria-label="Schema: working directory, index, repository locale e repository remoto con i comandi che spostano le modifiche tra loro">
+        <svg viewBox="0 0 860 230">
+          <g style="font-size:14px">
+            <rect x="10" y="60" width="170" height="80" rx="10" style="fill:var(--surface-2);stroke:var(--line);stroke-width:1.5"/>
+            <text x="95" y="93" text-anchor="middle" style="fill:var(--fg);font-weight:700">Working directory</text>
+            <text x="95" y="114" text-anchor="middle" style="fill:var(--muted);font-size:12px">i file che vedi e modifichi</text>
+            <rect x="240" y="60" width="170" height="80" rx="10" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5"/>
+            <text x="325" y="93" text-anchor="middle" style="fill:var(--fg);font-weight:700">Index (staging)</text>
+            <text x="325" y="114" text-anchor="middle" style="fill:var(--muted);font-size:12px">la bozza del prossimo commit</text>
+            <rect x="470" y="60" width="170" height="80" rx="10" style="fill:var(--surface-2);stroke:var(--commit);stroke-width:2"/>
+            <text x="555" y="93" text-anchor="middle" style="fill:var(--fg);font-weight:700">Repository locale</text>
+            <text x="555" y="114" text-anchor="middle" style="fill:var(--muted);font-size:12px">i commit, dentro .git</text>
+            <rect x="700" y="60" width="150" height="80" rx="10" style="fill:var(--surface-2);stroke:var(--remote);stroke-width:1.5;stroke-dasharray:5 4"/>
+            <text x="775" y="93" text-anchor="middle" style="fill:var(--fg);font-weight:700">Remote</text>
+            <text x="775" y="114" text-anchor="middle" style="fill:var(--muted);font-size:12px">teacher, friend, team…</text>
+            <path d="M182 82 H236" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="209" y="50" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git add</text>
+            <path d="M412 82 H466" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="439" y="50" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git commit</text>
+            <path d="M642 82 H696" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="669" y="50" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git push</text>
+            <path d="M696 120 H642" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="669" y="160" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git pull</text>
+            <path d="M466 120 H412" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="439" y="160" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git reset file</text>
+            <path d="M236 120 H182" style="stroke:var(--edge);stroke-width:2" marker-end="url(#arr)"/>
+            <text x="209" y="160" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git restore</text>
+            <path d="M555 142 V200 H95 V142" style="fill:none;stroke:var(--edge);stroke-width:2;stroke-dasharray:4 4" marker-end="url(#arr)"/>
+            <text x="325" y="220" text-anchor="middle" style="fill:var(--accent);font-family:var(--f-mono);font-size:12px">git checkout / git switch (cambia commit o branch)</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <div id="chapters"></div>
+    <p class="empty" id="empty">Nessun livello corrisponde alla ricerca.</p>
+
+    <section class="chapter" id="riepilogo" aria-labelledby="h-rp">
+      <div class="section-h"><span class="eyebrow">Da tenere a portata di mano</span><h2 id="h-rp">Riepilogo dei comandi</h2></div>
+      <div class="cheat"><table id="cheat"><thead><tr><th>Comando</th><th>Cosa fa</th><th>Livelli</th></tr></thead><tbody></tbody></table></div>
+      <p class="foot">Guida preparata per gli studenti a partire dalla versione del gioco distribuita in questa cartella. I testi del gioco sono in inglese: gli obiettivi sono riportati così come appaiono, con la traduzione sotto.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const CH = [
+ {id:"intro", name:"intro", it:"Introduzione", intro:"Perché serve un sistema di controllo versione, cos'è un repository, il primo commit e il primo scambio con un altro repository."},
+ {id:"files", name:"files", it:"File", intro:"Due livelli di riscaldamento sul terminale: creare, leggere ed eliminare file. Servono per tutti i livelli successivi."},
+ {id:"branches", name:"branches", it:"Branch e viaggi nel tempo", intro:"Muoversi tra i commit con <b>checkout</b>, creare linee temporali parallele, dare loro un nome con i <b>branch</b>, eliminarli e spostarli."},
+ {id:"merge", name:"merge", it:"Unire le linee temporali", intro:"Riunire due storie parallele in un <b>merge commit</b> e risolvere i <b>conflitti</b> quando le due storie si contraddicono."},
+ {id:"index", name:"index", it:"L'index (staging area)", intro:"Scegliere con precisione cosa entra in ogni commit: <b>git add</b>, <b>git reset &lt;file&gt;</b> e commit piccoli e leggibili."},
+ {id:"remotes", name:"remotes", it:"Lavorare con altri", intro:"Il ciclo pull → modifica → commit → push con un compagno, e cosa fare quando avete modificato la stessa cosa."},
+ {id:"changing-the-past", name:"changing-the-past", it:"Cambiare il passato", intro:"Riscrivere la storia: <b>rebase</b> per rendere lineare una storia ramificata e riordinare i commit."},
+ {id:"shit-happens", name:"shit-happens", it:"Quando qualcosa va storto", intro:"Gli attrezzi del pronto soccorso: recuperare file, correggere l'ultimo commit, annullare un commit già condiviso, ritrovare dove eri."},
+ {id:"workflows", name:"workflows", it:"Flussi di lavoro", intro:"Il flusso tipico dei progetti open source: clonare, lavorare su un branch, proporre la modifica con una pull request."},
+ {id:"bisect", name:"bisect", it:"Caccia al bug", intro:"Trovare in pochi passi il commit che ha introdotto un problema, con la ricerca binaria di <b>git bisect</b>."},
+ {id:"stash", name:"stash", it:"Mettere da parte il lavoro", intro:"<b>git stash</b>: una pila dove parcheggiare modifiche non ancora pronte per un commit."},
+ {id:"tags", name:"tags", it:"Tag", intro:"Etichette fisse per segnare commit importanti, come le versioni di un software, anche sui repository remoti."},
+ {id:"sandbox", name:"sandbox", it:"Sandbox", intro:"Livelli senza obiettivi: spazi liberi in cui sperimentare. Qui trovi alcune idee da provare."}
+];
+
+/* g: c = [id, genitori separati da virgola, corsia, etichetta, fantasma?]; r = [nome, commit, tipo]; h = branch (HEAD attaccato) o commit (HEAD scollegato) */
+const L = [
+/* ---------------- INTRO ---------------- */
+{ch:"intro", t:"Living dangerously", it:"Vivere pericolosamente",
+ story:`Stai compilando la domanda d'iscrizione alla scuola per viaggiatori nel tempo. Nel file <code>form.txt</code> manca ancora un motivo per cui vuoi imparare Git.`,
+ goals:[["Add another line to form.txt!","Aggiungi un'altra riga a form.txt."]],
+ concepts:["echo",">>","nessun versioning"],
+ learn:`<p>Qui Git non è ancora attivo. Appena aggiungi la riga il gatto ruba il modulo: il file viene svuotato e non c'è modo di tornare indietro. È il problema da cui nasce tutto il gioco: <b>senza un sistema di versioning esiste solo lo stato attuale del file</b>, e una modifica distruttiva è definitiva.</p>`,
+ hint:`Nel terminale, <code>echo "testo" >> file</code> aggiunge una riga in fondo al file.`,
+ sol:[["cat form.txt","Guarda cosa c'è già scritto."],["echo \"- Per viaggiare nel tempo\" >> form.txt","Aggiunge la riga in fondo al file."]],
+ why:`L'operatore <code>&gt;&gt;</code> <b>accoda</b> al file. Il gioco controlla che il file abbia almeno 5 righe.`,
+ warn:`Con un solo <code>&gt;</code> il file verrebbe <b>sovrascritto</b> con la sola nuova riga.`,
+ q:`Perché, dopo il "furto" del gatto, non puoi recuperare il modulo?`,
+ a:`Perché non esiste nessuna versione precedente salvata: il file ha solo il suo contenuto attuale. È proprio ciò che un sistema come Git risolve.`},
+
+{ch:"intro", t:"Making backups", it:"Fare copie di backup",
+ story:`Questa volta hai fatto molte copie: <code>form.txt</code>, <code>form2.txt</code>, <code>form2_final.txt</code>, <code>form2_really_final.txt</code>. Puoi cliccare sui file per leggerli.`,
+ goals:[["Add another line to form2_really_final.txt!","Aggiungi un'altra riga a form2_really_final.txt."]],
+ concepts:["versioning manuale","copie di file"],
+ learn:`<p>Copiare i file a mano è il "versioning dei poveri". Funziona, ma i nomi diventano confusi, non sai cosa cambia tra una copia e l'altra né chi l'ha fatta e quando, e mandarsi copie tra più persone è un caos. Git registra ogni versione (commit) con autore, data, messaggio e collegamento alla versione precedente.</p>`,
+ hint:`Stesso comando del livello precedente, ma sul file "davvero finale".`,
+ sol:[["echo \"- Per viaggiare nel tempo\" >> form2_really_final.txt","Aggiunge la riga alla copia giusta."]],
+ why:`Il controllo verifica che <code>form2_really_final.txt</code> abbia almeno 5 righe.`,
+ q:`Elenca due problemi delle copie manuali che Git risolve.`,
+ a:`Ad esempio: non si sa quale copia sia l'ultima o cosa sia cambiato; non c'è autore né data; è difficile lavorare in più persone sugli stessi file.`},
+
+{ch:"intro", t:"Enter the time machine", it:"Entra nella macchina del tempo",
+ story:`Primo giorno di scuola. L'insegnante spiega che prima di usare una macchina del tempo bisogna inizializzarla.`,
+ goals:[["Initialize the time machine!","Inizializza la macchina del tempo."]],
+ concepts:["git init","repository",".git","HEAD"],
+ learn:`<p><code>git init</code> trasforma la cartella in un <b>repository</b>: crea la cartella nascosta <code>.git</code>, dove Git conserva tutta la storia. Compare il gufo-scoiattolo, che rappresenta <b>HEAD</b>: indica dove ti trovi. All'inizio HEAD punta a <code>refs/heads/main</code>, un branch che non ha ancora nessun commit.</p>`,
+ hint:`Il comando è scritto sulla carta blu.`,
+ sol:[["git init","Crea il repository nella cartella del livello."]],
+ why:`Il gioco controlla che esista la cartella <code>.git</code>.`,
+ q:`Dove salva Git tutta la storia del progetto?`,
+ a:`Nella cartella nascosta <code>.git</code> dentro il progetto. Se la cancelli perdi tutta la storia, ma non i file correnti.`},
+
+{ch:"intro", t:"The command line", it:"La riga di comando",
+ story:`Stesso obiettivo, ma questa volta senza carte: solo il terminale nero in basso a destra.`,
+ goals:[["Initialize the time machine!","Inizializza la macchina del tempo."]],
+ concepts:["terminale","badge d'oro"],
+ learn:`<p>Ogni carta del gioco corrisponde a uno o più comandi Git. Il terminale è più potente e veloce delle carte, ed è quello che userai nel mondo reale. Ogni livello risolto dal terminale ti dà un <b>badge d'oro</b>.</p>`,
+ hint:`Digita il comando e premi Invio.`,
+ sol:[["git init","Inizializza il repository."]],
+ why:`Come nel livello precedente: basta che esista <code>.git</code>.`,
+ q:`Perché vale la pena imparare il terminale anche se esistono interfacce grafiche?`,
+ a:`Perché è disponibile ovunque (server, computer dei compagni, CI), permette operazioni che le interfacce non offrono ed è spesso più veloce.`},
+
+{ch:"intro", t:"Your first commit", it:"Il tuo primo commit",
+ story:`L'insegnante versa dell'acqua in un bicchiere. Devi fotografare la situazione con la macchina del tempo.`,
+ goals:[["Make a snapshot of the glass (a \"commit\")","Fai un'istantanea del bicchiere (un commit)."],["Change the contents of the glass!","Cambia il contenuto del bicchiere."],["And make a second commit!","E fai un secondo commit."]],
+ concepts:["git add","git commit -m","commit -a"],
+ learn:`<p>Un <b>commit</b> è un'istantanea dei file, il quadratino giallo. Si crea in due passi: <code>git add</code> sceglie cosa mettere nella foto e <code>git commit</code> la scatta (il capitolo <i>index</i> lo approfondisce). Ogni nuovo commit punta al precedente: ecco la freccia tra i due quadratini.</p>`,
+ hint:`La carta mostra due comandi separati da <code>;</code>. Per cambiare il bicchiere usa <code>echo "…" > glass</code>.`,
+ sol:[["git add .","Aggiunge tutti i file della cartella all'index."],["git commit -m \"Bicchiere pieno\"","Primo commit."],["echo \"Il bicchiere è vuoto: ho bevuto l'acqua.\" > glass","Cambia il contenuto del file."],["git commit -am \"Ho bevuto l'acqua\"","Secondo commit: -a aggiunge in automatico i file già tracciati e modificati."]],
+ why:`Il gioco controlla che esista HEAD, che il bicchiere sia diverso dall'inizio e che il secondo commit (<code>HEAD^</code> esiste) contenga la versione nuova.`,
+ warn:`<code>-a</code> include solo i file <b>già tracciati</b>: un file nuovo va aggiunto con <code>git add</code>. Se il messaggio contiene un apostrofo, racchiudilo tra virgolette doppie.`,
+ q:`Cosa fa l'opzione <code>-a</code> in <code>git commit -am "msg"</code>?`,
+ a:`Aggiunge all'index tutte le modifiche dei file già tracciati prima di fare il commit. <code>-m</code> fornisce il messaggio.`},
+
+{ch:"intro", t:"Working together", it:"Lavorare insieme",
+ story:`L'insegnante ha la lista degli studenti e ha già un secondo commit nella sua macchina del tempo. Devi prenderlo, aggiungere il tuo nome e rimandarglielo.`,
+ goals:[["Get the second commit from your teacher using `git pull`.","Prendi il secondo commit dell'insegnante con git pull."],["Add your name to the list of students","Aggiungi il tuo nome alla lista."],["Commit your result.","Fai il commit."],["And use `git push` to send it to your teacher!","Invialo all'insegnante con git push."]],
+ concepts:["remote","git pull","git push","upstream"],
+ learn:`<p>La macchina dell'insegnante è un altro repository, un <b>remote</b> chiamato <code>teacher</code>. <code>git pull</code> scarica i suoi commit e li unisce al tuo branch; <code>git push</code> invia i tuoi. Nel pannello del remote vedi <code>teacher/main</code>: è la tua copia locale di dove si trova il main dell'insegnante.</p>`,
+ hint:`Quattro comandi: pull, modifica il file <code>students</code>, commit, push.`,
+ sol:[["git pull","Scarica e unisce il commit dell'insegnante."],["echo \"- Il tuo nome\" >> students","Aggiunge il tuo nome."],["git commit -am \"Aggiungo il mio nome\"","Registra la modifica."],["git push","Invia il commit all'insegnante."]],
+ why:`Nel setup il tuo <code>main</code> è stato collegato a <code>teacher/main</code> (upstream), quindi <code>pull</code> e <code>push</code> senza argomenti sanno con chi parlare.`,
+ q:`Qual è la differenza tra <code>git pull</code> e <code>git push</code>?`,
+ a:`<code>pull</code> porta i commit dal remote al tuo repository e li unisce; <code>push</code> manda i tuoi commit al remote.`},
+
+/* ---------------- FILES ---------------- */
+{ch:"files", t:"Unexpected Roommates", it:"Coinquilini inattesi",
+ story:`Apri la porta della tua stanza: ragnatele ovunque! Toglile tutte, ma tieni il letto.`,
+ goals:[["Remove all spider webs.","Elimina tutte le ragnatele."],["But make sure you keep your bed!","Ma tieni il letto."]],
+ concepts:["ls","rm","wildcard *"],
+ learn:`<p>Il carattere <code>*</code> è un <b>jolly</b> (wildcard): <code>*web</code> significa "qualunque nome che finisce con <i>web</i>". La shell espande il jolly nell'elenco dei file corrispondenti prima di eseguire il comando.</p>`,
+ hint:`Tutte le ragnatele hanno un nome che finisce con <code>web</code>.`,
+ sol:[["ls","Elenca i file: tiny_web, big_web, thick_web, bed."],["rm *web","Elimina tutti i file che finiscono con web."],["ls","Controlla: resta solo bed."]],
+ why:`<code>bed</code> non finisce con <i>web</i>, quindi il jolly non lo include.`,
+ warn:`<code>rm</code> non usa il cestino: un file eliminato dal terminale non si recupera, a meno che non sia in un commit.`,
+ q:`Quali file eliminerebbe <code>rm *_web</code>? E <code>rm *</code>?`,
+ a:`<code>*_web</code> le stesse tre ragnatele; <code>rm *</code> tutti i file della cartella, letto compreso.`},
+
+{ch:"files", t:"Interior design", it:"Arredamento",
+ story:`Hai portato due mobili nuovi, dello stesso colore del letto. Creali come file e descrivili.`,
+ goals:[["Add two more pieces of furniture","Aggiungi altri due mobili."],["Make sure the colors match your bed's color.","I colori devono corrispondere a quello del letto."]],
+ concepts:["cat","echo >","grep"],
+ learn:`<p>Ogni file è un oggetto della stanza. Con <code>cat</code> leggi il contenuto del letto, con <code>echo … &gt; nome</code> crei un file nuovo, con <code>grep</code> cerchi una parola dentro i file.</p>`,
+ hint:`Leggi <code>bed</code> per scoprire il colore. Il controllo cerca proprio quella parola in inglese.`,
+ sol:[["cat bed","«A yellow cozy bed.»: il colore è yellow."],["echo \"A yellow wooden desk.\" > desk","Primo mobile."],["echo \"A yellow comfy armchair.\" > armchair","Secondo mobile."],["grep -i yellow *","Verifica: tutti e tre i file contengono yellow."]],
+ why:`Il gioco conta i file (almeno 3) e controlla che <b>tutti</b> contengano la parola <code>yellow</code> (maiuscole o minuscole).`,
+ warn:`Se scrivi "giallo" invece di "yellow" il secondo obiettivo resta rosso.`,
+ q:`Che differenza c'è tra <code>echo x &gt; f</code> e <code>echo x &gt;&gt; f</code>?`,
+ a:`<code>&gt;</code> crea o sovrascrive il file; <code>&gt;&gt;</code> aggiunge in fondo.`},
+
+/* ---------------- BRANCHES ---------------- */
+{ch:"branches", t:"Moving through time", it:"Muoversi nel tempo",
+ story:`Tre commit: la sorella grande ha un salvadanaio con 10 monete, entra la sorellina, e nel terzo commit il salvadanaio è vuoto mentre la sorellina "ha 10 monete". Sei sul primo commit.`,
+ goals:[["Restore sisterly peace.","Riporta la pace tra le sorelle."]],
+ concepts:["git checkout","HEAD scollegato","HEAD@{n}","HEAD~n"],
+ learn:`<p><code>git checkout &lt;commit&gt;</code> sposta HEAD su quel commit e aggiorna i file. Qui non c'è nessun branch: HEAD punta direttamente a un commit, una situazione che si chiama <b>HEAD scollegato</b> (detached). Per tornare all'ultimo commit puoi fare tasto destro su di esso per inserire l'hash, oppure usare il <b>reflog</b>, il diario degli spostamenti di HEAD.</p>`,
+ hint:`Vai sull'ultimo commit, rimetti le 10 monete nel salvadanaio, togli la riga "Has 10 coins." dalla sorellina e fai un commit.`,
+ sol:[["git reflog","HEAD@{1} è il commit «Little sister does something»."],["git checkout HEAD@{1}","Vai sull'ultimo commit."],["git show HEAD~2:piggy_bank > piggy_bank","Riprende il salvadanaio com'era due commit prima (10 monete)."],["sed -i '/10 coins/d' little_sister","Toglie la riga delle monete dalla sorellina."],["git commit -am \"Restituisco le monete\"","Nuovo commit sopra l'ultimo."],["cat piggy_bank little_sister","Controllo finale."]],
+ why:`<code>HEAD@{1}</code> è "dove era HEAD prima dell'ultimo spostamento"; <code>HEAD~2</code> è "due commit prima di HEAD"; <code>git show commit:file</code> stampa un file com'era in quel commit. Il gioco vuole un commit con 10 monete nel salvadanaio, senza monete alla sorellina e con almeno tre antenati.`,
+ warn:`Fai le modifiche <b>dopo</b> essere andato sull'ultimo commit, altrimenti il nuovo commit nasce dal primo e il controllo fallisce. Puoi anche modificare i file con l'editor del gioco cliccandoci sopra.`,
+ g:{b:{c:[["A","",0,"inizio"],["B","A",0,"sorellina"],["C","B",0,"monete?"]],r:[],h:"A"},
+    a:{c:[["A","",0,"inizio"],["B","A",0,"sorellina"],["C","B",0,"monete?"],["D","C",0,"pace"]],r:[],h:"D"}},
+ q:`Che cosa significa "HEAD scollegato"?`,
+ a:`Che HEAD punta direttamente a un commit e non a un branch. I nuovi commit non fanno avanzare nessun branch.`},
+
+{ch:"branches", t:"Make parallel commits", it:"Commit paralleli",
+ story:`Allo zoo: un leone affamato e un bambino che adora i gatti. Il bambino compra un lecca-lecca, si arrampica nella gabbia… e nel commit "Oh no" sparisce. Crea un universo parallelo in cui va tutto bene.`,
+ goals:[["Make sure that the child is happy.","Il bambino deve stare bene."],["Make sure that the lion gets something to eat.","Il leone deve avere qualcosa da mangiare."]],
+ concepts:["HEAD~n","linee temporali parallele"],
+ learn:`<p>Creare un commit partendo da un punto del passato produce una <b>biforcazione</b>: una nuova linea temporale accanto a quella vecchia, che resta intatta. <code>HEAD^</code> è il commit precedente, <code>HEAD~3</code> tre commit indietro.</p>`,
+ hint:`L'ultimo commit "buono" è quello in cui il bambino compra qualcosa, prima di arrampicarsi.`,
+ sol:[["git log --oneline","Leggi la storia: Nap time, Oh no, The child climbs, The child buys, The beginning."],["git checkout HEAD~3","Torna a «The child buys something»."],["echo \"Ate a big steak from the zookeeper. Looks full.\" > cage/lion","Dai da mangiare al leone."],["git commit -am \"Diamo da mangiare al leone\"","Crea la linea parallela."]],
+ why:`Nel nuovo commit il file <code>child</code> esiste ancora (il bambino è fuori dalla gabbia) e il leone non è più "very hungry".`,
+ g:{b:{c:[["A","",0,"inizio"],["B","A",0,"compra"],["C","B",0,"si arrampica"],["D","C",0,"oh no"],["E","D",0,"pisolino"]],r:[],h:"E"},
+    a:{c:[["A","",0,"inizio"],["B","A",0,"compra"],["C","B",0,"si arrampica"],["D","C",0,"oh no"],["E","D",0,"pisolino"],["F","B",1,"leone sazio"]],r:[],h:"F"}},
+ q:`Dopo il tuo commit, i commit "Oh no" e "Nap time" sono stati cancellati?`,
+ a:`No. Esistono ancora sulla loro linea temporale: tu hai solo creato un ramo nuovo a partire da un commit precedente.`},
+
+{ch:"branches", t:"Creating branches", it:"Creare branch",
+ story:`Sei invitato a due feste: il compleanno del tuo migliore amico e un concerto. Da viaggiatore nel tempo puoi andare a entrambe. Le due linee temporali però non hanno nome.`,
+ goals:[["Create a branch called 'birthday' that points to the birthday timeline.","Crea il branch birthday sulla linea del compleanno."],["Create a branch called 'concert' that points to the concert timeline.","Crea il branch concert sulla linea del concerto."]],
+ concepts:["git branch","branch = etichetta","git reflog"],
+ learn:`<p>Un <b>branch</b> è solo un'etichetta con un nome che punta a un commit. Crearlo non copia niente e non costa nulla. <code>git branch nome</code> lo crea dove sei; <code>git branch nome &lt;commit&gt;</code> lo crea su un commit a scelta.</p>`,
+ hint:`Trova i due commit finali con il reflog (o con il tasto destro) e crea un branch su ciascuno.`,
+ sol:[["git reflog --oneline","Cerca «Go to the concert» e «Go to the birthday»: nel gioco sono HEAD@{1} e HEAD@{3}."],["git branch concert HEAD@{1}","Etichetta sulla linea del concerto."],["git branch birthday HEAD@{3}","Etichetta sulla linea del compleanno."],["git log --oneline --all","Controlla dove puntano i branch."]],
+ why:`Il gioco controlla che <code>git show birthday</code> contenga "to the birthday" e <code>git show concert</code> "to the concert".`,
+ warn:`Controlla sempre nel reflog quale numero corrisponde a quale commit: se hai già fatto altri checkout, i numeri cambiano.`,
+ g:{b:{c:[["E","",0,"preparativi"],["Bd","E",0,"compleanno"],["Co","E",1,"concerto"]],r:[],h:"E"},
+    a:{c:[["E","",0,"preparativi"],["Bd","E",0,"compleanno"],["Co","E",1,"concerto"]],r:[["birthday","Bd"],["concert","Co"]],h:"E"}},
+ q:`Cosa contiene, fisicamente, un branch?`,
+ a:`Solo il riferimento (l'hash) a un commit. È un file minuscolo in <code>.git/refs/heads/</code>.`},
+
+{ch:"branches", t:"Branches grow with you!", it:"I branch crescono con te",
+ story:`Stesse due feste, ora con i branch già creati. Ci sono due modi di "andare alla fine di una linea temporale": andare sul commit, oppure andare sull'etichetta del branch.`,
+ goals:[["Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit","Vai direttamente sull'ultimo commit del compleanno, modifica 'you' e fai un commit."],["Travel to the blue 'concert' branch, make a change to 'you', and a commit.","Vai sul branch concert, modifica 'you' e fai un commit."]],
+ concepts:["checkout --detach","checkout branch","HEAD attaccato"],
+ learn:`<p>Se fai checkout di un <b>commit</b>, i nuovi commit non spostano nessun branch. Se fai checkout di un <b>branch</b>, HEAD si "attacca" all'etichetta e ogni nuovo commit la fa avanzare: il branch cresce con te.</p>`,
+ hint:`<code>git checkout --detach birthday</code> va sul commit del compleanno senza attaccarsi al branch.`,
+ sol:[["git checkout --detach birthday","Sul commit, HEAD scollegato."],["echo \"You eat a slice of cake.\" >> you","Modifica."],["git commit -am \"Torta\"","Il branch birthday resta dov'era."],["git checkout concert","Ora HEAD è attaccato a concert."],["echo \"You dance all night.\" >> you","Modifica."],["git commit -am \"Ballo\"","Il branch concert avanza sul nuovo commit."]],
+ why:`Il gioco cerca un commit il cui genitore è <code>birthday</code> (fatto in modalità scollegata) e controlla che <code>concert^</code> sia il vecchio commit del concerto, cioè che il branch sia avanzato.`,
+ warn:`Un commit fatto con HEAD scollegato non è puntato da nessun branch: se te ne vai, lo ritrovi solo con <code>git reflog</code>.`,
+ g:{b:{c:[["E","",0,"preparativi"],["Bd","E",0,"compleanno"],["Co","E",1,"concerto"]],r:[["birthday","Bd"],["concert","Co"]],h:"E"},
+    a:{c:[["E","",0,"preparativi"],["Bd","E",0,"compleanno"],["X","Bd",0,"torta"],["Co","E",1,"concerto"],["Y","Co",1,"ballo"]],r:[["birthday","Bd"],["concert","Y"]],h:"concert"}},
+ q:`Fai un commit dopo <code>git checkout main</code> e un altro dopo <code>git checkout --detach main</code>. In quale dei due casi <code>main</code> si sposta?`,
+ a:`Solo nel primo: con HEAD attaccato a main il branch avanza; con HEAD scollegato no.`},
+
+{ch:"branches", t:"Deleting branches", it:"Eliminare branch",
+ story:`Andando a scuola tutto può andare storto. Ramo <i>friend</i>: cadi in un tombino e incontri un alligatore. Ramo <i>music</i>: ti cade addosso un pianoforte. Ramo <i>ice-cream</i>: arrivi tardi e vieni espulso. Ramo <i>leap</i>: salti il tombino e arrivi in orario.`,
+ goals:[["Find the bad branches and delete them. Keep only the best one.","Trova i branch cattivi ed eliminali. Tieni solo il migliore."]],
+ concepts:["git branch","git branch -d / -D"],
+ learn:`<p><code>git branch -d nome</code> elimina un branch solo se le sue modifiche sono già unite altrove; <code>-D</code> lo elimina comunque. Eliminare un branch toglie <b>solo l'etichetta</b>: i commit restano nel repository (e nel reflog) per un po'.</p>`,
+ hint:`Leggi le storie con <code>git log --oneline nome</code> o cliccando i commit. Il migliore è quello in cui arrivi a scuola in orario.`,
+ sol:[["git branch","Elenca i branch: friend, ice-cream, leap, music."],["git branch -D friend music ice-cream","Elimina i tre branch cattivi."],["git branch","Resta solo leap."]],
+ why:`Il gioco controlla che l'unico branch rimasto sia <code>refs/heads/leap</code>. Serve <code>-D</code> perché quei branch non sono uniti a nessun altro.`,
+ g:{b:{c:[["G","",0,"mattino"],["R","G",0,"destra"],["J","R",0,"salto"],["F","R",1,"tombino"],["Ls","G",2,"sinistra"],["S","Ls",2,"pianoforte"],["I","Ls",3,"gelato"]],r:[["leap","J"],["friend","F"],["music","S"],["ice-cream","I"]],h:"G"},
+    a:{c:[["G","",0,"mattino"],["R","G",0,"destra"],["J","R",0,"salto"],["F","R",1,"tombino",1],["Ls","G",2,"sinistra",1],["S","Ls",2,"pianoforte",1],["I","Ls",3,"gelato",1]],r:[["leap","J"]],h:"G"}},
+ q:`Che differenza c'è tra <code>git branch -d</code> e <code>git branch -D</code>?`,
+ a:`<code>-d</code> rifiuta di eliminare un branch con commit non uniti altrove (protezione); <code>-D</code> forza l'eliminazione.`},
+
+{ch:"branches", t:"Moving branches around", it:"Spostare i branch",
+ story:`Un collega ha sbagliato: il branch <i>coffee</i> punta alla linea della baguette e <i>baguette</i> a quella del caffè. Il branch <i>donut</i> è al posto giusto, ma la ciambella non l'hai ancora mangiata.`,
+ goals:[["Did you eat a baguette on the baguette branch?","Sul branch baguette hai mangiato la baguette?"],["Did you drink a coffee on the coffee branch?","Sul branch coffee hai bevuto il caffè?"],["Did you eat a donut on the donut branch?","Sul branch donut hai mangiato la ciambella?"]],
+ concepts:["git reset --hard","branch temporaneo"],
+ learn:`<p><code>git reset --hard &lt;commit&gt;</code> sposta il <b>branch su cui sei</b> su un altro commit e allinea file e index. Per scambiare due etichette serve un appoggio, come quando si scambiano due variabili: un branch temporaneo.</p>`,
+ hint:`Salva la posizione di coffee in un branch <code>tmp</code>, poi sposta coffee e baguette con checkout + reset --hard.`,
+ sol:[["git branch tmp coffee","Ricorda dove punta coffee (la linea della baguette)."],["git checkout coffee","Attaccati a coffee."],["git reset --hard baguette","coffee ora punta alla linea del caffè."],["git checkout baguette","Attaccati a baguette."],["git reset --hard tmp","baguette ora punta alla linea della baguette."],["git branch -D tmp","Elimina l'appoggio."],["git checkout donut","Attaccati a donut."],["sed -i 's/You have a donut/You ate a donut/' you","Mangia la ciambella."],["git commit -am \"Mangio la ciambella\"","Il branch donut avanza."]],
+ why:`Senza <code>tmp</code>, dopo il primo reset nessuna etichetta punterebbe più ai commit della baguette e dovresti cercarli nel reflog.`,
+ warn:`<code>reset --hard</code> butta via le modifiche non committate. Il gioco te lo ricorda: fai checkout del <b>branch</b> (blu), non del commit, se vuoi che cresca. Esiste anche la scorciatoia <code>git branch -f nome commit</code>.`,
+ g:{b:{c:[["B","",0,"inizio"],["b1","B",0,"baguette"],["b2","b1",0,"mangia"],["c1","B",1,"caffè"],["c2","c1",1,"beve"],["d1","B",2,"ciambella"]],r:[["coffee","b2"],["baguette","c2"],["donut","d1"],["main","B"]],h:"B"},
+    a:{c:[["B","",0,"inizio"],["b1","B",0,"baguette"],["b2","b1",0,"mangia"],["c1","B",1,"caffè"],["c2","c1",1,"beve"],["d1","B",2,"ciambella"],["d2","d1",2,"mangia"]],r:[["baguette","b2"],["coffee","c2"],["donut","d2"],["main","B"]],h:"donut"}},
+ q:`Sei su <code>main</code> e scrivi <code>git reset --hard HEAD~1</code>. Cosa succede a main e ai tuoi file?`,
+ a:`main si sposta indietro di un commit e i file tornano come in quel commit; le modifiche non committate vanno perse. Il commit "scavalcato" resta raggiungibile dal reflog.`},
+
+/* ---------------- MERGE ---------------- */
+{ch:"merge", t:"Merging timelines", it:"Unire le linee temporali",
+ story:`Il trucco per dormire di più: fai le attività del mattino in universi paralleli (baguette, caffè, ciambella) e poi uniscile. Sei sulla punta della linea della ciambella e non ci sono branch.`,
+ goals:[["Build a situation where you consumed a baguette, a coffee, *and* a donut.","Crea una situazione in cui hai mangiato la baguette, bevuto il caffè e mangiato la ciambella."],["Be on a merge commit.","Trovati su un merge commit."]],
+ concepts:["git merge","merge commit","--no-edit"],
+ learn:`<p><code>git merge X</code> unisce la storia di X a quella corrente creando un <b>merge commit</b> con due genitori. Qui non ci sono conflitti perché le tre linee modificano righe diverse del file, separate da righe vuote che nessuno tocca.</p>`,
+ hint:`Trova con il reflog gli hash delle punte "You drink the coffee" e "You eat the baguette", poi fai due merge.`,
+ sol:[["git reflog --oneline","Annota gli hash di «You drink the coffee» e «You eat the baguette»."],["git merge --no-edit <hash-caffè>","Primo merge commit."],["git merge --no-edit <hash-baguette>","Secondo merge commit."],["cat you","Baguette, caffè e ciambella consumati."]],
+ why:`<code>--no-edit</code> accetta il messaggio di merge predefinito senza aprire l'editor. Il gioco controlla il contenuto di <code>you</code> e che HEAD abbia almeno due genitori.`,
+ warn:`Sostituisci <code>&lt;hash-…&gt;</code> con gli hash che vedi tu, oppure usa il tasto destro sul commit per inserirli.`,
+ g:{b:{c:[["B","",0,"inizio"],["b1","B",0,"baguette"],["b2","b1",0,"mangia"],["c1","B",1,"caffè"],["c2","c1",1,"beve"],["d1","B",2,"ciambella"],["d2","d1",2,"mangia"]],r:[],h:"d2"},
+    a:{c:[["B","",0,"inizio"],["b1","B",0,"baguette"],["b2","b1",0,"mangia"],["c1","B",1,"caffè"],["c2","c1",1,"beve"],["d1","B",2,"ciambella"],["d2","d1",2,"mangia"],["M1","d2,c2",2,"merge"],["M2","M1,b2",2,"merge"]],r:[],h:"M2"}},
+ q:`Quanti genitori ha un merge commit? E un commit normale?`,
+ a:`Un merge commit ne ha due o più; un commit normale uno; il primo commit di un repository nessuno.`},
+
+{ch:"merge", t:"Contradictions", it:"Contraddizioni",
+ story:`Sam ha fatto colazione con i pancake in una linea temporale e con il muesli nell'altra. Un cliente vuole unire le due linee: si contraddicono.`,
+ goals:[["Make a breakfast compromise in the 'main' branch.","Trova un compromesso per la colazione nel branch main."]],
+ concepts:["conflitto","fast-forward","marcatori <<<<<<< ======= >>>>>>>","git merge --abort"],
+ learn:`<p>Se due rami modificano <b>la stessa riga</b>, Git non sa quale versione tenere e si ferma con un <b>conflitto</b>. Nel file compaiono i marcatori:</p><ul><li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>: inizio della tua versione</li><li><code>=======</code>: separatore</li><li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; muesli</code>: fine della versione dell'altro ramo</li></ul><p>Risolvi modificando il file come vuoi tu (togliendo i marcatori), poi <code>git add</code> e <code>git commit</code>. Il primo merge invece è un <b>fast-forward</b>: main non ha commit propri, quindi viene solo spostato in avanti.</p>`,
+ hint:`Unisci prima pancakes (fast-forward), poi muesli: ci sarà il conflitto.`,
+ sol:[["git merge pancakes","Fast-forward: main avanza su pancakes."],["git merge muesli","CONFLITTO sul file sam."],["cat sam","Guarda i marcatori di conflitto."],["printf 'Had blueberry pancakes and a small bowl of muesli for breakfast.\\n\\nIs at work.\\n' > sam","Scrive la versione di compromesso, senza marcatori."],["git add sam","Segna il conflitto come risolto."],["git commit -m \"Compromesso per la colazione\"","Completa il merge."]],
+ why:`Il controllo verifica che main sia un merge commit e che i suoi due genitori discendano dallo stesso commit iniziale (<code>main^1^^</code> = <code>main^2^^</code>).`,
+ warn:`Per cambiare idea a metà conflitto: <code>git merge --abort</code> riporta tutto a prima del merge. Il file si può modificare anche cliccandolo nel gioco.`,
+ g:{b:{c:[["B","",0,"inizio"],["P1","B",0,"pancake"],["P2","P1",0,"lavoro"],["M1","B",1,"muesli"],["M2","M1",1,"lavoro"]],r:[["main","B"],["pancakes","P2"],["muesli","M2"]],h:"main"},
+    a:{c:[["B","",0,"inizio"],["P1","B",0,"pancake"],["P2","P1",0,"lavoro"],["M1","B",1,"muesli"],["M2","M1",1,"lavoro"],["X","P2,M2",0,"compromesso"]],r:[["main","X"],["pancakes","P2"],["muesli","M2"]],h:"main"}},
+ q:`Dopo aver modificato un file in conflitto, quali due comandi completano il merge?`,
+ a:`<code>git add &lt;file&gt;</code> per segnare il conflitto come risolto e <code>git commit</code> per creare il merge commit.`},
+
+/* ---------------- INDEX ---------------- */
+{ch:"index", t:"Step by step", it:"Passo dopo passo",
+ story:`Due linee temporali con lo stesso risultato. In <i>all-at-once</i> un solo commit cambia palla, libro e candela. In <i>step-by-step</i> ogni cambiamento ha il suo commit: la palla rotola, il libro cade, la candela si spegne.`,
+ goals:[["Pick the timeline that's clearer, and make the alarm go off!","Scegli la linea più chiara e fai suonare l'allarme antifumo."]],
+ concepts:["commit atomici","storia leggibile"],
+ learn:`<p>Commit piccoli, ognuno con un solo cambiamento logico, raccontano la sequenza causa-effetto e rendono facile capire, annullare o cercare un errore (vedi <i>bisect</i>). È la motivazione dell'intero capitolo.</p>`,
+ hint:`Vai sul branch step-by-step, modifica <code>smoke_detector</code> e fai un commit.`,
+ sol:[["git checkout step-by-step","La linea più chiara."],["echo \"The smoke detector is beeping loudly!\" > smoke_detector","Il fumo della candela fa scattare l'allarme."],["git commit -am \"Il fumo fa scattare l'allarme\"","Nuovo commit sul branch."]],
+ why:`Il gioco controlla di essere sul branch <code>step-by-step</code> e che il rilevatore non sia più "absolutely silent".`,
+ q:`Perché è meglio fare tre commit piccoli invece di uno grande?`,
+ a:`Ogni commit spiega una sola cosa: si capisce la sequenza degli eventi, si può annullare un solo passo e si trova più facilmente dove nasce un problema.`},
+
+{ch:"index", t:"Add new files to the index", it:"Aggiungere file nuovi all'index",
+ story:`Finora i commit registravano tutto. Git però ti lascia scegliere cosa mettere in ogni commit, grazie all'index. Nel gioco l'index è l'aura blu intorno alle icone.`,
+ goals:[["Add the candle.","Aggiungi la candela."],["Make a commit.","Fai un commit."]],
+ concepts:["index","git add","git status","file non tracciato"],
+ learn:`<p>L'<b>index</b> (o <b>staging area</b>) è la bozza del prossimo commit. Un file nuovo è <i>non tracciato</i> finché non lo aggiungi con <code>git add</code>. <code>git commit</code> registra esattamente ciò che c'è nell'index.</p>`,
+ hint:`Usa Tab per completare il nome del file.`,
+ sol:[["git status","candle è tra i «file non tracciati»."],["git add candle","Mette la candela nell'index."],["git status","Ora è tra le «modifiche di cui verrà eseguito il commit»."],["git commit -m \"Aggiungo la candela\"","Commit con la candela."]],
+ why:`Il primo obiettivo diventa verde quando <code>git diff --cached</code> mostra <code>candle</code>; il secondo quando il commit contiene il file.`,
+ q:`Cosa vedi in <code>git status</code> prima e dopo <code>git add candle</code>?`,
+ a:`Prima: candle tra i file non tracciati. Dopo: tra le modifiche pronte per il commit (nuovo file).`},
+
+{ch:"index", t:"Update files in the index", it:"Aggiornare i file nell'index",
+ story:`La candela è già in un commit. Quando modifichi un file, l'index non cambia da solo.`,
+ goals:[["Make a change to the candle.","Modifica la candela."],["Add the candle.","Aggiungi la candela."],["Make a commit.","Fai un commit."]],
+ concepts:["git diff","git diff --cached","staging area"],
+ learn:`<p>Icona bianca = file reale; aura blu = versione nell'index. Dopo una modifica le due sono diverse finché non fai <code>git add</code>. <code>git diff</code> mostra le differenze tra file e index; <code>git diff --cached</code> quelle tra index e ultimo commit.</p>`,
+ hint:`Tre passi: modifica, add, commit.`,
+ sol:[["echo \"The candle has been blown out.\" > candle","Modifica il file."],["git diff","La modifica non è ancora nell'index."],["git add candle","Aggiorna l'index."],["git commit -m \"Spengo la candela\"","Registra il commit."]],
+ why:`Ogni obiettivo controlla un momento diverso: modifica non aggiunta, modifica nell'index, commit che cambia candle.`,
+ q:`Hai modificato un file ma non hai fatto <code>git add</code>. Se fai <code>git commit</code>, la modifica entra nel commit?`,
+ a:`No: il commit contiene solo ciò che c'è nell'index (a meno di usare <code>-a</code>).`},
+
+{ch:"index", t:"Resetting files in the index", it:"Annullare file nell'index",
+ story:`Tre candele spente e già aggiunte all'index. Ma nel prossimo commit vuoi spegnere solo quella rossa.`,
+ goals:[["Reset the changes in the green and blue candles!","Annulla le modifiche della candela verde e di quella blu."],["And make a commit!","E fai un commit."]],
+ concepts:["git reset <file>","git status -s","ombra = ultimo commit"],
+ learn:`<p><code>git reset &lt;file&gt;</code> riporta la versione <b>nell'index</b> a quella dell'ultimo commit, senza toccare il file sul disco. Nel gioco l'ombra scura dietro le icone è la versione dell'ultimo commit. Il comando moderno equivalente è <code>git restore --staged &lt;file&gt;</code>.</p>`,
+ hint:`Togli dall'index solo verde e blu, poi fai il commit.`,
+ sol:[["git status -s","M nella prima colonna = modifica nell'index."],["git reset green_candle blue_candle","Toglie le due candele dall'index."],["git status -s","Ora verde e blu hanno la M nella seconda colonna (solo su disco)."],["git commit -m \"Spengo solo la candela rossa\"","Commit con la sola rossa."]],
+ why:`Nel commit risultante verde e blu sono ancora accese e la rossa è spenta. Sul disco però tutte e tre restano spente.`,
+ q:`In <code>git status -s</code>, cosa indicano la prima e la seconda colonna?`,
+ a:`La prima lo stato nell'index (rispetto all'ultimo commit), la seconda lo stato nella working directory (rispetto all'index).`},
+
+{ch:"index", t:"Adding changes step by step", it:"Aggiungere modifiche un passo alla volta",
+ story:`Un martello in equilibrio, una bottiglia con un liquido trasparente, una zolletta di zucchero. Inventa una sequenza di eventi e registrala un commit alla volta.`,
+ goals:[["Make changes to all three objects, to form a logical sequence of events!","Modifica tutti e tre gli oggetti formando una sequenza logica."],["Only add one of these changes!","Aggiungi solo una di queste modifiche."],["And make a commit.","E fai un commit."],["Make a second commit that only records a single change.","Fai un secondo commit con una sola modifica."],["And a third one.","E un terzo."]],
+ concepts:["commit selettivi","git add file"],
+ learn:`<p>Modificare tutto e poi registrare un file per volta è il modo più comune di usare l'index: lavori liberamente e poi racconti la storia in commit ordinati.</p>`,
+ hint:`Modifica i tre file, poi alterna <code>git add</code> di un solo file e <code>git commit</code>.`,
+ sol:[["echo \"The hammer has fallen over.\" > hammer","Il martello cade…"],["echo \"The bottle has been smashed by the hammer. Liquid spills out.\" > bottle","…rompe la bottiglia…"],["echo \"The sugar cube has dissolved in the liquid.\" > sugar_cube","…e lo zucchero si scioglie."],["git add hammer","Solo il martello nell'index."],["git commit -m \"Il martello cade\"","Primo commit."],["git add bottle","Ora la bottiglia."],["git commit -m \"La bottiglia si rompe\"","Secondo commit."],["git add sugar_cube","Infine lo zucchero."],["git commit -m \"Lo zucchero si scioglie\"","Terzo commit."]],
+ why:`Il gioco conta i commit che cambiano esattamente un file: ne servono tre.`,
+ warn:`Non usare <code>git commit -a</code> qui: metterebbe tutte e tre le modifiche nello stesso commit.`,
+ q:`Come registreresti in due commit separati le modifiche a <code>a.txt</code> e <code>b.txt</code>, già fatte entrambe?`,
+ a:`<code>git add a.txt</code>, <code>git commit -m …</code>, poi <code>git add b.txt</code>, <code>git commit -m …</code>.`},
+
+/* ---------------- REMOTES ---------------- */
+{ch:"remotes", t:"Friend", it:"L'amico",
+ story:`Il tuo amico ha aggiunto una seconda riga al tuo tema. Prendila, aggiungi la terza e mandagliela. Fate a turno fino a cinque righe.`,
+ goals:[["Got the second line from your friend","Hai ricevuto la seconda riga."],["Got the fourth line from your friend.","Hai ricevuto la quarta riga."],["The friend got a third line from you","L'amico ha ricevuto la terza riga."],["The friend got a fifth line from you","L'amico ha ricevuto la quinta riga."]],
+ concepts:["pull","push","friend/main"],
+ learn:`<p>Il ciclo base della collaborazione è <b>pull → modifica → commit → push</b>. <code>friend/main</code> è un <b>remote-tracking branch</b>: la tua copia locale dell'ultima posizione nota del main dell'amico.</p>`,
+ hint:`Dopo il tuo primo push l'amico aggiunge da solo la quarta riga (compare un messaggio). Allora rifai pull.`,
+ sol:[["git pull","Prendi la riga 2."],["echo \"Line 3, my turn\" >> essay","Scrivi la riga 3."],["git commit -am \"Terza riga\"","Commit."],["git push","L'amico riceve la riga 3 e scrive la 4."],["git pull","Prendi la riga 4."],["echo \"Line 5, the end\" >> essay","Scrivi la riga 5."],["git commit -am \"Quinta riga\"","Commit."],["git push","L'amico riceve la riga 5."]],
+ why:`Il gioco controlla le righe sia nel tuo repository sia in quello dell'amico.`,
+ q:`Cosa rappresenta <code>friend/main</code> nel tuo repository?`,
+ a:`L'ultima posizione conosciuta del branch main del remote friend, aggiornata quando fai fetch o pull.`},
+
+{ch:"remotes", t:"Problems", it:"Problemi",
+ story:`Tu vuoi il capanno delle bici verde (modifica non ancora committata), l'amico lo vuole blu e ha già fatto un commit. Dovete sincronizzarvi.`,
+ goals:[["Commit your local changes.","Fai il commit delle tue modifiche locali."],["Look at your friend's suggestion, make a compromise, and push it back.","Guarda la proposta dell'amico, trova un compromesso e rimandalo."]],
+ concepts:["pull = fetch + merge","conflitto con un remote","--no-rebase"],
+ learn:`<p>Git rifiuta un push se il remote ha commit che tu non hai. Prima devi fare <code>git pull</code>, che è <code>fetch</code> (scarica) più <code>merge</code> (unisce). Se avete toccato la stessa riga, il conflitto si risolve come nel capitolo merge.</p>`,
+ hint:`Commit, pull (ci sarà un conflitto), risolvi, add, commit, push.`,
+ sol:[["git commit -am \"Capanno verde\"","Registra la tua versione."],["git pull --no-rebase","Scarica e unisce: CONFLITTO."],["cat file","Verde da una parte, blu dall'altra."],["echo \"The bike shed should be teal (green and blue)\" > file","Compromesso, senza marcatori."],["git add file","Conflitto risolto."],["git commit -m \"Compromesso: verde acqua\"","Merge commit."],["git push","Invia il compromesso all'amico."]],
+ why:`<code>--no-rebase</code> dice esplicitamente a Git di unire con un merge (le versioni recenti di Git chiedono di scegliere se non è configurato). Il controllo vuole un merge commit nel main dell'amico.`,
+ q:`Perché il tuo primo <code>git push</code> sarebbe stato rifiutato?`,
+ a:`Perché il remote conteneva un commit (quello blu) che tu non avevi: il push avrebbe cancellato il lavoro dell'amico. Prima bisogna integrarlo con pull.`},
+
+/* ---------------- CHANGING THE PAST ---------------- */
+{ch:"changing-the-past", t:"Rebasing", it:"Rebase",
+ story:`Gli universi paralleli del mattino sono vietati dall'Associazione Internazionale dei Viaggiatori nel Tempo: le tre attività vanno fatte in sequenza, e main deve puntare alla linea risultante.`,
+ goals:[["Order all tree branches into one and move the main branch ref","Metti in fila i tre branch in una sola linea e sposta main."]],
+ concepts:["git rebase","storia lineare","fast-forward"],
+ learn:`<p><code>git rebase X</code> <b>copia</b> i commit del branch corrente sopra X, uno dopo l'altro. Le copie sono commit nuovi (hash diversi); i vecchi restano visibili nel gioco, ma senza etichetta. Alla fine main si porta avanti con un merge fast-forward.</p>`,
+ hint:`Sposta baguette sopra coffee, poi donut sopra baguette, poi porta main su donut.`,
+ sol:[["git checkout baguette",""],["git rebase coffee","I commit della baguette vengono copiati dopo quelli del caffè."],["git checkout donut",""],["git rebase baguette","I commit della ciambella vengono copiati in fondo."],["git checkout main",""],["git merge donut","Fast-forward: main va in fondo alla linea."],["git log --oneline main","7 commit: inizio, caffè ×2, baguette ×2, ciambella ×2."]],
+ why:`Il controllo vuole che main contenga tutte e tre le colazioni e abbia esattamente 7 commit, cioè una linea senza merge.`,
+ warn:`Non fare rebase di commit che hai già condiviso con push: riscrive la storia e crea problemi a chi ha i commit vecchi.`,
+ g:{b:{c:[["B","",0,"inizio"],["b1","B",0,"baguette"],["b2","b1",0,"mangia"],["c1","B",1,"caffè"],["c2","c1",1,"beve"],["d1","B",2,"ciambella"],["d2","d1",2,"mangia"]],r:[["baguette","b2"],["coffee","c2"],["donut","d2"],["main","B"]],h:"B"},
+    a:{c:[["B","",0,"inizio"],["c1","B",0,"caffè"],["c2","c1",0,"beve"],["b1","c2",0,"baguette'"],["b2","b1",0,"mangia'"],["d1","b2",0,"ciambella'"],["d2","d1",0,"mangia'"]],r:[["coffee","c2"],["baguette","b2"],["donut","d2"],["main","d2"]],h:"main"}},
+ q:`Dopo un rebase, i commit copiati hanno lo stesso hash degli originali?`,
+ a:`No: hanno un genitore diverso, quindi sono commit nuovi con hash nuovi. Gli originali restano nel repository finché qualcosa li referenzia (o nel reflog).`},
+
+{ch:"changing-the-past", t:"Reordering events", it:"Riordinare gli eventi",
+ story:`Qualcosa non va: ti sei messo le scarpe, poi i pantaloni, poi le mutande, poi la camicia. Rimetti gli eventi nell'ordine giusto.`,
+ goals:[["Reorder the commits to dress yourself in the correct way","Riordina i commit per vestirti nel modo corretto."]],
+ concepts:["git reset --hard","rebase -i","cherry-pick","riscrivere la storia"],
+ learn:`<p>Il gioco propone due strategie. La prima è il <b>rebase interattivo</b> (<code>git rebase -i</code>): si apre un file con l'elenco dei commit e lo riordini. La seconda è riportare main al primo commit e ricopiare i commit nell'ordine giusto con <code>git cherry-pick</code>. Qui ogni commit modifica righe adiacenti dello stesso file, quindi entrambe possono fermarsi su conflitti. La soluzione sotto ricostruisce i commit uno per uno, così i conflitti non nascono.</p>`,
+ hint:`Riporta main al commit iniziale e rifai i quattro commit nell'ordine mutande, pantaloni, scarpe, camicia.`,
+ sol:[["git checkout main",""],["git reset --hard HEAD~4","main torna a «The Beginning»."],["sed -i 's/NOT wearing underwear/wearing underwear/' you",""],["git commit -am \"Put on underwear\"",""],["sed -i 's/NOT wearing pants/wearing pants/' you",""],["git commit -am \"Put on pants\"",""],["sed -i 's/NOT wearing shoes/wearing shoes/' you",""],["git commit -am \"Put on shoes\"",""],["sed -i 's/NOT wearing a shirt/wearing a shirt/' you",""],["git commit -am \"Put on shirt\"",""],["git log --oneline","Dal più recente: shirt, shoes, pants, underwear, Beginning."]],
+ why:`Il controllo legge <code>git log main</code> (dal più recente) e vuole trovare in quest'ordine shoes, pants, underwear, cioè cronologicamente mutande, pantaloni, scarpe, con esattamente 5 commit.`,
+ warn:`I messaggi devono contenere le parole <i>underwear</i>, <i>pants</i> e <i>shoes</i>: il controllo cerca quelle.`,
+ g:{b:{c:[["B","",0,"inizio"],["s","B",0,"scarpe"],["p","s",0,"pantaloni"],["u","p",0,"mutande"],["c","u",0,"camicia"]],r:[["main","c"]],h:"main"},
+    a:{c:[["B","",0,"inizio"],["u","B",0,"mutande"],["p","u",0,"pantaloni"],["s","p",0,"scarpe"],["c","s",0,"camicia"],["s0","B",1,"scarpe",1],["p0","s0",1,"pantaloni",1],["u0","p0",1,"mutande",1],["c0","u0",1,"camicia",1]],r:[["main","c"]],h:"main"}},
+ q:`Che cosa fa <code>git cherry-pick &lt;commit&gt;</code>?`,
+ a:`Copia le modifiche introdotte da quel commit e le applica come nuovo commit sopra HEAD.`},
+
+/* ---------------- SHIT HAPPENS ---------------- */
+{ch:"shit-happens", t:"Restore a deleted file", it:"Recuperare un file eliminato",
+ story:`Hai cancellato il file <code>essay</code>, su cui hai lavorato tutta la notte. Per fortuna c'è Git.`,
+ goals:[["Restore the essay to contain \"important content\"","Ripristina il tema con il contenuto «important content»."]],
+ concepts:["git restore","git checkout -- file"],
+ learn:`<p>Il file è sparito dal disco ma esiste ancora nell'index e nell'ultimo commit. <code>git restore file</code> (o il classico <code>git checkout file</code>) lo ricrea.</p>`,
+ hint:`<code>git status</code> mostra il file come eliminato.`,
+ sol:[["git status","essay risulta eliminato."],["git restore essay","Lo riprende dall'index."],["cat essay","important content"]],
+ why:`L'ultimo commit contiene la versione "important content".`,
+ q:`Un file mai aggiunto né committato ed eliminato si può recuperare con Git?`,
+ a:`No: Git può restituire solo ciò che ha registrato nell'index o in un commit.`},
+
+{ch:"shit-happens", t:"Restore a file from the past", it:"Recuperare un file dal passato",
+ story:`Il tema del primo commit ti piaceva di più. Riprendilo e registralo in un nuovo commit.`,
+ goals:[["Get the first version of your essay, and make a new commit with it.","Riprendi la prima versione del tema e fai un nuovo commit."]],
+ concepts:["git checkout <commit> -- <file>","git show commit:file"],
+ learn:`<p><code>git checkout &lt;commit&gt; -- &lt;file&gt;</code> prende il file com'era in quel commit e lo mette sia nella working directory sia nell'<b>index</b>: per questo dopo basta <code>git commit</code>, senza add. Il <code>--</code> separa il commit dai nomi dei file. Equivalente moderno: <code>git restore --source=HEAD~1 --staged --worktree essay</code>.</p>`,
+ hint:`La prima versione è un commit prima di HEAD.`,
+ sol:[["git log --oneline","Due commit: «Improve» essay e Initial commit."],["git checkout HEAD~1 -- essay","Riprende la versione buona."],["git commit -m \"Ripristino la versione buona\"","Nuovo commit con il vecchio contenuto."],["git show main:essay","good version"]],
+ why:`La storia non viene riscritta: il commit "brutto" resta, e ne aggiungi uno nuovo che riporta il contenuto buono.`,
+ q:`Perché qui non serve <code>git add</code> prima del commit?`,
+ a:`Perché <code>git checkout &lt;commit&gt; -- file</code> aggiorna anche l'index, non solo il file sul disco.`},
+
+{ch:"shit-happens", t:"Undo a bad commit", it:"Annullare un commit sbagliato",
+ story:`L'ultimo commit ha un refuso nel messaggio ("More numberrrrrs") e nel file c'è 11 al posto di 10.`,
+ goals:[["In the last main commit, the numbers file contains the numbers from 1 to 10.","Nell'ultimo commit di main, numbers contiene i numeri da 1 a 10."],["The commit message of that commit is \"More numbers\".","Il messaggio del commit è «More numbers»."],["The commit with the typo is not part of the main branch anymore.","Il commit con il refuso non fa più parte di main."]],
+ concepts:["git commit --amend","git reset <commit>"],
+ learn:`<p><code>git commit --amend</code> <b>sostituisce</b> l'ultimo commit con uno nuovo (nuovo hash). L'alternativa suggerita dal gioco è <code>git reset HEAD~1</code>, che sposta il branch indietro e reimposta l'index senza toccare i file: correggi e rifai il commit.</p>`,
+ hint:`Correggi il file, poi rifai l'ultimo commit con il messaggio giusto.`,
+ sol:[["echo \"1 2 3 4 5 6 7 8 9 10\" > numbers","Corregge il contenuto."],["git commit -a --amend -m \"More numbers\"","Sostituisce l'ultimo commit."],["git log --oneline","More numbers, Initial commit: il refuso non c'è più."]],
+ why:`Il vecchio commit con il refuso esiste ancora (vedi il grafo) ma non è più nella storia di main.`,
+ warn:`Il messaggio deve essere esattamente "More numbers". Usa amend o reset solo su commit <b>non ancora condivisi</b>; per quelli già inviati c'è il livello successivo.`,
+ g:{b:{c:[["A","",0,"inizio"],["B","A",0,"numberrrrs"]],r:[["main","B"]],h:"main"},
+    a:{c:[["A","",0,"inizio"],["B2","A",0,"More numbers"],["B","A",1,"numberrrrs",1]],r:[["main","B2"]],h:"main"}},
+ q:`Cosa succede all'hash del commit dopo un <code>--amend</code>?`,
+ a:`Cambia: amend crea un commit nuovo che prende il posto del precedente sul branch.`},
+
+{ch:"shit-happens", t:"I pushed something broken", it:"Ho inviato qualcosa di rotto",
+ story:`Un commit "very bad" è già stato inviato al repository del team, e dopo di lui c'è un altro commit buono. Non puoi riscrivere la storia condivisa.`,
+ goals:[["The team's main branch no longer contains the bad thing.","Il main del team non contiene più la parte sbagliata."],["And the history has not been modified.","E la storia non è stata modificata."]],
+ concepts:["git revert","storia condivisa"],
+ learn:`<p><code>git revert &lt;commit&gt;</code> crea un <b>nuovo commit</b> che applica le modifiche opposte a quel commit. La storia esistente resta intatta, quindi è il modo sicuro di annullare qualcosa dopo un push.</p>`,
+ hint:`Il commit sbagliato è il penultimo (<code>HEAD~1</code>).`,
+ sol:[["git log --oneline","fine again, very bad, also fine, fine."],["git revert --no-edit HEAD~1","Nuovo commit che annulla «very bad»."],["cat text","La riga very bad è tornata «?»."],["git push","Invia il revert al team."]],
+ why:`Il controllo vuole che il main del team non contenga "very bad" e che il commit precedente (<code>main^</code>) lo contenga ancora: la storia è stata estesa, non riscritta.`,
+ g:{b:{c:[["a","",0,"fine"],["b","a",0,"also fine"],["c","b",0,"very bad"],["d","c",0,"fine again"]],r:[["main","d"],["team/main","d","remote"]],h:"main"},
+    a:{c:[["a","",0,"fine"],["b","a",0,"also fine"],["c","b",0,"very bad"],["d","c",0,"fine again"],["e","d",0,"Revert"]],r:[["main","e"],["team/main","e","remote"]],h:"main"}},
+ q:`Commit già inviato con push: meglio <code>revert</code> o <code>reset</code>? Perché?`,
+ a:`<code>revert</code>: aggiunge un commit senza cambiare la storia che gli altri hanno già. <code>reset</code> la riscriverebbe e richiederebbe un push forzato.`},
+
+{ch:"shit-happens", t:"Go back to where you were before", it:"Torna dov'eri prima",
+ story:`Stavi guardando un commit del passato, poi sei tornato su main. Dopo la pausa pranzo non ricordi più su quale commit eri.`,
+ goals:[["Find out where you've been before, and go back there!","Scopri dove eri prima e torna lì."]],
+ concepts:["git reflog","HEAD@{n}"],
+ learn:`<p><code>git reflog</code> elenca tutti i punti in cui HEAD è stato: checkout, commit, reset, merge. È la rete di sicurezza di Git: anche un commit "perso" dopo un reset si ritrova qui.</p>`,
+ hint:`Nel reflog cerca la riga «checkout: moving from … to …».`,
+ sol:[["git reflog --oneline","HEAD@{1}: checkout: moving from main to 3."],["git checkout HEAD@{1}","Torna sul commit 3."]],
+ why:`Il controllo confronta HEAD con il commit del branch <code>3</code>.`,
+ q:`Hai fatto per errore <code>git reset --hard HEAD~3</code>. Come recuperi i tre commit?`,
+ a:`Con <code>git reflog</code> trovi la posizione precedente (es. <code>HEAD@{1}</code>) e fai <code>git reset --hard HEAD@{1}</code>.`},
+
+/* ---------------- WORKFLOWS ---------------- */
+{ch:"workflows", t:"Cloning a repo", it:"Clonare un repository",
+ story:`Il repository di un amico contiene <code>2 + 3 = </code> senza risultato. Clona il repo, crea un branch <code>solution</code>, correggi e fai una "pull request" creando il tag <code>pr</code>.`,
+ goals:[["Complete the goal of this level","Completa l'obiettivo: l'amico deve ricevere la correzione."]],
+ concepts:["git clone","origin","branch di feature","pull request"],
+ learn:`<p><code>git clone</code> copia un intero repository con tutta la storia e crea il remote <code>origin</code>. Nei progetti reali (GitHub, GitLab) non lavori su main: crei un branch, fai i commit e apri una <b>pull request</b>, cioè chiedi al responsabile di unire il tuo branch. Qui la richiesta è simulata dal tag <code>pr</code>: l'amico lo vede, scarica e unisce <code>solution</code>.</p>`,
+ hint:`Nel gioco i repository sono cartelle affiancate: quella dell'amico è <code>../friend</code>. Il punto finale clona nella cartella corrente.`,
+ sol:[["git clone ../friend .","Clona il repo dell'amico qui."],["git checkout -b solution","Crea il branch e ci passa."],["echo \"2 + 3 = 5\" > file","Correzione."],["git commit -am \"Correggo la somma\"","Commit sul branch."],["git tag pr","«Apre» la pull request."]],
+ why:`Dopo il tag, l'amico esegue <code>git fetch</code> e <code>git merge yours/solution</code>: il suo main contiene il 5 e compare "Thanks!".`,
+ q:`Perché in una pull request si lavora su un branch separato e non direttamente su main?`,
+ a:`Per tenere la proposta isolata: il responsabile può rivederla, discuterla e unirla solo quando è pronta, senza che main si rompa nel frattempo.`},
+
+/* ---------------- BISECT ---------------- */
+{ch:"bisect", t:"Yellow brick road", it:"La strada di mattoni gialli",
+ story:`30 commit, uno per ogni momento della giornata. A un certo punto hai perso la chiave. Invece di guardarli uno per uno, usa la ricerca automatica di Git. Il gioco suggerisce di rimpicciolire la vista con la rotellina del mouse.`,
+ goals:[["Find the last good commit","Trova l'ultimo commit buono (e porta main lì)."]],
+ concepts:["git bisect","ricerca binaria","git bisect run"],
+ learn:`<p><code>git bisect</code> fa una <b>ricerca binaria</b>: gli dici un commit "buono" e uno "cattivo", lui ti porta a metà strada e tu rispondi <code>good</code> o <code>bad</code>. Con 30 commit bastano circa 5 passi (log₂ 30 ≈ 5). Con <code>git bisect run &lt;comando&gt;</code> la risposta la dà un comando: uscita 0 = buono, diversa da 0 = cattivo.</p>`,
+ hint:`Il commit buono è quello con "You still have your key". Dopo aver trovato il primo commit cattivo, quello buono è il precedente.`,
+ sol:[["git bisect start","Inizia la ricerca."],["git bisect bad","Il commit attuale (30) è cattivo."],["git bisect good HEAD~29","Il primo commit (1) è buono."],["cat you","A ogni passo controlla: hai ancora la chiave? Rispondi git bisect good oppure git bisect bad."],["git bisect run grep -q 'still have your key' you","In alternativa: bisect automatico. Risultato: il primo commit cattivo è il 12."],["git bisect reset","Torna su main."],["git reset --hard main~19","main va sul commit 11 (30 − 19), l'ultimo buono. Puoi usare anche l'hash del commit 11."]],
+ why:`Il controllo vuole che il messaggio dell'ultimo commit di main sia "11". Curiosità: nel 12 la chiave cade a terra, nel 13 la prende un uccello, nel 14 l'uccello vola via.`,
+ q:`Al massimo quanti passi servono a bisect per trovare il commit colpevole tra 1000?`,
+ a:`Circa 10, perché 2¹⁰ = 1024: a ogni passo il numero di candidati si dimezza.`},
+
+/* ---------------- STASH ---------------- */
+{ch:"stash", t:"Stashing", it:"Mettere da parte",
+ story:`Stai scrivendo la ricetta della torta di mele, hai aggiunto la farina ma devi mettere da parte la modifica per un momento.`,
+ goals:[["Did you stash the current changes?","Hai messo da parte le modifiche correnti?"]],
+ concepts:["git stash","git stash push","git stash list"],
+ learn:`<p><code>git stash</code> (o <code>git stash push</code>) salva le modifiche non committate, sia sul disco sia nell'index, in una <b>pila</b> e riporta la cartella allo stato dell'ultimo commit. Nel gioco compare <code>refs/stash</code>.</p>`,
+ hint:`Un solo comando.`,
+ sol:[["git status","recipe è modificato."],["git stash","Mette da parte la modifica."],["git stash list","stash@{0}: WIP on main…"]],
+ why:`Il controllo conta le voci di <code>git stash list</code> (almeno una).`,
+ q:`Quando è utile lo stash?`,
+ a:`Quando devi cambiare branch o fare un pull, ma hai modifiche a metà che non vuoi ancora committare.`},
+
+{ch:"stash", t:"Pop from Stash", it:"Riprendere dallo stash",
+ story:`La modifica della farina è nello stash. Riprendila.`,
+ goals:[["Did you pop the changes from the stash stack?","Hai ripreso le modifiche dalla pila?"]],
+ concepts:["git stash pop","git stash apply"],
+ learn:`<p><code>git stash pop</code> riapplica l'ultima voce e la toglie dalla pila. <code>git stash apply</code> la riapplica ma la lascia nella pila.</p>`,
+ hint:`Pop toglie, apply lascia.`,
+ sol:[["git stash pop","Riapplica e rimuove dalla pila."],["cat recipe","La farina è tornata."]],
+ why:`Il controllo vuole la pila vuota.`,
+ q:`Differenza tra <code>pop</code> e <code>apply</code>?`,
+ a:`Entrambi riapplicano le modifiche; pop le rimuove dalla pila, apply le lascia.`},
+
+{ch:"stash", t:"Clear the Stash", it:"Svuotare lo stash",
+ story:`Nello stash ci sono tre voci (farina, zucchero, sale) e non ti servono più.`,
+ goals:[["Did you clear your stash stack?","Hai svuotato la pila?"]],
+ concepts:["git stash list","git stash clear","git stash drop"],
+ learn:`<p><code>git stash clear</code> elimina tutte le voci; <code>git stash drop stash@{n}</code> ne elimina una sola.</p>`,
+ hint:`Guarda prima la pila con list.`,
+ sol:[["git stash list","Tre voci."],["git stash clear","Svuota la pila."]],
+ why:`Il controllo vuole zero voci.`,
+ warn:`Le voci eliminate non si recuperano facilmente: controlla prima con <code>git stash show -p</code>.`,
+ q:`Come elimini solo la seconda voce dello stash?`,
+ a:`<code>git stash drop stash@{1}</code> (la numerazione parte da 0).`},
+
+{ch:"stash", t:"Branch from stash", it:"Un branch dallo stash",
+ story:`La modifica nello stash non appartiene a main. Mettila in un branch tutto suo.`,
+ goals:[["Did you create a new branch from the stashed changes?","Hai creato un nuovo branch dalle modifiche messe da parte?"]],
+ concepts:["git stash branch"],
+ learn:`<p><code>git stash branch nome</code> crea un branch dal commit in cui avevi fatto lo stash, ci passa, riapplica le modifiche e toglie la voce dalla pila.</p>`,
+ hint:`Scegli un nome qualsiasi, per esempio <code>flour</code>.`,
+ sol:[["git stash branch flour","Nuovo branch con le modifiche."],["git branch","* flour, main"]],
+ why:`Il controllo vuole almeno due branch.`,
+ q:`Perché <code>stash branch</code> parte dal commit in cui avevi fatto lo stash e non da quello attuale?`,
+ a:`Così le modifiche si riapplicano sempre senza conflitti, perché la base è la stessa su cui erano state fatte.`},
+
+{ch:"stash", t:"Merging popped stash", it:"Conflitto dopo un pop",
+ story:`Nello stash c'è la farina. Nel frattempo hai continuato a lavorare: hai aggiunto un pizzico di sale e l'hai già messo nell'index.`,
+ goals:[["Did you resolve the confict and commit?","Hai risolto il conflitto e fatto il commit?"],["Did you clear stash stack?","Hai svuotato la pila?"]],
+ concepts:["stash pop con conflitto","git stash drop"],
+ learn:`<p>Se le modifiche nello stash toccano le stesse righe del tuo lavoro attuale, <code>pop</code> produce un conflitto e <b>non toglie</b> la voce dalla pila: dopo aver risolto devi eliminarla tu con <code>git stash drop</code>.</p>`,
+ hint:`Registra prima il sale con un commit, così lavori su una base pulita. Poi pop, risolvi, commit, drop.`,
+ sol:[["git status -s","recipe è nell'index con il sale."],["git commit -m \"Aggiungo il sale\"","Registra il sale."],["git stash pop","CONFLITTO: sale da una parte, farina dall'altra."],["cat recipe","Marcatori «Updated upstream» e «Stashed changes»."],["printf 'Apple Pie:\\n- 4 Apples\\n- 500g Flour\\n- Pinch of Salt\\n' > recipe","Versione con entrambi gli ingredienti."],["git add recipe","Conflitto risolto."],["git commit -m \"Farina e sale\"","Commit finale."],["git stash drop","Toglie la voce rimasta nella pila."],["git stash list","Vuota."]],
+ why:`Il controllo cerca "Flour" e "Salt" in <code>git show HEAD</code> e vuole la pila vuota.`,
+ q:`Dopo un <code>git stash pop</code> con conflitto, la voce è ancora nello stash?`,
+ a:`Sì: Git la conserva finché non la elimini tu con <code>git stash drop</code>, così non perdi nulla se la risoluzione va male.`},
+
+/* ---------------- TAGS ---------------- */
+{ch:"tags", t:"Creating tags", it:"Creare tag",
+ story:`Alcuni commit sono speciali: un traguardo, una nuova versione. Segnali con un tag.`,
+ goals:[["Did you create a new tag?","Hai creato un tag?"]],
+ concepts:["git tag","tag vs branch"],
+ learn:`<p>Un <b>tag</b> è un'etichetta come un branch, ma <b>fissa</b>: non avanza con i nuovi commit. Si usa per le versioni (v1.0, v2.0). <code>git tag v1</code> lo mette su HEAD; <code>git tag -a v1 -m "msg"</code> crea un tag "annotato" con autore e messaggio.</p>`,
+ hint:`Un solo comando con il nome del tag.`,
+ sol:[["git tag v1","Tag sul commit attuale."],["git tag -l","Elenca i tag: v1."]],
+ why:`Il controllo vuole almeno un tag.`,
+ g:{b:{c:[["a","",0,"feature 1"],["b","a",0,"feature 2"],["c","b",0,"feature 3"]],r:[["main","c"]],h:"c"},
+    a:{c:[["a","",0,"feature 1"],["b","a",0,"feature 2"],["c","b",0,"feature 3"]],r:[["main","c"],["v1","c","tag"]],h:"c"}},
+ q:`Fai un nuovo commit dopo aver creato il tag <code>v1</code> su main. Dove si trovano ora v1 e main?`,
+ a:`main avanza sul nuovo commit; v1 resta sul commit di prima.`},
+
+{ch:"tags", t:"Removing tags", it:"Eliminare tag",
+ story:`Troppi tag: v1, v2 e v3. Eliminali tutti.`,
+ goals:[["Did you remove all tags?","Hai eliminato tutti i tag?"]],
+ concepts:["git tag -d"],
+ learn:`<p><code>git tag -d nome</code> elimina un tag locale, e accetta più nomi insieme. Come per i branch, i commit restano.</p>`,
+ hint:`Elenca, poi elimina.`,
+ sol:[["git tag -l","v1, v2, v3."],["git tag -d v1 v2 v3","Elimina tutti e tre."]],
+ why:`Il controllo vuole zero tag.`,
+ q:`Eliminando un tag si eliminano anche i commit?`,
+ a:`No, solo l'etichetta.`},
+
+{ch:"tags", t:"Tagging later", it:"Tag a posteriori",
+ story:`Hai dimenticato di taggare una versione. Metti il tag <code>v1</code> sul commit "Adding feature 2".`,
+ goals:[["Did you create a new tag?","Hai creato il tag giusto?"]],
+ concepts:["git tag nome commit"],
+ learn:`<p><code>git tag nome &lt;commit&gt;</code> mette un tag su un commit qualsiasi, anche vecchio.</p>`,
+ hint:`"Adding feature 2" è il penultimo commit.`,
+ sol:[["git log --oneline","feature 3, feature 2, feature 1."],["git tag v1 HEAD~1","Tag su «Adding feature 2»."],["git log --oneline --decorate","Vedi (tag: v1) accanto al commit."]],
+ why:`Il controllo confronta il commit di <code>v1</code> con <code>HEAD~1</code>.`,
+ g:{b:{c:[["a","",0,"feature 1"],["b","a",0,"feature 2"],["c","b",0,"feature 3"]],r:[["main","c"]],h:"c"},
+    a:{c:[["a","",0,"feature 1"],["b","a",0,"feature 2"],["c","b",0,"feature 3"]],r:[["main","c"],["v1","b","tag"]],h:"c"}},
+ q:`Come metteresti il tag <code>v0.1</code> sul primissimo commit?`,
+ a:`<code>git tag v0.1 &lt;hash-del-primo-commit&gt;</code>, oppure qui <code>git tag v0.1 HEAD~2</code>.`},
+
+{ch:"tags", t:"Remote Tags", it:"Tag remoti",
+ story:`I tag non viaggiano da soli con push e pull. L'amico ha un tag <code>v1</code>; tu devi creare <code>v2</code> sull'ultimo commit, inviarlo e scaricare <code>v1</code>.`,
+ goals:[["v1 tag in your repo","Il tag v1 è nel tuo repository."],["v2 tag in your repo","Il tag v2 è nel tuo repository."],["v2 tag in the remote","Il tag v2 è nel remote."]],
+ concepts:["git fetch --tags","git push remote tag","git push --tags","git push --delete"],
+ learn:`<p>Un tag si invia con <code>git push &lt;remote&gt; &lt;tag&gt;</code> o tutti insieme con <code>git push &lt;remote&gt; --tags</code>; si scaricano con <code>git fetch --tags</code>. Un tag remoto si elimina con <code>git push &lt;remote&gt; --delete &lt;tag&gt;</code>.</p>`,
+ hint:`Il remote si chiama <code>friend</code>.`,
+ sol:[["git fetch --tags","Scarica v1 dall'amico."],["git tag v2","v2 sull'ultimo commit."],["git push friend v2","Invia v2."],["git log --oneline --decorate","tag: v2 sull'ultimo commit, tag: v1 sul primo."]],
+ why:`Il gioco controlla v1 e v2 nel tuo repository e v2 in quello dell'amico.`,
+ q:`Hai creato tre tag locali. Con quale comando li invii tutti al remote <code>origin</code>?`,
+ a:`<code>git push origin --tags</code>.`},
+
+/* ---------------- SANDBOX ---------------- */
+{ch:"sandbox", t:"Empty sandbox", it:"Sandbox vuota", sandbox:true,
+ story:`Una cartella vuota in cui puoi provare quello che vuoi. Non ci sono obiettivi.`,
+ goals:[],
+ concepts:["sperimentazione"],
+ learn:`<p>Ottima per ripassare da zero: crea un repository, qualche commit, un paio di branch e un merge, guardando il grafo che si forma.</p>`,
+ hint:`Parti da <code>git init</code>.`,
+ sol:[["git init",""],["echo \"hello\" > file",""],["git add .",""],["git commit -m \"Primo\"",""],["git checkout -b prova","Crea un branch e prova a fare commit e merge."]],
+ why:`Non c'è niente da superare: prova liberamente e usa Reload per ricominciare.`,
+ q:`Riesci a ricreare da zero la situazione del livello "Contradictions", conflitto compreso?`,
+ a:`Un file su main, due branch che modificano la stessa riga in modo diverso, poi due merge: il secondo va in conflitto.`},
+
+{ch:"sandbox", t:"Sandbox with a remote", it:"Sandbox con un remote", sandbox:true,
+ story:`Un repository collegato a quello di un amico. Il gioco chiede: come si inviano tag e branch al remote? E come si eliminano?`,
+ goals:[],
+ concepts:["git fetch","git ls-remote","push di branch e tag","push --delete"],
+ learn:`<p><code>git push friend main:feature</code> crea sul remote il branch <code>feature</code> a partire dal tuo main. <code>git push friend --delete …</code> elimina branch o tag remoti. <code>git ls-remote friend</code> mostra cosa c'è sul remote.</p>`,
+ hint:`Prova pull, fetch e push, poi crea ed elimina un tag e un branch remoti.`,
+ sol:[["git pull","Prendi la riga dell'amico."],["git tag v1",""],["git push friend v1 main:feature","Invia il tag v1 e crea il branch feature sul remote."],["git ls-remote friend","Controlla: ci sono feature e v1."],["git push friend --delete v1 feature","Li elimina dal remote."],["git ls-remote friend","Restano solo HEAD e main."]],
+ why:`Sono le risposte alle domande della descrizione del livello.`,
+ q:`Che differenza c'è tra <code>git fetch</code> e <code>git pull</code>?`,
+ a:`<code>fetch</code> scarica soltanto e aggiorna i remote-tracking branch (es. <code>friend/main</code>); <code>pull</code> fa fetch e poi unisce al tuo branch.`},
+
+{ch:"sandbox", t:"Sandbox with three commits", it:"Sandbox con tre commit", sandbox:true,
+ story:`Tre commit e un branch <code>not_main</code>. Idee del gioco: un commit che unisce tre linee temporali insieme, creare ed eliminare tag, una linea temporale completamente indipendente.`,
+ goals:[],
+ concepts:["octopus merge","git checkout --orphan","tag"],
+ learn:`<p>Passando più branch a <code>git merge</code> ottieni un <b>octopus merge</b>: un merge commit con più di due genitori. <code>git checkout --orphan nome</code> crea un branch senza storia: il suo primo commit non ha genitori.</p>`,
+ hint:`Crea due branch con commit diversi, poi da main fai <code>git merge a b</code>.`,
+ sol:[["git checkout -b a HEAD~1",""],["echo \"You open the door.\" > door",""],["git add door",""],["git commit -m \"Open the door\"",""],["git checkout -b b main~1",""],["echo \"You look out of the window.\" > window",""],["git add window",""],["git commit -m \"Look out of the window\"",""],["git checkout main",""],["git merge --no-edit a b","Merge commit con tre genitori."],["git tag three-way",""],["git checkout --orphan indep","Branch senza storia."],["git commit -m \"Independent timeline\"","Un commit radice, scollegato dal resto."],["git log --oneline --graph --all","Guarda il grafo."]],
+ why:`Il grafo del gioco mostra i tre rami che confluiscono in un solo commit e un quadratino isolato per la linea indipendente.`,
+ q:`Quanti genitori ha il primo commit fatto su un branch creato con <code>--orphan</code>?`,
+ a:`Nessuno: è un commit radice, come il primo commit di un repository.`}
+];
+
+const CHEAT = [
+ ["Creare e salvare"],
+ ["git init","crea un repository","3–4"],
+ ["git status / git status -s","mostra lo stato di file e index","18–20"],
+ ["git add &lt;file&gt; / git add .","mette modifiche nell'index","5, 18–21"],
+ ["git commit -m \"msg\"","registra l'index in un commit","5"],
+ ["git commit -am \"msg\"","add dei file tracciati + commit","5"],
+ ["git commit --amend","sostituisce l'ultimo commit","28"],
+ ["Guardare la storia"],
+ ["git log --oneline --all --graph","storia compatta di tutti i branch","10–11"],
+ ["git show &lt;commit&gt;:&lt;file&gt;","un file com'era in un commit","9"],
+ ["git diff / git diff --cached","differenze file↔index / index↔commit","19"],
+ ["git reflog","tutti gli spostamenti di HEAD","9, 11, 30"],
+ ["Muoversi e ramificare"],
+ ["git checkout &lt;commit|branch&gt;","sposta HEAD (e aggiorna i file)","9–14"],
+ ["git checkout -b &lt;nome&gt;","crea un branch e ci passa","31"],
+ ["git branch &lt;nome&gt; [commit]","crea un branch","11"],
+ ["git branch -d / -D &lt;nome&gt;","elimina un branch","13"],
+ ["git reset --hard &lt;commit&gt;","sposta il branch e allinea tutto","14, 25"],
+ ["Unire e riscrivere"],
+ ["git merge &lt;branch&gt;","unisce una storia nella corrente","15–16"],
+ ["git merge --abort","annulla un merge in conflitto","16"],
+ ["git rebase &lt;base&gt;","ricopia i commit sopra un'altra base","24"],
+ ["git cherry-pick &lt;commit&gt;","copia un singolo commit","25"],
+ ["Correggere"],
+ ["git restore &lt;file&gt;","ripristina un file dall'index","26"],
+ ["git checkout &lt;commit&gt; -- &lt;file&gt;","riprende un file da un commit","27"],
+ ["git reset &lt;file&gt;","toglie un file dall'index","20"],
+ ["git revert &lt;commit&gt;","annulla un commit con un nuovo commit","29"],
+ ["git bisect start | good | bad | run | reset","ricerca binaria del commit colpevole","32"],
+ ["Collaborare"],
+ ["git clone &lt;url&gt; [cartella]","copia un repository","31"],
+ ["git pull / git fetch","scarica (e unisce) dal remote","6, 22–23"],
+ ["git push [remote] [ref]","invia commit, branch o tag","6, 22, 41"],
+ ["git push &lt;remote&gt; --delete &lt;ref&gt;","elimina branch o tag remoti","43"],
+ ["Stash e tag"],
+ ["git stash / pop / apply / list / drop / clear","pila delle modifiche messe da parte","33–37"],
+ ["git stash branch &lt;nome&gt;","branch dalle modifiche nello stash","36"],
+ ["git tag &lt;nome&gt; [commit] / git tag -d","crea / elimina un tag","38–40"]
+];
+
+/* ---------- utility ---------- */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+let store = {};
+try { store = JSON.parse(localStorage.getItem("omg-guida-fatti") || "{}") || {}; } catch(e) { store = {}; }
+const save = () => { try { localStorage.setItem("omg-guida-fatti", JSON.stringify(store)); } catch(e) {} };
+
+/* ---------- grafo dei commit ---------- */
+function graphSVG(G){
+  const NS = "http://www.w3.org/2000/svg";
+  const gen = {}, lane = {}, lab = {}, ghost = {}, parents = {}, kids = {};
+  G.c.forEach(([id,p,ln,label,gh]) => {
+    const ps = p ? p.split(",") : [];
+    parents[id] = ps; lane[id] = ln; lab[id] = label || ""; ghost[id] = !!gh;
+    gen[id] = ps.length ? Math.max(...ps.map(x => gen[x])) + 1 : 0;
+    ps.forEach(x => (kids[x] = kids[x] || []).push(id));
+  });
+  const DX = 74, DY = 62, PADX = 18, TOP = 40;
+  const X = id => PADX + gen[id]*DX, Y = id => TOP + lane[id]*DY;
+  const refsAt = {};
+  G.r.forEach(([n,t,k]) => (refsAt[t] = refsAt[t] || []).push({n, k: k || "branch", head: G.h === n}));
+  if (G.h && lane[G.h] !== undefined) (refsAt[G.h] = refsAt[G.h] || []).unshift({n:"HEAD", k:"head"});
+  const pw = r => r.n.length*6.6 + (r.head ? 30 : 14);
+  let maxX = 0, maxY = 0;
+  G.c.forEach(([id]) => {
+    let right = X(id) + 46;
+    if (refsAt[id] && !kids[id]) right = X(id) + 16 + refsAt[id].reduce((s,r) => s + pw(r) + 4, 0);
+    maxX = Math.max(maxX, right); maxY = Math.max(maxY, Y(id));
+  });
+  const W = maxX + 10, H = maxY + 34;
+  let s = `<svg xmlns="${NS}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img">`;
+  G.c.forEach(([id]) => parents[id].forEach(p => {
+    const x1 = X(p)+8, y1 = Y(p), x2 = X(id)-10, y2 = Y(id);
+    const d = y1 === y2 ? `M${x1},${y1} L${x2},${y2}` : `M${x1},${y1} C${x1+30},${y1} ${x2-34},${y2} ${x2},${y2}`;
+    s += `<path d="${d}" style="fill:none;stroke:var(--edge);stroke-width:2;opacity:${ghost[id]?0.35:1}" marker-end="url(#arr)"/>`;
+  }));
+  G.c.forEach(([id]) => {
+    const o = ghost[id] ? 0.35 : 1, isHead = G.h === id;
+    s += `<rect x="${X(id)-8}" y="${Y(id)-8}" width="16" height="16" rx="3" style="fill:var(--commit);opacity:${o}"/>`;
+    if (isHead) s += `<rect x="${X(id)-11}" y="${Y(id)-11}" width="22" height="22" rx="5" style="fill:none;stroke:var(--head);stroke-width:2"/>`;
+    s += `<text x="${X(id)}" y="${Y(id)+24}" text-anchor="middle" style="fill:var(--muted);font-size:10.5px;opacity:${o}">${esc(lab[id])}</text>`;
+    const rs = refsAt[id]; if (!rs) return;
+    if (!kids[id]) {
+      let x = X(id) + 14;
+      rs.forEach(r => { s += pill(x, Y(id)-8, r); x += pw(r) + 4; });
+    } else {
+      rs.forEach((r,i) => { const w = pw(r); s += pill(X(id)-w/2, Y(id)-34-i*19, r); });
+    }
+  });
+  function pill(x, y, r){
+    const w = pw(r);
+    const fill = r.k === "head" ? "var(--head)" : r.k === "tag" ? "var(--tag)" : r.k === "remote" ? "var(--remote)" : "var(--branch)";
+    const ink = r.k === "head" ? "var(--commit-ink)" : "var(--branch-ink)";
+    let t = `<rect x="${x}" y="${y}" width="${w}" height="16" rx="8" style="fill:${fill}"/>`;
+    if (r.head) t += `<circle cx="${x+10}" cy="${y+8}" r="4.5" style="fill:var(--head)"/>`;
+    t += `<text x="${x + (r.head ? 19 : 7)}" y="${y+12}" style="fill:${ink};font-size:10.5px;font-weight:700">${esc(r.n)}</text>`;
+    return t;
+  }
+  return s + `</svg>`;
+}
+
+/* ---------- render ---------- */
+const chaptersEl = document.getElementById("chapters");
+const tocEl = document.getElementById("toc");
+const chipsEl = document.getElementById("chips");
+let n = 0;
+CH.forEach((c, ci) => {
+  const levels = L.filter(l => l.ch === c.id);
+  const sec = document.createElement("section");
+  sec.className = "chapter"; sec.id = "cap-" + c.id; sec.setAttribute("aria-labelledby", "h-" + c.id);
+  sec.innerHTML = `<div class="section-h"><span class="eyebrow">Capitolo ${ci+1} · <b>${esc(c.name)}</b> · ${levels.length} livell${levels.length===1?"o":"i"}</span><h2 id="h-${c.id}">${c.it}</h2></div><p class="chapter-intro">${c.intro}</p>`;
+  tocEl.insertAdjacentHTML("beforeend", `<div class="chap">${esc(c.it)}</div>`);
+  chipsEl.insertAdjacentHTML("beforeend", `<a href="#cap-${c.id}">${esc(c.it)}</a>`);
+  levels.forEach(l => {
+    n++; l.n = n; const key = "l" + String(n).padStart(2,"0");
+    const art = document.createElement("article");
+    art.className = "level"; art.id = key;
+    const goals = l.goals.length
+      ? `<div class="goals"><h4>Obiettivi nel gioco</h4><ul>${l.goals.map(g => `<li><span><span class="en">${esc(g[0])}</span><span class="tr">${esc(g[1])}</span></span></li>`).join("")}</ul></div>`
+      : `<div class="goals"><h4>Obiettivi nel gioco</h4><p style="margin:0">Nessuno: è una sandbox libera.</p></div>`;
+    const graph = l.g ? `<div class="block"><h4>Il grafo prima e dopo</h4><div class="graphs">
+        <div class="graph"><span class="cap">Prima</span><div class="sc">${graphSVG(l.g.b)}</div></div>
+        <div class="graph"><span class="cap">Dopo la soluzione</span><div class="sc">${graphSVG(l.g.a)}</div></div></div></div>` : "";
+    const cmds = l.sol.map(s => s[0]).join("\n");
+    art.innerHTML = `
+      <div class="lv-head">
+        <div class="lv-title">
+          <div class="lv-meta"><span class="num">${l.sandbox ? "Sandbox" : "Livello " + n}</span><span>${esc(c.name)}</span></div>
+          <h3>${esc(l.t)}</h3><span class="it">${esc(l.it)}</span>
+        </div>
+        <label class="done-toggle" for="d-${key}"><input type="checkbox" id="d-${key}" data-k="${key}"> Completato</label>
+      </div>
+      <p class="story">${l.story}</p>
+      ${goals}
+      <div class="concepts" aria-label="Concetti">${l.concepts.map(x => `<span>${esc(x)}</span>`).join("")}</div>
+      <div class="block"><h4>Cosa impari</h4>${l.learn}</div>
+      ${graph}
+      <details class="hint"><summary>Suggerimento</summary><div class="in"><p style="margin:0">${l.hint}</p></div></details>
+      <details class="sol"><summary>Soluzione passo passo</summary><div class="in">
+        <div class="term"><button class="copy" type="button" data-cmds="${esc(cmds)}">Copia comandi</button><ol>${l.sol.map(s => `<li><span class="cmd">${esc(s[0])}</span>${s[1] ? `<span class="cm">${esc(s[1])}</span>` : ""}</li>`).join("")}</ol></div>
+        <div class="why"><p><b>Perché funziona.</b> ${l.why}</p></div>
+        ${l.warn ? `<div class="warn"><p><b>Attenzione.</b> ${l.warn}</p></div>` : ""}
+      </div></details>
+      <details class="quiz"><summary>Verifica: ${l.q}</summary><div class="in"><p style="margin:0">${l.a}</p></div></details>`;
+    art.dataset.search = (l.t + " " + l.it + " " + l.story + " " + l.concepts.join(" ") + " " + cmds + " " + c.name + " " + c.it).toLowerCase();
+    sec.appendChild(art);
+    tocEl.insertAdjacentHTML("beforeend", `<a href="#${key}" data-k="${key}"><span class="n">${l.sandbox ? "S" : n}</span><span class="t">${esc(l.t)}</span></a>`);
+  });
+  chaptersEl.appendChild(sec);
+});
+
+/* cheat sheet */
+const tb = document.querySelector("#cheat tbody");
+CHEAT.forEach(r => {
+  tb.insertAdjacentHTML("beforeend", r.length === 1 ? `<tr class="grp"><td colspan="3">${r[0]}</td></tr>` : `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`);
+});
+
+/* progress */
+const total = L.length;
+function refresh(){
+  let done = 0;
+  document.querySelectorAll(".level").forEach(a => {
+    const k = a.id, on = !!store[k];
+    a.classList.toggle("is-done", on);
+    const cb = a.querySelector("input[type=checkbox]"); if (cb) cb.checked = on;
+    const t = tocEl.querySelector(`a[data-k="${k}"]`); if (t) t.classList.toggle("done", on);
+    if (on) done++;
+  });
+  document.getElementById("pcount").textContent = `${done} / ${total}`;
+  document.getElementById("pbar").style.width = (done / total * 100) + "%";
+}
+document.addEventListener("change", e => {
+  const k = e.target.dataset && e.target.dataset.k;
+  if (!k) return;
+  if (e.target.checked) store[k] = 1; else delete store[k];
+  save(); refresh();
+});
+refresh();
+
+/* copy */
+document.addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.cmds;
+  const ok = () => { const o = b.textContent; b.textContent = "Copiato"; setTimeout(() => b.textContent = o, 1400); };
+  const fallback = () => {
+    const ol = b.parentElement.querySelector("ol"); const r = document.createRange(); r.selectNodeContents(ol);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selezionato: premi Ctrl+C";
+  };
+  try { navigator.clipboard.writeText(text).then(ok, fallback); } catch(err) { fallback(); }
+});
+
+/* search */
+const q = document.getElementById("q");
+q.addEventListener("input", () => {
+  const v = q.value.trim().toLowerCase(); let shown = 0;
+  document.querySelectorAll(".level").forEach(a => { const m = !v || a.dataset.search.includes(v); a.hidden = !m; if (m) shown++; });
+  document.querySelectorAll("#chapters .chapter").forEach(s => { s.hidden = !s.querySelector(".level:not([hidden])"); });
+  document.getElementById("empty").style.display = shown ? "none" : "block";
+});
+</script>
