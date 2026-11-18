@@ -12,8 +12,8 @@ lineNumbers: false
 aspectRatio: "16_/9"
 routerMode: "hash"
 materia: "TPSI"
-as: "2025/2026"
-version: "2.1.1"
+as: "2026/2027"
+version: "2.2.0"
 ---
 
 # JavaScript
@@ -96,7 +96,7 @@ Il [sito web](https://www.w3schools.com/) del consorzio W3C, offre una preziosa 
 Allenarsi con JS
 
 Qui una serie di link a risorse esterne molto utili per mettere a frutto quanto si apprenderà durante il corso.
-Per apprendere correttamente ed efficaciemente JS è necessario fare tanto esercizio sviluppando pagine di e programmi JS di complessità crescente
+Per apprendere correttamente ed efficacemente JS è necessario fare tanto esercizio sviluppando pagine e programmi JS di complessità crescente
 
 <div class="grid grid-flow-col  gap-4">
 <div>
@@ -202,7 +202,7 @@ Materiale Aggiuntivo
 - [JS Regex](/support/4/js/pdf/js_advanced_regex.pdf)
 - [JS Web API](/support/4/js/pdf/js_advanced_web_api.pdf)
 - [Advanced Promise 1](/support/4/js/pdf/js_advanced_promises_01.pdf)
-- [Advanved Promise 2](/support/4/js/pdf/js_advanced_promises_02.pdf)
+- [Advanced Promise 2](/support/4/js/pdf/js_advanced_promises_02.pdf)
 - [Advanced Promise 3](/support/4/js/pdf/js_advanced_promises_03.pdf)
 - [File Upload](/support/4/js/pdf/js_file_upload.pdf)
 
@@ -542,7 +542,7 @@ https://developer.chrome.com/docs/devtools/
 
 - **Elements**: Fornisce accesso al codice HTML e agli stili CSS. Utilissimo per fare il debugging di problematiche legate allo stile della pagina
 - **Console**: Console JavaScript. Permette l'accesso al codice JS della pagina ed è utilissima per il debug
-- **Sources**: Fornisce una panoramica sull'origina di tutte le risorse caricate dalla pagina
+- **Sources**: Fornisce una panoramica sull'origine di tutte le risorse caricate dalla pagina
 - **Network**: Permette di comprendere in modo dettagliato le operazioni di rete del browser
 - **Performance**: Permette di registrare una sessione di navigazione ed analizzare in dettaglio le performance del browser e l'uso delle risorse
 - **Memory**: Fornisce una visione dettagliata della memoria del browser durante l'esecuzione del codice JS
@@ -700,7 +700,7 @@ Browser vs node.js
 &nbsp;
 
 <Cover fs="90px">
-    Sturttura del codice e variabili
+    Struttura del codice e variabili
 </Cover>
 
 
@@ -1104,8 +1104,8 @@ var vs let
 
 var vs let
 
-- Le variabili dichiarate con `var` non hanno uno `scope`
-- In altre parole in qualsiasi parte del programma siano dichiarate diventano globali
+- Le variabili dichiarate con `var` hanno **function scope**: sono visibili in tutta la funzione in cui sono dichiarate (o in tutto il programma, se dichiarate fuori da una funzione)
+- Ignorano invece i blocchi `{ }` (if, for, while, ...): una `var` dichiarata in un blocco è visibile anche fuori
 
 ```js
 var a = 10;
@@ -1123,7 +1123,7 @@ valore di a 10
 b è diventata globale, infatti a + b = 30
 ```
 
-- Come si vede la dichiarazione di b nello scope dell'if ha assunto carattere globale, appunto ignorando lo scope
+- Come si vede la dichiarazione di b nel blocco dell'if è visibile anche fuori, perché `var` ignora lo scope di blocco
 
 --- #slide N
 
@@ -1187,7 +1187,7 @@ il quadrato di i vale 9
 var vs let
 
 - L'introduzione di `let` risolve questo tipo di problematiche
-- Le variabili dichiarate con `let` hanno validità **SOLO** all'interno dello scope in cui sono definite
+- Le variabili dichiarate con `let` hanno validità **SOLO** all'interno del blocco `{ }` in cui sono definite (**block scope**)
 - Questo evita le problematiche viste prima e riduce o elimina la tipologia di bug introdotti da **var**
 
 ```js
@@ -1197,7 +1197,6 @@ console.log(`il quadrato di i vale ${i * i}`);
 for(let i = 0; i < 3; i++) {
   console.log("ciclo");
 }
-
 console.log(`il quadrato di i vale ${i * i}`);
 
 //output
@@ -1225,11 +1224,11 @@ if (a == 10) {
   let b = 20;
 }
 
-console.log(`b è diventata globale, infatti a + b = ${a+b}`);
+console.log(`b non è stata modificata, infatti a + b = ${a+b}`);
 
 //output
 valore di a 10
-b è diventata globale, infatti a + b = 15
+b non è stata modificata, infatti a + b = 15
 ```
 
 <br>
@@ -1247,11 +1246,11 @@ Dichiarare e definire SEMPRE le variabili usando <mark>let</mark>
 <br />
 
 ```js
-let numero =5;
-numero =6; // riassegnazione valida
+let numero = 5;
+numero = 6; // riassegnazione valida
 
-cont numero =5;
-numero = 6; //genera un errore: Uncaught TypeError: Assignment to constant variable.
+const costante = 5;
+costante = 6; //genera un errore: Uncaught TypeError: Assignment to constant variable.
 ```
 
 <br />
@@ -1361,9 +1360,10 @@ modifichiamo una pagina HTML in JS
 
 
 `getElementsByClassName('<classname>')`
-- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe.
+- restituisce un HTMLCollection(collezione o array di nodi) di tutti gli elementi del documento che hanno un determinato nome di classe.
 - Questo metodo è molto utile per accedere e manipolare più elementi contemporaneamente quando condividono la stessa classe.
 - Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
+- Attenzione: un HTMLCollection non ha il metodo `forEach`, si scorre con un ciclo `for`
 
 <br>
 
@@ -1391,7 +1391,7 @@ document.getElementsByClassName('importante')
 
 modifichiamo una pagina HTML in JS
 
-`getElementsByName('<object name'>)`
+`getElementsByName('<object name>')`
 - restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato attributo name.
 - Questo metodo è comunemente utilizzato per accedere agli elementi di un form come campi di input, pulsanti radio, checkbox e selezioni.
 - Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
@@ -1420,8 +1420,8 @@ document.getElementsByName('cognome');
 
 modifichiamo una pagina HTML in JS
 
-`getElementsTagName('<tag name'>)`
-- restituisce un NodeList(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag.
+`getElementsByTagName('<tag name>')`
+- restituisce un HTMLCollection(collezione o array di nodi) di tutti gli elementi nel documento che hanno un determinato tag.
 - Se non ci sono corrispondenze restituisce una lista vuota (length = 0)
 
 <br>
@@ -1515,7 +1515,7 @@ Modificare oggetti HTML in JS
 Esempio:
 
 ```js
-let h1 = document.getElementByID('titolo');
+let h1 = document.getElementById('titolo');
 
 h1.style.color = 'red'; //imposta il colore di foreground a rosso
 
@@ -2017,7 +2017,7 @@ Ascoltiamo e gestiamo gli eventi
 - Per esempio al click del mouse su un oggetto si genera l'evento `onclick`
 
 - Ci sono due elementi fondamentali per la gestione degli eventi
-  1. `evento name`: nome dell'evento da scoltare
+  1. `evento name`: nome dell'evento da ascoltare
 
   2. `event handler`: codice di gestione che viene eseguito al verificarsi dell'evento
 
@@ -2027,18 +2027,18 @@ Ascoltiamo e gestiamo gli eventi
 
 Ascoltiamo e gestiamo gli eventi
 
-- Per definire un `event hanlder` per uno specifico `evento` emesso da uno specifico oggetto utilizziamo
+- Per definire un `event handler` per uno specifico `evento` emesso da uno specifico oggetto utilizziamo
 
 `addEventListener('<nome evento da ascoltare>', <event handler>)`
 
 ```js
-let button = document.getelementById('pulsate-invio');
+let button = document.getElementById('pulsante-invio');
 
 button.addEventListener('click', gestoreClick);
 
 //event handler
 function gestoreClick() {
-    console.log("Il pulsante di invio è stato premuto');
+    console.log("Il pulsante di invio è stato premuto");
 }
 ```
 
@@ -2092,7 +2092,7 @@ Partendo dai template [rubrica_js_template.html](/support/4/js/rubrica_js_templa
 2. L'utente può rimuovere un contatto presente in rubrica premendo il pulsante 4
 3. L'utente può cercare un contatto in rubrica per cognome o numero di telefono tramite pulsante 1.
 4. Il contatto ricercato viene visualizzato nella parte superiore dell'interfaccia in modo che sia possibile modificarne i suoi campi e successivamente aggiornare la rubrica tramite il pulsante 3
-5. Dopo il salvataggio e l'aggiornamneto i campi di input devono essere vuoti
+5. Dopo il salvataggio e l'aggiornamento i campi di input devono essere vuoti
 6. Consegnare su github i file dell'applicazione rispettivamente nominati _|cognome|\_esercizio_js_07.html_, _|cognome|\_esercizio_js_07.css_ e _|cognome|\_esercizio_js_07.js_
 
 --- #slide N
@@ -2134,7 +2134,7 @@ Gestione Paghe JS
 
 Partendo dai template [paghe_js_template.html](/support/4/js/paghe_js_template.html) e [paghe_js_template.css](/support/4/js/paghe_js_template.css), si richiede di realizzare una web app (in JS vanilla) che implementa una semplice gestione paghe di un azienda, con le seguenti funzionalità:
 
-1. L'utente può inserire una nuova registrazione di pagha compilando TUTTI i campi del form. Se uno o più campi sono assenti informare l'utente con un appropriate messaggio di errore
+1. L'utente può inserire una nuova registrazione di paga compilando TUTTI i campi del form. Se uno o più campi sono assenti informare l'utente con un appropriate messaggio di errore
 2. L'utente aggiunge una nuova paga premendo l'icona 1
 3. Alla prima pressione dell'icona 2, se sono presenti almeno 2 paghe viene visualizzato il totale delle paghe presenti
 4. Ad ogni successiva pressione dell'icona 2 il totale delle paghe viene aggiornato (no rimozione e aggiunta linea, ma aggiornamento)
@@ -2213,14 +2213,17 @@ Materiale Aggiuntivo
 Tipi di dato
 
 - Java Script definisce 8 tipi di dato
-  1. **Number**
-  2. **BigInt**
-  3. **String**
-  4. **Boolean**
-  5. **null**
-  6. **undefined**
-  7. **object**
-  8. **Date**
+  - 7 tipi **primitivi** (rappresentano un singolo valore)
+    1. **Number**
+    2. **BigInt**
+    3. **String**
+    4. **Boolean**
+    5. **null**
+    6. **undefined**
+    7. **Symbol** (non trattato nel corso)
+  - 1 tipo **non primitivo**
+    8. **object** (oggetti, array, date, funzioni, ...)
+- **Date** non è un tipo a sé, ma un oggetto predefinito di JS: `typeof new Date()` restituisce `"object"`
 
 --- #slide N
 
@@ -2373,7 +2376,7 @@ Number
 
 - JavaScript mette a disposizione 4 metodi per arrotondare un numero:
   - **Math.floor**: restituisce il numero intero più grande minore o uguale al numero da arrotondare
-  - **Math.ceil**: restituisce il numero arrotondato al numero intero più grande maggiore del numero dato
+  - **Math.ceil**: restituisce il numero intero più piccolo maggiore o uguale al numero da arrotondare
 
 <br />
 
@@ -2469,7 +2472,7 @@ BigInt
 
 - Il tipo _Number_ può rappresentare numeri nel range [da - 2<sup>53</sup> a 2<sup>53</sup>]
 - Normalmente questo è un range sufficiente per la maggior parte delle situazioni
-- Se serve rappresentare numeri al difuori di questo range, si può ricorrere al tipo `BigInt`
+- Se serve rappresentare numeri al di fuori di questo range, si può ricorrere al tipo `BigInt`
 - **BigInt** può avere una lunghezza arbitraria aggiungendo `n` al termine del numero intero
 
 <br />
@@ -2492,10 +2495,10 @@ Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
 
 String
 
-- Una stringa è una successione di caratteri ascii. Tuttavia il tipo **_carattere_** non esiste.
+- Una stringa è una successione di caratteri (codificati in UTF-16). Tuttavia il tipo **_carattere_** non esiste.
 - In JS una stringa può essere racchiusa tra:
 
-  - "stringa": Doble quotes o virgolette
+  - "stringa": Double quotes o virgolette
   - 'string': Single quote o apici
   - \`stringa con dentro un altra ${stringa}\`: Backticks
 
@@ -2625,7 +2628,7 @@ prompt("Come ti chiami?") || alert("Non hai inserito nessun nome");
 Il codice è equivalente a:
 
 ```js
-if (prompt("Come ti chiami?") == false) {
+if (!prompt("Come ti chiami?")) {
   alert("Non hai inserito nessun nome");
 }
 ```
@@ -2709,12 +2712,15 @@ a && b || !c -> (a && b) || (!c)
 
 I 4 operatori booleani
 
-- L'operatore **??** chiamato `Nullish coalescing operator` verifica se il primo operando è definito (esiste ed ha un valore valido). In caso positivo restituisce la prima espressione altrimenti la seconda
+- L'operatore **??** chiamato `Nullish coalescing operator` restituisce il secondo operando **solo** se il primo è `null` o `undefined`, altrimenti restituisce il primo
 
 ```js
-a ?? b -> restituisce a se è valida e definita altrimenti b
+a ?? b -> restituisce b se a è null o undefined, altrimenti a
 "ciao" ?? false -> "ciao"
 undefined ?? "errore" -> "errore"
+// differenza con || : 0 e "" sono valori validi per ??
+0 ?? 5 -> 0          0 || 5 -> 5
+"" ?? "x" -> ""      "" || "x" -> "x"
 
 let user;
 alert(user ?? "utente invalido") -> "utente invalido"
@@ -2722,7 +2728,6 @@ user = "Mario Rossi";
 alert(user ?? "utente invalido") -> "Mario Rossi"
 
 let result = a ?? b;
-
 let result;
 if (a ! = null && a ! = undefined) //no spazio tra ! e =
   result = a;
@@ -3098,12 +3103,12 @@ let left-value = right-value;
 
 dove **left-value** rappresenta una variabile a cui viene assegnato il valore dell'espressione **right-value**
 
-- Siccome **=** è un operatore(a differenza di altri linguaggi (C/C++)) l'assegnazione restituisce un valore che coincide con il right-value dell'espressione
+- Siccome **=** è un operatore (esattamente come in C/C++) l'assegnazione restituisce un valore che coincide con il right-value dell'espressione
 
 - Pertanto l'assegnazione
 
 ```js
-let left-value = right-value;
+left-value = right-value;
 ```
 <br>
 
@@ -3117,14 +3122,15 @@ operatori di assegnazione
 
 ```js
 let a = 10;
-let b = 20;
+let c, d;
 let str = "dieci";
 
 let b = (c = d = 1);
 // 1 viene assegnato a d che restituisce 1 che viene assegnato a c
 // che restituisce 1 che viene assegnato a b
 
-let c = 4 + (a = b - 3); // 21
+b = 20;
+c = 4 + (a = b - 3); // 21
 // ad a viene assegnato il valore b - 3 (17) che viene sommato a 4
 
 console.log(a); // 17
@@ -3485,7 +3491,7 @@ if (n == 3) {
 }
 
 let anni = prompt("Quanti anni hai?", "");
-if ((anni = 16)) {
+if (anni == 16) {
   console.log("Probabilmente sei uno studente!!");
 }
 
@@ -3566,7 +3572,7 @@ if...else if...else...?
 ```js
 let anni = prompt("Quanti anni hai?", "");
 
-let studente = anni < 25 ? True : False;
+let studente = anni < 25 ? true : false;
 
 let professione = anni < 25 ? "Studente" : "Lavoratore";
 ```
@@ -3669,7 +3675,7 @@ switch (Number(anni)) {
 if multipli
 
 - Sia switch che case accettano una qualsiasi espressione.
-- La cosa importante che vengano valutate allo stesso tipo in quanto switch usa uno Strick equity check
+- La cosa importante che vengano valutate allo stesso tipo in quanto switch usa uno Strict equality check
 
 ```js
 let a = 10;
@@ -3832,7 +3838,7 @@ repeat yourself
 let i = 0;
 for (; i < 3; i++) console.log(i);
 
-let i = 0;
+i = 0;
 for (; i < 3; ) {
   console.log(i);
   i++;
@@ -4235,7 +4241,7 @@ merge("Antonio");
 
 don't repeat yourself
 
-- Esattamente come in C/C++ una funzione restituisce **sempre** un valore
+- In JS una funzione restituisce **sempre** un valore (a differenza del C/C++, dove una funzione `void` non restituisce nulla)
 - Una funzione che non restituisce esplicitamente un valore restituisce **undefined**
 
 ```js
@@ -4390,14 +4396,14 @@ console.log(somma(5,3));
 don't repeat yourself
 
 - In JS le <mark>funzioni anonime sono usate molto spesso</mark>, soprattutto come parametri di altre funzioni
-- La funzione `setTimeout(<function>, timeout)` chiama la funzione **function** ogni **timeout** millisecondi
+- La funzione `setInterval(<function>, timeout)` chiama la funzione **function** ogni **timeout** millisecondi
 
 ```js
 function tick() {
   console.log("tick");
 }
 
-setTimeout(tick, 1000);
+setInterval(tick, 1000);
 ```
 
 <br />
@@ -4405,7 +4411,7 @@ setTimeout(tick, 1000);
 - Vediamo un modo più veloce e pratico di usare setInterval usando una funzione anonima
 
 ```js
-setTimeout(function () {
+setInterval(function () {
   console.log("tick");
 }, 1000);
 ```
@@ -4446,18 +4452,16 @@ don't repeat yourself
 
 ```js
 console.log(somma(3, 5));
-
 function somma(a, b) {
   return a + b;
 }
-
 console.log(somma(6, 1));
-> 8
-> 7
+> 8 >7
 ```
 
 - Come si vede la prima linea è eseguita correttamente anche se la dichiarazione della funzione somma avviene dopo nel codice
-- Questo perché le funzioni dichiarate in questo modo hanno scope globale e l'interprete JS le valuta prima dell'esecuzione delle altre linee di codice
+- Questo perché l'interprete JS, prima di eseguire il codice, legge tutte le function declaration del loro scope e le rende subito disponibili
+- Questo meccanismo si chiama **hoisting** (sollevamento): è come se la funzione fosse scritta all'inizio dello scope
 
 ---
 
@@ -4477,7 +4481,7 @@ let somma = function(a, b) {
 
 console.log(somma(6, 1));
 
-> Uncaught SyntaxError: Identifier 'somma' has already been declared
+> Uncaught ReferenceError: Cannot access 'somma' before initialization
 
 ```
 
@@ -5371,7 +5375,7 @@ Ciao io sono l'utente Giuseppe Verdi
     - Le variazioni di velocità e marcia sono consentite solo se l’auto è accesa.
     - Dopo ogni operazione, sullo schermo occorre visualizzare lo stato attuale dell’automobile (persone, velocità, marcia, on/off), tramite apposito metodo
   - fornisca il main che:
-    - verifichi il corretto funzionamento della classe Automobile instanziandone un'oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
+    - verifichi il corretto funzionamento della classe Automobile instanziandone un oggetto e richiamando tutti i metodi in modo opportuno, in modo da verificare tutte le possibili combinazioni di funzionamento
     - L'output è gestito solo dal main
 
 - Consegnare su github il file con nome _|cognome|\_esercizio_js_20.js_
@@ -5576,7 +5580,7 @@ let str = "Ciao Mondo!";
 console.log(str.charCodeAt(0));  // 67
 console.log(str.charCodeAt(1));  // 105
 console.log(str.charCodeAt(6));  // 111
-console.log(str.charCodeAt(56)); // Nan
+console.log(str.charCodeAt(56)); // NaN
 ```
 
 ---
@@ -5881,7 +5885,7 @@ str.toLowerCase()
 
 TUTTO MAIUSCOLO: toUpperCase()
 
-`toUpperCase())`
+`toUpperCase()`
 
 ***converte una stringa tutto in maiuscolo e restituisce una nuova stringa senza modificare la stringa originale***
 
@@ -5912,7 +5916,7 @@ str.trim()
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -5929,7 +5933,7 @@ I tre passaggi fondamentali di TDD:
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -5948,7 +5952,7 @@ Introduzione
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -5969,7 +5973,7 @@ Introduzione
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -5986,7 +5990,7 @@ Introduzione
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -6003,7 +6007,7 @@ Introduzione
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Vantaggi del TDD
 
@@ -6022,7 +6026,7 @@ Vantaggi del TDD
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Sfide del TDD
 
@@ -6040,7 +6044,7 @@ Sfide del TDD
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Introduzione
 
@@ -6050,7 +6054,7 @@ In conclusione, la metodologia TDD è un approccio potente per migliorare la qua
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6066,7 +6070,7 @@ Esercizi con la metodologia TDD
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6095,7 +6099,7 @@ Se tutto è andato a buon fine sei pronto ad iniziare a sviluppare e risolvere g
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6107,7 +6111,7 @@ Esercizi con la metodologia TDD
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6158,7 +6162,7 @@ describe("ESERCIZIO SOMMA", () => {
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6181,7 +6185,7 @@ export const somma = (n1, n2) => {
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6210,7 +6214,7 @@ Received: undefined
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6240,7 +6244,7 @@ Time:        0.357 s, estimated 1 s
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 Esercizi con la metodologia TDD
 
@@ -6249,8 +6253,8 @@ Esercizi con la metodologia TDD
 
 <br>
 
-- Questa è l'essenza della metologia TDD
-- Tutti gli esercizi successivi (se non altrimenti specificato) vanno risolti seguendo questo motodo e passi
+- Questa è l'essenza della metodologia TDD
+- Tutti gli esercizi successivi (se non altrimenti specificato) vanno risolti seguendo questo metodo e passi
 
 <Banner padding=30px mt=30px>
 Il vantaggio per lo studente è che ha la certezza (se tutti i test sono superati con successo) che la sua soluzione sia corretta
@@ -6258,12 +6262,12 @@ Il vantaggio per lo studente è che ha la certezza (se tutti i test sono superat
 
 ---
 
-# Test Drive Development
+# Test-Driven Development
 
 
 <Banner padding=50px mt=50px >
 <span  style="font-size: 30px;">
-  Nei seguenti esercizi, da svolgere con la metodologia TDD, è fornita una breve descrizione testuale. Tuttavia si ricorda che la descrizione ufficiale dell'eserczio è il file dei test fornito dal docente test.js
+  Nei seguenti esercizi, da svolgere con la metodologia TDD, è fornita una breve descrizione testuale. Tuttavia si ricorda che la descrizione ufficiale dell'esercizio è il file dei test fornito dal docente test.js
 </span>
 </Banner>
 
@@ -6274,7 +6278,7 @@ Il vantaggio per lo studente è che ha la certezza (se tutti i test sono superat
 
 Stringhe
 
-1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel forato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
+1. Scrivere una funzione (abbreviazione) in JS che ricevuta in input una stringa nel formato "nome cognome" restituisca la sua abbreviazione nel formato "nome prima lettera del cognome."
 2. Inoltre la prima lettera del nome e del cognome deve essere in maiuscolo
 
 
@@ -6328,9 +6332,9 @@ Stringhe
 1. Scrivere una funzione (capitalize) in JS che ricevuta in input una stringa restituisca una stringa in cui la prima lettera è maiuscolo
 
 ```js
-IN: ciamo mondo!!!
+IN: ciao mondo!!!
 
-OUT: Ciamo mondo!!!
+OUT: Ciao mondo!!!
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_26.js_
@@ -6344,9 +6348,9 @@ Stringhe
 1. Scrivere una funzione (capitalize_all) in JS che ricevuta in input una stringa restituisca una stringa in cui tutti i primi caratteri di ogni parola siano maiuscoli
 
 ```js
-IN: ciamo mondo la terra gira!!!
+IN: ciao mondo la terra gira!!!
 
-OUT: Ciamo Mondo La Terra Gira!!!
+OUT: Ciao Mondo La Terra Gira!!!
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_27.js_
@@ -6361,7 +6365,7 @@ Stringhe
 1. Scrivere una funzione (upper_case) in JS che ricevuta in input una stringa restituisca una stringa con tutti i caratteri maiuscoli senza usare il metodo toUpperCase()
 
 ```js
-IN: ciamo mondo!!!
+IN: ciao mondo!!!
 
 OUT: CIAO MONDO!!!
 ```
@@ -6656,7 +6660,7 @@ let frutti = Array(5); // dichiara un array composto da 5 elementi vuoti
 
 let matrice = [[], [], []]; // dichiara un array di array o matrice
 let matrice = Array(Array(3), Array(3), Array(3)); //
-let matrice = Array(3).fill(Array(3)); //Stile js
+let matrice = Array.from({ length: 3 }, () => Array(3)); //Stile js: 3 righe indipendenti
 ```
 
 <br>
@@ -6683,7 +6687,7 @@ let matrice = [
   [1, 1, 1],
   [1, 1, 1],
 ]; // matrice 3x3 di tutti 1
-let matrice = Array(5).fill([0,0,0,0,0]); // matrice 5x5 di tutti 0
+let matrice = Array.from({ length: 5 }, () => Array(5).fill(0)); // matrice 5x5 di tutti 0
 ```
 
 <br>
@@ -6773,14 +6777,14 @@ Gli elementi dell'array sono [1,mele,2,pere,5,ciliegie]
 
 # Array
 
-Shallow copy
+Copia per riferimento
 
 - copia di un array per referenza
 - l'oggetto copia è una referenza all'oggetto copiato e pertanto ne condivide il contenuto
 
 ```js
 let numeri = [1, 2, 3, 4, 5];
-let numeri_copia = numeri; // shallow copy
+let numeri_copia = numeri; // NON è una copia: stesso array, due nomi
 
 console.log("Numeri:", numeri);
 > Numeri: [ 1, 2, 3, 4, 5 ]
@@ -6799,7 +6803,7 @@ console.log("Numeri copia:", numeri_copia);
 
 # Array
 
-Deep copy
+Copia per valore
 
 - copia di un array per valore
 - l'oggetto copia non è una referenza all'oggetto copiato e pertanto il contenuto è una copia effettiva e separata dai valori copiati
@@ -6807,7 +6811,7 @@ Deep copy
 ```js
 let numeri = [1, 2, 3, 4, 5];
 
-let numeri_copia = JSON.parse(JSON.stringify(numeri)); // deep copy
+let numeri_copia = JSON.parse(JSON.stringify(numeri)); // copia indipendente
 
 console.log("Numeri:", numeri);
 > Numeri: [ 1, 2, 3, 4, 5 ]
@@ -6826,7 +6830,7 @@ console.log("Numeri copia:", numeri_copia);
 
 # Array
 
-Deep copy:  ... spread operator
+Copia per valore:  ... spread operator
 
 - L'operatore di spread `...` espande il contenuto di un array al posto di un argomento
 
@@ -6835,7 +6839,7 @@ Deep copy:  ... spread operator
 ```js
 let numeri = [1, 2, 3, 4, 5];
 
-// deep copy con spread operator
+// copia indipendente con spread operator
 let numeri_copia = [...numeri]; // ...numeri diventa 1,2,3,4,5
 
 console.log("Numeri:", numeri);
@@ -6851,7 +6855,7 @@ console.log("Numeri copia:", numeri_copia);
 > Numeri copia: [ 1, 2, 3, 4, 5 ]
 ```
 
-
+- Attenzione: se l'array contiene oggetti, la copia condivide gli stessi oggetti 
 
 ---
 
@@ -6895,7 +6899,7 @@ console.log(parola);
 ["h", "e", "l", "l", "o"];
 
 parola.push(" "); //aggiungo in coda il carattere spazio
-parila.push("w"); //aggiungo in coda il carattere w
+parola.push("w"); //aggiungo in coda il carattere w
 
 console.log(parola);
 ["h", "e", "l", "l", "o", " ", "w"];
@@ -7182,7 +7186,7 @@ Accesso a specifici elementi: at()
 let frutti_numeri = [1, "mele", 2, "pere", 5, "ciliegie"];
 
 >console.log(frutti_numeri[-1]);
-undefine
+undefined
 
 >console.log(frutti_numeri.at(-1)); // accede all'ultimo elemento dell'array
 ciliegie
@@ -7232,7 +7236,7 @@ Iterazione di un Array: forEach()
 
 ***itera l'array eseguendo una funzione per ogni elemento, senza la necessità di conoscerne la sua dimensione.***
 
-- In generale forEach() è applicabile a qualsiasi oggetto o struttura dati iterabile
+- forEach() è disponibile anche su altre strutture dati come Map, Set e NodeList (ma non su stringhe e HTMLCollection)
 
 <br>
 
@@ -7805,7 +7809,7 @@ function confronta(a, b) {
       return <valore maggiore di 0>
     }
 
-    if (a è uguale a b in base a dun criterio) {
+    if (a è uguale a b in base a un criterio) {
         return 0;
     }
 }
@@ -7902,11 +7906,11 @@ Affettare un array: slice()
 
 `slice(inizio, fine)`
 
-***restituisce una copia (deep) di una porzione di un array in un nuovo oggetto array selezionato dall'indice inizio fino all'indice fine (non incluso). L'array originale non verrà modificato***
+***restituisce una copia di una porzione di un array in un nuovo oggetto array selezionato dall'indice inizio fino all'indice fine (non incluso). L'array originale non verrà modificato***
 
 ```js
 let numeri = [1, 3, 5, 7, 9, 11];
-let numeri_copia = numeri.slice(); // metodo preferito in JS per un deep copy
+let numeri_copia = numeri.slice(); // metodo preferito in JS per copiare un array
 
 console.log("Numeri:", numeri);
 > Numeri: [ 1, 3, 5, 7, 9, 11 ]
@@ -8105,7 +8109,7 @@ console.log("Valore totale del magazzino:", totale_magazzino);
 
 Array
 
-1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli alttri elementi, il tutto senza usare la funzione reverse
+1. Scrivere una funzione che dato un array numerico in input, restituisca un array con gli elementi in ordine inverso, e aggiunga un ulteriore elemento in testa, che corrisponde alla somma di tutti gli altri elementi, il tutto senza usare la funzione reverse
 
 ```js
 IN: [1,2,3]
@@ -8317,7 +8321,7 @@ Array
 ```js
 IN [1,2,3,4,5,6,7] , 3
 
-OUT [5,6,7, 1,2,3]
+OUT [5,6,7,1,2,3,4]
 ```
 
 2. Consegnare su github il file con nome _|cognome|\_esercizio_js_53.js_
@@ -8416,7 +8420,7 @@ Array
 
 Oggetti generici o Array associativo
 
-- Una mappa `Map` è un oggetto in JS chè molto simile agli oggetti literals visti in precedenza
+- Una mappa `Map` è un oggetto in JS che è molto simile agli oggetti literals visti in precedenza
 - Pertanto un **Map** è una collezione di coppie chiave-valore (key-value)
 - Le caratteristiche e differenze principali, con quest'ultimi, sono:
   - la chiave (key) può essere di qualsiasi tipo e non solo string come negli object literals
@@ -8506,7 +8510,7 @@ let mappa =  new Map([[1, 'rosso'],[2, 'verde'], [3, 'blu']]);
 console.log("La chiave 1 è presente nella mappa:", mappa.has(1));
 > La chiave 1 è presente nella mappa: true
 
-console.log("La chiave 3 è presente nella mappa:", mappa.has(1));
+console.log("La chiave 3 è presente nella mappa:", mappa.has(3));
 > La chiave 3 è presente nella mappa: true
 
 console.log("La chiave R è presente nella mappa:", mappa.has('R'));
@@ -8531,11 +8535,11 @@ console.log(mappa);
 
 mappa.delete(1);
 console.log(mappa);
-> Map(3) { 2 => 'verde', 3 => 'blu' }
+> Map(2) { 2 => 'verde', 3 => 'blu' }
 
 let res = mappa.delete(4);
 console.log(mappa);
-> Map(3) { 2 => 'verde', 3 => 'blu' }
+> Map(2) { 2 => 'verde', 3 => 'blu' }
 
 console.log(res)
 > false
@@ -8671,9 +8675,9 @@ for(let valore of mappa.values())
 
 # Map
 
-Iterare una mappa: entires()
+Iterare una mappa: entries()
 
-`entires()`
+`entries()`
 
 **restituisce un oggetto iteratore che contiene tutte le coppie chiave-valore della mappa**
 
@@ -8720,7 +8724,7 @@ console.log(insieme);
 
 let insieme = new Set([1, 2, 1, 2]);
 console.log(insieme);
-> Set(4) { 1, 2 }
+> Set(2) { 1, 2 } // i duplicati sono stati scartati
 ```
 
 
@@ -8853,7 +8857,7 @@ insieme.forEach(item => console.log("Elemento:", item))
 
 # Set
 
-Iterare una mappa: for..of
+Iterare un set: for..of
 
 - con for..of si possono iterare tutti gli elementi di un set
 
@@ -8957,7 +8961,7 @@ OUT:  [ 52, 49, 42 ]
 
 Array, Map, Set
 
-1. Scrivere una funzione che ricevuta una stringa restituisca una stringa in cui i caratteri duplicati sono eliminati. In altre parole deve restituire una stringa di caratteri univoci o con occorrenza 1
+1. Scrivere una funzione che ricevuta una stringa restituisca una stringa in cui i caratteri duplicati sono eliminati. In altre parole ogni carattere deve comparire una sola volta, mantenendo l'ordine della prima occorrenza
 
 ```js
 IN: "supercalifragilistichespiralidoso"
@@ -8990,7 +8994,7 @@ OUT:  Map(5) { 'a' => 3, 'e' => 2, 'i' => 6, 'o' => 2, 'u' => 1 }
 &nbsp;
 
 <Cover fs="90px">
-    Destrutcuring
+    Destructuring
 </Cover>
 
 --- #slide 1
@@ -9439,11 +9443,11 @@ Formato dati
   - E'  un semplice formato **testuale** per lo scambio e lo storage di dati
   - Per le persone è facile da leggere e scrivere, mentre per le macchine risulta facile da generare e analizzarne la sintassi.
   - Diventato estremamente popolare con l'avvento del web 2.0 (AJAX)
-  - Universalmente adottato anche al difuori del mondo web data la sua semplicità ed immediatezza
+  - Universalmente adottato anche al di fuori del mondo web data la sua semplicità ed immediatezza
   - E' "auto-descrittivo" e facile da comprendere
 
 - Per tutti questi ed altri motivi, oggi JSON è uno dei formati di rappresentazione dei dati più popolare
-- Ha rimpiazzato i vecchi XML praticamente ovunque, tranne che in Java cove XML per ragioni storiche rimane ancora molto utilizzato
+- Ha rimpiazzato i vecchi XML praticamente ovunque, tranne che in Java dove XML per ragioni storiche rimane ancora molto utilizzato
 
 ---
 
@@ -9478,7 +9482,7 @@ Formato dati
 
 JSON come formato universale di trasporto dati
 
-- Come menzionato prima, JSON è diventato estremamente popolare con l'avvento della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i datoidal server tramite HTTP
+- Come menzionato prima, JSON è diventato estremamente popolare con l'avvento della tecnica AJAX per uno sviluppo web moderno in cui il browser (client) preleva i dati dal server tramite HTTP
 - Il formato dati utilizzato da AJAX è JSON
 - Pertanto un oggetto file/oggetto JSON è identico ad un oggetto JS, ma il primo è in formato testuale
 - Quindi quando il server vuole inviare un oggetto al client `deve convertirlo in JSON`
@@ -9515,7 +9519,7 @@ console.log(studente_str)
 ```
 <br>
 
-- Quindi ora la stringa studente_str è facilemente trasmissibile via HTTP (protocollo testuale)
+- Quindi ora la stringa studente_str è facilmente trasmissibile via HTTP (protocollo testuale)
 
 ---
 
@@ -9525,7 +9529,7 @@ Da oggetto a JSON: stringify()
 
 - Quindi il metodo JSON.stringify(oggetto) converte l'oggetto in una stringa
 - La stringa risultante si dice JSON-encoded
-- Questa operazione di conversionie si chiama `serializzazione`
+- Questa operazione di conversione si chiama `serializzazione`
 
 - Importante notare le principali differenze tra oggetto literal e JSON
   - JSON usa **sempre** le doppie virgolette **'Mario'** diventa **"Mario"**
@@ -9666,7 +9670,7 @@ console.log(studente_obj.nome);
 
 Da JSON a oggetto: parse()
 
-- Importante notare che il formato JSON **NON supporta i commenti** pertanto non vengono ne serializati ne deserializzati, in quest'ultimo caso producono un errore
+- Importante notare che il formato JSON **NON supporta i commenti** pertanto non vengono ne serializzati ne deserializzati, in quest'ultimo caso producono un errore
 
 ```js
 let studente_obj = {
@@ -9769,7 +9773,7 @@ Classe: sintassi
 
 ```js
 class MiaClasse {
-    filed1 = 10;          //class field o member variables
+    field1 = 10;          //class field o member variables
     field2 = "nome";      // attributo della classe
     constructor() { ... } //costruttore dell'oggetto
     metodo1() { ... }     //Gli altri metodi implementano
@@ -9878,7 +9882,7 @@ mario.Saluta();
 ```
 
 - Quindi quando l'oggetto *mario* invoca il metodo *Saluta*, *this.nome* significa:
-  -  acceddi allla proprietà *nome* dell'oggetto *mario* e di nessun'altro oggetto eventualemnte istanziato dalla stessa classe
+  -  accedi alla proprietà *nome* dell'oggetto *mario* e di nessun altro oggetto eventualmente istanziato dalla stessa classe
 
 
 ---
@@ -9906,7 +9910,7 @@ Getter e Setter
 ```js
 class Studente {
     constructor(nome, classe) {
-        this.nome = nome; //chiama il setter della properità nome
+        this.nome = nome; //chiama il setter della proprietà nome
         this.classe = classe;
     }
     get nome() {
@@ -9947,7 +9951,7 @@ Getter e Setter
 ```js
 class Studente {
     constructor(nome, classe) {
-        this.nome = nome; //chiama il setter della properità nome
+        this.nome = nome; //chiama il setter della proprietà nome
         this.classe = classe;
     }
     get nome() {
@@ -9980,7 +9984,7 @@ Pseudo Proprietà
 ```js
 class Quadrato {
     constructor(l) {
-        this.lato = l; //lato è un attributo della classe Qaudrato
+        this.lato = l; //lato è un attributo della classe Quadrato
     }
 
     set lato(val) { this._lato = val; }
@@ -10396,6 +10400,7 @@ class Numero extends Number {
     }
 }
 
+let N = new Numero(10.7);
 console.log(`Il numero N vale ${N.arrotonda()}`);
 
 > Il numero N vale 11
@@ -10463,7 +10468,7 @@ Visibilità di metodi e attributi
 - Per esempio un computer:
   - il suo uso avviene facilmente attraverso tastiera, mouse e display (le interfacce esterne di I/O)
   - tuttavia il suo funzionamento interno (incapsulato) è piuttosto complesso
-  - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tasiera e OS
+  - ci sono decine di interfacce interne che rendono possibile la comunicazione tra CPU e Memoria, tra GPU e display, tra tastiera e OS
   - tuttavia l'utente vede ed usa solo le interfacce esterne, mentre ignora la presenza ed il funzionamento di quelle interne
 - Questo è il principio di `incapsulamento` nel mondo fisico. Ciò è utile anche nel mondo del software
 
@@ -10541,7 +10546,7 @@ class Studente {
 
 Visibilità di metodi e attributi
 
-- Recentemente la specifica ECMA script 6 ha introdotto uno specifico delimitatore `#` per indicare un metodo o un attributo **privato**
+- Recentemente la specifica ECMAScript 2022 (ES2022) ha introdotto uno specifico delimitatore `#` per indicare un metodo o un attributo **privato**
 - Pertanto tutti i metodi e attributi identificati da `#` NON sono accessibili dall'esterno della classe, ma solamente dal suo interno, e quindi **privati**
 
 ```js
@@ -10597,7 +10602,7 @@ studente.#promosso();
 Confronto di oggetti
 
 - Può essere utile verificare se un oggetto è di uno specifico tipo, o meglio se un oggetto è un'istanza di una determinata classe
-- JS mette a disposizione la keywork `instanceof` che serve proprio a questo scopo
+- JS mette a disposizione la keyword `instanceof` che serve proprio a questo scopo
 
 ```js
 class Studente {}
@@ -10744,7 +10749,7 @@ JS Objects
 // che viene generato quando la pagina HTML ha terminato il suo caricamento
 document.addEventListener("DOMContentLoaded", function() {
 
-    // ricata l'oggetto DOM del form
+    // ricava l'oggetto DOM del form
     let form_utente = document.getElementById(<id form>);
 
     //aggiunge un handler all'evento submit del form
@@ -10803,7 +10808,7 @@ JS Objects
 
 JS Objects
 
-- Invocare il metodo _descrivi_ che deve stampare su console il segunete messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
+- Invocare il metodo _descrivi_ che deve stampare su console il seguente messaggio: "ciao io sono l'utente &lt;nome&gt; &lt;cognome&gt; di anni &lt;età&gt; e con i capelli color &lt;colore dei capelli&gt;", dove i valori tra &lt;&gt; sono sostituiti con le proprietà dell'oggetto
 - Rimuovere le proprietà **età** e **colore dei capelli** dall'oggetto e con un ciclo aggiungere dinamicamente alla pagina HTML un tag **p** con il valore della proprietà rimanenti
 
 4. Consegnare su github il file con nome _|cognome|\_esercizio_js_73.html_ e _|cognome|\_esercizio_js_73.js_
@@ -10816,7 +10821,7 @@ JS Objects
 - Realizzare un programma in JS che:
   - Usando classi e oggetti implementi una classe Automobile con 5 attributi e 3 metodi a vostra scelta
   - Istanzi 5 oggetti di tipo Automobile e per ciascuno richiamare i 3 metodi.
-- Consegnare su github il file con nome _|cognome|\_esercizio_js_56.js_
+- Consegnare su github il file con nome _|cognome|\_esercizio_js_74.js_
 
 ---
 
@@ -10869,7 +10874,7 @@ JS Objects
 - Realizzare un programma in JS:
   - implementi una classe Orario che:
     - rappresenta un orario in formato (h/m/s)
-    - fornisca un metodo che presi in ingresso due oggetti di tipo Orario restituisca l'oggetto Orario minore dei tre
+    - fornisca un metodo che presi in ingresso tre oggetti di tipo Orario restituisca l'oggetto Orario minore dei tre
   - fornisca il main che:
     - verifichi il corretto funzionamento della funzione richiesta stampandone il risultato sulla console
     - invochi la funzione almeno 2 volte con parametri differenti
@@ -10926,12 +10931,10 @@ try...catch
 - Durante lo sviluppo software è normale commettere degli errori involontari
 - Anche i migliori software (Linux Kernel) sono affetti da Bug
 - Pertanto anche il nostro software sarà affetto da bug ed errori
-- Ci sono due principali tipi di errori:
-  - **non di runtime/statici**: errori del codice già presenti prima che venga eseguito
-  - **di runtime**: errori che si verificano solo durante l'esecuzione del codice
-
-- Gli errori statici possono essere trovati e risolti tramite un'attenta analisi del codice e tramite l'utilizzo di un linter [ESlint](https://eslint.org/)
-- Gli errori di runtime tuttavia non possono essere trovati solo leggendo e analizzando il codice
+- In JS non c'è un compilatore: **tutti** gli errori si manifestano durante l'esecuzione
+- Tuttavia possiamo distinguere due categorie:
+  - **errori prevedibili**: visibili con un'attenta analisi del codice, senza eseguirlo. Un linter come [ESlint](https://eslint.org/) li trova automaticamente
+  - **errori non prevedibili**: dipendono dai dati che il programma riceve durante l'esecuzione (input dell'utente, file, rete). Nessuno strumento può trovarli in anticipo
 
 ---
 
@@ -10939,18 +10942,17 @@ try...catch
 
 try...catch
 
-- Esempi di errori non di runtime sono:
+- Esempi di errori prevedibili (rilevati dal linter) sono:
 
 ```js
-console.lot("ciao"); // l'oggetto console non ha il metodo lot
-let a = 10 +- 2; // l'operatore +- non esiste in JS
-
-let arr = [1,2,3,4];
-arr.forItem(item => console.log(item)); // arr non ha il metodo for Item
+consol.log("ciao");                  // 'consol' is not defined
+const x = 1; x = 2;                  // 'x' is constant
+if (a = 5) { ... }                   // assegnazione al posto del confronto
+let utente = { nome: "Mario", nome: "Luigi" }; // Duplicate key 'nome'
 ```
 
 - insomma questo tipo di errori sono quelli per cui, per esempio, in C o in Java il compilatore genererebbe un errore
-- Quindi prevedibili e risolvibili prima dell'esecuzione del codice
+- In JS il linter svolge questo ruolo: gli errori vanno trovati e corretti prima di eseguire il codice
 
 ---
 
@@ -10958,22 +10960,23 @@ arr.forItem(item => console.log(item)); // arr non ha il metodo for Item
 
 try...catch
 
-- Esempi di errori di runtime sono:
+- Esempi di errori non prevedibili sono:
 
 ```js
-console.log(una_variabile); // genera un errore di runtime
-console.log("LINEA ESEGUITA"); // questa istruzione  NON viene eseguita
-> Uncaught ReferenceError ReferenceError: una_variabile is not defined
+let json = prompt("Inserisci i dati"); // l'utente scrive: {nome: mario}
+let utente = JSON.parse(json);
+> Uncaught SyntaxError: Expected property name or '}' in JSON at position 1
+console.log("LINEA ESEGUITA"); // questa istruzione NON viene eseguita
 
-let json = "{nome: mario}"
-let utente = JSON.parse(json)
-
-> Uncaught SyntaxError SyntaxError: Expected property name or '}' in JSON at position 1
+let studente = JSON.parse('{"nome":"Mario"}'); // dati ricevuti dal server
+console.log(studente.indirizzo.via); // il server non ha inviato l'indirizzo
+> Uncaught TypeError: Cannot read properties of undefined (reading 'via')
 ```
 
+- Il codice è corretto: l'errore dipende dai dati ricevuti durante l'esecuzione
 - Questi errori sono chiamati **ECCEZIONI** e terminano il programma al momento in cui si verificano
 - Questo ovviamente è un comportamento da evitare e da gestire
-- Pertanto è necessario *gestire le eccezzioni* nel proprio codice in  modo da gestire l'errore evitando l'interruzione immediata del processo
+- Pertanto è necessario *gestire le eccezioni* nel proprio codice in modo da gestire l'errore evitando l'interruzione immediata del processo
 
 ---
 
@@ -11053,7 +11056,7 @@ try...catch
 - L'oggetto **Error** ha le seguenti proprietà principali:
   - **name**: nome dell'errore
   - **message**: Breve messaggio di errore
-  - **stack**: stack tarce delle chiamate
+  - **stack**: stack trace delle chiamate
 
 <br>
 
@@ -11203,17 +11206,17 @@ Materiale Aggiuntivo
 <div>
 
 `Advanced`
-- [Concepts 1](/support/4/js/pdf/js_advanved_concepts_01.pdf) e [Concepts 2](/support/4/js/pdf/js_advanved_concepts_02.pdf)
+- [Concepts 1](/support/4/js/pdf/js_advanced_concepts_01.pdf) e [Concepts 2](/support/4/js/pdf/js_advanced_concepts_02.pdf)
 - [AJAX](/support/4/js/pdf/js_advanced_ajax.pdf)
-- [Async 1](/support/4/js/pdf/js_advanced_async_01.pdf) e [Async 2](/support/4/js/pdf/js_advanced_async_01.pdf)
+- [Async 1](/support/4/js/pdf/js_advanced_async_01.pdf) e [Async 2](/support/4/js/pdf/js_advanced_async_02.pdf)
 - [Currying](/support/4/js/pdf/js_advanced_currying_01.pdf)
 - [Network](/support/4/js/pdf/js_advanced_network.pdf)
 - [Regex](/support/4/js/pdf/js_advanced_regex.pdf)
 - [Web API](/support/4/js/pdf/js_advanced_web_api.pdf)
-- [GroupBy](/support/4/js/pdf/js_advanved_groupBy.pdf)
-- [Promises 1](/support/4/js/pdf/js_advanved_promises_01.pdf)
-- [Promises 2](/support/4/js/pdf/js_advanved_promises_02.pdf)
-- [Promises 3](/support/4/js/pdf/js_advanved_promises_03.pdf)
+- [GroupBy](/support/4/js/pdf/js_advanced_groupBy.pdf)
+- [Promises 1](/support/4/js/pdf/js_advanced_promises_01.pdf)
+- [Promises 2](/support/4/js/pdf/js_advanced_promises_02.pdf)
+- [Promises 3](/support/4/js/pdf/js_advanced_promises_03.pdf)
 </div>
 <div>
 
@@ -11661,12 +11664,13 @@ Esercizi Aggiuntivi (Livello Avanzato)
 
 A09: Async/Await con Gestione di Errori
 
+- Prerequisito: materiale aggiuntivo Async 01-02 e Promise 01-03 (non trattato in queste slide)
 - Crea una funzione fetchDati() che simula l'estrazione di dati da un'API (usa setTimeout per simulare una richiesta asincrona). La funzione deve restituire una promessa che risolve un oggetto con proprietà nome e eta. Crea un'altra funzione che invoca fetchDati() e utilizza async/await per ottenere i dati. Usa un blocco try...catch per gestire eventuali errori (ad esempio, se la promessa viene rifiutata).
 
 Metodi utilizzati:
 
 - async/await
-- Promise.resolve()
+- new Promise((resolve, reject) => ...)
 - try...catch
 
 ---
